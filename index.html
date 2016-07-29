@@ -49,7 +49,20 @@ body {
   padding: 0 15px;
 }
 .container .text-muted {
-  margin: 20px 0;
+  margin: 10px 0;
+}
+.blog-nav-item {
+  margin-top:20px;
+  position: bottom;
+  display: inline-block;
+  padding: 5px;
+  font-weight: 500;
+  color: inherit;
+}
+.blog-nav-item:hover,
+.blog-nav-item:focus {
+  color: #c0c0c0;
+  text-decoration: none;
 }
    </style>
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
@@ -68,26 +81,104 @@ body {
     <!-- Begin page content -->
     <div class="container">
       <div class="page-header">
-        <h1>George Main IV</h1>
+
+        <div class="row">
+
+          <div class="col-sm-5">
+            <h2>George Main IV</h2>
+          </div>
+
+          <div class="col-sm-7">
+            <nav class="blog-nav">
+              <a class="blog-nav-item" href="#">Home</a>
+              <a class="blog-nav-item" href="#">New features</a>
+              <a class="blog-nav-item" href="#">Press</a>
+              <a class="blog-nav-item" href="#">New hires</a>
+              <a class="blog-nav-item" href="#">About</a>
+            </nav>
+          </div>
+
+        </div>
+
       </div>
-      <h2>Projects</h2>
+
+      <p>I am a hobbiest programmer currently studying Computer Engineering.</p>
+
+      <!-- GitHub Button -->
+      <a class="github-button" href="https://github.com/gemivnet" data-style="mega" data-count-href="/gemivnet/followers" data-count-api="/users/gemivnet#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @gemivnet on GitHub">Follow me on Github</a>
+
+      <h3>Personal Projects</h3>
       
-      <div>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          
+          <div class="row">
+            
+            <div class="col-sm-3">
+              <a href="https://w1giv.com"><img src="images/W1GIV.png" width="150" height="150" /></a>
+            </div>
+            
+            <div class="col-sm-9">
+              <h4>W1GIV Auctions</h4>
+              <p>W1GIV Auctions is a web based auction management system created to aid in in-person auctions. It allows for the registration of attendees, the entering of items sold during the auction, and checkout which automatically calculates buying/selling totals and commissions. The program also allows for emailing of receipts, contacting attendees which signed up for email notifications, and generating reports.</p>
+            </div>
+          </div>
 
-          <h3>W1GIV Auctions</h3>
+        </div>
+      </div>
 
+      <div class="panel panel-default">
+        <div class="panel-body">
+
+          <div class="row">
+
+            <div class="col-sm-7">
+              <h4>Speed Sorter</h4>
+              <p>Speed Sorter is an Android and iOS game which is currently in development. The game features an infinite belt of items which need to be sorted into combos featuring power ups and abilities.</p>
+            </div>
+
+            <div class="col-sm-5">
+              <img src="images/SpeedSorter.png" width="240" height="150" />
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+
+      <h3>Volunteer Projects</h3>
+      
+      <div class="panel panel-default">
+        <div class="panel-body">
+          
+          <div class="row">
+            
+            <div class="col-sm-3">
+              <a href="https://w1giv.com"><img src="images/W1GIV.png" width="150" height="150" /></a>
+            </div>
+            
+            <div class="col-sm-9">
+              <h4>AM 1700</h4>
+              <p>Lead web developer for AM 1700 Heritage Information Radio, a low power and online broadcast station in Eastern Connecticut.</p>
+            </div>
+          </div>
+
+        </div>
       </div>
 
     </div>
 
     <footer class="footer">
       <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
+        <p class="text-muted">George Main IV - george.main@gemiv.net</p>
       </div>
     </footer>
 
 
+
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../js/ie10-viewport-bug-workaround.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
   </body>
 </html>
