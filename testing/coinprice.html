@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
 <body>
-
+<p id="price"></p>
 <script>
-window.onload = generateRandomNumber;
-function generateRandomNumber(){
-var n = 25;
-var number = Math.floor(Math.random()*n)+1;
-document.getElementById("randomNumber").innerHTML = number;
+
+var n = Math.random() * (55.00 - 0) + 55.00;
+document.getElementById("price").innerHTML = n;
 </script>
 
 </body>
