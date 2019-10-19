@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-header></app-header>\n\n<div class=\"content\">\n    <h1>Add Book</h1>\n    <p class=\"info\">Enter the book details or press back to return to the course list.</p>\n\n    <div class=\"form\">\n        <div *ngIf=\"multi\">\n            <h2>Sections</h2>\n            <p class=\"info\">Choose which courses and sections this book will be added to.</p>\n        </div>\n    \n        <div *ngIf=\"!multi\">\n            <h2>Section</h2>\n            <p class=\"info\">This book will be added to {{ selected['courseNumber'] }}-{{ selected['section'] }}.</p>\n        </div>\n        \n        <h2>Book Information</h2>\n        <div class=\"input-field\">\n            <label>Title: </label><input [(ngModel)]=\"title\" input type=\"text\">\n        </div>\n        \n        <div class=\"input-field\">\n            <label>Edition: </label><input [(ngModel)]=\"edition\" type=\"text\">\n        </div>\n            \n        <div class=\"input-field\">\n            <label>Author(s): </label><input [(ngModel)]=\"authors\" type=\"text\">\n        </div>\n        \n        <div class=\"input-field\">\n            <label>ISBN: </label><input [(ngModel)]=\"isbn\" type=\"text\">\n        </div>\n    \n        <div *ngIf=\"error?.length != 0\" class=\"input-field\">\n            <span *ngFor=\"let err of error\" class=\"error info\">{{ err }}</span>\n        </div>\n\n        <button (click)=\"submit()\" class=\"submit\">Add Book</button>\n    \n    </div>\n\n    <button (click)=\"cancel()\" class=\"cancel\">Back</button>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header></app-header>\n\n<div *ngIf=\"id\" class=\"content\">\n    <h1>Add Book</h1>\n    <p class=\"info\">Enter the book details or press back to return to the course list.</p>\n\n    <div class=\"form\">\n        <div *ngIf=\"id == -1\">\n            <h2>Sections</h2>\n            <p class=\"info\">Choose which courses and sections you wish to add this book to.</p>\n            <div *ngFor=\"let course of currentCourses\">\n                <label class=\"select-off\"><input (change)=\"check(course['id'])\" class=\"checkbox\" type=\"checkbox\">{{ course['courseNumber']}}-{{ course['section'] }}</label>\n            </div>\n        </div>\n    \n        <div *ngIf=\"id != -1\">\n            <h2>Section</h2>\n            <p class=\"info\">This book will be added to {{ selected['courseNumber'] }}-{{ selected['section'] }}.</p>\n        </div>\n        \n        <h2>Book Information</h2>\n\n        <div class=\"tabs\">\n                <table>\n                    <thead class=\"select-off\">\n                        <th (click)=\"tab(true)\" [ngClass]=\"{'tab': true, 'selected': newBook}\">New Book</th>\n                        <th (click)=\"tab(false)\" [ngClass]=\"{'tab': true, 'selected': !newBook}\">Previous Book</th>\n                    </thead>\n                </table>\n        </div>\n\n        <div *ngIf=\"!newBook\" class=\"tab-content\">\n            <p class=\"info\">Select a previously used book.</p>\n            <select (change)=\"bookSelect($event.target.value)\">\n                <option *ngFor=\"let book of previousBooks; let i = index\" value=\"{{ i }}\">{{ book }}</option>\n            </select>\n        </div>\n\n        <div *ngIf=\"newBook\" class=\"tab-content\">\n            \n            <p class=\"info\">Enter the information of the new book.</p>\n        \n            <div class=\"input-field\">\n                <label>Title: </label><input [(ngModel)]=\"title\" input type=\"text\">\n            </div>\n                    \n            <div class=\"input-field\">\n                <label>Edition: </label><input [(ngModel)]=\"edition\" type=\"text\">\n            </div>\n                        \n            <div class=\"input-field\">\n                <label>Author(s): </label><input [(ngModel)]=\"authors\" type=\"text\">\n            </div>\n                    \n            <div class=\"input-field\">\n                <label>ISBN: </label><input [(ngModel)]=\"isbn\" type=\"text\">\n            </div>\n                \n        </div>\n\n        <div *ngIf=\"error?.length != 0\" class=\"input-field\">\n                <span *ngFor=\"let err of error\" class=\"error info\">{{ err }}</span>\n        </div>\n\n        <button (click)=\"submit()\" class=\"submit\">Add Book</button>\n    \n    </div>\n\n    <button (click)=\"cancel()\" class=\"cancel\">Back</button>\n</div>\n");
 
 /***/ }),
 
@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-header></app-header>\n\n<div class=\"content\">\n    <h1>Course List</h1>\n    <p class=\"info\">Your courses and their respectively assigned book(s) are listed below.</p>\n    \n    <div *ngIf=\"success\" class=\"notification\">\n       {{ success }}\n    </div>\n    \n    <app-list [list]=\"courseList\"></app-list>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header></app-header>\n\n<div class=\"content\">\n    <h1>Course List</h1>\n    <p class=\"info\">Your courses and their respectively assigned book(s) are listed below. \n        You can use the tabs to change between current and archived courses. You can add books to multiple courses and sections by clicking Add Multiple.\n        Hover over a book and click the delete button to remove a book from a class.</p>\n    \n    <div *ngIf=\"success\" class=\"success-notification\">\n       {{ success }}\n    </div>\n\n    <div *ngIf=\"error\" class=\"error-notification\">\n        {{ error }}\n    </div>\n         \n    \n    <div class=\"tabs\">\n        <table>\n            <thead class=\"select-off\">\n                <th (click)=\"tab(true)\" [ngClass]=\"{'tab': true, 'selected': current}\">Current Courses</th>\n                <th (click)=\"tab(false)\" [ngClass]=\"{'tab': true, 'selected': !current}\">Archived Courses</th>\n            </thead>\n        </table>\n            \n        <table class=\"multiple\">\n            <thead class=\"select-off\">\n            <th (click)=\"multiple()\" class=\"tab\">Add Multiple</th>\n            </thead>\n        </table>\n    </div>\n    \n    <app-list [addButton]=\"current\" [currentCourses]=\"currentCourses\" [archivedCourses]=\"archivedCourses\" [current]=\"current\"></app-list>\n\n    <p class=\"info select-off\">Grading Tool - <span (click)=\"removeAll()\" class=\"link\">Click here</span> to remove all books from current courses</p>\n</div>\n");
 
 /***/ }),
 
@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"header\">\n    <div class=\"title\">Rose-Hulman Textbook Application</div>\n    <div (click)=\"home()\" class=\"link select-off\">Home</div>\n    <div (click)=\"courses()\" class=\"link select-off\">Course List</div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"header\">\n    <div class=\"title\">Rose-Hulman Textbook Application</div>\n    <div (click)=\"home()\" class=\"header-link select-off\">Home</div>\n    <div (click)=\"courses()\" class=\"header-link select-off\">Course List</div>\n</div>\n");
 
 /***/ }),
 
@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<table>\n    <thead>\n        <th>Term</th>\n        <th>Course Number</th>\n        <th>Section</th>\n        <th>Book(s)</th>\n        <th>Add Book</th>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let item of list\">\n            <td>{{ item['term'] }}</td>\n            <td>{{ item['courseNumber'] }}</td>\n            <td>{{ item['section'] }}</td>\n            <td>\n                <span *ngIf=\"item['books']?.length == 0\">No Book Assigned</span>\n                <span *ngFor=\"let book of item['books']\" class=\"book\">\n                    <i>{{ book['title'] }}</i>, {{ book['authors'] }}. {{ book['edition'] }}. ISBN: {{ book['isbn'] }} \n                </span>\n            </td>\n            <td><button (click)=\"add(item['id'])\">Add Book</button></td>\n        </tr>\n    </tbody>\n</table>");
+/* harmony default export */ __webpack_exports__["default"] = ("<table>\n    <thead>\n        <th>Term</th>\n        <th>Course Number</th>\n        <th>Section</th>\n        <th>Book(s)</th>\n        <th *ngIf=\"addButton\">Add Book</th>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let item of (current ? currentCourses : archivedCourses)\">\n            <td>{{ item['term'] }}</td>\n            <td>{{ item['courseNumber'] }}</td>\n            <td>{{ item['section'] }}</td>\n            <td>\n                <span *ngIf=\"item['books']?.length == 0\">No Book Assigned</span>\n                <span *ngFor=\"let book of item['books']\" class=\"book\">\n                    <i>{{ book['title'] }}</i>, {{ book['authors'] }}. {{ book['edition'] }}. ISBN: {{ book['isbn'] }}\n                </span>\n            </td>\n            <td *ngIf=\"addButton\"><button (click)=\"add(item['id'])\">Add</button></td>\n        </tr>\n    </tbody>\n</table>");
 
 /***/ }),
 
@@ -339,7 +339,7 @@ function __importDefault(mod) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".form {\n  border: 1px solid gray;\n  padding: 10px;\n  margin: 10px;\n  width: 400px;\n}\n.form label {\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\n  font-size: 14px;\n}\n.form .input-field {\n  padding: 5px;\n}\n.form input {\n  width: 100%;\n}\n.form .submit {\n  display: block;\n  margin: 5px;\n  margin-left: auto;\n}\n.form .cancel {\n  margin: 5px;\n}\n.form .error {\n  color: red;\n  font-size: 12px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRkLWJvb2svQzpcXFVzZXJzXFxtYWluZ2VcXERlc2t0b3BcXENTU0UgMzcxXFxIb21ld29ya1xcSG9tZXdvcmsgM1xcVGV4dGJvb2tBcHBsaWNhdGlvbi9zcmNcXGFwcFxcYWRkLWJvb2tcXGFkZC1ib29rLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9hZGQtYm9vay9hZGQtYm9vay5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLHNCQUFBO0VBQ0EsYUFBQTtFQUNBLFlBQUE7RUFDQSxZQUFBO0FDQ0o7QURDSTtFQUNJLGdEQUFBO0VBQ0EsZUFBQTtBQ0NSO0FERUk7RUFDSSxZQUFBO0FDQVI7QURHSTtFQUNJLFdBQUE7QUNEUjtBRElJO0VBQ0ksY0FBQTtFQUNBLFdBQUE7RUFDQSxpQkFBQTtBQ0ZSO0FES0k7RUFDSSxXQUFBO0FDSFI7QURNSTtFQUNJLFVBQUE7RUFDQSxlQUFBO0FDSlIiLCJmaWxlIjoic3JjL2FwcC9hZGQtYm9vay9hZGQtYm9vay5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5mb3JtIHtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkIGdyYXk7XHJcbiAgICBwYWRkaW5nOiAxMHB4O1xyXG4gICAgbWFyZ2luOiAxMHB4O1xyXG4gICAgd2lkdGg6IDQwMHB4O1xyXG5cclxuICAgIGxhYmVsIHtcclxuICAgICAgICBmb250LWZhbWlseTogVmVyZGFuYSwgR2VuZXZhLCBUYWhvbWEsIHNhbnMtc2VyaWY7XHJcbiAgICAgICAgZm9udC1zaXplOiAxNHB4O1xyXG4gICAgfVxyXG4gICAgXHJcbiAgICAuaW5wdXQtZmllbGQge1xyXG4gICAgICAgIHBhZGRpbmc6IDVweDtcclxuICAgIH1cclxuICAgIFxyXG4gICAgaW5wdXQge1xyXG4gICAgICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgfVxyXG5cclxuICAgIC5zdWJtaXQge1xyXG4gICAgICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgICAgIG1hcmdpbjogNXB4O1xyXG4gICAgICAgIG1hcmdpbi1sZWZ0OiBhdXRvO1xyXG4gICAgfVxyXG5cclxuICAgIC5jYW5jZWwge1xyXG4gICAgICAgIG1hcmdpbjogNXB4O1xyXG4gICAgfVxyXG5cclxuICAgIC5lcnJvciB7XHJcbiAgICAgICAgY29sb3I6IHJlZDtcclxuICAgICAgICBmb250LXNpemU6IDEycHg7XHJcbiAgICB9XHJcbn1cclxuIiwiLmZvcm0ge1xuICBib3JkZXI6IDFweCBzb2xpZCBncmF5O1xuICBwYWRkaW5nOiAxMHB4O1xuICBtYXJnaW46IDEwcHg7XG4gIHdpZHRoOiA0MDBweDtcbn1cbi5mb3JtIGxhYmVsIHtcbiAgZm9udC1mYW1pbHk6IFZlcmRhbmEsIEdlbmV2YSwgVGFob21hLCBzYW5zLXNlcmlmO1xuICBmb250LXNpemU6IDE0cHg7XG59XG4uZm9ybSAuaW5wdXQtZmllbGQge1xuICBwYWRkaW5nOiA1cHg7XG59XG4uZm9ybSBpbnB1dCB7XG4gIHdpZHRoOiAxMDAlO1xufVxuLmZvcm0gLnN1Ym1pdCB7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICBtYXJnaW46IDVweDtcbiAgbWFyZ2luLWxlZnQ6IGF1dG87XG59XG4uZm9ybSAuY2FuY2VsIHtcbiAgbWFyZ2luOiA1cHg7XG59XG4uZm9ybSAuZXJyb3Ige1xuICBjb2xvcjogcmVkO1xuICBmb250LXNpemU6IDEycHg7XG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".form {\n  border: 1px solid gray;\n  padding: 20px;\n  margin: 10px;\n  min-width: 500px;\n}\n.form label {\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\n  font-size: 14px;\n}\n.form .input-field {\n  padding: 5px;\n}\n.form input[type=text] {\n  width: 100%;\n}\n.form .submit {\n  display: block;\n  margin: 5px;\n  margin-left: auto;\n}\n.form .cancel {\n  margin: 5px;\n}\n.form .error {\n  color: red;\n  font-size: 12px;\n}\n.tab-content {\n  padding: 10px;\n  border: 1px solid black;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRkLWJvb2svQzpcXFVzZXJzXFxtYWluZ2VcXERlc2t0b3BcXENTU0UgMzcxXFxIb21ld29ya1xcSG9tZXdvcmsgM1xcVGV4dGJvb2tBcHBsaWNhdGlvblxcbmctZnJvbnRlbmQvc3JjXFxhcHBcXGFkZC1ib29rXFxhZGQtYm9vay5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYWRkLWJvb2svYWRkLWJvb2suY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxzQkFBQTtFQUNBLGFBQUE7RUFDQSxZQUFBO0VBQ0EsZ0JBQUE7QUNDSjtBRENJO0VBQ0ksZ0RBQUE7RUFDQSxlQUFBO0FDQ1I7QURFSTtFQUNJLFlBQUE7QUNBUjtBREdJO0VBQ0ksV0FBQTtBQ0RSO0FESUk7RUFDSSxjQUFBO0VBQ0EsV0FBQTtFQUNBLGlCQUFBO0FDRlI7QURLSTtFQUNJLFdBQUE7QUNIUjtBRE1JO0VBQ0ksVUFBQTtFQUNBLGVBQUE7QUNKUjtBRFNBO0VBQ0ksYUFBQTtFQUNBLHVCQUFBO0FDTkoiLCJmaWxlIjoic3JjL2FwcC9hZGQtYm9vay9hZGQtYm9vay5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5mb3JtIHtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkIGdyYXk7XHJcbiAgICBwYWRkaW5nOiAyMHB4O1xyXG4gICAgbWFyZ2luOiAxMHB4O1xyXG4gICAgbWluLXdpZHRoOiA1MDBweDtcclxuXHJcbiAgICBsYWJlbCB7XHJcbiAgICAgICAgZm9udC1mYW1pbHk6IFZlcmRhbmEsIEdlbmV2YSwgVGFob21hLCBzYW5zLXNlcmlmO1xyXG4gICAgICAgIGZvbnQtc2l6ZTogMTRweDtcclxuICAgIH1cclxuICAgIFxyXG4gICAgLmlucHV0LWZpZWxkIHtcclxuICAgICAgICBwYWRkaW5nOiA1cHg7XHJcbiAgICB9XHJcbiAgICBcclxuICAgIGlucHV0W3R5cGU9dGV4dF0ge1xyXG4gICAgICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgfVxyXG5cclxuICAgIC5zdWJtaXQge1xyXG4gICAgICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgICAgIG1hcmdpbjogNXB4O1xyXG4gICAgICAgIG1hcmdpbi1sZWZ0OiBhdXRvO1xyXG4gICAgfVxyXG5cclxuICAgIC5jYW5jZWwge1xyXG4gICAgICAgIG1hcmdpbjogNXB4O1xyXG4gICAgfVxyXG5cclxuICAgIC5lcnJvciB7XHJcbiAgICAgICAgY29sb3I6IHJlZDtcclxuICAgICAgICBmb250LXNpemU6IDEycHg7XHJcbiAgICB9XHJcblxyXG59XHJcblxyXG4udGFiLWNvbnRlbnQge1xyXG4gICAgcGFkZGluZzogMTBweDtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkIGJsYWNrO1xyXG59IiwiLmZvcm0ge1xuICBib3JkZXI6IDFweCBzb2xpZCBncmF5O1xuICBwYWRkaW5nOiAyMHB4O1xuICBtYXJnaW46IDEwcHg7XG4gIG1pbi13aWR0aDogNTAwcHg7XG59XG4uZm9ybSBsYWJlbCB7XG4gIGZvbnQtZmFtaWx5OiBWZXJkYW5hLCBHZW5ldmEsIFRhaG9tYSwgc2Fucy1zZXJpZjtcbiAgZm9udC1zaXplOiAxNHB4O1xufVxuLmZvcm0gLmlucHV0LWZpZWxkIHtcbiAgcGFkZGluZzogNXB4O1xufVxuLmZvcm0gaW5wdXRbdHlwZT10ZXh0XSB7XG4gIHdpZHRoOiAxMDAlO1xufVxuLmZvcm0gLnN1Ym1pdCB7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICBtYXJnaW46IDVweDtcbiAgbWFyZ2luLWxlZnQ6IGF1dG87XG59XG4uZm9ybSAuY2FuY2VsIHtcbiAgbWFyZ2luOiA1cHg7XG59XG4uZm9ybSAuZXJyb3Ige1xuICBjb2xvcjogcmVkO1xuICBmb250LXNpemU6IDEycHg7XG59XG5cbi50YWItY29udGVudCB7XG4gIHBhZGRpbmc6IDEwcHg7XG4gIGJvcmRlcjogMXB4IHNvbGlkIGJsYWNrO1xufSJdfQ== */");
 
 /***/ }),
 
@@ -365,46 +365,115 @@ let AddBookComponent = class AddBookComponent {
     constructor(router, backendService) {
         this.router = router;
         this.backendService = backendService;
-        this.list = ["lol"];
+        this.currentCourses = [];
+        this.archivedCourses = [];
+        this.multi = [];
         this.error = [];
         this.title = "";
         this.edition = "";
         this.authors = "";
         this.isbn = "";
+        this.newBook = true;
+        this.previousBooks = [];
+        this.actualPreviousBooks = [];
+        this.bookSelected = 0;
     }
     ngOnInit() {
-        if (!('list' in history.state)) {
+        if (!('currentCourses' in history.state)) {
             this.router.navigate(['courses']);
+            return;
         }
-        this.list = history.state['list'];
+        this.currentCourses = history.state['currentCourses'];
+        this.archivedCourses = history.state['archivedCourses'];
         this.id = history.state['id'];
-        for (let item of this.list) {
+        for (let item of this.currentCourses) {
+            this.multi.push(false);
             if (item['id'] == this.id) {
                 this.selected = item;
             }
         }
+        for (let course of this.currentCourses) {
+            for (let book of course['books']) {
+                if (!this.previousBooks.includes(this.string(book))) {
+                    this.previousBooks.push(this.string(book));
+                    this.actualPreviousBooks.push(book);
+                }
+            }
+        }
+        for (let course of this.archivedCourses) {
+            for (let book of course['books']) {
+                if (!this.previousBooks.includes(this.string(book))) {
+                    this.previousBooks.push(this.string(book));
+                    this.actualPreviousBooks.push(book);
+                }
+            }
+        }
+    }
+    string(book) {
+        return book['title'] + ". " + book['authors'] + ". " + book['edition'] + ". ISBN: " + book['isbn'];
     }
     cancel() {
         this.router.navigate(['courses']);
     }
+    check(id) {
+        this.multi[id - 1] = !this.multi[id - 1];
+    }
     submit() {
         this.error = [];
-        if (this.title == "") {
-            this.error.push("Title is required");
+        let one = false;
+        for (let section of this.multi) {
+            one = section ? true : one;
         }
-        if (this.edition == "") {
-            this.error.push("Edition is required");
+        if (!one && this.id == -1) {
+            this.error.push("Atleast one section must be selected");
         }
-        if (this.authors == "") {
-            this.error.push("Author(s) is required");
+        if (this.newBook) {
+            if (this.title == "") {
+                this.error.push("Title is required");
+            }
+            if (this.edition == "") {
+                this.error.push("Edition is required");
+            }
+            if (this.authors == "") {
+                this.error.push("Author(s) is required");
+            }
+            if (this.isbn == "") {
+                this.error.push("ISBN is required");
+            }
         }
-        if (this.isbn == "") {
-            this.error.push("ISBN is required");
+        else {
+            this.title = this.actualPreviousBooks[this.bookSelected]['title'];
+            this.edition = this.actualPreviousBooks[this.bookSelected]['edition'];
+            this.authors = this.actualPreviousBooks[this.bookSelected]['authors'];
+            this.isbn = this.actualPreviousBooks[this.bookSelected]['isbn'];
+        }
+        let ids = [];
+        if (this.id == -1) {
+            for (let i = 0; i < this.multi.length; i++) {
+                if (this.multi[i]) {
+                    ids.push(i + 1);
+                }
+            }
+        }
+        else {
+            ids.push(this.id);
         }
         if (this.error.length == 0) {
-            this.backendService.addBook(this.id, this.title, this.edition, this.authors, this.isbn);
-            this.router.navigate(['courses'], { state: { success: this.title + " has been added to " + this.selected['courseNumber'] + "-" + this.selected['section'] } });
+            this.backendService.addBook(ids, this.title, this.edition, this.authors, this.isbn).then(data => {
+                this.router.navigate(['courses'], { state: { success: data['success'], error: data['error'] } });
+            });
         }
+    }
+    tab(newBook) {
+        this.title = "";
+        this.edition = "";
+        this.authors = "";
+        this.isbn = "";
+        this.newBook = newBook;
+        this.error = [];
+    }
+    bookSelect(id) {
+        this.bookSelected = id;
     }
 };
 AddBookComponent.ctorParameters = () => [
@@ -520,14 +589,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
-/* harmony import */ var _list_list_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./list/list.component */ "./src/app/list/list.component.ts");
-/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./header/header.component */ "./src/app/header/header.component.ts");
-/* harmony import */ var _courses_courses_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./courses/courses.component */ "./src/app/courses/courses.component.ts");
-/* harmony import */ var _add_book_add_book_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./add-book/add-book.component */ "./src/app/add-book/add-book.component.ts");
+/* harmony import */ var _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/angular-fontawesome */ "./node_modules/@fortawesome/angular-fontawesome/fesm2015/angular-fontawesome.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _list_list_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./list/list.component */ "./src/app/list/list.component.ts");
+/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./header/header.component */ "./src/app/header/header.component.ts");
+/* harmony import */ var _courses_courses_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./courses/courses.component */ "./src/app/courses/courses.component.ts");
+/* harmony import */ var _add_book_add_book_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./add-book/add-book.component */ "./src/app/add-book/add-book.component.ts");
+
+
 
 
 
@@ -544,20 +617,22 @@ let AppModule = class AppModule {
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
         declarations: [
-            _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
-            _home_home_component__WEBPACK_IMPORTED_MODULE_6__["HomeComponent"],
-            _list_list_component__WEBPACK_IMPORTED_MODULE_7__["ListComponent"],
-            _header_header_component__WEBPACK_IMPORTED_MODULE_8__["HeaderComponent"],
-            _courses_courses_component__WEBPACK_IMPORTED_MODULE_9__["CoursesComponent"],
-            _add_book_add_book_component__WEBPACK_IMPORTED_MODULE_10__["AddBookComponent"]
+            _app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"],
+            _home_home_component__WEBPACK_IMPORTED_MODULE_8__["HomeComponent"],
+            _list_list_component__WEBPACK_IMPORTED_MODULE_9__["ListComponent"],
+            _header_header_component__WEBPACK_IMPORTED_MODULE_10__["HeaderComponent"],
+            _courses_courses_component__WEBPACK_IMPORTED_MODULE_11__["CoursesComponent"],
+            _add_book_add_book_component__WEBPACK_IMPORTED_MODULE_12__["AddBookComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-            _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"]
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_6__["AppRoutingModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
+            _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeModule"]
         ],
         providers: [],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
     })
 ], AppModule);
 
@@ -577,73 +652,42 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BackendService", function() { return BackendService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
 
 
 let BackendService = class BackendService {
-    constructor() {
-        this.courses = [
-            {
-                "id": 1,
-                "term": "Fall 19-20",
-                "courseNumber": "CSSE371",
-                "section": "01",
-                "books": []
-            },
-            {
-                "id": 2,
-                "term": "Fall 19-20",
-                "courseNumber": "CSSE371",
-                "section": "02",
-                "books": [
-                    {
-                        "title": "Interaction Design: Beyond Human-Computer Interaction",
-                        "edition": "Fifth Edition",
-                        "authors": "Jennifer Preece, Yvonne Rogers and Helen Sharp",
-                        "isbn": "978-1119547259"
-                    }
-                ]
-            },
-            {
-                "id": 3,
-                "term": "Fall 19-20",
-                "courseNumber": "CSSE477",
-                "section": "01",
-                "books": [
-                    {
-                        "title": "The Agile Architecture Revolution:  How Cloud Computing, REST-Based SOA, and Mobile Computing Are Changing Enterprise IT",
-                        "edition": "First Edition",
-                        "authors": "Jason Bloomberg",
-                        "isbn": "978-1-118-40977-9"
-                    },
-                    {
-                        "title": "Software Architecture in Practice",
-                        "edition": "Third Edition",
-                        "authors": "Len Bass, Paul Clements, and Rick Kazman",
-                        "isbn": "978-0321815736"
-                    }
-                ]
-            },
-            {
-                "id": 4,
-                "term": "Fall 19-20",
-                "courseNumber": "CSSE477",
-                "section": "02",
-                "books": []
-            },
-        ];
+    constructor(http) {
+        this.http = http;
+        this.backendHost = "http://3.92.177.58:7777/";
+        this.courses = [];
     }
     addBook(id, title, edition, authors, isbn) {
-        this.courses[id - 1]['books'].push({
-            "title": title,
-            "edition": edition,
-            "authors": authors,
-            "isbn": isbn
-        });
+        return this.http.post(this.backendHost + "book/add", {
+            "ids": id,
+            "book": {
+                "title": title,
+                "edition": edition,
+                "authors": authors,
+                "isbn": isbn
+            },
+        }, {
+            headers: { 'Content-Type': 'application/json' }
+        }).toPromise();
     }
-    getList() {
-        return this.courses;
+    removeAll() {
+        return this.http.get(this.backendHost + "book/removeall").toPromise();
+    }
+    getCurrentCourses() {
+        return this.http.get(this.backendHost + "courses/current").toPromise();
+    }
+    getArchivedCourses() {
+        return this.http.get(this.backendHost + "courses/archived").toPromise();
     }
 };
+BackendService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
 BackendService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
         providedIn: 'root'
@@ -663,7 +707,7 @@ BackendService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".notification {\n  color: #155724;\n  margin: 10px;\n  padding: 10px;\n  border: 1px solid #c3e6cb;\n  background-color: #dfedda;\n  border-radius: 5px;\n  font-size: 18px;\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\n  font-size: 15px;\n}\n\n.success {\n  padding: 0px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY291cnNlcy9DOlxcVXNlcnNcXG1haW5nZVxcRGVza3RvcFxcQ1NTRSAzNzFcXEhvbWV3b3JrXFxIb21ld29yayAzXFxUZXh0Ym9va0FwcGxpY2F0aW9uL3NyY1xcYXBwXFxjb3Vyc2VzXFxjb3Vyc2VzLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9jb3Vyc2VzL2NvdXJzZXMuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxjQUFBO0VBQ0EsWUFBQTtFQUNBLGFBQUE7RUFDQSx5QkFBQTtFQUNBLHlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxlQUFBO0VBQ0EsZ0RBQUE7RUFDQSxlQUFBO0FDQ0o7O0FERUE7RUFDSSxZQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9jb3Vyc2VzL2NvdXJzZXMuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubm90aWZpY2F0aW9uIHtcclxuICAgIGNvbG9yOiAjMTU1NzI0O1xyXG4gICAgbWFyZ2luOiAxMHB4O1xyXG4gICAgcGFkZGluZzogMTBweDtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkICNjM2U2Y2I7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZGZlZGRhO1xyXG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gICAgZm9udC1zaXplOiAxOHB4O1xyXG4gICAgZm9udC1mYW1pbHk6IFZlcmRhbmEsIEdlbmV2YSwgVGFob21hLCBzYW5zLXNlcmlmO1xyXG4gICAgZm9udC1zaXplOiAxNXB4O1xyXG59XHJcblxyXG4uc3VjY2VzcyB7XHJcbiAgICBwYWRkaW5nOiAwcHg7XHJcbn0iLCIubm90aWZpY2F0aW9uIHtcbiAgY29sb3I6ICMxNTU3MjQ7XG4gIG1hcmdpbjogMTBweDtcbiAgcGFkZGluZzogMTBweDtcbiAgYm9yZGVyOiAxcHggc29saWQgI2MzZTZjYjtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2RmZWRkYTtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBmb250LXNpemU6IDE4cHg7XG4gIGZvbnQtZmFtaWx5OiBWZXJkYW5hLCBHZW5ldmEsIFRhaG9tYSwgc2Fucy1zZXJpZjtcbiAgZm9udC1zaXplOiAxNXB4O1xufVxuXG4uc3VjY2VzcyB7XG4gIHBhZGRpbmc6IDBweDtcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".success-notification {\n  color: #155724;\n  margin: 10px;\n  padding: 10px;\n  border: 1px solid #c3e6cb;\n  background-color: #dfedda;\n  border-radius: 5px;\n  font-size: 18px;\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\n  font-size: 15px;\n}\n\n.error-notification {\n  color: #721c24;\n  margin: 10px;\n  padding: 10px;\n  border: 1px solid #f5c6cb;\n  background-color: #f8d7da;\n  border-radius: 5px;\n  font-size: 18px;\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\n  font-size: 15px;\n}\n\n.success {\n  padding: 0px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY291cnNlcy9DOlxcVXNlcnNcXG1haW5nZVxcRGVza3RvcFxcQ1NTRSAzNzFcXEhvbWV3b3JrXFxIb21ld29yayAzXFxUZXh0Ym9va0FwcGxpY2F0aW9uXFxuZy1mcm9udGVuZC9zcmNcXGFwcFxcY291cnNlc1xcY291cnNlcy5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY291cnNlcy9jb3Vyc2VzLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksY0FBQTtFQUNBLFlBQUE7RUFDQSxhQUFBO0VBQ0EseUJBQUE7RUFDQSx5QkFBQTtFQUNBLGtCQUFBO0VBQ0EsZUFBQTtFQUNBLGdEQUFBO0VBQ0EsZUFBQTtBQ0NKOztBREVBO0VBQ0ksY0FBQTtFQUNBLFlBQUE7RUFDQSxhQUFBO0VBQ0EseUJBQUE7RUFDQSx5QkFBQTtFQUNBLGtCQUFBO0VBQ0EsZUFBQTtFQUNBLGdEQUFBO0VBQ0EsZUFBQTtBQ0NKOztBREVBO0VBQ0ksWUFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvY291cnNlcy9jb3Vyc2VzLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnN1Y2Nlc3Mtbm90aWZpY2F0aW9uIHtcclxuICAgIGNvbG9yOiAjMTU1NzI0O1xyXG4gICAgbWFyZ2luOiAxMHB4O1xyXG4gICAgcGFkZGluZzogMTBweDtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkICNjM2U2Y2I7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZGZlZGRhO1xyXG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gICAgZm9udC1zaXplOiAxOHB4O1xyXG4gICAgZm9udC1mYW1pbHk6IFZlcmRhbmEsIEdlbmV2YSwgVGFob21hLCBzYW5zLXNlcmlmO1xyXG4gICAgZm9udC1zaXplOiAxNXB4O1xyXG59XHJcblxyXG4uZXJyb3Itbm90aWZpY2F0aW9uIHtcclxuICAgIGNvbG9yOiAjNzIxYzI0O1xyXG4gICAgbWFyZ2luOiAxMHB4O1xyXG4gICAgcGFkZGluZzogMTBweDtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkICNmNWM2Y2I7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjhkN2RhO1xyXG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gICAgZm9udC1zaXplOiAxOHB4O1xyXG4gICAgZm9udC1mYW1pbHk6IFZlcmRhbmEsIEdlbmV2YSwgVGFob21hLCBzYW5zLXNlcmlmO1xyXG4gICAgZm9udC1zaXplOiAxNXB4O1xyXG59XHJcblxyXG4uc3VjY2VzcyB7XHJcbiAgICBwYWRkaW5nOiAwcHg7XHJcbn0iLCIuc3VjY2Vzcy1ub3RpZmljYXRpb24ge1xuICBjb2xvcjogIzE1NTcyNDtcbiAgbWFyZ2luOiAxMHB4O1xuICBwYWRkaW5nOiAxMHB4O1xuICBib3JkZXI6IDFweCBzb2xpZCAjYzNlNmNiO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZGZlZGRhO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIGZvbnQtc2l6ZTogMThweDtcbiAgZm9udC1mYW1pbHk6IFZlcmRhbmEsIEdlbmV2YSwgVGFob21hLCBzYW5zLXNlcmlmO1xuICBmb250LXNpemU6IDE1cHg7XG59XG5cbi5lcnJvci1ub3RpZmljYXRpb24ge1xuICBjb2xvcjogIzcyMWMyNDtcbiAgbWFyZ2luOiAxMHB4O1xuICBwYWRkaW5nOiAxMHB4O1xuICBib3JkZXI6IDFweCBzb2xpZCAjZjVjNmNiO1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjhkN2RhO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIGZvbnQtc2l6ZTogMThweDtcbiAgZm9udC1mYW1pbHk6IFZlcmRhbmEsIEdlbmV2YSwgVGFob21hLCBzYW5zLXNlcmlmO1xuICBmb250LXNpemU6IDE1cHg7XG59XG5cbi5zdWNjZXNzIHtcbiAgcGFkZGluZzogMHB4O1xufSJdfQ== */");
 
 /***/ }),
 
@@ -680,23 +724,54 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var src_app_backend_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/backend.service */ "./src/app/backend.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
 
 
 
 let CoursesComponent = class CoursesComponent {
-    constructor(backendService) {
+    constructor(backendService, router) {
         this.backendService = backendService;
-        this.courseList = this.backendService.getList();
+        this.router = router;
         this.success = "";
+        this.error = "";
+        this.current = true;
     }
     ngOnInit() {
+        this.backendService.getCurrentCourses().then(data => {
+            this.currentCourses = data;
+        });
+        this.backendService.getArchivedCourses().then(data => {
+            this.archivedCourses = data;
+        });
         if ('success' in history.state) {
             this.success = history.state['success'];
         }
+        if ('error' in history.state) {
+            this.error = history.state['error'];
+        }
+    }
+    removeAll() {
+        this.backendService.removeAll().then(data => {
+            this.backendService.getCurrentCourses().then(data => {
+                this.currentCourses = data;
+                this.success = "";
+                this.error = "";
+            });
+        });
+    }
+    tab(current) {
+        this.current = current;
+        this.success = "";
+        this.error = "";
+    }
+    multiple() {
+        this.router.navigate(['add'], { state: { currentCourses: this.currentCourses, archivedCourses: this.archivedCourses, id: -1 } });
     }
 };
 CoursesComponent.ctorParameters = () => [
-    { type: src_app_backend_service__WEBPACK_IMPORTED_MODULE_2__["BackendService"] }
+    { type: src_app_backend_service__WEBPACK_IMPORTED_MODULE_2__["BackendService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
 ];
 CoursesComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -719,7 +794,7 @@ CoursesComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".header {\n  height: 50px;\n  background-color: #7f1416;\n  color: white;\n  width: 100%;\n}\n.header .title {\n  padding: 10px;\n  padding-right: 30px;\n  display: inline-block;\n  vertical-align: middle;\n  font-size: 23px;\n  font-family: Arial, Helvetica, sans-serif;\n}\n.header .link {\n  padding: 10px;\n  display: inline-block;\n  vertical-align: middle;\n  font-family: \"Trebuchet MS\", \"Lucida Sans Unicode\", \"Lucida Grande\", \"Lucida Sans\", Arial, sans-serif;\n  font-size: 18px;\n  cursor: pointer;\n}\n.header .link:hover {\n  text-decoration: underline;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaGVhZGVyL0M6XFxVc2Vyc1xcbWFpbmdlXFxEZXNrdG9wXFxDU1NFIDM3MVxcSG9tZXdvcmtcXEhvbWV3b3JrIDNcXFRleHRib29rQXBwbGljYXRpb24vc3JjXFxhcHBcXGhlYWRlclxcaGVhZGVyLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9oZWFkZXIvaGVhZGVyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBRUksWUFBQTtFQUNBLHlCQUFBO0VBQ0EsWUFBQTtFQUNBLFdBQUE7QUNBSjtBREdJO0VBQ0ksYUFBQTtFQUNBLG1CQUFBO0VBQ0EscUJBQUE7RUFDQSxzQkFBQTtFQUNBLGVBQUE7RUFDQSx5Q0FBQTtBQ0RSO0FESUk7RUFDSSxhQUFBO0VBQ0EscUJBQUE7RUFDQSxzQkFBQTtFQUNBLHFHQUFBO0VBQ0EsZUFBQTtFQUNBLGVBQUE7QUNGUjtBREtJO0VBQ0ksMEJBQUE7QUNIUiIsImZpbGUiOiJzcmMvYXBwL2hlYWRlci9oZWFkZXIuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaGVhZGVyIHtcclxuICAgIFxyXG4gICAgaGVpZ2h0OjUwcHg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjN2YxNDE2O1xyXG4gICAgY29sb3I6IHdoaXRlO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcblxyXG5cclxuICAgIC50aXRsZSB7XHJcbiAgICAgICAgcGFkZGluZzogMTBweDtcclxuICAgICAgICBwYWRkaW5nLXJpZ2h0OiAzMHB4O1xyXG4gICAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgICAgICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xyXG4gICAgICAgIGZvbnQtc2l6ZTogMjNweDtcclxuICAgICAgICBmb250LWZhbWlseTogQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZjtcclxuICAgIH1cclxuXHJcbiAgICAubGluayB7XHJcbiAgICAgICAgcGFkZGluZzogMTBweDtcclxuICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICAgICAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcclxuICAgICAgICBmb250LWZhbWlseTogJ1RyZWJ1Y2hldCBNUycsICdMdWNpZGEgU2FucyBVbmljb2RlJywgJ0x1Y2lkYSBHcmFuZGUnLCAnTHVjaWRhIFNhbnMnLCBBcmlhbCwgc2Fucy1zZXJpZjtcclxuICAgICAgICBmb250LXNpemU6IDE4cHg7XHJcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgfVxyXG5cclxuICAgIC5saW5rOmhvdmVyIHtcclxuICAgICAgICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTtcclxuICAgIH1cclxuXHJcbn0iLCIuaGVhZGVyIHtcbiAgaGVpZ2h0OiA1MHB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjN2YxNDE2O1xuICBjb2xvcjogd2hpdGU7XG4gIHdpZHRoOiAxMDAlO1xufVxuLmhlYWRlciAudGl0bGUge1xuICBwYWRkaW5nOiAxMHB4O1xuICBwYWRkaW5nLXJpZ2h0OiAzMHB4O1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XG4gIGZvbnQtc2l6ZTogMjNweDtcbiAgZm9udC1mYW1pbHk6IEFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWY7XG59XG4uaGVhZGVyIC5saW5rIHtcbiAgcGFkZGluZzogMTBweDtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xuICBmb250LWZhbWlseTogXCJUcmVidWNoZXQgTVNcIiwgXCJMdWNpZGEgU2FucyBVbmljb2RlXCIsIFwiTHVjaWRhIEdyYW5kZVwiLCBcIkx1Y2lkYSBTYW5zXCIsIEFyaWFsLCBzYW5zLXNlcmlmO1xuICBmb250LXNpemU6IDE4cHg7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cbi5oZWFkZXIgLmxpbms6aG92ZXIge1xuICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTtcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".header {\n  height: 50px;\n  background-color: #7f1416;\n  color: white;\n  width: 100%;\n}\n.header .title {\n  padding: 10px;\n  padding-right: 30px;\n  display: inline-block;\n  vertical-align: middle;\n  font-size: 23px;\n  font-family: Arial, Helvetica, sans-serif;\n}\n.header .header-link {\n  padding: 10px;\n  display: inline-block;\n  vertical-align: middle;\n  font-family: \"Trebuchet MS\", \"Lucida Sans Unicode\", \"Lucida Grande\", \"Lucida Sans\", Arial, sans-serif;\n  font-size: 18px;\n  cursor: pointer;\n}\n.header .header-link:hover {\n  text-decoration: underline;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaGVhZGVyL0M6XFxVc2Vyc1xcbWFpbmdlXFxEZXNrdG9wXFxDU1NFIDM3MVxcSG9tZXdvcmtcXEhvbWV3b3JrIDNcXFRleHRib29rQXBwbGljYXRpb25cXG5nLWZyb250ZW5kL3NyY1xcYXBwXFxoZWFkZXJcXGhlYWRlci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvaGVhZGVyL2hlYWRlci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUVJLFlBQUE7RUFDQSx5QkFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0FDQUo7QURHSTtFQUNJLGFBQUE7RUFDQSxtQkFBQTtFQUNBLHFCQUFBO0VBQ0Esc0JBQUE7RUFDQSxlQUFBO0VBQ0EseUNBQUE7QUNEUjtBRElJO0VBQ0ksYUFBQTtFQUNBLHFCQUFBO0VBQ0Esc0JBQUE7RUFDQSxxR0FBQTtFQUNBLGVBQUE7RUFDQSxlQUFBO0FDRlI7QURLSTtFQUNJLDBCQUFBO0FDSFIiLCJmaWxlIjoic3JjL2FwcC9oZWFkZXIvaGVhZGVyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmhlYWRlciB7XHJcbiAgICBcclxuICAgIGhlaWdodDo1MHB4O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzdmMTQxNjtcclxuICAgIGNvbG9yOiB3aGl0ZTtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG5cclxuXHJcbiAgICAudGl0bGUge1xyXG4gICAgICAgIHBhZGRpbmc6IDEwcHg7XHJcbiAgICAgICAgcGFkZGluZy1yaWdodDogMzBweDtcclxuICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICAgICAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcclxuICAgICAgICBmb250LXNpemU6IDIzcHg7XHJcbiAgICAgICAgZm9udC1mYW1pbHk6IEFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWY7XHJcbiAgICB9XHJcblxyXG4gICAgLmhlYWRlci1saW5rIHtcclxuICAgICAgICBwYWRkaW5nOiAxMHB4O1xyXG4gICAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgICAgICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xyXG4gICAgICAgIGZvbnQtZmFtaWx5OiAnVHJlYnVjaGV0IE1TJywgJ0x1Y2lkYSBTYW5zIFVuaWNvZGUnLCAnTHVjaWRhIEdyYW5kZScsICdMdWNpZGEgU2FucycsIEFyaWFsLCBzYW5zLXNlcmlmO1xyXG4gICAgICAgIGZvbnQtc2l6ZTogMThweDtcclxuICAgICAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICB9XHJcblxyXG4gICAgLmhlYWRlci1saW5rOmhvdmVyIHtcclxuICAgICAgICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTtcclxuICAgIH1cclxuXHJcbn0iLCIuaGVhZGVyIHtcbiAgaGVpZ2h0OiA1MHB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjN2YxNDE2O1xuICBjb2xvcjogd2hpdGU7XG4gIHdpZHRoOiAxMDAlO1xufVxuLmhlYWRlciAudGl0bGUge1xuICBwYWRkaW5nOiAxMHB4O1xuICBwYWRkaW5nLXJpZ2h0OiAzMHB4O1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XG4gIGZvbnQtc2l6ZTogMjNweDtcbiAgZm9udC1mYW1pbHk6IEFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWY7XG59XG4uaGVhZGVyIC5oZWFkZXItbGluayB7XG4gIHBhZGRpbmc6IDEwcHg7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgdmVydGljYWwtYWxpZ246IG1pZGRsZTtcbiAgZm9udC1mYW1pbHk6IFwiVHJlYnVjaGV0IE1TXCIsIFwiTHVjaWRhIFNhbnMgVW5pY29kZVwiLCBcIkx1Y2lkYSBHcmFuZGVcIiwgXCJMdWNpZGEgU2Fuc1wiLCBBcmlhbCwgc2Fucy1zZXJpZjtcbiAgZm9udC1zaXplOiAxOHB4O1xuICBjdXJzb3I6IHBvaW50ZXI7XG59XG4uaGVhZGVyIC5oZWFkZXItbGluazpob3ZlciB7XG4gIHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lO1xufSJdfQ== */");
 
 /***/ }),
 
@@ -820,7 +895,7 @@ HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("table {\n  width: 100%;\n  border-collapse: collapse;\n  border: 1px solid black;\n}\ntable th {\n  font-family: Arial, Helvetica, sans-serif;\n  min-width: 100px;\n  border-bottom: 1px solid black;\n  font-size: 18px;\n  color: #505050;\n}\ntable td {\n  padding-top: 10px;\n  padding-bottom: 10px;\n  text-align: center;\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\n  font-size: 13px;\n}\ntable tr:nth-child(odd) {\n  background-color: #f5f5f5;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbGlzdC9DOlxcVXNlcnNcXG1haW5nZVxcRGVza3RvcFxcQ1NTRSAzNzFcXEhvbWV3b3JrXFxIb21ld29yayAzXFxUZXh0Ym9va0FwcGxpY2F0aW9uL3NyY1xcYXBwXFxsaXN0XFxsaXN0LmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9saXN0L2xpc3QuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxXQUFBO0VBQ0EseUJBQUE7RUFDQSx1QkFBQTtBQ0NKO0FEQ0E7RUFDSSx5Q0FBQTtFQUNBLGdCQUFBO0VBQ0EsOEJBQUE7RUFDQSxlQUFBO0VBQ0EsY0FBQTtBQ0NKO0FERUE7RUFDSSxpQkFBQTtFQUNBLG9CQUFBO0VBQ0Esa0JBQUE7RUFDQSxnREFBQTtFQUNBLGVBQUE7QUNBSjtBREdBO0VBQ0kseUJBQUE7QUNESiIsImZpbGUiOiJzcmMvYXBwL2xpc3QvbGlzdC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbInRhYmxlIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgYm9yZGVyLWNvbGxhcHNlOiBjb2xsYXBzZTtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkIGJsYWNrO1xyXG4gICBcclxudGgge1xyXG4gICAgZm9udC1mYW1pbHk6IEFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWY7XHJcbiAgICBtaW4td2lkdGg6IDEwMHB4O1xyXG4gICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIGJsYWNrO1xyXG4gICAgZm9udC1zaXplOiAxOHB4O1xyXG4gICAgY29sb3I6ICM1MDUwNTA7XHJcbn1cclxuXHJcbnRkIHtcclxuICAgIHBhZGRpbmctdG9wOiAxMHB4O1xyXG4gICAgcGFkZGluZy1ib3R0b206IDEwcHg7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBmb250LWZhbWlseTogVmVyZGFuYSwgR2VuZXZhLCBUYWhvbWEsIHNhbnMtc2VyaWY7XHJcbiAgICBmb250LXNpemU6IDEzcHg7XHJcbn1cclxuXHJcbnRyOm50aC1jaGlsZChvZGQpIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNmNWY1ZjU7XHJcbn1cclxuXHJcbn0iLCJ0YWJsZSB7XG4gIHdpZHRoOiAxMDAlO1xuICBib3JkZXItY29sbGFwc2U6IGNvbGxhcHNlO1xuICBib3JkZXI6IDFweCBzb2xpZCBibGFjaztcbn1cbnRhYmxlIHRoIHtcbiAgZm9udC1mYW1pbHk6IEFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWY7XG4gIG1pbi13aWR0aDogMTAwcHg7XG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCBibGFjaztcbiAgZm9udC1zaXplOiAxOHB4O1xuICBjb2xvcjogIzUwNTA1MDtcbn1cbnRhYmxlIHRkIHtcbiAgcGFkZGluZy10b3A6IDEwcHg7XG4gIHBhZGRpbmctYm90dG9tOiAxMHB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGZvbnQtZmFtaWx5OiBWZXJkYW5hLCBHZW5ldmEsIFRhaG9tYSwgc2Fucy1zZXJpZjtcbiAgZm9udC1zaXplOiAxM3B4O1xufVxudGFibGUgdHI6bnRoLWNoaWxkKG9kZCkge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjVmNWY1O1xufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("table {\n  width: 100%;\n  border-collapse: collapse;\n  border: 1px solid black;\n}\ntable th {\n  font-family: Arial, Helvetica, sans-serif;\n  min-width: 100px;\n  border-bottom: 1px solid black;\n  font-size: 18px;\n  color: #505050;\n}\ntable td {\n  padding-top: 10px;\n  padding-bottom: 10px;\n  text-align: center;\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\n  font-size: 13px;\n}\ntable tr:nth-child(odd) {\n  background-color: #f5f5f5;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbGlzdC9DOlxcVXNlcnNcXG1haW5nZVxcRGVza3RvcFxcQ1NTRSAzNzFcXEhvbWV3b3JrXFxIb21ld29yayAzXFxUZXh0Ym9va0FwcGxpY2F0aW9uXFxuZy1mcm9udGVuZC9zcmNcXGFwcFxcbGlzdFxcbGlzdC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvbGlzdC9saXN0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksV0FBQTtFQUNBLHlCQUFBO0VBQ0EsdUJBQUE7QUNDSjtBRENBO0VBQ0kseUNBQUE7RUFDQSxnQkFBQTtFQUNBLDhCQUFBO0VBQ0EsZUFBQTtFQUNBLGNBQUE7QUNDSjtBREVBO0VBQ0ksaUJBQUE7RUFDQSxvQkFBQTtFQUNBLGtCQUFBO0VBQ0EsZ0RBQUE7RUFDQSxlQUFBO0FDQUo7QURHQTtFQUNJLHlCQUFBO0FDREoiLCJmaWxlIjoic3JjL2FwcC9saXN0L2xpc3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJ0YWJsZSB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCBibGFjaztcclxuICAgXHJcbnRoIHtcclxuICAgIGZvbnQtZmFtaWx5OiBBcmlhbCwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmO1xyXG4gICAgbWluLXdpZHRoOiAxMDBweDtcclxuICAgIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCBibGFjaztcclxuICAgIGZvbnQtc2l6ZTogMThweDtcclxuICAgIGNvbG9yOiAjNTA1MDUwO1xyXG59XHJcblxyXG50ZCB7XHJcbiAgICBwYWRkaW5nLXRvcDogMTBweDtcclxuICAgIHBhZGRpbmctYm90dG9tOiAxMHB4O1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgZm9udC1mYW1pbHk6IFZlcmRhbmEsIEdlbmV2YSwgVGFob21hLCBzYW5zLXNlcmlmO1xyXG4gICAgZm9udC1zaXplOiAxM3B4O1xyXG59XHJcblxyXG50cjpudGgtY2hpbGQob2RkKSB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZjVmNWY1O1xyXG59XHJcblxyXG59IiwidGFibGUge1xuICB3aWR0aDogMTAwJTtcbiAgYm9yZGVyLWNvbGxhcHNlOiBjb2xsYXBzZTtcbiAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XG59XG50YWJsZSB0aCB7XG4gIGZvbnQtZmFtaWx5OiBBcmlhbCwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmO1xuICBtaW4td2lkdGg6IDEwMHB4O1xuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgYmxhY2s7XG4gIGZvbnQtc2l6ZTogMThweDtcbiAgY29sb3I6ICM1MDUwNTA7XG59XG50YWJsZSB0ZCB7XG4gIHBhZGRpbmctdG9wOiAxMHB4O1xuICBwYWRkaW5nLWJvdHRvbTogMTBweDtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBmb250LWZhbWlseTogVmVyZGFuYSwgR2VuZXZhLCBUYWhvbWEsIHNhbnMtc2VyaWY7XG4gIGZvbnQtc2l6ZTogMTNweDtcbn1cbnRhYmxlIHRyOm50aC1jaGlsZChvZGQpIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2Y1ZjVmNTtcbn0iXX0= */");
 
 /***/ }),
 
@@ -837,18 +912,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+
 
 
 
 let ListComponent = class ListComponent {
     constructor(router) {
         this.router = router;
+        this.faWindowClose = _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faWindowClose"];
     }
     ngOnInit() {
-        console.log(this.list);
     }
     add(id) {
-        this.router.navigate(['add'], { state: { list: this.list, id: id } });
+        this.router.navigate(['add'], { state: { currentCourses: this.currentCourses, archivedCourses: this.archivedCourses, id: id } });
     }
 };
 ListComponent.ctorParameters = () => [
@@ -856,7 +933,16 @@ ListComponent.ctorParameters = () => [
 ];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
-], ListComponent.prototype, "list", void 0);
+], ListComponent.prototype, "currentCourses", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], ListComponent.prototype, "archivedCourses", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], ListComponent.prototype, "current", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], ListComponent.prototype, "addButton", void 0);
 ListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-list',
@@ -934,7 +1020,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\mainge\Desktop\CSSE 371\Homework\Homework 3\TextbookApplication\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\mainge\Desktop\CSSE 371\Homework\Homework 3\TextbookApplication\ng-frontend\src\main.ts */"./src/main.ts");
 
 
 /***/ })
