@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First Flight — George & Shelby · KUES · Jan 31 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Space+Mono:wght@400;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0c10;
+    color: #e0e4ec;
+    font-family: 'DM Sans', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  #canvas-container {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  canvas { display: block; }
+
+  .header {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 10;
+    padding: 28px 36px 20px;
+    background: linear-gradient(to bottom, rgba(10,12,16,0.92) 0%, rgba(10,12,16,0.6) 60%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .header h1 {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #7a8599;
+    margin-bottom: 6px;
+  }
+
+  .header h2 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: #f0f2f7;
+    letter-spacing: -0.3px;
+  }
+
+  .header h2 span { font-weight: 700; }
+
+  .header .date {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: #4a5568;
+    margin-top: 4px;
+    letter-spacing: 1px;
+  }
+
+  /* Telemetry HUDs */
+  .telemetry {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .telemetry.left { left: 28px; }
+  .telemetry.right { right: 28px; }
+
+  .hud-card {
+    background: rgba(10,12,16,0.82);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px;
+    padding: 16px 20px 14px;
+    backdrop-filter: blur(14px);
+    min-width: 155px;
+  }
+
+  .hud-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .hud-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .hud-tail {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+  }
+
+  .hud-crew {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    color: #4a5568;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  .hud-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 6px;
+  }
+
+  .hud-row:last-child { margin-bottom: 0; }
+
+  .hud-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #4a5568;
+    white-space: nowrap;
+  }
+
+  .hud-value {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #e0e4ec;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+
+  .hud-unit {
+    font-size: 11px;
+    font-weight: 400;
+    color: #5a6578;
+    margin-left: 2px;
+  }
+
+  .hud-inactive .hud-value { color: #2a3040; }
+
+  /* Controls hint */
+  .controls-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    text-align: center;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 1.2s ease;
+  }
+
+  .controls-hint.hidden { opacity: 0; }
+
+  .controls-hint p {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: #4a5568;
+    letter-spacing: 1px;
+  }
+
+  /* Playback */
+  .playback {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    pointer-events: auto;
+    background: rgba(10,12,16,0.85);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 10px 20px;
+    backdrop-filter: blur(12px);
+  }
+
+  .play-btn {
+    background: none;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #e0e4ec;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+
+  .play-btn:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.3);
+  }
+
+  .timeline {
+    width: 280px;
+    height: 3px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .timeline-fill {
+    height: 100%;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #4ac8ff, #ff6b4a);
+    width: 100%;
+    transition: width 0.05s linear;
+  }
+
+  .timeline-time {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: #7a8599;
+    min-width: 50px;
+  }
+
+  .legend {
+    position: absolute;
+    bottom: 84px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 28px;
+    pointer-events: none;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .legend-swatch {
+    width: 20px;
+    height: 3px;
+    border-radius: 2px;
+  }
+
+  .legend-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>First Flight Training</h1>
+  <h2><span>Shelby</span> & <span>George</span></h2>
+  <div class="date">KUES — Waukesha County · January 31, 2026</div>
+</div>
+
+<!-- LEFT HUD: N236VA — Shelby + Eva -->
+<div class="telemetry left">
+  <div class="hud-card">
+    <div class="hud-header">
+      <div class="hud-dot" style="background:#4ac8ff;box-shadow:0 0 6px #4ac8ff88;"></div>
+      <div>
+        <div class="hud-tail" style="color:#4ac8ff;">N236VA</div>
+        <div class="hud-crew">Shelby + Eva (CFI)</div>
+      </div>
+    </div>
+    <div class="hud-row" id="row-alt-236">
+      <span class="hud-label" id="lbl-alt-236">Max Alt</span>
+      <span class="hud-value" id="hud-alt-236">4,950<span class="hud-unit">ft</span></span>
+    </div>
+    <div class="hud-row" id="row-spd-236">
+      <span class="hud-label" id="lbl-spd-236">Max Spd</span>
+      <span class="hud-value" id="hud-spd-236">110<span class="hud-unit">kts</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- RIGHT HUD: N242VA — George + Brent -->
+<div class="telemetry right">
+  <div class="hud-card">
+    <div class="hud-header">
+      <div class="hud-dot" style="background:#ff6b4a;box-shadow:0 0 6px #ff6b4a88;"></div>
+      <div>
+        <div class="hud-tail" style="color:#ff6b4a;">N242VA</div>
+        <div class="hud-crew">George + Brent (CFI)</div>
+      </div>
+    </div>
+    <div class="hud-row" id="row-alt-242">
+      <span class="hud-label" id="lbl-alt-242">Max Alt</span>
+      <span class="hud-value" id="hud-alt-242">5,000<span class="hud-unit">ft</span></span>
+    </div>
+    <div class="hud-row" id="row-spd-242">
+      <span class="hud-label" id="lbl-spd-242">Max Spd</span>
+      <span class="hud-value" id="hud-spd-242">115<span class="hud-unit">kts</span></span>
+    </div>
+  </div>
+</div>
+
+<div class="legend">
+  <div class="legend-item">
+    <div class="legend-swatch" style="background: linear-gradient(90deg, #2ea4ff, #6bd4ff);"></div>
+    <span class="legend-label" style="color:#4ac8ff;">Shelby · 3:03–3:49 PM</span>
+  </div>
+  <div class="legend-item">
+    <div class="legend-swatch" style="background: linear-gradient(90deg, #ff4d2e, #ff8c6b);"></div>
+    <span class="legend-label" style="color:#ff6b4a;">George · 3:09–3:53 PM</span>
+  </div>
+</div>
+
+<div class="playback">
+  <button class="play-btn" id="playBtn">&#9654;</button>
+  <div class="timeline" id="timeline">
+    <div class="timeline-fill" id="timelineFill"></div>
+  </div>
+  <div class="timeline-time" id="timeLabel">3:03 PM</div>
+</div>
+
+<div class="controls-hint" id="hint">
+  <p>DRAG TO ORBIT &middot; SCROLL TO ZOOM</p>
+</div>
+
+<div id="canvas-container"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// ============================================================
+// FLIGHT DATA
+// N236VA = Shelby + Eva (CFI) — BLUE
+// N242VA = George + Brent (CFI) — RED
+// ============================================================
+const n236va = {
+  lat: [43.0423,43.0435,43.0455,43.0504,43.0551,43.0599,43.0647,43.07,43.0754,43.0812,43.0866,43.0939,43.0993,43.1049,43.111,43.1199,43.1255,43.1289,43.1309,43.1334,43.1362,43.1388,43.1415,43.145,43.1501,43.1533,43.1553,43.1591,43.1656,43.1745,43.1809,43.1867,43.1902,43.194,43.1973,43.2002,43.2068,43.2126,43.2103,43.2024,43.2006,43.2074,43.2114,43.207,43.2114,43.2064,43.2111,43.2183,43.223,43.2239,43.2222,43.2159,43.2059,43.1989,43.1951,43.19,43.1854,43.1774,43.1735,43.1762,43.1775,43.1775,43.1819,43.1868,43.1921,43.1974,43.2058,43.2121,43.2148,43.2133,43.2138,43.2178,43.2226,43.2279,43.2306,43.2301,43.2244,43.2161,43.2072,43.1974,43.1865,43.1758,43.1688,43.1591,43.1507,43.141,43.1306,43.1222,43.1158,43.1184,43.1245,43.1296,43.1349,43.1434,43.1488,43.1549,43.1621,43.1663,43.1704,43.1759,43.1779,43.1716,43.1696,43.1714,43.177,43.1823,43.1872,43.193,43.1989,43.2052,43.2111,43.2154,43.2157,43.2147,43.2089,43.2027,43.1966,43.1901,43.1823,43.1747,43.1683,43.162,43.1555,43.1476,43.1402,43.1327,43.124,43.1144,43.1061,43.0998,43.0929,43.0908,43.0886,43.0831,43.0789,43.0744,43.0699,43.0665,43.0634,43.0604,43.0593,43.0585,43.0579,43.0573,43.0537,43.0468,43.041,43.0387,43.0395],
+  lon: [-88.2391,-88.2462,-88.2517,-88.2548,-88.2574,-88.2598,-88.2621,-88.2646,-88.2668,-88.2695,-88.2721,-88.2764,-88.2797,-88.2833,-88.2873,-88.2936,-88.298,-88.3043,-88.3124,-88.3231,-88.332,-88.3421,-88.3513,-88.3625,-88.3797,-88.3925,-88.4035,-88.4103,-88.4132,-88.4167,-88.4196,-88.4189,-88.4108,-88.4029,-88.3954,-88.3886,-88.3902,-88.3941,-88.4039,-88.4062,-88.3987,-88.3973,-88.3934,-88.3976,-88.4026,-88.4033,-88.4016,-88.4029,-88.4021,-88.394,-88.3852,-88.383,-88.3843,-88.3862,-88.3945,-88.4065,-88.4148,-88.4192,-88.4271,-88.4341,-88.4429,-88.4522,-88.4579,-88.4576,-88.4577,-88.4576,-88.4572,-88.4577,-88.4656,-88.4749,-88.4857,-88.4904,-88.4911,-88.4916,-88.4858,-88.4772,-88.4719,-88.4728,-88.4746,-88.4762,-88.4778,-88.4796,-88.4804,-88.4814,-88.4823,-88.4832,-88.4834,-88.4849,-88.4925,-88.501,-88.5008,-88.5006,-88.5009,-88.5018,-88.5023,-88.5025,-88.5029,-88.4997,-88.4923,-88.4885,-88.481,-88.4746,-88.4647,-88.4556,-88.4518,-88.4449,-88.4397,-88.4414,-88.442,-88.4418,-88.4418,-88.445,-88.4539,-88.4626,-88.4669,-88.4652,-88.4582,-88.4482,-88.4377,-88.4279,-88.4194,-88.411,-88.4007,-88.3895,-88.3811,-88.3712,-88.3585,-88.3453,-88.3324,-88.3217,-88.3105,-88.3074,-88.3041,-88.2958,-88.2887,-88.2809,-88.2721,-88.2648,-88.2567,-88.2471,-88.2389,-88.2308,-88.2219,-88.2132,-88.2065,-88.2057,-88.2073,-88.2147,-88.2211],
+  alt: [650,900,1075,1325,1550,1775,1975,2150,2225,2275,2350,2350,2350,2350,2425,2475,2675,2725,2950,3200,3400,3575,3525,3625,3750,3775,3925,4125,4025,4025,4025,4100,4150,4175,4200,4375,4350,4400,4500,4600,4650,4625,4650,4650,4750,4800,4825,4950,4950,4875,4800,4800,4775,4725,4700,4700,4675,4500,4525,4525,4500,4475,4400,4375,4350,4325,4350,4375,4325,4425,4475,4475,4550,4575,4575,4650,4575,4475,4175,3875,3550,3175,3000,2975,3025,3050,3050,3100,3125,3100,3200,3200,3200,3200,3200,3175,3025,2950,2850,2900,2875,2775,2700,2650,2600,2525,2525,2525,2525,2475,2475,2525,2475,2475,2475,2500,2525,2475,2425,2375,2325,2250,2200,2125,2025,1875,1700,1675,1675,1700,1700,1700,1700,1600,1575,1525,1450,1475,1500,1550,1575,1500,1450,1375,1300,1125,1025,800,650],
+  speed: [68,66,71,67,64,72,72,77,81,83,81,86,87,89,86,87,69,75,74,79,80,91,103,96,98,102,96,68,94,82,84,73,81,82,85,65,81,88,104,94,74,76,91,85,88,75,70,70,67,79,88,98,98,100,93,94,92,110,87,78,86,81,71,68,67,63,66,67,103,92,80,69,63,64,75,75,104,103,107,106,105,103,99,95,97,101,101,103,98,77,71,72,80,79,79,83,75,71,75,75,102,103,98,82,83,85,76,74,72,72,71,68,82,83,90,87,85,92,92,95,96,96,95,100,102,99,95,98,96,97,98,98,97,101,100,96,97,94,93,88,87,84,89,86,92,88,80,74,66],
+  times: ["3:03:45","3:04:01","3:04:17","3:04:33","3:04:49","3:05:05","3:05:21","3:05:37","3:05:53","3:06:09","3:06:25","3:06:43","3:06:59","3:07:15","3:07:31","3:07:56","3:08:14","3:08:32","3:08:49","3:09:11","3:09:31","3:09:50","3:10:08","3:10:28","3:10:58","3:11:19","3:11:37","3:11:53","3:12:13","3:12:36","3:12:52","3:13:09","3:13:29","3:13:47","3:14:04","3:14:22","3:14:41","3:14:59","3:15:17","3:15:35","3:15:53","3:16:14","3:16:32","3:16:50","3:17:08","3:17:26","3:17:42","3:18:06","3:18:22","3:18:40","3:18:58","3:19:14","3:19:34","3:19:51","3:20:08","3:20:31","3:20:49","3:21:06","3:21:23","3:21:40","3:21:56","3:22:14","3:22:32","3:22:48","3:23:04","3:23:23","3:23:50","3:24:12","3:24:31","3:24:49","3:25:07","3:25:23","3:25:41","3:25:59","3:26:17","3:26:35","3:26:53","3:27:12","3:27:30","3:27:50","3:28:13","3:28:34","3:28:50","3:29:11","3:29:31","3:29:51","3:30:13","3:30:31","3:30:49","3:31:07","3:31:26","3:31:42","3:31:58","3:32:19","3:32:35","3:32:52","3:33:10","3:33:26","3:33:45","3:34:03","3:34:21","3:34:37","3:34:54","3:35:12","3:35:28","3:35:48","3:36:05","3:36:22","3:36:40","3:36:59","3:37:16","3:37:34","3:37:52","3:38:10","3:38:26","3:38:42","3:39:03","3:39:25","3:39:51","3:40:15","3:40:36","3:40:55","3:41:17","3:41:43","3:42:04","3:42:27","3:42:54","3:43:25","3:43:52","3:44:15","3:44:38","3:44:46","3:44:54","3:45:10","3:45:26","3:45:42","3:45:58","3:46:14","3:46:30","3:46:46","3:47:02","3:47:18","3:47:34","3:47:50","3:48:06","3:48:22","3:48:38","3:48:54","3:49:10"]
+};
+
+const n242va = {
+  lat: [43.0421,43.0429,43.0435,43.0444,43.0472,43.0504,43.0541,43.0581,43.0621,43.0666,43.0705,43.0755,43.0805,43.0857,43.0908,43.096,43.1026,43.1097,43.1192,43.1244,43.132,43.1378,43.142,43.1473,43.1514,43.1536,43.151,43.1554,43.1593,43.1624,43.1651,43.1709,43.1757,43.1801,43.1853,43.192,43.1977,43.2032,43.2013,43.1947,43.1863,43.1785,43.175,43.1773,43.1848,43.1908,43.1955,43.1947,43.1937,43.1926,43.1911,43.1896,43.1876,43.1862,43.1852,43.1852,43.1864,43.1885,43.1902,43.1919,43.1952,43.1993,43.2034,43.2004,43.1977,43.195,43.1908,43.1873,43.1838,43.1801,43.1777,43.1755,43.1738,43.1719,43.1687,43.1669,43.1653,43.1634,43.1625,43.1609,43.1588,43.1563,43.1537,43.1492,43.1458,43.1423,43.1398,43.1363,43.1336,43.1264,43.1188,43.1173,43.1159,43.1148,43.114,43.1137,43.1135,43.1132,43.1132,43.1137,43.1136,43.1149,43.1171,43.1198,43.1233,43.1234,43.1158,43.1099,43.1053,43.1007,43.097,43.0931,43.0895,43.0852,43.0824,43.0805,43.0777,43.0756,43.0733,43.0714,43.0699,43.0678,43.0659,43.0639,43.0614,43.0593,43.0573,43.056,43.0551,43.0543,43.0543,43.0542,43.0536,43.0533,43.0526,43.0469,43.0398,43.036,43.0367,43.0378,43.0389,43.04],
+  lon: [-88.2373,-88.2437,-88.2504,-88.2566,-88.261,-88.2643,-88.2677,-88.2713,-88.275,-88.2792,-88.2829,-88.288,-88.2928,-88.2976,-88.3023,-88.307,-88.313,-88.3195,-88.3286,-88.3335,-88.3422,-88.3505,-88.357,-88.3658,-88.3737,-88.3819,-88.391,-88.3987,-88.4055,-88.4161,-88.4252,-88.4303,-88.4371,-88.4483,-88.4533,-88.4564,-88.4584,-88.4522,-88.442,-88.438,-88.4383,-88.4351,-88.4259,-88.4179,-88.4167,-88.4169,-88.4099,-88.3985,-88.388,-88.3776,-88.3675,-88.3572,-88.345,-88.334,-88.324,-88.315,-88.3064,-88.2957,-88.2874,-88.2808,-88.2747,-88.2694,-88.2737,-88.2919,-88.3045,-88.3127,-88.3227,-88.3326,-88.3498,-88.3667,-88.3779,-88.3932,-88.4056,-88.4181,-88.4387,-88.4506,-88.4616,-88.4761,-88.4864,-88.5018,-88.5177,-88.5285,-88.5378,-88.5532,-88.5642,-88.5763,-88.5861,-88.6015,-88.6124,-88.619,-88.6138,-88.6032,-88.59,-88.5786,-88.5679,-88.5589,-88.5499,-88.5419,-88.5341,-88.5227,-88.5181,-88.5123,-88.5041,-88.4959,-88.487,-88.4793,-88.4648,-88.4526,-88.4429,-88.4324,-88.4239,-88.415,-88.406,-88.3954,-88.3853,-88.3756,-88.3606,-88.3491,-88.3371,-88.3267,-88.3181,-88.3091,-88.3008,-88.292,-88.2829,-88.275,-88.2661,-88.2571,-88.2482,-88.2378,-88.2288,-88.219,-88.2097,-88.2007,-88.1908,-88.1862,-88.1877,-88.1948,-88.2031,-88.2101,-88.2168,-88.2239],
+  alt: [625,875,1150,1400,1650,1825,2025,2200,2400,2625,2775,2825,2775,2725,2700,2700,2725,2725,2775,2850,2900,2900,2950,2900,2900,2975,2975,2900,2925,2925,2925,2950,3000,3000,3050,3100,3100,3150,3125,3125,3150,3175,3175,3200,3250,3275,3250,3250,3450,3825,4050,4275,4575,4575,4625,4650,4550,4375,4225,4050,3925,3850,3750,3650,3775,4050,4200,4375,4600,4725,4775,4825,4750,4550,4325,4050,3825,3650,3675,3650,3975,4275,4500,4625,4675,4750,4800,4825,4875,4900,4875,4950,4975,4975,5000,4950,4850,4700,4475,4225,4100,3700,3675,3650,3575,3525,3450,3425,3375,3275,3175,3025,2825,2525,2325,2175,1875,1725,1625,1575,1525,1500,1450,1400,1400,1400,1425,1425,1425,1400,1450,1475,1475,1475,1475,1400,1300,1175,1025,850,775,600],
+  speed: [68,65,64,62,58,57,63,66,69,70,74,80,87,87,87,85,86,88,84,81,84,86,86,91,90,92,95,83,89,90,90,84,95,95,88,86,88,90,104,115,111,105,89,83,82,80,89,93,83,69,80,80,81,92,89,85,89,73,63,72,77,72,94,107,105,98,103,100,106,106,105,103,99,104,107,104,95,97,98,103,92,89,85,109,107,103,104,108,109,109,94,86,88,90,88,84,69,60,63,47,37,69,73,75,76,94,94,91,91,90,89,88,90,91,88,87,89,92,93,93,91,90,90,92,89,89,90,90,94,94,91,92,92,92,94,99,98,85,79,71,66,68],
+  times: ["3:09:00","3:09:16","3:09:32","3:09:48","3:10:04","3:10:20","3:10:36","3:10:52","3:11:08","3:11:24","3:11:40","3:11:56","3:12:12","3:12:28","3:12:44","3:13:00","3:13:20","3:13:39","3:14:09","3:14:25","3:14:52","3:15:14","3:15:30","3:15:50","3:16:07","3:16:23","3:16:40","3:16:58","3:17:16","3:17:36","3:17:53","3:18:11","3:18:29","3:18:48","3:19:05","3:19:21","3:19:37","3:19:55","3:20:13","3:20:29","3:20:45","3:21:01","3:21:19","3:21:35","3:21:54","3:22:11","3:22:29","3:22:48","3:23:07","3:23:30","3:23:51","3:24:12","3:24:36","3:24:56","3:25:14","3:25:30","3:25:46","3:26:08","3:26:28","3:26:45","3:27:01","3:27:18","3:27:36","3:28:05","3:28:23","3:28:39","3:28:56","3:29:13","3:29:42","3:30:07","3:30:25","3:30:49","3:31:08","3:31:29","3:31:59","3:32:19","3:32:37","3:33:00","3:33:17","3:33:41","3:34:08","3:34:28","3:34:45","3:35:12","3:35:31","3:35:50","3:36:06","3:36:30","3:36:47","3:37:05","3:37:23","3:37:43","3:38:07","3:38:27","3:38:46","3:39:03","3:39:22","3:39:42","3:40:02","3:40:32","3:40:50","3:41:10","3:41:28","3:41:48","3:42:09","3:42:25","3:42:54","3:43:20","3:43:39","3:44:00","3:44:19","3:44:36","3:44:55","3:45:16","3:45:35","3:45:54","3:46:22","3:46:43","3:47:04","3:47:21","3:47:37","3:47:53","3:48:09","3:48:25","3:48:41","3:48:57","3:49:13","3:49:29","3:49:45","3:50:01","3:50:18","3:50:34","3:50:50","3:51:07","3:51:23","3:51:39","3:51:55","3:52:11","3:52:27","3:52:43","3:52:59","3:53:15"]
+};
+
+// ============================================================
+// GEO PROJECTION
+// ============================================================
+const CENTER_LAT = 43.133, CENTER_LON = -88.40, SCALE_H = 400, SCALE_V = 0.012, GROUND_ALT = 600;
+
+function geoToScene(lat, lon, alt) {
+  return new THREE.Vector3(
+    (lon - CENTER_LON) * Math.cos(CENTER_LAT * Math.PI / 180) * SCALE_H,
+    (alt - GROUND_ALT) * SCALE_V,
+    -(lat - CENTER_LAT) * SCALE_H
+  );
+}
+
+// ============================================================
+// SCENE
+// ============================================================
+const container = document.getElementById('canvas-container');
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x0a0c10, 0.006);
+
+const camera = new THREE.PerspectiveCamera(50, innerWidth / innerHeight, 0.1, 1000);
+camera.position.set(25, 35, 50);
+camera.lookAt(0, 8, 0);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setSize(innerWidth, innerHeight);
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+container.appendChild(renderer.domElement);
+
+// ============================================================
+// ORBIT CONTROLS
+// ============================================================
+const ctrl = {
+  target: new THREE.Vector3(0, 6, -4),
+  sph: { r: 65, phi: Math.PI * 0.32, theta: Math.PI * 0.15 },
+  drag: false, last: { x: 0, y: 0 }, autoRot: true,
+  update() {
+    const s = this.sph;
+    s.phi = Math.max(0.1, Math.min(Math.PI * 0.48, s.phi));
+    s.r = Math.max(15, Math.min(150, s.r));
+    camera.position.set(
+      this.target.x + s.r * Math.sin(s.phi) * Math.sin(s.theta),
+      this.target.y + s.r * Math.cos(s.phi),
+      this.target.z + s.r * Math.sin(s.phi) * Math.cos(s.theta)
+    );
+    camera.lookAt(this.target);
+  }
+};
+
+const c = renderer.domElement;
+const dismissHint = () => document.getElementById('hint').classList.add('hidden');
+
+c.addEventListener('pointerdown', e => { ctrl.drag = true; ctrl.last = { x: e.clientX, y: e.clientY }; ctrl.autoRot = false; dismissHint(); });
+c.addEventListener('pointermove', e => { if (!ctrl.drag) return; ctrl.sph.theta -= (e.clientX - ctrl.last.x) * 0.005; ctrl.sph.phi += (e.clientY - ctrl.last.y) * 0.005; ctrl.last = { x: e.clientX, y: e.clientY }; });
+addEventListener('pointerup', () => ctrl.drag = false);
+c.addEventListener('wheel', e => { ctrl.sph.r += e.deltaY * 0.04; ctrl.autoRot = false; dismissHint(); e.preventDefault(); }, { passive: false });
+
+let lastTD = 0;
+c.addEventListener('touchstart', e => { if (e.touches.length === 1) { ctrl.drag = true; ctrl.last = { x: e.touches[0].clientX, y: e.touches[0].clientY }; ctrl.autoRot = false; dismissHint(); } if (e.touches.length === 2) lastTD = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY); }, { passive: true });
+c.addEventListener('touchmove', e => { if (e.touches.length === 1 && ctrl.drag) { ctrl.sph.theta -= (e.touches[0].clientX - ctrl.last.x) * 0.005; ctrl.sph.phi += (e.touches[0].clientY - ctrl.last.y) * 0.005; ctrl.last = { x: e.touches[0].clientX, y: e.touches[0].clientY }; } if (e.touches.length === 2) { const d = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY); ctrl.sph.r += (lastTD - d) * 0.08; lastTD = d; } e.preventDefault(); }, { passive: false });
+c.addEventListener('touchend', () => ctrl.drag = false);
+
+// ============================================================
+// GROUND + AIRPORT
+// ============================================================
+const GS = 120;
+scene.add(new THREE.GridHelper(GS, 40, 0x1a1f2e, 0x12161f));
+const gnd = new THREE.Mesh(new THREE.PlaneGeometry(GS, GS), new THREE.MeshBasicMaterial({ color: 0x0d1017, transparent: true, opacity: 0.9, side: THREE.DoubleSide }));
+gnd.rotation.x = -Math.PI / 2; gnd.position.y = -0.1; scene.add(gnd);
+
+const ap = geoToScene(43.041, -88.237, GROUND_ALT);
+scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(ap.x - 1.5, 0.02, ap.z), new THREE.Vector3(ap.x + 1.5, 0.02, ap.z)]), new THREE.LineBasicMaterial({ color: 0x3a4560 })));
+const ring = new THREE.Mesh(new THREE.RingGeometry(0.6, 0.75, 32), new THREE.MeshBasicMaterial({ color: 0x3a4560, side: THREE.DoubleSide, transparent: true, opacity: 0.8 }));
+ring.rotation.x = -Math.PI / 2; ring.position.set(ap.x, 0.02, ap.z); scene.add(ring);
+const prMat = new THREE.MeshBasicMaterial({ color: 0x4a5b78, side: THREE.DoubleSide, transparent: true, opacity: 0.4 });
+const pr = new THREE.Mesh(new THREE.RingGeometry(0.8, 0.85, 32), prMat);
+pr.rotation.x = -Math.PI / 2; pr.position.set(ap.x, 0.02, ap.z); scene.add(pr);
+
+// ============================================================
+// FLIGHT PATH BUILDER
+// ============================================================
+function buildPath(data, color, glowColor) {
+  const pts = [], gpts = [];
+  for (let i = 0; i < data.lat.length; i++) {
+    const p = geoToScene(data.lat[i], data.lon[i], data.alt[i]);
+    pts.push(p); gpts.push(new THREE.Vector3(p.x, 0.01, p.z));
+  }
+  const curve = new THREE.CatmullRomCurve3(pts, false, 'catmullrom', 0.3);
+  const tube = new THREE.Mesh(new THREE.TubeGeometry(curve, pts.length * 3, 0.15, 8, false), new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.95 }));
+  const glow = new THREE.Mesh(new THREE.TubeGeometry(curve, pts.length * 3, 0.4, 8, false), new THREE.MeshBasicMaterial({ color: glowColor, transparent: true, opacity: 0.12 }));
+  const shCurve = new THREE.CatmullRomCurve3(gpts, false, 'catmullrom', 0.3);
+  const shadow = new THREE.Mesh(new THREE.TubeGeometry(shCurve, gpts.length * 2, 0.1, 4, false), new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.08 }));
+  const drops = new THREE.Group();
+  const step = Math.max(1, Math.floor(data.lat.length / 20));
+  for (let i = 0; i < data.lat.length; i += step) {
+    const p = pts[i];
+    drops.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(p.x, p.y, p.z), new THREE.Vector3(p.x, 0, p.z)]), new THREE.LineBasicMaterial({ color, transparent: true, opacity: 0.06 })));
+  }
+  const mkr = new THREE.SphereGeometry(0.25, 16, 16), mm = new THREE.MeshBasicMaterial({ color });
+  const sm = new THREE.Mesh(mkr, mm); sm.position.copy(pts[0]);
+  const em = new THREE.Mesh(mkr.clone(), mm.clone()); em.position.copy(pts[pts.length - 1]);
+  const head = new THREE.Mesh(new THREE.SphereGeometry(0.35, 16, 16), new THREE.MeshBasicMaterial({ color: 0xffffff })); head.visible = false;
+  const hg = new THREE.Mesh(new THREE.SphereGeometry(0.7, 16, 16), new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.3 })); hg.visible = false;
+  scene.add(tube, glow, shadow, drops, sm, em, head, hg);
+  return { tube, glow, shadow, head, headGlow: hg, points3D: pts };
+}
+
+const pathShelby = buildPath(n236va, 0x33aaff, 0x66ccff);
+const pathGeorge = buildPath(n242va, 0xff5533, 0xff8866);
+
+// Altitude ref planes
+[1000,2000,3000,4000,5000].forEach(a => {
+  const y = (a - GROUND_ALT) * SCALE_V;
+  const pl = new THREE.Mesh(new THREE.PlaneGeometry(GS * 0.6, GS * 0.6), new THREE.MeshBasicMaterial({ color: 0x1a2035, transparent: true, opacity: 0.03, side: THREE.DoubleSide }));
+  pl.rotation.x = -Math.PI / 2; pl.position.y = y; scene.add(pl);
+});
+
+// Particles
+const PC = 300, pGeo = new THREE.BufferGeometry(), pPos = new Float32Array(PC * 3), pSpd = [];
+for (let i = 0; i < PC; i++) { pPos[i*3] = (Math.random()-0.5)*80; pPos[i*3+1] = Math.random()*55; pPos[i*3+2] = (Math.random()-0.5)*80; pSpd.push(0.002+Math.random()*0.008); }
+pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+const particles = new THREE.Points(pGeo, new THREE.PointsMaterial({ color: 0x3a4b6e, size: 0.15, transparent: true, opacity: 0.3, sizeAttenuation: true }));
+scene.add(particles);
+
+// ============================================================
+// PLAYBACK
+// ============================================================
+function t2s(t) { const p = t.split(':'); return +p[0]*3600 + +p[1]*60 + +p[2]; }
+
+const sT = n236va.times.map(t2s), gT = n242va.times.map(t2s);
+const tStart = Math.min(sT[0], gT[0]), tEnd = Math.max(sT[sT.length-1], gT[gT.length-1]), tDur = tEnd - tStart;
+
+let playing = false, prog = 0, speed = 1/25;
+const playBtn = document.getElementById('playBtn'), tlFill = document.getElementById('timelineFill'), tLbl = document.getElementById('timeLabel'), tl = document.getElementById('timeline');
+const hA236 = document.getElementById('hud-alt-236'), hS236 = document.getElementById('hud-spd-236');
+const hA242 = document.getElementById('hud-alt-242'), hS242 = document.getElementById('hud-spd-242');
+const lA236 = document.getElementById('lbl-alt-236'), lS236 = document.getElementById('lbl-spd-236');
+const lA242 = document.getElementById('lbl-alt-242'), lS242 = document.getElementById('lbl-spd-242');
+
+playBtn.onclick = () => { playing = !playing; playBtn.innerHTML = playing ? '&#9646;&#9646;' : '&#9654;'; if (prog >= 1) { prog = 0; setLiveLabels(); } if (playing && prog === 0) setLiveLabels(); };
+tl.onclick = e => { const r = tl.getBoundingClientRect(); prog = (e.clientX - r.left) / r.width; setLiveLabels(); tick(prog); };
+
+function posAt(path, times, t) {
+  if (t <= times[0]) return null;
+  if (t >= times[times.length-1]) return path.points3D[path.points3D.length-1].clone();
+  for (let i = 0; i < times.length-1; i++) if (t >= times[i] && t <= times[i+1]) { const f = (t-times[i])/(times[i+1]-times[i]); return new THREE.Vector3().lerpVectors(path.points3D[i], path.points3D[i+1], f); }
+  return null;
+}
+
+function dataAt(raw, times, t) {
+  if (t < times[0]) return null;
+  if (t >= times[times.length-1]) return { alt: raw.alt[raw.alt.length-1], speed: raw.speed[raw.speed.length-1] };
+  for (let i = 0; i < times.length-1; i++) if (t >= times[i] && t <= times[i+1]) { const f = (t-times[i])/(times[i+1]-times[i]); return { alt: Math.round(raw.alt[i]+(raw.alt[i+1]-raw.alt[i])*f), speed: Math.round(raw.speed[i]+(raw.speed[i+1]-raw.speed[i])*f) }; }
+  return null;
+}
+
+function vis(path, times, t) {
+  if (t <= times[0]) return 0; if (t >= times[times.length-1]) return 1;
+  for (let i = 0; i < times.length-1; i++) if (t >= times[i] && t <= times[i+1]) return (i+(t-times[i])/(times[i+1]-times[i]))/(times.length-1);
+  return 1;
+}
+
+function fmt(v) { return v >= 1000 ? v.toLocaleString() : String(v); }
+
+function hud(aEl, sEl, d) {
+  if (d) { aEl.innerHTML = fmt(d.alt)+'<span class="hud-unit">ft</span>'; sEl.innerHTML = d.speed+'<span class="hud-unit">kts</span>'; aEl.parentElement.classList.remove('hud-inactive'); sEl.parentElement.classList.remove('hud-inactive'); }
+  else { aEl.innerHTML = '&mdash;<span class="hud-unit">ft</span>'; sEl.innerHTML = '&mdash;<span class="hud-unit">kts</span>'; aEl.parentElement.classList.add('hud-inactive'); sEl.parentElement.classList.add('hud-inactive'); }
+}
+
+function setMaxLabels() { lA236.textContent='Max Alt'; lS236.textContent='Max Spd'; lA242.textContent='Max Alt'; lS242.textContent='Max Spd'; }
+function setLiveLabels() { lA236.textContent='Alt'; lS236.textContent='Speed'; lA242.textContent='Alt'; lS242.textContent='Speed'; }
+
+function tick(p) {
+  const t = tStart + p * tDur;
+  const ts = Math.floor(t), h = Math.floor(ts/3600), m = Math.floor((ts%3600)/60), s = ts%60;
+  tLbl.textContent = h+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')+' PM';
+  tlFill.style.width = (p*100)+'%';
+
+  // Heads
+  [['s', pathShelby, sT], ['g', pathGeorge, gT]].forEach(([,path, times]) => {
+    const pos = posAt(path, times, t);
+    if (pos) { path.head.visible = path.headGlow.visible = true; path.head.position.copy(pos); path.headGlow.position.copy(pos); }
+    else { path.head.visible = path.headGlow.visible = false; }
+  });
+
+  // Draw ranges
+  const sv = vis(pathShelby, sT, t), gv = vis(pathGeorge, gT, t);
+  [pathShelby, sv, pathGeorge, gv].forEach((v, i) => {
+    if (i % 2 === 1) return;
+    const path = v, frac = arguments[0] === undefined ? 1 : [sv, gv][i/2];
+  });
+  // Shelby reveal
+  pathShelby.tube.geometry.setDrawRange(0, Math.floor(sv * pathShelby.tube.geometry.index.count));
+  pathShelby.glow.geometry.setDrawRange(0, Math.floor(sv * pathShelby.glow.geometry.index.count));
+  pathShelby.shadow.geometry.setDrawRange(0, Math.floor(sv * pathShelby.shadow.geometry.index.count));
+  // George reveal
+  pathGeorge.tube.geometry.setDrawRange(0, Math.floor(gv * pathGeorge.tube.geometry.index.count));
+  pathGeorge.glow.geometry.setDrawRange(0, Math.floor(gv * pathGeorge.glow.geometry.index.count));
+  pathGeorge.shadow.geometry.setDrawRange(0, Math.floor(gv * pathGeorge.shadow.geometry.index.count));
+
+  // HUDs
+  hud(hA236, hS236, dataAt(n236va, sT, t));
+  hud(hA242, hS242, dataAt(n242va, gT, t));
+}
+
+function showFull() {
+  [pathShelby, pathGeorge].forEach(p => { p.tube.geometry.setDrawRange(0,Infinity); p.glow.geometry.setDrawRange(0,Infinity); p.shadow.geometry.setDrawRange(0,Infinity); p.head.visible = p.headGlow.visible = false; });
+  setMaxLabels();
+  hA236.innerHTML = '4,950<span class="hud-unit">ft</span>'; hS236.innerHTML = '110<span class="hud-unit">kts</span>';
+  hA242.innerHTML = '5,000<span class="hud-unit">ft</span>'; hS242.innerHTML = '115<span class="hud-unit">kts</span>';
+}
+showFull();
+
+// ============================================================
+// RENDER LOOP
+// ============================================================
+let t = 0;
+(function anim() {
+  requestAnimationFrame(anim);
+  t += 0.016;
+  if (ctrl.autoRot) ctrl.sph.theta += 0.0006;
+  ctrl.update();
+  const ps = 1 + Math.sin(t*2)*0.3; pr.scale.set(ps,ps,1); prMat.opacity = 0.4-Math.sin(t*2)*0.2;
+  const pp = particles.geometry.attributes.position.array;
+  for (let i = 0; i < PC; i++) { pp[i*3+1] += pSpd[i]; if (pp[i*3+1]>55) pp[i*3+1]=0; }
+  particles.geometry.attributes.position.needsUpdate = true;
+  if (playing) { prog += speed*0.016; if (prog>=1) { prog=1; playing=false; playBtn.innerHTML='&#9654;'; setTimeout(showFull,500); } tick(prog); }
+  renderer.render(scene, camera);
+})();
+
+addEventListener('resize', () => { camera.aspect=innerWidth/innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth,innerHeight); });
+setTimeout(dismissHint, 4000);
+</script>
+</body>
+</html>
