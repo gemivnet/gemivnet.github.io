@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>First Flight — George & Shelby · KUES · Jan 31 2026</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Space+Mono:wght@400;700&display=swap');
@@ -16,6 +16,7 @@
     overflow: hidden;
     height: 100vh;
     width: 100vw;
+    touch-action: none;
   }
 
   #canvas-container {
@@ -26,6 +27,7 @@
 
   canvas { display: block; }
 
+  /* ─── HEADER ─── */
   .header {
     position: absolute;
     top: 0; left: 0; right: 0;
@@ -63,7 +65,7 @@
     letter-spacing: 1px;
   }
 
-  /* Telemetry HUDs */
+  /* ─── TELEMETRY HUDs ─── */
   .telemetry {
     position: absolute;
     top: 50%;
@@ -153,7 +155,7 @@
 
   .hud-inactive .hud-value { color: #2a3040; }
 
-  /* Controls hint */
+  /* ─── CONTROLS HINT ─── */
   .controls-hint {
     position: absolute;
     top: 50%;
@@ -175,7 +177,7 @@
     letter-spacing: 1px;
   }
 
-  /* Playback */
+  /* ─── PLAYBACK ─── */
   .playback {
     position: absolute;
     bottom: 36px;
@@ -207,11 +209,16 @@
     font-size: 12px;
     transition: all 0.2s;
     flex-shrink: 0;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .play-btn:hover {
     background: rgba(255,255,255,0.08);
     border-color: rgba(255,255,255,0.3);
+  }
+
+  .play-btn:active {
+    background: rgba(255,255,255,0.15);
   }
 
   .timeline {
@@ -221,13 +228,24 @@
     border-radius: 2px;
     position: relative;
     cursor: pointer;
+    /* bigger touch target */
+    padding: 10px 0;
+    margin: -10px 0;
+  }
+
+  .timeline-inner {
+    width: 100%;
+    height: 3px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 2px;
+    position: relative;
   }
 
   .timeline-fill {
     height: 100%;
     border-radius: 2px;
     background: linear-gradient(90deg, #4ac8ff, #ff6b4a);
-    width: 100%;
+    width: 0%;
     transition: width 0.05s linear;
   }
 
@@ -238,6 +256,7 @@
     min-width: 50px;
   }
 
+  /* ─── LEGEND ─── */
   .legend {
     position: absolute;
     bottom: 84px;
@@ -265,6 +284,145 @@
     font-family: 'Space Mono', monospace;
     font-size: 10px;
     letter-spacing: 1px;
+  }
+
+  /* ─── MOBILE ─── */
+  @media (max-width: 600px) {
+    .header {
+      padding: 18px 18px 12px;
+    }
+    .header h1 {
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+    .header h2 {
+      font-size: 20px;
+    }
+    .header .date {
+      font-size: 9px;
+    }
+
+    /* Stack HUDs horizontally at top-right as compact pills */
+    .telemetry.left,
+    .telemetry.right {
+      position: absolute;
+      top: auto;
+      bottom: auto;
+      left: auto;
+      right: auto;
+      transform: none;
+    }
+
+    .telemetry.left {
+      top: 95px;
+      left: 18px;
+    }
+    .telemetry.right {
+      top: 95px;
+      left: calc(50% + 4px);
+    }
+
+    .hud-card {
+      min-width: 0;
+      width: calc((100vw - 44px) / 2);
+      padding: 10px 12px 8px;
+      border-radius: 8px;
+    }
+
+    .hud-header {
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      gap: 6px;
+    }
+
+    .hud-dot { width: 6px; height: 6px; }
+
+    .hud-tail {
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .hud-crew {
+      font-size: 9px;
+    }
+
+    .hud-row {
+      margin-bottom: 4px;
+      gap: 8px;
+    }
+
+    .hud-label {
+      font-size: 8px;
+      letter-spacing: 1px;
+    }
+
+    .hud-value {
+      font-size: 16px;
+    }
+
+    .hud-unit {
+      font-size: 9px;
+    }
+
+    /* Playback: full width, bigger touch targets */
+    .playback {
+      bottom: 24px;
+      left: 12px;
+      right: 12px;
+      transform: none;
+      width: calc(100% - 24px);
+      padding: 10px 14px;
+      gap: 10px;
+    }
+
+    .play-btn {
+      width: 36px;
+      height: 36px;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .timeline {
+      flex: 1;
+      width: auto;
+      min-width: 0;
+    }
+
+    .timeline-time {
+      font-size: 9px;
+      min-width: 42px;
+      text-align: right;
+    }
+
+    /* Legend: stack vertically or shrink */
+    .legend {
+      bottom: 82px;
+      gap: 14px;
+    }
+
+    .legend-label {
+      font-size: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .legend-swatch {
+      width: 14px;
+    }
+
+    .controls-hint p {
+      font-size: 9px;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  /* Very small screens */
+  @media (max-width: 360px) {
+    .legend {
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      bottom: 78px;
+    }
   }
 </style>
 </head>
@@ -332,13 +490,15 @@
 <div class="playback">
   <button class="play-btn" id="playBtn">&#9654;</button>
   <div class="timeline" id="timeline">
-    <div class="timeline-fill" id="timelineFill"></div>
+    <div class="timeline-inner">
+      <div class="timeline-fill" id="timelineFill"></div>
+    </div>
   </div>
   <div class="timeline-time" id="timeLabel">3:03 PM</div>
 </div>
 
 <div class="controls-hint" id="hint">
-  <p>DRAG TO ORBIT &middot; SCROLL TO ZOOM</p>
+  <p>DRAG TO ORBIT · SCROLL TO ZOOM</p>
 </div>
 
 <div id="canvas-container"></div>
@@ -347,8 +507,6 @@
 <script>
 // ============================================================
 // FLIGHT DATA
-// N236VA = Shelby + Eva (CFI) — BLUE
-// N242VA = George + Brent (CFI) — RED
 // ============================================================
 const n236va = {
   lat: [43.0423,43.0435,43.0455,43.0504,43.0551,43.0599,43.0647,43.07,43.0754,43.0812,43.0866,43.0939,43.0993,43.1049,43.111,43.1199,43.1255,43.1289,43.1309,43.1334,43.1362,43.1388,43.1415,43.145,43.1501,43.1533,43.1553,43.1591,43.1656,43.1745,43.1809,43.1867,43.1902,43.194,43.1973,43.2002,43.2068,43.2126,43.2103,43.2024,43.2006,43.2074,43.2114,43.207,43.2114,43.2064,43.2111,43.2183,43.223,43.2239,43.2222,43.2159,43.2059,43.1989,43.1951,43.19,43.1854,43.1774,43.1735,43.1762,43.1775,43.1775,43.1819,43.1868,43.1921,43.1974,43.2058,43.2121,43.2148,43.2133,43.2138,43.2178,43.2226,43.2279,43.2306,43.2301,43.2244,43.2161,43.2072,43.1974,43.1865,43.1758,43.1688,43.1591,43.1507,43.141,43.1306,43.1222,43.1158,43.1184,43.1245,43.1296,43.1349,43.1434,43.1488,43.1549,43.1621,43.1663,43.1704,43.1759,43.1779,43.1716,43.1696,43.1714,43.177,43.1823,43.1872,43.193,43.1989,43.2052,43.2111,43.2154,43.2157,43.2147,43.2089,43.2027,43.1966,43.1901,43.1823,43.1747,43.1683,43.162,43.1555,43.1476,43.1402,43.1327,43.124,43.1144,43.1061,43.0998,43.0929,43.0908,43.0886,43.0831,43.0789,43.0744,43.0699,43.0665,43.0634,43.0604,43.0593,43.0585,43.0579,43.0573,43.0537,43.0468,43.041,43.0387,43.0395],
@@ -397,7 +555,7 @@ renderer.toneMapping = THREE.ACESFilmicToneMapping;
 container.appendChild(renderer.domElement);
 
 // ============================================================
-// ORBIT CONTROLS
+// ORBIT CONTROLS (mouse + touch)
 // ============================================================
 const ctrl = {
   target: new THREE.Vector3(0, 6, -4),
@@ -419,15 +577,85 @@ const ctrl = {
 const c = renderer.domElement;
 const dismissHint = () => document.getElementById('hint').classList.add('hidden');
 
-c.addEventListener('pointerdown', e => { ctrl.drag = true; ctrl.last = { x: e.clientX, y: e.clientY }; ctrl.autoRot = false; dismissHint(); });
-c.addEventListener('pointermove', e => { if (!ctrl.drag) return; ctrl.sph.theta -= (e.clientX - ctrl.last.x) * 0.005; ctrl.sph.phi += (e.clientY - ctrl.last.y) * 0.005; ctrl.last = { x: e.clientX, y: e.clientY }; });
-addEventListener('pointerup', () => ctrl.drag = false);
-c.addEventListener('wheel', e => { ctrl.sph.r += e.deltaY * 0.04; ctrl.autoRot = false; dismissHint(); e.preventDefault(); }, { passive: false });
+// ─── Mouse events ───
+c.addEventListener('pointerdown', e => {
+  if (e.pointerId !== undefined) {
+    // ignore if it's a second pointer (pinch handled below)
+    if (window._activePointers && window._activePointers.size >= 1) return;
+    if (!window._activePointers) window._activePointers = new Map();
+    window._activePointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+  }
+  ctrl.drag = true;
+  ctrl.last = { x: e.clientX, y: e.clientY };
+  ctrl.autoRot = false;
+  dismissHint();
+});
 
-let lastTD = 0;
-c.addEventListener('touchstart', e => { if (e.touches.length === 1) { ctrl.drag = true; ctrl.last = { x: e.touches[0].clientX, y: e.touches[0].clientY }; ctrl.autoRot = false; dismissHint(); } if (e.touches.length === 2) lastTD = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY); }, { passive: true });
-c.addEventListener('touchmove', e => { if (e.touches.length === 1 && ctrl.drag) { ctrl.sph.theta -= (e.touches[0].clientX - ctrl.last.x) * 0.005; ctrl.sph.phi += (e.touches[0].clientY - ctrl.last.y) * 0.005; ctrl.last = { x: e.touches[0].clientX, y: e.touches[0].clientY }; } if (e.touches.length === 2) { const d = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY); ctrl.sph.r += (lastTD - d) * 0.08; lastTD = d; } e.preventDefault(); }, { passive: false });
-c.addEventListener('touchend', () => ctrl.drag = false);
+c.addEventListener('pointermove', e => {
+  if (window._activePointers) window._activePointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+  // If two pointers active, skip orbit (pinch handles zoom)
+  if (window._activePointers && window._activePointers.size >= 2) return;
+  if (!ctrl.drag) return;
+  ctrl.sph.theta -= (e.clientX - ctrl.last.x) * 0.005;
+  ctrl.sph.phi += (e.clientY - ctrl.last.y) * 0.005;
+  ctrl.last = { x: e.clientX, y: e.clientY };
+});
+
+c.addEventListener('pointerup', e => {
+  ctrl.drag = false;
+  if (window._activePointers) window._activePointers.delete(e.pointerId);
+});
+
+c.addEventListener('pointercancel', e => {
+  ctrl.drag = false;
+  if (window._activePointers) window._activePointers.delete(e.pointerId);
+});
+
+// ─── Mouse wheel zoom ───
+c.addEventListener('wheel', e => {
+  ctrl.sph.r += e.deltaY * 0.04;
+  ctrl.autoRot = false;
+  dismissHint();
+  e.preventDefault();
+}, { passive: false });
+
+// ─── Pinch zoom (touch) ───
+let _lastPinchDist = 0;
+c.addEventListener('touchstart', e => {
+  if (e.touches.length === 2) {
+    _lastPinchDist = Math.hypot(
+      e.touches[0].clientX - e.touches[1].clientX,
+      e.touches[0].clientY - e.touches[1].clientY
+    );
+    ctrl.drag = false; // disable orbit during pinch
+  }
+  dismissHint();
+}, { passive: true });
+
+c.addEventListener('touchmove', e => {
+  if (e.touches.length === 2) {
+    const d = Math.hypot(
+      e.touches[0].clientX - e.touches[1].clientX,
+      e.touches[0].clientY - e.touches[1].clientY
+    );
+    ctrl.sph.r += (_lastPinchDist - d) * 0.12;
+    _lastPinchDist = d;
+    ctrl.autoRot = false;
+    e.preventDefault();
+    return;
+  }
+  e.preventDefault();
+}, { passive: false });
+
+c.addEventListener('touchend', () => {
+  _lastPinchDist = 0;
+});
+
+// ─── Tap to dismiss hint ───
+c.addEventListener('touchend', dismissHint, { passive: true });
+
+// Initialize pointer tracking
+window._activePointers = new Map();
 
 // ============================================================
 // GROUND + AIRPORT
@@ -507,7 +735,19 @@ const lA236 = document.getElementById('lbl-alt-236'), lS236 = document.getElemen
 const lA242 = document.getElementById('lbl-alt-242'), lS242 = document.getElementById('lbl-spd-242');
 
 playBtn.onclick = () => { playing = !playing; playBtn.innerHTML = playing ? '&#9646;&#9646;' : '&#9654;'; if (prog >= 1) { prog = 0; setLiveLabels(); } if (playing && prog === 0) setLiveLabels(); };
-tl.onclick = e => { const r = tl.getBoundingClientRect(); prog = (e.clientX - r.left) / r.width; setLiveLabels(); tick(prog); };
+
+// Timeline scrub — works for both mouse and touch
+function scrubAt(clientX) {
+  const inner = tl.querySelector('.timeline-inner');
+  const r = inner.getBoundingClientRect();
+  prog = Math.max(0, Math.min(1, (clientX - r.left) / r.width));
+  tick(prog);
+}
+
+tl.addEventListener('mousedown', e => { e.stopPropagation(); scrubAt(e.clientX); });
+tl.addEventListener('mousemove', e => { if (e.buttons & 1) scrubAt(e.clientX); });
+tl.addEventListener('touchstart', e => { e.stopPropagation(); scrubAt(e.touches[0].clientX); }, { passive: true });
+tl.addEventListener('touchmove', e => { e.stopPropagation(); scrubAt(e.touches[0].clientX); }, { passive: true });
 
 function posAt(path, times, t) {
   if (t <= times[0]) return null;
@@ -545,29 +785,20 @@ function tick(p) {
   tLbl.textContent = h+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')+' PM';
   tlFill.style.width = (p*100)+'%';
 
-  // Heads
-  [['s', pathShelby, sT], ['g', pathGeorge, gT]].forEach(([,path, times]) => {
-    const pos = posAt(path, times, t);
+  [pathShelby, pathGeorge].forEach(path => {
+    const pos = posAt(path, path === pathShelby ? sT : gT, t);
     if (pos) { path.head.visible = path.headGlow.visible = true; path.head.position.copy(pos); path.headGlow.position.copy(pos); }
     else { path.head.visible = path.headGlow.visible = false; }
   });
 
-  // Draw ranges
   const sv = vis(pathShelby, sT, t), gv = vis(pathGeorge, gT, t);
-  [pathShelby, sv, pathGeorge, gv].forEach((v, i) => {
-    if (i % 2 === 1) return;
-    const path = v, frac = arguments[0] === undefined ? 1 : [sv, gv][i/2];
-  });
-  // Shelby reveal
   pathShelby.tube.geometry.setDrawRange(0, Math.floor(sv * pathShelby.tube.geometry.index.count));
   pathShelby.glow.geometry.setDrawRange(0, Math.floor(sv * pathShelby.glow.geometry.index.count));
   pathShelby.shadow.geometry.setDrawRange(0, Math.floor(sv * pathShelby.shadow.geometry.index.count));
-  // George reveal
   pathGeorge.tube.geometry.setDrawRange(0, Math.floor(gv * pathGeorge.tube.geometry.index.count));
   pathGeorge.glow.geometry.setDrawRange(0, Math.floor(gv * pathGeorge.glow.geometry.index.count));
   pathGeorge.shadow.geometry.setDrawRange(0, Math.floor(gv * pathGeorge.shadow.geometry.index.count));
 
-  // HUDs
   hud(hA236, hS236, dataAt(n236va, sT, t));
   hud(hA242, hS242, dataAt(n242va, gT, t));
 }
