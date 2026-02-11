@@ -176,6 +176,23 @@
     margin-top: 6px;
   }
 
+  .delete-btn {
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    cursor: pointer;
+    font-size: 14px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: all 0.15s;
+    line-height: 1;
+  }
+
+  .delete-btn:hover {
+    color: var(--red);
+    background: rgba(248, 113, 113, 0.15);
+  }
+
   .empty-state {
     text-align: center;
     padding: 40px 20px;
@@ -430,39 +447,112 @@ function parseCSV(text) {
   return { headers, rows };
 }
 
+// ── IndexedDB cache ──
+const DB_NAME = 'flightViewerDB';
+const DB_VERSION = 1;
+const STORE_NAME = 'flights';
+
+function openDB() {
+  return new Promise((resolve, reject) => {
+    const req = indexedDB.open(DB_NAME, DB_VERSION);
+    req.onupgradeneeded = () => {
+      req.result.createObjectStore(STORE_NAME, { keyPath: 'filename' });
+    };
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+}
+
+async function cacheFlight(filename, csvText) {
+  const db = await openDB();
+  const tx = db.transaction(STORE_NAME, 'readwrite');
+  tx.objectStore(STORE_NAME).put({ filename, csvText });
+}
+
+async function removeCachedFlight(filename) {
+  const db = await openDB();
+  const tx = db.transaction(STORE_NAME, 'readwrite');
+  tx.objectStore(STORE_NAME).delete(filename);
+}
+
+async function loadCachedFlights() {
+  const db = await openDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(STORE_NAME, 'readonly');
+    const req = tx.objectStore(STORE_NAME).getAll();
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+}
+
+// ── Process CSV into a flight object ──
+function addFlight(filename, csvText) {
+  if (flights.some(f => f.filename === filename)) return;
+
+  const { headers, rows } = parseCSV(csvText);
+  const info = parseFilename(filename);
+
+  const points = rows.map(r => ({
+    lat: parseFloat(r.latitude),
+    lon: parseFloat(r.longitude),
+    alt: parseFloat(r.altitude) || 0,
+    track: parseFloat(r.track) || 0,
+    onground: r.onground === 'True' || r.onground === 'true',
+    timestamp: r.timestamp || '',
+  })).filter(p => !isNaN(p.lat) && !isNaN(p.lon));
+
+  flights.push({ filename, info, points, rows });
+}
+
 // ── File handling ──
 function handleFiles(fileList) {
   Array.from(fileList).forEach(file => {
     if (!file.name.endsWith('.csv')) return;
-    // Skip duplicates
     if (flights.some(f => f.filename === file.name)) return;
 
     const reader = new FileReader();
-    reader.onload = (e) => {
-      const { headers, rows } = parseCSV(e.target.result);
-      const info = parseFilename(file.name);
-
-      const points = rows.map(r => ({
-        lat: parseFloat(r.latitude),
-        lon: parseFloat(r.longitude),
-        alt: parseFloat(r.altitude) || 0,
-        track: parseFloat(r.track) || 0,
-        onground: r.onground === 'True' || r.onground === 'true',
-        timestamp: r.timestamp || '',
-      })).filter(p => !isNaN(p.lat) && !isNaN(p.lon));
-
-      flights.push({
-        filename: file.name,
-        info,
-        points,
-        rows,
-      });
-
+    reader.onload = async (e) => {
+      const csvText = e.target.result;
+      addFlight(file.name, csvText);
+      await cacheFlight(file.name, csvText);
       renderFlightList();
     };
     reader.readAsText(file);
   });
 }
+
+async function deleteFlight(index, event) {
+  event.stopPropagation();
+  const flight = flights[index];
+  await removeCachedFlight(flight.filename);
+  flights.splice(index, 1);
+  if (activeFlight === index) {
+    activeFlight = null;
+    mapLayers.forEach(l => map.removeLayer(l));
+    mapLayers = [];
+    document.getElementById('flightInfo').classList.remove('visible');
+    document.getElementById('legend').classList.remove('visible');
+    document.getElementById('mapEmpty').classList.remove('hidden');
+  } else if (activeFlight > index) {
+    activeFlight--;
+  }
+  renderFlightList();
+}
+
+// ── Load cached flights on startup ──
+(async () => {
+  try {
+    const cached = await loadCachedFlights();
+    cached.forEach(({ filename, csvText }) => addFlight(filename, csvText));
+    renderFlightList();
+    if (flights.length > 0) {
+      document.getElementById('mapEmpty').querySelector('p').textContent = 
+        `${flights.length} flight${flights.length > 1 ? 's' : ''} loaded — select one to view`;
+    }
+  } catch (e) {
+    console.warn('Could not load cached flights:', e);
+  }
+})()
 
 // ── Render sidebar ──
 function renderFlightList() {
@@ -475,7 +565,10 @@ function renderFlightList() {
 
   list.innerHTML = flights.map((f, i) => `
     <div class="flight-card ${activeFlight === i ? 'active' : ''}" onclick="selectFlight(${i})">
-      <div class="tail">${f.info.tail}</div>
+      <div style="display:flex;justify-content:space-between;align-items:start">
+        <div class="tail">${f.info.tail}</div>
+        <button class="delete-btn" onclick="deleteFlight(${i}, event)" title="Remove flight">✕</button>
+      </div>
       <div class="meta">
         <span>📅 ${f.info.date}</span>
         <span>🕐 ${f.info.time}</span>
