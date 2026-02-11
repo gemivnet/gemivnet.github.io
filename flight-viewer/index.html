@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flight Viewer</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0f14;
+    --panel: #111820;
+    --panel-hover: #182028;
+    --border: #1e2a36;
+    --text: #c8d6e0;
+    --text-dim: #5a7080;
+    --accent: #3b9eff;
+    --accent-dim: rgba(59,158,255,0.12);
+    --green: #34d399;
+    --red: #f87171;
+    --orange: #fb923c;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+  }
+
+  /* ── Sidebar ── */
+  .sidebar {
+    width: 320px;
+    min-width: 320px;
+    background: var(--panel);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  .sidebar-header {
+    padding: 20px 20px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sidebar-header h1 {
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  .sidebar-header p {
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+
+  /* ── Upload zone ── */
+  .upload-zone {
+    margin: 16px;
+    padding: 24px 16px;
+    border: 1.5px dashed var(--border);
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+  }
+
+  .upload-zone:hover, .upload-zone.dragover {
+    border-color: var(--accent);
+    background: var(--accent-dim);
+  }
+
+  .upload-zone input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .upload-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+    opacity: 0.5;
+  }
+
+  .upload-zone p {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+
+  .upload-zone p strong {
+    color: var(--accent);
+  }
+
+  /* ── Flight list ── */
+  .flight-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px;
+  }
+
+  .flight-list::-webkit-scrollbar { width: 4px; }
+  .flight-list::-webkit-scrollbar-track { background: transparent; }
+  .flight-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+  .flight-card {
+    padding: 14px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s;
+    margin-bottom: 4px;
+    border: 1px solid transparent;
+  }
+
+  .flight-card:hover {
+    background: var(--panel-hover);
+  }
+
+  .flight-card.active {
+    background: var(--accent-dim);
+    border-color: var(--accent);
+  }
+
+  .flight-card .tail {
+    font-family: 'DM Mono', monospace;
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+
+  .flight-card .meta {
+    font-size: 12px;
+    color: var(--text-dim);
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .flight-card .meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .flight-card .points {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 6px;
+  }
+
+  .flight-card .name-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--orange);
+    background: rgba(251, 146, 60, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-top: 6px;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-dim);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  /* ── Map ── */
+  .map-container {
+    flex: 1;
+    position: relative;
+  }
+
+  #map {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Dark map tiles */
+  .leaflet-tile-pane { filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(1.1) saturate(0.3); }
+  .leaflet-control-zoom a {
+    background: var(--panel) !important;
+    color: var(--text) !important;
+    border-color: var(--border) !important;
+  }
+  .leaflet-control-attribution { display: none; }
+
+  /* ── Info overlay ── */
+  .flight-info {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 1000;
+    background: rgba(17, 24, 32, 0.92);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    min-width: 200px;
+    display: none;
+  }
+
+  .flight-info.visible { display: block; }
+
+  .flight-info h3 {
+    font-family: 'DM Mono', monospace;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  .flight-info .stat {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    padding: 4px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .flight-info .stat:last-child { border: none; }
+  .flight-info .stat .label { color: var(--text-dim); }
+  .flight-info .stat .value { font-family: 'DM Mono', monospace; color: var(--text); }
+
+  /* ── Legend ── */
+  .legend {
+    position: absolute;
+    bottom: 24px;
+    right: 16px;
+    z-index: 1000;
+    background: rgba(17, 24, 32, 0.92);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: none;
+  }
+
+  .legend.visible { display: block; }
+
+  .legend .title {
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .legend .gradient-bar {
+    width: 160px;
+    height: 10px;
+    border-radius: 3px;
+    margin-bottom: 4px;
+  }
+
+  .legend .labels {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+
+  /* ── No flight selected state ── */
+  .map-empty {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 500;
+    pointer-events: none;
+  }
+
+  .map-empty p {
+    font-size: 14px;
+    color: var(--text-dim);
+    background: rgba(17, 24, 32, 0.8);
+    padding: 12px 24px;
+    border-radius: 8px;
+  }
+
+  .map-empty.hidden { display: none; }
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <h1>Flight Viewer</h1>
+    <p>Upload ADS-B CSV files to view tracks</p>
+  </div>
+
+  <div class="upload-zone" id="uploadZone">
+    <input type="file" id="fileInput" multiple accept=".csv">
+    <div class="upload-icon">✈</div>
+    <p>Drop CSV files here or <strong>browse</strong></p>
+  </div>
+
+  <div class="flight-list" id="flightList">
+    <div class="empty-state">
+      No flights loaded yet.<br>
+      Upload CSV files from ads-b.py to get started.
+    </div>
+  </div>
+</div>
+
+<div class="map-container">
+  <div id="map"></div>
+  <div class="map-empty" id="mapEmpty">
+    <p>Select a flight to view its track</p>
+  </div>
+  <div class="flight-info" id="flightInfo">
+    <h3 id="infoTail"></h3>
+    <div class="stat"><span class="label">Date</span><span class="value" id="infoDate"></span></div>
+    <div class="stat"><span class="label">Duration</span><span class="value" id="infoDuration"></span></div>
+    <div class="stat"><span class="label">Max Alt</span><span class="value" id="infoMaxAlt"></span></div>
+    <div class="stat"><span class="label">Points</span><span class="value" id="infoPoints"></span></div>
+    <div class="stat"><span class="label">Pilot</span><span class="value" id="infoPilot"></span></div>
+  </div>
+  <div class="legend" id="legend">
+    <div class="title">Altitude (ft)</div>
+    <div class="gradient-bar" id="gradientBar"></div>
+    <div class="labels">
+      <span id="legendMin">0</span>
+      <span id="legendMax">0</span>
+    </div>
+  </div>
+</div>
+
+<script>
+const flights = [];
+let activeFlight = null;
+let mapLayers = [];
+
+// ── Map setup ──
+const map = L.map('map', {
+  center: [41.9, -87.9],
+  zoom: 11,
+  zoomControl: true,
+});
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
+}).addTo(map);
+
+// ── Color scale ──
+function altColor(alt, minAlt, maxAlt) {
+  const range = maxAlt - minAlt || 1;
+  const t = Math.max(0, Math.min(1, (alt - minAlt) / range));
+  // Dark blue → cyan → green → yellow → red
+  const r = t < 0.5 ? 0 : Math.round(255 * (t - 0.5) * 2);
+  const g = t < 0.5 ? Math.round(255 * t * 2) : Math.round(255 * (1 - (t - 0.5) * 2));
+  const b = t < 0.5 ? Math.round(255 * (1 - t * 2)) : 0;
+  return `rgb(${r},${g},${b})`;
+}
+
+function makeGradient(minAlt, maxAlt) {
+  const stops = [];
+  for (let i = 0; i <= 10; i++) {
+    const t = i / 10;
+    const alt = minAlt + t * (maxAlt - minAlt);
+    stops.push(altColor(alt, minAlt, maxAlt));
+  }
+  return `linear-gradient(to right, ${stops.join(', ')})`;
+}
+
+// ── Parse filename ──
+// data-N236VA-20260207-1356to2122-george.csv
+function parseFilename(name) {
+  const base = name.replace(/\.csv$/i, '');
+  const parts = base.split('-');
+
+  let tail = '', dateStr = '', timeRange = '', pilot = '';
+
+  if (parts[0] === 'data' && parts.length >= 4) {
+    tail = parts[1];
+    dateStr = parts[2];
+    timeRange = parts[3];
+    pilot = parts.slice(4).join('-') || '';
+  } else {
+    tail = base;
+  }
+
+  let dateFormatted = dateStr;
+  if (dateStr.length === 8) {
+    dateFormatted = `${dateStr.slice(0,4)}-${dateStr.slice(4,6)}-${dateStr.slice(6,8)}`;
+  }
+
+  let timeFormatted = timeRange;
+  if (timeRange.includes('to')) {
+    const [s, e] = timeRange.split('to');
+    const fmt = t => t.length === 4 ? `${t.slice(0,2)}:${t.slice(2,4)}` : t;
+    timeFormatted = `${fmt(s)} → ${fmt(e)}`;
+  }
+
+  return { tail, date: dateFormatted, time: timeFormatted, pilot };
+}
+
+// ── Parse CSV ──
+function parseCSV(text) {
+  const lines = text.trim().split('\n');
+  const headers = lines[0].split(',').map(h => h.trim());
+  const rows = [];
+  for (let i = 1; i < lines.length; i++) {
+    const vals = lines[i].split(',');
+    if (vals.length !== headers.length) continue;
+    const row = {};
+    headers.forEach((h, j) => row[h] = vals[j].trim());
+    rows.push(row);
+  }
+  return { headers, rows };
+}
+
+// ── File handling ──
+function handleFiles(fileList) {
+  Array.from(fileList).forEach(file => {
+    if (!file.name.endsWith('.csv')) return;
+    // Skip duplicates
+    if (flights.some(f => f.filename === file.name)) return;
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const { headers, rows } = parseCSV(e.target.result);
+      const info = parseFilename(file.name);
+
+      const points = rows.map(r => ({
+        lat: parseFloat(r.latitude),
+        lon: parseFloat(r.longitude),
+        alt: parseFloat(r.altitude) || 0,
+        track: parseFloat(r.track) || 0,
+        onground: r.onground === 'True' || r.onground === 'true',
+        timestamp: r.timestamp || '',
+      })).filter(p => !isNaN(p.lat) && !isNaN(p.lon));
+
+      flights.push({
+        filename: file.name,
+        info,
+        points,
+        rows,
+      });
+
+      renderFlightList();
+    };
+    reader.readAsText(file);
+  });
+}
+
+// ── Render sidebar ──
+function renderFlightList() {
+  const list = document.getElementById('flightList');
+
+  if (flights.length === 0) {
+    list.innerHTML = '<div class="empty-state">No flights loaded yet.<br>Upload CSV files to get started.</div>';
+    return;
+  }
+
+  list.innerHTML = flights.map((f, i) => `
+    <div class="flight-card ${activeFlight === i ? 'active' : ''}" onclick="selectFlight(${i})">
+      <div class="tail">${f.info.tail}</div>
+      <div class="meta">
+        <span>📅 ${f.info.date}</span>
+        <span>🕐 ${f.info.time}</span>
+      </div>
+      <div class="points">${f.points.length.toLocaleString()} points</div>
+      ${f.info.pilot ? `<div class="name-tag">${f.info.pilot}</div>` : ''}
+    </div>
+  `).join('');
+}
+
+// ── Select and display flight ──
+function selectFlight(index) {
+  activeFlight = index;
+  renderFlightList();
+
+  const flight = flights[index];
+  const pts = flight.points;
+
+  // Clear old layers
+  mapLayers.forEach(l => map.removeLayer(l));
+  mapLayers = [];
+
+  document.getElementById('mapEmpty').classList.add('hidden');
+
+  if (pts.length === 0) return;
+
+  // Altitude range (in meters, display in feet)
+  const alts = pts.map(p => p.alt);
+  const minAlt = Math.min(...alts);
+  const maxAlt = Math.max(...alts);
+  const minFt = Math.round(minAlt * 3.28084);
+  const maxFt = Math.round(maxAlt * 3.28084);
+
+  // Draw colored line segments
+  for (let i = 0; i < pts.length - 1; i++) {
+    const a = pts[i], b = pts[i + 1];
+    const color = altColor(a.alt, minAlt, maxAlt);
+    const line = L.polyline(
+      [[a.lat, a.lon], [b.lat, b.lon]],
+      { color, weight: 3, opacity: 0.85 }
+    ).addTo(map);
+    mapLayers.push(line);
+  }
+
+  // Start marker
+  const startMarker = L.circleMarker([pts[0].lat, pts[0].lon], {
+    radius: 8, fillColor: '#34d399', fillOpacity: 1,
+    color: '#000', weight: 2,
+  }).addTo(map).bindTooltip('Start', { permanent: false });
+  mapLayers.push(startMarker);
+
+  // End marker
+  const endMarker = L.circleMarker([pts[pts.length-1].lat, pts[pts.length-1].lon], {
+    radius: 8, fillColor: '#f87171', fillOpacity: 1,
+    color: '#000', weight: 2,
+  }).addTo(map).bindTooltip('End', { permanent: false });
+  mapLayers.push(endMarker);
+
+  // Fit bounds
+  const lats = pts.map(p => p.lat);
+  const lons = pts.map(p => p.lon);
+  map.fitBounds([
+    [Math.min(...lats) - 0.01, Math.min(...lons) - 0.01],
+    [Math.max(...lats) + 0.01, Math.max(...lons) + 0.01],
+  ]);
+
+  // Info panel
+  document.getElementById('flightInfo').classList.add('visible');
+  document.getElementById('infoTail').textContent = flight.info.tail;
+  document.getElementById('infoDate').textContent = flight.info.date;
+  document.getElementById('infoPoints').textContent = pts.length.toLocaleString();
+  document.getElementById('infoMaxAlt').textContent = `${maxFt.toLocaleString()} ft`;
+  document.getElementById('infoPilot').textContent = flight.info.pilot || '—';
+
+  // Duration
+  if (pts[0].timestamp && pts[pts.length-1].timestamp) {
+    const start = new Date(pts[0].timestamp);
+    const end = new Date(pts[pts.length-1].timestamp);
+    const mins = Math.round((end - start) / 60000);
+    const h = Math.floor(mins / 60);
+    const m = mins % 60;
+    document.getElementById('infoDuration').textContent = h > 0 ? `${h}h ${m}m` : `${m}m`;
+  } else {
+    document.getElementById('infoDuration').textContent = '—';
+  }
+
+  // Legend
+  const legend = document.getElementById('legend');
+  legend.classList.add('visible');
+  document.getElementById('gradientBar').style.background = makeGradient(minAlt, maxAlt);
+  document.getElementById('legendMin').textContent = `${minFt.toLocaleString()}`;
+  document.getElementById('legendMax').textContent = `${maxFt.toLocaleString()}`;
+}
+
+// ── Event listeners ──
+const uploadZone = document.getElementById('uploadZone');
+const fileInput = document.getElementById('fileInput');
+
+fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
+
+uploadZone.addEventListener('dragover', (e) => {
+  e.preventDefault();
+  uploadZone.classList.add('dragover');
+});
+
+uploadZone.addEventListener('dragleave', () => {
+  uploadZone.classList.remove('dragover');
+});
+
+uploadZone.addEventListener('drop', (e) => {
+  e.preventDefault();
+  uploadZone.classList.remove('dragover');
+  handleFiles(e.dataTransfer.files);
+});
+</script>
+</body>
+</html>
