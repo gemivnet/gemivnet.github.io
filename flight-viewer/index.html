@@ -34,7 +34,6 @@
     display: flex;
   }
 
-  /* ── Sidebar ── */
   .sidebar {
     width: 320px;
     min-width: 320px;
@@ -65,7 +64,30 @@
     color: var(--text-dim);
   }
 
-  /* ── Upload zone ── */
+  .toolbar {
+    display: flex;
+    gap: 8px;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .toolbar button {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    background: var(--panel-hover);
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .toolbar button:hover {
+    color: var(--text);
+    border-color: var(--accent);
+  }
+
   .upload-zone {
     margin: 16px;
     padding: 24px 16px;
@@ -89,23 +111,10 @@
     cursor: pointer;
   }
 
-  .upload-icon {
-    font-size: 28px;
-    margin-bottom: 8px;
-    opacity: 0.5;
-  }
+  .upload-icon { font-size: 28px; margin-bottom: 8px; opacity: 0.5; }
+  .upload-zone p { font-size: 13px; color: var(--text-dim); line-height: 1.5; }
+  .upload-zone p strong { color: var(--accent); }
 
-  .upload-zone p {
-    font-size: 13px;
-    color: var(--text-dim);
-    line-height: 1.5;
-  }
-
-  .upload-zone p strong {
-    color: var(--accent);
-  }
-
-  /* ── Flight list ── */
   .flight-list {
     flex: 1;
     overflow-y: auto;
@@ -123,16 +132,28 @@
     transition: all 0.15s;
     margin-bottom: 4px;
     border: 1px solid transparent;
+    position: relative;
   }
 
-  .flight-card:hover {
-    background: var(--panel-hover);
-  }
+  .flight-card:hover { background: var(--panel-hover); }
 
   .flight-card.active {
-    background: var(--accent-dim);
-    border-color: var(--accent);
+    border-color: var(--flight-color, var(--accent));
+    background: color-mix(in srgb, var(--flight-color, var(--accent)) 10%, transparent);
   }
+
+  .flight-card .color-pip {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+    vertical-align: middle;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+
+  .flight-card.active .color-pip { opacity: 1; }
 
   .flight-card .tail {
     font-family: 'DM Mono', monospace;
@@ -140,6 +161,14 @@
     font-weight: 500;
     color: #fff;
     margin-bottom: 4px;
+  }
+
+  .flight-card .route {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
   }
 
   .flight-card .meta {
@@ -201,18 +230,9 @@
     line-height: 1.6;
   }
 
-  /* ── Map ── */
-  .map-container {
-    flex: 1;
-    position: relative;
-  }
+  .map-container { flex: 1; position: relative; }
+  #map { width: 100%; height: 100%; }
 
-  #map {
-    width: 100%;
-    height: 100%;
-  }
-
-  /* Dark map tiles */
   .leaflet-tile-pane { filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(1.1) saturate(0.3); }
   .leaflet-control-zoom a {
     background: var(--panel) !important;
@@ -221,7 +241,6 @@
   }
   .leaflet-control-attribution { display: none; }
 
-  /* ── Info overlay ── */
   .flight-info {
     position: absolute;
     top: 16px;
@@ -232,32 +251,53 @@
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 16px 20px;
-    min-width: 200px;
+    min-width: 220px;
+    max-width: 280px;
     display: none;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
   }
 
   .flight-info.visible { display: block; }
+  .flight-info::-webkit-scrollbar { width: 3px; }
+  .flight-info::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
-  .flight-info h3 {
-    font-family: 'DM Mono', monospace;
-    font-size: 16px;
-    color: #fff;
-    margin-bottom: 10px;
-  }
-
-  .flight-info .stat {
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    padding: 4px 0;
+  .info-block {
+    margin-bottom: 14px;
+    padding-bottom: 10px;
     border-bottom: 1px solid var(--border);
   }
 
-  .flight-info .stat:last-child { border: none; }
-  .flight-info .stat .label { color: var(--text-dim); }
-  .flight-info .stat .value { font-family: 'DM Mono', monospace; color: var(--text); }
+  .info-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
 
-  /* ── Legend ── */
+  .info-block h3 {
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .info-block h3 .pip {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  .info-block .stat {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    padding: 3px 0;
+  }
+
+  .info-block .stat .label { color: var(--text-dim); }
+  .info-block .stat .value { font-family: 'DM Mono', monospace; color: var(--text); }
+
   .legend {
     position: absolute;
     bottom: 24px;
@@ -296,7 +336,22 @@
     color: var(--text-dim);
   }
 
-  /* ── No flight selected state ── */
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    padding: 3px 0;
+  }
+
+  .legend-item .swatch {
+    width: 20px;
+    height: 4px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
   .map-empty {
     position: absolute;
     inset: 0;
@@ -316,6 +371,19 @@
   }
 
   .map-empty.hidden { display: none; }
+
+  .airport-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: #fff;
+    background: rgba(17, 24, 32, 0.85);
+    border: 1px solid var(--border);
+    padding: 2px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
+    backdrop-filter: blur(4px);
+  }
 </style>
 </head>
 <body>
@@ -323,19 +391,24 @@
 <div class="sidebar">
   <div class="sidebar-header">
     <h1>Flight Viewer</h1>
-    <p>Upload ADS-B CSV files to view tracks</p>
+    <p>Upload FlightAware KML files to view tracks</p>
+  </div>
+
+  <div class="toolbar" id="toolbar" style="display:none">
+    <button onclick="selectAll()">Select All</button>
+    <button onclick="deselectAll()">Deselect All</button>
   </div>
 
   <div class="upload-zone" id="uploadZone">
-    <input type="file" id="fileInput" multiple accept=".csv">
+    <input type="file" id="fileInput" multiple accept=".kml">
     <div class="upload-icon">✈</div>
-    <p>Drop CSV files here or <strong>browse</strong></p>
+    <p>Drop KML files here or <strong>browse</strong></p>
   </div>
 
   <div class="flight-list" id="flightList">
     <div class="empty-state">
       No flights loaded yet.<br>
-      Upload CSV files from ads-b.py to get started.
+      Upload KML files from FlightAware to get started.
     </div>
   </div>
 </div>
@@ -345,344 +418,359 @@
   <div class="map-empty" id="mapEmpty">
     <p>Select a flight to view its track</p>
   </div>
-  <div class="flight-info" id="flightInfo">
-    <h3 id="infoTail"></h3>
-    <div class="stat"><span class="label">Date</span><span class="value" id="infoDate"></span></div>
-    <div class="stat"><span class="label">Duration</span><span class="value" id="infoDuration"></span></div>
-    <div class="stat"><span class="label">Max Alt</span><span class="value" id="infoMaxAlt"></span></div>
-    <div class="stat"><span class="label">Points</span><span class="value" id="infoPoints"></span></div>
-    <div class="stat"><span class="label">Pilot</span><span class="value" id="infoPilot"></span></div>
-  </div>
-  <div class="legend" id="legend">
-    <div class="title">Altitude (ft)</div>
-    <div class="gradient-bar" id="gradientBar"></div>
-    <div class="labels">
-      <span id="legendMin">0</span>
-      <span id="legendMax">0</span>
-    </div>
-  </div>
+  <div class="flight-info" id="flightInfo"></div>
+  <div class="legend" id="legend"></div>
 </div>
 
 <script>
 const flights = [];
-let activeFlight = null;
+const activeFlights = new Set();
 let mapLayers = [];
 
-// ── Map setup ──
-const map = L.map('map', {
-  center: [41.9, -87.9],
-  zoom: 11,
-  zoomControl: true,
-});
+const FLIGHT_COLORS = [
+  '#3b9eff', '#34d399', '#fb923c', '#f87171', '#a78bfa',
+  '#facc15', '#22d3ee', '#f472b6', '#4ade80', '#e879f9',
+];
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19,
-}).addTo(map);
+function flightColor(index) {
+  return FLIGHT_COLORS[index % FLIGHT_COLORS.length];
+}
 
-// ── Color scale ──
-function altColor(alt, minAlt, maxAlt) {
+const map = L.map('map', { center: [41.9, -87.9], zoom: 11, zoomControl: true });
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+
+// ── Color helpers ──
+function altColorRainbow(alt, minAlt, maxAlt) {
   const range = maxAlt - minAlt || 1;
   const t = Math.max(0, Math.min(1, (alt - minAlt) / range));
-  // Dark blue → cyan → green → yellow → red
   const r = t < 0.5 ? 0 : Math.round(255 * (t - 0.5) * 2);
   const g = t < 0.5 ? Math.round(255 * t * 2) : Math.round(255 * (1 - (t - 0.5) * 2));
   const b = t < 0.5 ? Math.round(255 * (1 - t * 2)) : 0;
   return `rgb(${r},${g},${b})`;
 }
 
+function altColorTinted(alt, minAlt, maxAlt, baseColor) {
+  const hex = baseColor.replace('#', '');
+  const br = parseInt(hex.substring(0, 2), 16);
+  const bg = parseInt(hex.substring(2, 4), 16);
+  const bb = parseInt(hex.substring(4, 6), 16);
+  const range = maxAlt - minAlt || 1;
+  const t = Math.max(0, Math.min(1, (alt - minAlt) / range));
+  const factor = 0.4 + t * 0.6;
+  return `rgb(${Math.round(br * factor)},${Math.round(bg * factor)},${Math.round(bb * factor)})`;
+}
+
 function makeGradient(minAlt, maxAlt) {
   const stops = [];
   for (let i = 0; i <= 10; i++) {
     const t = i / 10;
-    const alt = minAlt + t * (maxAlt - minAlt);
-    stops.push(altColor(alt, minAlt, maxAlt));
+    stops.push(altColorRainbow(minAlt + t * (maxAlt - minAlt), minAlt, maxAlt));
   }
   return `linear-gradient(to right, ${stops.join(', ')})`;
 }
 
 // ── Parse filename ──
-// data-N236VA-20260207-1356to2122-george.csv
 function parseFilename(name) {
-  const base = name.replace(/\.csv$/i, '');
+  const base = name.replace(/\.kml$/i, '');
   const parts = base.split('-');
-
-  let tail = '', dateStr = '', timeRange = '', pilot = '';
-
-  if (parts[0] === 'data' && parts.length >= 4) {
-    tail = parts[1];
-    dateStr = parts[2];
-    timeRange = parts[3];
-    pilot = parts.slice(4).join('-') || '';
+  let date = '', tail = '', pilot = '', routeParts = [];
+  if (parts.length >= 5 && parts[0].length === 4) {
+    date = `${parts[0]}-${parts[1]}-${parts[2]}`;
+    tail = parts[3];
+    pilot = parts[4];
+    routeParts = parts.slice(5);
   } else {
     tail = base;
   }
-
-  let dateFormatted = dateStr;
-  if (dateStr.length === 8) {
-    dateFormatted = `${dateStr.slice(0,4)}-${dateStr.slice(4,6)}-${dateStr.slice(6,8)}`;
-  }
-
-  let timeFormatted = timeRange;
-  if (timeRange.includes('to')) {
-    const [s, e] = timeRange.split('to');
-    const fmt = t => t.length === 4 ? `${t.slice(0,2)}:${t.slice(2,4)}` : t;
-    timeFormatted = `${fmt(s)} → ${fmt(e)}`;
-  }
-
-  return { tail, date: dateFormatted, time: timeFormatted, pilot };
+  return { tail, date, pilot, route: routeParts.length > 0 ? routeParts.join(' → ') : '' };
 }
 
-// ── Parse CSV ──
-function parseCSV(text) {
-  const lines = text.trim().split('\n');
-  const headers = lines[0].split(',').map(h => h.trim());
-  const rows = [];
-  for (let i = 1; i < lines.length; i++) {
-    const vals = lines[i].split(',');
-    if (vals.length !== headers.length) continue;
-    const row = {};
-    headers.forEach((h, j) => row[h] = vals[j].trim());
-    rows.push(row);
+// ── Parse KML ──
+function parseKML(text) {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(text, 'text/xml');
+  const ns = 'http://www.opengis.net/kml/2.2';
+  const gxNs = 'http://www.google.com/kml/ext/2.2';
+  const docName = doc.querySelector('Document > n')?.textContent || '';
+
+  const airports = [];
+  for (const pm of doc.getElementsByTagNameNS(ns, 'Placemark')) {
+    const point = pm.getElementsByTagNameNS(ns, 'Point')[0];
+    if (point) {
+      const nameEl = pm.querySelector('n');
+      const coordsEl = point.getElementsByTagNameNS(ns, 'coordinates')[0];
+      if (nameEl && coordsEl) {
+        const [lon, lat] = coordsEl.textContent.trim().split(',').map(Number);
+        airports.push({ name: nameEl.textContent.trim(), lat, lon });
+      }
+    }
   }
-  return { headers, rows };
+
+  const legs = [];
+  for (const track of doc.getElementsByTagNameNS(gxNs, 'Track')) {
+    const whens = track.getElementsByTagNameNS(ns, 'when');
+    const coords = track.getElementsByTagNameNS(gxNs, 'coord');
+    let legRoute = '';
+    let parent = track.parentElement;
+    while (parent && parent.tagName !== 'Placemark') parent = parent.parentElement;
+    if (parent) {
+      const desc = parent.querySelector('description');
+      if (desc) legRoute = desc.textContent.trim();
+    }
+    const points = [];
+    for (let i = 0; i < Math.min(whens.length, coords.length); i++) {
+      const ts = whens[i].textContent.trim();
+      const [lon, lat, alt] = coords[i].textContent.trim().split(/\s+/).map(Number);
+      if (!isNaN(lat) && !isNaN(lon)) points.push({ lat, lon, alt: alt || 0, timestamp: ts });
+    }
+    if (points.length > 0) legs.push({ route: legRoute, points });
+  }
+
+  const seen = new Set();
+  const uniqueAirports = airports.filter(a => { if (seen.has(a.name)) return false; seen.add(a.name); return true; });
+  return { docName, airports: uniqueAirports, legs };
 }
 
-// ── IndexedDB cache ──
+// ── IndexedDB ──
 const DB_NAME = 'flightViewerDB';
-const DB_VERSION = 1;
+const DB_VERSION = 2;
 const STORE_NAME = 'flights';
 
 function openDB() {
   return new Promise((resolve, reject) => {
     const req = indexedDB.open(DB_NAME, DB_VERSION);
     req.onupgradeneeded = () => {
-      req.result.createObjectStore(STORE_NAME, { keyPath: 'filename' });
+      const db = req.result;
+      if (!db.objectStoreNames.contains(STORE_NAME)) db.createObjectStore(STORE_NAME, { keyPath: 'filename' });
     };
     req.onsuccess = () => resolve(req.result);
     req.onerror = () => reject(req.error);
   });
 }
 
-async function cacheFlight(filename, csvText) {
-  const db = await openDB();
-  const tx = db.transaction(STORE_NAME, 'readwrite');
-  tx.objectStore(STORE_NAME).put({ filename, csvText });
-}
-
-async function removeCachedFlight(filename) {
-  const db = await openDB();
-  const tx = db.transaction(STORE_NAME, 'readwrite');
-  tx.objectStore(STORE_NAME).delete(filename);
-}
-
+async function cacheFlight(fn, kmlText) { const db = await openDB(); db.transaction(STORE_NAME, 'readwrite').objectStore(STORE_NAME).put({ filename: fn, kmlText }); }
+async function removeCachedFlight(fn) { const db = await openDB(); db.transaction(STORE_NAME, 'readwrite').objectStore(STORE_NAME).delete(fn); }
 async function loadCachedFlights() {
   const db = await openDB();
-  return new Promise((resolve, reject) => {
-    const tx = db.transaction(STORE_NAME, 'readonly');
-    const req = tx.objectStore(STORE_NAME).getAll();
-    req.onsuccess = () => resolve(req.result);
-    req.onerror = () => reject(req.error);
-  });
+  return new Promise((res, rej) => { const r = db.transaction(STORE_NAME, 'readonly').objectStore(STORE_NAME).getAll(); r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error); });
 }
 
-// ── Process CSV into a flight object ──
-function addFlight(filename, csvText) {
+function addFlight(filename, kmlText) {
   if (flights.some(f => f.filename === filename)) return;
-
-  const { headers, rows } = parseCSV(csvText);
+  const { docName, airports, legs } = parseKML(kmlText);
   const info = parseFilename(filename);
-
-  const points = rows.map(r => ({
-    lat: parseFloat(r.latitude),
-    lon: parseFloat(r.longitude),
-    alt: parseFloat(r.altitude) || 0,
-    track: parseFloat(r.track) || 0,
-    onground: r.onground === 'True' || r.onground === 'true',
-    timestamp: r.timestamp || '',
-  })).filter(p => !isNaN(p.lat) && !isNaN(p.lon));
-
-  flights.push({ filename, info, points, rows });
+  if (!info.tail && docName) { const m = docName.match(/[A-Z]\d{1,5}[A-Z]{0,2}/); if (m) info.tail = m[0]; }
+  flights.push({ filename, info, legs, airports, allPoints: legs.flatMap(l => l.points) });
 }
 
-// ── File handling ──
 function handleFiles(fileList) {
   Array.from(fileList).forEach(file => {
-    if (!file.name.endsWith('.csv')) return;
-    if (flights.some(f => f.filename === file.name)) return;
-
+    if (!file.name.toLowerCase().endsWith('.kml') || flights.some(f => f.filename === file.name)) return;
     const reader = new FileReader();
-    reader.onload = async (e) => {
-      const csvText = e.target.result;
-      addFlight(file.name, csvText);
-      await cacheFlight(file.name, csvText);
-      renderFlightList();
-    };
+    reader.onload = async (e) => { addFlight(file.name, e.target.result); await cacheFlight(file.name, e.target.result); renderFlightList(); };
     reader.readAsText(file);
   });
 }
 
 async function deleteFlight(index, event) {
   event.stopPropagation();
-  const flight = flights[index];
-  await removeCachedFlight(flight.filename);
+  await removeCachedFlight(flights[index].filename);
+  const newActive = new Set();
+  for (const idx of activeFlights) { if (idx === index) continue; newActive.add(idx > index ? idx - 1 : idx); }
+  activeFlights.clear();
+  for (const idx of newActive) activeFlights.add(idx);
   flights.splice(index, 1);
-  if (activeFlight === index) {
-    activeFlight = null;
-    mapLayers.forEach(l => map.removeLayer(l));
-    mapLayers = [];
-    document.getElementById('flightInfo').classList.remove('visible');
-    document.getElementById('legend').classList.remove('visible');
-    document.getElementById('mapEmpty').classList.remove('hidden');
-  } else if (activeFlight > index) {
-    activeFlight--;
-  }
   renderFlightList();
+  renderMap();
 }
 
-// ── Load cached flights on startup ──
 (async () => {
   try {
     const cached = await loadCachedFlights();
-    cached.forEach(({ filename, csvText }) => addFlight(filename, csvText));
+    cached.forEach(({ filename, kmlText }) => addFlight(filename, kmlText));
     renderFlightList();
-    if (flights.length > 0) {
-      document.getElementById('mapEmpty').querySelector('p').textContent = 
-        `${flights.length} flight${flights.length > 1 ? 's' : ''} loaded — select one to view`;
-    }
-  } catch (e) {
-    console.warn('Could not load cached flights:', e);
-  }
-})()
+    if (flights.length > 0) document.getElementById('mapEmpty').querySelector('p').textContent = `${flights.length} flight${flights.length > 1 ? 's' : ''} loaded — click to toggle`;
+  } catch (e) { console.warn('Could not load cached flights:', e); }
+})();
 
-// ── Render sidebar ──
+function computeDuration(flight) {
+  const pts = flight.allPoints;
+  if (pts.length < 2 || !pts[0].timestamp || !pts[pts.length - 1].timestamp) return '—';
+  const mins = Math.round((new Date(pts[pts.length - 1].timestamp) - new Date(pts[0].timestamp)) / 60000);
+  const h = Math.floor(mins / 60), m = mins % 60;
+  return h > 0 ? `${h}h ${m}m` : `${m}m`;
+}
+
+// ── Selection ──
+function toggleFlight(index) {
+  if (activeFlights.has(index)) activeFlights.delete(index); else activeFlights.add(index);
+  renderFlightList();
+  renderMap();
+}
+
+function selectAll() { flights.forEach((_, i) => activeFlights.add(i)); renderFlightList(); renderMap(); }
+function deselectAll() { activeFlights.clear(); renderFlightList(); renderMap(); }
+
+// ── Sidebar ──
 function renderFlightList() {
   const list = document.getElementById('flightList');
+  document.getElementById('toolbar').style.display = flights.length > 1 ? 'flex' : 'none';
 
   if (flights.length === 0) {
-    list.innerHTML = '<div class="empty-state">No flights loaded yet.<br>Upload CSV files to get started.</div>';
+    list.innerHTML = '<div class="empty-state">No flights loaded yet.<br>Upload KML files to get started.</div>';
     return;
   }
 
-  list.innerHTML = flights.map((f, i) => `
-    <div class="flight-card ${activeFlight === i ? 'active' : ''}" onclick="selectFlight(${i})">
+  list.innerHTML = flights.map((f, i) => {
+    const legRoutes = f.legs.map(l => l.route).filter(Boolean);
+    const routeDisplay = f.info.route || legRoutes.join(', ') || '—';
+    const color = flightColor(i);
+    const isActive = activeFlights.has(i);
+    return `
+    <div class="flight-card ${isActive ? 'active' : ''}" style="--flight-color: ${color}" onclick="toggleFlight(${i})">
       <div style="display:flex;justify-content:space-between;align-items:start">
-        <div class="tail">${f.info.tail}</div>
+        <div class="tail"><span class="color-pip" style="background:${color}"></span>${f.info.tail || 'Unknown'}</div>
         <button class="delete-btn" onclick="deleteFlight(${i}, event)" title="Remove flight">✕</button>
       </div>
+      ${routeDisplay !== '—' ? `<div class="route">${routeDisplay}</div>` : ''}
       <div class="meta">
-        <span>📅 ${f.info.date}</span>
-        <span>🕐 ${f.info.time}</span>
+        <span>📅 ${f.info.date || '—'}</span>
+        <span>🕐 ${computeDuration(f)}</span>
+        ${f.legs.length > 1 ? `<span>🦵 ${f.legs.length} legs</span>` : ''}
       </div>
-      <div class="points">${f.points.length.toLocaleString()} points</div>
+      <div class="points">${f.allPoints.length.toLocaleString()} points</div>
       ${f.info.pilot ? `<div class="name-tag">${f.info.pilot}</div>` : ''}
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
 }
 
-// ── Select and display flight ──
-function selectFlight(index) {
-  activeFlight = index;
-  renderFlightList();
-
-  const flight = flights[index];
-  const pts = flight.points;
-
-  // Clear old layers
+// ── Map rendering ──
+function renderMap() {
   mapLayers.forEach(l => map.removeLayer(l));
   mapLayers = [];
 
+  const infoPanel = document.getElementById('flightInfo');
+  const legendPanel = document.getElementById('legend');
+
+  if (activeFlights.size === 0) {
+    document.getElementById('mapEmpty').classList.remove('hidden');
+    infoPanel.classList.remove('visible');
+    legendPanel.classList.remove('visible');
+    return;
+  }
+
   document.getElementById('mapEmpty').classList.add('hidden');
 
-  if (pts.length === 0) return;
+  const isSingle = activeFlights.size === 1;
+  const allLats = [], allLons = [];
+  const drawnAirports = new Set();
 
-  // Altitude range (in meters, display in feet)
-  const alts = pts.map(p => p.alt);
-  const minAlt = Math.min(...alts);
-  const maxAlt = Math.max(...alts);
-  const minFt = Math.round(minAlt * 3.28084);
-  const maxFt = Math.round(maxAlt * 3.28084);
-
-  // Draw colored line segments
-  for (let i = 0; i < pts.length - 1; i++) {
-    const a = pts[i], b = pts[i + 1];
-    const color = altColor(a.alt, minAlt, maxAlt);
-    const line = L.polyline(
-      [[a.lat, a.lon], [b.lat, b.lon]],
-      { color, weight: 3, opacity: 0.85 }
-    ).addTo(map);
-    mapLayers.push(line);
+  // Global alt range for single-flight rainbow
+  let gMinAlt = Infinity, gMaxAlt = -Infinity;
+  if (isSingle) {
+    const pts = flights[[...activeFlights][0]].allPoints;
+    for (const p of pts) { if (p.alt < gMinAlt) gMinAlt = p.alt; if (p.alt > gMaxAlt) gMaxAlt = p.alt; }
   }
 
-  // Start marker
-  const startMarker = L.circleMarker([pts[0].lat, pts[0].lon], {
-    radius: 8, fillColor: '#34d399', fillOpacity: 1,
-    color: '#000', weight: 2,
-  }).addTo(map).bindTooltip('Start', { permanent: false });
-  mapLayers.push(startMarker);
+  for (const idx of activeFlights) {
+    const flight = flights[idx];
+    const pts = flight.allPoints;
+    const color = flightColor(idx);
+    if (pts.length === 0) continue;
 
-  // End marker
-  const endMarker = L.circleMarker([pts[pts.length-1].lat, pts[pts.length-1].lon], {
-    radius: 8, fillColor: '#f87171', fillOpacity: 1,
-    color: '#000', weight: 2,
-  }).addTo(map).bindTooltip('End', { permanent: false });
-  mapLayers.push(endMarker);
+    const alts = pts.map(p => p.alt);
+    const minAlt = Math.min(...alts), maxAlt = Math.max(...alts);
+
+    // Track lines
+    for (const leg of flight.legs) {
+      const lp = leg.points;
+      for (let i = 0; i < lp.length - 1; i++) {
+        const a = lp[i], b = lp[i + 1];
+        const segColor = isSingle ? altColorRainbow(a.alt, gMinAlt, gMaxAlt) : altColorTinted(a.alt, minAlt, maxAlt, color);
+        const line = L.polyline([[a.lat, a.lon], [b.lat, b.lon]], { color: segColor, weight: 3, opacity: 0.85 }).addTo(map);
+        mapLayers.push(line);
+      }
+    }
+
+    // Start / end markers
+    const sp = pts[0], ep = pts[pts.length - 1];
+    const sm = L.circleMarker([sp.lat, sp.lon], {
+      radius: isSingle ? 8 : 6, fillColor: isSingle ? '#34d399' : color, fillOpacity: 1, color: '#000', weight: 2,
+    }).addTo(map).bindTooltip(isSingle ? 'Start' : `${flight.info.tail} start`, { permanent: false });
+    mapLayers.push(sm);
+
+    const em = L.circleMarker([ep.lat, ep.lon], {
+      radius: isSingle ? 8 : 6, fillColor: isSingle ? '#f87171' : color, fillOpacity: isSingle ? 1 : 0.6, color: '#000', weight: 2,
+    }).addTo(map).bindTooltip(isSingle ? 'End' : `${flight.info.tail} end`, { permanent: false });
+    mapLayers.push(em);
+
+    // Airports
+    for (const apt of flight.airports) {
+      if (drawnAirports.has(apt.name)) continue;
+      drawnAirports.add(apt.name);
+      const icon = L.divIcon({ className: '', html: `<div class="airport-label">${apt.name}</div>`, iconSize: null, iconAnchor: [0, -12] });
+      mapLayers.push(L.marker([apt.lat, apt.lon], { icon, interactive: false }).addTo(map));
+      mapLayers.push(L.circleMarker([apt.lat, apt.lon], { radius: 4, fillColor: '#fff', fillOpacity: 0.7, color: '#1e2a36', weight: 1 }).addTo(map));
+    }
+
+    for (const p of pts) { allLats.push(p.lat); allLons.push(p.lon); }
+  }
 
   // Fit bounds
-  const lats = pts.map(p => p.lat);
-  const lons = pts.map(p => p.lon);
-  map.fitBounds([
-    [Math.min(...lats) - 0.01, Math.min(...lons) - 0.01],
-    [Math.max(...lats) + 0.01, Math.max(...lons) + 0.01],
-  ]);
-
-  // Info panel
-  document.getElementById('flightInfo').classList.add('visible');
-  document.getElementById('infoTail').textContent = flight.info.tail;
-  document.getElementById('infoDate').textContent = flight.info.date;
-  document.getElementById('infoPoints').textContent = pts.length.toLocaleString();
-  document.getElementById('infoMaxAlt').textContent = `${maxFt.toLocaleString()} ft`;
-  document.getElementById('infoPilot').textContent = flight.info.pilot || '—';
-
-  // Duration
-  if (pts[0].timestamp && pts[pts.length-1].timestamp) {
-    const start = new Date(pts[0].timestamp);
-    const end = new Date(pts[pts.length-1].timestamp);
-    const mins = Math.round((end - start) / 60000);
-    const h = Math.floor(mins / 60);
-    const m = mins % 60;
-    document.getElementById('infoDuration').textContent = h > 0 ? `${h}h ${m}m` : `${m}m`;
-  } else {
-    document.getElementById('infoDuration').textContent = '—';
+  if (allLats.length > 0) {
+    map.fitBounds([
+      [Math.min(...allLats) - 0.01, Math.min(...allLons) - 0.01],
+      [Math.max(...allLats) + 0.01, Math.max(...allLons) + 0.01],
+    ]);
   }
 
+  // Info panel
+  let infoHTML = '';
+  for (const idx of activeFlights) {
+    const f = flights[idx];
+    const color = flightColor(idx);
+    const maxFt = Math.round(Math.max(...f.allPoints.map(p => p.alt)) * 3.28084);
+    const legRoutes = f.legs.map(l => l.route).filter(Boolean);
+    const routeStr = f.info.route || legRoutes.join(' + ') || '—';
+    infoHTML += `
+      <div class="info-block">
+        <h3><span class="pip" style="background:${color}"></span>${f.info.tail || 'Unknown'}</h3>
+        <div class="stat"><span class="label">Route</span><span class="value">${routeStr}</span></div>
+        <div class="stat"><span class="label">Date</span><span class="value">${f.info.date || '—'}</span></div>
+        <div class="stat"><span class="label">Duration</span><span class="value">${computeDuration(f)}</span></div>
+        <div class="stat"><span class="label">Max Alt</span><span class="value">${maxFt.toLocaleString()} ft</span></div>
+        <div class="stat"><span class="label">Legs</span><span class="value">${f.legs.length}</span></div>
+        <div class="stat"><span class="label">Points</span><span class="value">${f.allPoints.length.toLocaleString()}</span></div>
+        ${f.info.pilot ? `<div class="stat"><span class="label">Pilot</span><span class="value">${f.info.pilot}</span></div>` : ''}
+      </div>`;
+  }
+  infoPanel.innerHTML = infoHTML;
+  infoPanel.classList.add('visible');
+
   // Legend
-  const legend = document.getElementById('legend');
-  legend.classList.add('visible');
-  document.getElementById('gradientBar').style.background = makeGradient(minAlt, maxAlt);
-  document.getElementById('legendMin').textContent = `${minFt.toLocaleString()}`;
-  document.getElementById('legendMax').textContent = `${maxFt.toLocaleString()}`;
+  if (isSingle) {
+    const minFt = Math.round(gMinAlt * 3.28084), maxFt = Math.round(gMaxAlt * 3.28084);
+    legendPanel.innerHTML = `
+      <div class="title">Altitude (ft)</div>
+      <div class="gradient-bar" style="background: ${makeGradient(gMinAlt, gMaxAlt)}"></div>
+      <div class="labels"><span>${minFt.toLocaleString()}</span><span>${maxFt.toLocaleString()}</span></div>`;
+  } else {
+    let html = '<div class="title">Flights</div>';
+    for (const idx of activeFlights) {
+      html += `<div class="legend-item"><span class="swatch" style="background:${flightColor(idx)}"></span>${flights[idx].info.tail || 'Unknown'}</div>`;
+    }
+    legendPanel.innerHTML = html;
+  }
+  legendPanel.classList.add('visible');
 }
 
-// ── Event listeners ──
+// ── Events ──
+document.getElementById('fileInput').addEventListener('change', (e) => handleFiles(e.target.files));
+
 const uploadZone = document.getElementById('uploadZone');
-const fileInput = document.getElementById('fileInput');
-
-fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
-
-uploadZone.addEventListener('dragover', (e) => {
-  e.preventDefault();
-  uploadZone.classList.add('dragover');
-});
-
-uploadZone.addEventListener('dragleave', () => {
-  uploadZone.classList.remove('dragover');
-});
-
-uploadZone.addEventListener('drop', (e) => {
-  e.preventDefault();
-  uploadZone.classList.remove('dragover');
-  handleFiles(e.dataTransfer.files);
-});
+uploadZone.addEventListener('dragover', (e) => { e.preventDefault(); uploadZone.classList.add('dragover'); });
+uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
+uploadZone.addEventListener('drop', (e) => { e.preventDefault(); uploadZone.classList.remove('dragover'); handleFiles(e.dataTransfer.files); });
 </script>
 </body>
 </html>
