@@ -384,6 +384,54 @@
     white-space: nowrap;
     backdrop-filter: blur(4px);
   }
+
+  /* ── Pilot stats footer ── */
+  .pilot-stats {
+    border-top: 1px solid var(--border);
+    padding: 12px 16px;
+    max-height: 200px;
+    overflow-y: auto;
+    flex-shrink: 0;
+  }
+
+  .pilot-stats::-webkit-scrollbar { width: 3px; }
+  .pilot-stats::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  .pilot-stats .section-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 10px;
+  }
+
+  .pilot-stat-block {
+    margin-bottom: 10px;
+  }
+
+  .pilot-stat-block:last-child { margin-bottom: 0; }
+
+  .pilot-stat-block .pilot-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--orange);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .pilot-stat-block .pilot-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    padding: 2px 0;
+  }
+
+  .pilot-stat-block .pilot-row .label { color: var(--text-dim); }
+  .pilot-stat-block .pilot-row .value { font-family: 'DM Mono', monospace; color: var(--text); }
 </style>
 </head>
 <body>
@@ -411,6 +459,8 @@
       Upload KML files from FlightAware to get started.
     </div>
   </div>
+
+  <div class="pilot-stats" id="pilotStats" style="display:none"></div>
 </div>
 
 <div class="map-container">
@@ -560,7 +610,11 @@ function addFlight(filename, kmlText) {
   const { docName, airports, legs } = parseKML(kmlText);
   const info = parseFilename(filename);
   if (!info.tail && docName) { const m = docName.match(/[A-Z]\d{1,5}[A-Z]{0,2}/); if (m) info.tail = m[0]; }
-  flights.push({ filename, info, legs, airports, allPoints: legs.flatMap(l => l.points) });
+  const allPoints = legs.flatMap(l => l.points).sort((a, b) => {
+    if (!a.timestamp || !b.timestamp) return 0;
+    return new Date(a.timestamp) - new Date(b.timestamp);
+  });
+  flights.push({ filename, info, legs, airports, allPoints });
 }
 
 function handleFiles(fileList) {
@@ -595,8 +649,9 @@ async function deleteFlight(index, event) {
 
 function computeDuration(flight) {
   const pts = flight.allPoints;
-  if (pts.length < 2 || !pts[0].timestamp || !pts[pts.length - 1].timestamp) return '—';
-  const mins = Math.round((new Date(pts[pts.length - 1].timestamp) - new Date(pts[0].timestamp)) / 60000);
+  const timestamps = pts.map(p => p.timestamp).filter(Boolean).map(t => new Date(t).getTime()).filter(t => !isNaN(t));
+  if (timestamps.length < 2) return '—';
+  const mins = Math.round((Math.max(...timestamps) - Math.min(...timestamps)) / 60000);
   const h = Math.floor(mins / 60), m = mins % 60;
   return h > 0 ? `${h}h ${m}m` : `${m}m`;
 }
@@ -642,6 +697,67 @@ function renderFlightList() {
       ${f.info.pilot ? `<div class="name-tag">${f.info.pilot}</div>` : ''}
     </div>`;
   }).join('');
+
+  renderPilotStats();
+}
+
+// ── Pilot stats (all uploaded flights, not just active) ──
+function renderPilotStats() {
+  const panel = document.getElementById('pilotStats');
+
+  if (flights.length === 0) { panel.style.display = 'none'; return; }
+
+  // Group by pilot
+  const byPilot = {};
+  for (const f of flights) {
+    const pilot = f.info.pilot || 'unknown';
+    if (!byPilot[pilot]) byPilot[pilot] = [];
+    byPilot[pilot].push(f);
+  }
+
+  let html = '<div class="section-title">Pilot Totals</div>';
+
+  for (const [pilot, pFlights] of Object.entries(byPilot).sort((a, b) => b[1].length - a[1].length)) {
+    // Total duration in minutes
+    let totalMins = 0;
+    let totalPoints = 0;
+    let totalLegs = 0;
+    let maxAltFt = 0;
+    const tails = new Set();
+    const airports = new Set();
+
+    for (const f of pFlights) {
+      const timestamps = f.allPoints.map(p => p.timestamp).filter(Boolean).map(t => new Date(t).getTime()).filter(t => !isNaN(t));
+      if (timestamps.length >= 2) {
+        totalMins += (Math.max(...timestamps) - Math.min(...timestamps)) / 60000;
+      }
+      totalPoints += f.allPoints.length;
+      totalLegs += f.legs.length;
+      tails.add(f.info.tail);
+      for (const a of f.airports) airports.add(a.name);
+      const alts = f.allPoints.map(p => p.alt);
+      const fMaxFt = Math.round(Math.max(...alts) * 3.28084);
+      if (fMaxFt > maxAltFt) maxAltFt = fMaxFt;
+    }
+
+    totalMins = Math.round(totalMins);
+    const h = Math.floor(totalMins / 60), m = totalMins % 60;
+    const durStr = h > 0 ? `${h}h ${m}m` : `${m}m`;
+
+    html += `
+      <div class="pilot-stat-block">
+        <div class="pilot-name">${pilot}</div>
+        <div class="pilot-row"><span class="label">Flights</span><span class="value">${pFlights.length}</span></div>
+        <div class="pilot-row"><span class="label">Total Time</span><span class="value">${durStr}</span></div>
+        <div class="pilot-row"><span class="label">Legs</span><span class="value">${totalLegs}</span></div>
+        <div class="pilot-row"><span class="label">Max Alt</span><span class="value">${maxAltFt.toLocaleString()} ft</span></div>
+        <div class="pilot-row"><span class="label">Aircraft</span><span class="value">${[...tails].join(', ')}</span></div>
+        <div class="pilot-row"><span class="label">Airports</span><span class="value">${[...airports].join(', ')}</span></div>
+      </div>`;
+  }
+
+  panel.innerHTML = html;
+  panel.style.display = 'block';
 }
 
 // ── Map rendering ──
