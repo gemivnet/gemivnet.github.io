@@ -1,18 +1,47 @@
 ---
-title: "The Worst Day on the Great Barrier Reef"
-subtitle: "10 foot seas, a sailboat, and a lot of regret"
+title: The Worst Day on the Great Barrier Reef
+subtitle: '10 foot seas, a sailboat, and a lot of regret'
 date: 2026-05-12
-tags: [travel, australia, snorkeling, sailing]
+tags:
+  - travel
+  - australia
+  - snorkeling
+  - sailing
 featured_image: media/green-island-from-boat.jpg
 gallery:
   path: australia/cairns/great-barrier-reef
   title: Great Barrier Reef
   subtitle: Photos from a rough day off Cairns.
-  location: "Cairns, QLD, Australia"
+  location: 'Cairns, QLD, Australia'
 draft: false
 seo:
-  description: "A first-person account of a catastrophic day snorkeling the Great Barrier Reef. 10 foot seas, seasickness, coral scrapes, and a two hour sail back that felt like ten."
-  keywords: [great barrier reef snorkeling, great barrier reef rough seas, sailing cairns, green island australia, great barrier reef experience]
+  description: >-
+    A first-person account of a catastrophic day snorkeling the Great Barrier
+    Reef. 10 foot seas, seasickness, coral scrapes, and a two hour sail back
+    that felt like ten.
+  keywords:
+    - great barrier reef snorkeling
+    - great barrier reef rough seas
+    - sailing cairns
+    - green island australia
+    - great barrier reef experience
+images:
+  boat-deck-gear.jpg:
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/australia/great-barrier-reef/boat-deck-gear.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/australia/great-barrier-reef/boat-deck-gear__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/australia/great-barrier-reef/boat-deck-gear__thumb.jpg
+    bytes: 437269
+  green-island-from-boat.jpg:
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/australia/great-barrier-reef/green-island-from-boat.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/australia/great-barrier-reef/green-island-from-boat__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/australia/great-barrier-reef/green-island-from-boat__thumb.jpg
+    bytes: 272807
 ---
 
 ![Green Island seen from the snorkeling mooring point. Looks calm. Looks are deceptive.](media/green-island-from-boat.jpg)

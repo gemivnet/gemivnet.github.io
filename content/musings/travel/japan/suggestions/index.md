@@ -1,13 +1,53 @@
 ---
-title: "Japan Suggestions"
-subtitle: "Stuff we did that we'd suggest if you have extra time"
+title: Japan Suggestions
+subtitle: Stuff we did that we'd suggest if you have extra time
 date: 2023-09-01
-tags: [travel, japan, food, kyoto, tokyo, kobe]
+tags:
+  - travel
+  - japan
+  - food
+  - kyoto
+  - tokyo
+  - kobe
 featured_image: media/kiyomizu-dera-view.jpg
 draft: false
 seo:
-  description: "Casual Japan travel suggestions from things we actually did. Cheap food spots, temples, cultural tips, and random finds across Tokyo, Kyoto, and Kobe."
-  keywords: [japan travel tips, japan food recommendations, kyoto things to do, kobe beef wakkoqu, japan first trip, tokyo station desserts]
+  description: >-
+    Casual Japan travel suggestions from things we actually did. Cheap food
+    spots, temples, cultural tips, and random finds across Tokyo, Kyoto, and
+    Kobe.
+  keywords:
+    - japan travel tips
+    - japan food recommendations
+    - kyoto things to do
+    - kobe beef wakkoqu
+    - japan first trip
+    - tokyo station desserts
+images:
+  kiyomizu-dera-view.jpg:
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/japan/suggestions/kiyomizu-dera-view.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/japan/suggestions/kiyomizu-dera-view__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/japan/suggestions/kiyomizu-dera-view__thumb.jpg
+    bytes: 640990
+  nunobiki-falls.jpg:
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/japan/suggestions/nunobiki-falls.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/japan/suggestions/nunobiki-falls__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/japan/suggestions/nunobiki-falls__thumb.jpg
+    bytes: 914310
+  vending-machine-mountain.jpg:
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/japan/suggestions/vending-machine-mountain.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/japan/suggestions/vending-machine-mountain__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/japan/suggestions/vending-machine-mountain__thumb.jpg
+    bytes: 771454
 ---
 
 ![Kyoto from Kiyomizu-dera.](media/kiyomizu-dera-view.jpg)
