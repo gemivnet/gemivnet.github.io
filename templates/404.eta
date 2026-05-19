@@ -1,0 +1,12 @@
+<section style="max-width: 720px; margin: var(--sp-7) auto; text-align: center;">
+  <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">
+    error · 404 · page not found
+  </div>
+  <h1 style="font-size: 64px; letter-spacing: -0.025em; line-height: 1.05;"><%= copy.not_found.heading %></h1>
+  <p style="margin-top: var(--sp-5); font-size: 19px; color: var(--ink-2);"><%= copy.not_found.paragraph %></p>
+  <div style="margin-top: var(--sp-6); display: flex; gap: var(--sp-3); justify-content: center; flex-wrap: wrap;">
+    <% copy.not_found.buttons.forEach(function(b){ %>
+      <a class="sp-btn" href="<%= b.href %>"><%= b.label %></a>
+    <% }) %>
+  </div>
+</section>

@@ -1,0 +1,23 @@
+<section style="max-width: 760px;">
+  <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">
+    ~/changelog · <%= site.version %>
+  </div>
+  <h1><%= copy.changelog.title %></h1>
+  <p style="margin-top: var(--sp-4); color: var(--ink-2); font-size: 18px;"><%= copy.changelog.intro %></p>
+</section>
+
+<section class="sp-section">
+  <% if (!copy.changelog.entries || copy.changelog.entries.length === 0) { %>
+    <div class="sp-empty"><span class="glyph">∅</span>no changelog entries yet. (current version: <%= site.version %>)</div>
+  <% } else { %>
+    <% copy.changelog.entries.forEach(function(e){ %>
+      <article class="sp-card">
+        <div class="sp-meta"><%= e.version %><br><%= e.date %></div>
+        <div>
+          <h3><%= e.title %></h3>
+          <p class="sp-preview"><%= e.body %></p>
+        </div>
+      </article>
+    <% }) %>
+  <% } %>
+</section>

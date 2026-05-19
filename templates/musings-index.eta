@@ -1,0 +1,58 @@
+<section style="margin-bottom: var(--sp-6);">
+  <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">
+    <%= copy.musings.index.breadcrumb %> · <%= posts.length %> posts
+  </div>
+  <h1><%= copy.musings.index.title %></h1>
+  <p style="margin-top: var(--sp-4); color: var(--ink-2); font-size: 18px; max-width: 640px;">
+    <%= copy.musings.index.intro %>
+  </p>
+</section>
+
+<div style="display: grid; grid-template-columns: 1fr 240px; gap: var(--sp-7); align-items: flex-start;">
+  <div>
+    <% if (posts.length === 0) { %>
+      <div class="sp-empty"><%= copy.empty.musings_index %></div>
+    <% } %>
+    <% posts.forEach(function(p){ %>
+      <article class="sp-card">
+        <div class="sp-meta">
+          <%= fmtDate(p.date).replace(/-/g, '·') %><br>
+          <%= p.wordCount.toLocaleString() %> w<br>
+          ~<%= p.readTime %> min
+        </div>
+        <div>
+          <h3><a href="<%= p.url %>"><%= p.title %></a></h3>
+          <% if (p.subtitle) { %><div class="sp-sub"><%= p.subtitle %></div><% } %>
+          <p class="sp-preview"><%= p.preview %></p>
+          <div class="sp-tags">
+            <% p.tags.forEach(function(t){ %><a class="sp-tag" href="/musings/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %>
+          </div>
+        </div>
+      </article>
+    <% }) %>
+  </div>
+  <aside>
+    <h4 style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: var(--sp-3);"><%= copy.musings.index.sidebar_categories %></h4>
+    <div class="sp-tree" style="margin-bottom: var(--sp-6);">
+      <% ;(function(){
+        var roots = {};
+        posts.forEach(function(p){
+          if (!p.category.length) return;
+          var top = p.category[0];
+          roots[top] = (roots[top]||0)+1;
+        });
+        Object.keys(roots).sort().forEach(function(k){ %>
+          <div><span class="glyph">├── </span><a href="/musings/<%= k %>"><%= k %></a><span class="count">  (<%= roots[k] %>)</span></div>
+      <% }); })() %>
+    </div>
+    <h4 style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: var(--sp-3);"><%= copy.musings.index.sidebar_tags %></h4>
+    <div>
+      <% ;(function(){
+        var tags = {};
+        posts.forEach(function(p){ p.tags.forEach(function(t){ tags[t] = (tags[t]||0)+1; }); });
+        Object.keys(tags).sort().forEach(function(t){ %>
+          <a class="sp-tag" href="/musings/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a>
+      <% }); })() %>
+    </div>
+  </aside>
+</div>

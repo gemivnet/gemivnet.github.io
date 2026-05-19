@@ -1,0 +1,79 @@
+/* georgemain.com — design tokens
+   All site styling pivots off these custom properties.
+   :root holds dark defaults; .site-page.light overrides them.
+   Only one palette (red) and one font pairing (IBM Plex) ship.
+*/
+
+:root {
+  /* ── palette: dark base ──────────────────────────────────── */
+  --bg:       #14110f;
+  --bg-2:     #1b1815;
+  --bg-3:     #24201b;
+  --ink:      #ece6d8;
+  --ink-2:    #a8a097;
+  --ink-3:    #6d665d;
+  --rule:     #2a2620;
+  --rule-2:   #3a342c;
+  --accent:   #e84a3f;
+  --accent-2: #ff8a7a;
+  --accent-3: #4a1812;
+  --selection: rgba(232,74,63,.32);
+
+  /* graph-paper grid (faint) */
+  --grid-color: rgba(232,227,216,.045);
+  --grid-size: 32px;
+
+  /* ── type ─ IBM Plex pairing ─────────────────────────────── */
+  --font-mono:  "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-body:  "IBM Plex Serif", Georgia, "Iowan Old Style", serif;
+
+  --fs-tiny:   11px;
+  --fs-small:  13px;
+  --fs-body:   16px;
+  --fs-lg:     19px;
+  --fs-xl:     24px;
+  --fs-2xl:    32px;
+  --fs-3xl:    44px;
+  --fs-mega:   64px;
+
+  --lh-tight: 1.15;
+  --lh-snug:  1.35;
+  --lh-body:  1.6;
+
+  /* ── spacing ─────────────────────────────────────────────── */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  24px;
+  --sp-6:  32px;
+  --sp-7:  48px;
+  --sp-8:  64px;
+  --sp-9:  96px;
+
+  /* ── layout ──────────────────────────────────────────────── */
+  --reading-width: 680px;
+  --content-width: 1080px;
+  --max-width:    1240px;
+  --page-gutter:  48px;
+
+  /* ── motion ──────────────────────────────────────────────── */
+  --ease: cubic-bezier(.2,.7,.3,1);
+}
+
+/* ── light mode (the shipped default) ───────────────────────── */
+.site-page.light,
+.light .site-page {
+  --bg:       #f4efe4;
+  --bg-2:     #ebe5d6;
+  --bg-3:     #e0d9c6;
+  --ink:      #1a1612;
+  --ink-2:    #5a534a;
+  --ink-3:    #8b8377;
+  --rule:     #cfc6b3;
+  --rule-2:   #b8ad97;
+  --accent:   #c2291a;
+  --accent-2: #931e10;
+  --accent-3: #f3cdc4;
+  --grid-color: rgba(26,22,18,.055);
+}
