@@ -379,6 +379,76 @@ async function renderHome(musings, mediaNodes) {
   await writeFile('index.html', html);
 }
 
+// Build a folder/post tree for the sidebar.
+// Returns an array of nodes: { type:'folder'|'post', name, url, path, children, post? }
+function buildMusingsTree(musings) {
+  const root = { type: 'folder', name: 'musings', url: '/musings', path: [], children: [] };
+  const folders = new Map(); // key -> node
+  folders.set('', root);
+
+  // Ensure all folder ancestors exist for each post.
+  for (const m of musings) {
+    let parentKey = '';
+    let parentNode = root;
+    for (let d = 0; d < m.category.length; d++) {
+      const segs = m.category.slice(0, d + 1);
+      const key = segs.join('/');
+      if (!folders.has(key)) {
+        const node = {
+          type: 'folder',
+          name: segs[segs.length - 1],
+          url: '/musings/' + key,
+          path: segs,
+          children: [],
+        };
+        folders.set(key, node);
+        parentNode.children.push(node);
+      }
+      parentKey = key;
+      parentNode = folders.get(key);
+    }
+    parentNode.children.push({
+      type: 'post',
+      name: m.slug,
+      url: m.url,
+      title: m.title,
+      post: m,
+    });
+  }
+
+  // Sort: folders first (alpha), then posts (newest first).
+  function sortNode(n) {
+    n.children.sort((a, b) => {
+      if (a.type !== b.type) return a.type === 'folder' ? -1 : 1;
+      if (a.type === 'folder') return a.name.localeCompare(b.name);
+      return b.post.date - a.post.date;
+    });
+    n.children.forEach((c) => c.type === 'folder' && sortNode(c));
+  }
+  sortNode(root);
+  return root;
+}
+
+// Render a folder/post tree to an HTML string for the sidebar.
+function renderTreeHtml(tree, activeUrl, activeCategory) {
+  function walk(node, depth, isLast) {
+    const pad = '   '.repeat(Math.max(0, depth - 1));
+    const glyph = depth === 0 ? '' : (isLast ? '└── ' : '├── ');
+    const name = node.type === 'folder' ? (depth === 0 ? 'musings/' : node.name + '/') : node.name;
+    const isActive = node.url === activeUrl;
+    const inActive = !isActive && activeCategory && node.type === 'folder' && depth > 0 && activeCategory.startsWith(node.path.join('/'));
+    const cls = isActive ? 'active' : (inActive ? 'in-active' : '');
+    let line = `<div><span class="glyph">${pad}${glyph}</span><a href="${node.url}" class="${cls}">${escapeHtml(name)}</a></div>`;
+    if (node.children) {
+      for (let i = 0; i < node.children.length; i++) {
+        line += walk(node.children[i], depth + 1, i === node.children.length - 1);
+      }
+    }
+    return line;
+  }
+  return walk(tree, 0, true);
+}
+
 // ── render: musings ───────────────────────────────────────────
 
 async function renderMusings(musings) {
@@ -397,7 +467,8 @@ async function renderMusings(musings) {
   collectLinks('/musings', indexHtml);
   await writeFile('musings/index.html', indexHtml);
 
-  // Per-post.
+  // Per-post — also pass a folder tree for the sidebar.
+  const tree = buildMusingsTree(musings);
   for (let i = 0; i < musings.length; i++) {
     const m = musings[i];
     const prev = musings[i + 1] || null;
@@ -416,6 +487,7 @@ async function renderMusings(musings) {
       post: m,
       prev,
       next,
+      treeHtml: renderTreeHtml(tree, m.url, m.category.join('/')),
       jsonLd: {
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
@@ -479,6 +551,7 @@ async function renderMusings(musings) {
       posts: directPosts,
       allDescendants,
       children,
+      treeHtml: renderTreeHtml(tree, url, key),
       randomPick: allDescendants[Math.floor((allDescendants.length || 1) / 2) % Math.max(allDescendants.length, 1)],
     });
     collectLinks(url, html);

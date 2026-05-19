@@ -1,45 +1,52 @@
-<div class="site-reading">
-  <header class="sp-post-header">
-    <div class="crumbs">
-      <a href="/">~</a> &nbsp;/&nbsp; <a href="/musings"><%= copy.musings.post.crumbs_root %></a>
-      <% post.category.forEach(function(c, idx){ %>
-        &nbsp;/&nbsp; <a href="/musings/<%= post.category.slice(0, idx+1).join('/') %>"><%= c %></a>
-      <% }) %>
-      &nbsp;/&nbsp; <span style="color: var(--ink-2);"><%= post.slug %></span>
-    </div>
-    <h1><%= post.title %></h1>
-    <% if (post.subtitle) { %><p class="subtitle"><%= post.subtitle %></p><% } %>
-    <div class="meta">
-      <span><%= fmtDate(post.date) %></span>
-      <span class="sep">·</span>
-      <span><%= post.wordCount.toLocaleString() %> words</span>
-      <span class="sep">·</span>
-      <span>~<%= post.readTime %> min read</span>
-      <% if (post.tags.length) { %>
+<div class="musings-layout">
+  <aside class="musings-tree" aria-label="Musings folder tree">
+    <div class="tree-head">browse</div>
+    <div class="sp-tree"><%~ treeHtml %></div>
+  </aside>
+
+  <div class="musings-main">
+    <header class="sp-post-header">
+      <div class="crumbs">
+        <a href="/">~</a> &nbsp;/&nbsp; <a href="/musings"><%= copy.musings.post.crumbs_root %></a>
+        <% post.category.forEach(function(c, idx){ %>
+          &nbsp;/&nbsp; <a href="/musings/<%= post.category.slice(0, idx+1).join('/') %>"><%= c %></a>
+        <% }) %>
+        &nbsp;/&nbsp; <span style="color: var(--ink-2);"><%= post.slug %></span>
+      </div>
+      <h1><%= post.title %></h1>
+      <% if (post.subtitle) { %><p class="subtitle"><%= post.subtitle %></p><% } %>
+      <div class="meta">
+        <span><%= fmtDate(post.date) %></span>
         <span class="sep">·</span>
-        <% post.tags.forEach(function(t){ %><a class="sp-tag" href="/musings/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %>
-      <% } %>
-    </div>
-  </header>
+        <span><%= post.wordCount.toLocaleString() %> words</span>
+        <span class="sep">·</span>
+        <span>~<%= post.readTime %> min read</span>
+        <% if (post.tags.length) { %>
+          <span class="sep">·</span>
+          <% post.tags.forEach(function(t){ %><a class="sp-tag" href="/musings/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %>
+        <% } %>
+      </div>
+    </header>
 
-  <article class="sp-prose">
-    <%~ post.bodyHtml %>
-  </article>
+    <article class="sp-prose">
+      <%~ post.bodyHtml %>
+    </article>
 
-  <nav class="sp-postnav" aria-label="Post navigation">
-    <div class="prev">
-      <span class="label"><%= copy.musings.post.prev_label %></span>
-      <% if (prev) { %><a href="<%= prev.url %>"><%= prev.title %></a>
-      <% } else { %><span style="color: var(--ink-3);"><%= copy.musings.post.oldest_note %></span><% } %>
-    </div>
-    <div class="next">
-      <span class="label"><%= copy.musings.post.next_label %></span>
-      <% if (next) { %><a href="<%= next.url %>"><%= next.title %></a>
-      <% } else { %><span style="color: var(--ink-3);"><%= copy.musings.post.newest_note %></span><% } %>
-    </div>
-  </nav>
+    <nav class="sp-postnav" aria-label="Post navigation">
+      <div class="prev">
+        <span class="label"><%= copy.musings.post.prev_label %></span>
+        <% if (prev) { %><a href="<%= prev.url %>"><%= prev.title %></a>
+        <% } else { %><span style="color: var(--ink-3);"><%= copy.musings.post.oldest_note %></span><% } %>
+      </div>
+      <div class="next">
+        <span class="label"><%= copy.musings.post.next_label %></span>
+        <% if (next) { %><a href="<%= next.url %>"><%= next.title %></a>
+        <% } else { %><span style="color: var(--ink-3);"><%= copy.musings.post.newest_note %></span><% } %>
+      </div>
+    </nav>
 
-  <div style="text-align: center; margin-top: var(--sp-5); font-family: var(--font-mono); font-size: 12px; color: var(--ink-3);">
-    <a href="/musings">↑ back to all musings</a>
+    <div style="text-align: center; margin-top: var(--sp-5); font-family: var(--font-mono); font-size: 12px; color: var(--ink-3);">
+      <a href="/musings">↑ back to all musings</a>
+    </div>
   </div>
 </div>

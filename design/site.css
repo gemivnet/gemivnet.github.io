@@ -602,3 +602,45 @@
 /* ── first section on a page: no top rule + no extra margin ── */
 .site-shell > .sp-section:first-child { margin-top: 0; }
 .site-shell > .sp-section:first-child::before { display: none; }
+
+/* ── musings layout: sidebar tree + main content ──────────── */
+.musings-layout {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--sp-7);
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.musings-main { min-width: 0; max-width: var(--reading-width); }
+.musings-tree {
+  position: sticky;
+  top: var(--sp-5);
+  align-self: flex-start;
+  max-height: calc(100vh - var(--sp-7));
+  overflow: auto;
+  padding-right: var(--sp-3);
+}
+.musings-tree .tree-head {
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: var(--sp-3);
+}
+.musings-tree .sp-tree { font-size: 13px; line-height: 1.85; }
+.musings-tree .sp-tree a.active { color: var(--accent); }
+.musings-tree .sp-tree a.in-active { color: var(--ink); }
+.musings-tree .sp-tree a.in-active:hover { color: var(--accent); }
+
+@media (max-width: 900px) {
+  .musings-layout { grid-template-columns: 1fr; gap: var(--sp-5); }
+  .musings-tree { position: static; max-height: none; padding-right: 0; }
+  .musings-tree .sp-tree { white-space: normal; }
+}
+
+/* Override .site-shell max-width for pages that need to hold the sidebar. */
+.musings-layout { width: 100%; }
+
+/* Widen the site-shell on musing pages so the sidebar tree fits. */
+.site-shell:has(.musings-layout) { max-width: 1080px; }
