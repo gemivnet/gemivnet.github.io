@@ -610,6 +610,27 @@ async function copyStaticSites() {
 // ── render: changelog (static stub from copy.yaml) ───────────
 
 async function renderChangelog() {
+  // Pull commits from git, oldest -> newest. Version = sequential index.
+  let entries = [];
+  try {
+    const raw = execSync(
+      'git log --reverse --pretty=format:%H%x1f%aI%x1f%s%x1f%b%x1e',
+      { cwd: ROOT, encoding: 'utf8', maxBuffer: 8 * 1024 * 1024 },
+    );
+    entries = raw.split('\x1e').map(s => s.trim()).filter(Boolean).map((rec, i) => {
+      const [hash, iso, subject, body] = rec.split('\x1f');
+      return {
+        version: 'v' + (i + 1),
+        hash: hash.slice(0, 7),
+        date: iso ? iso.slice(0, 10) : '',
+        subject: subject || '',
+        body: (body || '').trim(),
+      };
+    }).reverse(); // newest first for display
+  } catch (e) {
+    log('changelog: git log failed, rendering empty');
+  }
+
   const html = await renderPage('changelog', {
     page: {
       title: `changelog — ${SITE.title}`,
@@ -619,6 +640,7 @@ async function renderChangelog() {
       type: 'website',
     },
     active: '',
+    entries,
   });
   collectLinks('/changelog', html);
   await writeFile('changelog/index.html', html);

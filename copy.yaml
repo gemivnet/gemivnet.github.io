@@ -116,8 +116,8 @@ not_found:
     - { label: "musings", href: "/musings" }
     - { label: "media", href: "/media" }
 
-# ── /changelog (stub static page) ───────────────────────────
+# ── /changelog ──────────────────────────────────────────────
+# Entries are pulled from git log at build time — no manual list to maintain.
 changelog:
   title: "changelog"
-  intro: "Notable changes to the site. Versions auto-increment per push; the prose here is hand-written, but finished with AI."
-  entries: []
+  intro: "Commits to this site, newest first. Versions auto-increment per push. Co-authored with claude."

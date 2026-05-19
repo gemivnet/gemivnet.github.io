@@ -7,17 +7,57 @@
 </section>
 
 <section class="sp-section">
-  <% if (!copy.changelog.entries || copy.changelog.entries.length === 0) { %>
-    <div class="sp-empty"><span class="glyph">∅</span>no changelog entries yet. (current version: <%= site.version %>)</div>
+  <% if (!entries || entries.length === 0) { %>
+    <div class="sp-empty"><span class="glyph">∅</span>no commits yet.</div>
   <% } else { %>
-    <% copy.changelog.entries.forEach(function(e){ %>
-      <article class="sp-card">
-        <div class="sp-meta"><%= e.version %><br><%= e.date %></div>
-        <div>
-          <h3><%= e.title %></h3>
-          <p class="sp-preview"><%= e.body %></p>
-        </div>
-      </article>
-    <% }) %>
+    <div class="changelog-list">
+      <% entries.forEach(function(e){ %>
+        <article class="changelog-row">
+          <div class="cl-meta">
+            <span class="cl-version"><%= e.version %></span>
+            <span class="cl-date"><%= e.date %></span>
+            <span class="cl-hash"><%= e.hash %></span>
+          </div>
+          <div class="cl-body">
+            <div class="cl-subject"><%= e.subject %></div>
+            <% if (e.body) { %><pre class="cl-detail"><%= e.body %></pre><% } %>
+          </div>
+        </article>
+      <% }) %>
+    </div>
   <% } %>
 </section>
+
+<style>
+  .changelog-list { display: flex; flex-direction: column; }
+  .changelog-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: var(--sp-5);
+    padding: var(--sp-4) 0;
+    border-top: 1px solid var(--rule);
+  }
+  .cl-meta {
+    font-family: var(--font-mono);
+    font-size: var(--fs-tiny);
+    color: var(--ink-3);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .cl-meta .cl-version { color: var(--accent); font-weight: 600; font-size: var(--fs-small); }
+  .cl-meta .cl-hash { color: var(--ink-3); opacity: 0.7; }
+  .cl-subject { color: var(--ink); font-size: var(--fs-body); margin-bottom: var(--sp-2); }
+  .cl-detail {
+    font-family: var(--font-mono);
+    font-size: var(--fs-small);
+    color: var(--ink-2);
+    white-space: pre-wrap;
+    margin: 0;
+    padding-left: var(--sp-4);
+    border-left: 2px solid var(--rule);
+  }
+  @media (max-width: 760px) {
+    .changelog-row { grid-template-columns: 1fr; gap: var(--sp-2); }
+  }
+</style>
