@@ -7,9 +7,11 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "serve": "node scripts/serve.mjs",
-    "dev": "node scripts/build.mjs && node scripts/serve.mjs",
+    "dev": "node scripts/dev.mjs",
     "media": "node scripts/process-staging.mjs",
     "check:pii": "node scripts/check-pii.mjs",
+    "check:images": "node scripts/check-images.mjs",
+    "check:links": "node scripts/check-links.mjs",
     "setup": "git config core.hooksPath .githooks && echo 'git hooks installed (run once per clone)'"
   },
   "engines": {
