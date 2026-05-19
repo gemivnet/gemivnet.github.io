@@ -62,20 +62,19 @@
 }
 
 /* ── light mode (palette swap only — no layout changes) ──── */
-/* "Paper" palette — cool off-white, deeper burgundy red. Not beige. */
 .site-page.light,
 .light .site-page {
-  --bg:       #f2f1ec;
-  --bg-2:     #fafaf6;
-  --bg-3:     #e4e3dc;
-  --ink:      #15171b;
-  --ink-2:    #4a4d53;
-  --ink-3:    #828690;
-  --rule:     #c9c8c0;
-  --rule-2:   #a3a39a;
-  --accent:   #b21f1a;
-  --accent-2: #8a1813;
-  --accent-3: #f0d2cf;
-  --selection: rgba(178,31,26,.20);
+  --bg:       #f5f0e6;
+  --bg-2:     #ede7d7;
+  --bg-3:     #e0d9c6;
+  --ink:      #1c1814;
+  --ink-2:    #564f47;
+  --ink-3:    #908779;
+  --rule:     #d6cdb9;
+  --rule-2:   #b8ad97;
+  --accent:   #b8281a;
+  --accent-2: #8c1d10;
+  --accent-3: #f0d0c8;
+  --selection: rgba(184,40,26,.20);
   --grid-color: transparent;
 }
