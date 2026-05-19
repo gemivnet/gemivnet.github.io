@@ -12,7 +12,9 @@
 // Required answer per image: alt text. Build refuses to ship without it.
 
 import { promises as fs } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import path from 'node:path';
+import os from 'node:os';
 import readline from 'node:readline/promises';
 import { stdin, stdout } from 'node:process';
 import { fileURLToPath } from 'node:url';
@@ -20,6 +22,9 @@ import sharp from 'sharp';
 import yaml from 'js-yaml';
 import fg from 'fast-glob';
 import exifr from 'exifr';
+
+const S3_BUCKET = 'georgemain-com-media';
+const S3_BASE_URL = `https://${S3_BUCKET}.s3.amazonaws.com`;
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const STAGING = path.join(ROOT, 'staging');
@@ -44,20 +49,43 @@ async function listStaging() {
     .sort((a, b) => a.name.localeCompare(b.name));
 }
 
-// ── read EXIF for date + GPS hint ─────────────────────────
+// ── read EXIF for date + GPS + camera details ─────────────
+function formatShutter(t) {
+  if (t == null) return null;
+  if (t >= 1) return t + 's';
+  return '1/' + Math.round(1 / t);
+}
 async function readExif(abs) {
   try {
-    const d = await exifr.parse(abs, { gps: true, tiff: true });
+    const d = await exifr.parse(abs, { gps: true, tiff: true, exif: true });
+    const camera = [d?.Make, d?.Model].filter(Boolean).join(' ').trim() || null;
     return {
       date: d?.DateTimeOriginal || d?.CreateDate || d?.DateTime || null,
       lat: d?.latitude || null,
       lon: d?.longitude || null,
-      make: d?.Make || null,
-      model: d?.Model || null,
+      camera,
+      lens: d?.LensModel || d?.LensMake || null,
+      iso: d?.ISO || null,
+      aperture: d?.FNumber ? 'f/' + d.FNumber : null,
+      shutter: formatShutter(d?.ExposureTime),
+      focal_length: d?.FocalLength ? Math.round(d.FocalLength) + 'mm' : null,
+      width: d?.ExifImageWidth || d?.ImageWidth || null,
+      height: d?.ExifImageHeight || d?.ImageHeight || null,
     };
   } catch {
     return { date: null, lat: null, lon: null };
   }
+}
+
+// ── S3 upload via aws CLI ─────────────────────────────────
+function uploadToS3(localPath, key) {
+  execFileSync('aws', [
+    's3', 'cp', localPath, `s3://${S3_BUCKET}/${key}`,
+    '--content-type', 'image/jpeg',
+    '--cache-control', 'public, max-age=31536000, immutable',
+    '--no-progress',
+  ], { stdio: ['ignore', 'ignore', 'inherit'] });
+  return `${S3_BASE_URL}/${key}`;
 }
 
 // ── group files into bursts ───────────────────────────────
@@ -146,16 +174,22 @@ function nextImgName(meta, ext) {
   return `img_${String(n).padStart(3, '0')}${ext}`;
 }
 
-// ── scrub + write image ───────────────────────────────────
-async function scrubAndWrite(srcAbs, destAbs) {
+// ── scrub original (full size) to a temp file ─────────────
+// Returns the temp file path; caller should unlink when done.
+async function scrubToTemp(srcAbs) {
+  const tmp = path.join(os.tmpdir(), `staging-${Date.now()}-${Math.random().toString(36).slice(2)}.jpg`);
+  await sharp(srcAbs).rotate().jpeg({ quality: 92, progressive: true, mozjpeg: true }).toFile(tmp);
+  return tmp;
+}
+
+// ── write a smaller local reference (used by build for thumbs) ──
+async function writeLocalReference(srcAbs, destAbs) {
   await fs.mkdir(path.dirname(destAbs), { recursive: true });
-  const ext = path.extname(destAbs).toLowerCase();
-  let pipeline = sharp(srcAbs).rotate(); // bake orientation then drop EXIF
-  // default sharp behavior: strip metadata. No .withMetadata() call.
-  if (ext === '.png') pipeline = pipeline.png();
-  else if (ext === '.webp') pipeline = pipeline.webp({ quality: 88 });
-  else pipeline = pipeline.jpeg({ quality: 88, progressive: true, mozjpeg: true });
-  await pipeline.toFile(destAbs);
+  await sharp(srcAbs)
+    .rotate()
+    .resize({ width: 1400, withoutEnlargement: true })
+    .jpeg({ quality: 82, progressive: true, mozjpeg: true })
+    .toFile(destAbs);
 }
 
 // ── main flow ─────────────────────────────────────────────
@@ -227,11 +261,37 @@ async function main() {
         console.log('    alt text is required — keeps the site accessible and SEO-readable.');
       }
 
-      const ext = path.extname(f.name).toLowerCase();
-      const out = rename ? nextImgName(meta, ext) : f.name;
+      const ext = '.jpg';   // we normalize everything to jpeg on upload
+      const out = rename ? nextImgName(meta, ext) : f.name.replace(/\.[^.]+$/, ext);
+
+      // 1) scrub full-size original to a temp file
+      const scrubbed = await scrubToTemp(f.abs);
+      const fullBytes = (await fs.stat(scrubbed)).size;
+
+      // 2) upload scrubbed full-size to S3
+      const s3Key = `${galleryPath}/${out}`;
+      process.stdout.write(`    ↑ uploading to s3://${S3_BUCKET}/${s3Key} (${(fullBytes/1024/1024).toFixed(1)} MB)…`);
+      const s3Url = uploadToS3(scrubbed, s3Key);
+      console.log(' ✓');
+
+      // 3) write smaller local reference (1400px) for build-time thumb/med generation
       const destAbs = path.join(MEDIA, galleryPath, out);
-      await scrubAndWrite(f.abs, destAbs);
+      await writeLocalReference(scrubbed, destAbs);
+
+      // 4) clean up temp + staging
+      await fs.unlink(scrubbed);
       await fs.unlink(f.abs);
+
+      // 5) build metadata entry — EXIF kept separate from photo
+      const exifBlock = {};
+      if (ex?.camera)       exifBlock.camera = ex.camera;
+      if (ex?.lens)         exifBlock.lens = ex.lens;
+      if (ex?.iso)          exifBlock.iso = ex.iso;
+      if (ex?.aperture)     exifBlock.aperture = ex.aperture;
+      if (ex?.shutter)      exifBlock.shutter = ex.shutter;
+      if (ex?.focal_length) exifBlock.focal_length = ex.focal_length;
+      if (ex?.width)        exifBlock.width = ex.width;
+      if (ex?.height)       exifBlock.height = ex.height;
 
       const entry = {
         file: out,
@@ -239,13 +299,14 @@ async function main() {
         date: batchDate || undefined,
         ...(batchLocation && { location: batchLocation }),
         alt,
+        s3: s3Url,
+        ...(Object.keys(exifBlock).length ? { exif: exifBlock } : {}),
       };
-      // strip undefined
       Object.keys(entry).forEach(k => entry[k] === undefined && delete entry[k]);
 
       meta.images = (meta.images || []).concat(entry);
       await saveMeta(galleryPath, meta);
-      console.log(`    ✓ -> content/media/${galleryPath}/${out}`);
+      console.log(`    ✓ -> content/media/${galleryPath}/${out}  +  s3 original`);
     }
   }
 
