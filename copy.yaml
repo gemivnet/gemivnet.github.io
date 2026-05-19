@@ -48,7 +48,7 @@ home:
 
 # ── footer ──────────────────────────────────────────────────
 footer:
-  creed: "an old knowledge page, made for fun. no ads, no tracking, no fancy javascript, no warranty — just information."
+  creed: "a personal knowledge page, made for fun. no ads, no tracking, no warranty."
   elsewhere_heading: "elsewhere"
   elsewhere:
     - { label: "github.com/gemivnet", href: "https://github.com/gemivnet" }
