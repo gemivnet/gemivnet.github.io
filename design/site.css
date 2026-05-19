@@ -480,33 +480,42 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 4px;
+  overflow: visible;
 }
-.sp-vsco .cell { position: relative; aspect-ratio: 1/1; overflow: hidden; }
+/* cell stays its own aspect-ratio; image inside crops; caption pops out BELOW */
+.sp-vsco .cell { position: relative; aspect-ratio: 1/1; }
 .sp-vsco .cell.tall { aspect-ratio: 1/1.4; grid-row: span 2; }
 .sp-vsco .cell.wide { grid-column: span 2; aspect-ratio: 2/1; }
-.sp-vsco .cell .sp-img { width: 100%; height: 100%; border: 0; }
+.sp-vsco .cell .sp-img {
+  width: 100%; height: 100%; border: 0;
+  overflow: hidden;
+  transition: transform .15s var(--ease);
+}
+.sp-vsco .cell:hover { z-index: 5; }
+.sp-vsco .cell:hover .sp-img { transform: scale(1.04); }
+
+/* Caption appears below the image cell on hover, not overlaid on the photo. */
 .sp-vsco .cell .caption {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(20,17,15,.85), transparent 55%);
-  color: var(--ink);
-  padding: var(--sp-3);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  padding: 8px 10px;
   opacity: 0;
-  transition: opacity .15s var(--ease);
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .12s var(--ease);
   font-family: var(--font-mono);
   font-size: var(--fs-tiny);
+  color: var(--ink-2);
+  line-height: 1.4;
+  z-index: 6;
 }
-.site-page.light .sp-vsco .cell .caption {
-  background: linear-gradient(to top, rgba(28,24,20,.85), transparent 55%);
-  color: #fff;
-}
-.sp-vsco .cell:hover .caption { opacity: 1; }
-.sp-vsco .cell:hover { z-index: 3; transform: scale(1.04); transition: transform .15s var(--ease); }
-.sp-vsco .cell .caption .title { color: #fff; font-size: var(--fs-small); margin-bottom: 2px; }
-.sp-vsco .cell .caption .where { color: var(--accent-2); }
+.sp-vsco .cell:hover .caption { opacity: 1; visibility: visible; }
+.sp-vsco .cell .caption .title { color: var(--ink); font-size: var(--fs-small); margin-bottom: 2px; font-weight: 500; }
+.sp-vsco .cell .caption .where { color: var(--accent); }
 
 /* ── tokens / style guide page ──────────────────────────── */
 .tg-section { margin-bottom: var(--sp-8); }
@@ -621,22 +630,54 @@
   padding-right: var(--sp-3);
 }
 .musings-tree .tree-head {
+  display: block;
   font-family: var(--font-mono);
   font-size: var(--fs-tiny);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-3);
   margin-bottom: var(--sp-3);
+  cursor: default;
+  user-select: none;
 }
-.musings-tree .sp-tree { font-size: 13px; line-height: 1.85; }
-.musings-tree .sp-tree a.active { color: var(--accent); }
-.musings-tree .sp-tree a.in-active { color: var(--ink); }
-.musings-tree .sp-tree a.in-active:hover { color: var(--accent); }
+.musings-tree .tree-toggle { display: none; }
+
+/* Nested <ul> tree: no list markers, padding-left for indent, no overflow */
+.musings-tree .tree-list,
+.musings-tree .tree-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.musings-tree .tree-list ul { padding-left: 14px; border-left: 1px dashed var(--rule); margin-left: 4px; }
+.musings-tree .tree-list li { padding-left: 2px; }
+.musings-tree .tree-list a {
+  color: var(--ink-2);
+  text-decoration: none;
+  word-break: break-word;
+}
+.musings-tree .tree-list a:hover { color: var(--accent); }
+.musings-tree .tree-list a.active { color: var(--accent); font-weight: 500; }
+.musings-tree .tree-list a.in-active { color: var(--ink); }
+.musings-tree .tree-list a.in-active:hover { color: var(--accent); }
 
 @media (max-width: 900px) {
-  .musings-layout { grid-template-columns: 1fr; gap: var(--sp-5); }
-  .musings-tree { position: static; max-height: none; padding-right: 0; }
-  .musings-tree .sp-tree { white-space: normal; }
+  .musings-layout { grid-template-columns: 1fr; gap: var(--sp-4); }
+  .musings-tree {
+    position: static;
+    max-height: none;
+    padding-right: 0;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: var(--sp-4);
+  }
+  .musings-tree .tree-head { cursor: pointer; margin-bottom: 0; }
+  .musings-tree .tree-head::after { content: ' ▾'; color: var(--ink-3); }
+  .musings-tree .tree-toggle:checked + .tree-head { margin-bottom: var(--sp-3); }
+  .musings-tree .tree-toggle:checked + .tree-head::after { content: ' ▴'; }
+  .musings-tree .tree-toggle:not(:checked) ~ .tree-list { display: none; }
 }
 
 /* Override .site-shell max-width for pages that need to hold the sidebar. */

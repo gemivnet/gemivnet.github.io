@@ -533,23 +533,24 @@ function synthesizeFromMusings(musings, existingNodes) {
 }
 
 // Render a folder/post tree to an HTML string for the sidebar.
+// Uses nested <ul> so long names wrap naturally and don't overflow.
 function renderTreeHtml(tree, activeUrl, activeCategory) {
-  function walk(node, depth, isLast) {
-    const pad = '   '.repeat(Math.max(0, depth - 1));
-    const glyph = depth === 0 ? '' : (isLast ? '└── ' : '├── ');
+  function walk(node, depth) {
     const name = node.type === 'folder' ? (depth === 0 ? 'musings/' : node.name + '/') : node.name;
     const isActive = node.url === activeUrl;
     const inActive = !isActive && activeCategory && node.type === 'folder' && depth > 0 && activeCategory.startsWith(node.path.join('/'));
-    const cls = isActive ? 'active' : (inActive ? 'in-active' : '');
-    let line = `<div><span class="glyph">${pad}${glyph}</span><a href="${node.url}" class="${cls}">${escapeHtml(name)}</a></div>`;
-    if (node.children) {
-      for (let i = 0; i < node.children.length; i++) {
-        line += walk(node.children[i], depth + 1, i === node.children.length - 1);
-      }
+    const cls = ['tree-item'];
+    if (node.type === 'folder') cls.push('is-folder');
+    if (isActive) cls.push('active');
+    if (inActive) cls.push('in-active');
+    let item = `<li class="${cls.join(' ')}"><a href="${node.url}" class="${isActive ? 'active' : (inActive ? 'in-active' : '')}">${escapeHtml(name)}</a>`;
+    if (node.children && node.children.length) {
+      item += '<ul>' + node.children.map(c => walk(c, depth + 1)).join('') + '</ul>';
     }
-    return line;
+    item += '</li>';
+    return item;
   }
-  return walk(tree, 0, true);
+  return '<ul class="tree-list">' + walk(tree, 0) + '</ul>';
 }
 
 // ── render: musings ───────────────────────────────────────────

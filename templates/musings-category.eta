@@ -1,7 +1,8 @@
 <div class="musings-layout">
   <aside class="musings-tree" aria-label="Musings folder tree">
-    <div class="tree-head">browse</div>
-    <div class="sp-tree"><%~ treeHtml %></div>
+    <input type="checkbox" id="tree-toggle" class="tree-toggle">
+    <label class="tree-head" for="tree-toggle">browse</label>
+    <%~ treeHtml %>
   </aside>
 
   <div class="musings-main">
