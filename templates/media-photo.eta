@@ -1,59 +1,123 @@
-<div class="crumbs" style="font-style: italic; font-size: var(--fs-small); color: var(--ink-3); margin-bottom: var(--sp-3);">
-  <a href="/media" style="color: var(--ink-3);">Media</a>
-  <% breadcrumbs.slice(1).forEach(function(b){ %>
-    &nbsp;›&nbsp; <a href="<%= b.url %>" style="color: var(--ink-3);"><%= b.label.charAt(0).toUpperCase() + b.label.slice(1).replace(/-/g, ' ') %></a>
-  <% }) %>
-</div>
+<div class="photo-page">
+  <div class="crumbs" style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); letter-spacing: 0.02em; margin-bottom: var(--sp-3);">
+    <a href="/" style="color: var(--ink-3); text-decoration: none;">~</a>
+    <% breadcrumbs.forEach(function(b){ %>
+      &nbsp;/&nbsp; <a href="<%= b.url %>" style="color: var(--ink-3); text-decoration: none;"><%= b.label %></a>
+    <% }) %>
+    &nbsp;/&nbsp; <span style="color: var(--ink-2);"><%= image.slug %></span>
+  </div>
 
-<div class="sp-photo-frame">
-  <a class="photo-arrow prev" href="<%= prev.pageUrl %>" aria-label="Previous photo">‹</a>
-  <img src="<%= image.src %>" alt="<%= escapeHtml(image.alt || '') %>" title="<%= escapeHtml(image.alt || '') %>">
-  <a class="photo-arrow next" href="<%= next.pageUrl %>" aria-label="Next photo">›</a>
-</div>
+  <figure class="photo-figure">
+    <a class="photo-arrow prev" href="<%= prev.pageUrl %>" aria-label="Previous photo">‹</a>
+    <img src="<%= image.src %>" alt="<%= escapeHtml(image.alt || '') %>" title="<%= escapeHtml(image.alt || '') %>">
+    <a class="photo-arrow next" href="<%= next.pageUrl %>" aria-label="Next photo">›</a>
+    <% if (image.alt) { %><figcaption><%= image.alt %></figcaption><% } %>
+  </figure>
 
-<% if (image.alt) { %>
-<p style="font-style: italic; color: var(--ink-2); margin-top: var(--sp-3); margin-bottom: var(--sp-2); font-size: var(--fs-lg);">
-  <%= image.alt %>
-</p>
-<% } %>
+  <div class="photo-meta">
+    <table>
+      <tbody>
+        <% if (image.title) { %><tr><td>title</td><td><%= image.title %></td></tr><% } %>
+        <% if (image.date)  { %><tr><td>date</td><td><%= fmtDate(image.date) %></td></tr><% } %>
+        <% if (image.location || node.location) { %><tr><td>where</td><td><%= image.location || node.location %></td></tr><% } %>
+        <tr><td>album</td><td><a href="<%= node.url %>"><%= node.title %></a></td></tr>
+        <% if (image.exif) { %>
+          <% if (image.exif.camera)       { %><tr><td>camera</td><td><%= image.exif.camera %></td></tr><% } %>
+          <% if (image.exif.lens)         { %><tr><td>lens</td><td><%= image.exif.lens %></td></tr><% } %>
+          <% var settings = [image.exif.focal_length, image.exif.aperture, image.exif.shutter, image.exif.iso && 'ISO ' + image.exif.iso].filter(Boolean).join(' · '); %>
+          <% if (settings) { %><tr><td>settings</td><td><%= settings %></td></tr><% } %>
+          <% if (image.exif.width && image.exif.height) { %>
+            <% var mp = ((image.exif.width * image.exif.height) / 1000000).toFixed(1); %>
+            <tr><td>dimensions</td><td><%= image.exif.width %> × <%= image.exif.height %> · <%= mp %> MP</td></tr>
+          <% } %>
+        <% } %>
+        <% if (image.bytes) { %><tr><td>size</td><td><%= fmtBytes(image.bytes) %></td></tr><% } %>
+        <% if (image.s3) { %>
+          <tr><td>original</td><td><a href="<%= image.s3 %>">view full size ↗</a></td></tr>
+        <% } else { %>
+          <tr><td>file</td><td><a href="<%= image.src %>"><%= image.file %></a></td></tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
 
-<div class="sp-photo-counter">
-  <a href="<%= prev.pageUrl %>" style="color: var(--ink-2); text-decoration: none;">←&nbsp;previous</a>
-  &nbsp; &nbsp;
-  <b><%= index + 1 %></b> of <%= total %>
-  &nbsp; &nbsp;
-  <a href="<%= next.pageUrl %>" style="color: var(--ink-2); text-decoration: none;">next&nbsp;→</a>
-  <div style="margin-top: 4px; color: var(--ink-3); font-style: italic; font-size: var(--fs-small);">
-    (← / → on the keyboard. it wraps around at the ends.)
+  <nav class="photo-nav" aria-label="Photo navigation">
+    <a class="prev" href="<%= prev.pageUrl %>"><span class="label">← previous</span><span class="title"><%= prev.title || prev.alt || prev.file %></span></a>
+    <span class="counter"><%= index + 1 %> / <%= total %></span>
+    <a class="next" href="<%= next.pageUrl %>"><span class="label">next →</span><span class="title"><%= next.title || next.alt || next.file %></span></a>
+  </nav>
+
+  <div style="text-align: center; margin-top: var(--sp-5); font-family: var(--font-mono); font-size: 12px; color: var(--ink-3);">
+    <a href="<%= node.url %>">↑ back to <%= node.title %></a>
   </div>
 </div>
 
-<dl class="sp-photo-meta">
-  <% if (image.title) { %><dt>title</dt><dd><%= image.title %></dd><% } %>
-  <% if (image.date)  { %><dt>date</dt><dd><%= fmtLongDate(image.date) %></dd><% } %>
-  <% if (image.location || node.location) { %><dt>where</dt><dd><%= image.location || node.location %></dd><% } %>
-  <dt>album</dt><dd><a href="<%= node.url %>"><%= node.title %></a></dd>
-  <% if (image.exif) { %>
-    <% if (image.exif.camera) { %><dt>camera</dt><dd><%= image.exif.camera %></dd><% } %>
-    <% if (image.exif.lens)   { %><dt>lens</dt><dd><%= image.exif.lens %></dd><% } %>
-    <% var settings = [image.exif.focal_length, image.exif.aperture, image.exif.shutter, image.exif.iso && 'ISO ' + image.exif.iso].filter(Boolean).join(' · '); %>
-    <% if (settings) { %><dt>settings</dt><dd><%= settings %></dd><% } %>
-    <% if (image.exif.width && image.exif.height) { %>
-      <% var mp = ((image.exif.width * image.exif.height) / 1000000).toFixed(1); %>
-      <dt>dimensions</dt><dd><%= image.exif.width %> × <%= image.exif.height %> · <%= mp %> MP</dd>
-    <% } %>
-  <% } %>
-  <% if (image.bytes) { %><dt>size</dt><dd><%= fmtBytes(image.bytes) %></dd><% } %>
-  <% if (image.s3) { %>
-    <dt>original</dt><dd><a href="<%= image.s3 %>">view full size ↗</a></dd>
-  <% } %>
-</dl>
-
-<div style="margin-top: var(--sp-6); font-style: italic; font-size: var(--fs-small);">
-  <a href="<%= node.url %>">↑ back to <%= node.title %></a>
-</div>
+<style>
+  .photo-page { max-width: 1000px; margin: 0 auto; }
+  .photo-figure { position: relative; margin: 0 0 var(--sp-5); text-align: center; }
+  .photo-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-mono);
+    font-size: 40px;
+    line-height: 1;
+    color: var(--ink-3);
+    text-decoration: none;
+    padding: var(--sp-3) var(--sp-4);
+    transition: color .12s var(--ease);
+    user-select: none;
+  }
+  .photo-arrow.prev { left: -8px; }
+  .photo-arrow.next { right: -8px; }
+  .photo-arrow:hover { color: var(--accent); text-decoration: none; }
+  @media (max-width: 700px) {
+    .photo-arrow { font-size: 32px; padding: var(--sp-2) var(--sp-3); }
+    .photo-arrow.prev { left: -4px; }
+    .photo-arrow.next { right: -4px; }
+  }
+  .photo-figure img {
+    max-width: 100%;
+    max-height: 82vh;
+    width: auto;
+    height: auto;
+    border: 1px solid var(--rule);
+    display: inline-block;
+  }
+  .photo-figure figcaption {
+    font-family: var(--font-mono); font-size: var(--fs-small);
+    color: var(--ink-2); margin-top: var(--sp-3);
+    padding-left: var(--sp-3); border-left: 2px solid var(--rule);
+    text-align: left; max-width: var(--reading-width); margin-left: auto; margin-right: auto;
+  }
+  .photo-meta { max-width: 520px; margin: var(--sp-5) auto; }
+  .photo-meta table {
+    font-family: var(--font-mono); font-size: var(--fs-small);
+    border-collapse: collapse; width: 100%;
+  }
+  .photo-meta td { padding: 4px 12px 4px 0; vertical-align: top; }
+  .photo-meta td:first-child { color: var(--ink-3); width: 80px; }
+  .photo-meta td:last-child { color: var(--ink-2); }
+  .photo-nav {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: var(--sp-4);
+    align-items: center;
+    margin-top: var(--sp-7);
+    padding-top: var(--sp-5);
+    border-top: 1px solid var(--rule);
+    font-family: var(--font-mono);
+    font-size: var(--fs-small);
+  }
+  .photo-nav .label { display: block; font-size: var(--fs-tiny); color: var(--ink-3); letter-spacing: 0.04em; margin-bottom: 2px; }
+  .photo-nav a { color: var(--ink); text-decoration: none; }
+  .photo-nav a:hover .title { color: var(--accent); }
+  .photo-nav .next { text-align: right; }
+  .photo-nav .counter { color: var(--ink-3); font-size: var(--fs-tiny); }
+</style>
 
 <script>
+  // arrow-key navigation
   (function(){
     document.addEventListener('keydown', function(e){
       if (e.target && /^(INPUT|TEXTAREA)$/.test(e.target.tagName)) return;

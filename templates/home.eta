@@ -1,21 +1,29 @@
 <% if (shuffled.length > 0) { %>
 <section class="sp-section">
   <div class="sp-section-head">
-    <span class="sp-section-tag">a random musing</span>
+    <span class="sp-section-tag"><%= copy.home.random_musing.section_tag %></span>
+    <h2><%= copy.home.random_musing.title %></h2>
     <span class="sp-section-aside" id="musing-counter">1 of <%= shuffled.length %></span>
   </div>
-  <div class="sp-block" id="musing-panel" data-total="<%= shuffled.length %>">
+  <div class="sp-block">
+    <div class="sp-block-meta">
+      <span class="path" id="musing-path"><%= shuffled[0].path %></span>
+      <span>·</span>
+      <span id="musing-date"><%= shuffled[0].dateMono %></span>
+      <span>·</span>
+      <span id="musing-readtime"><%= shuffled[0].readtime %></span>
+    </div>
     <h3 style="font-size: var(--fs-2xl); margin-bottom: 4px;">
       <a id="musing-title" href="<%= shuffled[0].url %>" style="color: var(--ink); text-decoration: none;"><%= shuffled[0].title %></a>
     </h3>
     <p id="musing-sub" style="font-style: italic; color: var(--ink-2); font-size: var(--fs-lg); margin-bottom: var(--sp-3);"><%= shuffled[0].subtitle %></p>
     <p id="musing-body" style="color: var(--ink-2);"><%= shuffled[0].preview %></p>
-    <div id="musing-tags" class="sp-tags" style="margin-top: var(--sp-3);"></div>
+    <div class="sp-tags" id="musing-tags" style="margin-top: var(--sp-3);"></div>
     <div class="sp-block-actions">
       <button class="sp-link-btn" id="musing-random" type="button"><%= copy.home.random_musing.random_label %></button>
       <button class="sp-link-btn" id="musing-next" type="button"><%= copy.home.random_musing.next_label %></button>
       <a class="sp-link-btn" id="musing-read" href="<%= shuffled[0].url %>"><%= copy.home.random_musing.read_label %></a>
-      <span class="hint" id="musing-hint"><%= shuffled[0].readtime %></span>
+      <% if (copy.home.random_musing.key_hint) { %><span class="hint"><%= copy.home.random_musing.key_hint %></span><% } %>
     </div>
   </div>
 </section>
@@ -24,15 +32,19 @@
 <% if (shuffledImages.length > 0) { %>
 <section class="sp-section">
   <div class="sp-section-head">
-    <span class="sp-section-tag">a random photo</span>
+    <span class="sp-section-tag"><%= copy.home.random_photo.section_tag %></span>
+    <h2><%= copy.home.random_photo.title %></h2>
     <span class="sp-section-aside" id="photo-counter">1 of <%= shuffledImages.length %></span>
   </div>
-  <div class="sp-block" id="photo-panel" data-total="<%= shuffledImages.length %>">
+  <div class="sp-block">
+    <div class="sp-block-meta">
+      <span class="path" id="photo-path"></span>
+    </div>
     <a id="photo-link" href="<%= shuffledImages[0].album %>" style="display:block; margin-bottom: var(--sp-3);">
       <img id="photo-img" src="<%= shuffledImages[0].src %>" alt="<%= escapeHtml(shuffledImages[0].alt || '') %>" title="<%= escapeHtml(shuffledImages[0].alt || '') %>" style="width:100%; height:auto; max-height: 60vh; display:block; border:1px solid var(--rule); object-fit: cover;">
     </a>
-    <p id="photo-sub" style="font-style: italic; color: var(--ink-2); margin-bottom: 4px; font-size: var(--fs-lg);"><%= shuffledImages[0].title || shuffledImages[0].alt || '' %></p>
-    <p id="photo-meta" style="color: var(--ink-3); font-style: italic; font-size: var(--fs-small);"></p>
+    <p id="photo-sub" style="font-style: italic; color: var(--ink-2); margin-bottom: 4px;"><%= shuffledImages[0].title || shuffledImages[0].alt || '' %></p>
+    <p id="photo-meta" style="color: var(--ink-3); font-family: var(--font-mono); font-size: var(--fs-tiny); letter-spacing: 0.02em;"></p>
     <div class="sp-block-actions">
       <button class="sp-link-btn" id="photo-random" type="button"><%= copy.home.random_photo.random_label %></button>
       <button class="sp-link-btn" id="photo-next" type="button"><%= copy.home.random_photo.next_label %></button>
@@ -46,19 +58,20 @@
 <% if (recent.length > 0) { %>
 <section class="sp-section">
   <div class="sp-section-head">
-    <span class="sp-section-tag">recent musings</span>
+    <span class="sp-section-tag"><%= copy.home.lately.section_tag %></span>
+    <h2><%= copy.home.lately.title %></h2>
     <span class="sp-section-aside">last <%= recent.length %> of <%= totalMusings %></span>
   </div>
-  <div style="font-size: var(--fs-body);">
+  <div style="font-family: var(--font-mono); font-size: var(--fs-small);">
     <% recent.forEach(function(r){ %>
-      <div style="display: grid; grid-template-columns: 150px 1fr 100px; gap: var(--sp-4); padding: 10px 0; border-top: 1px solid var(--rule); align-items: baseline;">
-        <span style="color: var(--ink-3); font-style: italic; font-size: var(--fs-small);"><%= r.dateLong %></span>
+      <div style="display: grid; grid-template-columns: 100px 1fr 100px; gap: var(--sp-4); padding: 10px 0; border-top: 1px solid var(--rule); align-items: baseline;">
+        <span style="color: var(--ink-3);"><%= r.date %></span>
         <a href="<%= r.url %>" style="color: var(--ink); text-decoration: none;"><%= r.title %></a>
-        <span style="color: var(--accent); text-align: right; font-style: italic; font-size: var(--fs-small);"><%= r.category %></span>
+        <span style="color: var(--accent); text-align: right;">·<%= r.category %></span>
       </div>
     <% }) %>
-    <div style="border-top: 1px solid var(--rule); padding-top: var(--sp-3); margin-top: var(--sp-2); font-style: italic;">
-      <a href="/musings">browse all <%= totalMusings %> musings →</a>
+    <div style="border-top: 1px solid var(--rule); padding-top: var(--sp-3); margin-top: var(--sp-2);">
+      <a href="/musings" style="color: var(--accent);">browse all <%= totalMusings %> musings →</a>
     </div>
   </div>
 </section>
@@ -67,7 +80,9 @@
 <% if (stats && stats.musings > 0) { %>
 <section class="sp-section">
   <div class="sp-section-head">
-    <span class="sp-section-tag">by the numbers</span>
+    <span class="sp-section-tag"><%= copy.home.stats.section_tag %></span>
+    <h2><%= copy.home.stats.title %></h2>
+    <span class="sp-section-aside"><%= copy.home.stats.aside %></span>
   </div>
   <dl class="stats-grid">
     <div><dt>musings</dt><dd><%= stats.musings.toLocaleString() %></dd></div>
@@ -75,8 +90,8 @@
     <div><dt>musings size</dt><dd><%= stats.musingsBytesFmt %></dd></div>
     <div><dt>pictures</dt><dd><%= stats.pictures.toLocaleString() %></dd></div>
     <div><dt>pictures size</dt><dd><%= stats.picturesBytesFmt %></dd></div>
-    <div><dt>first post</dt><dd><%= stats.firstPostLong || '—' %></dd></div>
-    <div><dt>last post</dt><dd><%= stats.lastPostLong || '—' %></dd></div>
+    <div><dt>first post</dt><dd><%= stats.firstPost || '—' %></dd></div>
+    <div><dt>last post</dt><dd><%= stats.lastPost || '—' %></dd></div>
   </dl>
 </section>
 <% } %>
@@ -92,11 +107,13 @@
     function render() {
       var m = list[i];
       function set(id, t) { var el = document.getElementById(id); if (el) el.textContent = t; }
+      set('musing-path', m.path);
       set('musing-counter', (i + 1) + ' of ' + list.length);
+      set('musing-date', m.dateMono);
+      set('musing-readtime', m.readtime);
       var t = document.getElementById('musing-title'); t.textContent = m.title; t.href = m.url;
       set('musing-sub', m.subtitle);
       set('musing-body', m.preview);
-      set('musing-hint', m.readtime);
       var read = document.getElementById('musing-read'); if (read) read.href = m.url;
       var tagWrap = document.getElementById('musing-tags');
       if (tagWrap) {
@@ -131,12 +148,12 @@
     function render() {
       var p = list[i];
       function set(id, t) { var el = document.getElementById(id); if (el) el.textContent = t; }
+      set('photo-path', p.album + '/' + p.full.split('/').pop());
       set('photo-counter', (i + 1) + ' of ' + list.length);
       set('photo-sub', p.title || p.alt || '');
       var parts = [];
-      if (p.location) parts.push(p.location);
-      if (p.dateLong) parts.push(p.dateLong);
-      else if (p.date) parts.push(p.date);
+      if (p.location) parts.push(p.location.toLowerCase());
+      if (p.date) parts.push(p.date);
       set('photo-meta', parts.join(' · '));
       var img = document.getElementById('photo-img');
       img.src = p.src; img.alt = p.alt || ''; img.title = p.alt || '';

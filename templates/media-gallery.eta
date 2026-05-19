@@ -1,31 +1,29 @@
-<div class="crumbs" style="font-style: italic; font-size: var(--fs-small); color: var(--ink-3); margin-bottom: var(--sp-3);">
-  <a href="/media" style="color: var(--ink-3);">Media</a>
-  <% breadcrumbs.slice(1).forEach(function(b, i){ %>
-    &nbsp;›&nbsp; <a href="<%= b.url %>" style="color: <%= i === breadcrumbs.length - 2 ? 'var(--ink-2)' : 'var(--ink-3)' %>;"><%= b.label.charAt(0).toUpperCase() + b.label.slice(1).replace(/-/g, ' ') %></a>
-  <% }) %>
-</div>
-
-<header style="margin-bottom: var(--sp-6);">
-  <h1><%= node.title %>.</h1>
-  <% if (node.subtitle) { %><p style="font-style: italic; color: var(--ink-2); font-size: var(--fs-lg); margin-top: var(--sp-3);"><%= node.subtitle %></p><% } %>
+<section style="margin-bottom: var(--sp-6);">
+  <div class="crumbs" style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); letter-spacing: 0.04em; margin-bottom: var(--sp-3);">
+    <a href="/" style="color: var(--ink-3); text-decoration: none;">~</a>
+    <% breadcrumbs.forEach(function(b, i){ %>
+      / <a href="<%= b.url %>" style="color: <%= i === breadcrumbs.length - 1 ? 'var(--ink)' : 'var(--ink-3)' %>; text-decoration: none;"><%= b.label %></a>
+    <% }) %>
+  </div>
+  <h1><%= node.title %></h1>
+  <% if (node.subtitle) { %><p style="font-style: italic; color: var(--ink-2); font-size: 20px; margin-top: var(--sp-3);"><%= node.subtitle %></p><% } %>
   <% if (node.fromPost) { %>
-    <p style="font-style: italic; font-size: var(--fs-small); color: var(--ink-3); margin-top: var(--sp-3);">
+    <p style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); margin-top: var(--sp-3); letter-spacing: 0.02em;">
       ↩ from the musing: <a href="<%= node.fromPost.url %>"><%= node.fromPost.title %></a>
     </p>
   <% } %>
-  <p style="font-style: italic; font-size: var(--fs-small); color: var(--ink-3); margin-top: var(--sp-3);">
-    <% if (node.location) { %><%= node.location %><% } %>
-    <% if (node.location && node.date) { %> &middot; <% } %>
-    <% if (node.date) { %><%= fmtLongDate(node.date) %><% } %>
-    <% if ((node.location || node.date)) { %> &middot; <% } %>
-    <%= node.images.length %> photos<% if (subAlbums.length) { %> &middot; <%= subAlbums.length %> sub-albums<% } %>
-  </p>
-</header>
+  <div style="font-family: var(--font-mono); font-size: var(--fs-small); color: var(--ink-3); margin-top: var(--sp-3); display: flex; gap: var(--sp-4); flex-wrap: wrap;">
+    <% if (node.location) { %><span><%= node.location %></span><% } %>
+    <% if (node.date) { %><span><%= fmtDate(node.date) %></span><% } %>
+    <span><%= node.images.length %> photos<% if (subAlbums.length) { %> · <%= subAlbums.length %> sub-albums<% } %></span>
+  </div>
+</section>
 
 <% if (subAlbums.length) { %>
 <section class="sp-section">
   <div class="sp-section-head">
-    <span class="sp-section-tag">sub-albums</span>
+    <span class="sp-section-tag"><%= copy.media.gallery.subalbums_tag %></span>
+    <h2><%= copy.media.gallery.subalbums_title %></h2>
   </div>
   <div class="sp-album-grid">
     <% subAlbums.forEach(function(a){ %>
@@ -45,10 +43,12 @@
 <% } %>
 
 <% if (node.images.length) { %>
-<section class="sp-section <%= subAlbums.length ? '' : 'first' %>">
+<section class="sp-section">
   <% if (subAlbums.length) { %>
   <div class="sp-section-head">
-    <span class="sp-section-tag">loose photos</span>
+    <span class="sp-section-tag"><%= copy.media.gallery.photos_tag %></span>
+    <h2><%= copy.media.gallery.photos_title %></h2>
+    <span class="sp-section-aside"><%= copy.media.gallery.photos_aside %></span>
   </div>
   <% } %>
   <div class="sp-vsco">
@@ -58,7 +58,7 @@
         <div class="caption">
           <% if (im.title) { %><div class="title"><%= im.title %></div><% } %>
           <% if (im.location) { %><div class="where"><%= im.location %></div><% } %>
-          <% if (im.date) { %><div><%= fmtLongDate(im.date) %></div><% } %>
+          <% if (im.date) { %><div><%= fmtDate(im.date) %></div><% } %>
         </div>
       </a>
     <% }) %>
@@ -67,5 +67,5 @@
 <% } %>
 
 <% if (!subAlbums.length && !node.images.length) { %>
-  <div class="sp-empty"><span class="glyph">∅</span><%= copy.empty.gallery %></div>
+  <div class="sp-empty"><%= copy.empty.gallery %></div>
 <% } %>

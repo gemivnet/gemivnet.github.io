@@ -2,29 +2,20 @@
   <aside class="musings-tree" aria-label="Musings folder tree">
     <input type="checkbox" id="tree-toggle" class="tree-toggle">
     <label class="tree-head" for="tree-toggle">browse</label>
-    <div class="tree-content">
-      <div class="tree-label">~/musings</div>
-      <%~ treeHtml %>
-    </div>
+    <%~ treeHtml %>
   </aside>
 
-  <div class="musings-body">
+  <div class="musings-main">
     <header style="margin-bottom: var(--sp-5);">
-      <div class="crumbs" style="font-style: italic; font-size: var(--fs-small); color: var(--ink-3); margin-bottom: var(--sp-3);">
-        <a href="/musings" style="color: var(--ink-3);">Musings</a>
-        <% categorySegs.forEach(function(c, idx){ %>
-          &nbsp;›&nbsp; <a href="/musings/<%= categorySegs.slice(0, idx+1).join('/') %>" style="color: <%= idx === categorySegs.length - 1 ? 'var(--ink-2)' : 'var(--ink-3)' %>;"><%= c.charAt(0).toUpperCase() + c.slice(1) %></a>
-        <% }) %>
+      <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); margin-bottom: var(--sp-3);">
+        <%= copy.musings.category.breadcrumb_prefix %><%= categoryKey %> · <%= allDescendants.length %> post<%= allDescendants.length === 1 ? '' : 's' %><% if (children.length) { %> · <%= children.length %> sub-folder<%= children.length === 1 ? '' : 's' %><% } %>
       </div>
-      <h1><%= categorySegs[categorySegs.length - 1].charAt(0).toUpperCase() + categorySegs[categorySegs.length - 1].slice(1) %>.</h1>
-      <p style="margin-top: var(--sp-3); color: var(--ink-2); font-style: italic;">
-        <%= allDescendants.length %> post<%= allDescendants.length === 1 ? '' : 's' %><% if (children.length) { %> in <%= children.length %> sub-folder<%= children.length === 1 ? '' : 's' %><% } %>.
-      </p>
+      <h1>musings / <%= categorySegs.join(' / ') %></h1>
     </header>
 
     <% if (children.length) { %>
     <section style="margin-top: var(--sp-5); border-top: 1px solid var(--rule); padding-top: var(--sp-4);">
-      <div style="font-style: italic; color: var(--ink-3); margin-bottom: var(--sp-3);">Sub-folders</div>
+      <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); margin-bottom: var(--sp-3);">// sub-folders</div>
       <ul class="cat-list">
         <% children.forEach(function(c){ %>
           <li><a href="<%= c.url %>"><%= c.label %>/</a><span class="count">(<%= c.count %>)</span></li>
@@ -39,13 +30,13 @@
 
     <% if (posts.length > 0) { %>
     <section style="margin-top: var(--sp-6); border-top: 1px solid var(--rule); padding-top: var(--sp-4);">
-      <div style="font-style: italic; color: var(--ink-3); margin-bottom: var(--sp-3);">In this folder</div>
+      <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); margin-bottom: var(--sp-3);">// in this folder</div>
       <% posts.forEach(function(p){ %>
         <article class="sp-card">
           <div class="sp-meta">
-            <span><%= fmtLongDate(p.date) %></span>
+            <span><%= fmtDate(p.date).replace(/-/g, '·') %></span>
             <span class="sep">·</span>
-            <span><%= p.wordCount.toLocaleString() %> words · ~<%= p.readTime %> min read</span>
+            <span><%= p.wordCount.toLocaleString() %> w · ~<%= p.readTime %> min</span>
           </div>
           <h3><a href="<%= p.url %>"><%= p.title %></a></h3>
           <% if (p.subtitle) { %><p class="sp-sub"><%= p.subtitle %></p><% } %>
@@ -54,6 +45,10 @@
         </article>
       <% }) %>
     </section>
+    <% } %>
+
+    <% if (children.length > 0 && posts.length === 0) { %>
+      <p style="margin-top: var(--sp-5); color: var(--ink-3); font-family: var(--font-mono); font-size: var(--fs-tiny);"><%= copy.musings.category.no_direct_posts %></p>
     <% } %>
   </div>
 </div>

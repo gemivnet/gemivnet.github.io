@@ -1,26 +1,27 @@
-<header style="margin-bottom: var(--sp-6);">
-  <div class="crumbs" style="font-style: italic; font-size: var(--fs-small); color: var(--ink-3); margin-bottom: var(--sp-3);">
-    <a href="/musings" style="color: var(--ink-3);">Musings</a> &nbsp;›&nbsp; <span style="color: var(--ink-2);">tag</span>
+<section style="margin-bottom: var(--sp-6);">
+  <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">
+    <%= copy.musings.tag.breadcrumb_prefix %><%= tag %> · <%= posts.length %> posts
   </div>
   <h1>#<%= tag %></h1>
-  <p style="margin-top: var(--sp-3); color: var(--ink-2); font-style: italic; font-size: var(--fs-lg);"><%= copy.musings.tag.intro %></p>
-</header>
+  <p style="margin-top: var(--sp-4); color: var(--ink-2); font-size: 18px;"><%= copy.musings.tag.intro %></p>
+</section>
 
-<section>
+<section class="sp-section">
   <% if (posts.length === 0) { %>
-    <div class="sp-empty"><span class="glyph">∅</span><%= copy.empty.tag %></div>
+    <div class="sp-empty"><%= copy.empty.tag %></div>
   <% } %>
   <% posts.forEach(function(p){ %>
     <article class="sp-card">
       <div class="sp-meta">
-        <span><%= fmtLongDate(p.date) %></span>
-        <span class="sep">·</span>
-        <span><%= p.wordCount.toLocaleString() %> words</span>
+        <%= fmtDate(p.date).replace(/-/g, '·') %><br>
+        <%= p.wordCount.toLocaleString() %> w
       </div>
-      <h3><a href="<%= p.url %>"><%= p.title %></a></h3>
-      <% if (p.subtitle) { %><p class="sp-sub"><%= p.subtitle %></p><% } %>
-      <p class="sp-preview"><%= p.preview %></p>
-      <div style="font-style: italic; font-size: var(--fs-small); color: var(--ink-3);">in <a href="<%= p.categoryPath %>" style="color: var(--ink-3);">musings / <%= p.category.join(' / ') %></a></div>
+      <div>
+        <h3><a href="<%= p.url %>"><%= p.title %></a></h3>
+        <% if (p.subtitle) { %><div class="sp-sub"><%= p.subtitle %></div><% } %>
+        <p class="sp-preview"><%= p.preview %></p>
+        <div style="font-family: var(--font-mono); font-size: 11px; color: var(--ink-3); letter-spacing: 0.04em;">in <a href="<%= p.categoryPath %>" style="color: var(--ink-3);"><%= ['musings'].concat(p.category).join('/') %></a></div>
+      </div>
     </article>
   <% }) %>
 </section>
