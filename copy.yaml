@@ -57,7 +57,6 @@ footer:
   site_links:
     - { label: "/rss.xml", href: "/rss.xml", indicator: true }
     - { label: "/changelog", href: "/changelog" }
-  built_by_hand: "built with claude"
 
 # ── musings index / category / tag ──────────────────────────
 musings:
