@@ -27,7 +27,7 @@
     body { min-height: 100vh; background: var(--bg, #f5f0e6); }
   </style>
   <% if (typeof jsonLd !== 'undefined' && jsonLd) { %>
-  <script type="application/ld+json"><%- JSON.stringify(jsonLd) %></script>
+  <script type="application/ld+json"><%~ JSON.stringify(jsonLd) %></script>
   <% } %>
 </head>
 <body class="<%= page.bodyClass %>">
