@@ -236,7 +236,7 @@ async function loadMusings() {
     const seenFiles = new Set();
     if (fm.featured_image && fm.featured_image.startsWith('media/')) {
       const file = fm.featured_image.replace(/^media\//, '');
-      imageRefs.push({ file, alt: fm.title });
+      imageRefs.push({ file, alt: fm.title, ...(imagesMap[file] || {}) });
       seenFiles.add(file);
     }
     const imgRe = /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g;
