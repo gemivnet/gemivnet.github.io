@@ -174,12 +174,14 @@ images:
       focal_length: 72mm
       width: 5472
       height: 3648
-  - file: memorial-bell.jpg
-    alt: Cast-iron memorial bell at a rest stop.
+  - file: centre-of-australia.jpg
+    alt: Centre of Australia cast-iron monument.
     date: "2026-05-13"
-    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/memorial-bell.jpg
-    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/memorial-bell__med.jpg
-    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/memorial-bell__thumb.jpg
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/centre-of-australia.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/centre-of-australia__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/centre-of-australia__thumb.jpg
     bytes: 4687535
     exif:
       camera: SONY DSC-RX100M7
@@ -204,14 +206,15 @@ images:
       focal_length: 11mm
       width: 5472
       height: 3648
-  - file: red-dirt-campground.jpg
-    alt: Red dirt campground with native trees.
+  - file: yulara-coach-campground.jpg
+    alt: Yulara coach campground.
     date: "2026-05-14"
-    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/red-dirt-campground.jpg
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/yulara-coach-campground.jpg
     s3_med: >-
-      https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/red-dirt-campground__med.jpg
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/yulara-coach-campground__med.jpg
     s3_thumb: >-
-      https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/red-dirt-campground__thumb.jpg
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/yulara-coach-campground__thumb.jpg
     bytes: 4356879
     exif:
       camera: SONY DSC-RX100M7
@@ -221,12 +224,14 @@ images:
       focal_length: 9mm
       width: 5472
       height: 3648
-  - file: desert-camp.jpg
-    alt: Desert camp buildings from above.
+  - file: yulara-camp-overview.jpg
+    alt: Yulara camp overview from above.
     date: "2026-05-14"
-    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/desert-camp.jpg
-    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/desert-camp__med.jpg
-    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/desert-camp__thumb.jpg
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/yulara-camp-overview.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/yulara-camp-overview__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/yulara-camp-overview__thumb.jpg
     bytes: 5162962
     exif:
       camera: SONY DSC-RX100M7
@@ -268,15 +273,15 @@ images:
       focal_length: 72mm
       width: 5472
       height: 3648
-  - file: glamping-tents-overview.jpg
-    alt: Glamping tents at a desert camp.
+  - file: yulara-eco-tents-overview.jpg
+    alt: Yulara eco tents overview.
     date: "2026-05-14"
     s3: >-
-      https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/glamping-tents-overview.jpg
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/yulara-eco-tents-overview.jpg
     s3_med: >-
-      https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/glamping-tents-overview__med.jpg
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/yulara-eco-tents-overview__med.jpg
     s3_thumb: >-
-      https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/glamping-tents-overview__thumb.jpg
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/yulara-eco-tents-overview__thumb.jpg
     bytes: 4895632
     exif:
       camera: SONY DSC-RX100M7
@@ -286,13 +291,15 @@ images:
       focal_length: 72mm
       width: 5472
       height: 3648
-  - file: camp-from-above.jpg
-    alt: Camp from above with tents and trees.
+  - file: yulara-camp-from-above.jpg
+    alt: Yulara camp from above.
     date: "2026-05-14"
-    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/camp-from-above.jpg
-    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/camp-from-above__med.jpg
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/yulara-camp-from-above.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/yulara-camp-from-above__med.jpg
     s3_thumb: >-
-      https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/camp-from-above__thumb.jpg
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/yulara-camp-from-above__thumb.jpg
     bytes: 5349790
     exif:
       camera: SONY DSC-RX100M7
@@ -302,12 +309,13 @@ images:
       focal_length: 52mm
       width: 5472
       height: 3648
-  - file: glamping-tents.jpg
-    alt: Two glamping tents in the red dirt.
+  - file: yulara-eco-tents.jpg
+    alt: Yulara eco tents, close.
     date: "2026-05-14"
-    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/glamping-tents.jpg
-    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/glamping-tents__med.jpg
-    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/glamping-tents__thumb.jpg
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/yulara-eco-tents.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/yulara-eco-tents__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/misc/yulara-eco-tents__thumb.jpg
     bytes: 3215266
     exif:
       camera: SONY DSC-RX100M7
@@ -317,3 +325,4 @@ images:
       focal_length: 9mm
       width: 5472
       height: 3648
+cover: northern-territory-sign

@@ -7,12 +7,14 @@
     &nbsp;/&nbsp; <span style="color: var(--ink-2);"><%= image.slug %></span>
   </div>
 
-  <figure class="photo-figure">
+  <div class="photo-frame-row">
     <a class="photo-arrow prev" href="<%= prev.pageUrl %>" aria-label="Previous photo">‹</a>
-    <img src="<%= image.src %>" alt="<%= escapeHtml(image.alt || '') %>" title="<%= escapeHtml(image.alt || '') %>">
+    <figure class="photo-figure">
+      <img src="<%= image.src %>" alt="<%= escapeHtml(image.alt || '') %>" title="<%= escapeHtml(image.alt || '') %>">
+      <% if (image.alt) { %><figcaption><%= image.alt %></figcaption><% } %>
+    </figure>
     <a class="photo-arrow next" href="<%= next.pageUrl %>" aria-label="Next photo">›</a>
-    <% if (image.alt) { %><figcaption><%= image.alt %></figcaption><% } %>
-  </figure>
+  </div>
 
   <div class="photo-meta">
     <table>
@@ -54,27 +56,29 @@
 
 <style>
   .photo-page { max-width: 1000px; margin: 0 auto; }
-  .photo-figure { position: relative; margin: 0 0 var(--sp-5); text-align: center; }
+  .photo-frame-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-3);
+    margin: 0 0 var(--sp-5);
+  }
+  .photo-figure { margin: 0; text-align: center; min-width: 0; flex: 1 1 auto; }
   .photo-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     font-family: var(--font-mono);
     font-size: 40px;
     line-height: 1;
     color: var(--ink-3);
     text-decoration: none;
-    padding: var(--sp-3) var(--sp-4);
+    padding: var(--sp-3) var(--sp-2);
     transition: color .12s var(--ease);
     user-select: none;
+    flex: 0 0 auto;
   }
-  .photo-arrow.prev { left: -8px; }
-  .photo-arrow.next { right: -8px; }
   .photo-arrow:hover { color: var(--accent); text-decoration: none; }
   @media (max-width: 700px) {
-    .photo-arrow { font-size: 32px; padding: var(--sp-2) var(--sp-3); }
-    .photo-arrow.prev { left: -4px; }
-    .photo-arrow.next { right: -4px; }
+    .photo-arrow { font-size: 32px; padding: var(--sp-2); }
+    .photo-frame-row { gap: var(--sp-1); }
   }
   .photo-figure img {
     max-width: 100%;
