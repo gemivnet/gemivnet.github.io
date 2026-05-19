@@ -8,7 +8,10 @@ draft: false
 seo:
   description: "A first-person account of a catastrophic day snorkeling the Great Barrier Reef. 10 foot seas, seasickness, coral scrapes, and a two hour sail back that felt like ten."
   keywords: [great barrier reef snorkeling, great barrier reef rough seas, sailing cairns, green island australia, great barrier reef experience]
+featured_image: media/green-island-from-boat.jpg
 ---
+
+![Green Island seen from the sailboat — a low tree-covered island with a thin white sand beach across turquoise water, the boat's silver railing in the foreground.](media/green-island-from-boat.jpg)
 
 Today was the second worst day of my life.
 
@@ -19,6 +22,8 @@ We got on the boat and they offered us pastries, fruit, coffee, and tea. The cre
 On our way out there was a bit of a squall we were going to pass through. Most people decided to go into the back area which was sheltered, but Shelby and I and a few others stuck outside. We were going to get wet soon anyways. The rain started and Shelby got a little cold so she and everyone else headed under the canopy. I stayed out front since that's where I always am on the boat. I was getting splashed occasionally by the waves and the water was so warm. They said 28°C which is almost 83°F. Any water that splashed was super warm. I've never felt ocean water like that before. And it was insanely blue. Beautiful water.
 
 Shelby joined me again and we were the only two crazy people to sit out front and enjoy the splashes. I taught her how you can't predict which waves are the bad ones and which ones do nothing. The ones that splash and bounce you the most are the least expecting ones. She didn't get seasick at all after taking an ungodly concoction of medicines before we left. We saw a weird fish and some dolphins on the way to Green Island.
+
+![Cluttered deck of the sailboat at the snorkeling mooring — piles of fins and snorkel masks on a bench, an orange life ring hanging from the mast, the boom rigged up overhead.](media/boat-deck-gear.jpg){.inline}
 
 We got to the mooring and the wind was blowing a steady 30 knots. Probably 1-2 foot seas just where we were. They gave us all of the scuba instructions and suited us up in the wetsuit, life jacket, fins, goggles, and snorkel. We were the second group in the water. It was super warm, and they had a long rope extended out for people to hold onto to get their bearings. Shelby immediately was struggling but seemed to be fine when the tour started. I was struggling breathing through my mouth instead of my nose. And the snorkel was useless for me. I tried it a few times but any amount of salt water in my mouth made me gag. The water was significantly more salty than the ocean water I'm used to.
 
