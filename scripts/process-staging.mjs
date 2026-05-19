@@ -249,12 +249,7 @@ async function main() {
       const ex = exifByFile[f.name];
       if (ex?.lat) console.log(`    (GPS will be stripped: ${ex.lat.toFixed(4)}, ${ex.lon.toFixed(4)})`);
       const title = await ask('    title (optional)', '');
-      let alt;
-      while (true) {
-        alt = await ask('    alt (REQUIRED)', '');
-        if (alt) break;
-        console.log('    alt text is required — keeps the site accessible and SEO-readable.');
-      }
+      const alt = await ask('    alt (optional, recommended)', '');
 
       const ext = '.jpg';   // we normalize everything to jpeg on upload
       const out = rename ? nextImgName(meta, ext) : f.name.replace(/\.[^.]+$/, ext);

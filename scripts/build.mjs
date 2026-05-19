@@ -335,7 +335,7 @@ async function loadMedia() {
     const images = [];
     for (const im of data.images || []) {
       if (!im.file) { fail(`${rel}: an image entry is missing its 'file' field`); continue; }
-      if (!im.alt) fail(`${rel}: image '${im.file}' is missing required 'alt' text (needed for accessibility + SEO)`);
+      if (!im.alt) console.warn(`  ⚠ ${rel}: image '${im.file}' has no alt text (recommended for accessibility + SEO, not required)`);
       const slug = im.file.replace(/\.[^.]+$/, '');
       // S3-backed image: all sizes live on S3, nothing local.
       // Legacy fallback: file lives locally under content/media/<dir>/<file>.
@@ -1040,7 +1040,34 @@ async function main() {
   const { nodes: realMediaNodes } = await loadMedia();
   const synthNodes = synthesizeFromMusings(musings, realMediaNodes);
   const mediaNodes = realMediaNodes.concat(synthNodes);
-  // Re-wire parent/child relationships across real + synthesized.
+  // Ensure every ancestor folder has a (possibly virtual) node so breadcrumbs
+  // and the album tree resolve — even if no metadata.yaml was created for it.
+  const have = new Set(mediaNodes.map(n => n.dir));
+  for (const n of [...mediaNodes]) {
+    const segs = n.dir.split('/');
+    for (let i = 2; i < segs.length; i++) {
+      const subDir = segs.slice(0, i).join('/');
+      if (have.has(subDir)) continue;
+      have.add(subDir);
+      mediaNodes.push({
+        type: 'gallery',
+        url: '/' + subDir,
+        dir: subDir,
+        depth: i - 1,
+        title: segs[i - 1],
+        subtitle: '',
+        location: '',
+        date: null,
+        seo: {},
+        images: [],
+        synthesized: true,
+        virtual: true,
+        children: [],
+      });
+      allRoutes.add('/' + subDir);
+    }
+  }
+  // Re-wire parent/child relationships across real + synthesized + virtual.
   for (const n of mediaNodes) {
     n.children = mediaNodes.filter(o => path.dirname(o.dir) === n.dir);
     n.children.sort((a, b) => a.title.localeCompare(b.title));
