@@ -390,9 +390,17 @@ async function computeStats(musings, mediaNodes) {
   let imageCount = 0;
   for (const n of mediaNodes) {
     for (const im of n.images) {
-      if (!im.absPath || seen.has(im.absPath)) continue;
-      seen.add(im.absPath);
-      try { imageBytes += (await fs.stat(im.absPath)).size; imageCount++; } catch {}
+      const key = im.s3 || im.absPath;
+      if (!key || seen.has(key)) continue;
+      seen.add(key);
+      // Prefer the recorded byte count (S3 original's true size).
+      // Fallback: local file size (only accurate for non-S3 images, e.g. post-inline images).
+      if (typeof im.bytes === 'number' && im.bytes > 0) {
+        imageBytes += im.bytes;
+        imageCount++;
+      } else if (im.absPath) {
+        try { imageBytes += (await fs.stat(im.absPath)).size; imageCount++; } catch {}
+      }
     }
   }
   const dates = musings.map(m => m.date).filter(Boolean).sort((a, b) => a - b);

@@ -300,6 +300,7 @@ async function main() {
         ...(batchLocation && { location: batchLocation }),
         alt,
         s3: s3Url,
+        bytes: fullBytes,    // full-size original (what's on S3), used for site stats
         ...(Object.keys(exifBlock).length ? { exif: exifBlock } : {}),
       };
       Object.keys(entry).forEach(k => entry[k] === undefined && delete entry[k]);
