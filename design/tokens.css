@@ -1,44 +1,44 @@
 /* georgemain.com — design tokens
-   All site styling pivots off these custom properties.
-   :root holds dark defaults; .site-page.light overrides them.
-   Only one palette (red) and one font pairing (IBM Plex) ship.
+   Flat background, narrow column, retro personal-site feel.
+   :root holds dark defaults; .light overrides them.
 */
 
 :root {
-  /* ── palette: dark base ──────────────────────────────────── */
-  --bg:       #14110f;
-  --bg-2:     #1b1815;
-  --bg-3:     #24201b;
+  /* ── palette: dark (the base; .light overrides) ─────────── */
+  --bg:       #16130f;
+  --bg-2:     #1d1915;
+  --bg-3:     #26211b;
   --ink:      #ece6d8;
   --ink-2:    #a8a097;
   --ink-3:    #6d665d;
-  --rule:     #2a2620;
-  --rule-2:   #3a342c;
+  --rule:     #2d2822;
+  --rule-2:   #3d362d;
+  /* signature accent — red, only red. */
   --accent:   #e84a3f;
   --accent-2: #ff8a7a;
   --accent-3: #4a1812;
   --selection: rgba(232,74,63,.32);
 
-  /* graph-paper grid (faint) */
-  --grid-color: rgba(232,227,216,.045);
+  /* no grid texture — flat background. */
+  --grid-color: transparent;
   --grid-size: 32px;
 
-  /* ── type ─ IBM Plex pairing ─────────────────────────────── */
+  /* ── type ────────────────────────────────────────────────── */
   --font-mono:  "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   --font-body:  "IBM Plex Serif", Georgia, "Iowan Old Style", serif;
 
-  --fs-tiny:   11px;
-  --fs-small:  13px;
-  --fs-body:   16px;
-  --fs-lg:     19px;
+  --fs-tiny:   12px;
+  --fs-small:  14px;
+  --fs-body:   18px;
+  --fs-lg:     20px;
   --fs-xl:     24px;
-  --fs-2xl:    32px;
-  --fs-3xl:    44px;
-  --fs-mega:   64px;
+  --fs-2xl:    30px;
+  --fs-3xl:    38px;
+  --fs-mega:   48px;
 
-  --lh-tight: 1.15;
-  --lh-snug:  1.35;
-  --lh-body:  1.6;
+  --lh-tight: 1.2;
+  --lh-snug:  1.4;
+  --lh-body:  1.65;
 
   /* ── spacing ─────────────────────────────────────────────── */
   --sp-1:  4px;
@@ -51,29 +51,30 @@
   --sp-8:  64px;
   --sp-9:  96px;
 
-  /* ── layout ──────────────────────────────────────────────── */
+  /* ── layout — narrow on purpose ─────────────────────────── */
   --reading-width: 680px;
-  --content-width: 1080px;
-  --max-width:    1240px;
-  --page-gutter:  48px;
+  --content-width: 760px;
+  --max-width:    820px;
+  --page-gutter:  32px;
 
   /* ── motion ──────────────────────────────────────────────── */
   --ease: cubic-bezier(.2,.7,.3,1);
 }
 
-/* ── light mode (the shipped default) ───────────────────────── */
+/* ── light mode (palette swap only — no layout changes) ──── */
 .site-page.light,
 .light .site-page {
-  --bg:       #f4efe4;
-  --bg-2:     #ebe5d6;
+  --bg:       #f5f0e6;
+  --bg-2:     #ede7d7;
   --bg-3:     #e0d9c6;
-  --ink:      #1a1612;
-  --ink-2:    #5a534a;
-  --ink-3:    #8b8377;
-  --rule:     #cfc6b3;
+  --ink:      #1c1814;
+  --ink-2:    #564f47;
+  --ink-3:    #908779;
+  --rule:     #d6cdb9;
   --rule-2:   #b8ad97;
-  --accent:   #c2291a;
-  --accent-2: #931e10;
-  --accent-3: #f3cdc4;
-  --grid-color: rgba(26,22,18,.055);
+  --accent:   #b8281a;
+  --accent-2: #8c1d10;
+  --accent-3: #f0d0c8;
+  --selection: rgba(184,40,26,.20);
+  --grid-color: transparent;
 }
