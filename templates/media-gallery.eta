@@ -12,60 +12,141 @@
       ↩ from the musing: <a href="<%= node.fromPost.url %>"><%= node.fromPost.title %></a>
     </p>
   <% } %>
-  <div style="font-family: var(--font-mono); font-size: var(--fs-small); color: var(--ink-3); margin-top: var(--sp-3); display: flex; gap: var(--sp-4); flex-wrap: wrap;">
+  <div style="font-family: var(--font-mono); font-size: var(--fs-small); color: var(--ink-3); margin-top: var(--sp-3); display: flex; gap: var(--sp-4); flex-wrap: wrap; align-items: center;">
     <% if (node.location) { %><span><%= node.location %></span><% } %>
     <% if (node.date) { %><span><%= fmtDate(node.date) %></span><% } %>
-    <span><%= node.images.length %> photos<% if (subAlbums.length) { %> · <%= subAlbums.length %> sub-albums<% } %></span>
+    <span><%= allDescendantImages.length %> photos<% if (subAlbums.length) { %> · <%= subAlbums.length %> sub-albums<% } %></span>
   </div>
 </section>
 
 <% if (subAlbums.length) { %>
-<section class="sp-section">
-  <div class="sp-section-head">
-    <span class="sp-section-tag"><%= copy.media.gallery.subalbums_tag %></span>
-    <h2><%= copy.media.gallery.subalbums_title %></h2>
-  </div>
-  <div class="sp-album-grid">
-    <% subAlbums.forEach(function(a){ %>
-      <a class="sp-album" href="<%= a.url %>">
-        <% if (a.cover) { %>
-          <div class="sp-img has-photo" style="aspect-ratio: 4/3; background-image: url('<%= a.cover.med %>'); background-size: cover; background-position: center;"></div>
-        <% } else { %>
-          <div class="sp-img tinted" style="aspect-ratio: 4/3;"><span class="sp-img-label">[ <%= a.title %> ]</span></div>
-        <% } %>
-        <div class="meta-row"><span><%= a.date %></span><span><%= a.count %> photos</span></div>
-        <h4><%= a.title %></h4>
-        <% if (a.subtitle) { %><div class="sub"><%= a.subtitle %></div><% } %>
-      </a>
-    <% }) %>
-  </div>
-</section>
-<% } %>
+  <div class="gallery-view">
+    <input type="radio" name="gv-<%= node.dir.replace(/[^a-z0-9]/gi,'-') %>" id="gv-folder" value="folder" checked>
+    <input type="radio" name="gv-<%= node.dir.replace(/[^a-z0-9]/gi,'-') %>" id="gv-grid"   value="grid">
+    <input type="radio" name="gv-<%= node.dir.replace(/[^a-z0-9]/gi,'-') %>" id="gv-feed"   value="feed">
 
-<% if (node.images.length) { %>
-<section class="sp-section">
-  <% if (subAlbums.length) { %>
-  <div class="sp-section-head">
-    <span class="sp-section-tag"><%= copy.media.gallery.photos_tag %></span>
-    <h2><%= copy.media.gallery.photos_title %></h2>
-    <span class="sp-section-aside"><%= copy.media.gallery.photos_aside %></span>
-  </div>
-  <% } %>
-  <div class="sp-vsco">
-    <% node.images.forEach(function(im){ %>
-      <a class="cell" href="<%= im.pageUrl %>" title="<%= escapeHtml(im.alt || '') %>">
-        <div class="sp-img has-photo" style="background-image: url('<%= im.srcThumb %>'); background-size: cover; background-position: center;" aria-label="<%= escapeHtml(im.alt || '') %>"></div>
-        <div class="caption">
-          <% if (im.title) { %><div class="title"><%= im.title %></div><% } %>
-          <% if (im.location) { %><div class="where"><%= im.location %></div><% } %>
-          <% if (im.date) { %><div><%= fmtDate(im.date) %></div><% } %>
+    <div class="gv-toggle" role="tablist" aria-label="Gallery view mode">
+      <label for="gv-folder" data-view="folder">folders</label>
+      <label for="gv-grid"   data-view="grid">grid</label>
+      <label for="gv-feed"   data-view="feed">feed</label>
+    </div>
+
+    <!-- folder view: sub-albums above, loose photos below -->
+    <div class="gv-folder">
+      <section class="sp-section first">
+        <div class="sp-section-head">
+          <span class="sp-section-tag"><%= copy.media.gallery.subalbums_tag %></span>
+          <h2><%= copy.media.gallery.subalbums_title %></h2>
         </div>
-      </a>
-    <% }) %>
-  </div>
-</section>
-<% } %>
+        <div class="sp-album-grid">
+          <% subAlbums.forEach(function(a){ %>
+            <a class="sp-album" href="<%= a.url %>">
+              <% if (a.cover) { %>
+                <div class="sp-img has-photo" style="aspect-ratio: 4/3; background-image: url('<%= a.cover.med %>'); background-size: cover; background-position: center;"></div>
+              <% } else { %>
+                <div class="sp-img tinted" style="aspect-ratio: 4/3;"><span class="sp-img-label">[ <%= a.title %> ]</span></div>
+              <% } %>
+              <div class="meta-row"><span><%= a.date %></span><span><%= a.count %> photos</span></div>
+              <h4><%= a.title %></h4>
+              <% if (a.subtitle) { %><div class="sub"><%= a.subtitle %></div><% } %>
+            </a>
+          <% }) %>
+        </div>
+      </section>
 
-<% if (!subAlbums.length && !node.images.length) { %>
+      <% if (node.images.length) { %>
+        <section class="sp-section">
+          <div class="sp-section-head">
+            <span class="sp-section-tag"><%= copy.media.gallery.photos_tag %></span>
+            <h2><%= copy.media.gallery.photos_title %></h2>
+            <span class="sp-section-aside"><%= copy.media.gallery.photos_aside %></span>
+          </div>
+          <div class="sp-vsco">
+            <% node.images.forEach(function(im){ %>
+              <a class="cell" href="<%= im.pageUrl %>" title="<%= escapeHtml(im.alt || '') %>">
+                <div class="sp-img has-photo" style="background-image: url('<%= im.srcThumb %>'); background-size: cover; background-position: center;" aria-label="<%= escapeHtml(im.alt || '') %>"></div>
+                <div class="caption">
+                  <% if (im.title) { %><div class="title"><%= im.title %></div><% } %>
+                  <% if (im.location) { %><div class="where"><%= im.location %></div><% } %>
+                  <% if (im.date) { %><div><%= fmtDate(im.date) %></div><% } %>
+                </div>
+              </a>
+            <% }) %>
+          </div>
+        </section>
+      <% } %>
+    </div>
+
+    <!-- grid view: every image in this subtree, no sub-album cards -->
+    <div class="gv-grid">
+      <div class="sp-vsco">
+        <% allDescendantImages.forEach(function(im){ %>
+          <a class="cell" href="<%= im.pageUrl %>" title="<%= escapeHtml(im.alt || '') %>">
+            <div class="sp-img has-photo" style="background-image: url('<%= im.srcThumb %>'); background-size: cover; background-position: center;" aria-label="<%= escapeHtml(im.alt || '') %>"></div>
+            <div class="caption">
+              <% if (im.title) { %><div class="title"><%= im.title %></div><% } %>
+              <% if (im.album && im.album !== node.url) { %><div class="where"><%= im.albumTitle %></div><% } %>
+              <% if (im.date) { %><div><%= fmtDate(im.date) %></div><% } %>
+            </div>
+          </a>
+        <% }) %>
+      </div>
+    </div>
+
+    <!-- feed view: every image in a vertical stream, captions below each -->
+    <div class="gv-feed">
+      <% allDescendantImages.forEach(function(im){ %>
+        <figure class="gv-feed-item">
+          <a href="<%= im.pageUrl %>">
+            <img src="<%= im.srcMed %>" alt="<%= escapeHtml(im.alt || '') %>" loading="lazy">
+          </a>
+          <figcaption>
+            <% if (im.title) { %><span class="t"><%= im.title %></span><% } %>
+            <% if (im.alt) { %><span class="alt"><%= im.alt %></span><% } %>
+            <span class="m">
+              <% if (im.album && im.album !== node.url) { %><a href="<%= im.album %>"><%= im.albumTitle %></a> · <% } %>
+              <% if (im.date) { %><%= fmtDate(im.date) %><% } %>
+            </span>
+          </figcaption>
+        </figure>
+      <% }) %>
+    </div>
+  </div>
+
+  <script>
+    // Persist gallery view selection in localStorage so it survives page nav.
+    (function () {
+      var wrap = document.currentScript.previousElementSibling;
+      while (wrap && !wrap.classList.contains('gallery-view')) wrap = wrap.previousElementSibling;
+      if (!wrap) return;
+      var stored = (function(){ try { return localStorage.getItem('gv'); } catch(_){ return null; } })();
+      if (stored) {
+        var sel = wrap.querySelector('input[value="' + stored + '"]');
+        if (sel) sel.checked = true;
+      }
+      wrap.querySelectorAll('input[type=radio]').forEach(function (r) {
+        r.addEventListener('change', function () {
+          try { localStorage.setItem('gv', r.value); } catch (_) {}
+        });
+      });
+    })();
+  </script>
+
+<% } else if (node.images.length) { %>
+  <section class="sp-section first">
+    <div class="sp-vsco">
+      <% node.images.forEach(function(im){ %>
+        <a class="cell" href="<%= im.pageUrl %>" title="<%= escapeHtml(im.alt || '') %>">
+          <div class="sp-img has-photo" style="background-image: url('<%= im.srcThumb %>'); background-size: cover; background-position: center;" aria-label="<%= escapeHtml(im.alt || '') %>"></div>
+          <div class="caption">
+            <% if (im.title) { %><div class="title"><%= im.title %></div><% } %>
+            <% if (im.location) { %><div class="where"><%= im.location %></div><% } %>
+            <% if (im.date) { %><div><%= fmtDate(im.date) %></div><% } %>
+          </div>
+        </a>
+      <% }) %>
+    </div>
+  </section>
+<% } else { %>
   <div class="sp-empty"><%= copy.empty.gallery %></div>
 <% } %>

@@ -864,6 +864,15 @@ async function renderMedia(mediaNodes) {
         count: countImages(c, mediaNodes),
         fromPost: c.fromPost || null,
       })),
+      // All images in this subtree (this node's own + every descendant's),
+      // used by the grid/feed view modes on category pages.
+      allDescendantImages: (function collect(node) {
+        const out = node.images.map(im => ({ ...im, album: node.url, albumTitle: node.title }));
+        for (const child of node.children || []) out.push(...collect(child));
+        // dedupe by src (same image might appear in real + synthesized gallery)
+        const seen = new Set();
+        return out.filter(im => { if (seen.has(im.src)) return false; seen.add(im.src); return true; });
+      })(n),
       breadcrumbs: breadcrumbs(n.dir),
       jsonLd: {
         '@context': 'https://schema.org',
