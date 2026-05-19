@@ -4,6 +4,11 @@ subtitle: "10 foot seas, a sailboat, and a lot of regret"
 date: 2026-05-12
 tags: [travel, australia, snorkeling, sailing]
 featured_image: media/green-island-from-boat.jpg
+gallery:
+  path: australia/cairns/great-barrier-reef
+  title: Great Barrier Reef
+  subtitle: Photos from a rough day off Cairns.
+  location: "Cairns, QLD, Australia"
 draft: false
 seo:
   description: "A first-person account of a catastrophic day snorkeling the Great Barrier Reef. 10 foot seas, seasickness, coral scrapes, and a two hour sail back that felt like ten."

@@ -221,15 +221,30 @@ async function loadMusings() {
     const url = '/' + folder; // /musings/travel/japan-tips
 
     const bodyMd = parsed.content;
-    // Verify referenced images exist & rewrite to absolute output paths.
+    // Verify referenced images exist & collect {file, alt} for gallery synthesis.
     const mediaDir = path.join(path.dirname(full), 'media');
-    const imgRe = /!\[[^\]]*\]\(([^)\s]+)/g;
-    let m;
-    while ((m = imgRe.exec(bodyMd))) {
-      const src = m[1];
+    const imageRefs = [];
+    const seenFiles = new Set();
+    if (fm.featured_image && fm.featured_image.startsWith('media/')) {
+      const file = fm.featured_image.replace(/^media\//, '');
+      imageRefs.push({ file, alt: fm.title });
+      seenFiles.add(file);
+    }
+    const imgRe = /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g;
+    let mref;
+    while ((mref = imgRe.exec(bodyMd))) {
+      const alt = mref[1];
+      const src = mref[2];
       if (/^https?:/.test(src)) continue;
       const abs = path.resolve(path.dirname(full), src);
       if (!(await exists(abs))) fail(`Missing image ${src} referenced in ${rel}`);
+      if (src.startsWith('media/')) {
+        const file = src.replace(/^media\//, '');
+        if (!seenFiles.has(file)) {
+          imageRefs.push({ file, alt });
+          seenFiles.add(file);
+        }
+      }
     }
     const bodyHtml = marked.parse(bodyMd, { async: false });
     const rewritten = bodyHtml.replace(/(src|href)="(media\/[^"]+)"/g, (_, attr, p) => `${attr}="${url}/${p}"`);
@@ -254,6 +269,8 @@ async function loadMusings() {
       tags: fm.tags || [],
       featured,
       seo: fm.seo || {},
+      gallery: fm.gallery || null,   // optional: { path, title?, subtitle?, location?, date? }
+      imageRefs,                     // [{ file, alt }] referenced in body + featured
       bodyHtml: rewritten,
       bodyMd,
       preview,
@@ -444,6 +461,77 @@ function buildMusingsTree(musings) {
   return root;
 }
 
+// Synthesize media gallery nodes from musings that declare `gallery:` frontmatter.
+// Reuses the images already in the post's media/ folder — no duplication.
+// Walks ancestor segments and produces virtual parent nodes if no real
+// metadata.yaml exists at that level, so breadcrumbs and album-tree work.
+function synthesizeFromMusings(musings, existingNodes) {
+  const out = [];
+  const have = new Set(existingNodes.map(n => n.dir));
+  for (const m of musings) {
+    if (!m.gallery || !m.gallery.path) continue;
+    const galleryPath = m.gallery.path.replace(/^\/+|\/+$/g, '');
+    const dir = 'media/' + galleryPath;
+    if (have.has(dir) || out.find(o => o.dir === dir)) {
+      fail(`Gallery path collision: musing ${m.sourceRel} points to ${dir} but it already exists.`);
+      continue;
+    }
+    const segs = dir.split('/');
+    const images = m.imageRefs.map(ref => ({
+      file: ref.file,
+      alt: ref.alt || '',
+      title: '',
+      date: m.date,
+      location: m.gallery.location || '',
+      // Reuse the post's already-copied media file. No separate thumb/med.
+      src: `${m.url}/media/${ref.file}`,
+      srcMed: `${m.url}/media/${ref.file}`,
+      srcThumb: `${m.url}/media/${ref.file}`,
+      absPath: path.join(m.mediaDir, ref.file),
+    }));
+    out.push({
+      type: 'gallery',
+      url: '/' + dir,
+      dir,
+      depth: segs.length - 1,
+      title: m.gallery.title || m.title,
+      subtitle: m.gallery.subtitle || '',
+      location: m.gallery.location || '',
+      date: m.gallery.date ? new Date(m.gallery.date) : m.date,
+      seo: m.gallery.seo || { description: `Photos from "${m.title}".` },
+      images,
+      synthesized: true,
+      fromPost: { title: m.title, url: m.url, subtitle: m.subtitle },
+      children: [],
+    });
+    allRoutes.add('/' + dir);
+
+    // Virtual ancestors so the tree/breadcrumbs work.
+    for (let i = 2; i < segs.length; i++) {
+      const subDir = segs.slice(0, i).join('/');
+      if (have.has(subDir) || out.find(o => o.dir === subDir)) continue;
+      const subSegs = subDir.split('/');
+      out.push({
+        type: 'gallery',
+        url: '/' + subDir,
+        dir: subDir,
+        depth: subSegs.length - 1,
+        title: subSegs[subSegs.length - 1],
+        subtitle: '',
+        location: '',
+        date: null,
+        seo: {},
+        images: [],
+        synthesized: true,
+        virtual: true,
+        children: [],
+      });
+      allRoutes.add('/' + subDir);
+    }
+  }
+  return out;
+}
+
 // Render a folder/post tree to an HTML string for the sidebar.
 function renderTreeHtml(tree, activeUrl, activeCategory) {
   function walk(node, depth, isLast) {
@@ -604,8 +692,8 @@ async function renderMusings(musings) {
 // ── render: media ─────────────────────────────────────────────
 
 async function renderMedia(mediaNodes) {
-  // Process all images.
-  for (const n of mediaNodes) await buildMediaImages(n);
+  // Process all images. Synthesized nodes reuse the post's media files in place.
+  for (const n of mediaNodes) if (!n.synthesized) await buildMediaImages(n);
 
   // Top-level index aggregates depth-1 nodes (e.g. /media/australia, /media/budapest).
   const topNodes = mediaNodes.filter(n => n.depth === 1);
@@ -624,6 +712,7 @@ async function renderMedia(mediaNodes) {
       date: n.date ? fmtDate(n.date) : '',
       cover: coverImage(n),
       count: countImages(n, mediaNodes),
+      fromPost: n.fromPost || null,
     })),
   });
   collectLinks('/media', indexHtml);
@@ -649,6 +738,7 @@ async function renderMedia(mediaNodes) {
         date: c.date ? fmtDate(c.date) : '',
         cover: coverImage(c),
         count: countImages(c, mediaNodes),
+        fromPost: c.fromPost || null,
       })),
       breadcrumbs: breadcrumbs(n.dir),
       jsonLd: {
@@ -796,6 +886,8 @@ function verifyLinks() {
     if (allRoutes.has(target + '/')) continue;
     // try as a file route (e.g. /sites/foo)
     if (target.startsWith('/sites/')) continue;
+    // image/static asset references — not page routes
+    if (/\.(jpe?g|png|webp|gif|svg|ico|pdf|mp4|webm|mp3)$/i.test(target)) continue;
     fail(`Broken internal link: ${href}  (on ${from})`);
   }
 }
@@ -818,8 +910,15 @@ async function main() {
   await copyDesign();
   const musings = await loadMusings();
   log(`${musings.length} musings`);
-  const { nodes: mediaNodes } = await loadMedia();
-  log(`${mediaNodes.length} gallery nodes`);
+  const { nodes: realMediaNodes } = await loadMedia();
+  const synthNodes = synthesizeFromMusings(musings, realMediaNodes);
+  const mediaNodes = realMediaNodes.concat(synthNodes);
+  // Re-wire parent/child relationships across real + synthesized.
+  for (const n of mediaNodes) {
+    n.children = mediaNodes.filter(o => path.dirname(o.dir) === n.dir);
+    n.children.sort((a, b) => a.title.localeCompare(b.title));
+  }
+  log(`${realMediaNodes.length} real + ${synthNodes.length} synthesized gallery nodes`);
 
   await renderHome(musings, mediaNodes);
   await renderMusings(musings);
