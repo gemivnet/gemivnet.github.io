@@ -188,10 +188,13 @@ function imgFigure(href, alt, title, kls) {
   const cls = /inline-(l|r)|full|bleed/.test(kls)
     ? kls
     : (kls.includes('inline') ? 'inline-r' : 'full');
-  const t = title ? ` title="${escapeHtml(title)}"` : '';
+  // marked already entity-escapes alt; decode first so we don't double-escape.
+  const altText = decodeEntities(alt || '');
+  const titleText = title ? decodeEntities(title) : '';
+  const t = titleText ? ` title="${escapeHtml(titleText)}"` : '';
   return `<figure class="sp-figure ${cls}">
-    <img src="${escapeHtml(href)}" alt="${escapeHtml(alt || '')}"${t} loading="lazy">
-    ${alt ? `<figcaption>${escapeHtml(alt)}</figcaption>` : ''}
+    <img src="${escapeHtml(href)}" alt="${escapeHtml(altText)}"${t} loading="lazy">
+    ${altText ? `<figcaption>${escapeHtml(altText)}</figcaption>` : ''}
   </figure>`;
 }
 
