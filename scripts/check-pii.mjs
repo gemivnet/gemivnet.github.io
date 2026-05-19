@@ -1,0 +1,207 @@
+// Pre-commit PII scanner for georgemain.com.
+//
+// Scans the *staged* diff for patterns that look like sensitive information:
+//   - email addresses (outside the allowlist)
+//   - phone numbers (US + intl forms)
+//   - 9-digit SSN-like
+//   - 13–19 digit credit-card-like (Luhn-checked to cut false positives)
+//   - GPS coordinates
+//   - precise ISO-style timestamps (e.g., 2026-05-19T14:32:08)
+//   - US street addresses (heuristic)
+//
+// Items listed in .pii-allowlist.yaml are ignored.
+// Exits non-zero on any hit. Use `git commit --no-verify` to bypass.
+//
+// Optionally runs a second-pass AI check if ANTHROPIC_API_KEY is set; the AI
+// pass is best-effort and never blocks if it can't reach the API.
+
+import { execSync } from 'node:child_process';
+import { readFileSync, existsSync } from 'node:fs';
+import path from 'node:path';
+import yaml from 'js-yaml';
+
+const ROOT = path.resolve(import.meta.dirname || new URL('.', import.meta.url).pathname, '..');
+const ALLOWLIST_PATH = path.join(ROOT, '.pii-allowlist.yaml');
+
+// ── load allowlist ─────────────────────────────────────────
+let allowed = new Set();
+if (existsSync(ALLOWLIST_PATH)) {
+  try {
+    const y = yaml.load(readFileSync(ALLOWLIST_PATH, 'utf8'));
+    (y?.allowed || []).forEach((s) => allowed.add(String(s)));
+  } catch (e) {
+    console.error('[pii] failed to read .pii-allowlist.yaml:', e.message);
+  }
+}
+
+const isAllowed = (m) => {
+  if (allowed.has(m)) return true;
+  for (const a of allowed) if (a && m.includes(a)) return true;
+  return false;
+};
+
+// ── get staged content ─────────────────────────────────────
+let staged;
+try {
+  staged = execSync('git diff --cached --unified=0 --no-color', { cwd: ROOT, encoding: 'utf8' });
+} catch {
+  console.error('[pii] not in a git repo? bailing.');
+  process.exit(0);
+}
+
+// Walk through diff and collect (file, line, addedText) tuples.
+const lines = [];
+let currentFile = null;
+for (const raw of staged.split('\n')) {
+  if (raw.startsWith('+++ b/')) { currentFile = raw.slice(6); continue; }
+  if (raw.startsWith('+++') || raw.startsWith('---') || raw.startsWith('@@') || raw.startsWith('diff ') || raw.startsWith('index ')) continue;
+  if (!raw.startsWith('+')) continue;
+  const text = raw.slice(1);
+  if (!text.trim()) continue;
+  // Skip vendor/build/lockfile noise.
+  if (!currentFile) continue;
+  if (currentFile.startsWith('node_modules/')) continue;
+  if (currentFile.startsWith('_site/')) continue;
+  if (currentFile === 'package-lock.json') continue;
+  // Skip the hook itself — it documents the patterns it detects.
+  if (currentFile === 'scripts/check-pii.mjs') continue;
+  if (currentFile.startsWith('.claude/skills/pii-audit/')) continue;
+  lines.push({ file: currentFile, text });
+}
+
+// ── pattern definitions ───────────────────────────────────
+const luhn = (s) => {
+  const d = s.replace(/\D/g, '').split('').reverse().map(Number);
+  if (d.length < 13 || d.length > 19) return false;
+  let sum = 0;
+  for (let i = 0; i < d.length; i++) {
+    let x = d[i];
+    if (i % 2 === 1) { x *= 2; if (x > 9) x -= 9; }
+    sum += x;
+  }
+  return sum % 10 === 0;
+};
+
+const patterns = [
+  {
+    name: 'email',
+    re: /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g,
+    test: (m) => !isAllowed(m),
+  },
+  {
+    name: 'phone (US/intl)',
+    re: /\+?\d[\d ()\-.]{8,}\d/g,
+    test: (m) => {
+      const digits = m.replace(/\D/g, '');
+      if (digits.length < 10 || digits.length > 15) return false;
+      if (luhn(digits)) return false; // probably a CC, separately flagged
+      // ignore obvious non-phone numerics: ISBN, identifiers in URLs
+      return true;
+    },
+  },
+  {
+    name: 'SSN-like',
+    re: /\b\d{3}-\d{2}-\d{4}\b/g,
+    test: () => true,
+  },
+  {
+    name: 'credit card-like',
+    re: /\b(?:\d[ -]?){13,19}\b/g,
+    test: (m) => luhn(m),
+  },
+  {
+    name: 'GPS coordinates',
+    re: /-?\d{1,3}\.\d{4,},\s*-?\d{1,3}\.\d{4,}/g,
+    test: () => true,
+  },
+  {
+    name: 'precise timestamp',
+    re: /\b\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\b/g,
+    test: () => true,
+  },
+  {
+    name: 'US street address',
+    re: /\b\d{1,5}\s+([A-Z][a-z]+\s){1,3}(St|Street|Ave|Avenue|Rd|Road|Blvd|Boulevard|Ln|Lane|Dr|Drive|Way|Court|Ct|Pl|Place)\b\.?/g,
+    test: (m) => !isAllowed(m),
+  },
+];
+
+// ── run scan ───────────────────────────────────────────────
+const hits = [];
+for (const { file, text } of lines) {
+  for (const p of patterns) {
+    p.re.lastIndex = 0;
+    let m;
+    while ((m = p.re.exec(text))) {
+      const match = m[0];
+      if (isAllowed(match)) continue;
+      if (!p.test(match)) continue;
+      hits.push({ file, type: p.name, match, line: text.trim().slice(0, 140) });
+    }
+  }
+}
+
+// ── report ────────────────────────────────────────────────
+if (hits.length === 0) {
+  console.log('[pii] no obvious PII in staged changes ✓');
+  // optional AI pass
+  await maybeAiPass(lines);
+  process.exit(0);
+}
+
+console.error('\n[pii] possible sensitive content in staged changes:\n');
+const byFile = {};
+for (const h of hits) (byFile[h.file] ??= []).push(h);
+for (const file of Object.keys(byFile)) {
+  console.error('  ' + file);
+  for (const h of byFile[file]) {
+    console.error(`    ✗ ${h.type}: ${JSON.stringify(h.match)}`);
+    console.error(`        on: ${h.line}`);
+  }
+}
+console.error('\nIf a match is intentional and OK to publish, add it to .pii-allowlist.yaml');
+console.error('or bypass this hook with: git commit --no-verify');
+process.exit(1);
+
+// ── optional AI second pass ───────────────────────────────
+async function maybeAiPass(addedLines) {
+  if (!process.env.ANTHROPIC_API_KEY) return;
+  if (addedLines.length === 0) return;
+  const sample = addedLines.slice(0, 200).map((l) => `${l.file}: ${l.text}`).join('\n');
+  if (sample.length < 50) return;
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'x-api-key': process.env.ANTHROPIC_API_KEY,
+        'anthropic-version': '2023-06-01',
+      },
+      body: JSON.stringify({
+        model: 'claude-haiku-4-5-20251001',
+        max_tokens: 600,
+        system: 'You audit content for PII (personal identifying information) before it is published to a public website. Output ONLY JSON: {"hits": [{"type": "...", "snippet": "...", "why": "..."}]}. If nothing is concerning, output {"hits": []}.',
+        messages: [{ role: 'user', content:
+          'The following lines are about to be committed to a public personal blog. Flag anything that should NOT be published: real-world home addresses, full birthdays of private people, passwords/api keys, license plates, financial account numbers, medical info, or anything that identifies someone non-public. Public figures and the author\'s own city/country/work are fine. Lines:\n\n' + sample }],
+      }),
+    });
+    if (!res.ok) return;
+    const data = await res.json();
+    const text = data?.content?.[0]?.text || '';
+    const json = JSON.parse(text.slice(text.indexOf('{'), text.lastIndexOf('}') + 1));
+    if (!json?.hits?.length) {
+      console.log('[pii ai] no concerns ✓');
+      return;
+    }
+    console.error('\n[pii ai] AI flagged potential issues:');
+    for (const h of json.hits) {
+      console.error(`    ⚠ ${h.type}: ${JSON.stringify(h.snippet)}`);
+      if (h.why) console.error(`        why: ${h.why}`);
+    }
+    console.error('\nReview before committing. To bypass: git commit --no-verify');
+    process.exit(1);
+  } catch (e) {
+    // best-effort; do not block on failures
+    console.log('[pii ai] skipped (' + (e.message || e) + ')');
+  }
+}
