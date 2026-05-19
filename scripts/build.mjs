@@ -118,10 +118,27 @@ const seededShuffle = (arr, seed = 1) => {
 
 // ── template helpers exposed to eta ───────────────────────────
 
+// <picture> helper: emit WebP + JPEG sources when WebP is available.
+// `im` is an image entry (gallery image or post imagesMap entry).
+// `size` is 'med' or 'thumb' (defaults to 'med').
+// Returns full HTML string.
+function pictureFor(im, size, alt, extraAttrs = '') {
+  const jpg = (size === 'thumb' ? im.srcThumb : im.srcMed) || im.s3;
+  const webp = (size === 'thumb' ? im.s3_thumb_webp : im.s3_med_webp);
+  const altSafe = escapeHtml(alt || '');
+  const dims = (im.exif?.width && im.exif?.height) ? ` width="${im.exif.width}" height="${im.exif.height}"` : '';
+  const lqipBg = im.lqip ? ` style="background-image:url(${im.lqip});background-size:cover;background-position:center;"` : '';
+  if (webp) {
+    return `<picture${lqipBg}><source type="image/webp" srcset="${webp}"><img src="${jpg}" alt="${altSafe}"${dims} ${extraAttrs}></picture>`;
+  }
+  return `<img src="${jpg}" alt="${altSafe}"${dims}${lqipBg} ${extraAttrs}>`;
+}
+
 const pageHelpers = {
   site: SITE,
   copy: COPY,
   tabs: COPY.nav.tabs,
+  pictureFor,
   bodyClass(active = '', extra = '') {
     const mode = (SITE.theme && SITE.theme.mode) || 'light';
     const cls = ['site-page'];
@@ -278,6 +295,12 @@ async function loadMusings() {
       const dims = (entry?.exif?.width && entry?.exif?.height)
         ? ` width="${entry.exif.width}" height="${entry.exif.height}"`
         : '';
+      // If WebP variants exist, emit a <picture> with WebP source + JPEG <img> fallback,
+      // and a LQIP base64 background so something paints instantly.
+      if (entry?.s3_med_webp) {
+        const lqipBg = entry.lqip ? ` style="background-image:url(${entry.lqip});background-size:cover;background-position:center;"` : '';
+        return `<picture${lqipBg}><source type="image/webp" srcset="${entry.s3_med_webp}"><img ${before}src="${dest}"${dims}${after}></picture>`;
+      }
       return `<img ${before}src="${dest}"${dims}${after}>`;
     });
     // Also rewrite plain href="media/..." (rare, e.g. wrapper links) to the full-size URL.

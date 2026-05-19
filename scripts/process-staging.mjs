@@ -174,17 +174,35 @@ function nextImgName(meta, ext) {
   return `img_${String(n).padStart(3, '0')}${ext}`;
 }
 
-// ── render the three sizes (full + med + thumb) into temp files ──
-async function renderThreeSizes(srcAbs) {
+// ── render all sizes (JPEG + WebP) into temp files ──
+async function renderAllSizes(srcAbs) {
   const id = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
-  const full = path.join(os.tmpdir(), `stage-${id}-full.jpg`);
-  const med  = path.join(os.tmpdir(), `stage-${id}-med.jpg`);
-  const thumb = path.join(os.tmpdir(), `stage-${id}-thumb.jpg`);
-  // sharp's default behavior strips all metadata — that's what we want.
-  await sharp(srcAbs).rotate().jpeg({ quality: 92, progressive: true, mozjpeg: true }).toFile(full);
-  await sharp(srcAbs).rotate().resize({ width: 1400, withoutEnlargement: true }).jpeg({ quality: 82, progressive: true, mozjpeg: true }).toFile(med);
-  await sharp(srcAbs).rotate().resize({ width: 600, withoutEnlargement: true }).jpeg({ quality: 78, progressive: true, mozjpeg: true }).toFile(thumb);
-  return { full, med, thumb };
+  const tmp = (suf) => path.join(os.tmpdir(), `stage-${id}-${suf}`);
+  const out = {
+    full:        tmp('full.jpg'),
+    med:         tmp('med.jpg'),
+    thumb:       tmp('thumb.jpg'),
+    full_webp:   tmp('full.webp'),
+    med_webp:    tmp('med.webp'),
+    thumb_webp:  tmp('thumb.webp'),
+  };
+  await sharp(srcAbs).rotate().jpeg({ quality: 92, progressive: true, mozjpeg: true }).toFile(out.full);
+  await sharp(srcAbs).rotate().resize({ width: 1400, withoutEnlargement: true }).jpeg({ quality: 82, progressive: true, mozjpeg: true }).toFile(out.med);
+  await sharp(srcAbs).rotate().resize({ width: 600, withoutEnlargement: true }).jpeg({ quality: 78, progressive: true, mozjpeg: true }).toFile(out.thumb);
+  await sharp(srcAbs).rotate().webp({ quality: 85, effort: 5 }).toFile(out.full_webp);
+  await sharp(srcAbs).rotate().resize({ width: 1400, withoutEnlargement: true }).webp({ quality: 78, effort: 5 }).toFile(out.med_webp);
+  await sharp(srcAbs).rotate().resize({ width: 600, withoutEnlargement: true }).webp({ quality: 72, effort: 5 }).toFile(out.thumb_webp);
+  return out;
+}
+
+// Tiny inline blur placeholder (LQIP). 24px wide JPEG → base64 → ~600 bytes.
+async function makeLQIP(srcAbs) {
+  const buf = await sharp(srcAbs)
+    .rotate()
+    .resize({ width: 24, withoutEnlargement: true })
+    .jpeg({ quality: 50, progressive: false, mozjpeg: true })
+    .toBuffer();
+  return 'data:image/jpeg;base64,' + buf.toString('base64');
 }
 
 // ── main flow ─────────────────────────────────────────────
@@ -255,24 +273,25 @@ async function main() {
       const out = rename ? nextImgName(meta, ext) : f.name.replace(/\.[^.]+$/, ext);
       const slug = out.replace(/\.[^.]+$/, '');
 
-      // 1) render three sizes (full + med + thumb) from the scrubbed source
-      const sizes = await renderThreeSizes(f.abs);
+      // 1) render all sizes (jpeg + webp) from the scrubbed source
+      const sizes = await renderAllSizes(f.abs);
       const fullBytes = (await fs.stat(sizes.full)).size;
-      // dimensions read from the rendered full (after rotate baking) — always available
       const fullMeta = await sharp(sizes.full).metadata();
+      const lqip = await makeLQIP(f.abs);
 
-      // 2) upload all three to S3
+      // 2) upload everything to S3 (6 keys per image)
       const baseKey = `${galleryPath}/${slug}`;
-      process.stdout.write(`    ↑ s3 (${(fullBytes/1024/1024).toFixed(1)} MB original + med + thumb)…`);
-      const s3      = uploadToS3(sizes.full,  `${baseKey}.jpg`);
-      const s3Med   = uploadToS3(sizes.med,   `${baseKey}__med.jpg`);
-      const s3Thumb = uploadToS3(sizes.thumb, `${baseKey}__thumb.jpg`);
+      process.stdout.write(`    ↑ s3 (${(fullBytes/1024/1024).toFixed(1)} MB original + med + thumb, jpeg + webp)…`);
+      const s3            = uploadToS3(sizes.full,       `${baseKey}.jpg`);
+      const s3Med         = uploadToS3(sizes.med,        `${baseKey}__med.jpg`);
+      const s3Thumb       = uploadToS3(sizes.thumb,      `${baseKey}__thumb.jpg`);
+      const s3Webp        = uploadToS3(sizes.full_webp,  `${baseKey}.webp`);
+      const s3MedWebp     = uploadToS3(sizes.med_webp,   `${baseKey}__med.webp`);
+      const s3ThumbWebp   = uploadToS3(sizes.thumb_webp, `${baseKey}__thumb.webp`);
       console.log(' ✓');
 
-      // 3) cleanup temp + staging — no local copies kept
-      await fs.unlink(sizes.full);
-      await fs.unlink(sizes.med);
-      await fs.unlink(sizes.thumb);
+      // 3) cleanup temp + staging
+      for (const k of Object.keys(sizes)) await fs.unlink(sizes[k]);
       await fs.unlink(f.abs);
 
       // 5) build metadata entry — EXIF kept separate from photo
@@ -299,7 +318,11 @@ async function main() {
         s3,
         s3_med: s3Med,
         s3_thumb: s3Thumb,
+        s3_webp: s3Webp,
+        s3_med_webp: s3MedWebp,
+        s3_thumb_webp: s3ThumbWebp,
         bytes: fullBytes,
+        lqip,
         ...(Object.keys(exifBlock).length ? { exif: exifBlock } : {}),
       };
       Object.keys(entry).forEach(k => entry[k] === undefined && delete entry[k]);

@@ -10,7 +10,7 @@
   <div class="photo-frame-row">
     <a class="photo-arrow prev" href="<%= prev.pageUrl %>" aria-label="Previous photo">‹</a>
     <figure class="photo-figure">
-      <img src="<%= image.src %>" alt="<%= escapeHtml(image.alt || '') %>" title="<%= escapeHtml(image.alt || '') %>"<% if (image.exif && image.exif.width && image.exif.height) { %> width="<%= image.exif.width %>" height="<%= image.exif.height %>"<% } %> fetchpriority="high">
+      <%~ pictureFor(image, 'med', image.alt, 'fetchpriority="high" title="' + escapeHtml(image.alt || '') + '"') %>
       <% if (image.alt) { %><figcaption><%= image.alt %></figcaption><% } %>
     </figure>
     <a class="photo-arrow next" href="<%= next.pageUrl %>" aria-label="Next photo">›</a>
