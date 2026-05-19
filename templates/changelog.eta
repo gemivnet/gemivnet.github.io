@@ -1,63 +1,68 @@
-<section style="max-width: 760px;">
+<header style="margin-bottom: var(--sp-6); max-width: 680px;">
   <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">
-    ~/changelog · <%= site.version %>
+    ~/changelog · currently <%= site.version %>
   </div>
   <h1><%= copy.changelog.title %></h1>
-  <p style="margin-top: var(--sp-4); color: var(--ink-2); font-size: 18px;"><%= copy.changelog.intro %></p>
-</section>
+  <p style="margin-top: var(--sp-3); color: var(--ink-2); font-size: 18px;"><%= copy.changelog.intro %></p>
+</header>
 
-<section class="sp-section">
+<section style="max-width: 720px;">
   <% if (!entries || entries.length === 0) { %>
     <div class="sp-empty"><span class="glyph">∅</span>no commits yet.</div>
   <% } else { %>
-    <div class="changelog-list">
+    <ol class="changelog">
       <% entries.forEach(function(e){ %>
-        <article class="changelog-row">
-          <div class="cl-meta">
-            <span class="cl-version"><%= e.version %></span>
+        <li class="cl-row">
+          <div class="cl-line">
+            <span class="cl-ver"><%= e.version %></span>
             <span class="cl-date"><%= e.date %></span>
-            <span class="cl-hash"><%= e.hash %></span>
+            <a class="cl-hash" href="https://github.com/gemivnet/gemivnet.github.io/commit/<%= e.hash %>" title="view commit on github"><%= e.hash %></a>
           </div>
-          <div class="cl-body">
-            <div class="cl-subject"><%= e.subject %></div>
-            <% if (e.body) { %><pre class="cl-detail"><%= e.body %></pre><% } %>
-          </div>
-        </article>
+          <div class="cl-subject"><%= e.subject %></div>
+          <% if (e.body) { %><details class="cl-detail"><summary>details</summary><pre><%= e.body %></pre></details><% } %>
+        </li>
       <% }) %>
-    </div>
+    </ol>
   <% } %>
 </section>
 
 <style>
-  .changelog-list { display: flex; flex-direction: column; }
-  .changelog-row {
-    display: grid;
-    grid-template-columns: 160px 1fr;
-    gap: var(--sp-5);
-    padding: var(--sp-4) 0;
+  .changelog { list-style: none; padding: 0; margin: 0; }
+  .cl-row {
+    padding: var(--sp-3) 0;
     border-top: 1px solid var(--rule);
   }
-  .cl-meta {
+  .cl-row:last-child { border-bottom: 1px solid var(--rule); }
+  .cl-line {
     font-family: var(--font-mono);
     font-size: var(--fs-tiny);
     color: var(--ink-3);
     display: flex;
-    flex-direction: column;
-    gap: 2px;
+    gap: var(--sp-4);
+    align-items: baseline;
+    margin-bottom: 4px;
   }
-  .cl-meta .cl-version { color: var(--accent); font-weight: 600; font-size: var(--fs-small); }
-  .cl-meta .cl-hash { color: var(--ink-3); opacity: 0.7; }
-  .cl-subject { color: var(--ink); font-size: var(--fs-body); margin-bottom: var(--sp-2); }
-  .cl-detail {
-    font-family: var(--font-mono);
-    font-size: var(--fs-small);
-    color: var(--ink-2);
+  .cl-line .cl-ver { color: var(--accent); font-weight: 600; font-size: var(--fs-small); min-width: 4em; }
+  .cl-line .cl-hash {
+    margin-left: auto;
+    color: var(--ink-3);
+    opacity: 0.7;
+    text-decoration: none;
+  }
+  .cl-line .cl-hash:hover { color: var(--accent); opacity: 1; }
+  .cl-subject { color: var(--ink); font-size: var(--fs-body); line-height: 1.45; }
+  .cl-detail { margin-top: var(--sp-2); font-family: var(--font-mono); font-size: var(--fs-small); }
+  .cl-detail summary { cursor: pointer; color: var(--ink-3); }
+  .cl-detail summary:hover { color: var(--accent); }
+  .cl-detail pre {
     white-space: pre-wrap;
-    margin: 0;
+    margin: var(--sp-2) 0 0;
     padding-left: var(--sp-4);
     border-left: 2px solid var(--rule);
+    color: var(--ink-2);
   }
-  @media (max-width: 760px) {
-    .changelog-row { grid-template-columns: 1fr; gap: var(--sp-2); }
+  @media (max-width: 560px) {
+    .cl-line { flex-wrap: wrap; }
+    .cl-line .cl-hash { margin-left: 0; }
   }
 </style>

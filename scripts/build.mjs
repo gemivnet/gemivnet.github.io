@@ -961,6 +961,22 @@ async function copyStaticSites() {
 
 // ── render: changelog (static stub from copy.yaml) ───────────
 
+async function renderLicense() {
+  const html = await renderPage('license', {
+    page: {
+      title: `License — ${SITE.title}`,
+      description: COPY.license.short,
+      url: '/license',
+      bodyClass: pageHelpers.bodyClass(),
+      type: 'website',
+    },
+    active: '',
+  });
+  collectLinks('/license', html);
+  await writeFile('license/index.html', html);
+  allRoutes.add('/license');
+}
+
 async function renderChangelog() {
   // Pull commits from git, oldest -> newest. Version = sequential index.
   let entries = [];
@@ -1122,6 +1138,7 @@ async function main() {
   await renderMusings(musings);
   await renderMedia(mediaNodes);
   await renderChangelog();
+  await renderLicense();
   await copyStaticSites();
   await renderFeeds(musings);
 
