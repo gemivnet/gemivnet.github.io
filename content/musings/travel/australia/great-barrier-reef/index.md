@@ -10,7 +10,7 @@ seo:
   keywords: [great barrier reef snorkeling, great barrier reef rough seas, sailing cairns, green island australia, great barrier reef experience]
 ---
 
-![Green Island seen from the sailboat — a low tree-covered island with a thin white sand beach across turquoise water, the boat's silver railing in the foreground.](media/green-island-from-boat.jpg)
+![Green Island seen from the snorkeling mooring point.](media/green-island-from-boat.jpg)
 
 Today was the second worst day of my life.
 
