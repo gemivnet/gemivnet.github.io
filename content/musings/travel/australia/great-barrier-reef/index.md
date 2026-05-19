@@ -3,12 +3,11 @@ title: "The Worst Day on the Great Barrier Reef"
 subtitle: "10 foot seas, a sailboat, and a lot of regret"
 date: 2026-05-12
 tags: [travel, australia, snorkeling, sailing]
-featured_image: null
+featured_image: media/green-island-from-boat.jpg
 draft: false
 seo:
   description: "A first-person account of a catastrophic day snorkeling the Great Barrier Reef. 10 foot seas, seasickness, coral scrapes, and a two hour sail back that felt like ten."
   keywords: [great barrier reef snorkeling, great barrier reef rough seas, sailing cairns, green island australia, great barrier reef experience]
-featured_image: media/green-island-from-boat.jpg
 ---
 
 ![Green Island seen from the sailboat — a low tree-covered island with a thin white sand beach across turquoise water, the boat's silver railing in the foreground.](media/green-island-from-boat.jpg)
