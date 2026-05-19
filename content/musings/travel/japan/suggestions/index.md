@@ -1,7 +1,7 @@
 ---
 title: "Japan Suggestions"
 subtitle: "Stuff we did that we'd suggest if you have extra time"
-date: 2026-05-18
+date: 2024-09-01
 tags: [travel, japan, food, kyoto, tokyo, kobe]
 featured_image: null
 draft: false
