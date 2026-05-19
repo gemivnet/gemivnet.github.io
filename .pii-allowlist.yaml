@@ -1,0 +1,32 @@
+# Strings here are explicitly OK to publish.
+# The PII pre-commit hook ignores any match that appears in this list.
+# Edit freely.
+
+allowed:
+  # Public contact (already in the site footer).
+  - "george.main@gemiv.net"
+  - "github.com/gemivnet"
+  - "georgemain.com"
+
+  # Names of public figures or your own first name in posts is fine.
+  - "George"
+  - "Shelby"
+
+  # Place names mentioned in posts (cities, countries, mountains, etc).
+  # These are not PII even though the heuristics might flag them.
+  - "Cairns"
+  - "Green Island"
+  - "Tokyo"
+  - "Kyoto"
+  - "Kobe"
+  - "Budapest"
+  - "Auckland"
+  - "Queenstown"
+  - "Wanaka"
+  - "Christchurch"
+  - "Wellington"
+  - "Rotorua"
+  - "Yokohama"
+
+  # Specific dates in published travelogues are not the kind of PII we worry about.
+  # If a particular date should be redacted, REMOVE it here (or never list it).

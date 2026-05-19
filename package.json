@@ -7,7 +7,9 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "serve": "node scripts/serve.mjs",
-    "dev": "node scripts/build.mjs && node scripts/serve.mjs"
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs",
+    "check:pii": "node scripts/check-pii.mjs",
+    "setup": "git config core.hooksPath .githooks && echo 'git hooks installed (run once per clone)'"
   },
   "engines": {
     "node": ">=20"
