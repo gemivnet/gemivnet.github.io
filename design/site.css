@@ -598,3 +598,7 @@
 .site-page.mobile .sp-figure.inline-l {
   float: none; width: 100%; margin: var(--sp-4) 0;
 }
+
+/* ── first section on a page: no top rule + no extra margin ── */
+.site-shell > .sp-section:first-child { margin-top: 0; }
+.site-shell > .sp-section:first-child::before { display: none; }
