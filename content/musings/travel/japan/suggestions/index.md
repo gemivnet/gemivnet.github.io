@@ -1,7 +1,7 @@
 ---
 title: "Japan Suggestions"
 subtitle: "Stuff we did that we'd suggest if you have extra time"
-date: 2024-09-01
+date: 2023-09-01
 tags: [travel, japan, food, kyoto, tokyo, kobe]
 featured_image: media/kiyomizu-dera-view.jpg
 draft: false
