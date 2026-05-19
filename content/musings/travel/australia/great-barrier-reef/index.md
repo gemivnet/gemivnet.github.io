@@ -15,7 +15,7 @@ seo:
   keywords: [great barrier reef snorkeling, great barrier reef rough seas, sailing cairns, green island australia, great barrier reef experience]
 ---
 
-![Green Island seen from the snorkeling mooring point.](media/green-island-from-boat.jpg)
+![Green Island seen from the snorkeling mooring point. Looks calm. Looks are deceptive.](media/green-island-from-boat.jpg)
 
 Today was the second worst day of my life.
 
@@ -37,7 +37,7 @@ After less than five minutes, we felt like we were being tossed all around but t
 
 Looking down at everyone else, nobody seemed to be having a problem. It really didn't look as bad from the surface. The looks were deceptive. The guy on the boat gave me a towel for my scrape and some antiseptic. Within a minute or two a bunch more people including Shelby were back on the boat. Within 10 minutes everyone was on the boat. Nobody had a good time snorkeling and they were all struggling in the water.
 
-I immediately got sick. Too much salt water swallowed. Shelby helped me get my wetsuit off. I took a small sip of water and sat in the back. Within a minute I was feeding the fish. My stomach felt a bit better after that. They did serve lunch right after this but neither of us wanted to eat. A lot of people made a plate and took it to the island. Seven people decided they were not going back on the boat and took the larger and faster ferry instead. Smart.
+I immediately got sick. Too much salt water swallowed. For context: I've been on boats my entire life in every kind of sea condition and never once gotten seasick. I'm blaming the salt water. Shelby helped me get my wetsuit off. I took a small sip of water and sat in the back. Within a minute I was feeding the fish. My stomach felt a bit better after that. They did serve lunch right after this but neither of us wanted to eat. A lot of people made a plate and took it to the island. Seven people decided they were not going back on the boat and took the larger and faster ferry instead. Smart.
 
 We took the dinghy to Green Island and got soaked again. Remember the 2 foot seas? Also that dinghy had a 75 horse Merc on it, impressive. On the island Shelby cleaned up and got new clothes on and then we sat down and got a pizza and I got a burger and fries. The pizza and two Sprites was $39 AUD which is $28 USD. It wasn't good. My burger and fries was $40 AUD. Crazy. I ate the whole burger and fries, Shelby had half of the side of fries, the pizza wasn't great but we packed it up and wrapped it in a towel to take back with us for dinner later.
 
