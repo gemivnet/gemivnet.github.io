@@ -644,3 +644,6 @@
 
 /* Widen the site-shell on musing pages so the sidebar tree fits. */
 .site-shell:has(.musings-layout) { max-width: 1080px; }
+
+/* ── images inside post figures: constrain to figure width ─── */
+.sp-figure img { width: 100%; height: auto; display: block; }
