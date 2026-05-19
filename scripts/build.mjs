@@ -86,6 +86,13 @@ const fmtDate = (d) => {
   const dt = d instanceof Date ? d : new Date(d);
   return dt.toISOString().slice(0, 10);
 };
+const fmtBytes = (n) => {
+  if (!n) return '0 B';
+  const units = ['B', 'KB', 'MB', 'GB'];
+  let i = 0;
+  while (n >= 1024 && i < units.length - 1) { n /= 1024; i++; }
+  return (i === 0 ? n.toFixed(0) : n < 10 ? n.toFixed(1) : n.toFixed(0)) + ' ' + units[i];
+};
 const fmtMetaDate = (d) => {
   const dt = d instanceof Date ? d : new Date(d);
   const mo = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'][dt.getUTCMonth()];
@@ -370,6 +377,38 @@ async function buildMediaImages(node) {
 
 // ── render: home ──────────────────────────────────────────────
 
+async function computeStats(musings, mediaNodes) {
+  let postBytes = 0;
+  let totalWords = 0;
+  for (const m of musings) {
+    totalWords += m.wordCount;
+    try { postBytes += (await fs.stat(path.join(SRC('content'), m.sourceRel))).size; } catch {}
+  }
+  // collect every unique image file referenced by any node
+  const seen = new Set();
+  let imageBytes = 0;
+  let imageCount = 0;
+  for (const n of mediaNodes) {
+    for (const im of n.images) {
+      if (!im.absPath || seen.has(im.absPath)) continue;
+      seen.add(im.absPath);
+      try { imageBytes += (await fs.stat(im.absPath)).size; imageCount++; } catch {}
+    }
+  }
+  const dates = musings.map(m => m.date).filter(Boolean).sort((a, b) => a - b);
+  return {
+    musings: musings.length,
+    musingsBytes: postBytes,
+    musingsBytesFmt: fmtBytes(postBytes),
+    words: totalWords,
+    pictures: imageCount,
+    picturesBytes: imageBytes,
+    picturesBytesFmt: fmtBytes(imageBytes),
+    firstPost: dates[0] ? fmtDate(dates[0]) : null,
+    lastPost: dates[dates.length - 1] ? fmtDate(dates[dates.length - 1]) : null,
+  };
+}
+
 async function renderHome(musings, mediaNodes) {
   const shuffled = seededShuffle(musings.map(m => ({
     url: m.url, title: m.title, subtitle: m.subtitle, preview: m.preview,
@@ -409,6 +448,7 @@ async function renderHome(musings, mediaNodes) {
     active: 'home',
     shuffled, shuffledImages, recent,
     totalMusings: musings.length,
+    stats: await computeStats(musings, mediaNodes),
   });
   collectLinks('/', html);
   await writeFile('index.html', html);

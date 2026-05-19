@@ -77,6 +77,25 @@
 </section>
 <% } %>
 
+<% if (stats && stats.musings > 0) { %>
+<section class="sp-section">
+  <div class="sp-section-head">
+    <span class="sp-section-tag"><%= copy.home.stats.section_tag %></span>
+    <h2><%= copy.home.stats.title %></h2>
+    <span class="sp-section-aside"><%= copy.home.stats.aside %></span>
+  </div>
+  <dl class="stats-grid">
+    <div><dt>musings</dt><dd><%= stats.musings.toLocaleString() %></dd></div>
+    <div><dt>words written</dt><dd><%= stats.words.toLocaleString() %></dd></div>
+    <div><dt>musings size</dt><dd><%= stats.musingsBytesFmt %></dd></div>
+    <div><dt>pictures</dt><dd><%= stats.pictures.toLocaleString() %></dd></div>
+    <div><dt>pictures size</dt><dd><%= stats.picturesBytesFmt %></dd></div>
+    <div><dt>first post</dt><dd><%= stats.firstPost || '—' %></dd></div>
+    <div><dt>last post</dt><dd><%= stats.lastPost || '—' %></dd></div>
+  </dl>
+</section>
+<% } %>
+
 <script id="random-data" type="application/json"><%~ JSON.stringify({ musings: shuffled, photos: shuffledImages }) %></script>
 <script>
 (function () {

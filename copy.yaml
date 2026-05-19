@@ -46,6 +46,11 @@ home:
     recent_count: 5
     recent_label: "last {{count}} musings"
 
+  stats:
+    section_tag: "04 · numbers"
+    title: "By the numbers"
+    aside: "computed at build"
+
 # ── footer ──────────────────────────────────────────────────
 footer:
   creed: "a personal knowledge page, made for fun. no ads, no tracking, no warranty."
