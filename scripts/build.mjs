@@ -308,11 +308,14 @@ async function loadMedia() {
       if (!im.alt) fail(`Image alt missing in ${rel} for ${im.file}`);
       const abs = path.join(galleryDir, im.file);
       if (!(await exists(abs))) { fail(`Missing media file ${im.file} in ${rel}`); continue; }
+      const slug = im.file.replace(/\.[^.]+$/, '');
       images.push({
         ...im,
+        slug,
         src: `${url}/${im.file}`,
         srcThumb: `${url}/_thumb/${im.file}`,
         srcMed: `${url}/_med/${im.file}`,
+        pageUrl: `${url}/${slug}`,
         absPath: abs,
       });
     }
@@ -484,18 +487,23 @@ function synthesizeFromMusings(musings, existingNodes) {
       continue;
     }
     const segs = dir.split('/');
-    const images = m.imageRefs.map(ref => ({
-      file: ref.file,
-      alt: ref.alt || '',
-      title: '',
-      date: m.date,
-      location: galleryConfig.location || '',
-      // Reuse the post's already-copied media file. No separate thumb/med.
-      src: `${m.url}/media/${ref.file}`,
-      srcMed: `${m.url}/media/${ref.file}`,
-      srcThumb: `${m.url}/media/${ref.file}`,
-      absPath: path.join(m.mediaDir, ref.file),
-    }));
+    const images = m.imageRefs.map(ref => {
+      const slug = ref.file.replace(/\.[^.]+$/, '');
+      return {
+        file: ref.file,
+        slug,
+        alt: ref.alt || '',
+        title: '',
+        date: m.date,
+        location: galleryConfig.location || '',
+        // Reuse the post's already-copied media file. No separate thumb/med.
+        src: `${m.url}/media/${ref.file}`,
+        srcMed: `${m.url}/media/${ref.file}`,
+        srcThumb: `${m.url}/media/${ref.file}`,
+        pageUrl: `/${dir}/${slug}`,
+        absPath: path.join(m.mediaDir, ref.file),
+      };
+    });
     out.push({
       type: 'gallery',
       url: '/' + dir,
@@ -759,6 +767,34 @@ async function renderMedia(mediaNodes) {
     });
     collectLinks(n.url, html);
     await writeFile(path.join(n.dir, 'index.html'), html);
+
+    // Per-photo pages with prev/next.
+    for (let i = 0; i < n.images.length; i++) {
+      const im = n.images[i];
+      const prev = i > 0 ? n.images[i - 1] : n.images[n.images.length - 1];
+      const next = i < n.images.length - 1 ? n.images[i + 1] : n.images[0];
+      const pageHtml = await renderPage('media-photo', {
+        page: {
+          title: `${im.title || im.alt || im.file} — ${n.title} — ${SITE.title}`,
+          description: im.alt || `Photo from ${n.title}.`,
+          url: im.pageUrl,
+          bodyClass: pageHelpers.bodyClass('media'),
+          type: 'website',
+          ogImage: im.src,
+        },
+        active: 'media',
+        node: n,
+        image: im,
+        prev,
+        next,
+        index: i,
+        total: n.images.length,
+        breadcrumbs: breadcrumbs(n.dir),
+      });
+      collectLinks(im.pageUrl, pageHtml);
+      await writeFile(path.join(n.dir, im.slug, 'index.html'), pageHtml);
+      allRoutes.add(im.pageUrl);
+    }
   }
 }
 
