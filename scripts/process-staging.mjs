@@ -174,22 +174,17 @@ function nextImgName(meta, ext) {
   return `img_${String(n).padStart(3, '0')}${ext}`;
 }
 
-// ── scrub original (full size) to a temp file ─────────────
-// Returns the temp file path; caller should unlink when done.
-async function scrubToTemp(srcAbs) {
-  const tmp = path.join(os.tmpdir(), `staging-${Date.now()}-${Math.random().toString(36).slice(2)}.jpg`);
-  await sharp(srcAbs).rotate().jpeg({ quality: 92, progressive: true, mozjpeg: true }).toFile(tmp);
-  return tmp;
-}
-
-// ── write a smaller local reference (used by build for thumbs) ──
-async function writeLocalReference(srcAbs, destAbs) {
-  await fs.mkdir(path.dirname(destAbs), { recursive: true });
-  await sharp(srcAbs)
-    .rotate()
-    .resize({ width: 1400, withoutEnlargement: true })
-    .jpeg({ quality: 82, progressive: true, mozjpeg: true })
-    .toFile(destAbs);
+// ── render the three sizes (full + med + thumb) into temp files ──
+async function renderThreeSizes(srcAbs) {
+  const id = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+  const full = path.join(os.tmpdir(), `stage-${id}-full.jpg`);
+  const med  = path.join(os.tmpdir(), `stage-${id}-med.jpg`);
+  const thumb = path.join(os.tmpdir(), `stage-${id}-thumb.jpg`);
+  // sharp's default behavior strips all metadata — that's what we want.
+  await sharp(srcAbs).rotate().jpeg({ quality: 92, progressive: true, mozjpeg: true }).toFile(full);
+  await sharp(srcAbs).rotate().resize({ width: 1400, withoutEnlargement: true }).jpeg({ quality: 82, progressive: true, mozjpeg: true }).toFile(med);
+  await sharp(srcAbs).rotate().resize({ width: 600, withoutEnlargement: true }).jpeg({ quality: 78, progressive: true, mozjpeg: true }).toFile(thumb);
+  return { full, med, thumb };
 }
 
 // ── main flow ─────────────────────────────────────────────
@@ -263,23 +258,24 @@ async function main() {
 
       const ext = '.jpg';   // we normalize everything to jpeg on upload
       const out = rename ? nextImgName(meta, ext) : f.name.replace(/\.[^.]+$/, ext);
+      const slug = out.replace(/\.[^.]+$/, '');
 
-      // 1) scrub full-size original to a temp file
-      const scrubbed = await scrubToTemp(f.abs);
-      const fullBytes = (await fs.stat(scrubbed)).size;
+      // 1) render three sizes (full + med + thumb) from the scrubbed source
+      const sizes = await renderThreeSizes(f.abs);
+      const fullBytes = (await fs.stat(sizes.full)).size;
 
-      // 2) upload scrubbed full-size to S3
-      const s3Key = `${galleryPath}/${out}`;
-      process.stdout.write(`    ↑ uploading to s3://${S3_BUCKET}/${s3Key} (${(fullBytes/1024/1024).toFixed(1)} MB)…`);
-      const s3Url = uploadToS3(scrubbed, s3Key);
+      // 2) upload all three to S3
+      const baseKey = `${galleryPath}/${slug}`;
+      process.stdout.write(`    ↑ s3 (${(fullBytes/1024/1024).toFixed(1)} MB original + med + thumb)…`);
+      const s3      = uploadToS3(sizes.full,  `${baseKey}.jpg`);
+      const s3Med   = uploadToS3(sizes.med,   `${baseKey}__med.jpg`);
+      const s3Thumb = uploadToS3(sizes.thumb, `${baseKey}__thumb.jpg`);
       console.log(' ✓');
 
-      // 3) write smaller local reference (1400px) for build-time thumb/med generation
-      const destAbs = path.join(MEDIA, galleryPath, out);
-      await writeLocalReference(scrubbed, destAbs);
-
-      // 4) clean up temp + staging
-      await fs.unlink(scrubbed);
+      // 3) cleanup temp + staging — no local copies kept
+      await fs.unlink(sizes.full);
+      await fs.unlink(sizes.med);
+      await fs.unlink(sizes.thumb);
       await fs.unlink(f.abs);
 
       // 5) build metadata entry — EXIF kept separate from photo
@@ -299,15 +295,17 @@ async function main() {
         date: batchDate || undefined,
         ...(batchLocation && { location: batchLocation }),
         alt,
-        s3: s3Url,
-        bytes: fullBytes,    // full-size original (what's on S3), used for site stats
+        s3,
+        s3_med: s3Med,
+        s3_thumb: s3Thumb,
+        bytes: fullBytes,
         ...(Object.keys(exifBlock).length ? { exif: exifBlock } : {}),
       };
       Object.keys(entry).forEach(k => entry[k] === undefined && delete entry[k]);
 
       meta.images = (meta.images || []).concat(entry);
       await saveMeta(galleryPath, meta);
-      console.log(`    ✓ -> content/media/${galleryPath}/${out}  +  s3 original`);
+      console.log(`    ✓ -> s3://${S3_BUCKET}/${baseKey}.jpg (full/med/thumb)`);
     }
   }
 

@@ -228,7 +228,9 @@ async function loadMusings() {
     const url = '/' + folder; // /musings/travel/japan-tips
 
     const bodyMd = parsed.content;
-    // Verify referenced images exist & collect {file, alt} for gallery synthesis.
+    // Per-post frontmatter `images:` map provides S3 URLs (+ exif) for each filename.
+    // Markdown body still says ![alt](media/foo.jpg); build rewrites at render time.
+    const imagesMap = fm.images || {};  // filename -> { s3, s3_med, s3_thumb, bytes, exif }
     const mediaDir = path.join(path.dirname(full), 'media');
     const imageRefs = [];
     const seenFiles = new Set();
@@ -243,25 +245,45 @@ async function loadMusings() {
       const alt = mref[1];
       const src = mref[2];
       if (/^https?:/.test(src)) continue;
-      const abs = path.resolve(path.dirname(full), src);
-      if (!(await exists(abs))) fail(`Missing image ${src} referenced in ${rel}`);
       if (src.startsWith('media/')) {
         const file = src.replace(/^media\//, '');
+        // S3-backed (in frontmatter.images) OR local (file exists on disk)
+        const hasS3 = !!imagesMap[file];
+        if (!hasS3) {
+          const abs = path.resolve(path.dirname(full), src);
+          if (!(await exists(abs))) fail(`${rel}: image '${src}' not found locally and no entry in frontmatter.images`);
+        }
         if (!seenFiles.has(file)) {
-          imageRefs.push({ file, alt });
+          imageRefs.push({ file, alt, ...(imagesMap[file] || {}) });
           seenFiles.add(file);
         }
       }
     }
     const bodyHtml = marked.parse(bodyMd, { async: false });
-    const rewritten = bodyHtml.replace(/(src|href)="(media\/[^"]+)"/g, (_, attr, p) => `${attr}="${url}/${p}"`);
+    // Rewrite media/<file> URLs in the rendered HTML.
+    //   If the file has an entry in frontmatter.images: use its S3 med URL (smaller, faster on inline images).
+    //   Otherwise: fall back to the post-local path (legacy).
+    const rewritten = bodyHtml.replace(/(src|href)="media\/([^"]+)"/g, (_, attr, file) => {
+      const entry = imagesMap[file];
+      const dest = (entry && (entry.s3_med || entry.s3)) || `${url}/media/${file}`;
+      return `${attr}="${dest}"`;
+    });
 
     const words = wordCount(bodyMd);
     const preview = truncate(stripHtml(marked.parse(bodyMd.split('\n\n').slice(0, 2).join('\n\n'), { async: false })), 220);
 
-    const featured = fm.featured_image
-      ? `${url}/${fm.featured_image.replace(/^\.\//, '')}`
-      : null;
+    // Featured image URL: prefer the S3 entry if mapped, else fall back to a post-local path.
+    let featured = null;
+    if (fm.featured_image) {
+      const cleaned = fm.featured_image.replace(/^\.\//, '');
+      if (cleaned.startsWith('media/')) {
+        const file = cleaned.replace(/^media\//, '');
+        const e = imagesMap[file];
+        featured = (e && (e.s3_med || e.s3)) || `${url}/${cleaned}`;
+      } else {
+        featured = `${url}/${cleaned}`;
+      }
+    }
 
     posts.push({
       type: 'musing',
@@ -313,17 +335,26 @@ async function loadMedia() {
     for (const im of data.images || []) {
       if (!im.file) { fail(`${rel}: an image entry is missing its 'file' field`); continue; }
       if (!im.alt) fail(`${rel}: image '${im.file}' is missing required 'alt' text (needed for accessibility + SEO)`);
-      const abs = path.join(galleryDir, im.file);
-      if (!(await exists(abs))) { fail(`${rel}: file '${im.file}' is listed in metadata but doesn't exist on disk`); continue; }
       const slug = im.file.replace(/\.[^.]+$/, '');
+      // S3-backed image: all sizes live on S3, nothing local.
+      // Legacy fallback: file lives locally under content/media/<dir>/<file>.
+      const hasS3 = !!im.s3;
+      let abs = null;
+      if (!hasS3) {
+        abs = path.join(galleryDir, im.file);
+        if (!(await exists(abs))) {
+          fail(`${rel}: file '${im.file}' is listed in metadata but doesn't exist on disk (and no s3 URL provided)`);
+          continue;
+        }
+      }
       images.push({
         ...im,
         slug,
-        src: `${url}/${im.file}`,
-        srcThumb: `${url}/_thumb/${im.file}`,
-        srcMed: `${url}/_med/${im.file}`,
-        pageUrl: `${url}/${slug}`,
-        absPath: abs,
+        src:      hasS3 ? im.s3       : `${url}/${im.file}`,
+        srcMed:   hasS3 ? im.s3_med   : `${url}/_med/${im.file}`,
+        srcThumb: hasS3 ? im.s3_thumb : `${url}/_thumb/${im.file}`,
+        pageUrl:  `${url}/${slug}`,
+        absPath:  abs,
       });
     }
 
@@ -365,12 +396,10 @@ async function processImage(srcAbs, outRel, opts) {
 
 async function buildMediaImages(node) {
   for (const im of node.images) {
+    if (!im.absPath) continue;  // S3-backed image, no local processing needed
     const baseOut = path.join(node.dir, im.file);
-    // full (just copy original)
     await copyFile(im.absPath, baseOut);
-    // medium
     await processImage(im.absPath, path.join(node.dir, '_med', im.file), { width: 1400 });
-    // thumb
     await processImage(im.absPath, path.join(node.dir, '_thumb', im.file), { width: 600, quality: 78 });
   }
 }
@@ -537,6 +566,7 @@ function synthesizeFromMusings(musings, existingNodes) {
     const segs = dir.split('/');
     const images = m.imageRefs.map(ref => {
       const slug = ref.file.replace(/\.[^.]+$/, '');
+      const hasS3 = !!ref.s3;
       return {
         file: ref.file,
         slug,
@@ -544,12 +574,16 @@ function synthesizeFromMusings(musings, existingNodes) {
         title: '',
         date: m.date,
         location: galleryConfig.location || '',
-        // Reuse the post's already-copied media file. No separate thumb/med.
-        src: `${m.url}/media/${ref.file}`,
-        srcMed: `${m.url}/media/${ref.file}`,
-        srcThumb: `${m.url}/media/${ref.file}`,
+        src:      hasS3 ? ref.s3       : `${m.url}/media/${ref.file}`,
+        srcMed:   hasS3 ? ref.s3_med   : `${m.url}/media/${ref.file}`,
+        srcThumb: hasS3 ? ref.s3_thumb : `${m.url}/media/${ref.file}`,
+        bytes: ref.bytes,
+        exif: ref.exif,
+        s3: ref.s3,
+        s3_med: ref.s3_med,
+        s3_thumb: ref.s3_thumb,
         pageUrl: `/${dir}/${slug}`,
-        absPath: path.join(m.mediaDir, ref.file),
+        absPath: hasS3 ? null : path.join(m.mediaDir, ref.file),
       };
     });
     out.push({
