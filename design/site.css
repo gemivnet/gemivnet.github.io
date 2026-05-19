@@ -688,3 +688,66 @@
 /* Photo page main image */
 .photo-figure img:hover, .sp-photo-frame img:hover { transform: scale(1.04); }
 .photo-figure img, .sp-photo-frame img { transition: transform .2s var(--ease); transform-origin: center; }
+
+/* ── gallery view toggle (folder / grid / feed) ─────────────── */
+.gallery-view > input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+.gv-toggle {
+  display: flex;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  width: max-content;
+  margin: var(--sp-5) 0 var(--sp-6);
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  letter-spacing: 0.04em;
+}
+.gv-toggle label {
+  background: var(--bg);
+  color: var(--ink-2);
+  padding: 6px 12px;
+  cursor: pointer;
+  user-select: none;
+}
+.gv-toggle label:hover { color: var(--accent); }
+/* Active state: highlight the label whose radio is :checked */
+.gallery-view > input[value="folder"]:checked ~ .gv-toggle label[data-view="folder"],
+.gallery-view > input[value="grid"]:checked   ~ .gv-toggle label[data-view="grid"],
+.gallery-view > input[value="feed"]:checked   ~ .gv-toggle label[data-view="feed"] {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+/* Show only the selected mode. Default: folder. */
+.gv-folder, .gv-grid, .gv-feed { display: none; }
+.gallery-view > input[value="folder"]:checked ~ .gv-folder,
+.gallery-view > input[value="grid"]:checked   ~ .gv-grid,
+.gallery-view > input[value="feed"]:checked   ~ .gv-feed { display: block; }
+
+/* Feed mode: vertical stream, single column, generous spacing */
+.gv-feed-item {
+  margin: 0 auto var(--sp-7);
+  max-width: 720px;
+}
+.gv-feed-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 85vh;
+  object-fit: contain;
+  border: 1px solid var(--rule);
+}
+.gv-feed-item figcaption {
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  color: var(--ink-3);
+  margin-top: var(--sp-3);
+  padding-left: var(--sp-3);
+  border-left: 2px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.gv-feed-item figcaption .t { color: var(--ink); font-size: var(--fs-body); font-family: var(--font-body); }
+.gv-feed-item figcaption .alt { color: var(--ink-2); font-family: var(--font-body); font-style: italic; }
+.gv-feed-item figcaption .m a { color: var(--accent); }
