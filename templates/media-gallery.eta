@@ -29,7 +29,7 @@
     <% subAlbums.forEach(function(a){ %>
       <a class="sp-album" href="<%= a.url %>">
         <% if (a.cover) { %>
-          <div class="sp-img" style="aspect-ratio: 4/3; background-image: url('<%= a.cover.med %>'); background-size: cover; background-position: center;"></div>
+          <div class="sp-img has-photo" style="aspect-ratio: 4/3; background-image: url('<%= a.cover.med %>'); background-size: cover; background-position: center;"></div>
         <% } else { %>
           <div class="sp-img tinted" style="aspect-ratio: 4/3;"><span class="sp-img-label">[ <%= a.title %> ]</span></div>
         <% } %>
@@ -54,7 +54,7 @@
   <div class="sp-vsco">
     <% node.images.forEach(function(im){ %>
       <a class="cell" href="<%= im.src %>" title="<%= escapeHtml(im.alt || '') %>">
-        <div class="sp-img" style="background-image: url('<%= im.srcThumb %>'); background-size: cover; background-position: center;" aria-label="<%= escapeHtml(im.alt || '') %>"></div>
+        <div class="sp-img has-photo" style="background-image: url('<%= im.srcThumb %>'); background-size: cover; background-position: center;" aria-label="<%= escapeHtml(im.alt || '') %>"></div>
         <div class="caption">
           <% if (im.title) { %><div class="title"><%= im.title %></div><% } %>
           <% if (im.location) { %><div class="where"><%= im.location %></div><% } %>

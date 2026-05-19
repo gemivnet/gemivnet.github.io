@@ -653,3 +653,6 @@
 .sp-figure img { transition: transform .2s var(--ease); transform-origin: center center; }
 .sp-figure img:hover { transform: scale(1.12); }
 .sp-figure:has(img:hover) { z-index: 5; }
+
+/* hide the stripe pattern when the cell is showing a real photo */
+.sp-img.has-photo::before { display: none; }
