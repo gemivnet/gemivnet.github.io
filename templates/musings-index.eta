@@ -1,57 +1,40 @@
-<header style="margin-bottom: var(--sp-6);">
-  <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); margin-bottom: var(--sp-3);">
-    <%= copy.musings.index.breadcrumb %> · <%= posts.length %> posts · newest first
+<div class="musings-layout">
+  <aside class="musings-tree" aria-label="Musings folder tree">
+    <input type="checkbox" id="tree-toggle" class="tree-toggle">
+    <label class="tree-head" for="tree-toggle">browse</label>
+    <div class="tree-content">
+      <div class="tree-label">~/musings</div>
+      <%~ treeHtml %>
+    </div>
+  </aside>
+
+  <div class="musings-body">
+    <header style="margin-bottom: var(--sp-7);">
+      <h1>Musings.</h1>
+      <p style="margin-top: var(--sp-3); color: var(--ink-2); font-size: var(--fs-lg); font-style: italic;">
+        <%= copy.musings.index.intro %>
+      </p>
+    </header>
+
+    <% if (posts.length === 0) { %>
+      <div class="sp-empty"><span class="glyph">∅</span><%= copy.empty.musings_index %></div>
+    <% } %>
+
+    <% posts.forEach(function(p){ %>
+      <article class="sp-card">
+        <div class="sp-meta">
+          <span><%= fmtLongDate(p.date) %></span>
+          <% if (p.category.length) { %><span class="sep">·</span><span class="cat"><%= p.category.join('/') %></span><% } %>
+          <span class="sep">·</span>
+          <span><%= p.wordCount.toLocaleString() %> words · ~<%= p.readTime %> min read</span>
+        </div>
+        <h3><a href="<%= p.url %>"><%= p.title %></a></h3>
+        <% if (p.subtitle) { %><p class="sp-sub"><%= p.subtitle %></p><% } %>
+        <p class="sp-preview"><%= p.preview %></p>
+        <div class="sp-tags">
+          <% p.tags.forEach(function(t){ %><a class="sp-tag" href="/musings/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %>
+        </div>
+      </article>
+    <% }) %>
   </div>
-  <h1>Musings.</h1>
-  <p style="margin-top: var(--sp-3); color: var(--ink-2); font-size: var(--fs-lg);"><%= copy.musings.index.intro %></p>
-</header>
-
-<%
-  var folderCounts = {};
-  posts.forEach(function(p){ if (p.category.length) { var k = p.category[0]; folderCounts[k] = (folderCounts[k] || 0) + 1; } });
-  var folders = Object.keys(folderCounts).sort();
-  var tagCounts = {};
-  posts.forEach(function(p){ p.tags.forEach(function(t){ tagCounts[t] = (tagCounts[t] || 0) + 1; }); });
-  var topTags = Object.entries(tagCounts).sort(function(a,b){ return b[1]-a[1]; }).slice(0, 12).map(function(x){ return x[0]; });
-%>
-
-<% if (folders.length || topTags.length) { %>
-<div style="border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: var(--sp-4) 0; margin-bottom: var(--sp-6); font-family: var(--font-mono); font-size: var(--fs-small);">
-  <% if (folders.length) { %>
-    <div style="color: var(--ink-3); margin-bottom: var(--sp-2); font-size: var(--fs-tiny);">browse by folder:</div>
-    <div style="line-height: 1.9;">
-      <a href="/musings" style="color: var(--accent); margin-right: 14px;">all (<%= posts.length %>)</a>
-      <% folders.forEach(function(k){ %>
-        <a href="/musings/<%= k %>" style="color: var(--ink-2); text-decoration: none; margin-right: 14px;"><%= k %>/ <span style="color: var(--ink-3);"><%= folderCounts[k] %></span></a>
-      <% }) %>
-    </div>
-  <% } %>
-  <% if (topTags.length) { %>
-    <div style="color: var(--ink-3); margin-top: var(--sp-3); margin-bottom: var(--sp-2); font-size: var(--fs-tiny);">browse by tag:</div>
-    <div>
-      <% topTags.forEach(function(t){ %><a class="sp-tag" href="/musings/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %>
-    </div>
-  <% } %>
 </div>
-<% } %>
-
-<% if (posts.length === 0) { %>
-  <div class="sp-empty"><span class="glyph">∅</span>nothing here yet.</div>
-<% } %>
-
-<% posts.forEach(function(p){ %>
-  <article class="sp-card">
-    <div class="sp-meta">
-      <span><%= fmtDate(p.date).replace(/-/g, '·') %></span>
-      <% if (p.category[0]) { %><span class="sep">·</span><span class="cat"><%= p.category[0] %></span><% } %>
-      <span class="sep">·</span>
-      <span><%= p.wordCount.toLocaleString() %> w · ~<%= p.readTime %> min</span>
-    </div>
-    <h3><a href="<%= p.url %>"><%= p.title %></a></h3>
-    <% if (p.subtitle) { %><p class="sp-sub"><%= p.subtitle %></p><% } %>
-    <p class="sp-preview"><%= p.preview %></p>
-    <div class="sp-tags">
-      <% p.tags.forEach(function(t){ %><a class="sp-tag" href="/musings/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %>
-    </div>
-  </article>
-<% }) %>

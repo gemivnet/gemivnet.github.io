@@ -98,6 +98,11 @@ const fmtMetaDate = (d) => {
   const mo = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'][dt.getUTCMonth()];
   return `${mo} ${String(dt.getUTCDate()).padStart(2, '0')} ${dt.getUTCFullYear()}`;
 };
+const fmtLongDate = (d) => {
+  const dt = d instanceof Date ? d : new Date(d);
+  const mo = ['January','February','March','April','May','June','July','August','September','October','November','December'][dt.getUTCMonth()];
+  return `${mo} ${dt.getUTCDate()}, ${dt.getUTCFullYear()}`;
+};
 
 // Deterministic seeded shuffle so the random-musing manifest is stable per build.
 const seededShuffle = (arr, seed = 1) => {
@@ -132,6 +137,7 @@ const pageHelpers = {
   },
   fmtDate,
   fmtMetaDate,
+  fmtLongDate,
   fmtBytes,
   escapeHtml,
 };
@@ -444,6 +450,8 @@ async function computeStats(musings, mediaNodes) {
     picturesBytesFmt: fmtBytes(imageBytes),
     firstPost: dates[0] ? fmtDate(dates[0]) : null,
     lastPost: dates[dates.length - 1] ? fmtDate(dates[dates.length - 1]) : null,
+    firstPostLong: dates[0] ? fmtLongDate(dates[0]) : null,
+    lastPostLong: dates[dates.length - 1] ? fmtLongDate(dates[dates.length - 1]) : null,
   };
 }
 
@@ -451,9 +459,8 @@ async function renderHome(musings, mediaNodes) {
   const shuffled = seededShuffle(musings.map(m => ({
     url: m.url, title: m.title, subtitle: m.subtitle, preview: m.preview,
     featured: m.featured, tags: m.tags, date: fmtDate(m.date),
-    dateMono: fmtDate(m.date).replace(/-/g, '·'),
-    readtime: `~${m.readTime} min read · ${m.wordCount.toLocaleString()} words`,
-    meta: `${fmtMetaDate(m.date)} · ${m.wordCount.toLocaleString()} WORDS · ~${m.readTime} MIN`,
+    dateLong: fmtLongDate(m.date),
+    readtime: `${fmtLongDate(m.date).split(',')[0]} · ${m.wordCount.toLocaleString()} words · ~${m.readTime} min read`,
     path: m.folder, category: m.category.join('/') || 'misc',
   })), 7);
 
@@ -462,6 +469,7 @@ async function renderHome(musings, mediaNodes) {
     title: im.title || '',
     location: im.location || n.location || '',
     date: im.date ? fmtDate(im.date) : (n.date ? fmtDate(n.date) : ''),
+    dateLong: im.date ? fmtLongDate(im.date) : (n.date ? fmtLongDate(n.date) : ''),
     album: n.url, albumTitle: n.title,
     alt: im.alt || '',
   })));
@@ -469,6 +477,7 @@ async function renderHome(musings, mediaNodes) {
 
   const recent = musings.slice(0, 5).map(m => ({
     date: fmtDate(m.date).replace(/-/g, '·'),
+    dateLong: fmtLongDate(m.date),
     title: m.title,
     url: m.url,
     category: m.category[0] || 'misc',
@@ -654,6 +663,9 @@ function renderTreeHtml(tree, activeUrl, activeCategory) {
 // ── render: musings ───────────────────────────────────────────
 
 async function renderMusings(musings) {
+  // Folder tree, used by all musings pages (index + post + category).
+  const tree = buildMusingsTree(musings);
+
   // Index page.
   const indexHtml = await renderPage('musings-index', {
     page: {
@@ -665,12 +677,12 @@ async function renderMusings(musings) {
     },
     active: 'musings',
     posts: musings,
+    treeHtml: renderTreeHtml(tree, '/musings', ''),
   });
   collectLinks('/musings', indexHtml);
   await writeFile('musings/index.html', indexHtml);
 
-  // Per-post — also pass a folder tree for the sidebar.
-  const tree = buildMusingsTree(musings);
+  // Per-post — uses the same tree, marking the current item active.
   for (let i = 0; i < musings.length; i++) {
     const m = musings[i];
     const prev = musings[i + 1] || null;

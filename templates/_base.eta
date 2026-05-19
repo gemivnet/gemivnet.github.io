@@ -74,8 +74,7 @@
           <% ;(copy.footer.site_links || []).forEach(function(s){ %>
             <li><a href="<%= s.href %>"><%= s.label %></a><% if (s.indicator) { %> &nbsp;<span style="color: var(--accent);">&#9679;</span><% } %></li>
           <% }) %>
-          <li style="margin-top: var(--sp-3); color: var(--ink-3);"><%= site.version %></li>
-          <li style="color: var(--ink-3);">est <%= site.founded %></li>
+          <li class="version"><%= site.version %></li>
         </ul>
       </div>
     </div>
