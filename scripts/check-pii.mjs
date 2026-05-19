@@ -19,6 +19,7 @@ import { execSync } from 'node:child_process';
 import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import yaml from 'js-yaml';
+import exifr from 'exifr';
 
 const ROOT = path.resolve(import.meta.dirname || new URL('.', import.meta.url).pathname, '..');
 const ALLOWLIST_PATH = path.join(ROOT, '.pii-allowlist.yaml');
@@ -140,6 +141,27 @@ for (const { file, text } of lines) {
     }
   }
 }
+
+// ── EXIF GPS check on staged image files ──────────────────
+try {
+  const stagedFiles = execSync('git diff --cached --name-only --diff-filter=AM', { cwd: ROOT, encoding: 'utf8' })
+    .split('\n').map(s => s.trim()).filter(Boolean)
+    .filter(f => /\.(jpe?g|png|heic|heif|tiff?|webp)$/i.test(f))
+    .filter(f => !f.startsWith('staging/'));
+  for (const f of stagedFiles) {
+    try {
+      const meta = await exifr.parse(path.join(ROOT, f), { gps: true, tiff: false, ifd0: false });
+      if (meta && (meta.latitude || meta.longitude)) {
+        hits.push({
+          file: f,
+          type: 'EXIF GPS',
+          match: `lat=${meta.latitude}, lon=${meta.longitude}`,
+          line: '(image metadata, not visible in text diff)',
+        });
+      }
+    } catch { /* file unreadable / no EXIF — fine */ }
+  }
+} catch { /* no staged files */ }
 
 // ── report ────────────────────────────────────────────────
 if (hits.length === 0) {
