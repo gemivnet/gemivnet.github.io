@@ -1,2 +1,299 @@
 title: Outback
 cover: uluru-sunset
+images:
+  - file: roadside-from-bus.jpg
+    alt: Outback roadside seen through a bus window at dawn.
+    date: "2026-05-13"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/roadside-from-bus.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/roadside-from-bus__med.jpg
+    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/outback/roadside-from-bus__thumb.jpg
+    bytes: 1181201
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/2.8
+      shutter: 1/40
+      focal_length: 9mm
+      width: 5472
+      height: 3648
+  - file: emu-at-roadhouse.jpg
+    alt: An emu in a pen at a roadhouse.
+    date: "2026-05-13"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/emu-at-roadhouse.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/emu-at-roadhouse__med.jpg
+    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/outback/emu-at-roadhouse__thumb.jpg
+    bytes: 4949256
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 1000
+      aperture: f/4.5
+      shutter: 1/200
+      focal_length: 72mm
+      width: 5472
+      height: 3648
+  - file: kulgera-dawn.jpg
+    alt: Roadside sign in early dawn light.
+    date: "2026-05-13"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kulgera-dawn.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kulgera-dawn__med.jpg
+    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kulgera-dawn__thumb.jpg
+    bytes: 3107108
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4.5
+      shutter: 1/200
+      focal_length: 65mm
+      width: 5472
+      height: 3648
+  - file: outback-petrol-station.jpg
+    alt: An empty outback petrol station at dawn.
+    date: "2026-05-13"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/outback-petrol-station.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/outback-petrol-station__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/outback-petrol-station__thumb.jpg
+    bytes: 3690442
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/3.2
+      shutter: 1/200
+      focal_length: 9mm
+      width: 5472
+      height: 3648
+  - file: northern-territory-sign.jpg
+    alt: Welcome to the Northern Territory sign.
+    date: "2026-05-13"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/northern-territory-sign.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/northern-territory-sign__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/northern-territory-sign__thumb.jpg
+    bytes: 4615019
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 320
+      aperture: f/4.5
+      shutter: 1/200
+      focal_length: 72mm
+      width: 5472
+      height: 3648
+  - file: bus-fueling.jpg
+    alt: Adventure Tours bus at a fuel stop.
+    date: "2026-05-13"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/bus-fueling.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/bus-fueling__med.jpg
+    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/outback/bus-fueling__thumb.jpg
+    bytes: 3131245
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4
+      shutter: 1/100
+      focal_length: 22mm
+      width: 5472
+      height: 3648
+  - file: erldunda-sign.jpg
+    alt: Erldunda 'centre of the centre' roadhouse sign.
+    date: "2026-05-13"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/erldunda-sign.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/erldunda-sign__med.jpg
+    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/outback/erldunda-sign__thumb.jpg
+    bytes: 3669854
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/6.3
+      shutter: 1/100
+      focal_length: 51mm
+      width: 5472
+      height: 3648
+  - file: outback-junction.jpg
+    alt: Quiet outback road junction.
+    date: "2026-05-13"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/outback-junction.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/outback-junction__med.jpg
+    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/outback/outback-junction__thumb.jpg
+    bytes: 3135972
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/5
+      shutter: 1/125
+      focal_length: 31mm
+      width: 5472
+      height: 3648
+  - file: uluru-turnoff.jpg
+    alt: The turnoff sign for Uluru.
+    date: "2026-05-13"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru-turnoff.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru-turnoff__med.jpg
+    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru-turnoff__thumb.jpg
+    bytes: 3869869
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 200
+      aperture: f/5.6
+      shutter: 1/125
+      focal_length: 72mm
+      width: 5472
+      height: 3648
+  - file: erldunda-motel-sign.jpg
+    alt: Roadside signs for the Erldunda Motel.
+    date: "2026-05-13"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/erldunda-motel-sign.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/erldunda-motel-sign__med.jpg
+    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/outback/erldunda-motel-sign__thumb.jpg
+    bytes: 2331862
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4.5
+      shutter: 1/200
+      focal_length: 72mm
+      width: 5472
+      height: 3648
+  - file: centre-of-australia.jpg
+    alt: Centre of Australia cast-iron monument.
+    date: "2026-05-13"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/centre-of-australia.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/centre-of-australia__med.jpg
+    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/outback/centre-of-australia__thumb.jpg
+    bytes: 4687535
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/3.5
+      shutter: 1/200
+      focal_length: 9mm
+      width: 5472
+      height: 3648
+  - file: cockatiel.jpg
+    alt: A cockatiel perched in a wire cage.
+    date: "2026-05-14"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/cockatiel.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/cockatiel__med.jpg
+    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/outback/cockatiel__thumb.jpg
+    bytes: 2565539
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4
+      shutter: 1/320
+      focal_length: 11mm
+      width: 5472
+      height: 3648
+  - file: yulara-coach-campground.jpg
+    alt: Yulara coach campground.
+    date: "2026-05-14"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-coach-campground.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-coach-campground__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-coach-campground__thumb.jpg
+    bytes: 4356879
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4.5
+      shutter: 1/1000
+      focal_length: 9mm
+      width: 5472
+      height: 3648
+  - file: yulara-camp-overview.jpg
+    alt: Yulara camp overview from above.
+    date: "2026-05-14"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-camp-overview.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-camp-overview__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-camp-overview__thumb.jpg
+    bytes: 5162962
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4
+      shutter: 1/640
+      focal_length: 27mm
+      width: 5472
+      height: 3648
+  - file: road-from-hilltop.jpg
+    alt: Outback road seen from a hilltop.
+    date: "2026-05-14"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/road-from-hilltop.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/road-from-hilltop__med.jpg
+    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/outback/road-from-hilltop__thumb.jpg
+    bytes: 4053035
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4
+      shutter: 1/1000
+      focal_length: 33mm
+      width: 5472
+      height: 3648
+  - file: desert-oaks.jpg
+    alt: Desert oaks dotting the landscape.
+    date: "2026-05-14"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/desert-oaks.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/desert-oaks__med.jpg
+    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/outback/desert-oaks__thumb.jpg
+    bytes: 4794423
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 125
+      aperture: f/4.5
+      shutter: 1/200
+      focal_length: 72mm
+      width: 5472
+      height: 3648
+  - file: yulara-eco-tents-overview.jpg
+    alt: Yulara eco tents overview.
+    date: "2026-05-14"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-eco-tents-overview.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-eco-tents-overview__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-eco-tents-overview__thumb.jpg
+    bytes: 4895632
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 160
+      aperture: f/4.5
+      shutter: 1/200
+      focal_length: 72mm
+      width: 5472
+      height: 3648
+  - file: yulara-camp-from-above.jpg
+    alt: Yulara camp from above.
+    date: "2026-05-14"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-camp-from-above.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-camp-from-above__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-camp-from-above__thumb.jpg
+    bytes: 5349790
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 160
+      aperture: f/4.5
+      shutter: 1/160
+      focal_length: 52mm
+      width: 5472
+      height: 3648
+  - file: yulara-eco-tents.jpg
+    alt: Yulara eco tents, close.
+    date: "2026-05-14"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-eco-tents.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-eco-tents__med.jpg
+    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-eco-tents__thumb.jpg
+    bytes: 3215266
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4
+      shutter: 1/640
+      focal_length: 9mm
+      width: 5472
+      height: 3648

@@ -94,14 +94,15 @@ images:
       focal_length: 20mm
       width: 3648
       height: 5472
-  - file: noodles-on-pedestal.jpg
-    alt: Instant noodles arranged as art on a pedestal.
+  - file: rubber-bands-on-pedestal.jpg
+    alt: Tangle of rubber bands on a pedestal.
     date: "2026-05-18"
-    s3: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/noodles-on-pedestal.jpg
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/rubber-bands-on-pedestal.jpg
     s3_med: >-
-      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/noodles-on-pedestal__med.jpg
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/rubber-bands-on-pedestal__med.jpg
     s3_thumb: >-
-      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/noodles-on-pedestal__thumb.jpg
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/rubber-bands-on-pedestal__thumb.jpg
     bytes: 3092601
     exif:
       camera: SONY DSC-RX100M7
@@ -112,7 +113,7 @@ images:
       width: 5472
       height: 3648
   - file: drinking-piss-text.jpg
-    alt: A red text piece by an artist commenting on artists.
+    alt: Red text piece, MONA.
     date: "2026-05-18"
     s3: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/drinking-piss-text.jpg
     s3_med: >-
@@ -161,7 +162,7 @@ images:
       width: 5472
       height: 3648
   - file: bit-fall.jpg
-    alt: Looking up at the bit.fall water-text installation.
+    alt: Looking down at the bit.fall water-text installation.
     date: "2026-05-18"
     s3: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/bit-fall.jpg
     s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/bit-fall__med.jpg
@@ -253,7 +254,7 @@ images:
       width: 5472
       height: 3648
   - file: erosion-texture.jpg
-    alt: Textural close-up resembling stalactites.
+    alt: Wall of rock inside MONA.
     date: "2026-05-18"
     s3: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/erosion-texture.jpg
     s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/erosion-texture__med.jpg
@@ -381,3 +382,4 @@ images:
       focal_length: 9mm
       width: 5472
       height: 3648
+cover: fat-car

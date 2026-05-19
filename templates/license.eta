@@ -1,0 +1,26 @@
+<div class="site-reading">
+  <header style="margin-bottom: var(--sp-6);">
+    <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">
+      ~/license
+    </div>
+    <h1><%= copy.license.title %></h1>
+  </header>
+
+  <article class="sp-prose">
+    <p><strong><%= copy.license.short %></strong></p>
+
+    <% ;(copy.license.body || []).forEach(function(para){ %>
+      <p><%~ para %></p>
+    <% }) %>
+
+    <h2>The short version</h2>
+    <ul>
+      <% ;(copy.license.bullets || []).forEach(function(b){ %>
+        <li><%~ b %></li>
+      <% }) %>
+    </ul>
+
+    <h2>For commercial use</h2>
+    <p><%~ copy.license.commercial %></p>
+  </article>
+</div>

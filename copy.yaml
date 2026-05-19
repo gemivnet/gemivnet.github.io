@@ -120,6 +120,24 @@ not_found:
     - { label: "musings", href: "/musings" }
     - { label: "media", href: "/media" }
 
+# ── /license ────────────────────────────────────────────────
+license:
+  title: "License & reuse"
+  short: "© George Main. All rights reserved. Non-commercial reuse allowed freely under license; commercial reuse by permission."
+  body:
+    - "All words and photographs on this site are © George Main unless otherwise noted. The site itself is built by hand and updated as I remember to."
+    - "I want the work to be readable and re-shareable for non-commercial reasons. So everything here is offered under <a href=\"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons Attribution-NonCommercial 4.0 (CC&nbsp;BY-NC&nbsp;4.0)</a> for non-commercial use."
+  bullets:
+    - "<strong>You may</strong> quote, share, blog, screenshot, print, translate, or remix anything here for personal or non-commercial purposes, including class use, fan projects, and personal websites."
+    - "<strong>Please credit</strong> the work as &ldquo;George Main, georgemain.com&rdquo; and link back where possible."
+    - "<strong>Don&rsquo;t use it commercially</strong> without asking first. This includes ads, paid newsletters, AI-training datasets sold for profit, stock-photo resale, books for sale, paid courses, or any product where someone pays you to access my work."
+  commercial: "Email <a href=\"mailto:george.main@gemiv.net\">george.main@gemiv.net</a> with what you&rsquo;d like to use and how. I almost always say yes for non-profits, journalism, and education."
+
+# ── short copyright shown in the site footer ─────────────────
+copyright:
+  line: "© George Main · CC BY-NC 4.0"
+  link_text: "license"
+
 # ── /changelog ──────────────────────────────────────────────
 # Entries are pulled from git log at build time — no manual list to maintain.
 changelog:
