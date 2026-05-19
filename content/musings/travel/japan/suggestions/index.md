@@ -3,12 +3,14 @@ title: "Japan Suggestions"
 subtitle: "Stuff we did that we'd suggest if you have extra time"
 date: 2024-09-01
 tags: [travel, japan, food, kyoto, tokyo, kobe]
-featured_image: null
+featured_image: media/kiyomizu-dera-view.jpg
 draft: false
 seo:
   description: "Casual Japan travel suggestions from things we actually did. Cheap food spots, temples, cultural tips, and random finds across Tokyo, Kyoto, and Kobe."
   keywords: [japan travel tips, japan food recommendations, kyoto things to do, kobe beef wakkoqu, japan first trip, tokyo station desserts]
 ---
+
+![Kyoto from Kiyomizu-dera.](media/kiyomizu-dera-view.jpg)
 
 This is a collection of some things we did in Japan. It's not an itinerary, just things we thought were cool and suggest trying if you have time.
 
