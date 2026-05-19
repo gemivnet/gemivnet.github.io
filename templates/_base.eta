@@ -74,6 +74,7 @@
           <% ;(copy.footer.site_links || []).forEach(function(s){ %>
             <li><a href="<%= s.href %>"><%= s.label %></a><% if (s.indicator) { %> &nbsp;<span style="color: var(--accent);">&#9679;</span><% } %></li>
           <% }) %>
+          <li><span style="color: var(--ink-3);"><%= site.version %></span></li>
         </ul>
       </div>
     </div>
