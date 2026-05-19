@@ -1,0 +1,62 @@
+<section style="margin-bottom: var(--sp-6);">
+  <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">
+    <%= copy.musings.category.breadcrumb_prefix %><%= categoryKey %> · <%= allDescendants.length %> posts
+  </div>
+  <h1>musings / <%= categorySegs.join(' / ') %></h1>
+</section>
+
+<% if (children.length) { %>
+<section class="sp-section">
+  <div class="sp-section-head">
+    <span class="sp-section-tag"><%= copy.musings.category.subfolders_tag %></span>
+    <h2><%= copy.musings.category.subfolders_title %></h2>
+  </div>
+  <div class="sp-tree">
+    <% children.forEach(function(c){ %>
+      <div><span class="glyph">├── </span><a href="<%= c.url %>"><%= c.label %>/</a><span class="count">  (<%= c.count %>)</span></div>
+    <% }) %>
+  </div>
+</section>
+<% } %>
+
+<% if (allDescendants.length) { %>
+<section class="sp-section">
+  <div class="sp-section-head">
+    <span class="sp-section-tag"><%= copy.musings.category.random_tag %></span>
+    <h2><%= copy.musings.category.random_title %></h2>
+  </div>
+  <article class="sp-card" style="border-top: 1px solid var(--rule);">
+    <div class="sp-meta">
+      <%= fmtDate(randomPick.date).replace(/-/g, '·') %><br>
+      <%= randomPick.wordCount.toLocaleString() %> w
+    </div>
+    <div>
+      <h3><a href="<%= randomPick.url %>"><%= randomPick.title %></a></h3>
+      <% if (randomPick.subtitle) { %><div class="sp-sub"><%= randomPick.subtitle %></div><% } %>
+      <p class="sp-preview"><%= randomPick.preview %></p>
+    </div>
+  </article>
+</section>
+<% } %>
+
+<section class="sp-section">
+  <div class="sp-section-head">
+    <span class="sp-section-tag"><%= copy.musings.category.chronological_tag %></span>
+    <h2><%= copy.musings.category.chronological_title %></h2>
+    <span class="sp-section-aside"><%= copy.musings.category.chronological_aside %></span>
+  </div>
+  <% if (posts.length === 0) { %>
+    <div class="sp-empty"><%= copy.musings.category.no_direct_posts %></div>
+  <% } %>
+  <% posts.forEach(function(p){ %>
+    <article class="sp-card">
+      <div class="sp-meta"><%= fmtDate(p.date).replace(/-/g, '·') %><br><%= p.wordCount.toLocaleString() %> w</div>
+      <div>
+        <h3><a href="<%= p.url %>"><%= p.title %></a></h3>
+        <% if (p.subtitle) { %><div class="sp-sub"><%= p.subtitle %></div><% } %>
+        <p class="sp-preview"><%= p.preview %></p>
+        <div class="sp-tags"><% p.tags.forEach(function(t){ %><a class="sp-tag" href="/musings/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %></div>
+      </div>
+    </article>
+  <% }) %>
+</section>

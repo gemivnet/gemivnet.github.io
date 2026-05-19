@@ -1,0 +1,36 @@
+<article class="site-reading sp-prose">
+  <header class="sp-post-header">
+    <div class="crumbs">
+      <a href="/musings"><%= copy.musings.post.crumbs_root %></a>
+      <% post.category.forEach(function(c, idx){ %>
+        / <a href="/musings/<%= post.category.slice(0, idx+1).join('/') %>"><%= c %></a>
+      <% }) %>
+      / <%= post.slug %>
+    </div>
+    <h1><%= post.title %></h1>
+    <% if (post.subtitle) { %><div class="subtitle"><%= post.subtitle %></div><% } %>
+    <div class="meta">
+      <span><%= fmtDate(post.date) %></span>
+      <span class="sep">·</span>
+      <span><%= post.wordCount.toLocaleString() %> words</span>
+      <span class="sep">·</span>
+      <span>~<%= post.readTime %> min</span>
+      <% if (post.tags.length) { %><span class="sep">·</span><span><% post.tags.forEach(function(t){ %><a class="sp-tag" href="/musings/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %></span><% } %>
+    </div>
+  </header>
+
+  <%~ post.bodyHtml %>
+
+  <nav class="sp-postnav">
+    <div class="prev">
+      <span class="label"><%= copy.musings.post.prev_label %></span>
+      <% if (prev) { %><a href="<%= prev.url %>"><%= prev.title %></a>
+      <% } else { %><span style="color: var(--ink-3);"><%= copy.musings.post.oldest_note %></span><% } %>
+    </div>
+    <div class="next">
+      <span class="label"><%= copy.musings.post.next_label %></span>
+      <% if (next) { %><a href="<%= next.url %>"><%= next.title %></a>
+      <% } else { %><span style="color: var(--ink-3);"><%= copy.musings.post.newest_note %></span><% } %>
+    </div>
+  </nav>
+</article>

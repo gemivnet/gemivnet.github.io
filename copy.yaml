@@ -1,0 +1,126 @@
+# All human-facing copy for georgemain.com.
+# Edit this file to change wording anywhere on the site.
+# Re-run `npm run build` (or push to main) to apply changes.
+
+site:
+  title: "~/george.main"
+  tagline: "Musings, media, and random content."
+  description: "Musings, media, and random content from George Main. Long-form notes and photos."
+  url: "https://georgemain.com"
+  author: "George Main"
+  language: "en"
+  founded: 2026
+  # version auto-increments from git commit count at build time.
+
+# ── nav ─────────────────────────────────────────────────────
+nav:
+  logo: "~/george.main"   # the leading tilde renders in the accent color
+  tabs:
+    - { id: musings, label: "musings", href: "/musings" }
+    - { id: media,   label: "media",   href: "/media" }
+
+# ── homepage ────────────────────────────────────────────────
+home:
+  hero_greeting: "— george main —"
+
+  random_musing:
+    section_tag: "01 · words"
+    title: "A random musing"
+    aside: "reroll until interested"
+    random_label: "↻ random"
+    next_label: "next chronologically"
+    read_label: "read the post →"
+    key_hint: "press R to reroll"
+
+  random_photo:
+    section_tag: "02 · pictures"
+    title: "A random photo"
+    aside: "from somewhere, sometime"
+    random_label: "↻ random"
+    next_label: "next in shuffle"
+    open_label: "open album →"
+    key_hint: "hover any photo for its alt-text"
+
+  lately:
+    section_tag: "03 · pulse"
+    title: "Lately"
+    aside: "auto-updated"
+    recent_count: 5
+    recent_label: "last {{count}} musings"
+
+# ── footer ──────────────────────────────────────────────────
+footer:
+  creed: "an old knowledge page, made for fun. no ads, no tracking, no fancy javascript, no warranty — just information."
+  elsewhere_heading: "elsewhere"
+  elsewhere:
+    - { label: "github.com/gemivnet", href: "https://github.com/gemivnet" }
+    - { label: "george.main@gemiv.net", href: "mailto:george.main@gemiv.net" }
+  site_links_heading: "this site"
+  site_links:
+    - { label: "/rss.xml", href: "/rss.xml", indicator: true }
+    - { label: "/changelog", href: "/changelog" }
+  built_by_hand: "built by hand"
+
+# ── musings index / category / tag ──────────────────────────
+musings:
+  index:
+    breadcrumb: "~/musings"
+    title: "musings"
+    intro: "Long-form notes on whatever I've spent too much time thinking about lately. Reverse-chronological. Tags cross-cut. Folders preserve the original topic."
+    sidebar_categories: "categories"
+    sidebar_tags: "tags"
+  category:
+    breadcrumb_prefix: "~/musings/"
+    subfolders_tag: "subfolders"
+    subfolders_title: "browse deeper"
+    random_tag: "random pick"
+    random_title: "start somewhere"
+    chronological_tag: "in this folder"
+    chronological_title: "chronological"
+    chronological_aside: "direct posts only (subfolders linked above)"
+    no_direct_posts: "no posts directly here — see subfolders"
+  tag:
+    breadcrumb_prefix: "~/musings/tag/"
+    intro: "Cross-cutting tag. Posts here can live in different folders."
+  post:
+    crumbs_root: "musings"
+    prev_label: "← previous"
+    next_label: "next →"
+    oldest_note: "— (this is the oldest)"
+    newest_note: "— (this is the newest)"
+
+# ── media ───────────────────────────────────────────────────
+media:
+  index:
+    breadcrumb: "~/media"
+    title: "media"
+    intro: "Photographs grouped by place and time. Click any album to descend. Galleries nest; hover any image for its alt text."
+  gallery:
+    subalbums_tag: "sub-albums"
+    subalbums_title: "browse deeper"
+    photos_tag: "photos"
+    photos_title: "loose images"
+    photos_aside: "images directly at this level"
+
+# ── empty states ────────────────────────────────────────────
+empty:
+  musings_index: "∅  no musings yet."
+  category: "∅  no posts in this category yet."
+  tag: "∅  no posts with this tag yet."
+  media: "∅  no photos yet."
+  gallery: "∅  no photos in this gallery yet."
+
+# ── 404 ─────────────────────────────────────────────────────
+not_found:
+  heading: "404."
+  paragraph: "That page doesn't exist. Try the homepage."
+  buttons:
+    - { label: "home", href: "/" }
+    - { label: "musings", href: "/musings" }
+    - { label: "media", href: "/media" }
+
+# ── /changelog (stub static page) ───────────────────────────
+changelog:
+  title: "changelog"
+  intro: "Notable changes to the site. Versions auto-increment per push; the prose here is hand-written, but finished with AI."
+  entries: []

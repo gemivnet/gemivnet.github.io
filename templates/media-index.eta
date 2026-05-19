@@ -1,0 +1,32 @@
+<section style="margin-bottom: var(--sp-6);">
+  <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">
+    <%= copy.media.index.breadcrumb %> · <%= albums.length %> albums
+  </div>
+  <h1><%= copy.media.index.title %></h1>
+  <p style="margin-top: var(--sp-4); color: var(--ink-2); font-size: 18px; max-width: 640px;">
+    <%= copy.media.index.intro %>
+  </p>
+</section>
+
+<% if (albums.length === 0) { %>
+  <div class="sp-empty"><%= copy.empty.media %></div>
+<% } %>
+
+<div class="sp-album-grid">
+  <% albums.forEach(function(a){ %>
+    <a class="sp-album" href="<%= a.url %>">
+      <% if (a.cover) { %>
+        <div class="sp-img" style="aspect-ratio: 4/3; background-image: url('<%= a.cover.med %>'); background-size: cover; background-position: center;"></div>
+      <% } else { %>
+        <div class="sp-img tinted" style="aspect-ratio: 4/3;"><span class="sp-img-label">[ <%= a.title %> ]</span></div>
+      <% } %>
+      <div class="meta-row">
+        <span><%= a.date %></span>
+        <span><%= a.count %> photos</span>
+      </div>
+      <h4><%= a.title %></h4>
+      <% if (a.subtitle) { %><div class="sub"><%= a.subtitle %></div><% } %>
+      <% if (a.location) { %><div class="meta-row"><span><%= a.location %></span></div><% } %>
+    </a>
+  <% }) %>
+</div>

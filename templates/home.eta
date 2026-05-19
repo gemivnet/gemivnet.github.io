@@ -1,0 +1,201 @@
+<section style="max-width: 760px; margin-bottom: var(--sp-7);">
+  <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">
+    ~/index · last touched <%= recent[0] ? recent[0].date : fmtDate(new Date()) %>
+  </div>
+  <h1 style="font-size: 56px; letter-spacing: -0.025em; line-height: 1.05;">
+    <%= copy.home.hero_greeting %>
+    <span style="color: var(--ink-3); display: block; font-size: 28px; margin-top: 12px; letter-spacing: -0.01em;"><%= site.tagline %></span>
+  </h1>
+</section>
+
+<% if (shuffled.length > 0) { %>
+<section class="sp-section">
+  <div class="sp-section-head">
+    <span class="sp-section-tag"><%= copy.home.random_musing.section_tag %></span>
+    <h2><%= copy.home.random_musing.title %></h2>
+    <span class="sp-section-aside"><%= copy.home.random_musing.aside %></span>
+  </div>
+  <div class="sp-panel" id="musing-panel" data-total="<%= shuffled.length %>">
+    <div class="sp-panel-head">
+      <span class="left">&#x21bb; shuffled</span>
+      <span id="musing-path"><%= shuffled[0].path %></span>
+      <span class="right"><span id="musing-counter">1 of <%= shuffled.length %></span></span>
+    </div>
+    <div class="sp-panel-body">
+      <div class="home-musing-grid">
+        <div>
+          <div id="musing-meta" style="font-family: var(--font-mono); font-size: 11px; color: var(--ink-3); letter-spacing: 0.08em; margin-bottom: 8px;"><%= shuffled[0].meta %></div>
+          <h3 style="font-size: 28px; margin-bottom: 6px;"><a id="musing-title" href="<%= shuffled[0].url %>" style="color: var(--ink); text-decoration: none;"><%= shuffled[0].title %></a></h3>
+          <p id="musing-sub" style="font-family: var(--font-body); font-style: italic; color: var(--ink-2); font-size: 18px; margin-bottom: 14px;"><%= shuffled[0].subtitle %></p>
+          <p id="musing-body" style="color: var(--ink-2); font-size: 16px;"><%= shuffled[0].preview %></p>
+          <div id="musing-tags" class="sp-tags" style="margin-top: 14px;"></div>
+        </div>
+        <div id="musing-cover"></div>
+      </div>
+      <div class="sp-panel-actions">
+        <button class="sp-btn primary" id="musing-random" type="button"><%= copy.home.random_musing.random_label %><span class="key">[R]</span></button>
+        <button class="sp-btn" id="musing-next" type="button"><%= copy.home.random_musing.next_label %><span class="key">[&rarr;]</span></button>
+        <a class="sp-btn" id="musing-read" href="<%= shuffled[0].url %>"><%= copy.home.random_musing.read_label %></a>
+        <% if (copy.home.random_musing.key_hint) { %><span class="hint"><%= copy.home.random_musing.key_hint %></span><% } %>
+      </div>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<% if (shuffledImages.length > 0) { %>
+<section class="sp-section">
+  <div class="sp-section-head">
+    <span class="sp-section-tag"><%= copy.home.random_photo.section_tag %></span>
+    <h2><%= copy.home.random_photo.title %></h2>
+    <span class="sp-section-aside"><%= copy.home.random_photo.aside %></span>
+  </div>
+  <div class="sp-panel" id="photo-panel" data-total="<%= shuffledImages.length %>">
+    <div class="sp-panel-head">
+      <span class="left">&#x21bb; shuffled</span>
+      <span id="photo-path"></span>
+      <span class="right"><span id="photo-counter">1 of <%= shuffledImages.length %></span></span>
+    </div>
+    <div class="sp-panel-body">
+      <div class="home-photo-grid">
+        <a id="photo-link" href="<%= shuffledImages[0].album %>"><img id="photo-img" src="<%= shuffledImages[0].src %>" alt="<%= escapeHtml(shuffledImages[0].alt || '') %>" class="home-cover" title="<%= escapeHtml(shuffledImages[0].alt || '') %>"></a>
+        <div>
+          <div id="photo-meta" style="font-family: var(--font-mono); font-size: 11px; color: var(--ink-3); letter-spacing: 0.08em; margin-bottom: 8px;"></div>
+          <h3 id="photo-title" style="font-size: 22px; margin-bottom: 6px;"></h3>
+          <p id="photo-sub" style="font-style: italic; color: var(--ink-2); margin-bottom: 14px;"></p>
+          <table style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-2); border-collapse: collapse; width: 100%;">
+            <tbody>
+              <tr><td style="color: var(--ink-3); padding: 4px 12px 4px 0;">where</td><td id="photo-where"></td></tr>
+              <tr><td style="color: var(--ink-3); padding: 4px 12px 4px 0;">album</td><td><a id="photo-album" href="#"></a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="sp-panel-actions">
+        <button class="sp-btn primary" id="photo-random" type="button"><%= copy.home.random_photo.random_label %><span class="key">[R]</span></button>
+        <button class="sp-btn" id="photo-next" type="button"><%= copy.home.random_photo.next_label %><span class="key">[&rarr;]</span></button>
+        <a class="sp-btn" id="photo-open" href="<%= shuffledImages[0].album %>"><%= copy.home.random_photo.open_label %></a>
+        <% if (copy.home.random_photo.key_hint) { %><span class="hint"><%= copy.home.random_photo.key_hint %></span><% } %>
+      </div>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<% if (recent.length > 0) { %>
+<section class="sp-section">
+  <div class="sp-section-head">
+    <span class="sp-section-tag"><%= copy.home.lately.section_tag %></span>
+    <h2><%= copy.home.lately.title %></h2>
+    <span class="sp-section-aside"><%= copy.home.lately.aside %></span>
+  </div>
+  <div>
+    <h4 style="margin-bottom: var(--sp-3); color: var(--ink-2); font-size: 16px;"><%= copy.home.lately.recent_label.replace('{{count}}', recent.length) %></h4>
+    <div style="font-family: var(--font-mono); font-size: 13px; line-height: 2;">
+      <% recent.forEach(function(r){ %>
+        <div style="display: grid; grid-template-columns: 110px 1fr 140px; gap: var(--sp-3);">
+          <span style="color: var(--ink-3);"><%= r.date %></span>
+          <a href="<%= r.url %>" style="color: var(--ink); text-decoration: none;"><%= r.title %></a>
+          <span style="color: var(--accent); text-align: right;">·<%= r.category %></span>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<script id="random-data" type="application/json"><%- JSON.stringify({ musings: shuffled, photos: shuffledImages }) %></script>
+<script>
+(function () {
+  var data = JSON.parse(document.getElementById('random-data').textContent);
+
+  // Musing widget
+  (function () {
+    var list = data.musings || [];
+    if (!list.length) return;
+    var i = 0;
+    function render() {
+      var m = list[i];
+      function set(id, t) { var el = document.getElementById(id); if (el) el.textContent = t; }
+      set('musing-path', m.path);
+      set('musing-counter', (i + 1) + ' of ' + list.length);
+      set('musing-meta', m.meta);
+      var t = document.getElementById('musing-title'); t.textContent = m.title; t.href = m.url;
+      set('musing-sub', m.subtitle);
+      set('musing-body', m.preview);
+      var read = document.getElementById('musing-read'); if (read) read.href = m.url;
+      var tagWrap = document.getElementById('musing-tags');
+      if (tagWrap) {
+        tagWrap.innerHTML = '';
+        (m.tags || []).forEach(function (t) {
+          var a = document.createElement('a');
+          a.className = 'sp-tag';
+          a.href = '/musings/tag/' + t.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+          a.textContent = t;
+          tagWrap.appendChild(a);
+        });
+      }
+      var cover = document.getElementById('musing-cover');
+      if (cover) {
+        cover.innerHTML = m.featured
+          ? '<img src="' + m.featured + '" alt="" class="home-cover">'
+          : '<div class="sp-img tinted" style="aspect-ratio: 4/3;"><span class="sp-img-label">[ ' + (m.category || 'misc') + ' ]</span></div>';
+      }
+    }
+    render();
+    document.getElementById('musing-random').addEventListener('click', function () {
+      if (list.length < 2) return;
+      var n; do { n = Math.floor(Math.random() * list.length); } while (n === i);
+      i = n; render();
+    });
+    document.getElementById('musing-next').addEventListener('click', function () {
+      i = (i + 1) % list.length; render();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.target && /^(INPUT|TEXTAREA)$/.test(e.target.tagName)) return;
+      if (e.key === 'r' || e.key === 'R') document.getElementById('musing-random').click();
+    });
+  })();
+
+  // Photo widget
+  (function () {
+    var list = data.photos || [];
+    if (!list.length) return;
+    var i = 0;
+    function render() {
+      var p = list[i];
+      function set(id, t) { var el = document.getElementById(id); if (el) el.textContent = t; }
+      set('photo-path', p.album + '/' + p.full.split('/').pop());
+      set('photo-counter', (i + 1) + ' of ' + list.length);
+      set('photo-meta', p.date || '');
+      set('photo-title', p.title || 'untitled');
+      set('photo-sub', p.alt || '');
+      set('photo-where', p.location || '');
+      var img = document.getElementById('photo-img');
+      img.src = p.src; img.alt = p.alt || ''; img.title = p.alt || '';
+      document.getElementById('photo-link').href = p.album;
+      var albumLink = document.getElementById('photo-album');
+      albumLink.href = p.album; albumLink.textContent = p.albumTitle;
+      var open = document.getElementById('photo-open'); if (open) open.href = p.album;
+    }
+    render();
+    document.getElementById('photo-random').addEventListener('click', function () {
+      if (list.length < 2) return;
+      var n; do { n = Math.floor(Math.random() * list.length); } while (n === i);
+      i = n; render();
+    });
+    document.getElementById('photo-next').addEventListener('click', function () {
+      i = (i + 1) % list.length; render();
+    });
+  })();
+})();
+</script>
+
+<style>
+  .home-musing-grid { display: grid; grid-template-columns: 1fr 280px; gap: var(--sp-5); align-items: flex-start; }
+  .home-photo-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--sp-5); align-items: flex-start; }
+  .home-cover { width: 100%; height: auto; display: block; border: 1px solid var(--rule); aspect-ratio: 4/3; object-fit: cover; }
+  @media (max-width: 760px) {
+    .home-musing-grid, .home-photo-grid { grid-template-columns: 1fr; }
+  }
+</style>
