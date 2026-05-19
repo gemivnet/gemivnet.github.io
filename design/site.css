@@ -647,3 +647,9 @@
 
 /* ── images inside post figures: constrain to figure width ─── */
 .sp-figure img { width: 100%; height: auto; display: block; }
+
+/* ── post images: hover-enlarge like the media grid ──────── */
+.sp-figure { position: relative; z-index: 1; }
+.sp-figure img { transition: transform .2s var(--ease); transform-origin: center center; }
+.sp-figure:hover { z-index: 5; }
+.sp-figure:hover img { transform: scale(1.12); }
