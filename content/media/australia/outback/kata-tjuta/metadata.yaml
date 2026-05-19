@@ -1,0 +1,327 @@
+title: Kata Tjuta (The Olgas)
+subtitle: The Valley of the Winds.
+location: Uluru-Kata Tjuta National Park, NT, Australia
+date: "2026-05-14"
+seo:
+  description: Photos of Kata Tjuta (The Olgas) — the domed rock formations west of Uluru.
+  keywords:
+    - Kata Tjuta
+    - The Olgas
+    - Valley of the Winds
+    - Outback
+images:
+  - file: kata-tjuta-from-lookout.jpg
+    alt: The domes of Kata Tjuta from a distant lookout.
+    date: "2026-05-14"
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/kata-tjuta-from-lookout.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/kata-tjuta-from-lookout__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/kata-tjuta-from-lookout__thumb.jpg
+    bytes: 4095161
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4.5
+      shutter: 1/800
+      focal_length: 72mm
+      width: 5472
+      height: 3648
+  - file: valley-of-the-winds-entry.jpg
+    alt: Hikers walking between two domes at the entry.
+    date: "2026-05-14"
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/valley-of-the-winds-entry.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/valley-of-the-winds-entry__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/valley-of-the-winds-entry__thumb.jpg
+    bytes: 2792335
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4
+      shutter: 1/640
+      focal_length: 29mm
+      width: 5472
+      height: 3648
+  - file: valley-of-the-winds-trail.jpg
+    alt: Hikers heading up the Valley of the Winds trail.
+    date: "2026-05-14"
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/valley-of-the-winds-trail.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/valley-of-the-winds-trail__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/valley-of-the-winds-trail__thumb.jpg
+    bytes: 3478329
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4
+      shutter: 1/500
+      focal_length: 33mm
+      width: 5472
+      height: 3648
+  - file: pitted-rock-wall.jpg
+    alt: Pock-marked surface of a Kata Tjuta dome.
+    date: "2026-05-14"
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/pitted-rock-wall.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/pitted-rock-wall__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/pitted-rock-wall__thumb.jpg
+    bytes: 4762472
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 125
+      aperture: f/4.5
+      shutter: 1/160
+      focal_length: 51mm
+      width: 5472
+      height: 3648
+  - file: gum-tree-against-rock.jpg
+    alt: A white-trunked gum tree against the red rock.
+    date: "2026-05-14"
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/gum-tree-against-rock.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/gum-tree-against-rock__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/gum-tree-against-rock__thumb.jpg
+    bytes: 3954011
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4.5
+      shutter: 1/160
+      focal_length: 54mm
+      width: 5472
+      height: 3648
+  - file: conglomerate-texture.jpg
+    alt: Close-up of the red conglomerate rock texture.
+    date: "2026-05-14"
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/conglomerate-texture.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/conglomerate-texture__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/conglomerate-texture__thumb.jpg
+    bytes: 4847903
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4.5
+      shutter: 1/320
+      focal_length: 72mm
+      width: 5472
+      height: 3648
+  - file: talus-slope.jpg
+    alt: Loose talus rock on a slope.
+    date: "2026-05-14"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/talus-slope.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/talus-slope__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/talus-slope__thumb.jpg
+    bytes: 5327846
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4.5
+      shutter: 1/500
+      focal_length: 41mm
+      width: 5472
+      height: 3648
+  - file: red-scree.jpg
+    alt: Red scree slope below a dome.
+    date: "2026-05-14"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/red-scree.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/red-scree__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/red-scree__thumb.jpg
+    bytes: 4847931
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4.5
+      shutter: 1/320
+      focal_length: 41mm
+      width: 5472
+      height: 3648
+  - file: split-boulder.jpg
+    alt: A large boulder split open.
+    date: "2026-05-14"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/split-boulder.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/split-boulder__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/split-boulder__thumb.jpg
+    bytes: 3130068
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4.5
+      shutter: 1/320
+      focal_length: 41mm
+      width: 5472
+      height: 3648
+  - file: trail-into-valley.jpg
+    alt: Stairs and trail leading into the Valley of the Winds.
+    date: "2026-05-14"
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/trail-into-valley.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/trail-into-valley__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/trail-into-valley__thumb.jpg
+    bytes: 3458623
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4
+      shutter: 1/500
+      focal_length: 9mm
+      width: 5472
+      height: 3648
+  - file: hikers-on-trail.jpg
+    alt: Group of hikers on the rocky trail.
+    date: "2026-05-14"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/hikers-on-trail.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/hikers-on-trail__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/hikers-on-trail__thumb.jpg
+    bytes: 3051662
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4.5
+      shutter: 1/320
+      focal_length: 72mm
+      width: 5472
+      height: 3648
+  - file: boulders-with-grass.jpg
+    alt: Cluster of boulders with native grass.
+    date: "2026-05-14"
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/boulders-with-grass.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/boulders-with-grass__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/boulders-with-grass__thumb.jpg
+    bytes: 4613074
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4
+      shutter: 1/400
+      focal_length: 9mm
+      width: 5472
+      height: 3648
+  - file: gap-between-domes.jpg
+    alt: Narrow gap between two Kata Tjuta domes.
+    date: "2026-05-14"
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/gap-between-domes.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/gap-between-domes__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/gap-between-domes__thumb.jpg
+    bytes: 3495422
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4
+      shutter: 1/500
+      focal_length: 27mm
+      width: 5472
+      height: 3648
+  - file: valley-floor-view.jpg
+    alt: View from the Valley of the Winds toward the plain.
+    date: "2026-05-14"
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/valley-floor-view.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/valley-floor-view__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/valley-floor-view__thumb.jpg
+    bytes: 4936138
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4
+      shutter: 1/160
+      focal_length: 26mm
+      width: 5472
+      height: 3648
+  - file: stone-path.jpg
+    alt: Stone path winding between the domes.
+    date: "2026-05-14"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/stone-path.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/stone-path__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/stone-path__thumb.jpg
+    bytes: 4709271
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/3.5
+      shutter: 1/250
+      focal_length: 9mm
+      width: 5472
+      height: 3648
+  - file: tour-bus-at-kata-tjuta.jpg
+    alt: Tour bus with Kata Tjuta in the background.
+    date: "2026-05-14"
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/tour-bus-at-kata-tjuta.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/tour-bus-at-kata-tjuta__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/tour-bus-at-kata-tjuta__thumb.jpg
+    bytes: 2943182
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 160
+      aperture: f/4
+      shutter: 1/2000
+      focal_length: 16mm
+      width: 5472
+      height: 3648
+  - file: kata-tjuta-evening.jpg
+    alt: The full Kata Tjuta formation at evening.
+    date: "2026-05-14"
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/kata-tjuta-evening.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/kata-tjuta-evening__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/kata-tjuta-evening__thumb.jpg
+    bytes: 3106815
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 160
+      aperture: f/4
+      shutter: 1/2000
+      focal_length: 15mm
+      width: 5472
+      height: 3648
+  - file: twin-domes.jpg
+    alt: Two adjacent domes, close view.
+    date: "2026-05-14"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/twin-domes.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/twin-domes__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/twin-domes__thumb.jpg
+    bytes: 3382387
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4.5
+      shutter: 1/1000
+      focal_length: 44mm
+      width: 5472
+      height: 3648

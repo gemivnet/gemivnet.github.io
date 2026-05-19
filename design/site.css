@@ -672,3 +672,19 @@
   margin: 0;
   letter-spacing: -0.01em;
 }
+
+/* ── universal hover-grow on real photos ────────────────────── */
+/* Album cards: cover image scales slightly inside its fixed-aspect frame. */
+.sp-album .sp-img.has-photo {
+  transition: transform .2s var(--ease), border-color .15s;
+  transform-origin: center;
+}
+.sp-album:hover .sp-img.has-photo { transform: scale(1.04); }
+
+/* Homepage random-photo image */
+#photo-img { transition: transform .2s var(--ease); transform-origin: center; cursor: zoom-in; }
+#photo-img:hover { transform: scale(1.03); }
+
+/* Photo page main image */
+.photo-figure img:hover, .sp-photo-frame img:hover { transform: scale(1.04); }
+.photo-figure img, .sp-photo-frame img { transition: transform .2s var(--ease); transform-origin: center; }

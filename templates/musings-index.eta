@@ -3,7 +3,6 @@
     <%= copy.musings.index.breadcrumb %> · <%= posts.length %> posts · newest first
   </div>
   <h1>Musings.</h1>
-  <p style="margin-top: var(--sp-3); color: var(--ink-2); font-size: var(--fs-lg);"><%= copy.musings.index.intro %></p>
 </header>
 
 <%

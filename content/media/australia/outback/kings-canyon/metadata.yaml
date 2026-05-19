@@ -1,0 +1,309 @@
+title: Kings Canyon
+subtitle: Watarrka National Park.
+location: Watarrka National Park, NT, Australia
+date: "2026-05-15"
+seo:
+  description: Photos from the Kings Canyon rim walk in Watarrka National Park.
+  keywords:
+    - Kings Canyon
+    - Watarrka
+    - Outback
+    - Northern Territory
+images:
+  - file: balanced-boulder.jpg
+    alt: A large boulder balanced on the trailhead at dawn.
+    date: "2026-05-15"
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/balanced-boulder.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/balanced-boulder__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/balanced-boulder__thumb.jpg
+    bytes: 2915271
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 2000
+      aperture: f/4
+      shutter: 1/50
+      focal_length: 17mm
+      width: 5472
+      height: 3648
+  - file: striated-canyon-wall.jpg
+    alt: Detail of the layered canyon walls.
+    date: "2026-05-15"
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/striated-canyon-wall.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/striated-canyon-wall__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/striated-canyon-wall__thumb.jpg
+    bytes: 3499783
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 3200
+      aperture: f/4
+      shutter: 1/80
+      focal_length: 27mm
+      width: 5472
+      height: 3648
+  - file: first-dome.jpg
+    alt: Misty first beehive dome on the rim walk.
+    date: "2026-05-15"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/first-dome.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/first-dome__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/first-dome__thumb.jpg
+    bytes: 2839675
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 500
+      aperture: f/4
+      shutter: 1/50
+      focal_length: 17mm
+      width: 5472
+      height: 3648
+  - file: overhang.jpg
+    alt: Looking up at a cliff overhang.
+    date: "2026-05-15"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/overhang.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/overhang__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/overhang__thumb.jpg
+    bytes: 2065643
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 125
+      aperture: f/2.8
+      shutter: 1/30
+      focal_length: 9mm
+      width: 3648
+      height: 5472
+  - file: misty-plateau.jpg
+    alt: Eroded plateau under low mist.
+    date: "2026-05-15"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/misty-plateau.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/misty-plateau__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/misty-plateau__thumb.jpg
+    bytes: 2547835
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/2.8
+      shutter: 1/50
+      focal_length: 9mm
+      width: 5472
+      height: 3648
+  - file: plateau-gum-tree.jpg
+    alt: A gum tree growing on the canyon plateau.
+    date: "2026-05-15"
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/plateau-gum-tree.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/plateau-gum-tree__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/plateau-gum-tree__thumb.jpg
+    bytes: 2996886
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 160
+      aperture: f/4
+      shutter: 1/40
+      focal_length: 15mm
+      width: 5472
+      height: 3648
+  - file: eroded-rim.jpg
+    alt: Eroded canyon rim in the rain.
+    date: "2026-05-15"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/eroded-rim.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/eroded-rim__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/eroded-rim__thumb.jpg
+    bytes: 2645815
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 200
+      aperture: f/4
+      shutter: 1/50
+      focal_length: 17mm
+      width: 5472
+      height: 3648
+  - file: mushroom-rock.jpg
+    alt: Mushroom-shaped eroded rock formation.
+    date: "2026-05-15"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/mushroom-rock.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/mushroom-rock__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/mushroom-rock__thumb.jpg
+    bytes: 3655050
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 500
+      aperture: f/4
+      shutter: 1/100
+      focal_length: 37mm
+      width: 5472
+      height: 3648
+  - file: lost-city-domes.jpg
+    alt: The 'Lost City' of beehive domes.
+    date: "2026-05-15"
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/lost-city-domes.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/lost-city-domes__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/lost-city-domes__thumb.jpg
+    bytes: 3706946
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 250
+      aperture: f/4
+      shutter: 1/80
+      focal_length: 25mm
+      width: 5472
+      height: 3648
+  - file: person-on-rim.jpg
+    alt: A figure standing on the canyon rim.
+    date: "2026-05-15"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/person-on-rim.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/person-on-rim__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/person-on-rim__thumb.jpg
+    bytes: 3670591
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/3.5
+      shutter: 1/40
+      focal_length: 14mm
+      width: 5472
+      height: 3648
+  - file: cliff-detail.jpg
+    alt: Close-up of the canyon cliff.
+    date: "2026-05-15"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/cliff-detail.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/cliff-detail__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/cliff-detail__thumb.jpg
+    bytes: 3302625
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 250
+      aperture: f/4
+      shutter: 1/80
+      focal_length: 27mm
+      width: 3648
+      height: 5472
+  - file: shelby-on-rim.jpg
+    alt: Shelby on the rim of Kings Canyon.
+    date: "2026-05-15"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/shelby-on-rim.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/shelby-on-rim__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/shelby-on-rim__thumb.jpg
+    bytes: 4295102
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 200
+      aperture: f/4.5
+      shutter: 1/40
+      focal_length: 17mm
+      width: 5472
+      height: 3648
+  - file: garden-of-eden-hikers.jpg
+    alt: Hikers near the Garden of Eden.
+    date: "2026-05-15"
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/garden-of-eden-hikers.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/garden-of-eden-hikers__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/garden-of-eden-hikers__thumb.jpg
+    bytes: 4846833
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 1250
+      aperture: f/4.5
+      shutter: 1/160
+      focal_length: 58mm
+      width: 5472
+      height: 3648
+  - file: garden-of-eden-bridge.jpg
+    alt: Wooden bridge in the Garden of Eden.
+    date: "2026-05-15"
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/garden-of-eden-bridge.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/garden-of-eden-bridge__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/garden-of-eden-bridge__thumb.jpg
+    bytes: 4357579
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/2.8
+      shutter: 1/50
+      focal_length: 9mm
+      width: 5472
+      height: 3648
+  - file: garden-of-eden-pool.jpg
+    alt: Pool in the Garden of Eden.
+    date: "2026-05-15"
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/garden-of-eden-pool.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/garden-of-eden-pool__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/garden-of-eden-pool__thumb.jpg
+    bytes: 4132704
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 250
+      aperture: f/4
+      shutter: 1/50
+      focal_length: 17mm
+      width: 3648
+      height: 5472
+  - file: lost-city-overview.jpg
+    alt: Wide view over the Lost City domes.
+    date: "2026-05-15"
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/lost-city-overview.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/lost-city-overview__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/lost-city-overview__thumb.jpg
+    bytes: 4659785
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4
+      shutter: 1/200
+      focal_length: 40mm
+      width: 5472
+      height: 3648
+  - file: trail-back-down.jpg
+    alt: Trail leading back down off the rim.
+    date: "2026-05-15"
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/trail-back-down.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/trail-back-down__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/trail-back-down__thumb.jpg
+    bytes: 4444939
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/3.2
+      shutter: 1/160
+      focal_length: 11mm
+      width: 5472
+      height: 3648

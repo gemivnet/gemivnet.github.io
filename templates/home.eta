@@ -101,6 +101,12 @@
 (function () {
   var data = JSON.parse(document.getElementById('random-data').textContent);
 
+  // Warm the browser cache with all shuffle-eligible photo URLs so reroll feels instant.
+  (data.photos || []).forEach(function (p) {
+    if (p.src)   { var a = new Image(); a.src = p.src; }
+    if (p.thumb) { var b = new Image(); b.src = p.thumb; }
+  });
+
   (function () {
     var list = data.musings || []; if (!list.length) return;
     var i = 0;
