@@ -174,8 +174,12 @@ marked.use({
     },
   }],
   renderer: {
-    image(href, title, text) {
-      return imgFigure(href, text, title, 'full');
+    // marked v14 passes a token object, not positional args.
+    image(arg) {
+      if (typeof arg === 'object' && arg) {
+        return imgFigure(arg.href, arg.text || '', arg.title, 'full');
+      }
+      return imgFigure(arg, arguments[2] || '', arguments[1], 'full');
     },
   },
 });
