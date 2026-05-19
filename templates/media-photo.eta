@@ -19,7 +19,18 @@
         <% if (image.date)  { %><tr><td>date</td><td><%= fmtDate(image.date) %></td></tr><% } %>
         <% if (image.location || node.location) { %><tr><td>where</td><td><%= image.location || node.location %></td></tr><% } %>
         <tr><td>album</td><td><a href="<%= node.url %>"><%= node.title %></a></td></tr>
-        <tr><td>file</td><td><a href="<%= image.src %>"><%= image.file %></a></td></tr>
+        <% if (image.exif) { %>
+          <% if (image.exif.camera)       { %><tr><td>camera</td><td><%= image.exif.camera %></td></tr><% } %>
+          <% if (image.exif.lens)         { %><tr><td>lens</td><td><%= image.exif.lens %></td></tr><% } %>
+          <% var settings = [image.exif.focal_length, image.exif.aperture, image.exif.shutter, image.exif.iso && 'ISO ' + image.exif.iso].filter(Boolean).join(' · '); %>
+          <% if (settings) { %><tr><td>settings</td><td><%= settings %></td></tr><% } %>
+          <% if (image.exif.width && image.exif.height) { %><tr><td>dimensions</td><td><%= image.exif.width %> × <%= image.exif.height %></td></tr><% } %>
+        <% } %>
+        <% if (image.s3) { %>
+          <tr><td>original</td><td><a href="<%= image.s3 %>">view full size ↗</a></td></tr>
+        <% } else { %>
+          <tr><td>file</td><td><a href="<%= image.src %>"><%= image.file %></a></td></tr>
+        <% } %>
       </tbody>
     </table>
   </div>
