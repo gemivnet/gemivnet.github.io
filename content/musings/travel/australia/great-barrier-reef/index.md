@@ -1,7 +1,7 @@
 ---
 title: The Worst Day on the Great Barrier Reef
 subtitle: '10 foot seas, a sailboat, and a lot of regret'
-date: 2026-05-12
+date: '2026-05-12'
 tags:
   - travel
   - australia
@@ -34,6 +34,9 @@ images:
     s3_thumb: >-
       https://georgemain-com-media.s3.amazonaws.com/musings/travel/australia/great-barrier-reef/boat-deck-gear__thumb.jpg
     bytes: 437269
+    exif:
+      width: 1400
+      height: 1864
   green-island-from-boat.jpg:
     s3: >-
       https://georgemain-com-media.s3.amazonaws.com/musings/travel/australia/great-barrier-reef/green-island-from-boat.jpg
@@ -42,6 +45,9 @@ images:
     s3_thumb: >-
       https://georgemain-com-media.s3.amazonaws.com/musings/travel/australia/great-barrier-reef/green-island-from-boat__thumb.jpg
     bytes: 272807
+    exif:
+      width: 1800
+      height: 1352
 ---
 
 ![Green Island seen from the snorkeling mooring point. Looks calm. Looks are deceptive.](media/green-island-from-boat.jpg)

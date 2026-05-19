@@ -1,7 +1,7 @@
 ---
 title: Japan Suggestions
 subtitle: Stuff we did that we'd suggest if you have extra time
-date: 2023-09-01
+date: '2023-09-01'
 tags:
   - travel
   - japan
@@ -32,6 +32,9 @@ images:
     s3_thumb: >-
       https://georgemain-com-media.s3.amazonaws.com/musings/travel/japan/suggestions/kiyomizu-dera-view__thumb.jpg
     bytes: 640990
+    exif:
+      width: 1800
+      height: 1350
   nunobiki-falls.jpg:
     s3: >-
       https://georgemain-com-media.s3.amazonaws.com/musings/travel/japan/suggestions/nunobiki-falls.jpg
@@ -40,6 +43,9 @@ images:
     s3_thumb: >-
       https://georgemain-com-media.s3.amazonaws.com/musings/travel/japan/suggestions/nunobiki-falls__thumb.jpg
     bytes: 914310
+    exif:
+      width: 1800
+      height: 1350
   vending-machine-mountain.jpg:
     s3: >-
       https://georgemain-com-media.s3.amazonaws.com/musings/travel/japan/suggestions/vending-machine-mountain.jpg
@@ -48,6 +54,9 @@ images:
     s3_thumb: >-
       https://georgemain-com-media.s3.amazonaws.com/musings/travel/japan/suggestions/vending-machine-mountain__thumb.jpg
     bytes: 771454
+    exif:
+      width: 1400
+      height: 1867
 ---
 
 ![Kyoto from Kiyomizu-dera.](media/kiyomizu-dera-view.jpg)
