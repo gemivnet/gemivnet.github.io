@@ -41,7 +41,7 @@
       <span class="path" id="photo-path"></span>
     </div>
     <a id="photo-link" href="<%= shuffledImages[0].album %>" style="display:block; margin-bottom: var(--sp-3);">
-      <img id="photo-img" src="<%= shuffledImages[0].src %>" alt="<%= escapeHtml(shuffledImages[0].alt || '') %>" title="<%= escapeHtml(shuffledImages[0].alt || '') %>" style="width:100%; height:auto; display:block; border:1px solid var(--rule); aspect-ratio: 3/2; object-fit: cover;">
+      <img id="photo-img" src="<%= shuffledImages[0].src %>" alt="<%= escapeHtml(shuffledImages[0].alt || '') %>" title="<%= escapeHtml(shuffledImages[0].alt || '') %>" style="width:100%; height:auto; max-height: 60vh; display:block; border:1px solid var(--rule); object-fit: cover;">
     </a>
     <p id="photo-sub" style="font-style: italic; color: var(--ink-2); margin-bottom: 4px;"><%= shuffledImages[0].title || shuffledImages[0].alt || '' %></p>
     <p id="photo-meta" style="color: var(--ink-3); font-family: var(--font-mono); font-size: var(--fs-tiny); letter-spacing: 0.02em;"></p>
