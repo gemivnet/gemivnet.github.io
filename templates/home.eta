@@ -20,9 +20,9 @@
     <p id="musing-body" style="color: var(--ink-2);"><%= shuffled[0].preview %></p>
     <div class="sp-tags" id="musing-tags" style="margin-top: var(--sp-3);"></div>
     <div class="sp-block-actions">
-      <button class="sp-link-btn" id="musing-random" type="button">↻ random</button>
-      <button class="sp-link-btn" id="musing-next" type="button">→ next</button>
-      <a class="sp-link-btn" id="musing-read" href="<%= shuffled[0].url %>">read post</a>
+      <button class="sp-link-btn" id="musing-random" type="button"><%= copy.home.random_musing.random_label %></button>
+      <button class="sp-link-btn" id="musing-next" type="button"><%= copy.home.random_musing.next_label %></button>
+      <a class="sp-link-btn" id="musing-read" href="<%= shuffled[0].url %>"><%= copy.home.random_musing.read_label %></a>
       <% if (copy.home.random_musing.key_hint) { %><span class="hint"><%= copy.home.random_musing.key_hint %></span><% } %>
     </div>
   </div>
@@ -46,9 +46,9 @@
     <p id="photo-sub" style="font-style: italic; color: var(--ink-2); margin-bottom: 4px;"><%= shuffledImages[0].title || shuffledImages[0].alt || '' %></p>
     <p id="photo-meta" style="color: var(--ink-3); font-family: var(--font-mono); font-size: var(--fs-tiny); letter-spacing: 0.02em;"></p>
     <div class="sp-block-actions">
-      <button class="sp-link-btn" id="photo-random" type="button">↻ random</button>
-      <button class="sp-link-btn" id="photo-next" type="button">→ next</button>
-      <a class="sp-link-btn" id="photo-open" href="<%= shuffledImages[0].album %>">open album</a>
+      <button class="sp-link-btn" id="photo-random" type="button"><%= copy.home.random_photo.random_label %></button>
+      <button class="sp-link-btn" id="photo-next" type="button"><%= copy.home.random_photo.next_label %></button>
+      <a class="sp-link-btn" id="photo-open" href="<%= shuffledImages[0].album %>"><%= copy.home.random_photo.open_label %></a>
       <% if (copy.home.random_photo.key_hint) { %><span class="hint"><%= copy.home.random_photo.key_hint %></span><% } %>
     </div>
   </div>

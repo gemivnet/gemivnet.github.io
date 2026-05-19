@@ -215,8 +215,8 @@ async function loadMusings() {
     if (segs[0] !== 'musings') { fail(`Bad musings path: ${rel}`); continue; }
     const slug = segs[segs.length - 1];
     const categorySegs = segs.slice(1, -1); // [travel]
-    if (!fm.title) { fail(`Missing title in ${rel}`); continue; }
-    if (!fm.date) { fail(`Missing date in ${rel}`); continue; }
+    if (!fm.title) { fail(`${rel}: frontmatter is missing required field 'title'`); continue; }
+    if (!fm.date) { fail(`${rel}: frontmatter is missing required field 'date' (use YYYY-MM-DD)`); continue; }
     if (fm.draft) continue;
     const url = '/' + folder; // /musings/travel/japan-tips
 
@@ -296,7 +296,7 @@ async function loadMedia() {
     let data;
     try { data = yaml.load(raw); }
     catch (e) { fail(`Bad YAML in ${rel}: ${e.message}`); continue; }
-    if (!data || !data.title) { fail(`Missing title in ${rel}`); continue; }
+    if (!data || !data.title) { fail(`${rel}: gallery metadata is missing required field 'title'`); continue; }
     const dir = path.dirname(rel); // media/australia/tasmania/mona
     const segs = dir.split('/');
     const url = '/' + dir;
@@ -304,10 +304,10 @@ async function loadMedia() {
 
     const images = [];
     for (const im of data.images || []) {
-      if (!im.file) { fail(`Image missing file in ${rel}`); continue; }
-      if (!im.alt) fail(`Image alt missing in ${rel} for ${im.file}`);
+      if (!im.file) { fail(`${rel}: an image entry is missing its 'file' field`); continue; }
+      if (!im.alt) fail(`${rel}: image '${im.file}' is missing required 'alt' text (needed for accessibility + SEO)`);
       const abs = path.join(galleryDir, im.file);
-      if (!(await exists(abs))) { fail(`Missing media file ${im.file} in ${rel}`); continue; }
+      if (!(await exists(abs))) { fail(`${rel}: file '${im.file}' is listed in metadata but doesn't exist on disk`); continue; }
       const slug = im.file.replace(/\.[^.]+$/, '');
       images.push({
         ...im,
