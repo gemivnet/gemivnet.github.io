@@ -263,6 +263,8 @@ async function main() {
       // 1) render three sizes (full + med + thumb) from the scrubbed source
       const sizes = await renderThreeSizes(f.abs);
       const fullBytes = (await fs.stat(sizes.full)).size;
+      // dimensions read from the rendered full (after rotate baking) — always available
+      const fullMeta = await sharp(sizes.full).metadata();
 
       // 2) upload all three to S3
       const baseKey = `${galleryPath}/${slug}`;
@@ -286,8 +288,12 @@ async function main() {
       if (ex?.aperture)     exifBlock.aperture = ex.aperture;
       if (ex?.shutter)      exifBlock.shutter = ex.shutter;
       if (ex?.focal_length) exifBlock.focal_length = ex.focal_length;
-      if (ex?.width)        exifBlock.width = ex.width;
-      if (ex?.height)       exifBlock.height = ex.height;
+      // dimensions: prefer sharp's read of the final file (rotation-corrected),
+      // fall back to EXIF if sharp can't tell.
+      if (fullMeta?.width)  exifBlock.width  = fullMeta.width;
+      else if (ex?.width)   exifBlock.width  = ex.width;
+      if (fullMeta?.height) exifBlock.height = fullMeta.height;
+      else if (ex?.height)  exifBlock.height = ex.height;
 
       const entry = {
         file: out,
