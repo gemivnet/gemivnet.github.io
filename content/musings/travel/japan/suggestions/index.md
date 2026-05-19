@@ -18,7 +18,7 @@ Go to 7-Eleven all the time. You WILL go here multiple times a day even if you d
 
 Vending machines are everywhere. Our first day we stopped at every one we could find and tried everything. Just do that.
 
-![A drink vending machine on a quiet path on a wooded mountain in Japan, with a small wooden bench beside it.](media/vending-machine-mountain.jpg){.inline}
+![Vending machine on a random mountain.](media/vending-machine-mountain.jpg){.inline}
 
 [Nakau](https://www.nakau.co.jp/en/) is a cheap ticket-counter restaurant. Delicious. We went three times.
 
@@ -56,7 +56,7 @@ Shibuya Crossing.
 
 [Nunobiki Falls](https://g.co/kgs/tj1h1Ni) in Kobe. Nice hike.
 
-![Nunobiki Falls in Kobe — a tall, slender waterfall cascading down a rocky cliff into a shallow pool, framed by dense green forest.](media/nunobiki-falls.jpg)
+![Nunobiki Falls.](media/nunobiki-falls.jpg){.inline}
 
 [Nankinmachi](https://en.wikipedia.org/wiki/Nankinmachi) (Kobe Chinatown). Fun to walk around.
 
