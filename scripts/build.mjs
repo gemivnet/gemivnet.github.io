@@ -375,6 +375,7 @@ async function loadMedia() {
       location: data.location || '',
       date: data.date ? new Date(data.date) : null,
       seo: data.seo || {},
+      cover: data.cover || null,
       images,
       sourceRel: rel,
       galleryDir,
@@ -905,9 +906,28 @@ async function renderMedia(mediaNodes) {
   }
 }
 
+// Find an image by slug or filename anywhere in this subtree.
+function findImageBySlug(node, wanted) {
+  for (const im of node.images || []) {
+    if (im.slug === wanted || im.file === wanted) return im;
+  }
+  for (const c of node.children || []) {
+    const found = findImageBySlug(c, wanted);
+    if (found) return found;
+  }
+  return null;
+}
+
 function coverImage(node) {
-  if (node.images && node.images[0]) {
-    return { full: node.images[0].src, med: node.images[0].srcMed, thumb: node.images[0].srcThumb, alt: node.images[0].alt };
+  // Honor an explicit `cover:` (slug or filename) anywhere in the subtree.
+  if (node.cover) {
+    const wanted = node.cover.replace(/\.[^.]+$/, '');
+    const found = findImageBySlug(node, wanted) || findImageBySlug(node, node.cover);
+    if (found) return { full: found.src, med: found.srcMed, thumb: found.srcThumb, alt: found.alt };
+  }
+  if (node.images && node.images.length) {
+    const pick = node.images[0];
+    return { full: pick.src, med: pick.srcMed, thumb: pick.srcThumb, alt: pick.alt };
   }
   for (const c of node.children || []) {
     const inner = coverImage(c);

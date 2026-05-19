@@ -63,13 +63,15 @@ images:
       focal_length: 17mm
       width: 5472
       height: 3648
-  - file: overhang.jpg
-    alt: Looking up at a cliff overhang.
+  - file: rim-walk-squeeze.jpg
+    alt: Looking up at a cliff rim-walk-squeeze.
     date: "2026-05-15"
-    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/overhang.jpg
-    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/overhang__med.jpg
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/rim-walk-squeeze.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/rim-walk-squeeze__med.jpg
     s3_thumb: >-
-      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/overhang__thumb.jpg
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/rim-walk-squeeze__thumb.jpg
     bytes: 2065643
     exif:
       camera: SONY DSC-RX100M7
@@ -166,14 +168,15 @@ images:
       focal_length: 25mm
       width: 5472
       height: 3648
-  - file: person-on-rim.jpg
-    alt: A figure standing on the canyon rim.
+  - file: canyon-rim-trail.jpg
+    alt: Part of the canyon rim trail.
     date: "2026-05-15"
-    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/person-on-rim.jpg
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/canyon-rim-trail.jpg
     s3_med: >-
-      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/person-on-rim__med.jpg
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/canyon-rim-trail__med.jpg
     s3_thumb: >-
-      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/person-on-rim__thumb.jpg
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/canyon-rim-trail__thumb.jpg
     bytes: 3670591
     exif:
       camera: SONY DSC-RX100M7
@@ -200,23 +203,6 @@ images:
       focal_length: 27mm
       width: 3648
       height: 5472
-  - file: shelby-on-rim.jpg
-    alt: Shelby on the rim of Kings Canyon.
-    date: "2026-05-15"
-    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/shelby-on-rim.jpg
-    s3_med: >-
-      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/shelby-on-rim__med.jpg
-    s3_thumb: >-
-      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/shelby-on-rim__thumb.jpg
-    bytes: 4295102
-    exif:
-      camera: SONY DSC-RX100M7
-      iso: 200
-      aperture: f/4.5
-      shutter: 1/40
-      focal_length: 17mm
-      width: 5472
-      height: 3648
   - file: garden-of-eden-hikers.jpg
     alt: Hikers near the Garden of Eden.
     date: "2026-05-15"
@@ -307,3 +293,4 @@ images:
       focal_length: 11mm
       width: 5472
       height: 3648
+cover: lost-city-overview

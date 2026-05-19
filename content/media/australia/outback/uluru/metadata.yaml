@@ -142,23 +142,6 @@ images:
       focal_length: 46mm
       width: 5472
       height: 3648
-  - file: uluru-from-viewpoint.jpg
-    alt: Uluru framed by grass at a viewpoint.
-    date: "2026-05-14"
-    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-from-viewpoint.jpg
-    s3_med: >-
-      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-from-viewpoint__med.jpg
-    s3_thumb: >-
-      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-from-viewpoint__thumb.jpg
-    bytes: 2004670
-    exif:
-      camera: SONY DSC-RX100M7
-      iso: 100
-      aperture: f/5.6
-      shutter: 1/1000
-      focal_length: 19mm
-      width: 5472
-      height: 3648
   - file: uluru-dusk.jpg
     alt: Uluru at dusk from the viewing area.
     date: "2026-05-14"

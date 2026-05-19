@@ -1,0 +1,383 @@
+title: MONA
+subtitle: Museum of Old and New Art.
+location: Berriedale, Hobart, Tasmania, Australia
+date: "2026-05-18"
+seo:
+  description: Photos from MONA — the Museum of Old and New Art in Hobart, Tasmania.
+  keywords:
+    - MONA
+    - Museum of Old and New Art
+    - Hobart
+    - Tasmania
+    - contemporary art
+images:
+  - file: cement-truck.jpg
+    alt: Wim Delvoye's intricately patterned cement truck sculpture.
+    date: "2026-05-18"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cement-truck.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cement-truck__med.jpg
+    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cement-truck__thumb.jpg
+    bytes: 3292761
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4
+      shutter: 1/100
+      focal_length: 33mm
+      width: 5472
+      height: 3648
+  - file: the-butterfly-text.jpg
+    alt: Illuminated 'The Butterfly' text piece in a dark room.
+    date: "2026-05-18"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/the-butterfly-text.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/the-butterfly-text__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/the-butterfly-text__thumb.jpg
+    bytes: 2275089
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 6400
+      aperture: f/2.8
+      shutter: 1/20
+      focal_length: 9mm
+      width: 3648
+      height: 5472
+  - file: cloaca-vessels.jpg
+    alt: Glass vessels of the Cloaca digestion machine.
+    date: "2026-05-18"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-vessels.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-vessels__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-vessels__thumb.jpg
+    bytes: 3734859
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 6400
+      aperture: f/4.5
+      shutter: 1/100
+      focal_length: 62mm
+      width: 5472
+      height: 3648
+  - file: cloaca-mechanism-detail.jpg
+    alt: Inner mechanics of Cloaca — tubes and glass.
+    date: "2026-05-18"
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-mechanism-detail.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-mechanism-detail__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-mechanism-detail__thumb.jpg
+    bytes: 2754798
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 3200
+      aperture: f/4
+      shutter: 1/80
+      focal_length: 28mm
+      width: 3648
+      height: 5472
+  - file: god-is-your-enemy.jpg
+    alt: "'God Is Your Enemy' text artwork."
+    date: "2026-05-18"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/god-is-your-enemy.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/god-is-your-enemy__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/god-is-your-enemy__thumb.jpg
+    bytes: 3708130
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 6400
+      aperture: f/4
+      shutter: 1/40
+      focal_length: 20mm
+      width: 3648
+      height: 5472
+  - file: noodles-on-pedestal.jpg
+    alt: Instant noodles arranged as art on a pedestal.
+    date: "2026-05-18"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/noodles-on-pedestal.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/noodles-on-pedestal__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/noodles-on-pedestal__thumb.jpg
+    bytes: 3092601
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 2500
+      aperture: f/4.5
+      shutter: 1/125
+      focal_length: 42mm
+      width: 5472
+      height: 3648
+  - file: drinking-piss-text.jpg
+    alt: A red text piece by an artist commenting on artists.
+    date: "2026-05-18"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/drinking-piss-text.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/drinking-piss-text__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/drinking-piss-text__thumb.jpg
+    bytes: 3388487
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 6400
+      aperture: f/4.5
+      shutter: 1/15
+      focal_length: 48mm
+      width: 3648
+      height: 5472
+  - file: so-much-for-optimism.jpg
+    alt: "'So much for my fucking optimism' text piece."
+    date: "2026-05-18"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/so-much-for-optimism.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/so-much-for-optimism__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/so-much-for-optimism__thumb.jpg
+    bytes: 3331077
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 6400
+      aperture: f/4.5
+      shutter: 1/20
+      focal_length: 46mm
+      width: 3648
+      height: 5472
+  - file: fat-car.jpg
+    alt: Erwin Wurm's bulging red 'Fat Car' sculpture.
+    date: "2026-05-18"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/fat-car.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/fat-car__med.jpg
+    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/fat-car__thumb.jpg
+    bytes: 1299993
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 800
+      aperture: f/2.8
+      shutter: 1/30
+      focal_length: 9mm
+      width: 5472
+      height: 3648
+  - file: bit-fall.jpg
+    alt: Looking up at the bit.fall water-text installation.
+    date: "2026-05-18"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/bit-fall.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/bit-fall__med.jpg
+    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/bit-fall__thumb.jpg
+    bytes: 3506666
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 320
+      aperture: f/2.8
+      shutter: 1/30
+      focal_length: 9mm
+      width: 5472
+      height: 3648
+  - file: cloaca-glass-dish.jpg
+    alt: Glass dish suspended inside the Cloaca mechanism.
+    date: "2026-05-18"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-glass-dish.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-glass-dish__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-glass-dish__thumb.jpg
+    bytes: 3754945
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 6400
+      aperture: f/4.5
+      shutter: 1/60
+      focal_length: 65mm
+      width: 3648
+      height: 5472
+  - file: cloaca-tubes.jpg
+    alt: Backside of Cloaca tubes and pumps.
+    date: "2026-05-18"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-tubes.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-tubes__med.jpg
+    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-tubes__thumb.jpg
+    bytes: 3635616
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 6400
+      aperture: f/4.5
+      shutter: 1/125
+      focal_length: 52mm
+      width: 3648
+      height: 5472
+  - file: cloaca-output.jpg
+    alt: Output of Cloaca on a glass dish.
+    date: "2026-05-18"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-output.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-output__med.jpg
+    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-output__thumb.jpg
+    bytes: 3642818
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 6400
+      aperture: f/4.5
+      shutter: 1/50
+      focal_length: 72mm
+      width: 3648
+      height: 5472
+  - file: white-temple.jpg
+    alt: Carved white timber temple installation.
+    date: "2026-05-18"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/white-temple.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/white-temple__med.jpg
+    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/white-temple__thumb.jpg
+    bytes: 2348448
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 200
+      aperture: f/2.8
+      shutter: 1/30
+      focal_length: 9mm
+      width: 5472
+      height: 3648
+  - file: photo-wall.jpg
+    alt: Wall of framed photographs.
+    date: "2026-05-18"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/photo-wall.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/photo-wall__med.jpg
+    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/photo-wall__thumb.jpg
+    bytes: 3653457
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 6400
+      aperture: f/4
+      shutter: 1/80
+      focal_length: 24mm
+      width: 5472
+      height: 3648
+  - file: erosion-texture.jpg
+    alt: Textural close-up resembling stalactites.
+    date: "2026-05-18"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/erosion-texture.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/erosion-texture__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/erosion-texture__thumb.jpg
+    bytes: 5531901
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 200
+      aperture: f/2.8
+      shutter: 1/30
+      focal_length: 9mm
+      width: 5472
+      height: 3648
+  - file: bonsai-vitrine.jpg
+    alt: A bonsai tree in a glass vitrine.
+    date: "2026-05-18"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/bonsai-vitrine.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/bonsai-vitrine__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/bonsai-vitrine__thumb.jpg
+    bytes: 3804889
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 3200
+      aperture: f/4.5
+      shutter: 1/200
+      focal_length: 72mm
+      width: 5472
+      height: 3648
+  - file: siloam-tunnel.jpg
+    alt: Visitors viewing a tapestry through a concrete tunnel.
+    date: "2026-05-18"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/siloam-tunnel.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/siloam-tunnel__med.jpg
+    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/siloam-tunnel__thumb.jpg
+    bytes: 3223941
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 500
+      aperture: f/4
+      shutter: 1/50
+      focal_length: 19mm
+      width: 3648
+      height: 5472
+  - file: hanging-films.jpg
+    alt: Hanging strips of burnt film.
+    date: "2026-05-18"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/hanging-films.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/hanging-films__med.jpg
+    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/hanging-films__thumb.jpg
+    bytes: 3031145
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 3200
+      aperture: f/2.8
+      shutter: 1/30
+      focal_length: 9mm
+      width: 5472
+      height: 3648
+  - file: snake-installation.jpg
+    alt: Inside the snake installation.
+    date: "2026-05-18"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/snake-installation.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/snake-installation__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/snake-installation__thumb.jpg
+    bytes: 3073094
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 160
+      aperture: f/2.8
+      shutter: 1/30
+      focal_length: 9mm
+      width: 5472
+      height: 3648
+  - file: snake-overview.jpg
+    alt: Wide view of the snake installation.
+    date: "2026-05-18"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/snake-overview.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/snake-overview__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/snake-overview__thumb.jpg
+    bytes: 2916116
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 200
+      aperture: f/2.8
+      shutter: 1/30
+      focal_length: 9mm
+      width: 5472
+      height: 3648
+  - file: glass-ceiling-detail.jpg
+    alt: Detail of a glass-and-light ceiling installation.
+    date: "2026-05-18"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/glass-ceiling-detail.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/glass-ceiling-detail__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/glass-ceiling-detail__thumb.jpg
+    bytes: 4469690
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 1000
+      aperture: f/2.8
+      shutter: 1/30
+      focal_length: 9mm
+      width: 5472
+      height: 3648
+  - file: screens-corridor.jpg
+    alt: Long corridor with rows of small video screens.
+    date: "2026-05-18"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/screens-corridor.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/screens-corridor__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/screens-corridor__thumb.jpg
+    bytes: 3070403
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 6400
+      aperture: f/2.8
+      shutter: 1/8
+      focal_length: 9mm
+      width: 5472
+      height: 3648
