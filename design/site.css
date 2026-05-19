@@ -751,3 +751,48 @@
 .gv-feed-item figcaption .t { color: var(--ink); font-size: var(--fs-body); font-family: var(--font-body); }
 .gv-feed-item figcaption .alt { color: var(--ink-2); font-family: var(--font-body); font-style: italic; }
 .gv-feed-item figcaption .m a { color: var(--accent); }
+
+/* ── accessibility: skip-to-content link ──────────────────── */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-110%);
+  background: var(--ink);
+  color: var(--bg);
+  padding: var(--sp-3) var(--sp-4);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  z-index: 100;
+  transition: transform .12s var(--ease);
+}
+.skip-link:focus { transform: translateY(0); }
+
+/* ── focus-visible: clear accent outline for keyboard users ── */
+.site-page :focus { outline: none; }
+.site-page :focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+.site-page a:focus-visible { background: var(--accent-3); }
+
+/* ── reduced motion: kill hover-grow + transitions ────────── */
+@media (prefers-reduced-motion: reduce) {
+  .site-page *,
+  .site-page *::before,
+  .site-page *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  .sp-figure img:hover,
+  .sp-vsco .cell:hover .sp-img,
+  .sp-album:hover .sp-img.has-photo,
+  #photo-img:hover,
+  .photo-figure img:hover,
+  .sp-photo-frame img:hover {
+    transform: none !important;
+  }
+}
