@@ -461,16 +461,23 @@ function buildMusingsTree(musings) {
   return root;
 }
 
-// Synthesize media gallery nodes from musings that declare `gallery:` frontmatter.
+// Synthesize media gallery nodes from musings that have images.
+// Default behavior: any post with images becomes a gallery at the path
+// derived from its folder (first category segment dropped).
+// Override via frontmatter `gallery: { path: ..., title: ..., location: ..., date: ... }`.
+// Disable for a single post via `gallery: false`.
 // Reuses the images already in the post's media/ folder — no duplication.
-// Walks ancestor segments and produces virtual parent nodes if no real
-// metadata.yaml exists at that level, so breadcrumbs and album-tree work.
 function synthesizeFromMusings(musings, existingNodes) {
   const out = [];
   const have = new Set(existingNodes.map(n => n.dir));
   for (const m of musings) {
-    if (!m.gallery || !m.gallery.path) continue;
-    const galleryPath = m.gallery.path.replace(/^\/+|\/+$/g, '');
+    if (m.gallery === false) continue;
+    if (!m.imageRefs || m.imageRefs.length === 0) continue;
+    // derived default path: drop first category segment (e.g. "travel/"), keep rest + slug
+    const derivedSegs = (m.category.length > 1 ? m.category.slice(1) : m.category).concat([m.slug]);
+    const derivedPath = derivedSegs.join('/');
+    const galleryConfig = (m.gallery && typeof m.gallery === 'object') ? m.gallery : {};
+    const galleryPath = (galleryConfig.path || derivedPath).replace(/^\/+|\/+$/g, '');
     const dir = 'media/' + galleryPath;
     if (have.has(dir) || out.find(o => o.dir === dir)) {
       fail(`Gallery path collision: musing ${m.sourceRel} points to ${dir} but it already exists.`);
@@ -482,7 +489,7 @@ function synthesizeFromMusings(musings, existingNodes) {
       alt: ref.alt || '',
       title: '',
       date: m.date,
-      location: m.gallery.location || '',
+      location: galleryConfig.location || '',
       // Reuse the post's already-copied media file. No separate thumb/med.
       src: `${m.url}/media/${ref.file}`,
       srcMed: `${m.url}/media/${ref.file}`,
@@ -494,11 +501,11 @@ function synthesizeFromMusings(musings, existingNodes) {
       url: '/' + dir,
       dir,
       depth: segs.length - 1,
-      title: m.gallery.title || m.title,
-      subtitle: m.gallery.subtitle || '',
-      location: m.gallery.location || '',
-      date: m.gallery.date ? new Date(m.gallery.date) : m.date,
-      seo: m.gallery.seo || { description: `Photos from "${m.title}".` },
+      title: galleryConfig.title || m.title,
+      subtitle: galleryConfig.subtitle || '',
+      location: galleryConfig.location || '',
+      date: galleryConfig.date ? new Date(galleryConfig.date) : m.date,
+      seo: galleryConfig.seo || { description: `Photos from "${m.title}".` },
       images,
       synthesized: true,
       fromPost: { title: m.title, url: m.url, subtitle: m.subtitle },
