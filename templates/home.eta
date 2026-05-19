@@ -77,7 +77,7 @@
 </section>
 <% } %>
 
-<script id="random-data" type="application/json"><%- JSON.stringify({ musings: shuffled, photos: shuffledImages }) %></script>
+<script id="random-data" type="application/json"><%~ JSON.stringify({ musings: shuffled, photos: shuffledImages }) %></script>
 <script>
 (function () {
   var data = JSON.parse(document.getElementById('random-data').textContent);
