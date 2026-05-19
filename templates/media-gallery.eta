@@ -53,7 +53,7 @@
   <% } %>
   <div class="sp-vsco">
     <% node.images.forEach(function(im){ %>
-      <a class="cell" href="<%= im.src %>" title="<%= escapeHtml(im.alt || '') %>">
+      <a class="cell" href="<%= im.pageUrl %>" title="<%= escapeHtml(im.alt || '') %>">
         <div class="sp-img has-photo" style="background-image: url('<%= im.srcThumb %>'); background-size: cover; background-position: center;" aria-label="<%= escapeHtml(im.alt || '') %>"></div>
         <div class="caption">
           <% if (im.title) { %><div class="title"><%= im.title %></div><% } %>
