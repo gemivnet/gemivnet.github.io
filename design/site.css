@@ -641,3 +641,31 @@
 .cat-list li a { color: var(--ink); text-decoration: none; }
 .cat-list li a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 .cat-list li .count { color: var(--ink-3); }
+
+/* ── homepage stats grid ──────────────────────────────────── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1px;
+  margin: 0;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+.stats-grid > div {
+  background: var(--bg);
+  padding: var(--sp-3) var(--sp-4);
+}
+.stats-grid dt {
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  color: var(--ink-3);
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+.stats-grid dd {
+  font-family: var(--font-mono);
+  font-size: var(--fs-lg);
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
