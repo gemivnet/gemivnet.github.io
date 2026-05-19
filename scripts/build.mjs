@@ -464,15 +464,27 @@ async function renderHome(musings, mediaNodes) {
     path: m.folder, category: m.category.join('/') || 'misc',
   })), 7);
 
-  const allImages = mediaNodes.flatMap(n => n.images.map(im => ({
-    src: im.srcMed, thumb: im.srcThumb, full: im.src,
-    title: im.title || '',
-    location: im.location || n.location || '',
-    date: im.date ? fmtDate(im.date) : (n.date ? fmtDate(n.date) : ''),
-    dateLong: im.date ? fmtLongDate(im.date) : (n.date ? fmtLongDate(n.date) : ''),
-    album: n.url, albumTitle: n.title,
-    alt: im.alt || '',
-  })));
+  // Dedupe by `src` so an image that appears in both a real and a synthesized
+  // gallery doesn't show up twice in the shuffle (which made consecutive
+  // shuffles land on the same URL and look broken to the user).
+  const seenSrc = new Set();
+  const allImages = [];
+  for (const n of mediaNodes) {
+    for (const im of n.images) {
+      const src = im.srcMed;
+      if (!src || seenSrc.has(src)) continue;
+      seenSrc.add(src);
+      allImages.push({
+        src, thumb: im.srcThumb, full: im.src,
+        title: im.title || '',
+        location: im.location || n.location || '',
+        date: im.date ? fmtDate(im.date) : (n.date ? fmtDate(n.date) : ''),
+        dateLong: im.date ? fmtLongDate(im.date) : (n.date ? fmtLongDate(n.date) : ''),
+        album: n.url, albumTitle: n.title,
+        alt: im.alt || '',
+      });
+    }
+  }
   const shuffledImages = seededShuffle(allImages, 13);
 
   const recent = musings.slice(0, 5).map(m => ({

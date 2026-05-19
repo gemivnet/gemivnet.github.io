@@ -68,7 +68,6 @@ musings:
   index:
     breadcrumb: "~/musings"
     title: "musings"
-    intro: "Long-form notes on whatever I've spent too much time thinking about lately. Reverse-chronological. Tags cross-cut. Folders preserve the original topic."
     sidebar_categories: "categories"
     sidebar_tags: "tags"
   category:

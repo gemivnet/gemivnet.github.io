@@ -1,0 +1,227 @@
+title: Uluru
+subtitle: Ayers Rock at every hour of the day.
+location: Uluru-Kata Tjuta National Park, NT, Australia
+date: "2026-05-14"
+seo:
+  description: Photos of Uluru (Ayers Rock) from midday through sunset.
+  keywords:
+    - Uluru
+    - Ayers Rock
+    - Outback
+    - Northern Territory
+images:
+  - file: uluru-wide-daytime.jpg
+    alt: Uluru from a distance, midday.
+    date: "2026-05-14"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-wide-daytime.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-wide-daytime__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-wide-daytime__thumb.jpg
+    bytes: 3624642
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4.5
+      shutter: 1/1000
+      focal_length: 44mm
+      width: 5472
+      height: 3648
+  - file: uluru-sunset.jpg
+    alt: Uluru glowing red at sunset.
+    date: "2026-05-14"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-sunset.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-sunset__med.jpg
+    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-sunset__thumb.jpg
+    bytes: 3304176
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/9
+      shutter: 1/200
+      focal_length: 25mm
+      width: 5472
+      height: 3648
+  - file: uluru-cliff-detail.jpg
+    alt: Cliff face of Uluru at sunset, close-up.
+    date: "2026-05-14"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-cliff-detail.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-cliff-detail__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-cliff-detail__thumb.jpg
+    bytes: 2126685
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4.5
+      shutter: 1/1000
+      focal_length: 72mm
+      width: 5472
+      height: 3648
+  - file: uluru-profile.jpg
+    alt: Side profile of Uluru in evening light.
+    date: "2026-05-14"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-profile.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-profile__med.jpg
+    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-profile__thumb.jpg
+    bytes: 2326233
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4.5
+      shutter: 1/800
+      focal_length: 72mm
+      width: 5472
+      height: 3648
+  - file: outback-sky-clouds.jpg
+    alt: Dramatic clouds with sun breaking through.
+    date: "2026-05-14"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/outback-sky-clouds.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/outback-sky-clouds__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/outback-sky-clouds__thumb.jpg
+    bytes: 1889324
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/10
+      shutter: 1/2000
+      focal_length: 38mm
+      width: 5472
+      height: 3648
+  - file: adventure-tours-bus.jpg
+    alt: The Adventure Tours bus.
+    date: "2026-05-14"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/adventure-tours-bus.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/adventure-tours-bus__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/adventure-tours-bus__thumb.jpg
+    bytes: 1905721
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/5
+      shutter: 1/800
+      focal_length: 31mm
+      width: 5472
+      height: 3648
+  - file: uluru-behind-grass.jpg
+    alt: Uluru visible above tall grass and a fence.
+    date: "2026-05-14"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-behind-grass.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-behind-grass__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-behind-grass__thumb.jpg
+    bytes: 3304320
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4.5
+      shutter: 1/1000
+      focal_length: 40mm
+      width: 5472
+      height: 3648
+  - file: red-dirt-tire-tracks.jpg
+    alt: Tire tracks in red outback dirt.
+    date: "2026-05-14"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/red-dirt-tire-tracks.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/red-dirt-tire-tracks__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/red-dirt-tire-tracks__thumb.jpg
+    bytes: 4312971
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/5
+      shutter: 1/250
+      focal_length: 46mm
+      width: 5472
+      height: 3648
+  - file: uluru-from-viewpoint.jpg
+    alt: Uluru framed by grass at a viewpoint.
+    date: "2026-05-14"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-from-viewpoint.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-from-viewpoint__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-from-viewpoint__thumb.jpg
+    bytes: 2004670
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/5.6
+      shutter: 1/1000
+      focal_length: 19mm
+      width: 5472
+      height: 3648
+  - file: uluru-dusk.jpg
+    alt: Uluru at dusk from the viewing area.
+    date: "2026-05-14"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-dusk.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-dusk__med.jpg
+    s3_thumb: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-dusk__thumb.jpg
+    bytes: 2568391
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4.5
+      shutter: 1/1000
+      focal_length: 22mm
+      width: 5472
+      height: 3648
+  - file: uluru-cliff-face-close.jpg
+    alt: Uluru's cliff face at sunset, close.
+    date: "2026-05-14"
+    s3: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-cliff-face-close.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-cliff-face-close__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-cliff-face-close__thumb.jpg
+    bytes: 2103179
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4.5
+      shutter: 1/1000
+      focal_length: 72mm
+      width: 5472
+      height: 3648
+  - file: uluru-distant-dusk.jpg
+    alt: Uluru in the distance at dusk.
+    date: "2026-05-14"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-distant-dusk.jpg
+    s3_med: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-distant-dusk__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-distant-dusk__thumb.jpg
+    bytes: 2075987
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 100
+      aperture: f/4
+      shutter: 1/125
+      focal_length: 30mm
+      width: 5472
+      height: 3648
+  - file: outback-sunset.jpg
+    alt: Sunset over the outback.
+    date: "2026-05-14"
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/outback-sunset.jpg
+    s3_med: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/outback-sunset__med.jpg
+    s3_thumb: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/outback-sunset__thumb.jpg
+    bytes: 2714024
+    exif:
+      camera: SONY DSC-RX100M7
+      iso: 4000
+      aperture: f/4.5
+      shutter: 1/160
+      focal_length: 55mm
+      width: 5472
+      height: 3648
