@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/site.css">
   <style>
     html, body { margin: 0; padding: 0; }
-    body { min-height: 100vh; background: var(--bg, #f4efe4); }
+    body { min-height: 100vh; background: var(--bg, #f5f0e6); }
   </style>
   <% if (typeof jsonLd !== 'undefined' && jsonLd) { %>
   <script type="application/ld+json"><%- JSON.stringify(jsonLd) %></script>
@@ -57,7 +57,7 @@
   <footer class="sp-footer">
     <div class="sp-footer-inner">
       <div>
-        <div class="footer-wordmark"><span class="tilde">~</span>/george.main</div>
+        <div class="sp-footer-mark"><span class="tilde">~</span>/george.main</div>
         <% if (copy.footer.creed) { %><p class="creed"><%= copy.footer.creed %></p><% } %>
       </div>
       <div>
@@ -74,7 +74,8 @@
           <% ;(copy.footer.site_links || []).forEach(function(s){ %>
             <li><a href="<%= s.href %>"><%= s.label %></a><% if (s.indicator) { %> &nbsp;<span style="color: var(--accent);">&#9679;</span><% } %></li>
           <% }) %>
-          <li><span style="color: var(--ink-3);"><%= site.version %></span></li>
+          <li style="margin-top: var(--sp-3); color: var(--ink-3);"><%= site.version %></li>
+          <li style="color: var(--ink-3);">est <%= site.founded %></li>
         </ul>
       </div>
     </div>

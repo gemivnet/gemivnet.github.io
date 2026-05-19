@@ -339,6 +339,8 @@ async function renderHome(musings, mediaNodes) {
   const shuffled = seededShuffle(musings.map(m => ({
     url: m.url, title: m.title, subtitle: m.subtitle, preview: m.preview,
     featured: m.featured, tags: m.tags, date: fmtDate(m.date),
+    dateMono: fmtDate(m.date).replace(/-/g, '·'),
+    readtime: `~${m.readTime} min read · ${m.wordCount.toLocaleString()} words`,
     meta: `${fmtMetaDate(m.date)} · ${m.wordCount.toLocaleString()} WORDS · ~${m.readTime} MIN`,
     path: m.folder, category: m.category.join('/') || 'misc',
   })), 7);
@@ -371,6 +373,7 @@ async function renderHome(musings, mediaNodes) {
     },
     active: 'home',
     shuffled, shuffledImages, recent,
+    totalMusings: musings.length,
   });
   collectLinks('/', html);
   await writeFile('index.html', html);
