@@ -23,7 +23,6 @@
   background-size: var(--grid-size) var(--grid-size);
   background-position: -0.5px -0.5px;
   position: relative;
-  overflow: hidden;
 }
 
 /* ── typography ────────────────────────────────────────── */
