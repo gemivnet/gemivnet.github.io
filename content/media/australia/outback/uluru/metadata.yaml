@@ -125,14 +125,14 @@ images:
       focal_length: 40mm
       width: 5472
       height: 3648
-  - file: red-dirt-tire-tracks.jpg
-    alt: Tire tracks in red outback dirt.
+  - file: shoe-prints-in-sand.jpg
+    alt: Shoe prints in red sand.
     date: "2026-05-14"
-    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/red-dirt-tire-tracks.jpg
+    s3: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/shoe-prints-in-sand.jpg
     s3_med: >-
-      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/red-dirt-tire-tracks__med.jpg
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/shoe-prints-in-sand__med.jpg
     s3_thumb: >-
-      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/red-dirt-tire-tracks__thumb.jpg
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/shoe-prints-in-sand__thumb.jpg
     bytes: 4312971
     exif:
       camera: SONY DSC-RX100M7
