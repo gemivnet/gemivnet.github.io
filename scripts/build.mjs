@@ -132,6 +132,7 @@ const pageHelpers = {
   },
   fmtDate,
   fmtMetaDate,
+  fmtBytes,
   escapeHtml,
 };
 

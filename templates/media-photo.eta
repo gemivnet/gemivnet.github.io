@@ -24,8 +24,12 @@
           <% if (image.exif.lens)         { %><tr><td>lens</td><td><%= image.exif.lens %></td></tr><% } %>
           <% var settings = [image.exif.focal_length, image.exif.aperture, image.exif.shutter, image.exif.iso && 'ISO ' + image.exif.iso].filter(Boolean).join(' · '); %>
           <% if (settings) { %><tr><td>settings</td><td><%= settings %></td></tr><% } %>
-          <% if (image.exif.width && image.exif.height) { %><tr><td>dimensions</td><td><%= image.exif.width %> × <%= image.exif.height %></td></tr><% } %>
+          <% if (image.exif.width && image.exif.height) { %>
+            <% var mp = ((image.exif.width * image.exif.height) / 1000000).toFixed(1); %>
+            <tr><td>dimensions</td><td><%= image.exif.width %> × <%= image.exif.height %> · <%= mp %> MP</td></tr>
+          <% } %>
         <% } %>
+        <% if (image.bytes) { %><tr><td>size</td><td><%= fmtBytes(image.bytes) %></td></tr><% } %>
         <% if (image.s3) { %>
           <tr><td>original</td><td><a href="<%= image.s3 %>">view full size ↗</a></td></tr>
         <% } else { %>
