@@ -21,7 +21,6 @@ nav:
 
 # ── homepage ────────────────────────────────────────────────
 home:
-  # No hero on the homepage — it goes straight to the random-musing widget.
   random_musing:
     section_tag: "01 · words"
     title: "A random musing"
