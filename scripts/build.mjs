@@ -142,15 +142,18 @@ const pageHelpers = {
   escapeHtml,
 };
 
+// Set globally before renderMusings runs so _base.eta can inject random-post JS.
+let ALL_POST_URLS = [];
+
 const renderPage = async (templateName, data) => {
-  const ctx = { ...pageHelpers, ...data };
+  const ctx = { ...pageHelpers, ...data, allPostUrls: ALL_POST_URLS };
   const inner = await eta.render(templateName, ctx);
   return await eta.render('_base', { ...ctx, body: inner });
 };
 
 // ── internal link checking ────────────────────────────────────
 
-const allRoutes = new Set(['/', '/musings', '/media', '/changelog', '/rss.xml', '/sitemap.xml', '/robots.txt', '/404.html', '/tokens.css', '/site.css', '/CNAME']);
+const allRoutes = new Set(['/', '/musings', '/media', '/changelog', '/license', '/rss.xml', '/atom.xml', '/sitemap.xml', '/robots.txt', '/404.html', '/tokens.css', '/site.css', '/favicon.svg', '/CNAME']);
 const trackedLinks = []; // { from, href }
 
 const collectLinks = (from, html) => {
@@ -267,13 +270,20 @@ async function loadMusings() {
       }
     }
     const bodyHtml = marked.parse(bodyMd, { async: false });
-    // Rewrite media/<file> URLs in the rendered HTML.
-    //   If the file has an entry in frontmatter.images: use its S3 med URL (smaller, faster on inline images).
-    //   Otherwise: fall back to the post-local path (legacy).
-    const rewritten = bodyHtml.replace(/(src|href)="media\/([^"]+)"/g, (_, attr, file) => {
+    // Rewrite <img ... src="media/<file>" ...> — swap to S3 med URL and inject
+    // width/height (from EXIF) so browsers reserve space and avoid CLS.
+    let rewritten = bodyHtml.replace(/<img\s+([^>]*?)src="media\/([^"]+)"([^>]*)>/g, (_, before, file, after) => {
       const entry = imagesMap[file];
       const dest = (entry && (entry.s3_med || entry.s3)) || `${url}/media/${file}`;
-      return `${attr}="${dest}"`;
+      const dims = (entry?.exif?.width && entry?.exif?.height)
+        ? ` width="${entry.exif.width}" height="${entry.exif.height}"`
+        : '';
+      return `<img ${before}src="${dest}"${dims}${after}>`;
+    });
+    // Also rewrite plain href="media/..." (rare, e.g. wrapper links) to the full-size URL.
+    rewritten = rewritten.replace(/href="media\/([^"]+)"/g, (_, file) => {
+      const entry = imagesMap[file];
+      return `href="${(entry && (entry.s3 || entry.s3_med)) || `${url}/media/${file}`}"`;
     });
 
     const words = wordCount(bodyMd);
@@ -678,6 +688,7 @@ function renderTreeHtml(tree, activeUrl, activeCategory) {
 async function renderMusings(musings) {
   // Folder tree, used by all musings pages (index + post + category).
   const tree = buildMusingsTree(musings);
+  ALL_POST_URLS = musings.map(m => m.url);
 
   // Index page.
   const indexHtml = await renderPage('musings-index', {
@@ -694,6 +705,19 @@ async function renderMusings(musings) {
   });
   collectLinks('/musings', indexHtml);
   await writeFile('musings/index.html', indexHtml);
+
+  // Helper: pick up to N related posts that share the most tags with a given post.
+  function relatedFor(m, n = 3) {
+    const mTags = new Set(m.tags || []);
+    if (mTags.size === 0) return [];
+    return musings
+      .filter(o => o.url !== m.url)
+      .map(o => ({ post: o, score: (o.tags || []).filter(t => mTags.has(t)).length }))
+      .filter(x => x.score > 0)
+      .sort((a, b) => b.score - a.score || (b.post.date - a.post.date))
+      .slice(0, n)
+      .map(x => x.post);
+  }
 
   // Per-post — uses the same tree, marking the current item active.
   for (let i = 0; i < musings.length; i++) {
@@ -714,6 +738,7 @@ async function renderMusings(musings) {
       post: m,
       prev,
       next,
+      related: relatedFor(m, 3),
       treeHtml: renderTreeHtml(tree, m.url, m.category.join('/')),
       jsonLd: {
         '@context': 'https://schema.org',
@@ -792,6 +817,55 @@ async function renderMusings(musings) {
     if (!tags.has(t)) tags.set(t, []);
     tags.get(t).push(m);
   }
+
+  // /musings/tags — alphabetical list of all tags + counts.
+  const tagList = [...tags.entries()]
+    .map(([name, posts]) => ({ name, slug: slugify(name), count: posts.length }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+  const tagsIndexHtml = await renderPage('musings-tags-index', {
+    page: {
+      title: `tags — ${SITE.title}`,
+      description: `All tags used across ${musings.length} musings.`,
+      url: '/musings/tags',
+      bodyClass: pageHelpers.bodyClass('musings'),
+      type: 'website',
+    },
+    active: 'musings',
+    tagList,
+  });
+  collectLinks('/musings/tags', tagsIndexHtml);
+  await writeFile('musings/tags/index.html', tagsIndexHtml);
+  allRoutes.add('/musings/tags');
+
+  // /musings/YYYY — year archives.
+  const byYear = new Map();
+  for (const m of musings) {
+    const y = String(m.date.getUTCFullYear());
+    if (!byYear.has(y)) byYear.set(y, []);
+    byYear.get(y).push(m);
+  }
+  const allYears = [...byYear.keys()].sort().reverse();
+  for (const year of allYears) {
+    const posts = byYear.get(year);
+    const otherYears = allYears.filter(y => y !== year);
+    const yearHtml = await renderPage('musings-year', {
+      page: {
+        title: `${year} — musings — ${SITE.title}`,
+        description: `Posts from ${year} by ${SITE.author}.`,
+        url: `/musings/${year}`,
+        bodyClass: pageHelpers.bodyClass('musings'),
+        type: 'website',
+      },
+      active: 'musings',
+      year,
+      posts,
+      otherYears,
+    });
+    collectLinks(`/musings/${year}`, yearHtml);
+    await writeFile(`musings/${year}/index.html`, yearHtml);
+    allRoutes.add(`/musings/${year}`);
+  }
+
   for (const [tag, posts] of tags) {
     const url = `/musings/tag/${slugify(tag)}`;
     const html = await renderPage('musings-tag', {
@@ -1058,6 +1132,31 @@ ${items}
 `;
   await writeFile('rss.xml', rss);
 
+  // atom
+  const updated = musings[0]?.date?.toISOString() || new Date().toISOString();
+  const atomItems = musings.slice(0, 30).map(m => `
+  <entry>
+    <title>${xmlEscape(m.title)}</title>
+    <link href="${xmlEscape(pageHelpers.absUrl(m.url))}"/>
+    <id>${xmlEscape(pageHelpers.absUrl(m.url))}</id>
+    <updated>${m.date.toISOString()}</updated>
+    <published>${m.date.toISOString()}</published>
+    <author><name>${xmlEscape(SITE.author)}</name></author>
+    <summary>${xmlEscape(m.seo.description || m.preview)}</summary>
+  </entry>`).join('');
+  const atom = `<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="${SITE.language || 'en'}">
+  <title>${xmlEscape(SITE.title)}</title>
+  <subtitle>${xmlEscape(SITE.description)}</subtitle>
+  <link rel="self" type="application/atom+xml" href="${SITE.url}/atom.xml"/>
+  <link href="${xmlEscape(SITE.url)}"/>
+  <updated>${updated}</updated>
+  <id>${xmlEscape(SITE.url)}/</id>
+  <author><name>${xmlEscape(SITE.author)}</name></author>${atomItems}
+</feed>
+`;
+  await writeFile('atom.xml', atom);
+
   // 404
   const html404 = await renderPage('404', {
     page: {
@@ -1093,6 +1192,7 @@ function verifyLinks() {
 async function copyDesign() {
   await copyFile(SRC('design/tokens.css'), 'tokens.css');
   await copyFile(SRC('design/site.css'), 'site.css');
+  if (await exists(SRC('design/favicon.svg'))) await copyFile(SRC('design/favicon.svg'), 'favicon.svg');
   if (await exists(SRC('CNAME'))) await copyFile(SRC('CNAME'), 'CNAME');
 }
 
