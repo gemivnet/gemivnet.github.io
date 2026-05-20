@@ -79,14 +79,25 @@ async function readExif(abs) {
 
 // ── S3 upload via aws CLI ─────────────────────────────────
 function uploadToS3(localPath, key) {
-  execFileSync('aws', [
-    's3', 'cp', localPath, `s3://${S3_BUCKET}/${key}`,
-    '--content-type', 'image/jpeg',
-    '--cache-control', 'public, max-age=31536000, immutable',
-    '--no-progress',
-  ], { stdio: ['ignore', 'ignore', 'inherit'] });
+  const ct = key.endsWith('.webp') ? 'image/webp' : 'image/jpeg';
+  try {
+    execFileSync('aws', [
+      's3', 'cp', localPath, `s3://${S3_BUCKET}/${key}`,
+      '--content-type', ct,
+      '--cache-control', 'public, max-age=31536000, immutable',
+      '--no-progress',
+    ], { stdio: ['ignore', 'ignore', 'pipe'] });
+  } catch (e) {
+    console.error('\nAWS upload failed:', e.stderr?.toString() || e.message);
+    console.error('refresh creds (`aws sso login` or `aws configure`) and try again.');
+    process.exit(2);
+  }
   return `${S3_BASE_URL}/${key}`;
 }
+
+// fail fast at startup if creds are bad
+try { execFileSync('aws', ['sts', 'get-caller-identity'], { stdio: ['ignore', 'ignore', 'pipe'] }); }
+catch { console.error('aws creds missing/expired. run `aws sso login` (or `aws configure`) and try again.'); process.exit(2); }
 
 // ── group files into bursts ───────────────────────────────
 // A burst = same alpha prefix in filename + capture timestamps within 30 min

@@ -24,11 +24,21 @@ const BUCKET = 'georgemain-com-media';
 const BASE = `https://${BUCKET}.s3.amazonaws.com`;
 
 function s3up(local, key) {
-  execFileSync('aws', ['s3', 'cp', local, `s3://${BUCKET}/${key}`,
-    '--content-type', 'image/webp',
-    '--cache-control', 'public, max-age=31536000, immutable'], { stdio: ['ignore', 'ignore', 'inherit'] });
+  try {
+    execFileSync('aws', ['s3', 'cp', local, `s3://${BUCKET}/${key}`,
+      '--content-type', 'image/webp',
+      '--cache-control', 'public, max-age=31536000, immutable'], { stdio: ['ignore', 'ignore', 'pipe'] });
+  } catch (e) {
+    console.error('\nAWS upload failed:', e.stderr?.toString() || e.message);
+    console.error('refresh credentials and re-run.');
+    process.exit(2);
+  }
   return `${BASE}/${key}`;
 }
+
+// fail fast if creds are bad
+try { execFileSync('aws', ['sts', 'get-caller-identity'], { stdio: ['ignore', 'ignore', 'pipe'] }); }
+catch { console.error('aws creds missing/expired. run `aws sso login` (or `aws configure`) and try again.'); process.exit(2); }
 
 async function fetchToTemp(url) {
   const tmp = path.join(os.tmpdir(), `backfill-${Date.now()}-${Math.random().toString(36).slice(2)}.jpg`);

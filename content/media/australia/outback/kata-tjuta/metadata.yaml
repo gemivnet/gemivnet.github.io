@@ -28,6 +28,14 @@ images:
       focal_length: 72mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/kata-tjuta-from-lookout.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/kata-tjuta-from-lookout__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/kata-tjuta-from-lookout__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMFBv/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/aAAwDAQACEAMQAAAAqrzjw7Znyz//xAAkEAABAwIEBwAAAAAAAAAAAAABAgMRABIEBRMxFSEiUWGBof/aAAgBAQABPwBWZYYbGflcSaoZnhjNxpaXm2l9TfeIn0KYdWsJvQhSRMyOfiteb06CZOw3Ar//xAAXEQEAAwAAAAAAAAAAAAAAAAABABNR/9oACAECAQE/ALXCXOE//8QAFxEAAwEAAAAAAAAAAAAAAAAAAAESYf/aAAgBAwEBPwCFpCP/2Q==
   - file: valley-of-the-winds-entry.jpg
     alt: Hikers walking between two domes at the entry.
     date: "2026-05-14"
@@ -46,6 +54,14 @@ images:
       focal_length: 29mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/valley-of-the-winds-entry.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/valley-of-the-winds-entry__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/valley-of-the-winds-entry__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMGBP/EABUBAQEAAAAAAAAAAAAAAAAAAAME/9oADAMBAAIQAxAAAACdr5Z5UoNAS//EACIQAAEEAQIHAAAAAAAAAAAAAAEAAgMRBAUSEyIxM1Figv/aAAgBAQABPwDD1HLxO1Jy+FHq3E0t09ASWWfScSbLihhQeyZEGt2gnbd0nNHW1//EABgRAAIDAAAAAAAAAAAAAAAAAAEQERMh/9oACAECAQE/ALMML//EABcRAAMBAAAAAAAAAAAAAAAAABAREzH/2gAIAQMBAT8AnjH/2Q==
   - file: valley-of-the-winds-trail.jpg
     alt: Hikers heading up the Valley of the Winds trail.
     date: "2026-05-14"
@@ -64,6 +80,14 @@ images:
       focal_length: 33mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/valley-of-the-winds-trail.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/valley-of-the-winds-trail__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/valley-of-the-winds-trail__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQGAv/EABQBAQAAAAAAAAAAAAAAAAAAAAP/2gAMAwEAAhADEAAAAJ2wj2Dd4wA//8QAIBAAAQQBBQEBAAAAAAAAAAAAAQACAwQRBRIhIjEzUv/aAAgBAQABPwCtcs1/nKQD6FomrOsulinxkN3AqzK6xYmm/bkKFjHIAUFexC7cDyQW9Mn1dvNvIX//xAAXEQADAQAAAAAAAAAAAAAAAAAAARIh/9oACAECAQE/AKSNP//EABgRAQADAQAAAAAAAAAAAAAAAAEAAhEh/9oACAEDAQE/AGunSbUn/9k=
   - file: pitted-rock-wall.jpg
     alt: Pock-marked surface of a Kata Tjuta dome.
     date: "2026-05-14"
@@ -82,6 +106,14 @@ images:
       focal_length: 51mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/pitted-rock-wall.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/pitted-rock-wall__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/pitted-rock-wall__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAECAwX/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAwT/2gAMAwEAAhADEAAAAMuAp6KRB//EAB0QAQEAAgIDAQAAAAAAAAAAAAECABExcRIhIkH/2gAIAQEAAT8Arw9fK9ZcRDMzLgBXL+4E7FrXeWTNCU4Js75z/8QAFREBAQAAAAAAAAAAAAAAAAAAAAH/2gAIAQIBAT8AWv/EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAgBAwEBPwBJr//Z
   - file: gum-tree-against-rock.jpg
     alt: A white-trunked gum tree against the red rock.
     date: "2026-05-14"
@@ -100,6 +132,14 @@ images:
       focal_length: 54mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/gum-tree-against-rock.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/gum-tree-against-rock__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/gum-tree-against-rock__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABQAC/8QAFgEBAQEAAAAAAAAAAAAAAAAAAwAC/9oADAMBAAIQAxAAAAAHSWxUeVrf/8QAIBAAAgIBAwUAAAAAAAAAAAAAAQIAAwQREiExMmGBof/aAAgBAQABPwAYzDuQwKo4jKTyIKbN2qWqv2HERjq9hPqHEoXoz8+Z/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAESUf/aAAgBAgEBPwC9LR//xAAZEQACAwEAAAAAAAAAAAAAAAAAAgEDURL/2gAIAQMBAT8AhLMOGw//2Q==
   - file: conglomerate-texture.jpg
     alt: Close-up of the red conglomerate rock texture.
     date: "2026-05-14"
@@ -118,6 +158,14 @@ images:
       focal_length: 72mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/conglomerate-texture.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/conglomerate-texture__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/conglomerate-texture__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEE/9oADAMBAAIQAxAAAADFcOW6iBP/xAAbEAACAwADAAAAAAAAAAAAAAAAAgEREgMhQf/aAAgBAQABPwDF+ipQyG6I5Bm7k//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8AP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8AP//Z
   - file: talus-slope.jpg
     alt: Loose talus rock on a slope.
     date: "2026-05-14"
@@ -135,6 +183,13 @@ images:
       focal_length: 41mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/talus-slope.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/talus-slope__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/talus-slope__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQBAgX/xAAWAQEBAQAAAAAAAAAAAAAAAAAEAAH/2gAMAwEAAhADEAAAAMKzEmWqNFn/xAAgEAABAwMFAQAAAAAAAAAAAAABAAIxERNRAyFBYZFx/9oACAEBAAE/AK4CBpwPEXjA8TQwki1QfVaZJG3SsacEuiV//8QAFREBAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQIBAT8Ap//EABcRAAMBAAAAAAAAAAAAAAAAAAABElH/2gAIAQMBAT8Aopaf/9k=
   - file: red-scree.jpg
     alt: Red scree slope below a dome.
     date: "2026-05-14"
@@ -151,6 +206,12 @@ images:
       focal_length: 41mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/red-scree.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/red-scree__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/red-scree__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIDAQX/xAAWAQEBAQAAAAAAAAAAAAAAAAACAwT/2gAMAwEAAhADEAAAAOGybDVAuI//xAAbEAADAQADAQAAAAAAAAAAAAABAhEAAwQhQf/aAAgBAQABPwAXEq0DCzP1+NjVYqc0Hqm5W++Yvv/EABYRAQEBAAAAAAAAAAAAAAAAAAABEv/aAAgBAgEBPwBqv//EABcRAQADAAAAAAAAAAAAAAAAAAACElH/2gAIAQMBAT8AUjj/2Q==
   - file: split-boulder.jpg
     alt: A large boulder split open.
     date: "2026-05-14"
@@ -168,6 +229,13 @@ images:
       focal_length: 41mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/split-boulder.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/split-boulder__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/split-boulder__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgX/xAAVAQEBAAAAAAAAAAAAAAAAAAAABP/aAAwDAQACEAMQAAAA587cyXVCA//EACAQAAICAQQDAQAAAAAAAAAAAAEDAAISBBEhQSIjMTL/2gAIAQEAAT8AdVQxtXyv8Ai2MNuVd8QrMbpS/H2EYwLNec9x1jNO+5/a7Dbsgz//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AD//xAAXEQADAQAAAAAAAAAAAAAAAAAAASEx/9oACAEDAQE/AFo3Yf/Z
   - file: trail-into-valley.jpg
     alt: Stairs and trail leading into the Valley of the Winds.
     date: "2026-05-14"
@@ -186,6 +254,14 @@ images:
       focal_length: 9mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/trail-into-valley.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/trail-into-valley__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/trail-into-valley__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMGBf/EABUBAQEAAAAAAAAAAAAAAAAAAAME/9oADAMBAAIQAxAAAACRqcxw0vEhr//EACEQAAEFAAEEAwAAAAAAAAAAAAIAAQMEEQUhIjEyQVFS/9oACAEBAAE/AH8LhObGBgrWB0NwT/KvWjuTkbv2N6N9Mo68ZkI5uuiiiiNxeJui0fgBX//EABgRAQADAQAAAAAAAAAAAAAAAAEAAxEx/9oACAECAQE/ACzOR1dWf//EABkRAQACAwAAAAAAAAAAAAAAAAEAEQMhMf/aAAgBAwEBPwBx32Gign//2Q==
   - file: hikers-on-trail.jpg
     alt: Group of hikers on the rocky trail.
     date: "2026-05-14"
@@ -203,6 +279,14 @@ images:
       focal_length: 72mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/hikers-on-trail.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/hikers-on-trail__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/hikers-on-trail__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQDBQb/xAAVAQEBAAAAAAAAAAAAAAAAAAADAv/aAAwDAQACEAMQAAAAyc9gC6I+Sn//xAAfEAACAgIBBQAAAAAAAAAAAAABAgARBDFhAxMUIUH/2gAIAQEAAT8AGN1TFwnOxPDXRc3EdLKMlP22IJ1d+qqM7fdHmXS8Cf/EABcRAAMBAAAAAAAAAAAAAAAAAAABAhL/2gAIAQIBAT8AdM3R/8QAGREAAwADAAAAAAAAAAAAAAAAAAECEjFR/9oACAEDAQE/AJiW9Mwnh//Z
   - file: boulders-with-grass.jpg
     alt: Cluster of boulders with native grass.
     date: "2026-05-14"
@@ -221,6 +305,14 @@ images:
       focal_length: 9mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/boulders-with-grass.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/boulders-with-grass__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/boulders-with-grass__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIDBAX/xAAVAQEBAAAAAAAAAAAAAAAAAAACBP/aAAwDAQACEAMQAAAAx2lSWxSqM//EAB8QAAIBAwUBAAAAAAAAAAAAAAECAAMSIQQREzFRQf/aAAgBAQABPwBltUsVOwMyQtqFifIG4mDBirK2D4Y9exbB8jahipCDbHk07VKLNyAlT3P/xAAVEQEBAAAAAAAAAAAAAAAAAAAAMf/aAAgBAgEBPwBH/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAExEf/aAAgBAwEBPwDWWo//2Q==
   - file: gap-between-domes.jpg
     alt: Narrow gap between two Kata Tjuta domes.
     date: "2026-05-14"
@@ -239,6 +331,14 @@ images:
       focal_length: 27mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/gap-between-domes.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/gap-between-domes__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/gap-between-domes__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABgADBf/EABQBAQAAAAAAAAAAAAAAAAAAAAP/2gAMAwEAAhADEAAAACTYNuTorgxt/8QAIRAAAgEDAwUAAAAAAAAAAAAAAQIAAwQRBRJBBhMxMoL/2gAIAQEAAT8AWdP3oSxuKLeUfK/c1C+VT209uTMY5lFqg3bSQDArHJDT/8QAFxEBAQEBAAAAAAAAAAAAAAAAAQACIf/aAAgBAgEBPwDpGQv/xAAYEQEAAwEAAAAAAAAAAAAAAAABAAIRUf/aAAgBAwEBPwDauD2Nln//2Q==
   - file: valley-floor-view.jpg
     alt: View from the Valley of the Winds toward the plain.
     date: "2026-05-14"
@@ -257,6 +357,14 @@ images:
       focal_length: 26mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/valley-floor-view.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/valley-floor-view__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/valley-floor-view__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAUGAgT/xAAVAQEBAAAAAAAAAAAAAAAAAAABA//aAAwDAQACEAMQAAAA53kZma8JoX//xAAgEAABAwQCAwAAAAAAAAAAAAABAAIDBAUGERIUMTRh/9oACAEBAAE/AKDI5KIGMs5gIZZTlvrPV5uwuTIGiHgGbK6sP1OpdaIkICmjc3w7a//EABcRAAMBAAAAAAAAAAAAAAAAAAABAjH/2gAIAQIBAT8AVyaf/8QAFxEBAQEBAAAAAAAAAAAAAAAAAQACIf/aAAgBAwEBPwB7G0v/2Q==
   - file: stone-path.jpg
     alt: Stone path winding between the domes.
     date: "2026-05-14"
@@ -273,6 +381,13 @@ images:
       focal_length: 9mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/stone-path.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/stone-path__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/stone-path__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMHBQb/xAAWAQEBAQAAAAAAAAAAAAAAAAACAAH/2gAMAwEAAhADEAAAAOTpsu0xqhRL/8QAIRAAAgEDAwUAAAAAAAAAAAAAAQIDAAQSBRMiERQhQUL/2gAIAQEAAT8As8t5CPRBqTWIe3iMNzCG+w55Vd3Ul1PJM5BZ3JpMlPQgg1FtSoy8cyKMeBwI81//xAAXEQADAQAAAAAAAAAAAAAAAAABEBEx/9oACAECAQE/AMNX/8QAGBEAAgMAAAAAAAAAAAAAAAAAAAEREiH/2gAIAQMBAT8AWqCzP//Z
   - file: tour-bus-at-kata-tjuta.jpg
     alt: Tour bus with Kata Tjuta in the background.
     date: "2026-05-14"
@@ -291,6 +406,14 @@ images:
       focal_length: 16mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/tour-bus-at-kata-tjuta.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/tour-bus-at-kata-tjuta__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/tour-bus-at-kata-tjuta__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIGA//EABYBAQEBAAAAAAAAAAAAAAAAAAEAAv/aAAwDAQACEAMQAAAAfeVY1UEkN//EACMQAAEDAgUFAAAAAAAAAAAAAAIAAQMEEQUSIjFRISMyYZL/2gAIAQEAAT8AHEKIvOTL7JlDX0Z6Wm+lPiVHC5CRu5M+zIJQZg7YaWtt1e/KIojtma1uEYxntdf/xAAXEQADAQAAAAAAAAAAAAAAAAAAARNx/9oACAECAQE/AKYVZ//EABkRAAIDAQAAAAAAAAAAAAAAAAABAhETYf/aAAgBAwEBPwBQsy4z/9k=
   - file: kata-tjuta-evening.jpg
     alt: The full Kata Tjuta formation at evening.
     date: "2026-05-14"
@@ -309,6 +432,14 @@ images:
       focal_length: 15mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/kata-tjuta-evening.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/kata-tjuta-evening__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/kata-tjuta-evening__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMGAv/EABYBAQEBAAAAAAAAAAAAAAAAAAECA//aAAwDAQACEAMQAAAAfqTZGtaSIn//xAAgEAABAgYDAQAAAAAAAAAAAAABAAIDBAUREiIhMkKR/9oACAEBAAE/ADUZK5Y12RHxQqpKkHLXkhQ6jKRPYam4egFdgHUWWgA1AC//xAAaEQACAgMAAAAAAAAAAAAAAAAAAQIRAxNR/9oACAECAQE/ANsrFmfLP//EABsRAAIBBQAAAAAAAAAAAAAAAAABEQIDEzFR/9oACAEDAQE/AMVMaHZXYP/Z
   - file: twin-domes.jpg
     alt: Two adjacent domes, close view.
     date: "2026-05-14"
@@ -325,3 +456,10 @@ images:
       focal_length: 44mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/twin-domes.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/twin-domes__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kata-tjuta/twin-domes__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMGBf/EABQBAQAAAAAAAAAAAAAAAAAAAAP/2gAMAwEAAhADEAAAAFqyFk9aTYh//8QAIBAAAgEEAgMBAAAAAAAAAAAAAQIDAAQREwUSMTJBUf/aAAgBAQABPwCW4mYlw5X8FQ8nLv1uofKmk5CHPWVdefvkU15ckegqOaVJNmsZxirmQzKOqNX/xAAZEQACAwEAAAAAAAAAAAAAAAABAgADESL/2gAIAQIBAT8AUuNOxbDnU//EABoRAAICAwAAAAAAAAAAAAAAAAIRAAETIjH/2gAIAQMBAT8ALHapQwB68n//2Q==

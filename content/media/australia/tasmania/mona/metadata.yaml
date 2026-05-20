@@ -26,6 +26,11 @@ images:
       focal_length: 33mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cement-truck.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cement-truck__med.webp
+    s3_thumb_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cement-truck__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAYEBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAADs5YcVdoQn/8QAIRABAAIBAwQDAAAAAAAAAAAAAQIDAAUREgQhIlEGQcH/2gAIAQEAAT8Av+QV12MIUMz3zDHXuomKQrh5Mfbmn609Re0W8Xx7TMtJE9+CEu5hZZE33mP0hld842E1V/c//8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQIBAT8Aqv/EABYRAQEBAAAAAAAAAAAAAAAAAAAREv/aAAgBAwEBPwCMv//Z
   - file: the-butterfly-text.jpg
     alt: Illuminated 'The Butterfly' text piece in a dark room.
     date: "2026-05-18"
@@ -43,6 +48,13 @@ images:
       focal_length: 9mm
       width: 3648
       height: 5472
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/the-butterfly-text.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/the-butterfly-text__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/the-butterfly-text__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAkABgDASIAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAQFAQIHBv/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAADwJIiOKdF5zcy1bQmAAf/EACEQAQACAgEDBQAAAAAAAAAAAAECAwAEEAURURIgIkGx/9oACAEBAAE/AOTIam1MGGvZIfsiuIiidk46IVw1qZRAk1w9Tl73utfM5fvGt1va1oQjCFfxAxVV8vs//8QAFhEAAwAAAAAAAAAAAAAAAAAAARAg/9oACAECAQE/AEY//8QAFhEAAwAAAAAAAAAAAAAAAAAAARAg/9oACAEDAQE/AEI//9k=
   - file: cloaca-vessels.jpg
     alt: Glass vessels of the Cloaca digestion machine.
     date: "2026-05-18"
@@ -59,6 +71,12 @@ images:
       focal_length: 62mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-vessels.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-vessels__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-vessels__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgb/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAv/aAAwDAQACEAMQAAAA5DT3zUJQH//EACEQAAEEAgICAwAAAAAAAAAAAAIBAwQRABIFEzFBInGx/9oACAEBAAE/AFjrS36+K4cZRe69VvGGUMq1W0SqxyeDsaSJAPY46hXjUuO/ycdw26bAPAe9fvGHY48kpkRCzsXj8z//xAAXEQEAAwAAAAAAAAAAAAAAAAAAARES/9oACAECAQE/ALlp/8QAGBEAAgMAAAAAAAAAAAAAAAAAABEBQVH/2gAIAQMBAT8AUaJ2f//Z
   - file: cloaca-mechanism-detail.jpg
     alt: Inner mechanics of Cloaca — tubes and glass.
     date: "2026-05-18"
@@ -77,6 +95,14 @@ images:
       focal_length: 28mm
       width: 3648
       height: 5472
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-mechanism-detail.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-mechanism-detail__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-mechanism-detail__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAkABgDASIAAhEBAxEB/8QAGgABAQACAwAAAAAAAAAAAAAAAAQBBQIDBv/EABYBAQEBAAAAAAAAAAAAAAAAAAACAf/aAAwDAQACEAMQAAAA8pwq6SQG2v0d01qlLZiyAH//xAAnEAACAQMDAgYDAAAAAAAAAAABAgMABBESIXFBsQUiMjNCYXKBkf/aAAgBAQABPwCVyLlcfXepc63P5VH7vK5pIxJdRDHTfvV0NEr6fvP7pUDsgz8T3qCVYrks3WLbkGvErWYxrLIEUMgfO+Tmod5jwaa8mVlU4ZVJKA9CaF/d6cTWhdBjOdVLeAzM0cSIrDTin3YcUHffzt/aj9Z4r//EABYRAAMAAAAAAAAAAAAAAAAAAAEQIP/aAAgBAgEBPwBGP//EABcRAAMBAAAAAAAAAAAAAAAAAAEQESD/2gAIAQMBAT8AQmP/2Q==
   - file: god-is-your-enemy.jpg
     alt: "'God Is Your Enemy' text artwork."
     date: "2026-05-18"
@@ -94,6 +120,13 @@ images:
       focal_length: 20mm
       width: 3648
       height: 5472
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/god-is-your-enemy.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/god-is-your-enemy__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/god-is-your-enemy__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAkABgDASIAAhEBAxEB/8QAGQABAQADAQAAAAAAAAAAAAAAAAQBAwUC/8QAFwEAAwEAAAAAAAAAAAAAAAAAAQIDAP/aAAwDAQACEAMQAAAA4UvUkheNaK0wbpwPbWOowTfQKJ//xAAjEAACAgIBAwUBAAAAAAAAAAABAgAREiEDBCIxFCMygaHR/9oACAEBAAE/AHUgqoTK43HxNd8J0aJA/k9JxNeOQnIrZLiAdEHdaMIbMrgMhsAHVGWVByFfdzqC+NoabX6Y7c2RtqNsLNCO2XEO6zjszqCGIsWApjN04+GJ80ALMdvbbRGzGVXrJQZ48anMe0z/xAAaEQEAAgMBAAAAAAAAAAAAAAAAAkEBERJx/9oACAECAQE/ANulI36yi//EABgRAQEBAQEAAAAAAAAAAAAAAAEAAhBB/9oACAEDAQE/AAJycfItX//Z
   - file: rubber-bands-on-pedestal.jpg
     alt: Tangle of rubber bands on a pedestal.
     date: "2026-05-18"
@@ -112,6 +145,14 @@ images:
       focal_length: 42mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/rubber-bands-on-pedestal.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/rubber-bands-on-pedestal__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/rubber-bands-on-pedestal__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABQADBv/EABUBAQEAAAAAAAAAAAAAAAAAAAID/9oADAMBAAIQAxAAAADkUMlo2Mk4P//EACEQAAMAAQQBBQAAAAAAAAAAAAECAwAEERITBSMxMlFS/9oACAEBAAE/AJaYM4moDN9nJaJGp1m0+W+23HLeN66BKqE5ezriEqwtABshroz9R9MOz9AZS19efgAoz//EABoRAAICAwAAAAAAAAAAAAAAAAERAAIDITH/2gAIAQIBAT8ANl0wZL7QYn//xAAaEQEAAgMBAAAAAAAAAAAAAAABAAIDESES/9oACAEDAQE/ACuzhHHTnpBn/9k=
   - file: drinking-piss-text.jpg
     alt: Red text piece, MONA.
     date: "2026-05-18"
@@ -129,6 +170,13 @@ images:
       focal_length: 48mm
       width: 3648
       height: 5472
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/drinking-piss-text.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/drinking-piss-text__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/drinking-piss-text__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAkABgDASIAAhEBAxEB/8QAGgABAQACAwAAAAAAAAAAAAAAAAQBAgMFBv/EABcBAAMBAAAAAAAAAAAAAAAAAAACAwT/2gAMAwEAAhADEAAAAPKVx0x1buMNPT1tDTpQlpNuPHAD/8QAJRABAAEDBAIABwAAAAAAAAAAAQIAAxEEEiExFEETIjJCUWFi/9oACAEBAAE/AIanVEdxfSnUa6APknKeyrmp1sYEvKH9FQneltlt4OnbXMwFft6ge6ut8ZO12mXLHnC9tWT5A3R/P1JRciDLEODouNXkbe0lHj+1q1KMVVkceq+PHnEnMsrkKuTJuQxRXqNNf//EABcRAQEBAQAAAAAAAAAAAAAAAAEAEBH/2gAIAQIBAT8AcS5Of//EABgRAAMBAQAAAAAAAAAAAAAAAAABAhIx/9oACAEDAQE/AJlGEJmieMZ//9k=
   - file: so-much-for-optimism.jpg
     alt: "'So much for my fucking optimism' text piece."
     date: "2026-05-18"
@@ -146,6 +194,14 @@ images:
       focal_length: 46mm
       width: 3648
       height: 5472
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/so-much-for-optimism.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/so-much-for-optimism__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/so-much-for-optimism__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAkABgDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAEDBAIG/8QAFwEBAQEBAAAAAAAAAAAAAAAAAwQCBf/aAAwDAQACEAMQAAAA8vNOoqcCCT6NGe03xIIDoHoUjc3/xAAhEAEAAgICAgIDAAAAAAAAAAABAgMAEgQREyExQSJRcf/aAAgBAQABPwCjitvHssLek9EdusONyNLDb3BR/LLKLoQlKUvhBO8onKY1TtkQIqG3Rt9Z4QWs5HpFZ5yISrYjZuSO8pK4UWt0QXrTs9ua8MqkFin05fGkItc2X9w5kWuuEodxjBEfZJPhx5NUqpPh95bbTKKQp1f3njjnRrr9YwM//8QAGREAAgMBAAAAAAAAAAAAAAAAAhAAQXEB/9oACAECAQE/ACrUVa+T/8QAHREAAQMFAQAAAAAAAAAAAAAAAQACMQMQERJyQv/aAAgBAwEBPwChL+Dah74NmtaNsAQnAZgL/9k=
   - file: fat-car.jpg
     alt: Erwin Wurm's bulging red 'Fat Car' sculpture.
     date: "2026-05-18"
@@ -161,6 +217,11 @@ images:
       focal_length: 9mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/fat-car.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/fat-car__med.webp
+    s3_thumb_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/fat-car__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMFBAb/xAAWAQEBAQAAAAAAAAAAAAAAAAAEAwX/2gAMAwEAAhADEAAAAOIe3QfQkFEoT//EAB0QAAICAwEBAQAAAAAAAAAAAAEDAAIEETESFCH/2gAIAQEAAT8ARSzCPNSdRmK88VaNSxWvQ7EO+YaFN/vRLZzL81UTJXpdG3Posn//xAAbEQABBAMAAAAAAAAAAAAAAAACAAEDERIhUf/aAAgBAgEBPwApZboRHHroCdx2v//EABwRAAEEAwEAAAAAAAAAAAAAAAIAAQMSBBFBE//aAAgBAwEBPwCODC8xKSYr9FlKwXem682v/9k=
   - file: bit-fall.jpg
     alt: Looking down at the bit.fall water-text installation.
     date: "2026-05-18"
@@ -176,6 +237,11 @@ images:
       focal_length: 9mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/bit-fall.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/bit-fall__med.webp
+    s3_thumb_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/bit-fall__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAUGBP/EABUBAQEAAAAAAAAAAAAAAAAAAAED/9oADAMBAAIQAxAAAACL1tnM6Rw6B//EACMQAAIBAwEJAAAAAAAAAAAAAAEDAgAEESETFCIjMTIzUmH/2gAIAQEAAT8AVbsYcRFRsLoYxGm7VfCepq2YmUFtTnXuH2t4Ih4ydParwJCGNmOYTiNf/8QAGBEAAgMAAAAAAAAAAAAAAAAAAAEiQoH/2gAIAQIBAT8Ak6mH/8QAGBEAAgMAAAAAAAAAAAAAAAAAAAERUYH/2gAIAQMBAT8AhWaf/9k=
   - file: cloaca-glass-dish.jpg
     alt: Glass dish suspended inside the Cloaca mechanism.
     date: "2026-05-18"
@@ -193,6 +259,13 @@ images:
       focal_length: 65mm
       width: 3648
       height: 5472
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-glass-dish.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-glass-dish__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-glass-dish__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAkABgDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAMEBQIG/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAM7N16JQUkem7yVVESLUpEgj/8QAJBAAAgICAgEDBQAAAAAAAAAAAQIDEQASBDEhBRMiMkJRkbH/2gAIAQEAAT8AMMXvQSoNAKEo72rPU2gk5TNBQQJWcLjEmUsU+nx8h5zW1zl8WP25pfv0/mRaOwQg/KgDdVkcgY0D5q8n488kTajwyd2Mfi+00VOGt6rI5LZbHR7voYZuXPE7JuaHlVN64rAMGLmx+c43qfIiUx6xsvXlclmbZHQCPY9J0NRQzi8aKczNIL1F/s5//8QAGBEAAwEBAAAAAAAAAAAAAAAAABARIUH/2gAIAQIBAT8AhpV1f//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8AX//Z
   - file: cloaca-tubes.jpg
     alt: Backside of Cloaca tubes and pumps.
     date: "2026-05-18"
@@ -208,6 +281,11 @@ images:
       focal_length: 52mm
       width: 3648
       height: 5472
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-tubes.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-tubes__med.webp
+    s3_thumb_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-tubes__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAkABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEBgX/xAAWAQADAAAAAAAAAAAAAAAAAAAAAQL/2gAMAwEAAhADEAAAAMRS10vnloFFcfKVaQzQhqQEkC5//8QAJhAAAgICAQIFBQAAAAAAAAAAAQIDEQAhEgQxBSJCUWIUMmFxkf/aAAgBAQABPwCiQ2jsDKUrOw+K4UpW9w2FCiKnY8jeNGEEicwfMrE2D6skhj0gkU0dEerFiQdW8ZRiizIAvc/LJ+ngbrUEKAJ5nIa1ujdZIYY1AMqqFawRs+2dN4u0X1ZEJ5yQledliuDrJ+QLPz/DbxZhzZyo/Q1iaZT3vW8lPHVD7iP5gF3n/8QAGREAAwADAAAAAAAAAAAAAAAAAAEREBIx/9oACAECAQE/ACojNRdx/8QAGREAAwADAAAAAAAAAAAAAAAAAAERAhBB/9oACAEDAQE/ACFQ8qc1/9k=
   - file: cloaca-output.jpg
     alt: Output of Cloaca on a glass dish.
     date: "2026-05-18"
@@ -223,6 +301,12 @@ images:
       focal_length: 72mm
       width: 3648
       height: 5472
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-output.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-output__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/cloaca-output__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAkABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMFBAH/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAAAgTt+CKwoMaqHYQIK0SQhoFf/xAAiEAACAgICAgIDAAAAAAAAAAABAgMRAAQSIQVRE0EigpH/2gAIAQEAAT8Ah8ePKzGSF1WwGkTJoXgllgerjJBo3hjE0YkU0tXmnuy6EkrxVbrhlVuZ4dnsm/u+81/I60QVHiYpR+8iRpegjfzI9SdiQEbvroXk+qNVe1PKqPIZq72uGUyqVKrXa81yefW+R5Ypvx9BSKJ9ZPstJHw7NNdk2c3daKLVWRBRkMZr1a3Qyzx/bIl+SWNCTTMBn//EABcRAAMBAAAAAAAAAAAAAAAAAAABEBH/2gAIAQIBAT8ANNcU/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwBf/9k=
   - file: white-temple.jpg
     alt: Carved white timber temple installation.
     date: "2026-05-18"
@@ -238,6 +322,11 @@ images:
       focal_length: 9mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/white-temple.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/white-temple__med.webp
+    s3_thumb_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/white-temple__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFAv/EABQBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAJb0lkdCoP8A/8QAIRAAAgICAQQDAAAAAAAAAAAAAQIDEQAEIRIiMTNBUYH/2gAIAQEAAT8A12jHCSePocjH6XWz1Nzkrw6+vLVq10Pk3kOpsUxZAtkeTia06D2g995twTDXUN3FXJ/Dn//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/AKr/xAAWEQEBAQAAAAAAAAAAAAAAAAABABH/2gAIAQMBAT8AyAv/2Q==
   - file: photo-wall.jpg
     alt: Wall of framed photographs.
     date: "2026-05-18"
@@ -253,6 +342,11 @@ images:
       focal_length: 24mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/photo-wall.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/photo-wall__med.webp
+    s3_thumb_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/photo-wall__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAUBAgQG/8QAFgEBAQEAAAAAAAAAAAAAAAAAAwEC/9oADAMBAAIQAxAAAACeUaKzXOWLj//EACAQAAICAwABBQAAAAAAAAAAAAECAxEABBIhExQxMkP/2gAIAQEAAT8A2Bp7QRSX6qhRuqwySMn28EUBXyMVXkuMVYs+TWe610/WO+cheBQpHXqACxzeSM7PJMFFMxz/xAAXEQADAQAAAAAAAAAAAAAAAAABEBEh/9oACAECAQE/ADZi/8QAGREBAAIDAAAAAAAAAAAAAAAAAQACESEi/9oACAEDAQE/AKpnqLtn/9k=
   - file: erosion-texture.jpg
     alt: Wall of rock inside MONA.
     date: "2026-05-18"
@@ -269,6 +363,13 @@ images:
       focal_length: 9mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/erosion-texture.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/erosion-texture__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/erosion-texture__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEGBf/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/aAAwDAQACEAMQAAAAl3RMOcN8t//EACQQAQACAgADCQAAAAAAAAAAAAECEQADMUJxBBITISJRgaHR/9oACAEBAAE/AHUnGRTjCUeY6mMJ8TZXw/matW5L8ObfOEUyWrtJ6aZlewH1ncQ8jpVZ/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQIBAT8AR//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8AP//Z
   - file: bonsai-vitrine.jpg
     alt: A bonsai tree in a glass vitrine.
     date: "2026-05-18"
@@ -285,6 +386,12 @@ images:
       focal_length: 72mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/bonsai-vitrine.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/bonsai-vitrine__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/bonsai-vitrine__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMFAgb/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/2gAMAwEAAhADEAAAAObtzsZNA0c//8QAHhABAQACAgMBAQAAAAAAAAAAAQIABAMREyExBUH/2gAIAQEAAT8AuL7nyTJ7n5mg6/Hsw1xDOfs0Xtc1TIS36DNjxCUH9nHYntCzrvvsPuVcVKoK5//EABcRAQEBAQAAAAAAAAAAAAAAAAEAMXH/2gAIAQIBAT8AN4xf/8QAGREAAgMBAAAAAAAAAAAAAAAAAEECIVFx/9oACAEDAQE/AJ20Zw//2Q==
   - file: siloam-tunnel.jpg
     alt: Visitors viewing a tapestry through a concrete tunnel.
     date: "2026-05-18"
@@ -300,6 +407,12 @@ images:
       focal_length: 19mm
       width: 3648
       height: 5472
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/siloam-tunnel.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/siloam-tunnel__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/siloam-tunnel__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAkABgDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAMEBQYB/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAECA//aAAwDAQACEAMQAAAAz5c+0LxRNSbXOzTVZCDoJDPSsHP/xAAiEAACAgIBAwUAAAAAAAAAAAABAgARAwQxEiFxEyKBkqL/2gAIAQEAAT8ATa23NKwPa+FE9XeFn2/iHez1yn1ExnufENKo5+RGmpkVXJN8TLkUone7mRwLmumRmoN0+RMK7AxdRN2bo3MoYEijzEQQosfEk//EABYRAAMAAAAAAAAAAAAAAAAAAAABIP/aAAgBAgEBPwCUf//EABYRAAMAAAAAAAAAAAAAAAAAAAABIP/aAAgBAwEBPwCWf//Z
   - file: hanging-films.jpg
     alt: Hanging strips of burnt film.
     date: "2026-05-18"
@@ -315,6 +428,12 @@ images:
       focal_length: 9mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/hanging-films.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/hanging-films__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/hanging-films__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQGA//EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAACUbT2i60mAf//EACIQAAIBBAEEAwAAAAAAAAAAAAECAAMEERIyBRQhIiNhYv/aAAgBAQABPwDTYp5wQqwM60gdgdawGD9DM6D27I7N6tb04GxofzDW+FlxybJlteNQp3Op5hQJ/8QAFxEBAQEBAAAAAAAAAAAAAAAAAQAhMf/aAAgBAgEBPwBOSa5f/8QAFREBAQAAAAAAAAAAAAAAAAAAAIH/2gAIAQMBAT8AV//Z
   - file: snake-installation.jpg
     alt: Inside the snake installation.
     date: "2026-05-18"
@@ -332,6 +451,13 @@ images:
       focal_length: 9mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/snake-installation.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/snake-installation__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/snake-installation__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABQABBP/EABQBAQAAAAAAAAAAAAAAAAAAAAL/2gAMAwEAAhADEAAAAAFuXClI6R//xAAiEAACAQMEAgMAAAAAAAAAAAABAgMAESIEEiExBRRCgdH/2gAIAQEAAT8AVI2FvXQELyRf9rS6fx7JnGivc4ljSR6BsUjh6+SGjFiGUhQ331QhYskhcYnom5NIIk3ndzY8mv/EABcRAQADAAAAAAAAAAAAAAAAAAABERL/2gAIAQIBAT8A0uX/xAAVEQEBAAAAAAAAAAAAAAAAAAAQEf/aAAgBAwEBPwCH/9k=
   - file: snake-overview.jpg
     alt: Wide view of the snake installation.
     date: "2026-05-18"
@@ -348,6 +474,12 @@ images:
       focal_length: 9mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/snake-overview.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/snake-overview__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/snake-overview__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMBBAX/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAAAy5XbhYsr/8QAIRAAAgICAgEFAAAAAAAAAAAAAQIDEQATIUEEEhQyUWH/2gAIAQEAAT8Ah8iXx4jqelXps95LxLZ2bPjk0s08Q2Nakigv3ioxdeAFHWXFqAoeq7v9wtTluCD1n//EABURAQEAAAAAAAAAAAAAAAAAABAh/9oACAECAQE/AKf/xAAVEQEBAAAAAAAAAAAAAAAAAAAQIf/aAAgBAwEBPwCH/9k=
   - file: glass-ceiling-detail.jpg
     alt: Detail of a glass-and-light ceiling installation.
     date: "2026-05-18"
@@ -365,6 +497,14 @@ images:
       focal_length: 9mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/glass-ceiling-detail.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/glass-ceiling-detail__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/glass-ceiling-detail__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMCBAb/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAAAzsWMioMK/8QAHhAAAgEEAwEAAAAAAAAAAAAAAQIAAxESIjFRYYH/2gAIAQEAAT8ASm1QnS7WhB+CNYKDiQezKK2XJahGPEKB8RrxKioGO569Np//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AD//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AD//2Q==
   - file: screens-corridor.jpg
     alt: Long corridor with rows of small video screens.
     date: "2026-05-18"
@@ -382,4 +522,11 @@ images:
       focal_length: 9mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/screens-corridor.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/screens-corridor__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mona/screens-corridor__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAMCBv/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAONTwUSH/8QAIRAAAgIBAwUBAAAAAAAAAAAAAQIDEQAEEhMxMkFRYYH/2gAIAQEAAT8AXT6roYHP5jh07gy/GFHDDOyb+NtlXdYupnCheVq9A40rmjuN4ssigqHYA+Lz/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwA//9k=
 cover: fat-car

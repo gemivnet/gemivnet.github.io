@@ -35,6 +35,14 @@ images:
     exif:
       width: 1800
       height: 1350
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/japan/suggestions/kiyomizu-dera-view.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/japan/suggestions/kiyomizu-dera-view__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/japan/suggestions/kiyomizu-dera-view__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAASABgDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAQFBgL/xAAWAQEBAQAAAAAAAAAAAAAAAAABAgT/2gAMAwEAAhADEAAAAJ0/IdzN+zwaexM6A//EACEQAAIBBAEFAQAAAAAAAAAAAAECAwAEETFRBRQhIjJh/9oACAEBAAE/AE6PaRNlRxTxqqBUwMceKjSVNsm9AZo394JQO4ITGzS3l4ww07b3TSMVMZlkPPtT/DfjCrUkiQE59qj+5BX/xAAbEQACAQUAAAAAAAAAAAAAAAAAAhMDEBEyUf/aAAgBAgEBPwCangnXg2tv/8QAGREAAgMBAAAAAAAAAAAAAAAAAAEREjFh/9oACAEDAQE/AIZXohYf/9k=
   nunobiki-falls.jpg:
     s3: >-
       https://georgemain-com-media.s3.amazonaws.com/musings/travel/japan/suggestions/nunobiki-falls.jpg
@@ -46,6 +54,14 @@ images:
     exif:
       width: 1800
       height: 1350
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/japan/suggestions/nunobiki-falls.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/japan/suggestions/nunobiki-falls__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/japan/suggestions/nunobiki-falls__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAASABgDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAUDBAL/xAAXAQADAQAAAAAAAAAAAAAAAAABAgMA/9oADAMBAAIQAxAAAADHrlUJ6I1AdXgq8sIP/8QAJRAAAgEDAwIHAAAAAAAAAAAAAQIDABEhBBJRBXETFCIxNEPC/9oACAEBAAE/ANA6yByrWVhmpoBl/FcrxxWtfdtXcSt8ZGalmk0rpb2K3RuRUmo8xCqkWa24gVNJD6jGgvepgD01bi9jik+Rpe35pPt71//EABkRAAMAAwAAAAAAAAAAAAAAAAABAhEhMf/aAAgBAgEBPwBStmGiSun/xAAYEQACAwAAAAAAAAAAAAAAAAAAAhARMf/aAAgBAwEBPwAobY//2Q==
   vending-machine-mountain.jpg:
     s3: >-
       https://georgemain-com-media.s3.amazonaws.com/musings/travel/japan/suggestions/vending-machine-mountain.jpg
@@ -57,6 +73,14 @@ images:
     exif:
       width: 1400
       height: 1867
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/japan/suggestions/vending-machine-mountain.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/japan/suggestions/vending-machine-mountain__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/japan/suggestions/vending-machine-mountain__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAgABgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAUCAwYE/8QAFwEBAAMAAAAAAAAAAAAAAAAAAQACA//aAAwDAQACEAMQAAAAQ8zN3mZAaBa3S5+K2iQZ/8QAIxAAAgEEAQMFAAAAAAAAAAAAAQIDAAQREjETIWEiUVKBkf/aAAgBAQABPwC5t9WLLxkgimJTCkEeRXqbB/KtgjTwqH2DSjYHyaNokoObWEnb4kVfxxJdzRogChtcCrG16dzCS3DrmjE5J2TXDEq2AVAHFNZG7JnhuF7uxww7gg0p1bKZB96DMp2ViPs1LbbMSuc8nFf/xAAaEQACAgMAAAAAAAAAAAAAAAABAgAQEVFh/9oACAECAQE/AFUkcFKdiYWf/8QAFREBAQAAAAAAAAAAAAAAAAAAEBL/2gAIAQMBAT8AJP/Z
 ---
 
 ![Kyoto from Kiyomizu-dera.](media/kiyomizu-dera-view.jpg)
