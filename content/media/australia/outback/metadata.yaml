@@ -16,6 +16,11 @@ images:
       focal_length: 9mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/roadside-from-bus.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/roadside-from-bus__med.webp
+    s3_thumb_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/roadside-from-bus__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMGBf/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAAA12QTsq8kBf/EAB8QAAICAgEFAAAAAAAAAAAAAAEDAAIEkUIxM1FSgf/aAAgBAQABPwBTsQju03LOxRzruXYk867lHkeIMkeohas9QR8n/8QAGxEAAgEFAAAAAAAAAAAAAAAAAAEDERITQVL/2gAIAQIBAT8AukWqmV8s/8QAGREAAgMBAAAAAAAAAAAAAAAAAAECEhNR/9oACAEDAQE/AKwZmun/2Q==
   - file: emu-at-roadhouse.jpg
     alt: An emu in a pen at a roadhouse.
     date: "2026-05-13"
@@ -31,6 +36,11 @@ images:
       focal_length: 72mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/emu-at-roadhouse.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/emu-at-roadhouse__med.webp
+    s3_thumb_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/emu-at-roadhouse__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAC/9oADAMBAAIQAxAAAABM+gmEpoh//8QAIRAAAQQBAwUAAAAAAAAAAAAAAQACAxESBDJBEzFRkZL/2gAIAQEAAT8AdBEC/EP3cm0I2BwLroWKQwpvNEoat5G2L0g+7y6br8jsmz4ihDD8r//EABcRAAMBAAAAAAAAAAAAAAAAAAABAhL/2gAIAQIBAT8AUsyf/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oACAEDAQE/AGR//9k=
   - file: kulgera-dawn.jpg
     alt: Roadside sign in early dawn light.
     date: "2026-05-13"
@@ -46,6 +56,11 @@ images:
       focal_length: 65mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kulgera-dawn.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kulgera-dawn__med.webp
+    s3_thumb_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kulgera-dawn__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAYBAgX/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAv/aAAwDAQACEAMQAAAA2rpkSchVD//EACAQAAICAgEFAQAAAAAAAAAAAAECABEDBDISFEFEUVL/2gAIAQEAAT8AXe1quxUXewMLWiI25h+QNg6UU7HEfmY8esrh+5CsDfEzI6v7a3XgGf/EABsRAAIBBQAAAAAAAAAAAAAAAAABAxMhMlKR/9oACAECAQE/AKt8XxjmWrP/xAAYEQADAQEAAAAAAAAAAAAAAAAAARNhkf/aAAgBAwEBPwCWrpHUf//Z
   - file: outback-petrol-station.jpg
     alt: An empty outback petrol station at dawn.
     date: "2026-05-13"
@@ -63,6 +78,13 @@ images:
       focal_length: 9mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/outback-petrol-station.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/outback-petrol-station__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/outback-petrol-station__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAUCAwQG/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQD/2gAMAwEAAhADEAAAAN1nOyRwJQv/xAAhEAACAQMDBQAAAAAAAAAAAAACAwEABBIFEWEhMUFRUv/aAAgBAQABPwB2ts3XCLdZfWZUjXlZY3CRX72Per/WxYtoIgJWQdy6TUEMeIrMeKkh4r//xAAYEQACAwAAAAAAAAAAAAAAAAAAMQISUv/aAAgBAgEBPwC0tDZ//8QAGBEAAgMAAAAAAAAAAAAAAAAAADECElL/2gAIAQMBAT8ArDIkf//Z
   - file: northern-territory-sign.jpg
     alt: Welcome to the Northern Territory sign.
     date: "2026-05-13"
@@ -80,6 +102,13 @@ images:
       focal_length: 72mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/northern-territory-sign.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/northern-territory-sign__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/northern-territory-sign__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABQACBP/EABQBAQAAAAAAAAAAAAAAAAAAAAP/2gAMAwEAAhADEAAAADUx9EydwSD/AP/EACIQAAIBAgUFAAAAAAAAAAAAAAECAwASEyExUlMRFCJRkf/aAAgBAQABPwAvBK7sSV9ALV+DkhVl1uIz+CpMQwl0dLSAw8dzdK7UclFH5qvnWMRh1tAA021//8QAGxEAAQQDAAAAAAAAAAAAAAAAAAECAxMxUqH/2gAIAQIBAT8AdE1cdK4tUP/EABoRAAICAwAAAAAAAAAAAAAAAAISAAMhUWH/2gAIAQMBAT8ArMcu3FjHuf/Z
   - file: bus-fueling.jpg
     alt: Adventure Tours bus at a fuel stop.
     date: "2026-05-13"
@@ -95,6 +124,11 @@ images:
       focal_length: 22mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/bus-fueling.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/bus-fueling__med.webp
+    s3_thumb_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/bus-fueling__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAMCBAUG/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgAB/9oADAMBAAIQAxAAAAB0+UcFulEt/8QAJBAAAgEDBAAHAAAAAAAAAAAAAQIDABIxBAUREyIyQVGCkbL/2gAIAQEAAT8Au2lotOApDl/EoP6Nde3xFB2xlsknAotZJO8cqMPQBhg0Z51keRWAyVHsaXVzyFWd1ubzEgHj7ptWpQC5PivFf//EABgRAAIDAAAAAAAAAAAAAAAAAAABEiFB/9oACAECAQE/AKJJYz//xAAZEQEAAgMAAAAAAAAAAAAAAAABAAISQWH/2gAIAQMBAT8Acuwquyf/2Q==
   - file: erldunda-sign.jpg
     alt: Erldunda 'centre of the centre' roadhouse sign.
     date: "2026-05-13"
@@ -110,6 +144,11 @@ images:
       focal_length: 51mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/erldunda-sign.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/erldunda-sign__med.webp
+    s3_thumb_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/erldunda-sign__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAgP/xAAWAQEBAQAAAAAAAAAAAAAAAAADAAL/2gAMAwEAAhADEAAAAHZuegvBHSz/AP/EACAQAAIBBAEFAAAAAAAAAAAAAAECAwAEESEFEhRCYaH/2gAIAQEAAT8At7zi7pmiMao2A26uOPMk7FJMAjy3UmHYhmz06orBjcfwV3uG2NACnW33j2a//8QAGBEAAgMAAAAAAAAAAAAAAAAAABEBAmH/2gAIAQIBAT8Am7Hp/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECAxIxUf/aAAgBAwEBPwBVNbMJcP/Z
   - file: outback-junction.jpg
     alt: Quiet outback road junction.
     date: "2026-05-13"
@@ -125,6 +164,11 @@ images:
       focal_length: 31mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/outback-junction.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/outback-junction__med.webp
+    s3_thumb_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/outback-junction__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABgACBf/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/aAAwDAQACEAMQAAAAT889gNTGLb//xAAgEAACAgIBBQEAAAAAAAAAAAABAgMEABESBRUiMVJh/9oACAEBAAE/AJ7MVeKSR28VG875VZAYkkdvjK3Va9pii7D69ZagkslWkn5MBrIoZ4uRWdFJj4aCjWsRbCKQJwNuHJH5n//EABcRAAMBAAAAAAAAAAAAAAAAAAABE2H/2gAIAQIBAT8ApjKYz//EABgRAAIDAAAAAAAAAAAAAAAAAAABEmGR/9oACAEDAQE/AIOtIOtP/9k=
   - file: uluru-turnoff.jpg
     alt: The turnoff sign for Uluru.
     date: "2026-05-13"
@@ -140,6 +184,11 @@ images:
       focal_length: 72mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru-turnoff.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru-turnoff__med.webp
+    s3_thumb_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru-turnoff__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIDBAX/xAAVAQEBAAAAAAAAAAAAAAAAAAACA//aAAwDAQACEAMQAAAAe6yjXUcoR//EACIQAAICAgEDBQAAAAAAAAAAAAECAwQAERIFISIxMlJhcf/aAAgBAQABPwCmLV5xYXQI2h7eOWOqz1rCxFAiqPb8sTqMF0oZ+MYRxpd+pyGJ4V4xTvGPpst1hY8pJuTAdiTkVRUOzxJ/CRn/xAAZEQACAwEAAAAAAAAAAAAAAAABAgARIUH/2gAIAQIBAT8AL2MuBm7P/8QAGREAAgMBAAAAAAAAAAAAAAAAAAEREhMx/9oACAEDAQE/AM2uwVP/2Q==
   - file: erldunda-motel-sign.jpg
     alt: Roadside signs for the Erldunda Motel.
     date: "2026-05-13"
@@ -155,6 +204,12 @@ images:
       focal_length: 72mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/erldunda-motel-sign.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/erldunda-motel-sign__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/erldunda-motel-sign__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFBv/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/aAAwDAQACEAMQAAAAsLKRitkYEs//xAAgEAACAQQCAwEAAAAAAAAAAAACAxEAAQQSBTEiQVGC/9oACAEBAAE/ALRv+aS5pZjV3PwGYtTB3GPvulcljyOxlOsTrencowMlrU9X6mj5TNPt56zX/8QAGBEAAgMAAAAAAAAAAAAAAAAAAAESIWH/2gAIAQIBAT8AbVEsP//EABYRAAMAAAAAAAAAAAAAAAAAAAEQQf/aAAgBAwEBPwAVf//Z
   - file: centre-of-australia.jpg
     alt: Centre of Australia cast-iron monument.
     date: "2026-05-13"
@@ -170,6 +225,12 @@ images:
       focal_length: 9mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/centre-of-australia.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/centre-of-australia__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/centre-of-australia__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABAACBf/EABYBAQEBAAAAAAAAAAAAAAAAAAMAAf/aAAwDAQACEAMQAAAA5LG4NCSK3//EACQQAAIBAwMDBQAAAAAAAAAAAAEDAgAEERITIgUUISNCUYHB/9oACAEBAAE/AFW8WelNyo8+UgCaU7tmjbbEx2yBPPu+av8AqLrx64HBgKitEs6Z5+8VK0Tr/KZarPkEg1//xAAYEQACAwAAAAAAAAAAAAAAAAAAARESQf/aAAgBAgEBPwCWsLH/xAAYEQACAwAAAAAAAAAAAAAAAAAAARITQf/aAAgBAwEBPwCCelZ//9k=
   - file: cockatiel.jpg
     alt: A cockatiel perched in a wire cage.
     date: "2026-05-14"
@@ -185,6 +246,11 @@ images:
       focal_length: 11mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/cockatiel.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/cockatiel__med.webp
+    s3_thumb_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/cockatiel__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMFBP/EABYBAQEBAAAAAAAAAAAAAAAAAAMBAv/aAAwDAQACEAMQAAAAj1W4yVRQLn//xAAfEAACAgEEAwAAAAAAAAAAAAABAgADEQQSE0EhMUL/2gAIAQEAAT8AWjDY9GUFa6iAw3DqXG03F0X6yInCgwXXEWupNQX5Qa9+/Hcut0bjyUn/xAAWEQEBAQAAAAAAAAAAAAAAAAABEQD/2gAIAQIBAT8AjXF3/8QAGBEAAgMAAAAAAAAAAAAAAAAAABEBQWH/2gAIAQMBAT8AlULT/9k=
   - file: yulara-coach-campground.jpg
     alt: Yulara coach campground.
     date: "2026-05-14"
@@ -202,6 +268,13 @@ images:
       focal_length: 9mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-coach-campground.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-coach-campground__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-coach-campground__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIFBP/EABYBAQEBAAAAAAAAAAAAAAAAAAEAA//aAAwDAQACEAMQAAAAZMLmtQjEf//EACEQAAICAgEEAwAAAAAAAAAAAAECAwQAESESM0JRUnGR/9oACAEBAAE/AIzTkUFbEXGPbqI3dUabTaB/Rj36lRDIrxSMPHeAIo6QvHrAsfxXJKscpBJI+tZ//8QAGxEAAQQDAAAAAAAAAAAAAAAAAAECBBIUIVH/2gAIAQIBAT8AzX8Fk22f/8QAGREBAAIDAAAAAAAAAAAAAAAAAQAEFCFS/9oACAEDAQE/AMI6hVTU/9k=
   - file: yulara-camp-overview.jpg
     alt: Yulara camp overview from above.
     date: "2026-05-14"
@@ -218,6 +291,12 @@ images:
       focal_length: 27mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-camp-overview.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-camp-overview__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-camp-overview__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIDBAX/xAAWAQEBAQAAAAAAAAAAAAAAAAADAAL/2gAMAwEAAhADEAAAAHnqOCuZxq//xAAkEAABAwMDBAMAAAAAAAAAAAABAgMRAAQFEiEiFDFRYnKSof/aAAgBAQABPwAZvIniOnKvjRyuTTEttSfQ0czfAK1pZ+tNWvLtB87GlsOrOyV6ogKKtqds70kQn9r/xAAYEQADAQEAAAAAAAAAAAAAAAAAARNRUv/aAAgBAgEBPwCr0o+z/8QAFxEAAwEAAAAAAAAAAAAAAAAAABNhYv/aAAgBAwEBPwBME4P/2Q==
   - file: road-from-hilltop.jpg
     alt: Outback road seen from a hilltop.
     date: "2026-05-14"
@@ -233,6 +312,11 @@ images:
       focal_length: 33mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/road-from-hilltop.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/road-from-hilltop__med.webp
+    s3_thumb_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/road-from-hilltop__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAYBAgX/xAAWAQEBAQAAAAAAAAAAAAAAAAABAAL/2gAMAwEAAhADEAAAAN66bGFuE0j/xAAhEAABBAEDBQAAAAAAAAAAAAABAAIREgUEE5IhMkFTgv/aAAgBAQABPwBuT0Xm4+UcnoGiS5/FHMY32O4ptbh9gBSICvuVJc+Z7UbuAuDPUCF//8QAFhEAAwAAAAAAAAAAAAAAAAAAAAIT/9oACAECAQE/ALMWY//EABcRAAMBAAAAAAAAAAAAAAAAAAABEwL/2gAIAQMBAT8Algkj/9k=
   - file: desert-oaks.jpg
     alt: Desert oaks dotting the landscape.
     date: "2026-05-14"
@@ -248,6 +332,11 @@ images:
       focal_length: 72mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/desert-oaks.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/desert-oaks__med.webp
+    s3_thumb_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/desert-oaks__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABAAF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAEwxxpQJP//EAB0QAAICAwEBAQAAAAAAAAAAAAECAxEAEiFRBKH/2gAIAQEAAT8ASZmVlDE6lgTWP9KqAW0Niwf3IjNIAwpk4VNd87kk7rG6bBVI6b9x0iaNCX30FZLOI4SYSwAOtZ//xAAVEQEBAAAAAAAAAAAAAAAAAAAAIf/aAAgBAgEBPwBX/8QAFREBAQAAAAAAAAAAAAAAAAAAACH/2gAIAQMBAT8AR//Z
   - file: yulara-eco-tents-overview.jpg
     alt: Yulara eco tents overview.
     date: "2026-05-14"
@@ -265,6 +354,13 @@ images:
       focal_length: 72mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-eco-tents-overview.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-eco-tents-overview__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-eco-tents-overview__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIDBP/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAAAw0Zc1CIf/8QAIRAAAgICAgEFAAAAAAAAAAAAAQIDEQAEITESMkFRYZH/2gAIAQEAAT8Ah1pWQUho9XwP04dPZCF2iIA+wRgiErEJKvpJ5NZFtOhjFuVDdE5s7Gy6rSJ7g+AAwTshpYwPmhn/xAAWEQEBAQAAAAAAAAAAAAAAAAAAESH/2gAIAQIBAT8ArH//xAAYEQACAwAAAAAAAAAAAAAAAAAAARESgf/aAAgBAwEBPwCukI//2Q==
   - file: yulara-camp-from-above.jpg
     alt: Yulara camp from above.
     date: "2026-05-14"
@@ -282,6 +378,13 @@ images:
       focal_length: 52mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-camp-from-above.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-camp-from-above__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-camp-from-above__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAQL/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAQL/2gAMAwEAAhADEAAAAFcVTZIMK//EAB4QAAEFAAIDAAAAAAAAAAAAAAEAAgMREgQhMVFh/9oACAEBAAE/AGcacXmI+PQQj3ecmqJF92U9jRTSSSVrkPiMYkoq5oQHaAHwdp84cwnXa//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/AKr/xAAWEQEBAQAAAAAAAAAAAAAAAAAAERL/2gAIAQMBAT8Ayj//2Q==
   - file: yulara-eco-tents.jpg
     alt: Yulara eco tents, close.
     date: "2026-05-14"
@@ -297,3 +400,8 @@ images:
       focal_length: 9mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-eco-tents.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-eco-tents__med.webp
+    s3_thumb_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/yulara-eco-tents__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFA//EABUBAQEAAAAAAAAAAAAAAAAAAAID/9oADAMBAAIQAxAAAACmpHVNK5iBf//EACQQAAICAgEBCQAAAAAAAAAAAAECAwQAEiERExQiIzEygrHB/9oACAEBAAE/AIrtMJ50hrkj2SKVy/bpdiCwM6bcMDwCMhsxPzDWZJWXVD67Zdma+R4Dv+Z3eyIuh2MS/IZVsSShUSQxlBwy9PojP//EABkRAAIDAQAAAAAAAAAAAAAAAAABAgMRQf/aAAgBAgEBPwBXzzHIdz6f/8QAGhEAAgIDAAAAAAAAAAAAAAAAABEBAgMUUf/aAAgBAwEBPwDXq2iMPD//2Q==

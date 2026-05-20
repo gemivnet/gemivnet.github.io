@@ -28,6 +28,14 @@ images:
       focal_length: 17mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/balanced-boulder.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/balanced-boulder__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/balanced-boulder__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMHBAX/xAAWAQEBAQAAAAAAAAAAAAAAAAABAAL/2gAMAwEAAhADEAAAANieArbQyfkf/8QAIRAAAgEEAQUBAAAAAAAAAAAAAQIDAAQREgUGFSJBUTH/2gAIAQEAAT8AkvOT4+OSZY90Y+RPoirHqWXfEwLhq73Y/XFOVlJ3diR+CmkVBnxx8HvFRXSuuQ+tf//EABkRAAIDAQAAAAAAAAAAAAAAAAACARIhMf/aAAgBAgEBPwCX3hZD/8QAGREBAAIDAAAAAAAAAAAAAAAAAgABETFR/9oACAEDAQE/ACDjcsHs/9k=
   - file: striated-canyon-wall.jpg
     alt: Detail of the layered canyon walls.
     date: "2026-05-15"
@@ -46,6 +54,14 @@ images:
       focal_length: 27mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/striated-canyon-wall.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/striated-canyon-wall__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/striated-canyon-wall__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAQL/xAAWAQEBAQAAAAAAAAAAAAAAAAABAAP/2gAMAwEAAhADEAAAAI3c/TRsRI//xAAhEAABAwMEAwAAAAAAAAAAAAABAAIRAyFBEhMjM0OBkf/aAAgBAQABPwAWwFqYBcj6nupk2ewe1BLewzOTK5B5GI03yDuU4X//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AD//xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAIAQMBAT8AbX//2Q==
   - file: first-dome.jpg
     alt: Misty first beehive dome on the rim walk.
     date: "2026-05-15"
@@ -63,6 +79,13 @@ images:
       focal_length: 17mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/first-dome.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/first-dome__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/first-dome__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABgAF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAgP/2gAMAwEAAhADEAAAAEZ43I7sdjX/xAAiEAACAQMDBQEAAAAAAAAAAAABAgMABBIFITEGERMjYtH/2gAIAQEAAT8Anv7a1h8ryAjgY7kmpup3z9MIx+q1m/g1HSkkXZ0m3SkjAHYsaMceQGRp0HCsCPyv/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAECEQP/2gAIAQIBAT8AfRlVuH//xAAaEQACAgMAAAAAAAAAAAAAAAABAgADESEx/9oACAEDAQE/AFrQd2YqYE//2Q==
   - file: rim-walk-squeeze.jpg
     alt: Looking up at a cliff rim-walk-squeeze.
     date: "2026-05-15"
@@ -81,6 +104,14 @@ images:
       focal_length: 9mm
       width: 3648
       height: 5472
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/rim-walk-squeeze.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/rim-walk-squeeze__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/rim-walk-squeeze__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAkABgDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAIDBQcB/8QAFwEAAwEAAAAAAAAAAAAAAAAAAQIDAP/aAAwDAQACEAMQAAAA39bnO5RdFzUlLpV+zrNSwVGMgV//xAAlEAACAQMDAwUBAAAAAAAAAAABAhEAAwQFEiEiYXEGExQxQUL/2gAIAQEAAT8A0vUFzsZX49wcOooVruacTAco+26/Stem7t1NQ2fw1tprW9cbFb42OQHK9b/q1ce5dfcWLHzNTBBBM+afGlpZhJp7YURu47UCCRCiJpnJH3BBoloJNKOJpSZHeieQK//EABoRAAICAwAAAAAAAAAAAAAAAAERAAIgIkH/2gAIAQIBAT8AerhueY//xAAaEQEAAgMBAAAAAAAAAAAAAAABAhAAESJR/9oACAEDAQE/AGPWjCAX5X//2Q==
   - file: misty-plateau.jpg
     alt: Eroded plateau under low mist.
     date: "2026-05-15"
@@ -98,6 +129,14 @@ images:
       focal_length: 9mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/misty-plateau.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/misty-plateau__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/misty-plateau__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAYEBf/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAAA6emCTVGmB//EACIQAAICAQMEAwAAAAAAAAAAAAECAwQABREhEiIxUjJysf/aAAgBAQABPwCnqlOwoKzAH1bg496opKmxFv8AYZd1KpIksQn24+QxFi8heRnTG2/av5jrF6nP/8QAFxEBAAMAAAAAAAAAAAAAAAAAAAESE//aAAgBAgEBPwDRaX//xAAWEQEBAQAAAAAAAAAAAAAAAAAAEhP/2gAIAQMBAT8AzQ//2Q==
   - file: plateau-gum-tree.jpg
     alt: A gum tree growing on the canyon plateau.
     date: "2026-05-15"
@@ -116,6 +155,14 @@ images:
       focal_length: 15mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/plateau-gum-tree.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/plateau-gum-tree__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/plateau-gum-tree__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAYDBP/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAADLply2KMJ//8QAJBAAAQMDAQkAAAAAAAAAAAAAAgABAxESFgUTISIxMkFCYYH/2gAIAQEAAT8AyEfGB/pLII7WtiO5S6xBEEe06yarsHFRANeQtvZE5h2JvSuIl//EABcRAAMBAAAAAAAAAAAAAAAAAAACE1H/2gAIAQIBAT8AoxVsP//EABgRAQEAAwAAAAAAAAAAAAAAAAEAAgMR/9oACAEDAQE/AHWcjAv/2Q==
   - file: eroded-rim.jpg
     alt: Eroded canyon rim in the rain.
     date: "2026-05-15"
@@ -133,6 +180,13 @@ images:
       focal_length: 17mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/eroded-rim.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/eroded-rim__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/eroded-rim__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAgb/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAAA6GLCyW0Ikv8A/8QAIRAAAQMEAQUAAAAAAAAAAAAAAQACEQMEBSExIkFygbH/2gAIAQEAAT8AZdUtdbd8bWSzwpTSt4Lu71Tz18wOmH+QTKJiSPidb0+Sz2oYARA0v//EABkRAAEFAAAAAAAAAAAAAAAAAAABAgMSYf/aAAgBAgEBPwBZMLuP/8QAGhEBAAEFAAAAAAAAAAAAAAAAAQACAxEhUf/aAAgBAwEBPwAt42xKOT//2Q==
   - file: mushroom-rock.jpg
     alt: Mushroom-shaped eroded rock formation.
     date: "2026-05-15"
@@ -150,6 +204,14 @@ images:
       focal_length: 37mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/mushroom-rock.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/mushroom-rock__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/mushroom-rock__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABQAE/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQL/2gAMAwEAAhADEAAAAERM9Now8n//xAAjEAACAQQBAwUAAAAAAAAAAAABAgMABRESBBQhURMyQXKC/9oACAEBAAE/ALnfOnk9LjaMR72NNfrg4I3H5WuBepITL1buya9vk5p445m3aMkk+cU3HjXOignwDTccYYy4z9u9f//EABYRAAMAAAAAAAAAAAAAAAAAAAABA//aAAgBAgEBPwB0FQ//xAAYEQACAwAAAAAAAAAAAAAAAAAAAQIDYf/aAAgBAwEBPwBQwdbP/9k=
   - file: lost-city-domes.jpg
     alt: The 'Lost City' of beehive domes.
     date: "2026-05-15"
@@ -168,6 +230,14 @@ images:
       focal_length: 25mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/lost-city-domes.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/lost-city-domes__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/lost-city-domes__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAWAQEBAQAAAAAAAAAAAAAAAAADAAL/2gAMAwEAAhADEAAAACONqKQsf//EACIQAAIBAgUFAAAAAAAAAAAAAAECAAMFBBFBUaIxQ1OBkf/aAAgBAQABPwBLyp7HKG8Nph+Ua8v4B9mSHq6mGlTO/qPTqDRMtycjP//EABgRAAIDAAAAAAAAAAAAAAAAAAACEhNR/9oACAECAQE/AJsWNp//xAAZEQACAwEAAAAAAAAAAAAAAAAAAgETUVL/2gAIAQMBAT8ArXCVXk//2Q==
   - file: canyon-rim-trail.jpg
     alt: Part of the canyon rim trail.
     date: "2026-05-15"
@@ -186,6 +256,14 @@ images:
       focal_length: 14mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/canyon-rim-trail.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/canyon-rim-trail__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/canyon-rim-trail__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQGBf/EABcBAAMBAAAAAAAAAAAAAAAAAAECAwT/2gAMAwEAAhADEAAAAMGwh2JaGBYDf//EACIQAAIBAgUFAAAAAAAAAAAAAAECAwAEBRIxUYEGESRCov/aAAgBAQABPwC3uJoGV0zKQdVpupAbQZIvI+ausRxC6UiWdiu2gqM5mLGUdhtRePQSjkUYifaM8V//xAAWEQADAAAAAAAAAAAAAAAAAAAAARL/2gAIAQIBAT8Apoo//8QAGREAAwADAAAAAAAAAAAAAAAAAAESAjFR/9oACAEDAQE/AIWW0QuH/9k=
   - file: cliff-detail.jpg
     alt: Close-up of the canyon cliff.
     date: "2026-05-15"
@@ -203,6 +281,13 @@ images:
       focal_length: 27mm
       width: 3648
       height: 5472
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/cliff-detail.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/cliff-detail__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/cliff-detail__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAkABgDASIAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAQGAQIFA//EABcBAAMBAAAAAAAAAAAAAAAAAAABAgP/2gAMAwEAAhADEAAAALpBoXPnSwq6nTo6wps1h6GuJJEbhH//xAAkEAEAAQQBBAEFAAAAAAAAAAABAgADBBEhBRIxURMyQkNygf/aAAgBAQABPwAayOr4OMsZ3tyPJHmur9fuZO7WMsLKc+2p5GTpDJufybTHn6aYnqi2efktxNeabXy/kJfrBKcRkLCW9eReSo9vCEajlz19tGRKIu3k9jSpOQNd7Lt3XJt3X//EABoRAAICAwAAAAAAAAAAAAAAAAABAhAREkH/2gAIAQIBAT8A3HKsIfBH/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECQQMRIv/aAAgBAwEBPwBY3YoGjqhWM//Z
   - file: garden-of-eden-hikers.jpg
     alt: Hikers near the Garden of Eden.
     date: "2026-05-15"
@@ -221,6 +306,14 @@ images:
       focal_length: 58mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/garden-of-eden-hikers.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/garden-of-eden-hikers__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/garden-of-eden-hikers__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAECBAX/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/2gAMAwEAAhADEAAAAMpKZdcC5//EAB8QAAICAQQDAAAAAAAAAAAAAAECABEDEiExUSJSYf/aAAgBAQABPwDAim6obURUzLZ2AvuBXbyYiorOEYBeee4j49Jv1r7HyqRSmf/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8AP//EABYRAQEBAAAAAAAAAAAAAAAAAAAREv/aAAgBAwEBPwDSv//Z
   - file: garden-of-eden-bridge.jpg
     alt: Wooden bridge in the Garden of Eden.
     date: "2026-05-15"
@@ -239,6 +332,14 @@ images:
       focal_length: 9mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/garden-of-eden-bridge.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/garden-of-eden-bridge__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/garden-of-eden-bridge__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABQAG/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAL/2gAMAwEAAhADEAAAACWMqpNNRsf/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABBESMlEFBhMxkf/aAAgBAQABPwC2nurZtUchQ45qLuC+G9x8qfr928ZVdCHmhOWYj2ajiyQxTGRXiXO7Ar//xAAYEQACAwAAAAAAAAAAAAAAAAAAARESYf/aAAgBAgEBPwCWi+n/xAAZEQEAAgMAAAAAAAAAAAAAAAABACECEVH/2gAIAQMBAT8Ab1UDE5P/2Q==
   - file: garden-of-eden-pool.jpg
     alt: Pool in the Garden of Eden.
     date: "2026-05-15"
@@ -257,6 +358,14 @@ images:
       focal_length: 17mm
       width: 3648
       height: 5472
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/garden-of-eden-pool.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/garden-of-eden-pool__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/garden-of-eden-pool__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAkABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMGBQT/xAAXAQEBAQEAAAAAAAAAAAAAAAACAQAD/9oADAMBAAIQAxAAAACatozYDuCaFyj+t3XXljTTVcFSgNP/xAAkEAACAgICAQMFAAAAAAAAAAABAgMRACEEBRITMVEiQVJh0f/aAAgBAQABPwCWIRMrBjbHfyM67kjkKlMfPw9j8jIvRWMMCFBF1erxZPo0QRYu91nElWJUo6s43YSGMKdD+ZIJo6Z1FHQUayGCeZQYzsfbJuZJEtHTjRGTxyuoVEDOo3+xnUrOXCMKztuMUcN+RbIxoZGTRPscmVXADKCANXn/xAAYEQADAQEAAAAAAAAAAAAAAAAAARESIf/aAAgBAgEBPwCxmkLrJBDP/8QAGREAAgMBAAAAAAAAAAAAAAAAAAECEBEx/9oACAEDAQE/AM2NPlMR/9k=
   - file: lost-city-overview.jpg
     alt: Wide view over the Lost City domes.
     date: "2026-05-15"
@@ -275,6 +384,14 @@ images:
       focal_length: 40mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/lost-city-overview.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/lost-city-overview__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/lost-city-overview__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIDBf/EABYBAQEBAAAAAAAAAAAAAAAAAAEDBP/aAAwDAQACEAMQAAAA4tqhplqH/8QAIBAAAQMCBwAAAAAAAAAAAAAAAQACEQNxEhMhMWFygf/aAAgBAQABPwBoahdRymUXOGoCyzOGDfYIU+o9X//EABcRAAMBAAAAAAAAAAAAAAAAAAABElH/2gAIAQIBAT8Ap6Uz/8QAGREAAgMBAAAAAAAAAAAAAAAAAAECESEi/9oACAEDAQE/AElnJUT/2Q==
   - file: trail-back-down.jpg
     alt: Trail leading back down off the rim.
     date: "2026-05-15"
@@ -293,4 +410,12 @@ images:
       focal_length: 11mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/trail-back-down.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/trail-back-down__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/kings-canyon/trail-back-down__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAwAEBf/EABYBAQEBAAAAAAAAAAAAAAAAAAMAAf/aAAwDAQACEAMQAAAAcuC4sdnrf//EACIQAAIBAwQCAwAAAAAAAAAAAAECAAMEEQUSQVETIVKBkf/aAAgBAQABPwBdduPikra9dZwu36Evrlrli9TAY9RajOwCfkphG8qeye+JXUbecmf/xAAYEQADAQEAAAAAAAAAAAAAAAAAAQIRQf/aAAgBAgEBPwB3QnvT/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAECAxH/2gAIAQMBAT8AnNUOOM//2Q==
 cover: lost-city-overview

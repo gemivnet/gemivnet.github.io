@@ -27,6 +27,13 @@ images:
       focal_length: 44mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-wide-daytime.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-wide-daytime__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-wide-daytime__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAUGAf/EABcBAAMBAAAAAAAAAAAAAAAAAAABAgP/2gAMAwEAAhADEAAAAGIg3O6AngX/xAAjEAABAgYABwAAAAAAAAAAAAABAAIDBBESITETFCJBUVJx/9oACAEBAAE/AHT8tXDrlz8D1CE7Ku28NQjMHSQfqMU3i3Q7eVeTnhiuslf/xAAZEQABBQAAAAAAAAAAAAAAAAAAAQITFFH/2gAIAQIBAT8AmcWFw//EABcRAAMBAAAAAAAAAAAAAAAAAAACEwH/2gAIAQMBAT8AmhJdP//Z
   - file: uluru-sunset.jpg
     alt: Uluru glowing red at sunset.
     date: "2026-05-14"
@@ -42,6 +49,11 @@ images:
       focal_length: 25mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-sunset.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-sunset__med.webp
+    s3_thumb_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-sunset__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAUCAwT/xAAVAQEBAAAAAAAAAAAAAAAAAAACA//aAAwDAQACEAMQAAAAtzppzo3EYx//xAAgEAACAQMEAwAAAAAAAAAAAAABAgADBBEFEiJhMUFR/9oACAEBAAE/AHvkUkKVPeY+pVAeKIwlLUUqtsddnfqJcO3yGo+cggiPdFQD5n//xAAaEQACAgMAAAAAAAAAAAAAAAAAAgEDERNS/9oACAECAQE/ANr5Iubk/8QAGREAAwADAAAAAAAAAAAAAAAAAAIRATEy/9oACAEDAQE/AMKk5GRbuH//2Q==
   - file: uluru-cliff-detail.jpg
     alt: Cliff face of Uluru at sunset, close-up.
     date: "2026-05-14"
@@ -59,6 +71,13 @@ images:
       focal_length: 72mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-cliff-detail.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-cliff-detail__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-cliff-detail__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABAACA//EABUBAQEAAAAAAAAAAAAAAAAAAAID/9oADAMBAAIQAxAAAADBg8i3QKVv/8QAHxAAAgIBBAMAAAAAAAAAAAAAAQIAAwQRFDJBUVJi/9oACAEBAAE/AGIUamNa3Qjtb7x869141ibm7wkOTf8AE//EABsRAAIBBQAAAAAAAAAAAAAAAAEDAAIRISJS/9oACAECAQE/AGMqJ1OJdnU//8QAHBEAAQMFAAAAAAAAAAAAAAAAAQACAyEiI1Kh/9oACAEDAQE/AImMAvFVi14v/9k=
   - file: uluru-profile.jpg
     alt: Side profile of Uluru in evening light.
     date: "2026-05-14"
@@ -74,6 +93,12 @@ images:
       focal_length: 72mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-profile.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-profile__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-profile__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EABUBAQEAAAAAAAAAAAAAAAAAAAQD/9oADAMBAAIQAxAAAABEy5YJ0THEG//EAB4QAAICAgIDAAAAAAAAAAAAAAECAAMEIRFREhNB/9oACAEBAAE/ACHJ1a4lt99XDKwcfQwlGdXawRk8SYctyNIsex7C3IQHsanrYdT/xAAYEQADAQEAAAAAAAAAAAAAAAAAAQIDMv/aAAgBAgEBPwCKtPpi2P/EABsRAQABBQEAAAAAAAAAAAAAAAEAAgMREyEy/9oACAEDAQE/AK9SeSNoXjif/9k=
   - file: outback-sky-clouds.jpg
     alt: Dramatic clouds with sun breaking through.
     date: "2026-05-14"
@@ -91,6 +116,13 @@ images:
       focal_length: 38mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/outback-sky-clouds.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/outback-sky-clouds__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/outback-sky-clouds__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAUCAwb/xAAVAQEBAAAAAAAAAAAAAAAAAAABAP/aAAwDAQACEAMQAAAAUts3eUwE/8QAIhAAAQMEAQUBAAAAAAAAAAAAAQIDEQAEEhMhBTFCUnKR/9oACAEBAAE/ALJVwlJwdgDxkCf2rm36W8y1LSsyZVqVT9jZo5bbfP1TIYbUDuVlR17c0niewEUq4hBBCIB9+TX/xAAWEQEBAQAAAAAAAAAAAAAAAAABACH/2gAIAQIBAT8AXYS//8QAFhEBAQEAAAAAAAAAAAAAAAAAACER/9oACAEDAQE/AMiv/9k=
   - file: adventure-tours-bus.jpg
     alt: The Adventure Tours bus.
     date: "2026-05-14"
@@ -108,6 +140,13 @@ images:
       focal_length: 31mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/adventure-tours-bus.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/adventure-tours-bus__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/adventure-tours-bus__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAYHAwT/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAAAYdETmqaWT0H/xAAhEAABAwQBBQAAAAAAAAAAAAABAgMEABESIWETI0Fykv/aAAgBAQABPwBT8RKu6sH2IoSoCRrD6FIksOk9FwEp8ap+cXX8y0d8A40Hbouts58AAVDmqiOh5tgldrEE6r//xAAXEQADAQAAAAAAAAAAAAAAAAAAARFh/9oACAECAQE/ALpUf//EABcRAAMBAAAAAAAAAAAAAAAAAAABEVH/2gAIAQMBAT8AjxEZ/9k=
   - file: uluru-behind-grass.jpg
     alt: Uluru visible above tall grass and a fence.
     date: "2026-05-14"
@@ -125,6 +164,13 @@ images:
       focal_length: 40mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-behind-grass.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-behind-grass__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-behind-grass__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUE/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQL/2gAMAwEAAhADEAAAANiGkuIZf//EAB4QAAICAgIDAAAAAAAAAAAAAAECAAMEESGBMVFh/9oACAEBAAE/ACVHkicfICvrczXc2bDbWV463IC9vW4MTHPK3MO5/8QAGBEAAwEBAAAAAAAAAAAAAAAAABQhAjL/2gAIAQIBAT8AavMGcH//xAAZEQACAwEAAAAAAAAAAAAAAAAAAQMTUWL/2gAIAQMBAT8AUL0o6P/Z
   - file: shoe-prints-in-sand.jpg
     alt: Shoe prints in red sand.
     date: "2026-05-14"
@@ -142,6 +188,13 @@ images:
       focal_length: 46mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/shoe-prints-in-sand.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/shoe-prints-in-sand__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/shoe-prints-in-sand__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIDAQX/xAAWAQEBAQAAAAAAAAAAAAAAAAADBAX/2gAMAwEAAhADEAAAAIrxWi0cJjD/AP/EAB8QAAEEAgIDAAAAAAAAAAAAAAEAAgMSBDERIUJRYf/aAAgBAQABPwC7U+rm1cBVTwmI+wm5UzfMo5UhHGvoRlfwe97X/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERE//aAAgBAgEBPwDNip//xAAYEQADAQEAAAAAAAAAAAAAAAAAARETIf/aAAgBAwEBPwDRDl4f/9k=
   - file: uluru-dusk.jpg
     alt: Uluru at dusk from the viewing area.
     date: "2026-05-14"
@@ -157,6 +210,11 @@ images:
       focal_length: 22mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-dusk.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-dusk__med.webp
+    s3_thumb_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-dusk__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAUBAgMG/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQL/2gAMAwEAAhADEAAAAKTzugvBAXH/xAAhEAACAQMDBQAAAAAAAAAAAAABAgADEyEEERIUMUFRkf/aAAgBAQABPwDkq99hLlP2PsYpKuod6gPmX1GMzrGTCnBn/8QAGhEBAAIDAQAAAAAAAAAAAAAAAQADAhEhQf/aAAgBAgEBPwBvfMYXGujP/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECAxEhQf/aAAgBAwEBPwBVR7IdTzpo/9k=
   - file: uluru-cliff-face-close.jpg
     alt: Uluru's cliff face at sunset, close.
     date: "2026-05-14"
@@ -175,6 +233,14 @@ images:
       focal_length: 72mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-cliff-face-close.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-cliff-face-close__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-cliff-face-close__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAUBAwT/xAAVAQEBAAAAAAAAAAAAAAAAAAAEA//aAAwDAQACEAMQAAAAVXYoglsLxA//xAAeEAACAQMFAAAAAAAAAAAAAAABAgADEiIEETFSkf/aAAgBAQABPwBazxKwPIlsW4AZDyXMN8liauquBZCQOs//xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIDE0L/2gAIAQIBAT8AWW10b4P/xAAZEQADAAMAAAAAAAAAAAAAAAAAAgMTQpH/2gAIAQMBAT8Aacm14YXP/9k=
   - file: uluru-distant-dusk.jpg
     alt: Uluru in the distance at dusk.
     date: "2026-05-14"
@@ -192,6 +258,13 @@ images:
       focal_length: 30mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-distant-dusk.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-distant-dusk__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/uluru-distant-dusk__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAUGAgP/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/2gAMAwEAAhADEAAAAKfjF4zTwSkf/8QAIRAAAgIBAgcAAAAAAAAAAAAAAQIAAyERQQQFEhMxQmH/2gAIAQEAAT8A7oHsJdxYprZy3iW87s2RdIHrUHGdsSs2nXrwPsfKkFp//8QAFhEAAwAAAAAAAAAAAAAAAAAAAAET/9oACAECAQE/AKlGz//EABgRAAIDAAAAAAAAAAAAAAAAAAABEhNS/9oACAEDAQE/AKyKyf/Z
   - file: outback-sunset.jpg
     alt: Sunset over the outback.
     date: "2026-05-14"
@@ -208,3 +281,9 @@ images:
       focal_length: 55mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/outback-sunset.webp
+    s3_med_webp: https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/outback-sunset__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/outback/uluru/outback-sunset__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABAADBv/EABQBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAOKQHUURJP/EACEQAAEDAwQDAAAAAAAAAAAAAAEAAgMEERITMUGRUVJT/9oACAEBAAE/AGtJ4QilsDpmx2KME3oelm87uKFVUBuImfbxktWX6O7X/8QAGREAAgMBAAAAAAAAAAAAAAAAAAECEUFh/9oACAECAQE/AG5ZRcuH/8QAGREAAgMBAAAAAAAAAAAAAAAAAAIBEkFR/9oACAEDAQE/AIhNsVTjH//Z

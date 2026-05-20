@@ -37,6 +37,14 @@ images:
     exif:
       width: 1400
       height: 1864
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/australia/great-barrier-reef/boat-deck-gear.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/australia/great-barrier-reef/boat-deck-gear__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/australia/great-barrier-reef/boat-deck-gear__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAgABgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAIDBAYF/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAEDAv/aAAwDAQACEAMQAAAA0+T6UdsWCURnaqNKt4QR/8QAIRAAAgICAwEAAwEAAAAAAAAAAQMCEgARBCFBEwUxkWH/2gAIAQEAAT8Aa9fHWZW2fBnIbMsv7M9E+nOEgNWmUogkMJBx3KjOZLkNFT/lRnNcsfL4x6nsTJGzn4xw+AhWoiP7sDHx+JC5vKrd1uZbziBzVTkWEm2xHzrC+aROcWjutoH0Ad6yclstNyixm4mxOqgeZCwmio1oQ/XuNVCZNgbX6I/uf//EABgRAAMBAQAAAAAAAAAAAAAAAAABAhES/9oACAECAQE/ADS6aJrpaf/EABwRAAEDBQAAAAAAAAAAAAAAAAIAAxEBEBIxYf/aAAgBAwEBPwCzQiW5jicDA6iv/9k=
   green-island-from-boat.jpg:
     s3: >-
       https://georgemain-com-media.s3.amazonaws.com/musings/travel/australia/great-barrier-reef/green-island-from-boat.jpg
@@ -48,6 +56,14 @@ images:
     exif:
       width: 1800
       height: 1352
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/australia/great-barrier-reef/green-island-from-boat.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/australia/great-barrier-reef/green-island-from-boat__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/musings/travel/australia/great-barrier-reef/green-island-from-boat__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAASABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAUBBP/EABcBAAMBAAAAAAAAAAAAAAAAAAABBQP/2gAMAwEAAhADEAAAAO/IajPtIwJoyVQD/8QAIxAAAgEDBAEFAAAAAAAAAAAAAQIAAxIhBBETMRAUQVKBkf/aAAgBAQABPwAaQQ6Jsm2ejb4zmqsNryfuclYd3gQaqsBiq374R3U4YjPsZarULmAJ27M//8QAGREAAgMBAAAAAAAAAAAAAAAAAAECMWES/9oACAECAQE/AFN4dPB0Kj//xAAaEQACAgMAAAAAAAAAAAAAAAAAAgEyElJh/9oACAEDAQE/AJaNZM16LYex/9k=
 ---
 
 ![Green Island seen from the snorkeling mooring point. Looks calm. Looks are deceptive.](media/green-island-from-boat.jpg)

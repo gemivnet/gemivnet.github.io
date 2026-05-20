@@ -30,6 +30,13 @@ images:
       focal_length: 35mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mt-field/russell-falls.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mt-field/russell-falls__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mt-field/russell-falls__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQBBQb/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAv/aAAwDAQACEAMQAAAAzbkOFEMEv//EAB8QAAMAAgICAwAAAAAAAAAAAAECAwASESEEMQVRkf/aAAgBAQABPwCKGjA8dLM+8jC0ywSYcvP82x0ZH1dde8hPyIoLHUKUPthjfJFdWlptovHX1l7Grs9eF29kZ//EABURAQEAAAAAAAAAAAAAAAAAABBB/9oACAECAQE/AIf/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AD//2Q==
   - file: top-of-russell-falls.jpg
     title: Top of Russell Falls
     alt: Top of Russell Falls.
@@ -48,6 +55,14 @@ images:
       focal_length: 13mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mt-field/top-of-russell-falls.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mt-field/top-of-russell-falls__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mt-field/top-of-russell-falls__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAUGA//EABYBAQEBAAAAAAAAAAAAAAAAAAEAAv/aAAwDAQACEAMQAAAASsZarxIDcX//xAAhEAABBAEEAwEAAAAAAAAAAAABAAIDBCEFERIxEyMzQf/aAAgBAQABPwClftRD6HZN1qxgErU7Dp7G+MBRTEuaPzfpVm0OHlii5kY9mVblLLMxLAzkG4HQIX//xAAXEQADAQAAAAAAAAAAAAAAAAABEBEx/9oACAECAQE/AIbq/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwA//9k=
   - file: horseshoe-falls-base.jpg
     title: Horseshoe Falls
     alt: Horseshoe Falls (close-up).
@@ -66,6 +81,14 @@ images:
       focal_length: 72mm
       width: 3648
       height: 5472
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mt-field/horseshoe-falls-base.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mt-field/horseshoe-falls-base__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mt-field/horseshoe-falls-base__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAkABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAUGBAH/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAgH/2gAMAwEAAhADEAAAAIqqk7PCs6YTP8tfSDNxLm8KKgJf/8QAJRAAAQMDAwMFAAAAAAAAAAAAAQACAwQFERIhMSJhkRMjMkGC/9oACAEBAAE/AGOdkK3Wqjq8esXtJGxzjKutqipMaMjf7dymfMKin1MDeep5HbCvcgdNCWgAFipYjJK0BRxuGGk8jfyq5xdKB2CtFK6WQEHGDlCiefcDWbDYAK9QHXHISNbhuFRVs9MMRlvhPvdeWs62j8qqqppyHSEEk4X/xAAXEQEBAQEAAAAAAAAAAAAAAAABABAR/9oACAECAQE/AOS4mN//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/AF//2Q==
   - file: horseshoe-falls.jpg
     title: Horseshoe Falls
     alt: Horseshoe Falls.
@@ -83,6 +106,13 @@ images:
       focal_length: 25mm
       width: 5472
       height: 3648
+    s3_webp: https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mt-field/horseshoe-falls.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mt-field/horseshoe-falls__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mt-field/horseshoe-falls__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAUBAwb/xAAWAQEBAQAAAAAAAAAAAAAAAAABAAL/2gAMAwEAAhADEAAAAMkyVv8ANaSD/8QAIxAAAgEDAQkAAAAAAAAAAAAAAQIDAAQREgUhIjEyUVJhof/aAAgBAQABPwCIOys7ch9qG5ibCmMgnAq9W6t2MKBTjBYofIUkvGNQwPVWsVm0qSyEIFcEqzdVbSZWkaWIsivvVe+mv//EABYRAAMAAAAAAAAAAAAAAAAAAAABEf/aAAgBAgEBPwCJkP/EABURAQEAAAAAAAAAAAAAAAAAAAAh/9oACAEDAQE/AFf/2Q==
   - file: lady-barron-falls.jpg
     title: Lady Barron Falls
     alt: Lady Barron Falls.
@@ -101,3 +131,11 @@ images:
       focal_length: 19mm
       width: 5472
       height: 3648
+    s3_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mt-field/lady-barron-falls.webp
+    s3_med_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mt-field/lady-barron-falls__med.webp
+    s3_thumb_webp: >-
+      https://georgemain-com-media.s3.amazonaws.com/australia/tasmania/mt-field/lady-barron-falls__thumb.webp
+    lqip: >-
+      data:image/jpeg;base64,/9j/2wBDABAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////2wBDARAQEBAREBIUFBIZGxgbGSUiHx8iJTgoKygrKDhVNT41NT41VUtbSkVKW0uHal5eaoecg3yDnL2pqb3u4u7/////wgARCAAQABgDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABgAE/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAACSPAiB1ro//xAAgEAACAQQBBQAAAAAAAAAAAAACAwEABBESMQUhQlGR/9oACAEBAAE/ALciW0ZgZ+0iMrMiNoxj1FOt9zkl9wzzNdJQth7eQ1dHm3aA86Yq5OASK9slrX//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AD//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AD//2Q==
