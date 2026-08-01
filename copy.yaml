@@ -18,6 +18,7 @@ nav:
   tabs:
     - { id: musings, label: "musings", href: "/musings" }
     - { id: media,   label: "media",   href: "/media" }
+    - { id: rv12is,  label: "RV-12iS", href: "/rv12is" }
 
 # ── homepage ────────────────────────────────────────────────
 home:
@@ -65,9 +66,11 @@ footer:
 
 # ── musings index / category / tag ──────────────────────────
 musings:
+  heading: "Musings."
   index:
     breadcrumb: "~/musings"
     title: "musings"
+    seo_description: "All musings by {author}. {count} posts on travel, code, aviation, home projects."
     sidebar_categories: "categories"
     sidebar_tags: "tags"
   category:
@@ -89,6 +92,28 @@ musings:
     next_label: "next →"
     oldest_note: "— (this is the oldest)"
     newest_note: "— (this is the newest)"
+    back_label: "↑ back to all musings"
+
+# ── rv-12is build log ───────────────────────────────────────
+rv12is:
+  heading: "RV-12iS."
+  index:
+    breadcrumb: "~/rv12is"
+    title: "rv12is"
+    seo_description: "Van's RV-12iS build log — and notes once it's flying."
+  category:
+    breadcrumb_prefix: "~/rv12is/"
+    no_direct_posts: "no entries directly here — see subfolders"
+  tag:
+    breadcrumb_prefix: "~/rv12is/tag/"
+    intro: "Cross-cutting tag. Entries here can live in different folders."
+  post:
+    crumbs_root: "rv12is"
+    prev_label: "← previous"
+    next_label: "next →"
+    oldest_note: "— (this is the oldest)"
+    newest_note: "— (this is the newest)"
+    back_label: "↑ back to the build log"
 
 # ── media ───────────────────────────────────────────────────
 media:

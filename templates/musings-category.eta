@@ -8,9 +8,9 @@
   <div class="musings-main">
     <header style="margin-bottom: var(--sp-5);">
       <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); margin-bottom: var(--sp-3);">
-        <%= copy.musings.category.breadcrumb_prefix %><%= categoryKey %> · <%= allDescendants.length %> post<%= allDescendants.length === 1 ? '' : 's' %><% if (children.length) { %> · <%= children.length %> sub-folder<%= children.length === 1 ? '' : 's' %><% } %>
+        <%= sectionCopy.category.breadcrumb_prefix %><%= categoryKey %> · <%= allDescendants.length %> post<%= allDescendants.length === 1 ? '' : 's' %><% if (children.length) { %> · <%= children.length %> sub-folder<%= children.length === 1 ? '' : 's' %><% } %>
       </div>
-      <h1>musings / <%= categorySegs.join(' / ') %></h1>
+      <h1><%= section.root %> / <%= categorySegs.join(' / ') %></h1>
     </header>
 
     <% if (children.length) { %>
@@ -41,14 +41,14 @@
           <h3><a href="<%= p.url %>"><%= p.title %></a></h3>
           <% if (p.subtitle) { %><p class="sp-sub"><%= p.subtitle %></p><% } %>
           <p class="sp-preview"><%= p.preview %></p>
-          <div class="sp-tags"><% p.tags.forEach(function(t){ %><a class="sp-tag" href="/musings/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %></div>
+          <div class="sp-tags"><% p.tags.forEach(function(t){ %><a class="sp-tag" href="<%= section.base %>/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %></div>
         </article>
       <% }) %>
     </section>
     <% } %>
 
     <% if (children.length > 0 && posts.length === 0) { %>
-      <p style="margin-top: var(--sp-5); color: var(--ink-3); font-family: var(--font-mono); font-size: var(--fs-tiny);"><%= copy.musings.category.no_direct_posts %></p>
+      <p style="margin-top: var(--sp-5); color: var(--ink-3); font-family: var(--font-mono); font-size: var(--fs-tiny);"><%= sectionCopy.category.no_direct_posts %></p>
     <% } %>
   </div>
 </div>

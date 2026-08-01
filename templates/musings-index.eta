@@ -1,8 +1,8 @@
 <header style="margin-bottom: var(--sp-6);">
   <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); margin-bottom: var(--sp-3);">
-    <%= copy.musings.index.breadcrumb %> · <%= posts.length %> posts · newest first
+    <%= sectionCopy.index.breadcrumb %> · <%= posts.length %> posts · newest first
   </div>
-  <h1>Musings.</h1>
+  <h1><%= sectionCopy.heading %></h1>
 </header>
 
 <%
@@ -19,16 +19,16 @@
   <% if (folders.length) { %>
     <div style="color: var(--ink-3); margin-bottom: var(--sp-2); font-size: var(--fs-tiny);">browse by folder:</div>
     <div style="line-height: 1.9;">
-      <a href="/musings" style="color: var(--accent); margin-right: 14px;">all (<%= posts.length %>)</a>
+      <a href="<%= section.base %>" style="color: var(--accent); margin-right: 14px;">all (<%= posts.length %>)</a>
       <% folders.forEach(function(k){ %>
-        <a href="/musings/<%= k %>" style="color: var(--ink-2); text-decoration: none; margin-right: 14px;"><%= k %>/ <span style="color: var(--ink-3);"><%= folderCounts[k] %></span></a>
+        <a href="<%= section.base %>/<%= k %>" style="color: var(--ink-2); text-decoration: none; margin-right: 14px;"><%= k %>/ <span style="color: var(--ink-3);"><%= folderCounts[k] %></span></a>
       <% }) %>
     </div>
   <% } %>
   <% if (topTags.length) { %>
     <div style="color: var(--ink-3); margin-top: var(--sp-3); margin-bottom: var(--sp-2); font-size: var(--fs-tiny);">browse by tag:</div>
     <div>
-      <% topTags.forEach(function(t){ %><a class="sp-tag" href="/musings/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %>
+      <% topTags.forEach(function(t){ %><a class="sp-tag" href="<%= section.base %>/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %>
     </div>
   <% } %>
 </div>
@@ -50,7 +50,7 @@
     <% if (p.subtitle) { %><p class="sp-sub"><%= p.subtitle %></p><% } %>
     <p class="sp-preview"><%= p.preview %></p>
     <div class="sp-tags">
-      <% p.tags.forEach(function(t){ %><a class="sp-tag" href="/musings/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %>
+      <% p.tags.forEach(function(t){ %><a class="sp-tag" href="<%= section.base %>/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %>
     </div>
   </article>
 <% }) %>
