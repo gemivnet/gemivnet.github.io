@@ -1,6 +1,6 @@
 <header style="margin-bottom: var(--sp-6);">
   <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); margin-bottom: var(--sp-3);">
-    ~/musings/tags · <%= tagList.length %> tags
+    ~/<%= section.root %>/tags · <%= tagList.length %> tags
   </div>
   <h1>Tags.</h1>
 </header>
@@ -11,7 +11,7 @@
   <% } %>
   <ul class="cat-list">
     <% tagList.forEach(function(t){ %>
-      <li><a href="/musings/tag/<%= t.slug %>">#<%= t.name %></a><span class="count">(<%= t.count %>)</span></li>
+      <li><a href="<%= section.base %>/tag/<%= t.slug %>">#<%= t.name %></a><span class="count">(<%= t.count %>)</span></li>
     <% }) %>
   </ul>
 </section>

@@ -1,6 +1,6 @@
 <header style="margin-bottom: var(--sp-6);">
   <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); margin-bottom: var(--sp-3);">
-    ~/musings/<%= year %> · <%= posts.length %> posts
+    ~/<%= section.root %>/<%= year %> · <%= posts.length %> posts
   </div>
   <h1><%= year %>.</h1>
 </header>
@@ -18,7 +18,7 @@
       <% if (p.subtitle) { %><p class="sp-sub"><%= p.subtitle %></p><% } %>
       <p class="sp-preview"><%= p.preview %></p>
       <div class="sp-tags">
-        <% p.tags.forEach(function(t){ %><a class="sp-tag" href="/musings/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %>
+        <% p.tags.forEach(function(t){ %><a class="sp-tag" href="<%= section.base %>/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %>
       </div>
     </article>
   <% }) %>
@@ -26,6 +26,6 @@
 
 <% if (otherYears.length) { %>
 <section style="margin-top: var(--sp-6); padding-top: var(--sp-4); border-top: 1px solid var(--rule); font-family: var(--font-mono); font-size: var(--fs-small); color: var(--ink-3);">
-  other years: <% otherYears.forEach(function(y, i){ %><a href="/musings/<%= y %>"><%= y %></a><%= i < otherYears.length - 1 ? ' · ' : '' %><% }) %>
+  other years: <% otherYears.forEach(function(y, i){ %><a href="<%= section.base %>/<%= y %>"><%= y %></a><%= i < otherYears.length - 1 ? ' · ' : '' %><% }) %>
 </section>
 <% } %>

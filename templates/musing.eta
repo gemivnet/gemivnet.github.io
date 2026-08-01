@@ -8,9 +8,9 @@
   <div class="musings-main">
     <header class="sp-post-header">
       <div class="crumbs">
-        <a href="/">~</a> &nbsp;/&nbsp; <a href="/musings"><%= copy.musings.post.crumbs_root %></a>
+        <a href="/">~</a> &nbsp;/&nbsp; <a href="<%= section.base %>"><%= sectionCopy.post.crumbs_root %></a>
         <% post.category.forEach(function(c, idx){ %>
-          &nbsp;/&nbsp; <a href="/musings/<%= post.category.slice(0, idx+1).join('/') %>"><%= c %></a>
+          &nbsp;/&nbsp; <a href="<%= section.base %>/<%= post.category.slice(0, idx+1).join('/') %>"><%= c %></a>
         <% }) %>
         &nbsp;/&nbsp; <span style="color: var(--ink-2);"><%= post.slug %></span>
       </div>
@@ -24,7 +24,7 @@
         <span>~<%= post.readTime %> min read</span>
         <% if (post.tags.length) { %>
           <span class="sep">·</span>
-          <% post.tags.forEach(function(t){ %><a class="sp-tag" href="/musings/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %>
+          <% post.tags.forEach(function(t){ %><a class="sp-tag" href="<%= section.base %>/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %>
         <% } %>
       </div>
     </header>
@@ -52,19 +52,19 @@
 
     <nav class="sp-postnav" aria-label="Post navigation">
       <div class="prev">
-        <span class="label"><%= copy.musings.post.prev_label %></span>
+        <span class="label"><%= sectionCopy.post.prev_label %></span>
         <% if (prev) { %><a href="<%= prev.url %>"><%= prev.title %></a>
-        <% } else { %><span style="color: var(--ink-3);"><%= copy.musings.post.oldest_note %></span><% } %>
+        <% } else { %><span style="color: var(--ink-3);"><%= sectionCopy.post.oldest_note %></span><% } %>
       </div>
       <div class="next">
-        <span class="label"><%= copy.musings.post.next_label %></span>
+        <span class="label"><%= sectionCopy.post.next_label %></span>
         <% if (next) { %><a href="<%= next.url %>"><%= next.title %></a>
-        <% } else { %><span style="color: var(--ink-3);"><%= copy.musings.post.newest_note %></span><% } %>
+        <% } else { %><span style="color: var(--ink-3);"><%= sectionCopy.post.newest_note %></span><% } %>
       </div>
     </nav>
 
     <div style="text-align: center; margin-top: var(--sp-5); font-family: var(--font-mono); font-size: 12px; color: var(--ink-3);">
-      <a href="/musings">↑ back to all musings</a>
+      <a href="<%= section.base %>"><%= sectionCopy.post.back_label %></a>
     </div>
   </div>
 </div>

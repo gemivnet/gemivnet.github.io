@@ -234,8 +234,16 @@ function imgFigure(href, alt, title, kls) {
 
 // ── content loaders ───────────────────────────────────────────
 
-async function loadMusings() {
-  const indices = await fg('musings/**/index.md', { cwd: SRC('content') });
+// Post sections: each is a musings-shaped tree of markdown posts with its own
+// nav tab, index, category pages, tags, and year archives. Home page, feeds,
+// and gallery synthesis remain musings-only.
+const SECTIONS = {
+  musings: { root: 'musings', base: '/musings', active: 'musings' },
+  rv12is:  { root: 'rv12is',  base: '/rv12is',  active: 'rv12is' },
+};
+
+async function loadPosts(root) {
+  const indices = await fg(root + '/**/index.md', { cwd: SRC('content') });
   const posts = [];
   for (const rel of indices) {
     const full = path.join(SRC('content'), rel);
@@ -246,7 +254,7 @@ async function loadMusings() {
     const fm = parsed.data;
     const folder = path.dirname(rel); // musings/travel/japan-tips
     const segs = folder.split('/');
-    if (segs[0] !== 'musings') { fail(`Bad musings path: ${rel}`); continue; }
+    if (segs[0] !== root) { fail(`Bad ${root} path: ${rel}`); continue; }
     const slug = segs[segs.length - 1];
     const categorySegs = segs.slice(1, -1); // [travel]
     if (!fm.title) { fail(`${rel}: frontmatter is missing required field 'title'`); continue; }
@@ -331,7 +339,7 @@ async function loadMusings() {
       url,
       folder,
       category: categorySegs,
-      categoryPath: categorySegs.length ? '/musings/' + categorySegs.join('/') : '/musings',
+      categoryPath: categorySegs.length ? '/' + root + '/' + categorySegs.join('/') : '/' + root,
       title: fm.title,
       subtitle: fm.subtitle || '',
       date: new Date(fm.date),
@@ -549,13 +557,13 @@ async function renderHome(musings, mediaNodes) {
 
 // Build a folder/post tree for the sidebar.
 // Returns an array of nodes: { type:'folder'|'post', name, url, path, children, post? }
-function buildMusingsTree(musings) {
-  const root = { type: 'folder', name: 'musings', url: '/musings', path: [], children: [] };
+function buildSectionTree(posts, section) {
+  const root = { type: 'folder', name: section.root, url: section.base, path: [], children: [] };
   const folders = new Map(); // key -> node
   folders.set('', root);
 
   // Ensure all folder ancestors exist for each post.
-  for (const m of musings) {
+  for (const m of posts) {
     let parentKey = '';
     let parentNode = root;
     for (let d = 0; d < m.category.length; d++) {
@@ -565,7 +573,7 @@ function buildMusingsTree(musings) {
         const node = {
           type: 'folder',
           name: segs[segs.length - 1],
-          url: '/musings/' + key,
+          url: section.base + '/' + key,
           path: segs,
           children: [],
         };
@@ -689,7 +697,7 @@ function synthesizeFromMusings(musings, existingNodes) {
 // Uses nested <ul> so long names wrap naturally and don't overflow.
 function renderTreeHtml(tree, activeUrl, activeCategory) {
   function walk(node, depth) {
-    const name = node.type === 'folder' ? (depth === 0 ? 'musings/' : node.name + '/') : node.name;
+    const name = node.type === 'folder' ? node.name + '/' : node.name;
     const isActive = node.url === activeUrl;
     const inActive = !isActive && activeCategory && node.type === 'folder' && depth > 0 && activeCategory.startsWith(node.path.join('/'));
     const cls = ['tree-item'];
@@ -706,34 +714,37 @@ function renderTreeHtml(tree, activeUrl, activeCategory) {
   return '<ul class="tree-list">' + walk(tree, 0) + '</ul>';
 }
 
-// ── render: musings ───────────────────────────────────────────
+// ── render: post sections (musings, rv12is, …) ────────────────
 
-async function renderMusings(musings) {
-  // Folder tree, used by all musings pages (index + post + category).
-  const tree = buildMusingsTree(musings);
-  ALL_POST_URLS = musings.map(m => m.url);
+async function renderPostSection(posts, section) {
+  const sc = COPY[section.root];
+  // Folder tree, used by all section pages (index + post + category).
+  const tree = buildSectionTree(posts, section);
+  allRoutes.add(section.base);
 
   // Index page.
   const indexHtml = await renderPage('musings-index', {
     page: {
-      title: 'musings — ' + SITE.title,
-      description: `All musings by ${SITE.author}. ${musings.length} posts on travel, code, aviation, home projects.`,
-      url: '/musings',
-      bodyClass: pageHelpers.bodyClass('musings'),
+      title: section.root + ' — ' + SITE.title,
+      description: (sc.index.seo_description || '')
+        .replace('{count}', posts.length).replace('{author}', SITE.author),
+      url: section.base,
+      bodyClass: pageHelpers.bodyClass(section.active),
       type: 'website',
     },
-    active: 'musings',
-    posts: musings,
-    treeHtml: renderTreeHtml(tree, '/musings', ''),
+    active: section.active,
+    section, sectionCopy: sc,
+    posts,
+    treeHtml: renderTreeHtml(tree, section.base, ''),
   });
-  collectLinks('/musings', indexHtml);
-  await writeFile('musings/index.html', indexHtml);
+  collectLinks(section.base, indexHtml);
+  await writeFile(path.join(section.root, 'index.html'), indexHtml);
 
   // Helper: pick up to N related posts that share the most tags with a given post.
   function relatedFor(m, n = 3) {
     const mTags = new Set(m.tags || []);
     if (mTags.size === 0) return [];
-    return musings
+    return posts
       .filter(o => o.url !== m.url)
       .map(o => ({ post: o, score: (o.tags || []).filter(t => mTags.has(t)).length }))
       .filter(x => x.score > 0)
@@ -743,21 +754,22 @@ async function renderMusings(musings) {
   }
 
   // Per-post — uses the same tree, marking the current item active.
-  for (let i = 0; i < musings.length; i++) {
-    const m = musings[i];
-    const prev = musings[i + 1] || null;
-    const next = musings[i - 1] || null;
+  for (let i = 0; i < posts.length; i++) {
+    const m = posts[i];
+    const prev = posts[i + 1] || null;
+    const next = posts[i - 1] || null;
     const html = await renderPage('musing', {
       page: {
         title: `${m.title} — ${SITE.title}`,
         description: m.seo.description || truncate(m.preview, 158),
         keywords: m.seo.keywords || m.tags,
         url: m.url,
-        bodyClass: pageHelpers.bodyClass('musings'),
+        bodyClass: pageHelpers.bodyClass(section.active),
         type: 'article',
         ogImage: m.featured,
       },
-      active: 'musings',
+      active: section.active,
+      section, sectionCopy: sc,
       post: m,
       prev,
       next,
@@ -786,7 +798,7 @@ async function renderMusings(musings) {
 
   // Categories.
   const cats = new Map(); // path -> { segs, posts, children }
-  for (const m of musings) {
+  for (const m of posts) {
     for (let d = 1; d <= m.category.length; d++) {
       const segs = m.category.slice(0, d);
       const key = segs.join('/');
@@ -803,24 +815,25 @@ async function renderMusings(musings) {
   }
 
   for (const [key, cat] of cats) {
-    const url = '/musings/' + key;
-    const allDescendants = musings.filter(m => m.category.slice(0, cat.segs.length).join('/') === key);
+    const url = section.base + '/' + key;
+    const allDescendants = posts.filter(m => m.category.slice(0, cat.segs.length).join('/') === key);
     const directPosts = cat.posts.slice().sort((a, b) => b.date - a.date);
     const children = [...cat.childKeys].map(k => ({
       key: k,
       label: k.split('/').pop(),
-      url: '/musings/' + k,
-      count: musings.filter(m => m.category.slice(0, k.split('/').length).join('/') === k).length,
+      url: section.base + '/' + k,
+      count: posts.filter(m => m.category.slice(0, k.split('/').length).join('/') === k).length,
     }));
     const html = await renderPage('musings-category', {
       page: {
-        title: `${key} — musings — ${SITE.title}`,
+        title: `${key} — ${section.root} — ${SITE.title}`,
         description: `Posts about ${cat.segs.join(' / ')} by ${SITE.author}.`,
         url,
-        bodyClass: pageHelpers.bodyClass('musings'),
+        bodyClass: pageHelpers.bodyClass(section.active),
         type: 'website',
       },
-      active: 'musings',
+      active: section.active,
+      section, sectionCopy: sc,
       categoryKey: key,
       categorySegs: cat.segs,
       posts: directPosts,
@@ -830,82 +843,85 @@ async function renderMusings(musings) {
       randomPick: allDescendants[Math.floor((allDescendants.length || 1) / 2) % Math.max(allDescendants.length, 1)],
     });
     collectLinks(url, html);
-    await writeFile(path.join('musings', key, 'index.html'), html);
+    await writeFile(path.join(section.root, key, 'index.html'), html);
     allRoutes.add(url);
   }
 
   // Tags.
   const tags = new Map();
-  for (const m of musings) for (const t of m.tags) {
+  for (const m of posts) for (const t of m.tags) {
     if (!tags.has(t)) tags.set(t, []);
     tags.get(t).push(m);
   }
 
-  // /musings/tags — alphabetical list of all tags + counts.
+  // /<section>/tags — alphabetical list of all tags + counts.
   const tagList = [...tags.entries()]
-    .map(([name, posts]) => ({ name, slug: slugify(name), count: posts.length }))
+    .map(([name, tagged]) => ({ name, slug: slugify(name), count: tagged.length }))
     .sort((a, b) => a.name.localeCompare(b.name));
   const tagsIndexHtml = await renderPage('musings-tags-index', {
     page: {
       title: `tags — ${SITE.title}`,
-      description: `All tags used across ${musings.length} musings.`,
-      url: '/musings/tags',
-      bodyClass: pageHelpers.bodyClass('musings'),
+      description: `All tags used across ${posts.length} posts.`,
+      url: `${section.base}/tags`,
+      bodyClass: pageHelpers.bodyClass(section.active),
       type: 'website',
     },
-    active: 'musings',
+    active: section.active,
+    section, sectionCopy: sc,
     tagList,
   });
-  collectLinks('/musings/tags', tagsIndexHtml);
-  await writeFile('musings/tags/index.html', tagsIndexHtml);
-  allRoutes.add('/musings/tags');
+  collectLinks(`${section.base}/tags`, tagsIndexHtml);
+  await writeFile(path.join(section.root, 'tags', 'index.html'), tagsIndexHtml);
+  allRoutes.add(`${section.base}/tags`);
 
-  // /musings/YYYY — year archives.
+  // /<section>/YYYY — year archives.
   const byYear = new Map();
-  for (const m of musings) {
+  for (const m of posts) {
     const y = String(m.date.getUTCFullYear());
     if (!byYear.has(y)) byYear.set(y, []);
     byYear.get(y).push(m);
   }
   const allYears = [...byYear.keys()].sort().reverse();
   for (const year of allYears) {
-    const posts = byYear.get(year);
+    const yearPosts = byYear.get(year);
     const otherYears = allYears.filter(y => y !== year);
     const yearHtml = await renderPage('musings-year', {
       page: {
-        title: `${year} — musings — ${SITE.title}`,
+        title: `${year} — ${section.root} — ${SITE.title}`,
         description: `Posts from ${year} by ${SITE.author}.`,
-        url: `/musings/${year}`,
-        bodyClass: pageHelpers.bodyClass('musings'),
+        url: `${section.base}/${year}`,
+        bodyClass: pageHelpers.bodyClass(section.active),
         type: 'website',
       },
-      active: 'musings',
+      active: section.active,
+      section, sectionCopy: sc,
       year,
-      posts,
+      posts: yearPosts,
       otherYears,
     });
-    collectLinks(`/musings/${year}`, yearHtml);
-    await writeFile(`musings/${year}/index.html`, yearHtml);
-    allRoutes.add(`/musings/${year}`);
+    collectLinks(`${section.base}/${year}`, yearHtml);
+    await writeFile(path.join(section.root, year, 'index.html'), yearHtml);
+    allRoutes.add(`${section.base}/${year}`);
   }
 
-  for (const [tag, posts] of tags) {
-    const url = `/musings/tag/${slugify(tag)}`;
+  for (const [tag, tagged] of tags) {
+    const url = `${section.base}/tag/${slugify(tag)}`;
     const html = await renderPage('musings-tag', {
       page: {
         title: `#${tag} — ${SITE.title}`,
         description: `Posts tagged "${tag}" by ${SITE.author}.`,
-        keywords: [tag, ...posts.flatMap(p => p.tags)].slice(0, 10),
+        keywords: [tag, ...tagged.flatMap(p => p.tags)].slice(0, 10),
         url,
-        bodyClass: pageHelpers.bodyClass('musings'),
+        bodyClass: pageHelpers.bodyClass(section.active),
         type: 'website',
       },
-      active: 'musings',
+      active: section.active,
+      section, sectionCopy: sc,
       tag,
-      posts,
+      posts: tagged,
     });
     collectLinks(url, html);
-    await writeFile(`musings/tag/${slugify(tag)}/index.html`, html);
+    await writeFile(path.join(section.root, 'tag', slugify(tag), 'index.html'), html);
     allRoutes.add(url);
   }
 }
@@ -1227,8 +1243,9 @@ async function main() {
   await ensureDir(OUT);
 
   await copyDesign();
-  const musings = await loadMusings();
-  log(`${musings.length} musings`);
+  const musings = await loadPosts('musings');
+  const rvPosts = await loadPosts('rv12is');
+  log(`${musings.length} musings, ${rvPosts.length} rv12is posts`);
   const { nodes: realMediaNodes } = await loadMedia();
   const synthNodes = synthesizeFromMusings(musings, realMediaNodes);
   const mediaNodes = realMediaNodes.concat(synthNodes);
@@ -1267,7 +1284,9 @@ async function main() {
   log(`${realMediaNodes.length} real + ${synthNodes.length} synthesized gallery nodes`);
 
   await renderHome(musings, mediaNodes);
-  await renderMusings(musings);
+  ALL_POST_URLS = musings.map(m => m.url);
+  await renderPostSection(musings, SECTIONS.musings);
+  await renderPostSection(rvPosts, SECTIONS.rv12is);
   await renderMedia(mediaNodes);
   await renderChangelog();
   await renderLicense();
