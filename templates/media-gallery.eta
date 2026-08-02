@@ -9,7 +9,7 @@
   <% if (node.subtitle) { %><p style="font-style: italic; color: var(--ink-2); font-size: 20px; margin-top: var(--sp-3);"><%= node.subtitle %></p><% } %>
   <% if (node.fromPost) { %>
     <p style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); margin-top: var(--sp-3); letter-spacing: 0.02em;">
-      ↩ from the musing: <a href="<%= node.fromPost.url %>"><%= node.fromPost.title %></a>
+      ↩ from the <%= node.fromPost.label || 'musing' %>: <a href="<%= node.fromPost.url %>"><%= node.fromPost.title %></a>
     </p>
   <% } %>
   <div style="font-family: var(--font-mono); font-size: var(--fs-small); color: var(--ink-3); margin-top: var(--sp-3); display: flex; gap: var(--sp-4); flex-wrap: wrap; align-items: center;">
