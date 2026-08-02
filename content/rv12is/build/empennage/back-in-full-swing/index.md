@@ -26,7 +26,7 @@ It's been a while since an update. Between the basement remodel, family
 visiting, and flight lessons, the build took a back seat for a few weeks.
 We're back in full swing now.
 
-Another 6.5 hours for me, 8 hours for the YL on the empennage. 36.5
+Another 6.5 hours for me, 8 hours for Shelby on the empennage. 36.5
 combined so far.
 
 ## Kit delivery estimates
@@ -37,7 +37,7 @@ the powerplant yet.
 
 ## LSRM course
 
-The YL and I signed up for Joby Aviation's LSRM course. It's about 10
+Shelby and I signed up for Joby Aviation's LSRM course. It's about 10
 weeks online followed by one week in person in California. Part of the
 course is doing an annual inspection on an RV-12, and we also get Rotax
 maintenance certificates. The in-person portion is in September, which is
@@ -56,7 +56,7 @@ expensive.
 The replacement left spar cap arrived and I quickly re-drilled the holes.
 We deburred all the rudder pieces. The rudder skin took almost an hour and
 a half on its own — it's too large for the scotchbrite wheel and the burrs
-were pretty bad. Now that it's warmer out, the YL set up a table outside
+were pretty bad. Now that it's warmer out, Shelby set up a table outside
 and did the EkoClean and EkoEtch out there.
 
 I spent a good amount of time researching spray painting and dialing in

@@ -47,10 +47,10 @@ It's fine — just not as pretty inside as it could have been.
 
 I also had to grind away part of my pull riveter to get it to work with
 the wedge tool. Tool modification #2 so far; I'm sure there will be more.
-The YL was definitely concerned when she saw me taking the belt sander to
+Shelby was definitely concerned when she saw me taking the belt sander to
 our perfectly good riveter. She's laughing as I type this.
 
-The vertical stabilizer is done! Rudder next. The YL says building a
+The vertical stabilizer is done! Rudder next. Shelby says building a
 plane is just cleco, uncleco, cleco, uncleco, and so on. She's not wrong.
 
 ## Photos
@@ -65,7 +65,7 @@ plane is just cleco, uncleco, cleco, uncleco, and so on. She's not wrong.
 
 ![All cleco'ed. Two pairs of cleco pliers and two people helps a lot.](media/vs-clecod.jpg)
 
-![All riveted. The YL removed each cleco and I riveted.](media/vs-riveted.jpg)
+![All riveted. Shelby removed each cleco and I riveted.](media/vs-riveted.jpg)
 
 ![Finished rivets and parts.](media/vs-tip.jpg)
 

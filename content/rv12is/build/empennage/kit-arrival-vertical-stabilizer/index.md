@@ -34,7 +34,7 @@ as expected, and we were only missing one bag of electrical connectors.
 ## First weekend: vertical stabilizer
 
 On Saturday we jumped right in on the first section: the vertical
-stabilizer. I cut, drilled, and fit everything together while the YL
+stabilizer. I cut, drilled, and fit everything together while Shelby
 deburred. We made a couple of small learning mistakes on the first few
 pieces and may replace them — still debating. Some of our initial
 deburring was too aggressive on the rudder mounts (we've already refined

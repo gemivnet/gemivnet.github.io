@@ -295,14 +295,29 @@ async function loadPosts(root) {
         }
       }
     }
+    // Local (non-S3) images: read dimensions at build time so their <img>
+    // tags get width/height too (browsers reserve space, no CLS).
+    const localDims = {};
+    for (const ref of imageRefs) {
+      if (ref.exif || ref.s3) continue;
+      const abs = path.join(mediaDir, ref.file);
+      if (!(await exists(abs))) continue;
+      try {
+        const md = await sharp(abs).metadata();
+        ref.exif = { width: md.width, height: md.height };
+        localDims[ref.file] = ref.exif;
+      } catch {}
+    }
+
     const bodyHtml = marked.parse(bodyMd, { async: false });
     // Rewrite <img ... src="media/<file>" ...> — swap to S3 med URL and inject
     // width/height (from EXIF) so browsers reserve space and avoid CLS.
     let rewritten = bodyHtml.replace(/<img\s+([^>]*?)src="media\/([^"]+)"([^>]*)>/g, (_, before, file, after) => {
       const entry = imagesMap[file];
       const dest = (entry && (entry.s3_med || entry.s3)) || `${url}/media/${file}`;
-      const dims = (entry?.exif?.width && entry?.exif?.height)
-        ? ` width="${entry.exif.width}" height="${entry.exif.height}"`
+      const size = entry?.exif || localDims[file];
+      const dims = (size?.width && size?.height)
+        ? ` width="${size.width}" height="${size.height}"`
         : '';
       // If WebP variants exist, emit a <picture> with WebP source + JPEG <img> fallback,
       // and a LQIP base64 background so something paints instantly.
@@ -456,10 +471,12 @@ async function buildMediaImages(node) {
 
 // ── render: home ──────────────────────────────────────────────
 
-async function computeStats(musings, mediaNodes) {
+// `posts` is every post on the site (musings + build log) — they all count
+// as musings in the numbers box.
+async function computeStats(posts, mediaNodes) {
   let postBytes = 0;
   let totalWords = 0;
-  for (const m of musings) {
+  for (const m of posts) {
     totalWords += m.wordCount;
     try { postBytes += (await fs.stat(path.join(SRC('content'), m.sourceRel))).size; } catch {}
   }
@@ -482,9 +499,9 @@ async function computeStats(musings, mediaNodes) {
       }
     }
   }
-  const dates = musings.map(m => m.date).filter(Boolean).sort((a, b) => a - b);
+  const dates = posts.map(m => m.date).filter(Boolean).sort((a, b) => a - b);
   return {
-    musings: musings.length,
+    musings: posts.length,
     musingsBytes: postBytes,
     musingsBytesFmt: fmtBytes(postBytes),
     words: totalWords,
@@ -498,7 +515,7 @@ async function computeStats(musings, mediaNodes) {
   };
 }
 
-async function renderHome(musings, mediaNodes) {
+async function renderHome(musings, rvPosts, mediaNodes) {
   const shuffled = seededShuffle(musings.map(m => ({
     url: m.url, title: m.title, subtitle: m.subtitle, preview: m.preview,
     featured: m.featured, tags: m.tags, date: fmtDate(m.date),
@@ -550,7 +567,7 @@ async function renderHome(musings, mediaNodes) {
     active: 'home',
     shuffled, shuffledImages, recent,
     totalMusings: musings.length,
-    stats: await computeStats(musings, mediaNodes),
+    stats: await computeStats(musings.concat(rvPosts), mediaNodes),
   });
   collectLinks('/', html);
   await writeFile('index.html', html);
@@ -1312,7 +1329,7 @@ async function main() {
   }
   log(`${realMediaNodes.length} real + ${synthNodes.length} synthesized gallery nodes`);
 
-  await renderHome(musings, mediaNodes);
+  await renderHome(musings, rvPosts, mediaNodes);
   ALL_POST_URLS = musings.map(m => m.url);
   await renderPostSection(musings, SECTIONS.musings);
   await renderPostSection(rvPosts, SECTIONS.rv12is);

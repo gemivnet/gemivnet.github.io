@@ -301,7 +301,7 @@ stays current, and it will show the grand total at the end.
 
 ## Hours summary
 
-| Section | George | YL | Total |
+| Section | George | Shelby | Total |
 | --- | ---: | ---: | ---: |
 | Workshop | 12.5 | 13.5 | 26.0 |
 | Practice Kit | 11.0 | 11.0 | 22.0 |

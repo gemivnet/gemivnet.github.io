@@ -28,7 +28,7 @@ build, but a lot has happened.
 
 We spent 11 days in Carson City, NV at Sport Aviation Center working on
 our sport pilot licenses in Sling 2s. I completed my first solo flight,
-which was obviously exciting! The YL and I trained over 20 hours across
+which was obviously exciting! Shelby and I trained over 20 hours across
 almost two weeks. Then we went on our pre-planned vacation to Australia —
 22,000 miles and 40+ hours of flying, but as passengers.
 

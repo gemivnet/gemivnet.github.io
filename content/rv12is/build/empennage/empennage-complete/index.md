@@ -25,7 +25,7 @@ mounting hardware for final assembly, since the empennage won't fit in my
 garage assembled and needs to stay in pieces until it moves to a hangar
 toward the end.
 
-Total combined empennage time: 167 hours. 74 for me, 93 for the YL.
+Total combined empennage time: 167 hours. 74 for me, 93 for Shelby.
 
 ## SEM primer for stragglers
 

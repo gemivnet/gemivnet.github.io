@@ -101,11 +101,14 @@
 (function () {
   var data = JSON.parse(document.getElementById('random-data').textContent);
 
-  // Warm the browser cache with all shuffle-eligible photo URLs so reroll feels instant.
-  (data.photos || []).forEach(function (p) {
-    if (p.src)   { var a = new Image(); a.src = p.src; }
-    if (p.thumb) { var b = new Image(); b.src = p.thumb; }
-  });
+  // Prefetch a small rolling window of shuffle photos instead of all of them —
+  // warming every image cost ~46MB on page load.
+  function warmPhotos(list, from) {
+    for (var d = 1; d <= 3; d++) {
+      var p = list[(from + d) % list.length];
+      if (p && p.src) { var im = new Image(); im.src = p.src; }
+    }
+  }
 
   (function () {
     var list = data.musings || []; if (!list.length) return;
@@ -165,6 +168,7 @@
       img.src = p.src; img.alt = p.alt || ''; img.title = p.alt || '';
       document.getElementById('photo-link').href = p.album;
       var open = document.getElementById('photo-open'); if (open) open.href = p.album;
+      warmPhotos(list, i);
     }
     render();
     document.getElementById('photo-random').addEventListener('click', function () {
