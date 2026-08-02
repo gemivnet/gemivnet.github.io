@@ -239,7 +239,8 @@ function imgFigure(href, alt, title, kls) {
 // and gallery synthesis remain musings-only.
 const SECTIONS = {
   musings: { root: 'musings', base: '/musings', active: 'musings' },
-  rv12is:  { root: 'rv12is',  base: '/rv12is',  active: 'rv12is' },
+  // timeline: index lists all posts date-first in one stream instead of cards-by-folder.
+  rv12is:  { root: 'rv12is',  base: '/rv12is',  active: 'rv12is', timeline: true },
 };
 
 async function loadPosts(root) {
@@ -611,14 +612,15 @@ function buildSectionTree(posts, section) {
 // Override via frontmatter `gallery: { path: ..., title: ..., location: ..., date: ... }`.
 // Disable for a single post via `gallery: false`.
 // Reuses the images already in the post's media/ folder — no duplication.
-function synthesizeFromMusings(musings, existingNodes) {
+function synthesizeFromMusings(musings, existingNodes, opts = {}) {
   const out = [];
   const have = new Set(existingNodes.map(n => n.dir));
+  const baseSegs = opts.baseSegs || [];
   for (const m of musings) {
     if (m.gallery === false) continue;
     if (!m.imageRefs || m.imageRefs.length === 0) continue;
     // derived default path: drop first category segment (e.g. "travel/"), keep rest + slug
-    const derivedSegs = (m.category.length > 1 ? m.category.slice(1) : m.category).concat([m.slug]);
+    const derivedSegs = baseSegs.concat(m.category.length > 1 ? m.category.slice(1) : m.category, [m.slug]);
     const derivedPath = derivedSegs.join('/');
     const galleryConfig = (m.gallery && typeof m.gallery === 'object') ? m.gallery : {};
     const galleryPath = (galleryConfig.path || derivedPath).replace(/^\/+|\/+$/g, '');
@@ -662,7 +664,7 @@ function synthesizeFromMusings(musings, existingNodes) {
       seo: galleryConfig.seo || { description: `Photos from "${m.title}".` },
       images,
       synthesized: true,
-      fromPost: { title: m.title, url: m.url, subtitle: m.subtitle },
+      fromPost: { title: m.title, url: m.url, subtitle: m.subtitle, label: opts.label || 'musing' },
       children: [],
     });
     allRoutes.add('/' + dir);
@@ -722,8 +724,8 @@ async function renderPostSection(posts, section) {
   const tree = buildSectionTree(posts, section);
   allRoutes.add(section.base);
 
-  // Index page.
-  const indexHtml = await renderPage('musings-index', {
+  // Index page. Timeline sections list everything date-first in one stream.
+  const indexHtml = await renderPage(section.timeline ? 'timeline-index' : 'musings-index', {
     page: {
       title: section.root + ' — ' + SITE.title,
       description: (sc.index.seo_description || '')
@@ -1247,7 +1249,8 @@ async function main() {
   const rvPosts = await loadPosts('rv12is');
   log(`${musings.length} musings, ${rvPosts.length} rv12is posts`);
   const { nodes: realMediaNodes } = await loadMedia();
-  const synthNodes = synthesizeFromMusings(musings, realMediaNodes);
+  const synthNodes = synthesizeFromMusings(musings, realMediaNodes)
+    .concat(synthesizeFromMusings(rvPosts, realMediaNodes, { baseSegs: ['rv12is'], label: 'build log' }));
   const mediaNodes = realMediaNodes.concat(synthNodes);
   // Ensure every ancestor folder has a (possibly virtual) node so breadcrumbs
   // and the album tree resolve — even if no metadata.yaml was created for it.

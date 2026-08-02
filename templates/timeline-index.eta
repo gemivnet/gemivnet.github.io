@@ -1,0 +1,44 @@
+<header style="margin-bottom: var(--sp-6);">
+  <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); margin-bottom: var(--sp-3);">
+    <%= sectionCopy.index.breadcrumb %> · <%= posts.length %> entries · newest first
+  </div>
+  <h1><%= sectionCopy.heading %></h1>
+</header>
+
+<%
+  var catCounts = {};
+  posts.forEach(function(p){ var k = p.category.join('/'); if (k) catCounts[k] = (catCounts[k] || 0) + 1; });
+  var cats = Object.keys(catCounts).sort();
+%>
+
+<% if (cats.length) { %>
+<div style="border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: var(--sp-4) 0; margin-bottom: var(--sp-6); font-family: var(--font-mono); font-size: var(--fs-small);">
+  <div style="color: var(--ink-3); margin-bottom: var(--sp-2); font-size: var(--fs-tiny);">browse by folder:</div>
+  <div style="line-height: 1.9;">
+    <a href="<%= section.base %>" style="color: var(--accent); margin-right: 14px;">all (<%= posts.length %>)</a>
+    <% cats.forEach(function(k){ %>
+      <a href="<%= section.base %>/<%= k %>" style="color: var(--ink-2); text-decoration: none; margin-right: 14px;"><%= k %>/ <span style="color: var(--ink-3);"><%= catCounts[k] %></span></a>
+    <% }) %>
+  </div>
+</div>
+<% } %>
+
+<% if (posts.length === 0) { %>
+  <div class="sp-empty"><span class="glyph">∅</span>nothing here yet.</div>
+<% } %>
+
+<% var lastYear = null; posts.forEach(function(p){ var y = p.date.getUTCFullYear(); %>
+  <% if (y !== lastYear) { lastYear = y; %>
+    <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); border-bottom: 1px solid var(--rule); padding-bottom: var(--sp-2); margin: var(--sp-5) 0 var(--sp-4);">// <%= y %></div>
+  <% } %>
+  <article class="sp-card">
+    <div class="sp-meta">
+      <span style="color: var(--accent); font-weight: 600;"><%= fmtMetaDate(p.date) %></span>
+      <% if (p.category.length) { %><span class="sep">·</span><span class="cat"><%= (p.category.slice(1).join('/') || p.category.join('/')) %></span><% } %>
+      <span class="sep">·</span>
+      <span><%= p.wordCount.toLocaleString() %> w · ~<%= p.readTime %> min</span>
+    </div>
+    <h3><a href="<%= p.url %>"><%= p.title %></a></h3>
+    <% if (p.subtitle) { %><p class="sp-sub"><%= p.subtitle %></p><% } %>
+  </article>
+<% }) %>
