@@ -716,12 +716,38 @@ function renderTreeHtml(tree, activeUrl, activeCategory) {
   return '<ul class="tree-list">' + walk(tree, 0) + '</ul>';
 }
 
+// Sidebar for timeline sections: a dated entry list (newest first, grouped
+// by year) instead of the folder tree. Reuses the tree-list CSS classes.
+function renderTimelineSidebarHtml(posts, section, activeUrl) {
+  let out = `<ul class="tree-list"><li class="tree-item is-folder"><a href="${section.base}">${escapeHtml(section.root)}/</a><ul>`;
+  let lastYear = null;
+  let open = false;
+  for (const p of posts) {
+    const y = p.date.getUTCFullYear();
+    if (y !== lastYear) {
+      if (open) out += '</ul></li>';
+      out += `<li class="tree-item is-folder"><a href="${section.base}/${y}">${y}/</a><ul>`;
+      lastYear = y;
+      open = true;
+    }
+    const isActive = p.url === activeUrl;
+    const day = fmtMetaDate(p.date).slice(0, 6);
+    out += `<li class="tree-item${isActive ? ' active' : ''}"><a href="${p.url}" class="${isActive ? 'active' : ''}"><span style="color: var(--ink-3);">${day}</span> ${escapeHtml(p.title)}</a></li>`;
+  }
+  if (open) out += '</ul></li>';
+  out += '</ul></li></ul>';
+  return out;
+}
+
 // ── render: post sections (musings, rv12is, …) ────────────────
 
 async function renderPostSection(posts, section) {
   const sc = COPY[section.root];
-  // Folder tree, used by all section pages (index + post + category).
+  // Sidebar: folder tree for card sections, dated entry list for timelines.
   const tree = buildSectionTree(posts, section);
+  const sidebarFor = (activeUrl, activeCategory) => section.timeline
+    ? renderTimelineSidebarHtml(posts, section, activeUrl)
+    : renderTreeHtml(tree, activeUrl, activeCategory);
   allRoutes.add(section.base);
 
   // Index page. Timeline sections list everything date-first in one stream.
@@ -737,7 +763,7 @@ async function renderPostSection(posts, section) {
     active: section.active,
     section, sectionCopy: sc,
     posts,
-    treeHtml: renderTreeHtml(tree, section.base, ''),
+    treeHtml: sidebarFor(section.base, ''),
   });
   collectLinks(section.base, indexHtml);
   await writeFile(path.join(section.root, 'index.html'), indexHtml);
@@ -776,7 +802,7 @@ async function renderPostSection(posts, section) {
       prev,
       next,
       related: relatedFor(m, 3),
-      treeHtml: renderTreeHtml(tree, m.url, m.category.join('/')),
+      treeHtml: sidebarFor(m.url, m.category.join('/')),
       jsonLd: {
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
@@ -841,7 +867,7 @@ async function renderPostSection(posts, section) {
       posts: directPosts,
       allDescendants,
       children,
-      treeHtml: renderTreeHtml(tree, url, key),
+      treeHtml: sidebarFor(url, key),
       randomPick: allDescendants[Math.floor((allDescendants.length || 1) / 2) % Math.max(allDescendants.length, 1)],
     });
     collectLinks(url, html);

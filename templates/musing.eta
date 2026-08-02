@@ -17,7 +17,7 @@
       <h1><%= post.title %></h1>
       <% if (post.subtitle) { %><p class="subtitle"><%= post.subtitle %></p><% } %>
       <div class="meta">
-        <span><%= fmtDate(post.date) %></span>
+        <% if (section.timeline) { %><span style="color: var(--accent); font-weight: 600;"><%= fmtMetaDate(post.date) %></span><% } else { %><span><%= fmtDate(post.date) %></span><% } %>
         <span class="sep">·</span>
         <span><%= post.wordCount.toLocaleString() %> words</span>
         <span class="sep">·</span>
