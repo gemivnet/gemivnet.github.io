@@ -21,13 +21,13 @@ seo:
     - rv-12is weight and balance
 ---
 
-Another 13 hours combined this weekend (5.5 for me, 7.5 for the YL).
+Another 13 hours combined this weekend (5.5 for me, 7.5 for Shelby).
 
 ## Tailcone deburring
 
 Almost all of our time went to deburring the tailcone. The pieces are very
 large, and parts like the ribs have a lot of intricate edges. I hole
-deburred every tailcone piece, and the YL is working through the edge
+deburred every tailcone piece, and Shelby is working through the edge
 deburring. Since these pieces are too large for the scotchbrite wheel on
 the bench grinder, she's settled on 220-grit sandpaper taped to a file,
 plus scotchbrite and small diamond files.

@@ -796,3 +796,21 @@
     transform: none !important;
   }
 }
+
+/* ── ad-hoc: WCAG AA contrast + heading-order fixes (2026-08-01) ──
+   Lighthouse flagged --ink-3 at ~3.1:1. Darkened (light) / lightened (dark)
+   to pass 4.5:1 on --bg and --bg-2. Sync these values back to Claude Design.
+   Footer headings changed h5 -> h3 in _base.eta for sequential heading order;
+   rule below mirrors the old .sp-footer h5 style. */
+:root { --ink-3: #948c81; }
+.site-page.light,
+.light .site-page { --ink-3: #6f675c; }
+.sp-footer h3 {
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: var(--sp-3);
+  font-weight: 500;
+}

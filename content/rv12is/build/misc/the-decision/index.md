@@ -27,10 +27,9 @@ record to look back on — and a place to collect opinions we can either
 listen to or ignore.
 
 I've wanted to build a plane for a couple of years now, and I was sitting
-on the couch one weekend in January when I asked the wife (I'll refer to
-her as the YL going forward — it's simpler and I like the amateur radio
-term) if she wanted to build a plane. Neither of us has a pilot's license
-yet, so it's a bit of an ambitious question. She agreed.
+on the couch one weekend in January when I asked Shelby if she wanted to
+build a plane. Neither of us has a pilot's license yet, so it's a bit of
+an ambitious question. She agreed.
 
 ## Choosing the RV-12iS
 
@@ -59,8 +58,8 @@ than that.
 
 Now you might be thinking: they don't know how to fly. Well, we're working
 on that. We found a semi-local flight school with RV-12s, and I did 4
-lessons and the YL did 2. Now we're switching to a very local school to
-get our tickets. The YL is going the sport pilot route and I'll start with
+lessons and Shelby did 2. Now we're switching to a very local school to
+get our tickets. Shelby is going the sport pilot route and I'll start with
 my PPL, with the goal to go further down the track later. Hopefully we'll
 be done and ready to fly the plane once it's built. What will we use it
 for? I'd like to train to CFII eventually, she's interested in CFI-S, and
@@ -125,11 +124,11 @@ airplane.
 
 ## Building as a team
 
-The YL is helping build. On the practice kit she's way better than I am at
+Shelby is helping build. On the practice kit she's way better than I am at
 deburring, and she enjoys the cleaning, etching, and priming process. I
 like the building, and clecos are fun (for now — I'm sure I'll get sick of
 them). We'll make a good team. We've also picked out a tail number and
-have it reserved: N1798, which has personal meaning for the YL.
+have it reserved: N1798, which has personal meaning for Shelby.
 
 ## What's next
 

@@ -1,6 +1,6 @@
 ---
 title: Tailcone priming & riveting
-subtitle: The YL almost laps me on hours, and the priming finally clicks.
+subtitle: Shelby almost laps me on hours, and the priming finally clicks.
 date: '2026-06-14'
 tags:
   - rv12is
@@ -20,7 +20,7 @@ seo:
     - rv-12is static system rtv
 ---
 
-Another 23 hours combined this weekend (8 for me, 15 for the YL). She
+Another 23 hours combined this weekend (8 for me, 15 for Shelby). She
 almost lapped me in hours with all the deburring.
 
 ## Deburring, cleaning, etching, priming
