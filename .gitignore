@@ -4,3 +4,4 @@ _site/
 *.log
 staging/
 AWSCLIV2.pkg
+_site.stale/
