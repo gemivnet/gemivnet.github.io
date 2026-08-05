@@ -64,6 +64,10 @@ for (const raw of staged.split('\n')) {
   if (currentFile.startsWith('node_modules/')) continue;
   if (currentFile.startsWith('_site/')) continue;
   if (currentFile === 'package-lock.json') continue;
+  // Compiled bundles for a published site. These are minified machine output where number
+  // literals routinely trip the heuristics -- 4294967296 is 2^32, and a model's weight array
+  // reads as GPS coordinates. The authored sources are reviewed in their own repo.
+  if (/^content\/sites\/[^/]+\/assets\//.test(currentFile)) continue;
   // Skip the hook itself — it documents the patterns it detects.
   if (currentFile === 'scripts/check-pii.mjs') continue;
   if (currentFile.startsWith('.claude/skills/pii-audit/')) continue;
