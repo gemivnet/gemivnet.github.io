@@ -1,0 +1,8 @@
+# Keep shell scripts LF, whatever the machine committing them does.
+#
+# A CRLF shebang is not a valid interpreter path -- "#!/usr/bin/env bash\r"
+# asks for an interpreter literally named "bash\r" -- so a hook rewritten with
+# Windows line endings stops running. The pre-commit PII scan fails that way
+# quietly, which is the worst way for a guard on a public repo to fail.
+.githooks/* text eol=lf
+*.sh        text eol=lf
