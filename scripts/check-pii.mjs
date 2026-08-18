@@ -44,10 +44,21 @@ const isAllowed = (m) => {
 // ── get staged content ─────────────────────────────────────
 let staged;
 try {
-  staged = execSync('git diff --cached --unified=0 --no-color', { cwd: ROOT, encoding: 'utf8' });
-} catch {
-  console.error('[pii] not in a git repo? bailing.');
-  process.exit(0);
+  staged = execSync('git diff --cached --unified=0 --no-color', {
+    cwd: ROOT,
+    encoding: 'utf8',
+    // execSync buffers the whole diff and throws past its 1 MiB default. Adding 780 audio
+    // files produced a 1.3 MB diff, this threw, and the catch below reported it as "not in a
+    // git repo" and waved the commit through -- the scan skipping itself on precisely the
+    // largest commits, which are the ones worth scanning.
+    maxBuffer: 256 * 1024 * 1024,
+  });
+} catch (err) {
+  // Fail closed. A scanner that cannot read the diff and says nothing is worse than no
+  // scanner at all, because it looks like it passed. --no-verify is the deliberate way past.
+  console.error(`[pii] could not read the staged diff: ${err?.message ?? err}`);
+  console.error('[pii] refusing to pass a commit it could not scan. Use --no-verify to override.');
+  process.exit(1);
 }
 
 // Walk through diff and collect (file, line, addedText) tuples.
