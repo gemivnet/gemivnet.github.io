@@ -1,0 +1,20 @@
+{
+  "name": "Szójáték — Hungarian vocabulary games",
+  "short_name": "Szójáték",
+  "description": "Quick games for drilling Hungarian vocabulary, with spaced repetition and native audio.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fdfaf4",
+  "theme_color": "#fdfaf4",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "./favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

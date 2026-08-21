@@ -8,12 +8,62 @@
       name="description"
       content="Szójáték — quick games for drilling Hungarian vocabulary, with spaced repetition and native audio."
     />
-    <meta name="theme-color" content="#1b1a17" />
+    <!-- Warm paper, matching the page. It was near-black, so a phone framed a cream app in a
+         dark browser chrome. -->
+    <meta name="theme-color" content="#fdfaf4" />
     <title>Szójáték — Hungarian vocabulary games</title>
-    <script type="module" crossorigin src="/sites/szojatek/assets/index-DnBOqfR_.js"></script>
-    <link rel="stylesheet" crossorigin href="/sites/szojatek/assets/index-Dj4vEJj4.css">
+    <!-- Installable, which is the point: an installed site is not swept up by iOS Safari's
+         seven-day eviction of unused site data, and that eviction is the likeliest way for a
+         classmate to lose months of progress without ever being told. -->
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./favicon.svg" />
+    <style>
+      /*
+       * Something to look at while the app arrives.
+       *
+       * The page was blank white for the whole download -- and the download is the app plus a
+       * corpus of two thousand words, over a phone connection, on a site people open for four
+       * minutes at a time. The shell is removed the moment Svelte mounts.
+       */
+      .boot {
+        min-height: 100dvh;
+        display: grid;
+        place-content: center;
+        justify-items: center;
+        gap: 0.6rem;
+        font-family:
+          ui-rounded, 'SF Pro Rounded', 'Segoe UI Variable Display', 'Segoe UI', system-ui,
+          -apple-system, Roboto, sans-serif;
+        color: #2c2a26;
+        background: #fdfaf4;
+      }
+      .boot h1 {
+        margin: 0;
+        font-size: 2.1rem;
+        font-weight: 650;
+        letter-spacing: -0.01em;
+      }
+      .boot p {
+        margin: 0;
+        color: #6d675d;
+        font-size: 0.95rem;
+      }
+    </style>
+    <script type="module" crossorigin src="/sites/szojatek/assets/index-BHlW81Qv.js"></script>
+    <link rel="stylesheet" crossorigin href="/sites/szojatek/assets/index-UFY9po4j.css">
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <div class="boot">
+        <h1 lang="hu">Szójáték</h1>
+        <p>Hungarian words, a few minutes at a time</p>
+      </div>
+    </div>
+    <noscript>
+      <p style="font-family: system-ui; padding: 2rem; text-align: center">
+        Szójáték needs JavaScript to run. Everything happens in your browser — there is no server
+        and nothing is sent anywhere.
+      </p>
+    </noscript>
   </body>
 </html>
