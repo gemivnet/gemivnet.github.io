@@ -1,0 +1,219 @@
+<header class="sp-post-header">
+  <div class="crumbs">
+    <a href="/">~</a> &nbsp;/&nbsp; <a href="/foia"><%= copy.foia.request.crumbs_root %></a>
+    &nbsp;/&nbsp; <a href="<%= req.url %>"><%= req.slug %></a>
+    &nbsp;/&nbsp; <a href="<%= ev.url %>"><%= ev.id %></a>
+    &nbsp;/&nbsp; <span style="color: var(--ink-2);"><%= doc.id %></span>
+  </div>
+  <h1><%= doc.title %></h1>
+  <div class="meta">
+    <span style="color: var(--accent); font-weight: 600;"><%= fmtMetaDate(ev.date) %></span>
+    <span class="sep">·</span>
+    <span><%= req.agencyShort %></span>
+    <% if (doc.pages) { %><span class="sep">·</span><span><%= doc.pages.toLocaleString() %> pages</span><% } %>
+    <% if (doc.bytesFmt) { %><span class="sep">·</span><span><%= doc.bytesFmt %></span><% } %>
+    <span class="sep">·</span>
+    <span class="mono"><%= doc.ext %></span>
+  </div>
+</header>
+
+<% if (doc.description) { %><p class="foia-note"><%= doc.description %></p><% } %>
+
+<% if (doc.isPdf) { %>
+  <div class="foia-viewer" data-src="<%= escapeHtml(doc.src) %>" data-name="<%= escapeHtml(doc.file) %>">
+    <div class="bar" role="toolbar" aria-label="Document controls">
+      <div class="grp">
+        <button type="button" data-act="prev" aria-label="Previous page">◀</button>
+        <span class="pages"><input type="text" inputmode="numeric" value="1" aria-label="Page number" size="4"> / <span class="total">?</span></span>
+        <button type="button" data-act="next" aria-label="Next page">▶</button>
+      </div>
+      <div class="grp">
+        <button type="button" data-act="out" aria-label="Zoom out">−</button>
+        <span class="zoom">fit</span>
+        <button type="button" data-act="in" aria-label="Zoom in">+</button>
+        <button type="button" data-act="fit">fit width</button>
+      </div>
+      <div class="grp right">
+        <button type="button" data-act="download"><%= copy.foia.document.download_label %></button>
+      </div>
+    </div>
+    <div class="stage"><canvas></canvas></div>
+    <div class="status"><%= copy.foia.document.loading %></div>
+    <p class="hint"><%= copy.foia.document.viewer_hint %></p>
+  </div>
+
+  <noscript>
+    <div class="foia-fallback">
+      <p><%= copy.foia.document.failed %></p>
+      <a class="sp-btn primary" href="<%= doc.src %>" download="<%= escapeHtml(doc.file) %>"><%= copy.foia.document.failed_action %></a>
+    </div>
+  </noscript>
+
+  <script type="module">
+    // Minimal pdf.js driver. The full pdf.js web viewer is a whole application;
+    // this renders one page to a canvas and wires six buttons, which is all the
+    // archive needs. See design/vendor/pdfjs/VENDORED.md.
+    // document.currentScript is null in a module script; there is exactly one
+    // viewer per document page, so query for it directly.
+    const root = document.querySelector('.foia-viewer');
+    const canvas = root.querySelector('canvas');
+    const stage  = root.querySelector('.stage');
+    const status = root.querySelector('.status');
+    const pageIn = root.querySelector('.pages input');
+    const totalEl = root.querySelector('.total');
+    const zoomEl = root.querySelector('.zoom');
+    const src  = root.dataset.src;
+    const name = root.dataset.name;
+
+    const fail = (msg) => {
+      status.innerHTML = '';
+      const p = document.createElement('p');
+      p.textContent = <%~ JSON.stringify(copy.foia.document.failed) %>;
+      const a = document.createElement('a');
+      a.className = 'sp-btn primary';
+      a.href = src; a.download = name;
+      a.textContent = <%~ JSON.stringify(copy.foia.document.failed_action) %>;
+      status.append(p, a);
+      status.classList.add('is-error');
+      root.classList.add('is-failed');
+      if (msg) console.error('[foia viewer]', msg);
+    };
+
+    let pdfjs;
+    try {
+      pdfjs = await import('/vendor/pdfjs/pdf.min.mjs');
+    } catch (e) { fail(e); throw e; }
+
+    pdfjs.GlobalWorkerOptions.workerSrc = '/vendor/pdfjs/pdf.worker.min.mjs';
+
+    let doc = null, pageNum = 1, scale = 'fit', rendering = null, dirty = false;
+
+    // Cap the backing store so a 300% zoom on a retina display doesn't try to
+    // allocate a canvas the browser will refuse.
+    const dpr = () => Math.min(window.devicePixelRatio || 1, 2);
+
+    async function render() {
+      if (!doc) return;
+      if (rendering) { dirty = true; return; }        // coalesce: pdf.js rejects concurrent renders on one canvas
+      const page = await doc.getPage(pageNum);
+      const base = page.getViewport({ scale: 1 });
+      const avail = stage.clientWidth || 800;
+      const eff = scale === 'fit' ? (avail / base.width) : scale;
+      const viewport = page.getViewport({ scale: eff * dpr() });
+
+      canvas.width = Math.floor(viewport.width);
+      canvas.height = Math.floor(viewport.height);
+      canvas.style.width = Math.floor(viewport.width / dpr()) + 'px';
+      canvas.style.height = Math.floor(viewport.height / dpr()) + 'px';
+
+      zoomEl.textContent = scale === 'fit' ? 'fit' : Math.round(scale * 100) + '%';
+      pageIn.value = String(pageNum);
+
+      rendering = page.render({ canvasContext: canvas.getContext('2d'), viewport });
+      try { await rendering.promise; }
+      catch (e) { if (e && e.name !== 'RenderingCancelledException') console.error('[foia viewer]', e); }
+      finally { rendering = null; }
+
+      if (dirty) { dirty = false; render(); }
+    }
+
+    const go = (n) => { const t = Math.min(Math.max(1, n), doc.numPages); if (t !== pageNum) { pageNum = t; render(); } };
+
+    root.querySelector('.bar').addEventListener('click', async (e) => {
+      const act = e.target.closest('button')?.dataset.act;
+      if (!act || !doc) return;
+      if (act === 'prev') go(pageNum - 1);
+      else if (act === 'next') go(pageNum + 1);
+      else if (act === 'fit') { scale = 'fit'; render(); }
+      else if (act === 'in' || act === 'out') {
+        const cur = scale === 'fit' ? (stage.clientWidth / (await doc.getPage(pageNum)).getViewport({ scale: 1 }).width) : scale;
+        scale = Math.min(Math.max(cur * (act === 'in' ? 1.25 : 0.8), 0.25), 5);
+        render();
+      } else if (act === 'download') {
+        // A cross-origin <a download> is ignored by every browser — the S3 URL
+        // would just navigate. pdf.js already holds the bytes, so build the
+        // Blob from those and save with the right filename, no second fetch.
+        try {
+          const data = await doc.getData();
+          const url = URL.createObjectURL(new Blob([data], { type: 'application/pdf' }));
+          const a = document.createElement('a');
+          a.href = url; a.download = name;
+          document.body.appendChild(a); a.click(); a.remove();
+          setTimeout(() => URL.revokeObjectURL(url), 30000);
+        } catch (err) { window.open(src, '_blank', 'noopener'); }
+      }
+    });
+
+    pageIn.addEventListener('change', () => {
+      const n = parseInt(pageIn.value, 10);
+      if (Number.isFinite(n)) go(n); else pageIn.value = String(pageNum);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!doc || e.metaKey || e.ctrlKey || e.altKey) return;
+      if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+      if (e.key === 'ArrowLeft' || e.key === 'PageUp') { go(pageNum - 1); e.preventDefault(); }
+      else if (e.key === 'ArrowRight' || e.key === 'PageDown') { go(pageNum + 1); e.preventDefault(); }
+      else if (e.key === 'f' || e.key === 'F') { scale = 'fit'; render(); }
+    });
+
+    let rt;
+    window.addEventListener('resize', () => {
+      if (scale !== 'fit') return;
+      clearTimeout(rt); rt = setTimeout(render, 150);
+    });
+
+    try {
+      doc = await pdfjs.getDocument({
+        url: src,
+        // Not optional: PDFs may reference Helvetica/Times/Courier without
+        // embedding them, and agency releases routinely do.
+        standardFontDataUrl: '/vendor/pdfjs/standard_fonts/',
+      }).promise;
+      totalEl.textContent = String(doc.numPages);
+      pageIn.setAttribute('max', String(doc.numPages));
+      status.remove();
+      root.classList.add('is-ready');
+      await render();
+    } catch (e) { fail(e); }
+  </script>
+<% } else { %>
+  <div class="foia-fallback">
+    <p>This file is a <span class="mono"><%= doc.ext %></span>, not a PDF — there's no in-page reader for it.</p>
+    <a class="sp-btn primary" href="<%= doc.src %>" download="<%= escapeHtml(doc.file) %>"><%= copy.foia.document.download_label %> <%= doc.file %></a>
+  </div>
+<% } %>
+
+<dl class="foia-facts">
+  <div><dt>file</dt><dd class="mono"><%= doc.file %></dd></div>
+  <% if (doc.pages) { %><div><dt><%= copy.foia.labels.pages %></dt><dd><%= doc.pages.toLocaleString() %></dd></div><% } %>
+  <% if (doc.bytesFmt) { %><div><dt><%= copy.foia.labels.size %></dt><dd><%= doc.bytesFmt %></dd></div><% } %>
+  <div><dt><%= copy.foia.document.source_label %></dt><dd><a href="<%= ev.url %>"><%= ev.title %></a> — <a href="<%= req.url %>"><%= req.title %></a></dd></div>
+  <% if (doc.exemptions.length) { %>
+    <div><dt><%= copy.foia.labels.exemptions %></dt><dd><% ;(doc.exemptions).forEach(function(x){ %><span class="ex"><%= x %></span><% }) %></dd></div>
+  <% } %>
+  <% if (doc.sha256) { %><div><dt><%= copy.foia.document.integrity_label %></dt><dd class="mono hash-full"><%= doc.sha256 %></dd></div><% } %>
+</dl>
+
+<nav class="sp-postnav" aria-label="Document navigation">
+  <div class="prev">
+    <span class="label"><%= copy.foia.document.prev_label %></span>
+    <% if (prev) { %><a href="<%= prev.url %>"><%= prev.title %></a>
+    <% } else { %><span style="color: var(--ink-3);">— (first in this release)</span><% } %>
+  </div>
+  <div class="next">
+    <span class="label"><%= copy.foia.document.next_label %></span>
+    <% if (next) { %><a href="<%= next.url %>"><%= next.title %></a>
+    <% } else { %><span style="color: var(--ink-3);">— (last in this release)</span><% } %>
+  </div>
+</nav>
+
+<div class="foia-rights compact">
+  <p><%= req.rights.note %> <%= copy.foia.rights.caveat %>
+    <a href="<%= copy.foia.rights.contact_href %>"><%= copy.foia.rights.contact_label %></a>
+  </p>
+</div>
+
+<div style="text-align: center; margin-top: var(--sp-5); font-family: var(--font-mono); font-size: 12px; color: var(--ink-3);">
+  <a href="<%= ev.url %>">↑ <%= ev.title %></a>
+</div>

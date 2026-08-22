@@ -9,6 +9,8 @@
     "serve": "node scripts/serve.mjs",
     "dev": "node scripts/dev.mjs",
     "media": "node scripts/process-staging.mjs",
+    "foia:inspect": "node scripts/ingest-foia.mjs inspect",
+    "foia:publish": "node scripts/ingest-foia.mjs publish",
     "check:pii": "node scripts/check-pii.mjs",
     "check:images": "node scripts/check-images.mjs",
     "check:links": "node scripts/check-links.mjs",

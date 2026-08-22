@@ -7,10 +7,36 @@ allowed:
   - "george.main@gemiv.net"
   - "github.com/gemivnet"
   - "georgemain.com"
+  # Used as the contact address on public-records requests, so it already
+  # appears in documents the agencies released and published.
+  - "george@gemiv.net"
+
+  # Government contact details that agencies print on their own letterhead and
+  # publish on their websites. These appear throughout the FOIA archive.
+  - "foia@bolingbrook.gov"
+  - "FOIA@bolingbrook.gov"
+  - "fmiller@bolingbrook.gov"
+  - "firepoliceboard@bolingbrook.gov"
+  - "bolingbrookil@govqa.us"
+  - "public.access@ilag.gov"          # Illinois AG Public Access Counselor
+  - "customersupport@cityofchicago.org"
+  - "ResidentResponse@josephinecounty.gov"
+  - "da@josephinecounty.gov"
+  - "da@co.josephine.or.us"
+  - "7-awa-arc-foia@faa.gov"
+  - "9-AVS-AFB130-FOIA@faa.gov"
+  - "9-avs-afb130-foia@faa.gov"
+  - "9-AAE-FOIAEXT@faa.gov"
+  - "phillip.r.jarmon@faa.gov"
+  - "Aniya.M.Terrell@faa.gov"
 
   # Names of public figures or your own first name in posts is fine.
   - "George"
   - "Shelby"
+
+  # A scanned record CDOT named only by its capture timestamp. Reads as a
+  # 14-digit phone number to the scanner; it's a filename.
+  - "20230614120530"
 
   # Place names mentioned in posts (cities, countries, mountains, etc).
   # These are not PII even though the heuristics might flag them.

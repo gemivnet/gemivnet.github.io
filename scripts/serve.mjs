@@ -10,9 +10,15 @@ const TYPES = {
   '.html': 'text/html; charset=utf-8',
   '.css': 'text/css; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8',
+  // Browsers refuse to execute a `<script type="module">` served as
+  // application/octet-stream, so the vendored pdf.js needs a real type here or
+  // the FOIA viewer silently does nothing under `npm run dev`.
+  '.mjs': 'text/javascript; charset=utf-8',
   '.json': 'application/json',
   '.svg': 'image/svg+xml',
   '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp',
+  '.pdf': 'application/pdf',
+  '.zip': 'application/zip',
   '.xml': 'application/xml; charset=utf-8',
   '.txt': 'text/plain; charset=utf-8',
 };

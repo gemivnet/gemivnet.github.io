@@ -15,44 +15,38 @@
 // Optionally runs a second-pass AI check if ANTHROPIC_API_KEY is set; the AI
 // pass is best-effort and never blocks if it can't reach the API.
 
-import { execSync } from 'node:child_process';
-import { readFileSync, existsSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import path from 'node:path';
-import yaml from 'js-yaml';
 import exifr from 'exifr';
 
+import { loadAllowlist, buildPatterns } from './lib/pii-patterns.mjs';
+
 const ROOT = path.resolve(import.meta.dirname || new URL('.', import.meta.url).pathname, '..');
-const ALLOWLIST_PATH = path.join(ROOT, '.pii-allowlist.yaml');
 
-// ── load allowlist ─────────────────────────────────────────
-let allowed = new Set();
-if (existsSync(ALLOWLIST_PATH)) {
-  try {
-    const y = yaml.load(readFileSync(ALLOWLIST_PATH, 'utf8'));
-    (y?.allowed || []).forEach((s) => allowed.add(String(s)));
-  } catch (e) {
-    console.error('[pii] failed to read .pii-allowlist.yaml:', e.message);
-  }
-}
+// execFileSync, not execSync: execSync routes through cmd.exe, which refuses a
+// UNC working directory ("CMD.EXE was started with the above path ... UNC paths
+// are not supported") and silently falls back to C:\Windows. This repo lives on
+// a network share, so every git call here failed that way — and because the
+// scanner fails closed, that blocked every commit from the machine.
+//
+// maxBuffer: execFileSync throws past its 1 MiB default. Adding 780 audio files
+// produced a 1.3 MB diff, this threw, and the catch below reported it as "not in
+// a git repo" and waved the commit through — the scan skipping itself on
+// precisely the largest commits, which are the ones worth scanning.
+const git = (args) => execFileSync('git', args, {
+  cwd: ROOT,
+  encoding: 'utf8',
+  maxBuffer: 256 * 1024 * 1024,
+});
 
-const isAllowed = (m) => {
-  if (allowed.has(m)) return true;
-  for (const a of allowed) if (a && m.includes(a)) return true;
-  return false;
-};
+// Patterns and the allowlist reader live in scripts/lib/pii-patterns.mjs so the
+// FOIA ingest pre-flight scans documents against exactly these rules.
+const isAllowed = loadAllowlist(ROOT);
 
 // ── get staged content ─────────────────────────────────────
 let staged;
 try {
-  staged = execSync('git diff --cached --unified=0 --no-color', {
-    cwd: ROOT,
-    encoding: 'utf8',
-    // execSync buffers the whole diff and throws past its 1 MiB default. Adding 780 audio
-    // files produced a 1.3 MB diff, this threw, and the catch below reported it as "not in a
-    // git repo" and waved the commit through -- the scan skipping itself on precisely the
-    // largest commits, which are the ones worth scanning.
-    maxBuffer: 256 * 1024 * 1024,
-  });
+  staged = git(['diff', '--cached', '--unified=0', '--no-color']);
 } catch (err) {
   // Fail closed. A scanner that cannot read the diff and says nothing is worse than no
   // scanner at all, because it looks like it passed. --no-verify is the deliberate way past.
@@ -79,68 +73,20 @@ for (const raw of staged.split('\n')) {
   // literals routinely trip the heuristics -- 4294967296 is 2^32, and a model's weight array
   // reads as GPS coordinates. The authored sources are reviewed in their own repo.
   if (/^content\/sites\/[^/]+\/assets\//.test(currentFile)) continue;
-  // Skip the hook itself — it documents the patterns it detects.
+  // Same reasoning for vendored third-party builds: design/vendor/pdfjs is
+  // minified upstream output where 4294967296 is 2^32, not a phone number.
+  // Provenance for it is recorded in design/vendor/pdfjs/VENDORED.md.
+  if (/^design\/vendor\//.test(currentFile)) continue;
+  // Skip the hook itself and the shared pattern module — they document, in
+  // comments and examples, exactly the shapes they detect.
   if (currentFile === 'scripts/check-pii.mjs') continue;
+  if (currentFile === 'scripts/lib/pii-patterns.mjs') continue;
   if (currentFile.startsWith('.claude/skills/pii-audit/')) continue;
   lines.push({ file: currentFile, text });
 }
 
 // ── pattern definitions ───────────────────────────────────
-const luhn = (s) => {
-  const d = s.replace(/\D/g, '').split('').reverse().map(Number);
-  if (d.length < 13 || d.length > 19) return false;
-  let sum = 0;
-  for (let i = 0; i < d.length; i++) {
-    let x = d[i];
-    if (i % 2 === 1) { x *= 2; if (x > 9) x -= 9; }
-    sum += x;
-  }
-  return sum % 10 === 0;
-};
-
-const patterns = [
-  {
-    name: 'email',
-    re: /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g,
-    test: (m) => !isAllowed(m),
-  },
-  {
-    name: 'phone (US/intl)',
-    re: /\+?\d[\d ()\-.]{8,}\d/g,
-    test: (m) => {
-      const digits = m.replace(/\D/g, '');
-      if (digits.length < 10 || digits.length > 15) return false;
-      if (luhn(digits)) return false; // probably a CC, separately flagged
-      // ignore obvious non-phone numerics: ISBN, identifiers in URLs
-      return true;
-    },
-  },
-  {
-    name: 'SSN-like',
-    re: /\b\d{3}-\d{2}-\d{4}\b/g,
-    test: () => true,
-  },
-  {
-    name: 'credit card-like',
-    re: /\b(?:\d[ -]?){13,19}\b/g,
-    test: (m) => luhn(m),
-  },
-  {
-    name: 'GPS coordinates',
-    re: /-?\d{1,3}\.\d{4,},\s*-?\d{1,3}\.\d{4,}/g,
-    test: () => true,
-  },
-  {
-    name: 'precise timestamp',
-    re: /\b\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\b/g,
-    test: () => true,
-  },
-  {
-    name: 'US street address',
-    re: /\b\d{1,5}\s+([A-Z][a-z]+\s){1,3}(St|Street|Ave|Avenue|Rd|Road|Blvd|Boulevard|Ln|Lane|Dr|Drive|Way|Court|Ct|Pl|Place)\b\.?/g,
-    test: (m) => !isAllowed(m),
-  },
-];
+const patterns = buildPatterns(isAllowed);
 
 // ── run scan ───────────────────────────────────────────────
 const hits = [];
@@ -159,7 +105,7 @@ for (const { file, text } of lines) {
 
 // ── EXIF GPS check on staged image files ──────────────────
 try {
-  const stagedFiles = execSync('git diff --cached --name-only --diff-filter=AM', { cwd: ROOT, encoding: 'utf8' })
+  const stagedFiles = git(['diff', '--cached', '--name-only', '--diff-filter=AM'])
     .split('\n').map(s => s.trim()).filter(Boolean)
     .filter(f => /\.(jpe?g|png|heic|heif|tiff?|webp)$/i.test(f))
     .filter(f => !f.startsWith('staging/'));

@@ -19,6 +19,7 @@ nav:
     - { id: musings, label: "musings", href: "/musings" }
     - { id: media,   label: "media",   href: "/media" }
     - { id: rv12is,  label: "RV-12iS", href: "/rv12is" }
+    - { id: foia,    label: "FOIA",    href: "/foia" }
 
 # ── homepage ────────────────────────────────────────────────
 home:
@@ -128,6 +129,147 @@ media:
     photos_title: "loose images"
     photos_aside: "images directly at this level"
 
+# ── foia archive ────────────────────────────────────────────
+foia:
+  heading: "FOIA."
+  index:
+    breadcrumb: "~/foia"
+    title: "foia"
+    intro: "Documents I've obtained through public-records requests, posted as I get them. No commentary — the records are the point."
+    seo_description: "Public archive of {count} records requests filed by {author}, with the documents released in response."
+    browse_agency: "by agency"
+    browse_tag: "by tag"
+  request:
+    crumbs_root: "foia"
+    timeline_tag: "timeline"
+    timeline_title: "request & response"
+    timeline_aside: "oldest first"
+    track_filter_all: "all"
+    documents_label: "documents"
+    open_label: "open →"
+    no_timeline: "∅  nothing recorded yet."
+    back_label: "↑ back to the archive"
+  release:
+    files_tag: "files"
+    files_title: "what's in this release"
+    download_all: "⤓ download all"
+    download_one: "⤓ download"
+    view_label: "read →"
+    single_file_note: "single document — no bundle."
+    pages_label: "pp"
+  document:
+    viewer_hint: "arrow keys page · press F to fit width"
+    loading: "loading…"
+    failed: "This document couldn't be displayed in the browser."
+    failed_action: "Download it instead"
+    download_label: "⤓ download"
+    source_label: "part of"
+    integrity_label: "sha256"
+    prev_label: "← previous"
+    next_label: "next →"
+
+  # AI disclosure. Rendered directly beneath every generated summary; the build
+  # refuses to publish a summary without generated_by + generated_on.
+  summary:
+    tag: "summary"
+    title: "what's in here"
+    disclosure: "Written by {model} on {date} from the documents below. It describes what the records are, not what they mean. Machine-written and not checked line by line — the documents are the record, this is only a finding aid."
+    disclosure_reviewed: "Written by {model} on {date} from the documents below, then read and corrected by hand. It describes what the records are, not what they mean."
+
+  # Standing AI disclosure for the whole section. The documents are untouched
+  # agency output, but the scaffolding around them — timelines, titles,
+  # descriptions, summaries — is machine-written, and that distinction is the
+  # whole point of saying so.
+  ai_notice:
+    tag: "disclosure"
+    title: "what here is machine-written"
+    body:
+      - "The documents are exactly as the agencies released them. Nothing in them has been altered, and no summary replaces reading them."
+      - "Everything around the documents was written by Claude, working from the released records and my correspondence with each agency: the request timelines and their notes, the document titles and descriptions, the summaries, and the tags. I check them, but I don't hand-verify every line."
+      - "So: treat the timelines and summaries as a finding aid, not as a source. Where it matters, open the document."
+    short: "Documents are unaltered agency releases. The timelines, titles, descriptions and summaries around them are written by Claude from those records and checked by me."
+
+  # Rights. The site footer asserts CC BY-NC across every page; these pages have
+  # to say plainly that it doesn't extend to the government records themselves.
+  rights:
+    tag: "rights"
+    title: "using these documents"
+    default_note: "Records released under the federal Freedom of Information Act. Works of the US Government are not subject to copyright (17 U.S.C. § 105)."
+    site_note: "The documents are public records and I claim nothing over them. Only the surrounding descriptions and summaries are mine, under CC BY-NC 4.0."
+    caveat: "Released documents occasionally contain material an agency didn't intend to release, or third-party work that isn't a government record. If something here shouldn't be, tell me and I'll take it down."
+    contact_label: "george.main@gemiv.net"
+    contact_href: "mailto:george.main@gemiv.net"
+
+  # Timeline event types. Glyphs are plain characters, not SVG.
+  events:
+    filed:            { label: "filed",            glyph: "●" }
+    acknowledged:     { label: "acknowledged",     glyph: "○" }
+    interim:          { label: "interim release",  glyph: "◆" }
+    partial:          { label: "partial release",  glyph: "◆" }
+    final:            { label: "final release",    glyph: "◆" }
+    denial:           { label: "denied",           glyph: "✕" }
+    no-records:       { label: "no records",       glyph: "∅" }
+    appeal:           { label: "appealed",         glyph: "↑" }
+    appeal-decision:  { label: "appeal decision",  glyph: "⚖" }
+    referral:         { label: "referred",         glyph: "↦" }
+    fee:              { label: "fee",              glyph: "¤" }
+    extension:        { label: "extension",        glyph: "…" }
+    litigation:       { label: "litigation",       glyph: "⚖" }
+    note:             { label: "note",             glyph: "·" }
+    # Narrowing is most of the life of a real records request, so it gets its
+    # own two types rather than being flattened into "note".
+    narrowing-request: { label: "asked to narrow", glyph: "⤢" }
+    amended:          { label: "amended",          glyph: "✎" }
+    withdrawn:        { label: "withdrawn",        glyph: "⊘" }
+
+  status:
+    open:       "open"
+    partial:    "partially released"
+    complete:   "complete"
+    denied:     "denied"
+    appealed:   "on appeal"
+    withdrawn:  "withdrawn"
+    no-records: "no records"
+
+  labels:
+    agency: "agency"
+    statute: "statute"
+    tracking: "tracking"
+    filed: "filed"
+    closed: "closed"
+    status: "status"
+    exemptions: "withheld under"
+    documents: "documents"
+    pages: "pages"
+    size: "size"
+    releases: "releases"
+    fees: "fees"
+    also: "also"
+
+  # Summary table on /foia.
+  table:
+    tag: "ledger"
+    title: "every request, in order"
+    aside: "oldest first"
+    th_filed: "filed"
+    th_request: "request"
+    th_agency: "agency"
+    th_outcome: "outcome"
+    th_docs: "docs"
+    th_pages: "pp"
+    th_fees: "fees"
+    fee_none: "—"
+    fee_waived: "waived"
+    fee_pending: "pending"
+    totals: "totals"
+
+  # Fee-waiver states, shown in the ledger and on the request page.
+  waiver:
+    requested: "waiver requested"
+    granted: "waiver granted"
+    denied: "waiver denied"
+    upheld: "waiver denied, upheld on review"
+
 # ── empty states ────────────────────────────────────────────
 empty:
   musings_index: "∅  no musings yet."
@@ -135,6 +277,8 @@ empty:
   tag: "∅  no posts with this tag yet."
   media: "∅  no photos yet."
   gallery: "∅  no photos in this gallery yet."
+  foia_index: "∅  no requests published yet."
+  foia_archive: "∅  no requests here yet."
 
 # ── 404 ─────────────────────────────────────────────────────
 not_found:

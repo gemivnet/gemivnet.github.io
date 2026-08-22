@@ -1,0 +1,131 @@
+<header style="margin-bottom: var(--sp-6);">
+  <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); margin-bottom: var(--sp-3);">
+    <%= copy.foia.index.breadcrumb %> · <%= totals.requests %> request<%= totals.requests === 1 ? '' : 's' %> · <%= totals.documents %> documents<% if (totals.pages) { %> · <%= totals.pages.toLocaleString() %> pages<% } %>
+  </div>
+  <h1><%= copy.foia.heading %></h1>
+  <p style="color: var(--ink-2); max-width: var(--reading-width); margin-top: var(--sp-3);"><%= copy.foia.index.intro %></p>
+</header>
+
+<div class="foia-ai-notice" data-ai-generated="true">
+  <div class="head">
+    <span class="mark" aria-hidden="true">ⓘ</span>
+    <span class="tag"><%= copy.foia.ai_notice.tag %></span>
+    <h2><%= copy.foia.ai_notice.title %></h2>
+  </div>
+  <% ;(copy.foia.ai_notice.body).forEach(function(p){ %><p><%= p %></p><% }) %>
+</div>
+
+<div class="foia-rights-strip">
+  <p><%= copy.foia.rights.site_note %></p>
+  <p><%= copy.foia.rights.caveat %>
+    <a href="<%= copy.foia.rights.contact_href %>"><%= copy.foia.rights.contact_label %></a>
+  </p>
+</div>
+
+<% if (agencies.length || tagList.length) { %>
+<div class="foia-browse">
+  <% if (agencies.length) { %>
+    <div class="row">
+      <span class="k"><%= copy.foia.index.browse_agency %>:</span>
+      <% ;(agencies).forEach(function(a){ %><a href="/foia/agency/<%= a.slug %>"><%= a.label %> <span class="n"><%= a.count %></span></a><% }) %>
+    </div>
+  <% } %>
+  <% if (tagList.length) { %>
+    <div class="row">
+      <span class="k"><%= copy.foia.index.browse_tag %>:</span>
+      <% ;(tagList).forEach(function(t){ %><a href="/foia/tag/<%= t.slug %>"><%= t.name %> <span class="n"><%= t.count %></span></a><% }) %>
+    </div>
+  <% } %>
+</div>
+<% } %>
+
+<% if (requests.length === 0) { %>
+  <div class="sp-empty"><span class="glyph">∅</span><%= copy.empty.foia_index %></div>
+<% } %>
+
+<% if (ledger.length) { %>
+<section class="sp-section first" aria-label="All requests">
+  <div class="sp-section-head">
+    <span class="sp-section-tag"><%= copy.foia.table.tag %></span>
+    <h2><%= copy.foia.table.title %></h2>
+    <span class="sp-section-aside"><%= copy.foia.table.aside %></span>
+  </div>
+  <div class="foia-doclist-wrap">
+    <table class="foia-doclist foia-ledger">
+      <thead>
+        <tr>
+          <th scope="col"><%= copy.foia.table.th_filed %></th>
+          <th scope="col"><%= copy.foia.table.th_request %></th>
+          <th scope="col"><%= copy.foia.table.th_agency %></th>
+          <th scope="col"><%= copy.foia.table.th_outcome %></th>
+          <th scope="col" class="num"><%= copy.foia.table.th_docs %></th>
+          <th scope="col" class="num"><%= copy.foia.table.th_pages %></th>
+          <th scope="col" class="num"><%= copy.foia.table.th_fees %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% ;(ledger).forEach(function(r){ %>
+          <tr>
+            <td class="mono nowrap"><%= r.filed %></td>
+            <th scope="row">
+              <a href="<%= r.url %>"><%= r.title %></a>
+              <% if (r.tracking) { %><span class="file mono"><%= r.tracking %></span><% } %>
+            </th>
+            <td><a class="foia-chip" href="/foia/agency/<%= r.agencySlug %>"><%= r.agencyShort %></a></td>
+            <td><span class="foia-status is-<%= r.status %>"><%= r.statusLabel %></span></td>
+            <td class="num"><%= r.docCount || '—' %></td>
+            <td class="num"><%= r.pageCount ? r.pageCount.toLocaleString() : '—' %></td>
+            <td class="num">
+              <% if (r.fees.paid) { %><span class="paid"><%= r.fees.paidFmt %></span>
+              <% } else if (r.fees.pending && r.fees.quoted) { %><span class="quoted"><%= r.fees.quotedFmt %></span> <span class="q"><%= copy.foia.table.fee_pending %></span>
+              <% } else if (r.fees.waiver === 'granted') { %><span class="q"><%= copy.foia.table.fee_waived %></span>
+              <% } else if (r.fees.quoted) { %><span class="quoted strike"><%= r.fees.quotedFmt %></span>
+              <% } else { %><%= copy.foia.table.fee_none %><% } %>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td></td>
+          <th scope="row"><%= copy.foia.table.totals %></th>
+          <td colspan="2"><%= ledgerTotals.requests %> request<%= ledgerTotals.requests === 1 ? '' : 's' %></td>
+          <td class="num"><%= ledgerTotals.documents %></td>
+          <td class="num"><%= ledgerTotals.pages.toLocaleString() %></td>
+          <td class="num"><%= ledgerTotals.paidFmt %></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <p class="foia-ledger-note">
+    Struck-through amounts were quoted but never paid — the request was withdrawn,
+    narrowed, or is still open. Totals count only money actually paid.
+  </p>
+</section>
+<% } %>
+
+<% ;(requests).forEach(function(r){ %>
+  <article class="sp-card foia-card">
+    <div class="sp-meta">
+      <span style="color: var(--accent); font-weight: 600;"><%= r.filed %></span>
+      <span class="sep">·</span>
+      <a class="foia-chip" href="/foia/agency/<%= r.agencySlug %>"><%= r.agencyShort %></a>
+      <span class="sep">·</span>
+      <span class="foia-status is-<%= r.status %>"><%= r.statusLabel %></span>
+    </div>
+    <h3><a href="<%= r.url %>"><%= r.title %></a></h3>
+    <% if (r.blurb) { %><p class="sp-preview"><%= r.blurb %></p><% } %>
+    <div class="foia-card-foot">
+      <span><%= r.releaseCount %> release<%= r.releaseCount === 1 ? '' : 's' %></span>
+      <span class="sep">·</span>
+      <span><%= r.docCount %> document<%= r.docCount === 1 ? '' : 's' %></span>
+      <% if (r.pageCount) { %><span class="sep">·</span><span><%= r.pageCount.toLocaleString() %> pp</span><% } %>
+      <% if (r.byteCountFmt) { %><span class="sep">·</span><span><%= r.byteCountFmt %></span><% } %>
+    </div>
+    <% if (r.tags.length) { %>
+      <div class="sp-tags">
+        <% ;(r.tags).forEach(function(t){ %><a class="sp-tag" href="/foia/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %>
+      </div>
+    <% } %>
+  </article>
+<% }) %>
