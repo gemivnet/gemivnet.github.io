@@ -815,261 +815,21 @@
   font-weight: 500;
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   ad-hoc: FOIA archive (2026-08-22)
 
-   Styles for /foia â€” request cards, the request/response timeline, release
-   file listings, and the pdf.js document viewer. Written by hand rather than
-   coming from a Claude Design bundle; fold them into the next one and delete
-   this block. Everything below uses tokens only, so both themes track.
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* â”€â”€ ad-hoc: FOIA archive (2026-08-22) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   Flat and quiet on purpose. The first pass at this was a stack of
+   bordered boxes that read like a dashboard; this one leans on the
+   dated-list idiom the build log already uses. Rules, not borders.
+   Fold into the next Claude Design bundle and delete this block. */
 
-/* â”€â”€ index: standing rights notice â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-.foia-rights-strip {
-  border-left: 2px solid var(--accent);
-  padding: var(--sp-3) 0 var(--sp-3) var(--sp-4);
-  margin-bottom: var(--sp-6);
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
-  line-height: 1.7;
-  color: var(--ink-2);
-}
-.foia-rights-strip p { margin: 0 0 var(--sp-2); }
-.foia-rights-strip p:last-child { margin-bottom: 0; }
-
-/* â”€â”€ index: browse-by rows â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-.foia-browse {
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-  padding: var(--sp-4) 0;
-  margin-bottom: var(--sp-6);
-  font-family: var(--font-mono);
-  font-size: var(--fs-small);
-}
-.foia-browse .row { line-height: 1.9; }
-.foia-browse .row + .row { margin-top: var(--sp-2); }
-.foia-browse .k { color: var(--ink-3); font-size: var(--fs-tiny); margin-right: var(--sp-3); }
-.foia-browse a { color: var(--ink-2); text-decoration: none; margin-right: 14px; }
-.foia-browse a:hover { color: var(--accent); }
-.foia-browse .n { color: var(--ink-3); }
-
-/* â”€â”€ request cards â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-.foia-card-foot {
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
-  color: var(--ink-3);
-  margin-top: var(--sp-3);
-}
-.foia-card-foot .sep { margin: 0 6px; color: var(--rule-2); }
-
-.foia-chip {
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
-  color: var(--ink-2);
-  text-decoration: none;
-  border: 1px solid var(--rule-2);
-  padding: 1px 6px;
-}
-.foia-chip:hover { color: var(--accent); border-color: var(--accent); }
-
-.foia-status {
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
-  color: var(--ink-3);
-}
-.foia-status::before { content: "â— "; }
-.foia-status.is-open,
-.foia-status.is-appealed { color: var(--accent); }
-.foia-status.is-complete { color: var(--ink-2); }
-.foia-status.is-denied,
-.foia-status.is-no-records,
-.foia-status.is-withdrawn { color: var(--ink-3); }
-
-/* â”€â”€ fact list (dl) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-.foia-facts {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: var(--sp-3) var(--sp-5);
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-  padding: var(--sp-4) 0;
-  margin: 0 0 var(--sp-6);
-}
-.foia-facts > div { min-width: 0; }
-.foia-facts dt {
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  margin-bottom: 2px;
-}
-.foia-facts dd {
-  margin: 0;
-  font-size: var(--fs-small);
-  color: var(--ink);
-  overflow-wrap: anywhere;
-}
-.foia-facts dd.mono, .foia-facts .mono { font-family: var(--font-mono); font-size: var(--fs-tiny); }
-.foia-facts dd.hash-full { color: var(--ink-3); font-size: 11px; }
-
-/* â”€â”€ AI summary + disclosure â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-.foia-summary {
-  border: 1px solid var(--rule);
-  border-left: 2px solid var(--accent);
-  padding: var(--sp-4) var(--sp-5);
-  background: var(--bg-2);
-}
-.foia-summary p { margin: 0 0 var(--sp-3); }
-.foia-summary p:last-child { margin-bottom: 0; }
-.foia-summary .disclosure {
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
-  line-height: 1.7;
-  color: var(--ink-3);
-  border-top: 1px solid var(--rule);
-  padding-top: var(--sp-3);
-  margin-top: var(--sp-4);
-}
-.foia-summary .disclosure .mark { color: var(--accent); margin-right: 4px; }
-
-/* â”€â”€ timeline â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-.foia-tracks > input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
-.foia-tracks .gv-toggle { margin: 0 0 var(--sp-5); }
-
-.foia-timeline { list-style: none; padding: 0; margin: 0; }
-
-.foia-year {
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
-  color: var(--ink-3);
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: var(--sp-2);
-  margin: var(--sp-5) 0 var(--sp-4);
-}
-.foia-timeline > .foia-year:first-child { margin-top: 0; }
-
-.foia-event {
-  display: grid;
-  grid-template-columns: 58px 16px minmax(0, 1fr);
-  gap: 0 var(--sp-3);
-  padding-bottom: var(--sp-5);
-}
-.foia-event .when {
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
-  color: var(--ink-3);
-  padding-top: 3px;
-  white-space: nowrap;
-}
-.foia-event .dot {
-  position: relative;
-  text-align: center;
-  color: var(--accent);
-  font-size: var(--fs-tiny);
-  line-height: 1.6;
-}
-/* the rail: runs from under this event's glyph down to the next event's */
-.foia-event .dot::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 1.7em;
-  height: calc(100% - 1.7em + var(--sp-5));
-  width: 1px;
-  background: var(--rule);
-}
-.foia-event:last-child .dot::after { display: none; }
-/* releases carry the accent; procedural events stay quiet */
-.foia-event.is-interim .dot,
-.foia-event.is-final .dot,
-.foia-event.is-partial .dot { color: var(--accent); }
-.foia-event.is-acknowledged .dot,
-.foia-event.is-extension .dot,
-.foia-event.is-note .dot,
-.foia-event.is-fee .dot { color: var(--ink-3); }
-
-.foia-event .what { min-width: 0; }
-.foia-event .kind {
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
-  color: var(--ink-3);
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--sp-2);
-  align-items: center;
-  margin-bottom: 2px;
-}
-.foia-event .kind .type { letter-spacing: 0.06em; text-transform: uppercase; }
-.foia-event .kind .track {
-  color: var(--ink-2);
-  border: 1px solid var(--rule-2);
-  padding: 0 5px;
-}
-.foia-event .kind .tracking { color: var(--ink-3); }
-.foia-event h3 {
-  font-size: var(--fs-lg);
-  margin: 0 0 var(--sp-2);
-  line-height: var(--lh-snug);
-}
-.foia-event h3 a { text-decoration: none; }
-.foia-event .note {
-  font-size: var(--fs-small);
-  color: var(--ink-2);
-  margin: 0 0 var(--sp-2);
-}
-.foia-event .exemptions,
-.foia-exemptions {
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
-  color: var(--ink-3);
-  margin: 0 0 var(--sp-2);
-}
-.foia-event .ex, .foia-exemptions .ex, .foia-facts .ex {
-  color: var(--accent);
-  border: 1px solid var(--accent-3);
-  padding: 0 5px;
-  margin-left: 4px;
-}
-.foia-event .release-foot {
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
-  color: var(--ink-3);
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0 6px;
-  margin-top: var(--sp-2);
-}
-.foia-event .release-foot .sep { color: var(--rule-2); }
-.foia-event .release-foot .open { margin-left: auto; color: var(--accent); text-decoration: none; }
-.foia-event .release-foot .open:hover { text-decoration: underline; }
-
-/* â”€â”€ release: bundle + file table â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-.foia-note { color: var(--ink-2); max-width: var(--reading-width); }
-
-.foia-bundle {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-4);
-  flex-wrap: wrap;
-  margin-bottom: var(--sp-5);
-}
-.foia-bundle .hash, .foia-bundle .none {
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
-  color: var(--ink-3);
-}
-
-/* a wide table scrolls inside itself; the page body never scrolls sideways */
-.foia-doclist-wrap { overflow-x: auto; }
-.foia-doclist {
+/* â”€â”€ the ledger: /foia and the agency/tag archives â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.foia-table-wrap { overflow-x: auto; }
+.foia-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: var(--fs-small);
+  margin-bottom: var(--sp-6);
 }
-.foia-doclist thead th {
+.foia-table thead th {
   font-family: var(--font-mono);
   font-size: var(--fs-tiny);
   letter-spacing: 0.08em;
@@ -1077,227 +837,265 @@
   color: var(--ink-3);
   font-weight: 500;
   text-align: left;
-  border-bottom: 1px solid var(--rule-2);
-  padding: 0 var(--sp-3) var(--sp-2) 0;
+  border-bottom: 1px solid var(--rule);
+  padding: 0 var(--sp-4) var(--sp-2) 0;
 }
-.foia-doclist tbody th {
-  font-weight: 400;
+.foia-table thead th.r { text-align: right; padding-right: 0; }
+.foia-table tbody tr { border-bottom: 1px solid var(--rule); }
+.foia-table td,
+.foia-table th[scope="row"] {
+  padding: var(--sp-4) var(--sp-4) var(--sp-4) 0;
+  vertical-align: baseline;
   text-align: left;
-  padding: var(--sp-3) var(--sp-3) var(--sp-3) 0;
-  border-bottom: 1px solid var(--rule);
-  vertical-align: top;
+  font-weight: 400;
 }
-.foia-doclist tbody td {
-  padding: var(--sp-3) var(--sp-3) var(--sp-3) 0;
-  border-bottom: 1px solid var(--rule);
-  vertical-align: top;
-  color: var(--ink-2);
-}
-.foia-doclist td.num, .foia-doclist th.num {
-  text-align: right;
+.foia-table .when {
   font-family: var(--font-mono);
   font-size: var(--fs-tiny);
+  color: var(--ink-3);
   white-space: nowrap;
-  padding-right: var(--sp-4);
 }
-.foia-doclist tbody th a { text-decoration: none; }
-.foia-doclist tbody th a:hover { text-decoration: underline; }
-.foia-doclist .file,
-.foia-doclist .desc,
-.foia-doclist .hash {
+.foia-table th[scope="row"] a {
+  font-size: var(--fs-lg);
+  text-decoration: none;
+  line-height: var(--lh-snug);
+}
+/* everything secondary about a request lives on one muted line */
+.foia-table .sub {
   display: block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  color: var(--ink-3);
+  margin-top: 4px;
+}
+.foia-table .sub a { color: var(--ink-3); text-decoration: none; }
+.foia-table .sub a:hover { color: var(--accent); }
+.foia-table td.out {
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  color: var(--ink-2);
+  white-space: nowrap;
+  text-align: right;
+  padding-right: 0;
+}
+.foia-table td.out .fee { display: block; color: var(--ink-3); margin-top: 4px; }
+.foia-table td.out .paid { color: var(--accent); }
+/* quoted but never paid â€” withdrawn, narrowed, or still open */
+.foia-table td.out .strike { text-decoration: line-through; }
+.foia-table .is-open { color: var(--accent); }
+
+/* â”€â”€ one quiet footnote instead of three notice boxes â”€â”€â”€â”€â”€â”€â”€â”€ */
+.foia-note-foot {
+  border-top: 1px solid var(--rule);
+  padding-top: var(--sp-4);
+  margin-top: var(--sp-7);
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  line-height: 1.8;
+  color: var(--ink-3);
+  max-width: var(--reading-width);
+}
+.foia-note-foot p { margin: 0 0 var(--sp-2); color: var(--ink-3); }
+.foia-note-foot p:last-child { margin-bottom: 0; }
+.foia-note-foot summary {
+  cursor: pointer;
+  color: var(--ink-2);
+  list-style: none;
+}
+.foia-note-foot summary::-webkit-details-marker { display: none; }
+.foia-note-foot summary::after { content: ' +'; color: var(--ink-3); }
+.foia-note-foot details[open] summary::after { content: ' âˆ’'; }
+.foia-note-foot details > *:not(summary) { margin-top: var(--sp-3); }
+
+/* â”€â”€ request page: facts as a sentence, not a grid â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.foia-meta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  line-height: 1.9;
+  color: var(--ink-3);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: var(--sp-4);
+  margin-bottom: var(--sp-6);
+  max-width: var(--reading-width);
+}
+.foia-meta b { color: var(--ink-2); font-weight: 400; }
+.foia-meta .sep { color: var(--rule-2); margin: 0 6px; }
+.foia-meta a { color: var(--ink-2); }
+.foia-meta .fee-note {
+  display: block;
+  margin-top: var(--sp-3);
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  line-height: var(--lh-body);
+  color: var(--ink-2);
+}
+
+/* â”€â”€ summary â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.foia-summary { max-width: var(--reading-width); margin-bottom: var(--sp-6); }
+.foia-summary p { margin: 0 0 var(--sp-3); }
+.foia-summary .disclosure {
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  line-height: 1.8;
+  color: var(--ink-3);
+}
+
+/* â”€â”€ timeline â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.foia-tracks > input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+.foia-track-pick {
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  color: var(--ink-3);
+  margin-bottom: var(--sp-5);
+}
+.foia-track-pick label {
+  cursor: pointer;
+  color: var(--ink-2);
+  margin-right: var(--sp-4);
+  border-bottom: 1px solid transparent;
+}
+.foia-track-pick label:hover { color: var(--accent); }
+
+.foia-timeline { list-style: none; padding: 0; margin: 0; }
+.foia-year {
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  color: var(--ink-3);
+  margin: var(--sp-6) 0 var(--sp-4);
+}
+.foia-timeline > .foia-year:first-child { margin-top: 0; }
+
+.foia-event {
+  display: grid;
+  grid-template-columns: 62px minmax(0, 1fr);
+  gap: 0 var(--sp-4);
+  padding-bottom: var(--sp-5);
+}
+.foia-event .when {
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  color: var(--ink-3);
+  white-space: nowrap;
+  padding-top: 4px;
+}
+.foia-event .what { min-width: 0; max-width: var(--reading-width); }
+.foia-event h3 {
+  font-size: var(--fs-body);
+  font-weight: 500;
+  margin: 0;
+  line-height: var(--lh-snug);
+}
+.foia-event .kind {
+  font-family: var(--font-mono);
   font-size: var(--fs-tiny);
   color: var(--ink-3);
   margin-top: 2px;
-  overflow-wrap: anywhere;
 }
-.foia-doclist td.act {
-  white-space: nowrap;
+.foia-event .kind .t { color: var(--accent); }
+.foia-event.is-minor .kind .t { color: var(--ink-3); }
+.foia-event .note {
+  font-size: var(--fs-small);
+  color: var(--ink-2);
+  margin: var(--sp-2) 0 0;
+  line-height: var(--lh-body);
+}
+/* released documents: a plain arrow list, no table, no chips */
+.foia-event .docs {
+  list-style: none;
+  padding: 0;
+  margin: var(--sp-3) 0 0;
   font-family: var(--font-mono);
   font-size: var(--fs-tiny);
-  text-align: right;
 }
-.foia-doclist td.act a { display: inline-block; margin-left: var(--sp-3); text-decoration: none; }
-.foia-doclist td.act a:hover { text-decoration: underline; }
+.foia-event .docs li { margin-bottom: 2px; }
+.foia-event .docs a { text-decoration: none; }
+.foia-event .docs a::before { content: 'â†’ '; color: var(--ink-3); }
+.foia-event .docs .m { color: var(--ink-3); }
+.foia-event .more { display: block; margin-top: var(--sp-2); color: var(--ink-3); }
 
-/* â”€â”€ pdf.js viewer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* collapsed run of procedural steps */
+.foia-fold { padding-bottom: var(--sp-5); }
+.foia-fold summary {
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  color: var(--ink-3);
+  cursor: pointer;
+  list-style: none;
+  padding-left: calc(62px + var(--sp-4));
+}
+.foia-fold summary::-webkit-details-marker { display: none; }
+.foia-fold summary::after { content: '  [show]'; color: var(--ink-2); }
+.foia-fold[open] summary::after { content: '  [hide]'; }
+.foia-fold summary:hover { color: var(--accent); }
+.foia-fold[open] summary { margin-bottom: var(--sp-4); }
+
+/* â”€â”€ release + document pages â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.foia-files { width: 100%; border-collapse: collapse; margin-bottom: var(--sp-5); }
+.foia-files tbody tr { border-bottom: 1px solid var(--rule); }
+.foia-files th[scope="row"] {
+  text-align: left; font-weight: 400; padding: var(--sp-3) var(--sp-4) var(--sp-3) 0; vertical-align: baseline;
+}
+.foia-files td {
+  padding: var(--sp-3) 0; vertical-align: baseline; text-align: right;
+  font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); white-space: nowrap;
+}
+.foia-files th[scope="row"] a { text-decoration: none; }
+.foia-files .sub {
+  display: block; font-family: var(--font-mono); font-size: var(--fs-tiny);
+  color: var(--ink-3); margin-top: 3px; overflow-wrap: anywhere;
+}
+.foia-dl {
+  font-family: var(--font-mono); font-size: var(--fs-tiny);
+  color: var(--ink-3); margin-bottom: var(--sp-5);
+}
+.foia-dl a { margin-right: var(--sp-4); }
+
+/* â”€â”€ pdf.js viewer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .foia-viewer { border: 1px solid var(--rule); margin-bottom: var(--sp-5); }
 .foia-viewer .bar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--sp-2) var(--sp-4);
-  padding: var(--sp-2) var(--sp-3);
-  border-bottom: 1px solid var(--rule);
-  background: var(--bg-2);
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-4);
+  padding: var(--sp-2) var(--sp-3); border-bottom: 1px solid var(--rule);
+  font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3);
 }
 .foia-viewer .grp { display: flex; align-items: center; gap: var(--sp-2); }
 .foia-viewer .grp.right { margin-left: auto; }
 .foia-viewer .bar button {
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
-  color: var(--ink);
-  background: transparent;
-  border: 1px solid var(--rule-2);
-  padding: 2px 8px;
-  cursor: pointer;
-  line-height: 1.6;
+  font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-2);
+  background: transparent; border: 0; padding: 2px 4px; cursor: pointer; line-height: 1.6;
 }
-.foia-viewer .bar button:hover { color: var(--bg); background: var(--accent); border-color: var(--accent); }
-.foia-viewer .pages { color: var(--ink-2); }
+.foia-viewer .bar button:hover { color: var(--accent); }
 .foia-viewer .pages input {
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
-  color: var(--ink);
-  background: var(--bg);
-  border: 1px solid var(--rule-2);
-  padding: 2px 4px;
-  width: 3.5em;
-  text-align: right;
+  font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink);
+  background: transparent; border: 0; border-bottom: 1px solid var(--rule-2);
+  padding: 1px 2px; width: 3em; text-align: right;
 }
-.foia-viewer .zoom { color: var(--ink-3); min-width: 3.5em; text-align: center; }
+.foia-viewer .zoom { min-width: 3em; text-align: center; }
 .foia-viewer .stage {
-  padding: var(--sp-4);
-  background: var(--bg-3);
-  overflow: auto;
-  max-height: 85vh;
-  display: flex;
-  justify-content: center;
+  padding: var(--sp-4); background: var(--bg-2); overflow: auto;
+  max-height: 85vh; display: flex; justify-content: center;
 }
 .foia-viewer canvas { display: block; max-width: 100%; height: auto; }
 .foia-viewer:not(.is-ready) .stage { display: none; }
 .foia-viewer .status {
-  padding: var(--sp-5);
-  text-align: center;
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
-  color: var(--ink-3);
+  padding: var(--sp-5); text-align: center;
+  font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3);
 }
-.foia-viewer .status.is-error { color: var(--ink-2); }
 .foia-viewer .status .sp-btn { margin-top: var(--sp-3); }
 .foia-viewer.is-failed .bar { display: none; }
 .foia-viewer .hint {
-  margin: 0;
-  padding: var(--sp-2) var(--sp-3);
-  border-top: 1px solid var(--rule);
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
-  color: var(--ink-3);
+  margin: 0; padding: var(--sp-2) var(--sp-3); border-top: 1px solid var(--rule);
+  font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3);
 }
 .foia-viewer.is-failed .hint { display: none; }
-
 .foia-fallback {
-  border: 1px solid var(--rule);
-  padding: var(--sp-5);
-  text-align: center;
-  margin-bottom: var(--sp-5);
+  border: 1px solid var(--rule); padding: var(--sp-5); text-align: center; margin-bottom: var(--sp-5);
 }
 .foia-fallback p { color: var(--ink-2); margin: 0 0 var(--sp-3); }
 
-/* â”€â”€ rights blocks â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-.foia-rights {
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
-  line-height: 1.75;
-  color: var(--ink-2);
-  border: 1px solid var(--rule);
-  padding: var(--sp-4);
-}
-.foia-rights p { margin: 0 0 var(--sp-3); }
-.foia-rights p:last-child { margin-bottom: 0; }
-.foia-rights.compact { border: 0; border-top: 1px solid var(--rule); padding: var(--sp-4) 0 0; color: var(--ink-3); }
-
-/* â”€â”€ narrow screens â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 900px) {
-  .foia-event { grid-template-columns: 48px 14px minmax(0, 1fr); }
-  .foia-event .release-foot .open { margin-left: 0; width: 100%; }
+  .foia-event { grid-template-columns: 52px minmax(0, 1fr); gap: 0 var(--sp-3); }
+  .foia-fold summary { padding-left: calc(52px + var(--sp-3)); }
+  .foia-table { min-width: 520px; }
   .foia-viewer .stage { padding: var(--sp-2); max-height: 70vh; }
   .foia-viewer .grp.right { margin-left: 0; }
-  .foia-doclist td.act { text-align: left; }
-  .foia-doclist td.act a { margin-left: 0; margin-right: var(--sp-3); }
 }
-
-/* â”€â”€ FOIA ledger table on /foia (2026-08-22) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-.foia-ledger td { font-size: var(--fs-small); }
-.foia-ledger td.nowrap { white-space: nowrap; }
-.foia-ledger tbody th { width: 34%; }
-.foia-ledger tfoot td,
-.foia-ledger tfoot th {
-  border-top: 1px solid var(--rule-2);
-  border-bottom: 0;
-  padding-top: var(--sp-3);
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
-  color: var(--ink-3);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  text-align: left;
-}
-.foia-ledger tfoot td.num { text-align: right; }
-.foia-ledger .paid { color: var(--accent); font-weight: 600; }
-.foia-ledger .quoted { color: var(--ink-3); }
-/* quoted-but-never-paid: the request was withdrawn, narrowed, or is still open */
-.foia-ledger .strike { text-decoration: line-through; }
-.foia-ledger .q { color: var(--ink-3); font-size: 11px; }
-.foia-ledger-note {
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
-  line-height: 1.7;
-  color: var(--ink-3);
-  margin-top: var(--sp-3);
-  max-width: var(--reading-width);
-}
-.foia-facts dd .sub { color: var(--ink-3); font-size: var(--fs-tiny); font-family: var(--font-mono); }
-.foia-fee-note {
-  font-size: var(--fs-small);
-  color: var(--ink-2);
-  max-width: var(--reading-width);
-  margin: calc(-1 * var(--sp-4)) 0 var(--sp-6);
-}
-
-@media (max-width: 900px) {
-  /* The ledger has seven columns; below this width it scrolls in its wrapper
-     rather than squeezing the request title to nothing. */
-  .foia-ledger { min-width: 620px; }
-}
-
-/* â”€â”€ standing AI disclosure on /foia (2026-08-22) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-.foia-ai-notice {
-  border: 1px solid var(--rule);
-  border-left: 2px solid var(--accent);
-  background: var(--bg-2);
-  padding: var(--sp-4) var(--sp-5);
-  margin-bottom: var(--sp-5);
-}
-.foia-ai-notice .head {
-  display: flex;
-  align-items: baseline;
-  gap: var(--sp-2);
-  margin-bottom: var(--sp-3);
-  flex-wrap: wrap;
-}
-.foia-ai-notice .mark { color: var(--accent); }
-.foia-ai-notice .tag {
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-}
-.foia-ai-notice h2 {
-  font-size: var(--fs-lg);
-  margin: 0;
-  line-height: var(--lh-snug);
-}
-.foia-ai-notice p {
-  font-size: var(--fs-small);
-  line-height: var(--lh-body);
-  color: var(--ink-2);
-  margin: 0 0 var(--sp-3);
-  max-width: var(--reading-width);
-}
-.foia-ai-notice p:last-child { margin-bottom: 0; }
-.foia-rights .mark { color: var(--accent); }
-.foia-rights p[data-ai-generated] { color: var(--ink-2); }

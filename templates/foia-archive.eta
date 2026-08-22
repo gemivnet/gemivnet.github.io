@@ -12,37 +12,47 @@
         &nbsp;/&nbsp; <span style="color: var(--ink-2);"><%= archive.kind %></span>
       </div>
       <h1><%= archive.heading %></h1>
-      <p class="subtitle"><%= archive.blurb %></p>
     </header>
 
     <% if (requests.length === 0) { %>
       <div class="sp-empty"><span class="glyph">∅</span><%= copy.empty.foia_archive %></div>
+    <% } else { %>
+    <div class="foia-table-wrap">
+      <table class="foia-table">
+        <thead>
+          <tr>
+            <th scope="col"><%= copy.foia.table.th_filed %></th>
+            <th scope="col"><%= copy.foia.table.th_request %></th>
+            <th scope="col" class="r"><%= copy.foia.table.th_outcome %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% ;(requests).forEach(function(r){ %>
+            <tr>
+              <td class="when"><%= r.filed %></td>
+              <th scope="row">
+                <a href="<%= r.url %>"><%= r.title %></a>
+                <span class="sub">
+                  <% if (archive.kind !== 'agency') { %><a href="/foia/agency/<%= r.agencySlug %>"><%= r.agencyShort %></a><% } else { %><%= r.statute %><% } %>
+                  <% if (r.docCount) { %> · <%= r.docCount %> doc<%= r.docCount === 1 ? '' : 's' %><% } %>
+                  <% if (r.pageCount) { %> · <%= r.pageCount.toLocaleString() %> pp<% } %>
+                  <% if (r.tracking) { %> · <%= r.tracking %><% } %>
+                </span>
+              </th>
+              <td class="out">
+                <span class="<%= r.status === 'open' ? 'is-open' : '' %>"><%= r.statusLabel %></span>
+                <% if (r.fees.paid) { %><span class="fee paid"><%= r.fees.paidFmt %> paid</span>
+                <% } else if (r.fees.pending && r.fees.quoted) { %><span class="fee"><%= r.fees.quotedFmt %> pending</span>
+                <% } else if (r.fees.quoted) { %><span class="fee strike"><%= r.fees.quotedFmt %></span><% } %>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
     <% } %>
 
-    <% ;(requests).forEach(function(r){ %>
-      <article class="sp-card foia-card">
-        <div class="sp-meta">
-          <span style="color: var(--accent); font-weight: 600;"><%= r.filed %></span>
-          <% if (archive.kind !== 'agency') { %>
-            <span class="sep">·</span>
-            <a class="foia-chip" href="/foia/agency/<%= r.agencySlug %>"><%= r.agencyShort %></a>
-          <% } %>
-          <span class="sep">·</span>
-          <span class="foia-status is-<%= r.status %>"><%= r.statusLabel %></span>
-        </div>
-        <h3><a href="<%= r.url %>"><%= r.title %></a></h3>
-        <% if (r.blurb) { %><p class="sp-preview"><%= r.blurb %></p><% } %>
-        <div class="foia-card-foot">
-          <span><%= r.releaseCount %> release<%= r.releaseCount === 1 ? '' : 's' %></span>
-          <span class="sep">·</span>
-          <span><%= r.docCount %> document<%= r.docCount === 1 ? '' : 's' %></span>
-          <% if (r.pageCount) { %><span class="sep">·</span><span><%= r.pageCount.toLocaleString() %> pp</span><% } %>
-          <% if (r.byteCountFmt) { %><span class="sep">·</span><span><%= r.byteCountFmt %></span><% } %>
-        </div>
-      </article>
-    <% }) %>
-
-    <div style="text-align: center; margin-top: var(--sp-5); font-family: var(--font-mono); font-size: 12px; color: var(--ink-3);">
+    <div style="text-align: center; margin-top: var(--sp-6); font-family: var(--font-mono); font-size: 12px; color: var(--ink-3);">
       <a href="/foia"><%= copy.foia.request.back_label %></a>
     </div>
   </div>

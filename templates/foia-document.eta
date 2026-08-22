@@ -6,18 +6,18 @@
     &nbsp;/&nbsp; <span style="color: var(--ink-2);"><%= doc.id %></span>
   </div>
   <h1><%= doc.title %></h1>
-  <div class="meta">
-    <span style="color: var(--accent); font-weight: 600;"><%= fmtMetaDate(ev.date) %></span>
-    <span class="sep">·</span>
-    <span><%= req.agencyShort %></span>
-    <% if (doc.pages) { %><span class="sep">·</span><span><%= doc.pages.toLocaleString() %> pages</span><% } %>
-    <% if (doc.bytesFmt) { %><span class="sep">·</span><span><%= doc.bytesFmt %></span><% } %>
-    <span class="sep">·</span>
-    <span class="mono"><%= doc.ext %></span>
-  </div>
 </header>
 
-<% if (doc.description) { %><p class="foia-note"><%= doc.description %></p><% } %>
+<div class="foia-meta">
+  <b><%= fmtLongDate(ev.date) %></b><span class="sep">·</span><%= req.agencyShort %>
+  <% if (doc.pages) { %><span class="sep">·</span><b><%= doc.pages.toLocaleString() %></b> pages<% } %>
+  <% if (doc.bytesFmt) { %><span class="sep">·</span><%= doc.bytesFmt %><% } %>
+  <span class="sep">·</span><%= doc.ext %>
+  <br>
+  from <a href="<%= ev.url %>"><%= ev.title %></a> · <a href="<%= req.url %>"><%= req.title %></a>
+  <% if (doc.exemptions.length) { %><span class="sep">·</span><%= copy.foia.labels.exemptions %> <%= doc.exemptions.join(', ') %><% } %>
+  <% if (doc.description) { %><span class="fee-note"><%= doc.description %></span><% } %>
+</div>
 
 <% if (doc.isPdf) { %>
   <div class="foia-viewer" data-src="<%= escapeHtml(doc.src) %>" data-name="<%= escapeHtml(doc.file) %>">
@@ -184,16 +184,10 @@
   </div>
 <% } %>
 
-<dl class="foia-facts">
-  <div><dt>file</dt><dd class="mono"><%= doc.file %></dd></div>
-  <% if (doc.pages) { %><div><dt><%= copy.foia.labels.pages %></dt><dd><%= doc.pages.toLocaleString() %></dd></div><% } %>
-  <% if (doc.bytesFmt) { %><div><dt><%= copy.foia.labels.size %></dt><dd><%= doc.bytesFmt %></dd></div><% } %>
-  <div><dt><%= copy.foia.document.source_label %></dt><dd><a href="<%= ev.url %>"><%= ev.title %></a> — <a href="<%= req.url %>"><%= req.title %></a></dd></div>
-  <% if (doc.exemptions.length) { %>
-    <div><dt><%= copy.foia.labels.exemptions %></dt><dd><% ;(doc.exemptions).forEach(function(x){ %><span class="ex"><%= x %></span><% }) %></dd></div>
-  <% } %>
-  <% if (doc.sha256) { %><div><dt><%= copy.foia.document.integrity_label %></dt><dd class="mono hash-full"><%= doc.sha256 %></dd></div><% } %>
-</dl>
+<p class="foia-dl">
+  <a href="<%= doc.src %>" download="<%= escapeHtml(doc.file) %>"><%= copy.foia.document.download_label %> <%= doc.file %></a>
+  <% if (doc.sha256) { %><span>sha256 <%= doc.sha256 %></span><% } %>
+</p>
 
 <nav class="sp-postnav" aria-label="Document navigation">
   <div class="prev">
@@ -208,7 +202,7 @@
   </div>
 </nav>
 
-<div class="foia-rights compact">
+<div class="foia-note-foot">
   <p><%= req.rights.note %> <%= copy.foia.rights.caveat %>
     <a href="<%= copy.foia.rights.contact_href %>"><%= copy.foia.rights.contact_label %></a>
   </p>
