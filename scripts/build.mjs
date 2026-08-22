@@ -6,7 +6,7 @@
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import { Eta } from 'eta';
 import matter from 'gray-matter';
 import { marked } from 'marked';
@@ -21,11 +21,17 @@ const OUT = SRC('_site');
 const COPY = yaml.load(await fs.readFile(SRC('copy.yaml'), 'utf8'));
 const SITE = COPY.site;
 
+// execFileSync, not execSync — execSync goes via cmd.exe on Windows, which
+// can't take a UNC path as its working directory and quietly runs from
+// C:\Windows instead. This repo lives on a network share, where that turned
+// the version into v1 and the changelog into "git log failed".
+const git = (args, opts = {}) => execFileSync('git', args, { cwd: ROOT, encoding: 'utf8', ...opts });
+
 // Auto-increment version from git commit count, unless overridden.
 function computeVersion() {
   if (SITE.version_override) return SITE.version_override;
   try {
-    const n = parseInt(execSync('git rev-list --count HEAD', { cwd: ROOT }).toString().trim(), 10);
+    const n = parseInt(git(['rev-list', '--count', 'HEAD']).trim(), 10);
     return 'v' + (Number.isFinite(n) ? n : 1);
   } catch {
     return 'v1';
@@ -447,6 +453,251 @@ async function loadMedia() {
     n.children.sort((a, b) => a.title.localeCompare(b.title));
   }
   return { nodes, byPath };
+}
+
+// ── content loader: FOIA archive ─────────────────────────────
+//
+// One content/foia/<slug>/request.yaml per records request. The documents
+// themselves live on S3 (they get large fast, and GitHub Pages caps a site at
+// 1 GB) — the YAML records each file's URL, size, page count, and sha256.
+// Files may also sit locally under files/<event-id>/ instead, which is how the
+// archive stays testable without an S3 round-trip; same `s3 || local` fallback
+// loadMedia() uses.
+//
+// The modelling decision worth knowing: a release IS a timeline event. There is
+// no separate list of releases — any event carrying `files` is a release. That
+// keeps the timeline the single complete account of the request.
+
+// Route segments under /foia that are ours, so a request folder can't shadow them.
+const FOIA_RESERVED = new Set(['agency', 'tag', 'tags', 'index']);
+
+const foiaLocalDir = (slug) => path.join(SRC('content'), 'foia', slug, 'files');
+
+async function loadFoia() {
+  const files = await fg('foia/*/request.yaml', { cwd: SRC('content') });
+  const requests = [];
+  const seenSlugs = new Set();
+
+  for (const rel of files) {
+    const full = path.join(SRC('content'), rel);
+    let data;
+    try { data = yaml.load(await fs.readFile(full, 'utf8')); }
+    catch (e) { fail(`Bad YAML in ${rel}: ${e.message}`); continue; }
+    if (!data) { fail(`${rel}: file is empty`); continue; }
+
+    const slug = path.basename(path.dirname(rel));
+    if (FOIA_RESERVED.has(slug)) {
+      fail(`${rel}: '${slug}' is a reserved route under /foia — rename the folder`);
+      continue;
+    }
+    if (seenSlugs.has(slug)) { fail(`${rel}: duplicate request slug '${slug}'`); continue; }
+    seenSlugs.add(slug);
+
+    if (!data.title)  { fail(`${rel}: missing required field 'title'`); continue; }
+    if (!data.agency) { fail(`${rel}: missing required field 'agency'`); continue; }
+    if (!data.filed)  { fail(`${rel}: missing required field 'filed' (use YYYY-MM-DD)`); continue; }
+
+    // An AI summary may not ship without its disclosure. The template renders
+    // generated_by/generated_on directly beneath the text, so a summary missing
+    // them would publish machine-written prose with nothing marking it as such.
+    let summary = null;
+    if (data.summary && data.summary.text) {
+      const s = data.summary;
+      if (!s.generated_by || !s.generated_on) {
+        fail(`${rel}: summary.text is present but summary.generated_by / summary.generated_on are not. ` +
+             `An AI summary cannot be published without its disclosure.`);
+        continue;
+      }
+      summary = {
+        text: String(s.text).trim(),
+        generatedBy: s.generated_by,
+        generatedOn: fmtDate(s.generated_on),
+        reviewed: !!s.reviewed,
+      };
+    }
+
+    const url = '/foia/' + slug;
+    const tracks = (data.tracks || []).map(t => ({ id: t.id, label: t.label || t.id }));
+    const trackById = Object.fromEntries(tracks.map(t => [t.id, t]));
+
+    const timeline = [];
+    const seenEventIds = new Set();
+    let bad = false;
+
+    for (const raw of data.timeline || []) {
+      const eid = raw.id;
+      if (!eid)        { fail(`${rel}: a timeline event is missing its 'id'`); bad = true; break; }
+      if (!raw.date)   { fail(`${rel}: timeline event '${eid}' is missing 'date'`); bad = true; break; }
+      if (!raw.type)   { fail(`${rel}: timeline event '${eid}' is missing 'type'`); bad = true; break; }
+      if (!COPY.foia.events[raw.type]) {
+        fail(`${rel}: timeline event '${eid}' has unknown type '${raw.type}'. ` +
+             `Known types: ${Object.keys(COPY.foia.events).join(', ')}`);
+        bad = true; break;
+      }
+      if (seenEventIds.has(eid)) { fail(`${rel}: duplicate timeline event id '${eid}'`); bad = true; break; }
+      seenEventIds.add(eid);
+      if (raw.track && !trackById[raw.track]) {
+        fail(`${rel}: event '${eid}' references track '${raw.track}', which is not declared in 'tracks'`);
+        bad = true; break;
+      }
+
+      const eventUrl = `${url}/${eid}`;
+      const docs = [];
+      const seenDocIds = new Set();
+
+      for (const d of raw.files || []) {
+        if (!d.file)  { fail(`${rel}: a document in event '${eid}' is missing 'file'`); bad = true; break; }
+        if (!d.title) { fail(`${rel}: document '${d.file}' in event '${eid}' is missing 'title'`); bad = true; break; }
+        const did = d.id || slugify(d.file.replace(/\.[^.]+$/, ''));
+        if (seenDocIds.has(did)) { fail(`${rel}: duplicate document id '${did}' in event '${eid}'`); bad = true; break; }
+        seenDocIds.add(did);
+
+        // S3-backed, or sitting locally under files/<event-id>/<file>.
+        const hasS3 = !!d.s3;
+        let absPath = null;
+        if (!hasS3) {
+          absPath = path.join(foiaLocalDir(slug), eid, d.file);
+          if (!(await exists(absPath))) {
+            fail(`${rel}: document '${d.file}' in event '${eid}' has no 's3' URL and no local file at ` +
+                 `content/foia/${slug}/files/${eid}/${d.file}`);
+            bad = true; break;
+          }
+        }
+
+        const ext = path.extname(d.file).toLowerCase();
+        docs.push({
+          id: did,
+          url: `${eventUrl}/${did}`,
+          file: d.file,
+          title: d.title,
+          description: d.description || '',
+          pages: typeof d.pages === 'number' ? d.pages : null,
+          bytes: typeof d.bytes === 'number' ? d.bytes : null,
+          bytesFmt: typeof d.bytes === 'number' ? fmtBytes(d.bytes) : '',
+          sha256: d.sha256 || '',
+          exemptions: d.exemptions || [],
+          isPdf: ext === '.pdf',
+          ext: ext.replace('.', ''),
+          src: hasS3 ? d.s3 : `${url}/files/${eid}/${d.file}`,
+          absPath,
+        });
+      }
+      if (bad) break;
+
+      // A zip is optional — pointless for a single-document release, and absent
+      // until ingest has built one.
+      let zip = null;
+      if (raw.zip && (raw.zip.s3 || raw.zip.file)) {
+        const zipAbs = raw.zip.s3 ? null : path.join(foiaLocalDir(slug), raw.zip.file);
+        if (zipAbs && !(await exists(zipAbs))) {
+          fail(`${rel}: event '${eid}' declares zip '${raw.zip.file}' but it isn't at content/foia/${slug}/files/${raw.zip.file}`);
+          bad = true; break;
+        }
+        zip = {
+          src: raw.zip.s3 || `${url}/files/${raw.zip.file}`,
+          bytes: raw.zip.bytes || null,
+          bytesFmt: raw.zip.bytes ? fmtBytes(raw.zip.bytes) : '',
+          sha256: raw.zip.sha256 || '',
+          absPath: zipAbs,
+          name: raw.zip.file || `${eid}.zip`,
+        };
+      }
+
+      const evType = COPY.foia.events[raw.type];
+      const pageCount = docs.reduce((s, d) => s + (d.pages || 0), 0);
+      const byteCount = docs.reduce((s, d) => s + (d.bytes || 0), 0);
+
+      timeline.push({
+        id: eid,
+        url: eventUrl,
+        date: new Date(raw.date),
+        type: raw.type,
+        typeLabel: evType.label,
+        glyph: evType.glyph,
+        track: raw.track || '',
+        trackLabel: raw.track ? trackById[raw.track].label : '',
+        title: raw.title || evType.label,
+        note: raw.note || '',
+        tracking: raw.tracking || '',
+        exemptions: raw.exemptions || [],
+        zip,
+        files: docs,
+        isRelease: docs.length > 0,
+        pageCount,
+        byteCount,
+        byteCountFmt: byteCount ? fmtBytes(byteCount) : '',
+      });
+    }
+    if (bad) continue;
+
+    timeline.sort((a, b) => a.date - b.date);   // oldest first: the request reads as a story
+    for (const ev of timeline) if (ev.isRelease) allRoutes.add(ev.url);
+    for (const ev of timeline) for (const d of ev.files) allRoutes.add(d.url);
+
+    const releases = timeline.filter(ev => ev.isRelease);
+    const allDocs = releases.flatMap(ev => ev.files);
+    const lastActivity = timeline.length ? timeline[timeline.length - 1].date : new Date(data.filed);
+
+    // Fees. `quoted` is the standing estimate, `paid` what actually changed
+    // hands. A request can be quoted a lot and paid nothing (withdrawn, waived,
+    // or still pending) — the ledger on /foia shows both.
+    const f = data.fees || {};
+    const money = (n) => (typeof n === 'number' ? '$' + n.toLocaleString('en-US') : '');
+    const fees = {
+      quoted: typeof f.quoted === 'number' ? f.quoted : null,
+      paid: typeof f.paid === 'number' ? f.paid : null,
+      quotedFmt: money(f.quoted),
+      paidFmt: money(f.paid),
+      waiver: f.waiver || '',                              // requested|granted|denied|upheld
+      waiverLabel: f.waiver ? (COPY.foia.waiver[f.waiver] || f.waiver) : '',
+      pending: !!f.pending,
+      note: f.note || '',
+    };
+    if (f.waiver && !COPY.foia.waiver[f.waiver]) {
+      fail(`${rel}: fees.waiver '${f.waiver}' is not one of: ${Object.keys(COPY.foia.waiver).join(', ')}`);
+      continue;
+    }
+
+    requests.push({
+      type: 'foia',
+      slug,
+      url,
+      title: data.title,
+      agency: data.agency,
+      agencyShort: data.agency_short || data.agency,
+      agencySlug: slugify(data.agency_short || data.agency),
+      // A grouped request can span bodies — the Clow entry runs the Village of
+      // Bolingbrook and the FAA as parallel tracks. Listing the others here
+      // gets it onto their /foia/agency/ pages too.
+      alsoAgencies: (data.also_agencies || []).map(a => ({ label: a, slug: slugify(a) })),
+      fees,
+      jurisdiction: data.jurisdiction || 'us-federal',
+      statute: data.statute || 'FOIA',
+      tracking: data.tracking || '',
+      status: data.status || 'open',
+      statusLabel: COPY.foia.status[data.status || 'open'] || (data.status || 'open'),
+      filed: new Date(data.filed),
+      closed: data.closed ? new Date(data.closed) : null,
+      lastActivity,
+      category: data.category || '',
+      tags: data.tags || [],
+      seo: data.seo || {},
+      summary,
+      rights: { note: (data.rights && data.rights.note) || COPY.foia.rights.default_note },
+      tracks,
+      timeline,
+      releases,
+      docCount: allDocs.length,
+      pageCount: allDocs.reduce((s, d) => s + (d.pages || 0), 0),
+      byteCount: allDocs.reduce((s, d) => s + (d.bytes || 0), 0),
+      byteCountFmt: fmtBytes(allDocs.reduce((s, d) => s + (d.bytes || 0), 0)),
+      sourceRel: rel,
+    });
+    allRoutes.add(url);
+  }
+
+  requests.sort((a, b) => b.lastActivity - a.lastActivity);
+  return requests;
 }
 
 // ── image processing ─────────────────────────────────────────
@@ -1115,6 +1366,269 @@ function breadcrumbs(dir) {
   return out;
 }
 
+// ── render: FOIA archive ─────────────────────────────────────
+
+// Sidebar for the archive: requests grouped by agency, active one marked.
+// Reuses the .tree-list CSS the musings sidebar already ships.
+function renderFoiaSidebarHtml(requests, activeUrl) {
+  const byAgency = new Map();
+  for (const r of requests) {
+    if (!byAgency.has(r.agencyShort)) byAgency.set(r.agencyShort, []);
+    byAgency.get(r.agencyShort).push(r);
+  }
+  const agencies = [...byAgency.keys()].sort((a, b) => a.localeCompare(b));
+  let out = `<ul class="tree-list"><li class="tree-item is-folder"><a href="/foia">foia/</a><ul>`;
+  for (const a of agencies) {
+    const rs = byAgency.get(a);
+    out += `<li class="tree-item is-folder"><a href="/foia/agency/${slugify(a)}">${escapeHtml(a)}/</a><ul>`;
+    for (const r of rs) {
+      const isActive = r.url === activeUrl;
+      out += `<li class="tree-item${isActive ? ' active' : ''}">` +
+             `<a href="${r.url}" class="${isActive ? 'active' : ''}">${escapeHtml(r.title)}</a></li>`;
+    }
+    out += '</ul></li>';
+  }
+  out += '</ul></li></ul>';
+  return out;
+}
+
+async function renderFoia(requests) {
+  const fc = COPY.foia;
+  allRoutes.add('/foia');
+
+  const totals = {
+    requests: requests.length,
+    documents: requests.reduce((s, r) => s + r.docCount, 0),
+    pages: requests.reduce((s, r) => s + r.pageCount, 0),
+    bytesFmt: fmtBytes(requests.reduce((s, r) => s + r.byteCount, 0)),
+  };
+
+  // Card summary shared by the index and the agency/tag archives.
+  const cardFor = (r) => ({
+    url: r.url, title: r.title, agency: r.agency, agencyShort: r.agencyShort,
+    agencySlug: r.agencySlug, alsoAgencies: r.alsoAgencies,
+    statute: r.statute, tracking: r.tracking,
+    status: r.status, statusLabel: r.statusLabel,
+    filed: fmtMetaDate(r.filed),
+    filedSort: r.filed,
+    lastActivity: fmtMetaDate(r.lastActivity),
+    tags: r.tags,
+    docCount: r.docCount, pageCount: r.pageCount, byteCountFmt: r.byteCountFmt,
+    releaseCount: r.releases.length,
+    fees: r.fees,
+    blurb: r.seo.description || (r.summary ? truncate(r.summary.text.split('\n')[0], 180) : ''),
+  });
+
+  // ── /foia ──
+  // An agency page collects requests naming it as the primary body plus any
+  // grouped request that lists it under also_agencies.
+  const agencyMap = new Map();
+  for (const r of requests) {
+    for (const a of [{ slug: r.agencySlug, label: r.agencyShort, name: r.agency }, ...r.alsoAgencies.map(x => ({ slug: x.slug, label: x.label, name: x.label }))]) {
+      if (!agencyMap.has(a.slug)) agencyMap.set(a.slug, { ...a, items: [] });
+      if (!agencyMap.get(a.slug).items.includes(r)) agencyMap.get(a.slug).items.push(r);
+    }
+  }
+  const agencies = [...agencyMap.values()]
+    .map(a => ({ ...a, count: a.items.length }))
+    .sort((a, b) => a.label.localeCompare(b.label));
+
+  // Ledger: every request oldest-first, with outcome, volume and money.
+  const ledger = requests.slice().sort((a, b) => a.filed - b.filed).map(cardFor);
+  const ledgerTotals = {
+    requests: ledger.length,
+    documents: totals.documents,
+    pages: totals.pages,
+    quoted: requests.reduce((s, r) => s + (r.fees.quoted || 0), 0),
+    paid: requests.reduce((s, r) => s + (r.fees.paid || 0), 0),
+  };
+  ledgerTotals.quotedFmt = ledgerTotals.quoted ? '$' + ledgerTotals.quoted.toLocaleString('en-US') : '';
+  ledgerTotals.paidFmt = '$' + ledgerTotals.paid.toLocaleString('en-US');
+
+  const tagCounts = new Map();
+  for (const r of requests) for (const t of r.tags) tagCounts.set(t, (tagCounts.get(t) || 0) + 1);
+  const tagList = [...tagCounts.entries()]
+    .map(([name, count]) => ({ name, slug: slugify(name), count }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  const indexHtml = await renderPage('foia-index', {
+    page: {
+      title: 'foia — ' + SITE.title,
+      description: (fc.index.seo_description || '')
+        .replace('{count}', requests.length).replace('{author}', SITE.author),
+      url: '/foia',
+      bodyClass: pageHelpers.bodyClass('foia'),
+      type: 'website',
+    },
+    active: 'foia',
+    requests: requests.map(cardFor),
+    agencies, tagList, totals,
+    ledger, ledgerTotals,
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: `FOIA archive — ${SITE.title}`,
+      description: fc.index.intro,
+      url: pageHelpers.absUrl('/foia'),
+      isPartOf: { '@type': 'WebSite', name: SITE.title, url: SITE.url },
+    },
+  });
+  collectLinks('/foia', indexHtml);
+  await writeFile('foia/index.html', indexHtml);
+
+  // ── /foia/<slug> ──
+  for (const r of requests) {
+    const html = await renderPage('foia-request', {
+      page: {
+        title: `${r.title} — foia — ${SITE.title}`,
+        description: r.seo.description || `${r.statute} request to ${r.agency}, filed ${fmtDate(r.filed)}.`,
+        keywords: r.seo.keywords || r.tags,
+        url: r.url,
+        bodyClass: pageHelpers.bodyClass('foia'),
+        type: 'article',
+      },
+      active: 'foia',
+      req: r,
+      treeHtml: renderFoiaSidebarHtml(requests, r.url),
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@type': 'Dataset',
+        name: r.title,
+        description: r.seo.description || `Records released by ${r.agency} under the ${r.statute}.`,
+        url: pageHelpers.absUrl(r.url),
+        dateCreated: r.filed.toISOString().slice(0, 10),
+        creator: { '@type': 'GovernmentOrganization', name: r.agency },
+        publisher: { '@type': 'Person', name: SITE.author },
+        keywords: r.tags,
+        license: 'https://www.usa.gov/government-works',
+        isAccessibleForFree: true,
+        distribution: r.releases.filter(ev => ev.zip).map(ev => ({
+          '@type': 'DataDownload',
+          name: ev.title,
+          encodingFormat: 'application/zip',
+          contentUrl: pageHelpers.absUrl(ev.zip.src),
+          ...(ev.zip.bytes ? { contentSize: String(ev.zip.bytes) } : {}),
+        })),
+      },
+    });
+    collectLinks(r.url, html);
+    await writeFile(path.join('foia', r.slug, 'index.html'), html);
+
+    // ── /foia/<slug>/<event-id> ──
+    for (let i = 0; i < r.releases.length; i++) {
+      const ev = r.releases[i];
+      const relHtml = await renderPage('foia-release', {
+        page: {
+          title: `${ev.title} — ${r.title} — ${SITE.title}`,
+          description: `${ev.files.length} document${ev.files.length === 1 ? '' : 's'}` +
+                       `${ev.pageCount ? `, ${ev.pageCount} pages` : ''} released by ${r.agency} on ${fmtDate(ev.date)}.`,
+          keywords: r.seo.keywords || r.tags,
+          url: ev.url,
+          bodyClass: pageHelpers.bodyClass('foia'),
+          type: 'article',
+        },
+        active: 'foia',
+        req: r,
+        ev,
+        prev: r.releases[i - 1] || null,
+        next: r.releases[i + 1] || null,
+        treeHtml: renderFoiaSidebarHtml(requests, r.url),
+      });
+      collectLinks(ev.url, relHtml);
+      await writeFile(path.join('foia', r.slug, ev.id, 'index.html'), relHtml);
+
+      // ── /foia/<slug>/<event-id>/<doc-id> ──
+      for (let j = 0; j < ev.files.length; j++) {
+        const doc = ev.files[j];
+        const docHtml = await renderPage('foia-document', {
+          page: {
+            title: `${doc.title} — ${r.title} — ${SITE.title}`,
+            description: doc.description ||
+              `${doc.title}${doc.pages ? ` (${doc.pages} pages)` : ''}, released by ${r.agency} on ${fmtDate(ev.date)}.`,
+            keywords: r.seo.keywords || r.tags,
+            url: doc.url,
+            bodyClass: pageHelpers.bodyClass('foia'),
+            type: 'article',
+          },
+          active: 'foia',
+          req: r,
+          ev,
+          doc,
+          prev: ev.files[j - 1] || null,
+          next: ev.files[j + 1] || null,
+          jsonLd: {
+            '@context': 'https://schema.org',
+            '@type': 'DigitalDocument',
+            name: doc.title,
+            url: pageHelpers.absUrl(doc.url),
+            contentUrl: doc.src.startsWith('http') ? doc.src : pageHelpers.absUrl(doc.src),
+            encodingFormat: doc.isPdf ? 'application/pdf' : undefined,
+            ...(doc.bytes ? { contentSize: String(doc.bytes) } : {}),
+            dateCreated: fmtDate(ev.date),
+            author: { '@type': 'GovernmentOrganization', name: r.agency },
+            publisher: { '@type': 'Person', name: SITE.author },
+            isPartOf: { '@type': 'Dataset', name: r.title, url: pageHelpers.absUrl(r.url) },
+            usageInfo: pageHelpers.absUrl('/foia'),
+            isAccessibleForFree: true,
+          },
+        });
+        collectLinks(doc.url, docHtml);
+        await writeFile(path.join('foia', r.slug, ev.id, doc.id, 'index.html'), docHtml);
+      }
+    }
+
+    // Copy any locally-held files (the no-S3 fallback) into the site.
+    const localDir = foiaLocalDir(r.slug);
+    if (await exists(localDir)) {
+      const local = await fg('**/*', { cwd: localDir, onlyFiles: true });
+      for (const f of local) {
+        await copyFile(path.join(localDir, f), path.join('foia', r.slug, 'files', f));
+      }
+    }
+  }
+
+  // ── /foia/agency/<slug> and /foia/tag/<slug> ──
+  const archives = [
+    ...agencies.map(a => ({
+      url: `/foia/agency/${a.slug}`,
+      dir: path.join('foia', 'agency', a.slug),
+      kind: 'agency',
+      heading: a.name,
+      blurb: `${a.count} request${a.count === 1 ? '' : 's'} to ${a.name}.`,
+      items: a.items,
+    })),
+    ...tagList.map(t => ({
+      url: `/foia/tag/${t.slug}`,
+      dir: path.join('foia', 'tag', t.slug),
+      kind: 'tag',
+      heading: `#${t.name}`,
+      blurb: `Requests tagged "${t.name}".`,
+      items: requests.filter(r => r.tags.some(x => slugify(x) === t.slug)),
+    })),
+  ];
+
+  for (const a of archives) {
+    const html = await renderPage('foia-archive', {
+      page: {
+        title: `${a.heading} — foia — ${SITE.title}`,
+        description: a.blurb,
+        url: a.url,
+        bodyClass: pageHelpers.bodyClass('foia'),
+        type: 'website',
+      },
+      active: 'foia',
+      archive: a,
+      requests: a.items.map(cardFor),
+      treeHtml: renderFoiaSidebarHtml(requests, a.url),
+    });
+    collectLinks(a.url, html);
+    await writeFile(path.join(a.dir, 'index.html'), html);
+    allRoutes.add(a.url);
+  }
+
+  log(`${requests.length} foia requests, ${totals.documents} documents, ${totals.pages} pages`);
+}
+
 // ── render: static sites passthrough ─────────────────────────
 
 async function copyStaticSites() {
@@ -1148,9 +1662,9 @@ async function renderChangelog() {
   // Pull commits from git, oldest -> newest. Version = sequential index.
   let entries = [];
   try {
-    const raw = execSync(
-      'git log --reverse --pretty=format:%H%x1f%aI%x1f%s%x1f%b%x1e',
-      { cwd: ROOT, encoding: 'utf8', maxBuffer: 8 * 1024 * 1024 },
+    const raw = git(
+      ['log', '--reverse', '--pretty=format:%H%x1f%aI%x1f%s%x1f%b%x1e'],
+      { maxBuffer: 8 * 1024 * 1024 },
     );
     entries = raw.split('\x1e').map(s => s.trim()).filter(Boolean).map((rec, i) => {
       const [hash, iso, subject, body] = rec.split('\x1f');
@@ -1266,7 +1780,7 @@ function verifyLinks() {
     // try as a file route (e.g. /sites/foo)
     if (target.startsWith('/sites/')) continue;
     // image/static asset references — not page routes
-    if (/\.(jpe?g|png|webp|gif|svg|ico|pdf|mp4|webm|mp3)$/i.test(target)) continue;
+    if (/\.(jpe?g|png|webp|gif|svg|ico|pdf|zip|csv|xlsx?|docx?|mp4|webm|mp3)$/i.test(target)) continue;
     fail(`Broken internal link: ${href}  (on ${from})`);
   }
 }
@@ -1278,6 +1792,8 @@ async function copyDesign() {
   await copyFile(SRC('design/site.css'), 'site.css');
   if (await exists(SRC('design/favicon.svg'))) await copyFile(SRC('design/favicon.svg'), 'favicon.svg');
   if (await exists(SRC('CNAME'))) await copyFile(SRC('CNAME'), 'CNAME');
+  // Vendored pdf.js — the FOIA document viewer. See design/vendor/pdfjs/VENDORED.md.
+  if (await exists(SRC('design/vendor'))) await copyTree(SRC('design/vendor'), 'vendor');
 }
 
 // ── main ─────────────────────────────────────────────────────
@@ -1329,11 +1845,14 @@ async function main() {
   }
   log(`${realMediaNodes.length} real + ${synthNodes.length} synthesized gallery nodes`);
 
+  const foiaRequests = await loadFoia();
+
   await renderHome(musings, rvPosts, mediaNodes);
   ALL_POST_URLS = musings.map(m => m.url);
   await renderPostSection(musings, SECTIONS.musings);
   await renderPostSection(rvPosts, SECTIONS.rv12is);
   await renderMedia(mediaNodes);
+  await renderFoia(foiaRequests);
   await renderChangelog();
   await renderLicense();
   await copyStaticSites();

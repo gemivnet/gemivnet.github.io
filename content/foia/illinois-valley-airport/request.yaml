@@ -1,0 +1,167 @@
+title: Illinois Valley Airport finances and leases
+agency: Josephine County, Oregon
+agency_short: Josephine County
+jurisdiction: us-local
+statute: Oregon Public Records Law (ORS 192.311–192.478)
+status: open
+filed: "2026-07-19"
+category: aviation
+tags:
+  - illinois-valley-airport
+  - josephine-county
+  - oregon-public-records
+  - fee-waiver
+  - airport-finances
+seo:
+  description: >-
+    A request for Illinois Valley Airport ledgers, leases and maintenance records, and the
+    fee-waiver fight that followed it to the district attorney.
+  keywords:
+    - Illinois Valley Airport records
+    - Josephine County public records
+    - Oregon fee waiver ORS 192.324
+    - 3S4 Cave Junction airport
+    - public records fee waiver denial
+    - ORS 192.415 district attorney petition
+fees:
+  quoted: 780
+  paid: 0
+  pending: true
+  waiver: upheld
+  note: >-
+    Initially quoted $1,275 for 15 hours at a managerial rate. After challenge the County found a
+    staff-classification error and revised it to $780 (14.5 hours clerical at $50 plus 0.5 hours
+    legal at $110). A fee reduction under ORS 192.324(5) was denied, and the district attorney
+    declined to order one. The County offered items 1, 2 and 5 for $80, which was accepted; payment
+    by cheque was outstanding as of August 14, 2026.
+rights:
+  note: >-
+    Correspondence with Josephine County, Oregon under the Oregon Public Records Law (ORS
+    192.311–192.478). The County marks its own email as a public record subject to disclosure. Note
+    that 17 U.S.C. § 105, which places federal works outside copyright, does not apply to state or
+    county records.
+timeline:
+  - id: filed
+    date: "2026-07-19"
+    type: filed
+    title: Request submitted through the County's online form
+    note: >-
+      Five items concerning the Illinois Valley Airport (FAA identifier 3S4) at Cave Junction — the
+      airports manager's employment agreement and job description; the general ledger detail for the
+      airport fund for FY 2025–26; maintenance invoices, work orders and receipts for the same
+      period; all active leases and use agreements with the current rate schedule; and any appraisal
+      or broker opinion of value since 2021. The request asked for an itemised estimate by numbered
+      item if fees would exceed $25.
+  - id: fee-estimate
+    date: "2026-07-20"
+    type: fee
+    title: County quotes $1,275
+    note: >-
+      Estimated at roughly 15 hours, billed at $85 per hour of managerial staff time. The estimate
+      was not itemised.
+  - id: fee-challenge
+    date: "2026-07-20"
+    type: note
+    title: Estimate challenged and a fee reduction requested
+    note: >-
+      Reply asked again for the per-item breakdown, questioned the managerial rate for what is
+      largely clerical retrieval, noted that a single-cost-centre ledger export should take well
+      under an hour and that the County's own budget describes newly implemented lease-tracking
+      software, and requested a reduction under ORS 192.324(5) on the ground that the records
+      concern the finances of a public asset.
+  - id: fee-revised
+    date: "2026-07-22"
+    type: fee
+    title: Estimate corrected to $780, fee reduction denied
+    note: >-
+      The County declined to itemise, but acknowledged an error in the original calculation — a
+      staff member had been billed at a managerial rate they no longer held — and revised the figure
+      to $780 (14.5 hours clerical at $50, plus 0.5 hours legal at $110). The fee reduction was
+      denied in a single sentence, with no reasoning.
+  - id: notice-of-petition
+    date: "2026-07-22"
+    type: appeal
+    title: Notice of petition to the district attorney
+    note: >-
+      The County was notified of a petition under ORS 192.324(6) and ORS 192.415 and asked to hold
+      the request open, citing ORS 192.329(3).
+  - id: hold-open
+    date: "2026-07-23"
+    type: note
+    title: County holds the request open and offers a partial release
+    note: >-
+      The County agreed to hold the request pending the district attorney's decision, and offered
+      items 1, 2 and 5 for $80 — half an hour of clerical time plus half an hour of legal review.
+  - id: petition
+    date: "2026-08-09"
+    type: appeal
+    title: Petition filed with the Josephine County District Attorney
+    note: >-
+      Petition under ORS 192.324(6) and ORS 192.415 argued the denial was unreasonable — that the
+      records concern the financial administration of public property, that disclosure primarily
+      benefits taxpayers and airport users rather than any commercial interest, that the
+      one-sentence denial showed no consideration of the statutory test in In Defense of Animals v.
+      OHSU, and that a $495 error in the original estimate and a subsequent offer to produce three
+      items for one hour of staff time undercut the County's cost figures under ORS 192.324(4)(a)
+      and Bong v. Douglas ESD.
+  - id: da-remand
+    date: "2026-08-10"
+    type: note
+    title: District attorney asks the County to reconsider first
+    note: >-
+      The district attorney observed that the petition set out facts the County did not have when it
+      denied the waiver — the intended use of the records and the means of disseminating them — and
+      said the County should evaluate the request again in the first instance before he weighed in.
+  - id: interest-explained
+    date: "2026-08-10"
+    type: note
+    title: Requester's interest stated for the record
+    note: >-
+      Clarified for the County as a pilot who has flown into the airport and intends to move to the
+      area and base an aircraft there — an airport user and prospective resident, not a business and
+      not a party to any dispute with the County.
+  - id: 2026-08-11-reconsideration
+    date: "2026-08-11"
+    type: denial
+    title: County reaffirms the denial, with written analysis
+    note: >-
+      On review the County again found no waiver or reduction warranted, this time providing a
+      written analysis. Staff added that the question was whether nearly two full days of staff time
+      should be done for free or at a significantly reduced rate, and that they did not see a
+      sufficient public benefit to justify it.
+    files:
+      - id: appeal-response
+        file: 2026-08-11-fee-waiver-appeal-response.pdf
+        title: County fee-waiver appeal response
+        description: >-
+          Josephine County's written analysis of the fee-waiver request on reconsideration, dated
+          August 11, 2026.
+        bytes: 131947
+        sha256: e4945f537c15cdc4ff501af24ccf20dcc68464002a46c71ee97ad7471ab5555f
+        pages: 4
+        s3: >-
+          https://georgemain-com-media.s3.amazonaws.com/foia/illinois-valley-airport/2026-08-11-reconsideration/2026-08-11-fee-waiver-appeal-response.pdf
+  - id: da-decision
+    date: "2026-08-13"
+    type: appeal-decision
+    title: District attorney declines to order a reduction
+    note: >-
+      The district attorney found no basis to order the County to reduce the fee, holding the denial
+      reasonable under the totality of the circumstances given the generalised nature of the public
+      interest and the requester's limited ability to disseminate the records — distinguishing an
+      investigative journalist, citing Judicial Watch v. Rossotti — and relying on the County's
+      analysis of its amended fee.
+  - id: partial-accepted
+    date: "2026-08-13"
+    type: note
+    title: Partial release accepted at $80
+    note: >-
+      With the fee question settled, the County's offer of items 1, 2 and 5 for $80 was accepted,
+      with a spreadsheet export requested for the ledger.
+  - id: payment-instructions
+    date: "2026-08-14"
+    type: note
+    title: County provides payment instructions
+    note: >-
+      The County agreed to try for a spreadsheet export and asked for a cheque. Records are to be
+      compiled and reviewed for release once payment arrives. Nothing has been released yet.

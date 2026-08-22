@@ -1,0 +1,282 @@
+title: JWA Aviation at Clow International Airport
+agency: Village of Bolingbrook
+agency_short: Bolingbrook
+also_agencies:
+  - Federal Aviation Administration
+jurisdiction: us-local
+statute: Illinois FOIA (5 ILCS 140)
+tracking: R027405-042826
+status: partial
+filed: "2026-04-19"
+category: aviation
+tags:
+  - clow-international-airport
+  - bolingbrook
+  - jwa-aviation
+  - flight-school
+  - faa
+  - illinois-foia
+seo:
+  description: >-
+    Records on JW Aviation's operations at Bolingbrook's Clow International Airport, from three
+    parallel requests to the Village and the FAA.
+  keywords:
+    - Clow International Airport FOIA
+    - JWA Aviation Bolingbrook
+    - JW Aviation flight school records
+    - Village of Bolingbrook FOIA
+    - Clow airport lease records
+    - 1C5 airport records
+    - FAA FOIA 2026-03294
+fees:
+  quoted: 650
+  paid: 0
+  note: >-
+    The Village charged nothing. The FAA estimated $650 for the Flight Standards portion and
+    required a narrowed, perfected request plus a fee agreement before searching; that request was
+    withdrawn instead, so no fee was paid.
+rights:
+  note: >-
+    Records released under the Illinois Freedom of Information Act (5 ILCS 140) by the Village of
+    Bolingbrook, and correspondence with the Federal Aviation Administration under the federal FOIA
+    (5 U.S.C. § 552). Illinois public records carry no copyright claim by the Village; the federal
+    material is a work of the US Government and is not subject to copyright (17 U.S.C. § 105).
+tracks:
+  - id: village-airport
+    label: Village · R027405
+  - id: village-jjw
+    label: Village · R028281
+  - id: faa
+    label: FAA · 2026-03294
+timeline:
+  - id: filed-village
+    date: "2026-04-19"
+    type: filed
+    track: village-airport
+    title: Request submitted to the Village of Bolingbrook
+    note: >-
+      Emailed to the Village's published FOIA address, seeking leases, communications, complaints,
+      financial records and enforcement records concerning JWA at Clow International Airport from
+      January 1, 2021 onward.
+  - id: followup-village
+    date: "2026-04-27"
+    type: note
+    track: village-airport
+    title: Followed up — no response within the statutory window
+    note: >-
+      The five-business-day window under 5 ILCS 140/3(d) closed on April 24 with no response,
+      denial, or written extension. Follow-up noted an intent to file a Request for Review with the
+      Public Access Counselor under 5 ILCS 140/9.5 if nothing arrived by May 1.
+  - id: ack-village
+    date: "2026-04-28"
+    type: acknowledged
+    track: village-airport
+    tracking: R027405-042826
+    title: Acknowledged after re-filing through the portal
+    note: >-
+      The FOIA officer could not locate the emailed request in the Village's GovQA system. The
+      request was re-entered through the portal the same morning and assigned reference
+      R027405-042826.
+  - id: voluminous
+    date: "2026-05-05"
+    type: narrowing-request
+    track: village-airport
+    title: Village responds — request is voluminous
+    note: >-
+      The Village treated the request as voluminous and asked for narrowing rather than denying it
+      outright.
+    files:
+      - id: voluminous-letter
+        file: 2026-05-05-voluminous-response.pdf
+        title: Village response — voluminous request
+        description: >-
+          Village of Bolingbrook letter treating the April 28 request as voluminous, with notice of
+          review rights before the Public Access Counselor.
+        bytes: 124366
+        sha256: 4ffb38cc1d25be97c42fd391f2846ad28cff0de84c209ea1edf7ffa0a797215f
+        pages: 3
+        s3: >-
+          https://georgemain-com-media.s3.amazonaws.com/foia/clow-airport/voluminous/2026-05-05-voluminous-response.pdf
+  - id: amended-1
+    date: "2026-05-05"
+    type: amended
+    track: village-airport
+    title: Request amended — communications category dropped
+    note: >-
+      Amended request supersedes the original in full. The broad communications category was
+      removed, leaving leases and agreements, public complaints, financial records, and inspection
+      and enforcement records.
+  - id: burdensome
+    date: "2026-05-11"
+    type: narrowing-request
+    track: village-airport
+    title: Village responds — request is unduly burdensome
+    note: Second narrowing response, this time on unduly-burdensome grounds.
+    files:
+      - id: burdensome-letter
+        file: 2026-05-11-burdensome-response.pdf
+        title: Village response — unduly burdensome
+        description: >-
+          Village of Bolingbrook letter of May 11, 2026 asserting the amended request remained
+          unduly burdensome. Released as a scanned image with no text layer.
+        bytes: 980872
+        sha256: 7bc6aab22bb30f85b8c0d312b36d0ec5aa6b7da575402017570f5bdf6d650b2d
+        pages: 3
+        s3: >-
+          https://georgemain-com-media.s3.amazonaws.com/foia/clow-airport/burdensome/2026-05-11-burdensome-response.pdf
+  - id: amended-2
+    date: "2026-05-12"
+    type: amended
+    track: village-airport
+    title: Request narrowed again — date range cut to 2024 onward
+    note: >-
+      Second amendment, superseding the May 5 version. The period was reduced from January 1, 2021
+      to January 1, 2024 onward, with agreements limited to those currently in effect.
+  - id: extension-1
+    date: "2026-05-18"
+    type: extension
+    track: village-airport
+    title: Extension to May 27, and a question about search scope
+    note: >-
+      Five-business-day extension under 5 ILCS 140/3(e), citing subsections (i), (ii), (iv), (v) and
+      (vi). The Village said it maintains over 400 email accounts and could not search all of them,
+      and asked for search parameters.
+  - id: custodians
+    date: "2026-05-18"
+    type: note
+    track: village-airport
+    title: Custodian list and search terms supplied
+    note: >-
+      Reply clarified that no all-account search was sought, and proposed a custodian list — the
+      airport manager, the Mayor and Deputy Mayor, the Trustees, the Village Clerk, and any general
+      intake mailbox — with the search terms JWA, JW Aviation, JWA Aviation, JWA Flight School and
+      flyjwa.
+  - id: 2026-05-26-minutes
+    date: "2026-05-26"
+    type: interim
+    track: village-airport
+    title: Interim release — Village Board minutes
+    note: >-
+      Released ahead of the rest of the response as the only located record then identified in which
+      JWA was discussed.
+    files:
+      - id: board-minutes-2025-10-28
+        file: 2025-10-28-village-board-minutes.pdf
+        title: Village Board minutes, October 28 2025
+        description: >-
+          Minutes of the Village of Bolingbrook Board meeting of October 28, 2025, identified by the
+          Village as the meeting at which JWA was discussed.
+        bytes: 23543782
+        sha256: 0cf0292e23df4843e66d20bb09e93437bae4930a81d84d5a5b67f2b3cbaf4431
+        pages: 76
+        s3: >-
+          https://georgemain-com-media.s3.amazonaws.com/foia/clow-airport/2026-05-26-minutes/2025-10-28-village-board-minutes.pdf
+  - id: extension-2
+    date: "2026-05-28"
+    type: extension
+    track: village-airport
+    title: Second extension, to June 3
+    note: Further five business days under 5 ILCS 140/3(e), subsections (i), (ii), (v) and (vi).
+  - id: extension-3
+    date: "2026-06-02"
+    type: extension
+    track: village-airport
+    title: Third extension, to June 10
+    note: A further five business days on the same statutory grounds.
+  - id: 2026-06-05-final
+    date: "2026-06-05"
+    type: final
+    track: village-airport
+    title: Final response — responsive documents released
+    note: >-
+      Response letter dated June 4, 2026 released with the responsive documents, closing
+      R027405-042826.
+    files:
+      - id: response-letter
+        file: 2026-06-04-final-response-letter.pdf
+        title: Final response letter
+        description: >-
+          Village of Bolingbrook response letter closing the request, including its position on the
+          narrowing of item 2.
+        bytes: 152761
+        sha256: b0a28a5ff0a84b96e96d0833f9e1f5f2a7ebb187a17c74ee4fd6fae759a4e46f
+        pages: 6
+        s3: >-
+          https://georgemain-com-media.s3.amazonaws.com/foia/clow-airport/2026-06-05-final/2026-06-04-final-response-letter.pdf
+      - id: responsive-documents
+        file: 2026-06-05-responsive-documents.pdf
+        title: Responsive documents
+        description: The records released in response to the amended request.
+        bytes: 3878382
+        sha256: 067c60ed143c30740d8f2e61e95919bbb81e0af5d7144cf15ed516f5da17477e
+        pages: 53
+        s3: >-
+          https://georgemain-com-media.s3.amazonaws.com/foia/clow-airport/2026-06-05-final/2026-06-05-responsive-documents.pdf
+    zip:
+      s3: https://georgemain-com-media.s3.amazonaws.com/foia/clow-airport/2026-06-05-final.zip
+      bytes: 3899036
+      sha256: 2f3773371f6a392e9a687ef8c613d0a9526b2fb9cba9d1816d247d20b806e683
+  - id: closed-village
+    date: "2026-06-05"
+    type: note
+    track: village-airport
+    title: Receipt confirmed, request closed
+    note: Receipt of the response letter and documents confirmed; no further action sought.
+  - id: filed-jjw
+    date: "2026-06-05"
+    type: filed
+    track: village-jjw
+    tracking: R028281-060526
+    title: Second Village request — J J W Air and conflict-of-interest disclosures
+    note: >-
+      A separate request seeking records on J J W Air, LLC; conflict-of-interest and
+      economic-interest disclosures by Joseph DePaulo or Clow International Airport, LLC; Board
+      approval of the January 1, 2023 JWA Flight School lease; business licence applications with
+      ownership disclosures; and certificates of insurance.
+  - id: released-jjw
+    date: "2026-06-05"
+    type: partial
+    track: village-jjw
+    title: Documents released with redactions
+    note: >-
+      The Village reported the responsive documents were placed in the request file with redactions
+      applied and explained under the Illinois Public Act. The released documents are not yet
+      mirrored here.
+  - id: filed-faa
+    date: "2026-04-19"
+    type: filed
+    track: faa
+    title: Parallel request to the FAA
+    note: >-
+      Filed under 5 U.S.C. § 552 for records held by the FAA and the Greater Chicago FSDO covering
+      JWA at Clow (FAA LID 1C5) from January 1, 2015 — PTRS and SAS surveillance records,
+      enforcement actions, hotline complaints, accident and incident reports, certificates, and
+      correspondence. Fees accepted up to $50.
+  - id: ack-faa
+    date: "2026-04-22"
+    type: acknowledged
+    track: faa
+    tracking: FAA-2026-03294
+    title: Acknowledged and split across two FAA offices
+    note: >-
+      Assigned to Flight Standards Service and to the Office of Audit and Evaluation as a
+      multi-assignment, each issuing its own response.
+  - id: fee-faa
+    date: "2026-04-28"
+    type: fee
+    track: faa
+    title: FAA requires a perfected request and a $650 fee agreement
+    note: >-
+      Flight Standards placed the request on hold as improperly formatted under 5 U.S.C. §
+      552(a)(3)(A) and 49 C.F.R. § 7.24, estimated $650 in search time beyond the two free hours in
+      the "all other" fee category, and asked that the period be cut to 2021 onward with tail
+      numbers and FAA personnel named. A response was required by May 1.
+  - id: withdrawn-faa
+    date: "2026-04-29"
+    type: withdrawn
+    track: faa
+    title: FAA request withdrawn
+    note: >-
+      Withdrawn in full rather than narrowed under the deadline, with the intention of filing a
+      narrower request later. The FAA acknowledged the withdrawal the same morning. No records were
+      released and no fee was paid.

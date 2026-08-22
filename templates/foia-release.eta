@@ -1,0 +1,101 @@
+<div class="musings-layout">
+  <aside class="musings-tree" aria-label="FOIA archive">
+    <input type="checkbox" id="tree-toggle" class="tree-toggle">
+    <label class="tree-head" for="tree-toggle">browse</label>
+    <%~ treeHtml %>
+  </aside>
+
+  <div class="musings-main">
+    <header class="sp-post-header">
+      <div class="crumbs">
+        <a href="/">~</a> &nbsp;/&nbsp; <a href="/foia"><%= copy.foia.request.crumbs_root %></a>
+        &nbsp;/&nbsp; <a href="<%= req.url %>"><%= req.slug %></a>
+        &nbsp;/&nbsp; <span style="color: var(--ink-2);"><%= ev.id %></span>
+      </div>
+      <h1><%= ev.title %></h1>
+      <div class="meta">
+        <span style="color: var(--accent); font-weight: 600;"><%= fmtMetaDate(ev.date) %></span>
+        <span class="sep">·</span>
+        <span><%= ev.typeLabel %></span>
+        <% if (ev.trackLabel) { %><span class="sep">·</span><span><%= ev.trackLabel %></span><% } %>
+        <span class="sep">·</span>
+        <span><%= req.agencyShort %></span>
+      </div>
+    </header>
+
+    <% if (ev.note) { %><p class="foia-note"><%= ev.note %></p><% } %>
+
+    <% if (ev.exemptions.length) { %>
+      <p class="foia-exemptions"><%= copy.foia.labels.exemptions %>
+        <% ;(ev.exemptions).forEach(function(x){ %><span class="ex"><%= x %></span><% }) %>
+      </p>
+    <% } %>
+
+    <section class="sp-section first" aria-label="Files">
+      <div class="sp-section-head">
+        <span class="sp-section-tag"><%= copy.foia.release.files_tag %></span>
+        <h2><%= copy.foia.release.files_title %></h2>
+        <span class="sp-section-aside">
+          <%= ev.files.length %> file<%= ev.files.length === 1 ? '' : 's' %><% if (ev.pageCount) { %> · <%= ev.pageCount.toLocaleString() %> pp<% } %><% if (ev.byteCountFmt) { %> · <%= ev.byteCountFmt %><% } %>
+        </span>
+      </div>
+
+      <div class="foia-bundle">
+        <% if (ev.zip) { %>
+          <a class="sp-btn primary" href="<%= ev.zip.src %>" download><%= copy.foia.release.download_all %><% if (ev.zip.bytesFmt) { %> · <%= ev.zip.bytesFmt %><% } %></a>
+          <% if (ev.zip.sha256) { %><span class="hash mono" title="sha256 of the bundle">sha256 <%= ev.zip.sha256.slice(0, 16) %>…</span><% } %>
+        <% } else if (ev.files.length === 1) { %>
+          <span class="none"><%= copy.foia.release.single_file_note %></span>
+        <% } %>
+      </div>
+
+      <div class="foia-doclist-wrap">
+        <table class="foia-doclist">
+          <thead>
+            <tr>
+              <th scope="col">document</th>
+              <th scope="col" class="num"><%= copy.foia.release.pages_label %></th>
+              <th scope="col" class="num"><%= copy.foia.labels.size %></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% ;(ev.files).forEach(function(d){ %>
+              <tr>
+                <th scope="row">
+                  <a href="<%= d.url %>"><%= d.title %></a>
+                  <span class="file mono"><%= d.file %></span>
+                  <% if (d.description) { %><span class="desc"><%= d.description %></span><% } %>
+                  <% if (d.sha256) { %><span class="hash mono" title="sha256"><%= d.sha256.slice(0, 16) %>…</span><% } %>
+                </th>
+                <td class="num"><%= d.pages ? d.pages.toLocaleString() : '—' %></td>
+                <td class="num"><%= d.bytesFmt || '—' %></td>
+                <td class="act">
+                  <a href="<%= d.url %>"><%= copy.foia.release.view_label %></a>
+                  <a href="<%= d.src %>" download="<%= escapeHtml(d.file) %>"><%= copy.foia.release.download_one %></a>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <nav class="sp-postnav" aria-label="Release navigation">
+      <div class="prev">
+        <span class="label"><%= copy.foia.document.prev_label %></span>
+        <% if (prev) { %><a href="<%= prev.url %>"><%= prev.title %></a>
+        <% } else { %><span style="color: var(--ink-3);">— (first release)</span><% } %>
+      </div>
+      <div class="next">
+        <span class="label"><%= copy.foia.document.next_label %></span>
+        <% if (next) { %><a href="<%= next.url %>"><%= next.title %></a>
+        <% } else { %><span style="color: var(--ink-3);">— (latest release)</span><% } %>
+      </div>
+    </nav>
+
+    <div style="text-align: center; margin-top: var(--sp-5); font-family: var(--font-mono); font-size: 12px; color: var(--ink-3);">
+      <a href="<%= req.url %>">↑ <%= req.title %></a>
+    </div>
+  </div>
+</div>

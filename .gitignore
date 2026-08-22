@@ -3,5 +3,9 @@ _site/
 .DS_Store
 *.log
 staging/
+# FOIA intake. Drop a release's files in dump/<request>/<event>/ and run
+# `npm run foia`. The documents go to S3, request.yaml gets written, and the
+# originals are deleted from here — nothing under dump/ is ever committed.
+dump/
 AWSCLIV2.pkg
 _site.stale/
