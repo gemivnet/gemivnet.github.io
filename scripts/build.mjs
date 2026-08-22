@@ -1368,6 +1368,52 @@ function breadcrumbs(dir) {
 
 // ── render: FOIA archive ─────────────────────────────────────
 
+// "We got it", "we need longer", "I chased it", "fine, narrower then" — the
+// connective tissue of a records request. Worth recording, not worth equal
+// billing with a release. Note `narrowing-request` is deliberately absent: an
+// agency telling you the request is too big is a substantive act, and here it
+// always arrived as a letter worth reading.
+const FOIA_MINOR = new Set(['acknowledged', 'extension', 'note', 'amended']);
+
+// Collapse consecutive procedural events into one foldable run, so the events
+// that actually moved the request stand out. Two constraints:
+//   - an event carrying documents is never minor, whatever its type;
+//   - a run may not span tracks, or the CSS lane filter could not hide the
+//     events inside it and would show the wrong prong's history.
+function foldTimeline(timeline) {
+  const out = [];
+  let run = null;
+  const flush = () => {
+    if (!run) return;
+    // A single collapsed event saves nothing and costs a click.
+    if (run.events.length > 1) out.push(run);
+    else out.push({ kind: 'event', ev: run.events[0] });
+    run = null;
+  };
+  for (const ev of timeline) {
+    const minor = FOIA_MINOR.has(ev.type) && !ev.isRelease;
+    if (!minor) { flush(); out.push({ kind: 'event', ev }); continue; }
+    if (run && run.track !== ev.track) flush();
+    if (!run) run = { kind: 'fold', track: ev.track, trackLabel: ev.trackLabel, events: [] };
+    run.events.push(ev);
+  }
+  flush();
+  for (const g of out) {
+    if (g.kind !== 'fold') continue;
+    const first = g.events[0], last = g.events[g.events.length - 1];
+    g.from = fmtMetaDate(first.date).slice(0, 6);
+    g.to = fmtMetaDate(last.date).slice(0, 6);
+    g.span = g.from === g.to ? g.from : `${g.from} – ${g.to}`;
+    // Name what's in the run rather than saying "4 steps".
+    const counts = {};
+    for (const e of g.events) counts[e.typeLabel] = (counts[e.typeLabel] || 0) + 1;
+    g.label = Object.entries(counts)
+      .map(([l, n]) => (n > 1 ? `${n} ${l}s` : l))
+      .join(', ');
+  }
+  return out;
+}
+
 // Sidebar for the archive: requests grouped by agency, active one marked.
 // Reuses the .tree-list CSS the musings sidebar already ships.
 function renderFoiaSidebarHtml(requests, activeUrl) {
@@ -1489,6 +1535,7 @@ async function renderFoia(requests) {
       },
       active: 'foia',
       req: r,
+      groups: foldTimeline(r.timeline),
       treeHtml: renderFoiaSidebarHtml(requests, r.url),
       jsonLd: {
         '@context': 'https://schema.org',

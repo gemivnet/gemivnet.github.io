@@ -13,73 +13,41 @@
         &nbsp;/&nbsp; <span style="color: var(--ink-2);"><%= ev.id %></span>
       </div>
       <h1><%= ev.title %></h1>
-      <div class="meta">
-        <span style="color: var(--accent); font-weight: 600;"><%= fmtMetaDate(ev.date) %></span>
-        <span class="sep">·</span>
-        <span><%= ev.typeLabel %></span>
-        <% if (ev.trackLabel) { %><span class="sep">·</span><span><%= ev.trackLabel %></span><% } %>
-        <span class="sep">·</span>
-        <span><%= req.agencyShort %></span>
-      </div>
     </header>
 
-    <% if (ev.note) { %><p class="foia-note"><%= ev.note %></p><% } %>
+    <div class="foia-meta">
+      <b><%= fmtLongDate(ev.date) %></b><span class="sep">·</span><%= ev.typeLabel %>
+      <% if (ev.trackLabel) { %><span class="sep">·</span><%= ev.trackLabel %><% } %>
+      <span class="sep">·</span><%= req.agencyShort %>
+      <br>
+      <b><%= ev.files.length %></b> file<%= ev.files.length === 1 ? '' : 's' %><% if (ev.pageCount) { %><span class="sep">·</span><b><%= ev.pageCount.toLocaleString() %></b> pages<% } %><% if (ev.byteCountFmt) { %><span class="sep">·</span><%= ev.byteCountFmt %><% } %>
+      <% if (ev.exemptions.length) { %><span class="sep">·</span><%= copy.foia.labels.exemptions %> <%= ev.exemptions.join(', ') %><% } %>
+      <% if (ev.note) { %><span class="fee-note"><%= ev.note %></span><% } %>
+    </div>
 
-    <% if (ev.exemptions.length) { %>
-      <p class="foia-exemptions"><%= copy.foia.labels.exemptions %>
-        <% ;(ev.exemptions).forEach(function(x){ %><span class="ex"><%= x %></span><% }) %>
+    <table class="foia-files">
+      <tbody>
+        <% ;(ev.files).forEach(function(d){ %>
+          <tr>
+            <th scope="row">
+              <a href="<%= d.url %>"><%= d.title %></a>
+              <span class="sub"><%= d.file %><% if (d.sha256) { %> · sha256 <%= d.sha256.slice(0, 12) %>…<% } %></span>
+            </th>
+            <td>
+              <% if (d.pages) { %><%= d.pages.toLocaleString() %> pp · <% } %><%= d.bytesFmt %>
+              <br><a href="<%= d.src %>" download="<%= escapeHtml(d.file) %>"><%= copy.foia.release.download_one %></a>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+    <% if (ev.zip) { %>
+      <p class="foia-dl">
+        <a href="<%= ev.zip.src %>" download><%= copy.foia.release.download_all %><% if (ev.zip.bytesFmt) { %> · <%= ev.zip.bytesFmt %><% } %></a>
+        <% if (ev.zip.sha256) { %><span>sha256 <%= ev.zip.sha256.slice(0, 12) %>…</span><% } %>
       </p>
     <% } %>
-
-    <section class="sp-section first" aria-label="Files">
-      <div class="sp-section-head">
-        <span class="sp-section-tag"><%= copy.foia.release.files_tag %></span>
-        <h2><%= copy.foia.release.files_title %></h2>
-        <span class="sp-section-aside">
-          <%= ev.files.length %> file<%= ev.files.length === 1 ? '' : 's' %><% if (ev.pageCount) { %> · <%= ev.pageCount.toLocaleString() %> pp<% } %><% if (ev.byteCountFmt) { %> · <%= ev.byteCountFmt %><% } %>
-        </span>
-      </div>
-
-      <div class="foia-bundle">
-        <% if (ev.zip) { %>
-          <a class="sp-btn primary" href="<%= ev.zip.src %>" download><%= copy.foia.release.download_all %><% if (ev.zip.bytesFmt) { %> · <%= ev.zip.bytesFmt %><% } %></a>
-          <% if (ev.zip.sha256) { %><span class="hash mono" title="sha256 of the bundle">sha256 <%= ev.zip.sha256.slice(0, 16) %>…</span><% } %>
-        <% } else if (ev.files.length === 1) { %>
-          <span class="none"><%= copy.foia.release.single_file_note %></span>
-        <% } %>
-      </div>
-
-      <div class="foia-doclist-wrap">
-        <table class="foia-doclist">
-          <thead>
-            <tr>
-              <th scope="col">document</th>
-              <th scope="col" class="num"><%= copy.foia.release.pages_label %></th>
-              <th scope="col" class="num"><%= copy.foia.labels.size %></th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% ;(ev.files).forEach(function(d){ %>
-              <tr>
-                <th scope="row">
-                  <a href="<%= d.url %>"><%= d.title %></a>
-                  <span class="file mono"><%= d.file %></span>
-                  <% if (d.description) { %><span class="desc"><%= d.description %></span><% } %>
-                  <% if (d.sha256) { %><span class="hash mono" title="sha256"><%= d.sha256.slice(0, 16) %>…</span><% } %>
-                </th>
-                <td class="num"><%= d.pages ? d.pages.toLocaleString() : '—' %></td>
-                <td class="num"><%= d.bytesFmt || '—' %></td>
-                <td class="act">
-                  <a href="<%= d.url %>"><%= copy.foia.release.view_label %></a>
-                  <a href="<%= d.src %>" download="<%= escapeHtml(d.file) %>"><%= copy.foia.release.download_one %></a>
-                </td>
-              </tr>
-            <% }) %>
-          </tbody>
-        </table>
-      </div>
-    </section>
 
     <nav class="sp-postnav" aria-label="Release navigation">
       <div class="prev">

@@ -9,159 +9,140 @@
     <header class="sp-post-header">
       <div class="crumbs">
         <a href="/">~</a> &nbsp;/&nbsp; <a href="/foia"><%= copy.foia.request.crumbs_root %></a>
-        &nbsp;/&nbsp; <a href="/foia/agency/<%= req.agencySlug %>"><%= req.agencyShort %></a>
         &nbsp;/&nbsp; <span style="color: var(--ink-2);"><%= req.slug %></span>
       </div>
       <h1><%= req.title %></h1>
-      <div class="meta">
-        <span style="color: var(--accent); font-weight: 600;"><%= fmtMetaDate(req.filed) %></span>
-        <span class="sep">·</span>
-        <span class="foia-status is-<%= req.status %>"><%= req.statusLabel %></span>
-        <% if (req.tags.length) { %>
-          <span class="sep">·</span>
-          <% ;(req.tags).forEach(function(t){ %><a class="sp-tag" href="/foia/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %>
-        <% } %>
-      </div>
     </header>
 
-    <dl class="foia-facts">
-      <div><dt><%= copy.foia.labels.agency %></dt><dd><%= req.agency %></dd></div>
-      <div><dt><%= copy.foia.labels.statute %></dt><dd><%= req.statute %></dd></div>
-      <% if (req.tracking) { %><div><dt><%= copy.foia.labels.tracking %></dt><dd class="mono"><%= req.tracking %></dd></div><% } %>
-      <div><dt><%= copy.foia.labels.filed %></dt><dd><%= fmtLongDate(req.filed) %></dd></div>
-      <% if (req.closed) { %><div><dt><%= copy.foia.labels.closed %></dt><dd><%= fmtLongDate(req.closed) %></dd></div><% } %>
+    <% /* facts as one run of prose, not a grid of boxes */ %>
+    <div class="foia-meta">
+      <b><%= req.agency %></b><span class="sep">·</span><%= req.statute %>
+      <% if (req.tracking) { %><span class="sep">·</span><%= req.tracking %><% } %>
+      <br>
+      filed <b><%= fmtLongDate(req.filed) %></b><% if (req.closed) { %><span class="sep">·</span>closed <b><%= fmtLongDate(req.closed) %></b><% } %>
+      <span class="sep">·</span><b class="<%= req.status === 'open' ? '' : '' %>"><%= req.statusLabel %></b>
       <% if (req.docCount) { %>
-        <div><dt><%= copy.foia.labels.documents %></dt><dd><%= req.docCount %><% if (req.pageCount) { %> · <%= req.pageCount.toLocaleString() %> pp<% } %> · <%= req.byteCountFmt %></dd></div>
+        <span class="sep">·</span><b><%= req.docCount %></b> document<%= req.docCount === 1 ? '' : 's' %><% if (req.pageCount) { %>, <b><%= req.pageCount.toLocaleString() %></b> pages<% } %>
       <% } %>
       <% if (req.fees.quoted || req.fees.paid || req.fees.waiverLabel) { %>
-        <div><dt><%= copy.foia.labels.fees %></dt><dd>
-          <% if (req.fees.paid) { %><%= req.fees.paidFmt %> paid<% } %>
-          <% if (req.fees.quoted && !req.fees.paid) { %><%= req.fees.quotedFmt %> quoted<% } %>
-          <% if (req.fees.quoted && req.fees.paid) { %> · <%= req.fees.quotedFmt %> quoted<% } %>
-          <% if (req.fees.waiverLabel) { %><br><span class="sub"><%= req.fees.waiverLabel %></span><% } %>
-        </dd></div>
+        <br>
+        <% if (req.fees.paid) { %><b><%= req.fees.paidFmt %></b> paid<% } %>
+        <% if (req.fees.quoted) { %><% if (req.fees.paid) { %><span class="sep">·</span><% } %><b><%= req.fees.quotedFmt %></b> quoted<% } %>
+        <% if (req.fees.waiverLabel) { %><span class="sep">·</span><%= req.fees.waiverLabel %><% } %>
       <% } %>
-      <% if (req.alsoAgencies.length) { %>
-        <div><dt><%= copy.foia.labels.also %></dt><dd>
-          <% ;(req.alsoAgencies).forEach(function(a){ %><a href="/foia/agency/<%= a.slug %>"><%= a.label %></a> <% }) %>
-        </dd></div>
+      <% if (req.tags.length) { %>
+        <br>
+        <% ;(req.tags).forEach(function(t){ %><a href="/foia/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>">#<%= t %></a> <% }) %>
       <% } %>
-    </dl>
-
-    <% if (req.fees.note) { %><p class="foia-fee-note"><%= req.fees.note %></p><% } %>
+      <% if (req.fees.note) { %><span class="fee-note"><%= req.fees.note %></span><% } %>
+    </div>
 
     <% if (req.summary) { %>
-      <section class="sp-section" aria-label="Summary">
-        <div class="sp-section-head">
-          <span class="sp-section-tag"><%= copy.foia.summary.tag %></span>
-          <h2><%= copy.foia.summary.title %></h2>
-        </div>
-        <div class="foia-summary" data-ai-generated="true">
-          <% ;(req.summary.text.split(/\n{2,}/)).forEach(function(para){ %>
-            <p><%= para.replace(/\n/g, ' ') %></p>
-          <% }) %>
-          <p class="disclosure">
-            <span class="mark" aria-hidden="true">ⓘ</span>
-            <%= (req.summary.reviewed ? copy.foia.summary.disclosure_reviewed : copy.foia.summary.disclosure)
-                  .replace('{model}', req.summary.generatedBy)
-                  .replace('{date}', req.summary.generatedOn) %>
-          </p>
-        </div>
-      </section>
+      <div class="foia-summary" data-ai-generated="true">
+        <% ;(req.summary.text.split(/\n{2,}/)).forEach(function(para){ %>
+          <p><%= para.replace(/\n/g, ' ') %></p>
+        <% }) %>
+        <p class="disclosure">
+          <span style="color: var(--accent);">ⓘ</span>
+          <%= (req.summary.reviewed ? copy.foia.summary.disclosure_reviewed : copy.foia.summary.disclosure)
+                .replace('{model}', req.summary.generatedBy)
+                .replace('{date}', req.summary.generatedOn) %>
+        </p>
+      </div>
     <% } %>
 
-    <section class="sp-section" aria-label="Timeline">
-      <div class="sp-section-head">
-        <span class="sp-section-tag"><%= copy.foia.request.timeline_tag %></span>
-        <h2><%= copy.foia.request.timeline_title %></h2>
-        <span class="sp-section-aside"><%= copy.foia.request.timeline_aside %></span>
-      </div>
+    <% if (req.timeline.length === 0) { %>
+      <div class="sp-empty"><%= copy.foia.request.no_timeline %></div>
+    <% } else { %>
 
-      <% if (req.timeline.length === 0) { %>
-        <div class="sp-empty"><%= copy.foia.request.no_timeline %></div>
-      <% } else { %>
-
-      <% /* Multi-pronged request: a JS-free lane filter. One generated rule per
-            track, because CSS can't match a checked input's value against an
-            attribute on its own. Events with no track are never hidden — they
-            belong to every prong. */ %>
-      <% if (req.tracks.length > 1) { %>
-        <style>
+    <% /* Multi-pronged: a JS-free lane filter. One generated rule per track,
+          because CSS can't match a checked input's value against an attribute.
+          Untracked events are never hidden — they belong to every prong. */ %>
+    <% if (req.tracks.length > 1) { %>
+      <style>
+        <% ;(req.tracks).forEach(function(t){ %>
+          #tf-<%= req.slug %>-<%= t.id %>:checked ~ .foia-timeline [data-track]:not([data-track="<%= t.id %>"]) { display: none; }
+          #tf-<%= req.slug %>-<%= t.id %>:checked ~ .foia-track-pick label[for="tf-<%= req.slug %>-<%= t.id %>"] { color: var(--accent); border-bottom-color: var(--accent); }
+        <% }) %>
+        #tf-<%= req.slug %>-all:checked ~ .foia-track-pick label[for="tf-<%= req.slug %>-all"] { color: var(--accent); border-bottom-color: var(--accent); }
+      </style>
+      <div class="foia-tracks">
+        <input type="radio" name="tf-<%= req.slug %>" id="tf-<%= req.slug %>-all" checked>
+        <% ;(req.tracks).forEach(function(t){ %>
+          <input type="radio" name="tf-<%= req.slug %>" id="tf-<%= req.slug %>-<%= t.id %>">
+        <% }) %>
+        <div class="foia-track-pick">
+          <label for="tf-<%= req.slug %>-all"><%= copy.foia.request.track_filter_all %></label>
           <% ;(req.tracks).forEach(function(t){ %>
-            #tf-<%= req.slug %>-<%= t.id %>:checked ~ .foia-timeline .foia-event[data-track]:not([data-track="<%= t.id %>"]) { display: none; }
-            #tf-<%= req.slug %>-<%= t.id %>:checked ~ .gv-toggle label[for="tf-<%= req.slug %>-<%= t.id %>"] { color: var(--bg); background: var(--accent); border-color: var(--accent); }
+            <label for="tf-<%= req.slug %>-<%= t.id %>"><%= t.label %></label>
           <% }) %>
-          #tf-<%= req.slug %>-all:checked ~ .gv-toggle label[for="tf-<%= req.slug %>-all"] { color: var(--bg); background: var(--accent); border-color: var(--accent); }
-        </style>
-        <div class="foia-tracks">
-          <input type="radio" name="tf-<%= req.slug %>" id="tf-<%= req.slug %>-all" checked>
-          <% ;(req.tracks).forEach(function(t){ %>
-            <input type="radio" name="tf-<%= req.slug %>" id="tf-<%= req.slug %>-<%= t.id %>">
-          <% }) %>
-          <div class="gv-toggle" role="group" aria-label="Filter by track">
-            <label for="tf-<%= req.slug %>-all"><%= copy.foia.request.track_filter_all %></label>
-            <% ;(req.tracks).forEach(function(t){ %>
-              <label for="tf-<%= req.slug %>-<%= t.id %>"><%= t.label %></label>
-            <% }) %>
-          </div>
-      <% } %>
+        </div>
+    <% } %>
 
-      <ol class="foia-timeline">
-        <% var lastYear = null; ;(req.timeline).forEach(function(ev){ var y = ev.date.getUTCFullYear(); %>
-          <% if (y !== lastYear) { lastYear = y; %>
-            <li class="foia-year"><span>// <%= y %></span></li>
-          <% } %>
+    <ol class="foia-timeline">
+      <% var lastYear = null; ;(groups).forEach(function(g){
+           var d = g.kind === 'fold' ? g.events[0].date : g.ev.date;
+           var y = d.getUTCFullYear(); %>
+        <% if (y !== lastYear) { lastYear = y; %>
+          <li class="foia-year">// <%= y %></li>
+        <% } %>
+
+        <% if (g.kind === 'fold') { %>
+          <li>
+            <details class="foia-fold"<% if (g.track) { %> data-track="<%= g.track %>"<% } %>>
+              <summary><%= g.span %> · <%= g.label %><% if (g.trackLabel) { %> · <%= g.trackLabel %><% } %></summary>
+              <ol style="list-style: none; padding: 0; margin: 0;">
+                <% ;(g.events).forEach(function(ev){ %>
+                  <li class="foia-event is-minor">
+                    <div class="when"><%= fmtMetaDate(ev.date).slice(0, 6) %></div>
+                    <div class="what">
+                      <h3><%= ev.title %></h3>
+                      <div class="kind"><span class="t"><%= ev.typeLabel %></span><% if (ev.tracking) { %> · <%= ev.tracking %><% } %></div>
+                      <% if (ev.note) { %><p class="note"><%= ev.note %></p><% } %>
+                    </div>
+                  </li>
+                <% }) %>
+              </ol>
+            </details>
+          </li>
+        <% } else { var ev = g.ev; %>
           <li class="foia-event is-<%= ev.type %>"<% if (ev.track) { %> data-track="<%= ev.track %>"<% } %>>
             <div class="when"><%= fmtMetaDate(ev.date).slice(0, 6) %></div>
-            <div class="dot" aria-hidden="true"><%= ev.glyph %></div>
             <div class="what">
+              <h3><%= ev.title %></h3>
               <div class="kind">
-                <span class="type"><%= ev.typeLabel %></span>
-                <% if (ev.trackLabel) { %><span class="track"><%= ev.trackLabel %></span><% } %>
-                <% if (ev.tracking) { %><span class="tracking mono"><%= ev.tracking %></span><% } %>
+                <span class="t"><%= ev.typeLabel %></span>
+                <% if (ev.trackLabel) { %> · <%= ev.trackLabel %><% } %>
+                <% if (ev.tracking) { %> · <%= ev.tracking %><% } %>
+                <% if (ev.exemptions.length) { %> · <%= copy.foia.labels.exemptions %> <%= ev.exemptions.join(', ') %><% } %>
               </div>
-              <h3>
-                <% if (ev.isRelease) { %><a href="<%= ev.url %>"><%= ev.title %></a><% } else { %><%= ev.title %><% } %>
-              </h3>
               <% if (ev.note) { %><p class="note"><%= ev.note %></p><% } %>
-              <% if (ev.exemptions.length) { %>
-                <p class="exemptions"><%= copy.foia.labels.exemptions %>
-                  <% ;(ev.exemptions).forEach(function(x){ %><span class="ex"><%= x %></span><% }) %>
-                </p>
-              <% } %>
               <% if (ev.isRelease) { %>
-                <div class="release-foot">
-                  <span><%= ev.files.length %> document<%= ev.files.length === 1 ? '' : 's' %></span>
-                  <% if (ev.pageCount) { %><span class="sep">·</span><span><%= ev.pageCount.toLocaleString() %> pp</span><% } %>
-                  <% if (ev.byteCountFmt) { %><span class="sep">·</span><span><%= ev.byteCountFmt %></span><% } %>
-                  <a class="open" href="<%= ev.url %>"><%= copy.foia.request.open_label %></a>
-                </div>
+                <ul class="docs">
+                  <% ;(ev.files).forEach(function(d){ %>
+                    <li><a href="<%= d.url %>"><%= d.title %></a> <span class="m"><% if (d.pages) { %><%= d.pages %> pp · <% } %><%= d.bytesFmt %></span></li>
+                  <% }) %>
+                </ul>
+                <a class="more" href="<%= ev.url %>"><%= copy.foia.request.open_label %></a>
               <% } %>
             </div>
           </li>
-        <% }) %>
-      </ol>
+        <% } %>
+      <% }) %>
+    </ol>
 
-      <% if (req.tracks.length > 1) { %></div><% } %>
-      <% } %>
-    </section>
+    <% if (req.tracks.length > 1) { %></div><% } %>
+    <% } %>
 
-    <section class="sp-section" aria-label="Rights">
-      <div class="sp-section-head">
-        <span class="sp-section-tag"><%= copy.foia.rights.tag %></span>
-        <h2><%= copy.foia.rights.title %></h2>
-      </div>
-      <div class="foia-rights">
-        <p data-ai-generated="true"><span class="mark" aria-hidden="true">ⓘ</span> <%= copy.foia.ai_notice.short %></p>
-        <p><%= req.rights.note %></p>
-        <p><%= copy.foia.rights.site_note %></p>
-        <p><%= copy.foia.rights.caveat %>
-          <a href="<%= copy.foia.rights.contact_href %>"><%= copy.foia.rights.contact_label %></a>
-        </p>
-      </div>
-    </section>
+    <div class="foia-note-foot">
+      <p><span style="color: var(--accent);">ⓘ</span> <%= copy.foia.ai_notice.short %></p>
+      <p><%= req.rights.note %></p>
+      <p><%= copy.foia.rights.caveat %>
+        <a href="<%= copy.foia.rights.contact_href %>"><%= copy.foia.rights.contact_label %></a>
+      </p>
+    </div>
 
-    <div style="text-align: center; margin-top: var(--sp-5); font-family: var(--font-mono); font-size: 12px; color: var(--ink-3);">
+    <div style="text-align: center; margin-top: var(--sp-6); font-family: var(--font-mono); font-size: 12px; color: var(--ink-3);">
       <a href="/foia"><%= copy.foia.request.back_label %></a>
     </div>
   </div>
