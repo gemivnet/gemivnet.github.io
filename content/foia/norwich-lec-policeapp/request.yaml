@@ -1,0 +1,134 @@
+title: Norwich PD, the Law Enforcement Council, and PoliceApp
+agency: Norwich Police Department
+agency_short: Norwich PD
+jurisdiction: us-local
+statute: Connecticut FOIA (C.G.S. § 1-200 et seq.)
+status: partial
+filed: "2026-04-19"
+category: policing
+tags:
+  - norwich
+  - connecticut
+  - police-hiring
+  - law-enforcement-council
+  - policeapp
+  - connecticut-foia
+seo:
+  description: >-
+    What Norwich Police Department pays the Law Enforcement Council of Connecticut, how its
+    PoliceApp hiring pipeline works, and what it doesn't keep.
+  keywords:
+    - Norwich Police Department FOIA
+    - Law Enforcement Council of Connecticut
+    - LEC of Conn assessment
+    - PoliceApp police hiring
+    - Eastern Regional Police Academy invoice
+    - Connecticut FOIA police records
+    - police applicant pipeline data
+fees:
+  paid: 0
+  note: The acknowledgement noted a fee might be due under state statute. None was ever assessed.
+rights:
+  note: >-
+    Records released by the Norwich Police Department under the Connecticut Freedom of Information
+    Act (C.G.S. § 1-200 et seq.). Connecticut municipal records are public under that Act; note that
+    17 U.S.C. § 105, which places federal works outside copyright, does not apply to state or
+    municipal records.
+timeline:
+  - id: filed
+    date: "2026-04-19"
+    type: filed
+    title: Request submitted to the Records Division
+    note: >-
+      Three categories covering January 1, 2023 onward: everything between the department and the
+      Law Enforcement Council of Connecticut (contracts, communications, invoices, and any applicant
+      or scoring data the LEC sends back); the same for PoliceApp.com; and the department's own
+      hiring numbers tied to that pipeline, including pass/fail statistics and any validation or
+      disparate-impact study of the LEC written entry examination.
+  - id: acknowledged
+    date: "2026-04-20"
+    type: acknowledged
+    title: Four-day acknowledgement
+    note: >-
+      The Records Division issued the response required within four business days, noting that a fee
+      might be due and that the request would be reviewed.
+  - id: followup
+    date: "2026-06-04"
+    type: note
+    title: Followed up after six weeks of silence
+    note: >-
+      Six weeks past the acknowledgement, with no records, no fee estimate and no claimed
+      exemptions, a follow-up asked for a status update and an estimated production date.
+  - id: referral
+    date: "2026-06-05"
+    type: referral
+    title: Referred to the Training and Selections Unit
+    note: >-
+      The Records Division replied that it does not retain the information sought and had forwarded
+      the request to the Records and Training Sergeants, naming the Training Sergeant as the person
+      processing it.
+  - id: narrowing-request
+    date: "2026-06-25"
+    type: narrowing-request
+    title: Department asks to narrow — hundreds of LEC emails
+    note: >-
+      The Training and Selections supervisor, who is the department's direct contact with the LEC,
+      said he had been working the request for some time but that there were hundreds of emails from
+      LEC representatives with no way to combine, highlight and print them at once. He offered a
+      phone call to scope it, or an in-person review at the department.
+  - id: electronic-delivery
+    date: "2026-06-25"
+    type: note
+    title: Electronic delivery and rolling production proposed
+    note: >-
+      The reply noted that printed copies were never sought and that C.G.S. § 1-211(a) provides for
+      electronic copies, suggested filtering by sender domain and exporting in bulk, and asked that
+      the discrete documents — contracts, invoices, reports and hiring data — be produced on a
+      rolling basis while the email review continued. It also asked to keep the correspondence in
+      writing.
+  - id: inspection-offered
+    date: "2026-06-26"
+    type: narrowing-request
+    title: Department presses to narrow, offers inspection instead
+    note: >-
+      The supervisor asked again to significantly narrow the email portion, having tried and failed
+      to bulk-export, and pointed to C.G.S. § 1-210(a), under which records may be made available
+      for inspection in person during office hours. He explained that a request this size competes
+      with his primary duties, and committed to producing what he could electronically by June 30.
+  - id: amended
+    date: "2026-06-26"
+    type: amended
+    title: Email categories set aside
+    note: >-
+      Categories 1b and 2b — the communications with LEC and PoliceApp representatives — were set
+      aside to be revisited later, leaving the contracts, invoices, financial records, reports and
+      hiring data.
+  - id: 2026-06-28-release
+    date: "2026-06-28"
+    type: partial
+    title: Records released — 14 pages
+    note: >-
+      Sent two days ahead of the promised date, from an overtime shift. The release answers the
+      narrowed request and reprints the original with handwritten replies to each item.
+    files:
+      - id: lec-policeapp-records
+        file: 2026-06-28-lec-and-policeapp-records.pdf
+        title: LEC and PoliceApp records
+        description: >-
+          The request reprinted with the department's answer to each item annotated in red, followed
+          by the records themselves: Law Enforcement Council annual assessment letters and
+          membership invoices to the department from 2022 to 2026 ($13,926 to $17,471 a year), three
+          Eastern Regional Police Academy invoices covering seven named recruits at $3,300–$3,500
+          each, a PoliceApp sales email to the Training Sergeant, and two PoliceApp pipeline exports
+          listing every application by date, stage and outcome with no applicant names. Released as
+          a scan with no text layer.
+        bytes: 3891492
+        sha256: 9f06a9720eae774238a5cee08462097fc3a8b855ce0052674dd6abfa5a2d28fc
+        pages: 14
+        s3: >-
+          https://georgemain-com-media.s3.amazonaws.com/foia/norwich-lec-policeapp/2026-06-28-release/2026-06-28-lec-and-policeapp-records.pdf
+  - id: acknowledged-receipt
+    date: "2026-06-28"
+    type: note
+    title: Receipt acknowledged
+    note: Receipt confirmed the same evening. The email portion of the request remains outstanding.
