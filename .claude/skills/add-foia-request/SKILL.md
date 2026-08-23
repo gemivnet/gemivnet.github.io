@@ -136,9 +136,19 @@ more than one document, uploads everything to S3, rewrites `request.yaml` with
 `s3`/`bytes`/`sha256`/`pages`, and **deletes the consumed originals from
 `dump/`** — but only after each upload is confirmed.
 
-If the AWS CLI isn't on PATH it writes `dump/UPLOAD-<slug>.sh` with the exact
-commands, deletes nothing, and still records the final S3 URLs. Those pages 404
-until the user runs it. Say so plainly rather than implying the archive is live.
+If the CLI is missing **or has no usable credentials**, it writes
+`dump/UPLOAD-<slug>.sh` with the exact commands, deletes nothing, and still
+records the final S3 URLs. Those pages 404 until the user runs it. Say so
+plainly rather than implying the archive is live.
+
+The CLI is a per-user install at
+`%LOCALAPPDATA%\Programs\Amazon\AWSCLIV2\aws.exe`; the script resolves it there
+directly because an already-running shell won't have picked up the PATH entry.
+Credentials come from `aws login` (temporary, browser-based) or
+`aws configure` — both need a **real console window**, not the `!` prefix or a
+tool-run shell, which have no TTY and die on the first prompt. If
+`aws sts get-caller-identity` fails, stop and ask the user to authenticate
+rather than starting an upload that will fail halfway.
 
 ### 8. Verify
 
