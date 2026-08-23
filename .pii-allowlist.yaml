@@ -38,6 +38,11 @@ allowed:
   # 14-digit phone number to the scanner; it's a filename.
   - "20230614120530"
 
+  # 2^32, cited in CLAUDE.md as the canonical example of why minified bundles
+  # get skipped. The documentation of a false positive was itself flagged as
+  # one, which is at least consistent.
+  - "4294967296"
+
   # Place names mentioned in posts (cities, countries, mountains, etc).
   # These are not PII even though the heuristics might flag them.
   - "Cairns"
