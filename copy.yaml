@@ -101,7 +101,19 @@ rv12is:
   index:
     breadcrumb: "~/rv12is"
     title: "rv12is"
+    # What Google shows as the result headline. DRAFTED BY CLAUDE 2026-08-24.
+    seo_title: "Van's RV-12iS build log"
     seo_description: "Van's RV-12iS build log — and notes once it's flying."
+    # Visible intro on /rv12is, and the description in its Blog structured data.
+    # DRAFTED BY CLAUDE 2026-08-24 — replace with your own words.
+    summary: >-
+      A first-person build log for Van's RV-12iS kit #121708, N1798. Empennage,
+      wings, fuselage, finishing and powerplant — written up as we go, including
+      what went wrong, what it cost, and every part we had to order twice.
+    pinned_label: "pinned"
+    sort_label: "sort:"
+    sort_newest: "newest first"
+    sort_oldest: "oldest first"
   category:
     breadcrumb_prefix: "~/rv12is/"
     no_direct_posts: "no entries directly here — see subfolders"

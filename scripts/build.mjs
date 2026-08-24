@@ -365,6 +365,7 @@ async function loadPosts(root) {
       title: fm.title,
       subtitle: fm.subtitle || '',
       date: new Date(fm.date),
+      pinned: !!fm.pinned,
       tags: fm.tags || [],
       featured,
       seo: fm.seo || {},
@@ -1042,7 +1043,9 @@ async function renderPostSection(posts, section) {
   // Index page. Timeline sections list everything date-first in one stream.
   const indexHtml = await renderPage(section.timeline ? 'timeline-index' : 'musings-index', {
     page: {
-      title: section.root + ' — ' + SITE.title,
+      // `seo_title` is what a search result reads as; without one this falls
+      // back to the bare folder name, which ranks for nothing.
+      title: (sc.index.seo_title || section.root) + ' — ' + SITE.title,
       description: (sc.index.seo_description || '')
         .replace('{count}', posts.length).replace('{author}', SITE.author),
       url: section.base,
@@ -1052,6 +1055,30 @@ async function renderPostSection(posts, section) {
     active: section.active,
     section, sectionCopy: sc,
     posts,
+    // `pinned: true` in frontmatter lifts an entry out of the dated stream and
+    // into a compact strip at the top — for the reference pages (costs, lessons)
+    // that stay useful long after their date scrolls away.
+    pinnedPosts: posts.filter(p => p.pinned),
+    datedPosts: posts.filter(p => !p.pinned),
+    // The index is otherwise a bare list of links, which reads as thin content.
+    // The ItemList gives crawlers the entries; the Blog gives them the section.
+    jsonLd: !section.timeline ? null : {
+      '@context': 'https://schema.org',
+      '@type': 'Blog',
+      '@id': pageHelpers.absUrl(section.base),
+      name: sc.index.seo_title || (section.root + ' — ' + SITE.title),
+      description: sc.index.summary || sc.index.seo_description || undefined,
+      url: pageHelpers.absUrl(section.base),
+      author: { '@type': 'Person', name: SITE.author },
+      blogPost: posts.map(p => ({
+        '@type': 'BlogPosting',
+        headline: p.title,
+        url: pageHelpers.absUrl(p.url),
+        datePublished: p.date.toISOString(),
+        description: p.seo.description || p.subtitle || undefined,
+        image: p.featured ? pageHelpers.absUrl(p.featured) : undefined,
+      })),
+    },
     treeHtml: sidebarFor(section.base, ''),
   });
   collectLinks(section.base, indexHtml);

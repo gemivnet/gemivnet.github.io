@@ -1,15 +1,35 @@
 <header style="margin-bottom: var(--sp-6);">
   <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); margin-bottom: var(--sp-3);">
-    <%= sectionCopy.index.breadcrumb %> · <%= posts.length %> entries · newest first
+    <%= sectionCopy.index.breadcrumb %> · <%= posts.length %> entries
   </div>
   <h1><%= sectionCopy.heading %></h1>
+  <% if (sectionCopy.index.summary) { %><p class="sp-index-summary"><%= sectionCopy.index.summary %></p><% } %>
 </header>
 
 <%
   var catCounts = {};
   posts.forEach(function(p){ var k = p.category.join('/'); if (k) catCounts[k] = (catCounts[k] || 0) + 1; });
   var cats = Object.keys(catCounts).sort();
+  var pinned = (typeof pinnedPosts !== 'undefined' && pinnedPosts) || [];
+  var dated  = (typeof datedPosts  !== 'undefined' && datedPosts)  || posts;
 %>
+
+<% if (pinned.length) { %>
+<section class="sp-pinned" aria-label="Pinned entries">
+  <div class="sp-strip-label">// <%= sectionCopy.index.pinned_label %></div>
+  <div class="sp-pinned-row">
+    <% pinned.forEach(function(p){ %>
+      <a class="sp-pin" href="<%= p.url %>">
+        <span class="sp-pin-thumb<%= p.featuredThumb ? '' : ' is-empty' %>"><% if (p.featuredThumb) { %><img src="<%= p.featuredThumb %>" alt="" width="160" height="160" loading="lazy" decoding="async"><% } %></span>
+        <span class="sp-pin-text">
+          <span class="sp-pin-title"><%= p.title %></span>
+          <% if (p.subtitle) { %><span class="sp-pin-sub"><%= p.subtitle %></span><% } %>
+        </span>
+      </a>
+    <% }) %>
+  </div>
+</section>
+<% } %>
 
 <% if (cats.length) { %>
 <div style="border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: var(--sp-4) 0; margin-bottom: var(--sp-6); font-family: var(--font-mono); font-size: var(--fs-small);">
@@ -20,18 +40,25 @@
       <a href="<%= section.base %>/<%= k %>" style="color: var(--ink-2); text-decoration: none; margin-right: 14px;"><%= k %>/ <span style="color: var(--ink-3);"><%= catCounts[k] %></span></a>
     <% }) %>
   </div>
+  <div class="sp-sort" hidden>
+    <span class="sp-sort-label"><%= sectionCopy.index.sort_label %></span>
+    <button type="button" data-sort="desc" class="is-on"><%= sectionCopy.index.sort_newest %></button>
+    <span class="sp-sort-sep">/</span>
+    <button type="button" data-sort="asc"><%= sectionCopy.index.sort_oldest %></button>
+  </div>
 </div>
 <% } %>
 
-<% if (posts.length === 0) { %>
+<% if (dated.length === 0) { %>
   <div class="sp-empty"><span class="glyph">∅</span>nothing here yet.</div>
 <% } %>
 
-<% var lastYear = null; posts.forEach(function(p){ var y = p.date.getUTCFullYear(); %>
+<div id="sp-stream">
+<% var lastYear = null; dated.forEach(function(p){ var y = p.date.getUTCFullYear(); %>
   <% if (y !== lastYear) { lastYear = y; %>
-    <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); border-bottom: 1px solid var(--rule); padding-bottom: var(--sp-2); margin: var(--sp-5) 0 var(--sp-4);">// <%= y %></div>
+    <div class="sp-year" data-year="<%= y %>">// <%= y %></div>
   <% } %>
-  <article class="sp-card sp-entry">
+  <article class="sp-card sp-entry" data-ts="<%= p.date.getTime() %>" data-year="<%= y %>">
     <a class="sp-entry-thumb<%= p.featuredThumb ? '' : ' is-empty' %>" href="<%= p.url %>" tabindex="-1" aria-hidden="true">
       <% if (p.featuredThumb) { %><img src="<%= p.featuredThumb %>" alt="" width="160" height="160" loading="lazy" decoding="async"><% } %>
     </a>
@@ -48,6 +75,53 @@
     <a class="sp-entry-open" href="<%= p.url %>" data-peek data-peek-title="<%= escapeHtml(p.title) %>" aria-label="Read <%= escapeHtml(p.title) %>">&rsaquo;</a>
   </article>
 <% }) %>
+</div>
+
+<script>
+(function () {
+  // Sort control. The markup ships newest-first, so with JS off the default is
+  // already correct and the control stays hidden.
+  var stream = document.getElementById('sp-stream');
+  var bar = document.querySelector('.sp-sort');
+  if (!stream || !bar || !stream.querySelector('[data-ts]')) return;
+  bar.hidden = false;
+
+  var entries = [].slice.call(stream.querySelectorAll('.sp-entry'));
+
+  function apply(dir) {
+    var sorted = entries.slice().sort(function (a, b) {
+      var d = +a.getAttribute('data-ts') - +b.getAttribute('data-ts');
+      return dir === 'asc' ? d : -d;
+    });
+    // Rebuild from scratch so the // year rules land in the right places.
+    [].slice.call(stream.querySelectorAll('.sp-year')).forEach(function (n) { n.remove(); });
+    var lastYear = null;
+    sorted.forEach(function (el) {
+      var y = el.getAttribute('data-year');
+      if (y !== lastYear) {
+        lastYear = y;
+        var h = document.createElement('div');
+        h.className = 'sp-year';
+        h.setAttribute('data-year', y);
+        h.textContent = '// ' + y;
+        stream.appendChild(h);
+      }
+      stream.appendChild(el);
+    });
+    [].slice.call(bar.querySelectorAll('button')).forEach(function (b) {
+      b.classList.toggle('is-on', b.getAttribute('data-sort') === dir);
+    });
+    try { localStorage.setItem('gm-rv-sort', dir); } catch (_) {}
+  }
+
+  bar.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('button[data-sort]');
+    if (b) apply(b.getAttribute('data-sort'));
+  });
+
+  try { var s = localStorage.getItem('gm-rv-sort'); if (s === 'asc') apply('asc'); } catch (_) {}
+})();
+</script>
 
 <%
   /* Reading pane. Markup ships inert and empty; the script below moves it to
