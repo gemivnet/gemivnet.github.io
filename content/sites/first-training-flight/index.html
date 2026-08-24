@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>First Flight — George & Shelby · KUES · Jan 31 2026</title>
+<title>First Flight, George & Shelby · KUES · Jan 31 2026</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Space+Mono:wght@400;700&display=swap');
 
@@ -431,10 +431,10 @@
 <div class="header">
   <h1>First Flight Training</h1>
   <h2><span>Shelby</span> & <span>George</span></h2>
-  <div class="date">KUES — Waukesha County · January 31, 2026</div>
+  <div class="date">KUES, Waukesha County · January 31, 2026</div>
 </div>
 
-<!-- LEFT HUD: N236VA — Shelby + Eva -->
+<!-- LEFT HUD: N236VA, Shelby + Eva -->
 <div class="telemetry left">
   <div class="hud-card">
     <div class="hud-header">
@@ -455,7 +455,7 @@
   </div>
 </div>
 
-<!-- RIGHT HUD: N242VA — George + Brent -->
+<!-- RIGHT HUD: N242VA, George + Brent -->
 <div class="telemetry right">
   <div class="hud-card">
     <div class="hud-header">
@@ -736,7 +736,7 @@ const lA242 = document.getElementById('lbl-alt-242'), lS242 = document.getElemen
 
 playBtn.onclick = () => { playing = !playing; playBtn.innerHTML = playing ? '&#9646;&#9646;' : '&#9654;'; if (prog >= 1) { prog = 0; setLiveLabels(); } if (playing && prog === 0) setLiveLabels(); };
 
-// Timeline scrub — works for both mouse and touch
+// Timeline scrub. Works for both mouse and touch
 function scrubAt(clientX) {
   const inner = tl.querySelector('.timeline-inner');
   const r = inner.getBoundingClientRect();
@@ -773,7 +773,7 @@ function fmt(v) { return v >= 1000 ? v.toLocaleString() : String(v); }
 
 function hud(aEl, sEl, d) {
   if (d) { aEl.innerHTML = fmt(d.alt)+'<span class="hud-unit">ft</span>'; sEl.innerHTML = d.speed+'<span class="hud-unit">kts</span>'; aEl.parentElement.classList.remove('hud-inactive'); sEl.parentElement.classList.remove('hud-inactive'); }
-  else { aEl.innerHTML = '&mdash;<span class="hud-unit">ft</span>'; sEl.innerHTML = '&mdash;<span class="hud-unit">kts</span>'; aEl.parentElement.classList.add('hud-inactive'); sEl.parentElement.classList.add('hud-inactive'); }
+  else { aEl.innerHTML = '-<span class="hud-unit">ft</span>'; sEl.innerHTML = '-<span class="hud-unit">kts</span>'; aEl.parentElement.classList.add('hud-inactive'); sEl.parentElement.classList.add('hud-inactive'); }
 }
 
 function setMaxLabels() { lA236.textContent='Max Alt'; lS236.textContent='Max Spd'; lA242.textContent='Max Alt'; lS242.textContent='Max Spd'; }

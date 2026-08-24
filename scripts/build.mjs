@@ -488,7 +488,7 @@ async function loadFoia() {
 
     const slug = path.basename(path.dirname(rel));
     if (FOIA_RESERVED.has(slug)) {
-      fail(`${rel}: '${slug}' is a reserved route under /foia — rename the folder`);
+      fail(`${rel}: '${slug}' is a reserved route under /foia. Rename the folder`);
       continue;
     }
     if (seenSlugs.has(slug)) { fail(`${rel}: duplicate request slug '${slug}'`); continue; }
@@ -1045,7 +1045,7 @@ async function renderPostSection(posts, section) {
     page: {
       // `seo_title` is what a search result reads as; without one this falls
       // back to the bare folder name, which ranks for nothing.
-      title: (sc.index.seo_title || section.root) + ' — ' + SITE.title,
+      title: (sc.index.seo_title || section.root) + ', ' + SITE.title,
       description: (sc.index.seo_description || '')
         .replace('{count}', posts.length).replace('{author}', SITE.author),
       url: section.base,
@@ -1066,7 +1066,7 @@ async function renderPostSection(posts, section) {
       '@context': 'https://schema.org',
       '@type': 'Blog',
       '@id': pageHelpers.absUrl(section.base),
-      name: sc.index.seo_title || (section.root + ' — ' + SITE.title),
+      name: sc.index.seo_title || (section.root + ', ' + SITE.title),
       description: sc.index.summary || sc.index.seo_description || undefined,
       url: pageHelpers.absUrl(section.base),
       author: { '@type': 'Person', name: SITE.author },
@@ -1104,7 +1104,7 @@ async function renderPostSection(posts, section) {
     const next = posts[i - 1] || null;
     const html = await renderPage('musing', {
       page: {
-        title: `${m.title} — ${SITE.title}`,
+        title: `${m.title}, ${SITE.title}`,
         description: m.seo.description || truncate(m.preview, 158),
         keywords: m.seo.keywords || m.tags,
         url: m.url,
@@ -1170,7 +1170,7 @@ async function renderPostSection(posts, section) {
     }));
     const html = await renderPage('musings-category', {
       page: {
-        title: `${key} — ${section.root} — ${SITE.title}`,
+        title: `${key}, ${section.root}, ${SITE.title}`,
         description: `Posts about ${cat.segs.join(' / ')} by ${SITE.author}.`,
         url,
         bodyClass: pageHelpers.bodyClass(section.active),
@@ -1204,7 +1204,7 @@ async function renderPostSection(posts, section) {
     .sort((a, b) => a.name.localeCompare(b.name));
   const tagsIndexHtml = await renderPage('musings-tags-index', {
     page: {
-      title: `tags — ${SITE.title}`,
+      title: `tags, ${SITE.title}`,
       description: `All tags used across ${posts.length} posts.`,
       url: `${section.base}/tags`,
       bodyClass: pageHelpers.bodyClass(section.active),
@@ -1231,7 +1231,7 @@ async function renderPostSection(posts, section) {
     const otherYears = allYears.filter(y => y !== year);
     const yearHtml = await renderPage('musings-year', {
       page: {
-        title: `${year} — ${section.root} — ${SITE.title}`,
+        title: `${year}, ${section.root}, ${SITE.title}`,
         description: `Posts from ${year} by ${SITE.author}.`,
         url: `${section.base}/${year}`,
         bodyClass: pageHelpers.bodyClass(section.active),
@@ -1252,7 +1252,7 @@ async function renderPostSection(posts, section) {
     const url = `${section.base}/tag/${slugify(tag)}`;
     const html = await renderPage('musings-tag', {
       page: {
-        title: `#${tag} — ${SITE.title}`,
+        title: `#${tag}, ${SITE.title}`,
         description: `Posts tagged "${tag}" by ${SITE.author}.`,
         keywords: [tag, ...tagged.flatMap(p => p.tags)].slice(0, 10),
         url,
@@ -1281,7 +1281,7 @@ async function renderMedia(mediaNodes) {
   topNodes.sort((a, b) => (b.date || 0) - (a.date || 0));
   const indexHtml = await renderPage('media-index', {
     page: {
-      title: 'media — ' + SITE.title,
+      title: 'media, ' + SITE.title,
       description: `Photo galleries by ${SITE.author}.`,
       url: '/media',
       bodyClass: pageHelpers.bodyClass('media'),
@@ -1303,7 +1303,7 @@ async function renderMedia(mediaNodes) {
     const isLeaf = n.children.length === 0;
     const html = await renderPage('media-gallery', {
       page: {
-        title: `${n.title} — ${SITE.title}`,
+        title: `${n.title}, ${SITE.title}`,
         description: n.seo.description || `Photos from ${n.title}${n.location ? ', ' + n.location : ''}.`,
         keywords: n.seo.keywords || [],
         url: n.url,
@@ -1349,7 +1349,7 @@ async function renderMedia(mediaNodes) {
       const next = i < n.images.length - 1 ? n.images[i + 1] : n.images[0];
       const pageHtml = await renderPage('media-photo', {
         page: {
-          title: `${im.title || im.alt || im.file} — ${n.title} — ${SITE.title}`,
+          title: `${im.title || im.alt || im.file}, ${n.title}, ${SITE.title}`,
           description: im.alt || `Photo from ${n.title}.`,
           url: im.pageUrl,
           bodyClass: pageHelpers.bodyClass('media'),
@@ -1547,7 +1547,7 @@ async function renderFoia(requests) {
 
   const indexHtml = await renderPage('foia-index', {
     page: {
-      title: 'foia — ' + SITE.title,
+      title: 'foia, ' + SITE.title,
       description: (fc.index.seo_description || '')
         .replace('{count}', requests.length).replace('{author}', SITE.author),
       url: '/foia',
@@ -1561,7 +1561,7 @@ async function renderFoia(requests) {
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
-      name: `FOIA archive — ${SITE.title}`,
+      name: `FOIA archive, ${SITE.title}`,
       description: fc.index.intro,
       url: pageHelpers.absUrl('/foia'),
       isPartOf: { '@type': 'WebSite', name: SITE.title, url: SITE.url },
@@ -1574,7 +1574,7 @@ async function renderFoia(requests) {
   for (const r of requests) {
     const html = await renderPage('foia-request', {
       page: {
-        title: `${r.title} — foia — ${SITE.title}`,
+        title: `${r.title}, foia, ${SITE.title}`,
         description: r.seo.description || `${r.statute} request to ${r.agency}, filed ${fmtDate(r.filed)}.`,
         keywords: r.seo.keywords || r.tags,
         url: r.url,
@@ -1614,7 +1614,7 @@ async function renderFoia(requests) {
       const ev = r.releases[i];
       const relHtml = await renderPage('foia-release', {
         page: {
-          title: `${ev.title} — ${r.title} — ${SITE.title}`,
+          title: `${ev.title}, ${r.title}, ${SITE.title}`,
           description: `${ev.files.length} document${ev.files.length === 1 ? '' : 's'}` +
                        `${ev.pageCount ? `, ${ev.pageCount} pages` : ''} released by ${r.agency} on ${fmtDate(ev.date)}.`,
           keywords: r.seo.keywords || r.tags,
@@ -1637,7 +1637,7 @@ async function renderFoia(requests) {
         const doc = ev.files[j];
         const docHtml = await renderPage('foia-document', {
           page: {
-            title: `${doc.title} — ${r.title} — ${SITE.title}`,
+            title: `${doc.title}, ${r.title}, ${SITE.title}`,
             description: doc.description ||
               `${doc.title}${doc.pages ? ` (${doc.pages} pages)` : ''}, released by ${r.agency} on ${fmtDate(ev.date)}.`,
             keywords: r.seo.keywords || r.tags,
@@ -1705,7 +1705,7 @@ async function renderFoia(requests) {
   for (const a of archives) {
     const html = await renderPage('foia-archive', {
       page: {
-        title: `${a.heading} — foia — ${SITE.title}`,
+        title: `${a.heading}, foia, ${SITE.title}`,
         description: a.blurb,
         url: a.url,
         bodyClass: pageHelpers.bodyClass('foia'),
@@ -1740,7 +1740,7 @@ async function copyStaticSites() {
 async function renderLicense() {
   const html = await renderPage('license', {
     page: {
-      title: `License — ${SITE.title}`,
+      title: `License, ${SITE.title}`,
       description: COPY.license.short,
       url: '/license',
       bodyClass: pageHelpers.bodyClass(),
@@ -1777,7 +1777,7 @@ async function renderChangelog() {
 
   const html = await renderPage('changelog', {
     page: {
-      title: `changelog — ${SITE.title}`,
+      title: `changelog, ${SITE.title}`,
       description: COPY.changelog.intro,
       url: '/changelog',
       bodyClass: pageHelpers.bodyClass(),
@@ -1853,7 +1853,7 @@ ${items}
   // 404
   const html404 = await renderPage('404', {
     page: {
-      title: '404 — ' + SITE.title,
+      title: '404, ' + SITE.title,
       description: 'Page not found.',
       url: '/404',
       bodyClass: pageHelpers.bodyClass(),

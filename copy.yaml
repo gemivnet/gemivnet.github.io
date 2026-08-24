@@ -83,7 +83,7 @@ musings:
     chronological_tag: "in this folder"
     chronological_title: "chronological"
     chronological_aside: "direct posts only (subfolders linked above)"
-    no_direct_posts: "no posts directly here — see subfolders"
+    no_direct_posts: "no posts directly here, see subfolders"
   tag:
     breadcrumb_prefix: "~/musings/tag/"
     intro: "Cross-cutting tag. Posts here can live in different folders."
@@ -91,8 +91,8 @@ musings:
     crumbs_root: "musings"
     prev_label: "← previous"
     next_label: "next →"
-    oldest_note: "— (this is the oldest)"
-    newest_note: "— (this is the newest)"
+    oldest_note: "(this is the oldest)"
+    newest_note: "(this is the newest)"
     back_label: "↑ back to all musings"
 
 # ── rv-12is build log ───────────────────────────────────────
@@ -103,12 +103,12 @@ rv12is:
     title: "rv12is"
     # What Google shows as the result headline. DRAFTED BY CLAUDE 2026-08-24.
     seo_title: "Van's RV-12iS build log"
-    seo_description: "Van's RV-12iS build log — and notes once it's flying."
+    seo_description: "Van's RV-12iS build log, and notes once it's flying."
     # Visible intro on /rv12is, and the description in its Blog structured data.
-    # DRAFTED BY CLAUDE 2026-08-24 — replace with your own words.
+    # DRAFTED BY CLAUDE 2026-08-24. Replace with your own words.
     summary: >-
       A first-person build log for Van's RV-12iS kit #121708, N1798. Empennage,
-      wings, fuselage, finishing and powerplant — written up as we go, including
+      wings, fuselage, finishing and powerplant, written up as we go, including
       what went wrong, what it cost, and every part we had to order twice.
     pinned_label: "pinned"
     sort_label: "sort:"
@@ -116,7 +116,7 @@ rv12is:
     sort_oldest: "oldest first"
   category:
     breadcrumb_prefix: "~/rv12is/"
-    no_direct_posts: "no entries directly here — see subfolders"
+    no_direct_posts: "no entries directly here, see subfolders"
   tag:
     breadcrumb_prefix: "~/rv12is/tag/"
     intro: "Cross-cutting tag. Entries here can live in different folders."
@@ -124,8 +124,8 @@ rv12is:
     crumbs_root: "rv12is"
     prev_label: "← previous"
     next_label: "next →"
-    oldest_note: "— (this is the oldest)"
-    newest_note: "— (this is the newest)"
+    oldest_note: "(this is the oldest)"
+    newest_note: "(this is the newest)"
     back_label: "↑ back to the build log"
 
 # ── media ───────────────────────────────────────────────────
@@ -147,7 +147,7 @@ foia:
   index:
     breadcrumb: "~/foia"
     title: "foia"
-    intro: "Documents I've obtained through public-records requests, posted as I get them. No commentary — the records are the point."
+    intro: "Documents I've obtained through public-records requests, posted as I get them. No commentary. The records are the point."
     seo_description: "Public archive of {count} records requests filed by {author}, with the documents released in response."
     browse_agency: "by agency"
     browse_tag: "by tag"
@@ -167,7 +167,7 @@ foia:
     download_all: "⤓ download all"
     download_one: "⤓ download"
     view_label: "read →"
-    single_file_note: "single document — no bundle."
+    single_file_note: "single document, no bundle."
     pages_label: "pp"
   document:
     viewer_hint: "arrow keys page · press F to fit width"
@@ -185,12 +185,12 @@ foia:
   summary:
     tag: "summary"
     title: "what's in here"
-    disclosure: "Written by {model} on {date} from the documents below. It describes what the records are, not what they mean. Machine-written and not checked line by line — the documents are the record, this is only a finding aid."
+    disclosure: "Written by {model} on {date} from the documents below. It describes what the records are, not what they mean. Machine-written and not checked line by line. The documents are the record, this is only a finding aid."
     disclosure_reviewed: "Written by {model} on {date} from the documents below, then read and corrected by hand. It describes what the records are, not what they mean."
 
   # Standing AI disclosure for the whole section. The documents are untouched
-  # agency output, but the scaffolding around them — timelines, titles,
-  # descriptions, summaries — is machine-written, and that distinction is the
+  # agency output, but the scaffolding around them is machine-written:
+  # timelines, titles, descriptions, summaries. That distinction is the
   # whole point of saying so.
   ai_notice:
     tag: "disclosure"
@@ -270,7 +270,7 @@ foia:
     th_docs: "docs"
     th_pages: "pp"
     th_fees: "fees"
-    fee_none: "—"
+    fee_none: "-"
     fee_waived: "waived"
     fee_pending: "pending"
     totals: "totals"
@@ -320,7 +320,7 @@ copyright:
   link_text: "license"
 
 # ── /changelog ──────────────────────────────────────────────
-# Entries are pulled from git log at build time — no manual list to maintain.
+# Entries are pulled from git log at build time. No manual list to maintain.
 changelog:
   title: "changelog"
   intro: "Commits to this site, newest first. Versions auto-increment per push. Co-authored with claude."

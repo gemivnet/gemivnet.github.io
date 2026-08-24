@@ -10,7 +10,7 @@ featured_image: media/tailcone-done.jpg
 draft: false
 seo:
   description: >-
-    The RV-12iS empennage is done in 167 combined hours — plus SEM rattle-can
+    The RV-12iS empennage is done in 167 combined hours, plus SEM rattle-can
     primer for stragglers and the next $16k email from Vans.
   keywords:
     - rv-12is empennage complete

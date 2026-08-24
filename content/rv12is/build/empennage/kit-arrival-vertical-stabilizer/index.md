@@ -23,7 +23,7 @@ seo:
 ## Kit arrival
 
 The empennage arrived on Thursday, February 26. Pretty quick shipping from
-Vans — the kit tracker estimated it would ship on 2/12 and I got the ABF
+Vans. The kit tracker estimated it would ship on 2/12 and I got the ABF
 Freight pickup email on 2/17. Shipping came to $947.
 
 I was expecting a wooden crate like in the various build videos, but Vans
@@ -36,7 +36,7 @@ as expected, and we were only missing one bag of electrical connectors.
 On Saturday we jumped right in on the first section: the vertical
 stabilizer. I cut, drilled, and fit everything together while Shelby
 deburred. We made a couple of small learning mistakes on the first few
-pieces and may replace them — still debating. Some of our initial
+pieces and may replace them, still debating. Some of our initial
 deburring was too aggressive on the rudder mounts (we've already refined
 that technique), and we accidentally nicked a long piece of metal when
 deburring it into a different grinding wheel. That other wheel has since
@@ -57,7 +57,7 @@ sure we'll figure it out.
 
 ## Photos
 
-![The crate — cardboard now, not wood. Lift-gate service included.](media/kit-crate.jpg)
+![The crate. Cardboard now, not wood. Lift-gate service included.](media/kit-crate.jpg)
 
 ![Opened up for inventory night.](media/kit-open.jpg)
 
@@ -73,6 +73,6 @@ sure we'll figure it out.
 
 ![Ribs and spars after priming.](media/vs-ribs-primed.jpg)
 
-![Skins — one primed, one not yet.](media/vs-skins.jpg)
+![Skins, one primed, one not yet.](media/vs-skins.jpg)
 
 ![The mistake piece: the flange side of the lower spar cap.](media/spar-cap-mistake.jpg)

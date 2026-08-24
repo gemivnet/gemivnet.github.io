@@ -29,7 +29,7 @@ build, but a lot has happened.
 We spent 11 days in Carson City, NV at Sport Aviation Center working on
 our sport pilot licenses in Sling 2s. I completed my first solo flight,
 which was obviously exciting! Shelby and I trained over 20 hours across
-almost two weeks. Then we went on our pre-planned vacation to Australia —
+almost two weeks. Then we went on our pre-planned vacation to Australia.
 22,000 miles and 40+ hours of flying, but as passengers.
 
 ## Wing kit delivery
@@ -60,7 +60,7 @@ spent away.
 ## Back in the shop
 
 This weekend we're back in full swing. We re-drilled the doublers very,
-very carefully — both of us were nervous. Since we had to prime them, we
+very carefully. Both of us were nervous. Since we had to prime them, we
 got a couple of tailcone pieces ready for the same batch. Then we finished
 riveting the stabilator assembly. Done!
 
@@ -69,13 +69,13 @@ riveting the stabilator assembly. Done!
 The body of the pneumatic squeezer gets in the way when setting the rivets
 on the horn doublers. It does work, but it's difficult and the set isn't
 perfect. Due to clearance I set the top and bottom rivets from one
-direction and the two middle rivets from the other — two from the right,
+direction and the two middle rivets from the other, two from the right,
 two from the left. It looks a bit inconsistent but it's functional. Take
 your time on these and be prepared for it to be stressful.
 
 ## What's next
 
-Tailcone assembly moves to the garage — there's no way it comes out of the
+Tailcone assembly moves to the garage. There's no way it comes out of the
 basement assembled. The wings I'll probably assemble in the basement and
 take them out when the contractor replaces the window, since I think they
 fit through the window but definitely not up the stairs.

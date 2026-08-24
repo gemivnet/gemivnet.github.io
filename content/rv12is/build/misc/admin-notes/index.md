@@ -1,6 +1,6 @@
 ---
 title: Administrative notes
-subtitle: No building this time — parts, payments, and plans.
+subtitle: No building this time. Parts, payments, and plans.
 date: '2026-03-05'
 tags:
   - rv12is

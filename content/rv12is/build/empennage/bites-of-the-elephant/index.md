@@ -1,6 +1,6 @@
 ---
 title: Bites of the elephant
-subtitle: Rudder, stabilator, tailcone — and the process that ties it together.
+subtitle: Rudder, stabilator, tailcone, and the process that ties it together.
 date: '2026-04-03'
 tags:
   - rv12is
@@ -28,7 +28,7 @@ priming everything, but it's one more bite of the elephant.
 
 My process, broken down: first read through the instructions for a section
 and get a general understanding. Then dry fit everything with clecos and
-do the required match drilling and cutting — the goal is to have as much
+do the required match drilling and cutting. The goal is to have as much
 assembled with clecos as possible so any part modifications are complete.
 Make sure everything is labeled for re-assembly. Disassemble, deburr,
 clean with EkoClean, etch with EkoEtch, prime. Cure at least 48 hours.
@@ -40,8 +40,8 @@ cleco'd, I can fix them.
 ## Rudder
 
 I started riveting the rudder, but made a mistake. I didn't like how the
-rib connected to the rudder horn — not enough clecos during riveting left
-a gap — and after drilling it out I wasn't happy with the piece anymore,
+rib connected to the rudder horn. Not enough clecos during riveting left
+a gap, and after drilling it out I wasn't happy with the piece anymore,
 so I ordered a replacement. Finishing the rudder won't take long once it
 arrives.
 

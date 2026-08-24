@@ -10,7 +10,7 @@ featured_image: media/wing-parts.jpg
 draft: false
 seo:
   description: >-
-    Starting the RV-12iS wings — missing rib doublers, a countersink mistake
+    Starting the RV-12iS wings, missing rib doublers, a countersink mistake
     worth learning from, and rear spar confusion on page 14-03.
   keywords:
     - rv-12is wings

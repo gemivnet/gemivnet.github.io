@@ -272,10 +272,35 @@ If you ever re-clone the repo and Pages is set to legacy, switch via:
 When writing copy, alt text, descriptions, or anything in the user's
 voice: be terse. The user prefers short, plain, human writing over
 descriptive AI-flavored prose. If asked to write a sentence, write one
-sentence — not three with adjectives. When in doubt, write less.
+sentence, not three with adjectives. When in doubt, write less.
 
 When in doubt about content decisions, ASK before generating placeholder
 text. The user wants to own the copy; the system is theirs to fill in.
+
+**Terseness governs what I write, never what the user wrote.** Reproduce
+their copy verbatim. Do not tighten, compress, or drop sentences to fit the
+rule above; the only reason to remove their words is PII or a change already
+agreed. If a caption looks long for alt text, ship it and say why you'd
+shorten it. Flag every editorial change to their wording individually, even
+a name swap. (Learned the hard way 2026-08-24: nine build-log captions came
+back compressed, four of them missing real content.)
+
+### No em dashes. Anywhere.
+
+Site-wide rule as of 2026-08-24: never use `—` (U+2014). Use a period or a
+comma. A period where the dash joined two independent clauses, a comma where
+it set off an appositive or introduced a list.
+
+This covers prose, alt text, `copy.yaml`, template strings, page `<title>`
+separators, commit messages, and code comments. Where `—` was doing duty as
+an empty-value glyph (an unpriced table cell, a missing stat) use `-`. Where
+it was a leading marker before a parenthetical, drop it.
+
+`scripts/build.mjs` keeps `mdash: '—'` in its HTML-entity decode map. That is
+a decoder, not output; leave it.
+
+The one place em dashes survive is `/changelog`, which renders git commit
+subjects and so reflects ten historical commits written before this rule.
 
 ## Don't add
 

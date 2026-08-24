@@ -62,7 +62,7 @@ timeline:
     date: "2026-04-27"
     type: note
     track: village-airport
-    title: Followed up — no response within the statutory window
+    title: Followed up, no response within the statutory window
     note: >-
       The five-business-day window under 5 ILCS 140/3(d) closed on April 24 with no response,
       denial, or written extension. Follow-up noted an intent to file a Request for Review with the
@@ -81,14 +81,14 @@ timeline:
     date: "2026-05-05"
     type: narrowing-request
     track: village-airport
-    title: Village responds — request is voluminous
+    title: Village responds, request is voluminous
     note: >-
       The Village treated the request as voluminous and asked for narrowing rather than denying it
       outright.
     files:
       - id: voluminous-letter
         file: 2026-05-05-voluminous-response.pdf
-        title: Village response — voluminous request
+        title: Village response, voluminous request
         description: >-
           Village of Bolingbrook letter treating the April 28 request as voluminous, with notice of
           review rights before the Public Access Counselor.
@@ -101,7 +101,7 @@ timeline:
     date: "2026-05-05"
     type: amended
     track: village-airport
-    title: Request amended — communications category dropped
+    title: Request amended, communications category dropped
     note: >-
       Amended request supersedes the original in full. The broad communications category was
       removed, leaving leases and agreements, public complaints, financial records, and inspection
@@ -110,12 +110,12 @@ timeline:
     date: "2026-05-11"
     type: narrowing-request
     track: village-airport
-    title: Village responds — request is unduly burdensome
+    title: Village responds, request is unduly burdensome
     note: Second narrowing response, this time on unduly-burdensome grounds.
     files:
       - id: burdensome-letter
         file: 2026-05-11-burdensome-response.pdf
-        title: Village response — unduly burdensome
+        title: Village response, unduly burdensome
         description: >-
           Village of Bolingbrook letter of May 11, 2026 asserting the amended request remained
           unduly burdensome. Released as a scanned image with no text layer.
@@ -128,7 +128,7 @@ timeline:
     date: "2026-05-12"
     type: amended
     track: village-airport
-    title: Request narrowed again — date range cut to 2024 onward
+    title: Request narrowed again, date range cut to 2024 onward
     note: >-
       Second amendment, superseding the May 5 version. The period was reduced from January 1, 2021
       to January 1, 2024 onward, with agreements limited to those currently in effect.
@@ -147,15 +147,15 @@ timeline:
     track: village-airport
     title: Custodian list and search terms supplied
     note: >-
-      Reply clarified that no all-account search was sought, and proposed a custodian list — the
+      Reply clarified that no all-account search was sought, and proposed a custodian list, the
       airport manager, the Mayor and Deputy Mayor, the Trustees, the Village Clerk, and any general
-      intake mailbox — with the search terms JWA, JW Aviation, JWA Aviation, JWA Flight School and
+      intake mailbox, with the search terms JWA, JW Aviation, JWA Aviation, JWA Flight School and
       flyjwa.
   - id: 2026-05-26-minutes
     date: "2026-05-26"
     type: interim
     track: village-airport
-    title: Interim release — Village Board minutes
+    title: Interim release, Village Board minutes
     note: >-
       Released ahead of the rest of the response as the only located record then identified in which
       JWA was discussed.
@@ -187,7 +187,7 @@ timeline:
     date: "2026-06-05"
     type: final
     track: village-airport
-    title: Final response — responsive documents released
+    title: Final response, responsive documents released
     note: >-
       Response letter dated June 4, 2026 released with the responsive documents, closing
       R027405-042826.
@@ -227,7 +227,7 @@ timeline:
     type: filed
     track: village-jjw
     tracking: R028281-060526
-    title: Second Village request — J J W Air and conflict-of-interest disclosures
+    title: Second Village request, J J W Air and conflict-of-interest disclosures
     note: >-
       A separate request seeking records on J J W Air, LLC; conflict-of-interest and
       economic-interest disclosures by Joseph DePaulo or Clow International Airport, LLC; Board
@@ -249,7 +249,7 @@ timeline:
     title: Parallel request to the FAA
     note: >-
       Filed under 5 U.S.C. § 552 for records held by the FAA and the Greater Chicago FSDO covering
-      JWA at Clow (FAA LID 1C5) from January 1, 2015 — PTRS and SAS surveillance records,
+      JWA at Clow (FAA LID 1C5) from January 1, 2015. PTRS and SAS surveillance records,
       enforcement actions, hotline complaints, accident and incident reports, certificates, and
       correspondence. Fees accepted up to $50.
   - id: ack-faa

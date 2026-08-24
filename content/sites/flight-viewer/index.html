@@ -643,14 +643,14 @@ async function deleteFlight(index, event) {
     const cached = await loadCachedFlights();
     cached.forEach(({ filename, kmlText }) => addFlight(filename, kmlText));
     renderFlightList();
-    if (flights.length > 0) document.getElementById('mapEmpty').querySelector('p').textContent = `${flights.length} flight${flights.length > 1 ? 's' : ''} loaded — click to toggle`;
+    if (flights.length > 0) document.getElementById('mapEmpty').querySelector('p').textContent = `${flights.length} flight${flights.length > 1 ? 's' : ''} loaded. Click to toggle`;
   } catch (e) { console.warn('Could not load cached flights:', e); }
 })();
 
 function computeDuration(flight) {
   const pts = flight.allPoints;
   const timestamps = pts.map(p => p.timestamp).filter(Boolean).map(t => new Date(t).getTime()).filter(t => !isNaN(t));
-  if (timestamps.length < 2) return '—';
+  if (timestamps.length < 2) return '-';
   const mins = Math.round((Math.max(...timestamps) - Math.min(...timestamps)) / 60000);
   const h = Math.floor(mins / 60), m = mins % 60;
   return h > 0 ? `${h}h ${m}m` : `${m}m`;
@@ -678,7 +678,7 @@ function renderFlightList() {
 
   list.innerHTML = flights.map((f, i) => {
     const legRoutes = f.legs.map(l => l.route).filter(Boolean);
-    const routeDisplay = f.info.route || legRoutes.join(', ') || '—';
+    const routeDisplay = f.info.route || legRoutes.join(', ') || '-';
     const color = flightColor(i);
     const isActive = activeFlights.has(i);
     return `
@@ -687,9 +687,9 @@ function renderFlightList() {
         <div class="tail"><span class="color-pip" style="background:${color}"></span>${f.info.tail || 'Unknown'}</div>
         <button class="delete-btn" onclick="deleteFlight(${i}, event)" title="Remove flight">✕</button>
       </div>
-      ${routeDisplay !== '—' ? `<div class="route">${routeDisplay}</div>` : ''}
+      ${routeDisplay !== '-' ? `<div class="route">${routeDisplay}</div>` : ''}
       <div class="meta">
-        <span>📅 ${f.info.date || '—'}</span>
+        <span>📅 ${f.info.date || '-'}</span>
         <span>🕐 ${computeDuration(f)}</span>
         ${f.legs.length > 1 ? `<span>🦵 ${f.legs.length} legs</span>` : ''}
       </div>
@@ -847,12 +847,12 @@ function renderMap() {
     const color = flightColor(idx);
     const maxFt = Math.round(Math.max(...f.allPoints.map(p => p.alt)) * 3.28084);
     const legRoutes = f.legs.map(l => l.route).filter(Boolean);
-    const routeStr = f.info.route || legRoutes.join(' + ') || '—';
+    const routeStr = f.info.route || legRoutes.join(' + ') || '-';
     infoHTML += `
       <div class="info-block">
         <h3><span class="pip" style="background:${color}"></span>${f.info.tail || 'Unknown'}</h3>
         <div class="stat"><span class="label">Route</span><span class="value">${routeStr}</span></div>
-        <div class="stat"><span class="label">Date</span><span class="value">${f.info.date || '—'}</span></div>
+        <div class="stat"><span class="label">Date</span><span class="value">${f.info.date || '-'}</span></div>
         <div class="stat"><span class="label">Duration</span><span class="value">${computeDuration(f)}</span></div>
         <div class="stat"><span class="label">Max Alt</span><span class="value">${maxFt.toLocaleString()} ft</span></div>
         <div class="stat"><span class="label">Legs</span><span class="value">${f.legs.length}</span></div>

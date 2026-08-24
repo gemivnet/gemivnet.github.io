@@ -12,7 +12,7 @@ draft: false
 seo:
   description: >-
     Why we chose the Van's RV-12iS, how the build started, and what the plan
-    looks like — workshop, priming, practice kits, and learning to fly.
+    looks like. Workshop, priming, practice kits, and learning to fly.
   keywords:
     - rv-12is build log
     - choosing a kit plane
@@ -23,7 +23,7 @@ seo:
 
 Here's the first post for our RV-12iS #121708 build log. We're going the
 E-LSA route, so we don't technically need a build log, but it's a good
-record to look back on — and a place to collect opinions we can either
+record to look back on, and a place to collect opinions we can either
 listen to or ignore.
 
 I've wanted to build a plane for a couple of years now, and I was sitting
@@ -45,7 +45,7 @@ ended up choosing the RV-12iS.
 So on January 14, four days after we decided to build a plane, we put the
 deposit down on the fastener kit, empennage kit, and wing kit. The goal is
 to build it quickly. I'm sure that's what everyone says, but we have free
-time to dedicate to it — hoping the two of us can put in at least 25 hours
+time to dedicate to it, hoping the two of us can put in at least 25 hours
 each a week. We'll see how realistic this becomes by the time we're
 finished. Because of the planned speed, we're ordering kit parts fast. In
 early February we also put the deposit down on the fuselage kit and
@@ -70,8 +70,8 @@ we'll do weekend local trips and longer XC trips to visit family.
 We're in the process of having our basement remodeled. It's 980 sqft and
 was previously empty. It's being finished with a bathroom, bedroom,
 laundry room, mechanical room, and most importantly a 300 sqft workshop.
-It won't be big enough to hold an entire plane — we'll eventually have to
-move to the garage — but it's a great place to prep parts and assemble
+It won't be big enough to hold an entire plane. We'll eventually have to
+move to the garage, but it's a great place to prep parts and assemble
 smaller structures. Yes, that means we're starting a plane build while the
 basement is under construction. There's a lot of downtime in construction
 while waiting for inspections, so it's not that crowded down there most of
@@ -80,7 +80,7 @@ the time.
 ## Priming
 
 The garage will be for priming. We want to prime the entire interior of
-the plane — if we're spending this much money, we want it to last. We
+the plane. If we're spending this much money, we want it to last. We
 decided on Stewart Systems EkoPoxy in ZC Green, because we both feel like
 plane primer should be green. Since it's cold outside, we bought a
 Mr. Heater 30k BTU indoor propane heater. The plan: plastic sheeting for a
@@ -92,7 +92,7 @@ spring arrives, but right now there's snow on the ground.
 
 ## Costs
 
-I keep a spreadsheet of everything we've purchased plane-related — tools,
+I keep a spreadsheet of everything we've purchased plane-related, tools,
 the plane itself, all of it. Estimating the cost of a kit build is
 difficult, so I want to share exact numbers as much as possible. To date
 we're at $4,325.52 in tools/consumables and $33,043.75 on the kit, and
@@ -126,7 +126,7 @@ airplane.
 
 Shelby is helping build. On the practice kit she's way better than I am at
 deburring, and she enjoys the cleaning, etching, and priming process. I
-like the building, and clecos are fun (for now — I'm sure I'll get sick of
+like the building, and clecos are fun (for now, I'm sure I'll get sick of
 them). We'll make a good team. We've also picked out a tail number and
 have it reserved: N1798, which has personal meaning for Shelby.
 
@@ -134,7 +134,7 @@ have it reserved: N1798, which has personal meaning for Shelby.
 
 The first kit arrived in our city today and is scheduled to be delivered
 Thursday. We have a couple of things left to figure out (like spraying the
-primer — our first attempt was awful, much like our first attempt at
+primer. Our first attempt was awful, much like our first attempt at
 everything thus far). We'll inventory the parts, figure out where to put
 them in the construction zone that is our house, and start on the
 empennage. The wings aren't scheduled to arrive until the end of May, so

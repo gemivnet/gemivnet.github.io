@@ -11,7 +11,7 @@ draft: false
 seo:
   description: >-
     A transparent, itemized accounting of what a Van's RV-12iS build actually
-    costs — kits, tools, consumables, and hours, updated as we go.
+    costs. Kits, tools, consumables, and hours, updated as we go.
   keywords:
     - rv-12is build cost
     - how much does it cost to build an rv-12is
@@ -238,7 +238,7 @@ stays current, and it will show the grand total at the end.
 | 6' Fold-in-Half Banquet Table | 1 | $49.80 |
 | Mr. Heater Remote LP Installation Kit | 1 | $43.97 |
 | 3M Anti-Fog Clear Safety Glasses | 2 | $39.84 |
-| Workbench Screws (8x2 and 2.5") | — | $33.40 |
+| Workbench Screws (8x2 and 2.5") | - | $33.40 |
 | Tool Belt | 1 | $31.05 |
 | 2x4x8' Construction Lumber | 7 | $30.85 |
 | Ear Protection (EP3, EP5, Corded) | 3 | $30.02 |
@@ -249,7 +249,7 @@ stays current, and it will show the grand total at the end.
 | Aviation Tin Snips Set (3-Piece) | 1 | $15.99 |
 | 32 TPI Hacksaw Blades (10-Pack) | 1 | $15.05 |
 | Nitrile Gloves (X-Large) | 3 | $11.16 |
-| Vise Mounting Hardware (washers, nuts, bolts) | — | $11.15 |
+| Vise Mounting Hardware (washers, nuts, bolts) | - | $11.15 |
 | T-Handle Tap Wrench (1/4"-1/2") | 1 | $10.34 |
 | Inline Air Oiler | 1 | $9.89 |
 | 11" 45° Bent Nose Pliers | 1 | $8.85 |
@@ -283,7 +283,7 @@ stays current, and it will show the grand total at the end.
 | 1-Quart Mixing Buckets | 4 | $10.94 |
 | 1-Gallon Paint Mixing Arm | 1 | $8.14 |
 | 2-Gallon Buckets | 2 | $6.57 |
-| Putty Knives, Stir Sticks | — | $4.58 |
+| Putty Knives, Stir Sticks | - | $4.58 |
 | *Lowe's subtotal* | | *$108.39* |
 | **Other sources** | | |
 | Ryobi BS-900 Bandsaw (Facebook Marketplace) | 1 | $75.00 |
@@ -295,7 +295,7 @@ stays current, and it will show the grand total at the end.
 | DYMO Label Tape Refill (eBay) | 1 | $16.31 |
 | Pneumatic Rivet Gun Jaws (eBay) | 2 | $13.27 |
 | Casio Calculator (Target) | 1 | $8.30 |
-| Highlighters, Pencils, Marking Tags (Target) | — | $9.23 |
+| Highlighters, Pencils, Marking Tags (Target) | - | $9.23 |
 | Distilled Water (Jewel-Osco) | 1 | $2.45 |
 | *Other sources subtotal* | | *$369.29* |
 | **Tools & consumables total** | | **$7,033.98** |
