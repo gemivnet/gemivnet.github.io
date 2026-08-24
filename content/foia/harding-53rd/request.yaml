@@ -42,7 +42,7 @@ timeline:
       Filed through the Chicago Public Records portal for all documents relating to a CDOT
       engineering observation of West 53rd Street and South Harding Avenue carried out between
       February and December 2023 at the request of the 23rd Ward alderman following a constituent
-      complaint — the engineer's report, any recommendations, their status, and any improvement
+      complaint. The engineer's report, any recommendations, their status, and any improvement
       plans.
   - id: extension
     date: "2025-06-20"
@@ -67,12 +67,12 @@ timeline:
   - id: 2025-07-24-release
     date: "2025-07-24"
     type: final
-    title: Full release — four documents
+    title: Full release, four documents
     note: CDOT released the responsive records and stated that no additional records were uncovered.
     files:
       - id: ward-memo
         file: 23rd-ward-53rd-and-harding.pdf
-        title: 23rd Ward — W 53rd Street and South Harding
+        title: 23rd Ward, W 53rd Street and South Harding
         description: Ward file on the 53rd and Harding intersection.
         bytes: 299076
         sha256: 48a09b5ceca076aef93c1e98fb65ab8579a42240f4a4616780f6b7aeca5f1c10
@@ -81,7 +81,7 @@ timeline:
           https://georgemain-com-media.s3.amazonaws.com/foia/harding-53rd/2025-07-24-release/23rd-ward-53rd-and-harding.pdf
       - id: observation
         file: 53rd-and-harding-observation.pdf
-        title: 53rd and Harding — engineering observation
+        title: 53rd and Harding, engineering observation
         description: CDOT's engineering observation material for the intersection.
         bytes: 836766
         sha256: 7a4336ba245150cdd34325bdf4643758439f03f7d23f8bacf90c4616fd3e3863
@@ -90,7 +90,7 @@ timeline:
           https://georgemain-com-media.s3.amazonaws.com/foia/harding-53rd/2025-07-24-release/53rd-and-harding-observation.pdf
       - id: email-to-ward
         file: 53rd-and-harding-email-to-ward.pdf
-        title: 53rd and Harding — email to the ward
+        title: 53rd and Harding, email to the ward
         description: CDOT correspondence to the ward office regarding the intersection.
         bytes: 97289
         sha256: 8276e50122ff799eaedb3889c455265822bbc0f7ce1e72a040e48b37657a5348

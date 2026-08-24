@@ -11,7 +11,7 @@ featured_image: media/primed-tailcone.jpg
 draft: false
 seo:
   description: >-
-    Priming the entire RV-12iS tailcone in one batch — 300g of primer, a
+    Priming the entire RV-12iS tailcone in one batch, 300g of primer, a
     dialed-in gun, and the start of tailcone riveting.
   keywords:
     - rv-12is tailcone riveting
@@ -37,7 +37,7 @@ empennage sub-assemblies.
 Then we started riveting the tailcone together. It's going quickly now
 that we've found a good process. We stopped right before installing the
 static system since I need to find some RTV sealant. Good progress this
-weekend — more during the week.
+weekend, more during the week.
 
 ## Photos
 

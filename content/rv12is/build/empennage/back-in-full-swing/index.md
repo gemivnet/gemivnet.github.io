@@ -11,7 +11,7 @@ featured_image: media/priming-table.jpg
 draft: false
 seo:
   description: >-
-    Rebuilding momentum on the RV-12iS empennage — a homemade priming table,
+    Rebuilding momentum on the RV-12iS empennage, a homemade priming table,
     dialing in the spray gun, primer weight math, and signing up for the LSRM
     course.
   keywords:
@@ -55,7 +55,7 @@ expensive.
 
 The replacement left spar cap arrived and I quickly re-drilled the holes.
 We deburred all the rudder pieces. The rudder skin took almost an hour and
-a half on its own — it's too large for the scotchbrite wheel and the burrs
+a half on its own. It's too large for the scotchbrite wheel and the burrs
 were pretty bad. Now that it's warmer out, Shelby set up a table outside
 and did the EkoClean and EkoEtch out there.
 
@@ -76,7 +76,7 @@ the few I did might have convinced me to buy a squeeze riveter.
 
 I weighed two pieces before and after priming to see how much primer I'm
 putting on. A rudder rib went from 21.9g to 23.9g (9.1% increase) and the
-rudder spar went from 204.2g to 217.2g (6.4%). More than I expected — I
+rudder spar went from 204.2g to 217.2g (6.4%). More than I expected. I
 was thinking 3% max. Everything I read said to put on more primer and go
 for a nice glossy coat, but maybe I'll dial it back a bit. Not too worried
 about these pieces. Still learning.

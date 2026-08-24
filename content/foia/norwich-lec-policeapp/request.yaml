@@ -70,7 +70,7 @@ timeline:
   - id: narrowing-request
     date: "2026-06-25"
     type: narrowing-request
-    title: Department asks to narrow — hundreds of LEC emails
+    title: Department asks to narrow, hundreds of LEC emails
     note: >-
       The Training and Selections supervisor, who is the department's direct contact with the LEC,
       said he had been working the request for some time but that there were hundreds of emails from
@@ -83,7 +83,7 @@ timeline:
     note: >-
       The reply noted that printed copies were never sought and that C.G.S. § 1-211(a) provides for
       electronic copies, suggested filtering by sender domain and exporting in bulk, and asked that
-      the discrete documents — contracts, invoices, reports and hiring data — be produced on a
+      the discrete documents, contracts, invoices, reports and hiring data, be produced on a
       rolling basis while the email review continued. It also asked to keep the correspondence in
       writing.
   - id: inspection-offered
@@ -100,13 +100,13 @@ timeline:
     type: amended
     title: Email categories set aside
     note: >-
-      Categories 1b and 2b — the communications with LEC and PoliceApp representatives — were set
+      Categories 1b and 2b, the communications with LEC and PoliceApp representatives, were set
       aside to be revisited later, leaving the contracts, invoices, financial records, reports and
       hiring data.
   - id: 2026-06-28-release
     date: "2026-06-28"
     type: partial
-    title: Records released — 14 pages
+    title: Records released, 14 pages
     note: >-
       Sent two days ahead of the promised date, from an overtime shift. The release answers the
       narrowed request and reprints the original with handwritten replies to each item.
