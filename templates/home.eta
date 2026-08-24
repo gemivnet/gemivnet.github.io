@@ -90,8 +90,8 @@
     <div><dt>musings size</dt><dd><%= stats.musingsBytesFmt %></dd></div>
     <div><dt>pictures</dt><dd><%= stats.pictures.toLocaleString() %></dd></div>
     <div><dt>pictures size</dt><dd><%= stats.picturesBytesFmt %></dd></div>
-    <div><dt>first post</dt><dd><%= stats.firstPost || '—' %></dd></div>
-    <div><dt>last post</dt><dd><%= stats.lastPost || '—' %></dd></div>
+    <div><dt>first post</dt><dd><%= stats.firstPost || '-' %></dd></div>
+    <div><dt>last post</dt><dd><%= stats.lastPost || '-' %></dd></div>
   </dl>
 </section>
 <% } %>
@@ -101,7 +101,7 @@
 (function () {
   var data = JSON.parse(document.getElementById('random-data').textContent);
 
-  // Prefetch a small rolling window of shuffle photos instead of all of them —
+  // Prefetch a small rolling window of shuffle photos instead of all of them.
   // warming every image cost ~46MB on page load.
   function warmPhotos(list, from) {
     for (var d = 1; d <= 3; d++) {

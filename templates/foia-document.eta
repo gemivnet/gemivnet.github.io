@@ -130,7 +130,7 @@
         scale = Math.min(Math.max(cur * (act === 'in' ? 1.25 : 0.8), 0.25), 5);
         render();
       } else if (act === 'download') {
-        // A cross-origin <a download> is ignored by every browser — the S3 URL
+        // A cross-origin <a download> is ignored by every browser. The S3 URL
         // would just navigate. pdf.js already holds the bytes, so build the
         // Blob from those and save with the right filename, no second fetch.
         try {
@@ -179,7 +179,7 @@
   </script>
 <% } else { %>
   <div class="foia-fallback">
-    <p>This file is a <span class="mono"><%= doc.ext %></span>, not a PDF — there's no in-page reader for it.</p>
+    <p>This file is a <span class="mono"><%= doc.ext %></span>, not a PDF. There's no in-page reader for it.</p>
     <a class="sp-btn primary" href="<%= doc.src %>" download="<%= escapeHtml(doc.file) %>"><%= copy.foia.document.download_label %> <%= doc.file %></a>
   </div>
 <% } %>
@@ -193,12 +193,12 @@
   <div class="prev">
     <span class="label"><%= copy.foia.document.prev_label %></span>
     <% if (prev) { %><a href="<%= prev.url %>"><%= prev.title %></a>
-    <% } else { %><span style="color: var(--ink-3);">— (first in this release)</span><% } %>
+    <% } else { %><span style="color: var(--ink-3);">(first in this release)</span><% } %>
   </div>
   <div class="next">
     <span class="label"><%= copy.foia.document.next_label %></span>
     <% if (next) { %><a href="<%= next.url %>"><%= next.title %></a>
-    <% } else { %><span style="color: var(--ink-3);">— (last in this release)</span><% } %>
+    <% } else { %><span style="color: var(--ink-3);">(last in this release)</span><% } %>
   </div>
 </nav>
 
