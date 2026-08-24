@@ -1099,3 +1099,127 @@
   .foia-viewer .stage { padding: var(--sp-2); max-height: 70vh; }
   .foia-viewer .grp.right { margin-left: 0; }
 }
+
+/* ── timeline index: thumb + chevron + reading pane ────────
+   Hand-written 2026-08-23, ad-hoc. Fold into the next Claude Design bundle.
+   Rules not borders; the pane is a flat sheet with one hairline edge. */
+.sp-entry {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr) 32px;
+  align-items: start;
+  gap: 0 var(--sp-4);
+}
+.sp-entry-body { min-width: 0; }
+.sp-entry-thumb {
+  display: block;
+  width: 76px;
+  height: 76px;
+  background: var(--bg-2);
+  border: 1px solid var(--rule);
+  overflow: hidden;
+}
+.sp-entry-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.85);
+  transition: filter .15s var(--ease);
+}
+.sp-entry:hover .sp-entry-thumb img { filter: none; }
+/* No featured image: hold the column so titles still line up. */
+.sp-entry-thumb.is-empty {
+  background:
+    repeating-linear-gradient(135deg, transparent 0 7px, var(--rule) 7px 8px);
+  opacity: .45;
+}
+.sp-entry-open {
+  align-self: center;
+  justify-self: end;
+  font-family: var(--font-mono);
+  font-size: 22px;
+  line-height: 1;
+  color: var(--rule-2);
+  text-decoration: none;
+  padding: 6px 8px;
+  transition: color .12s var(--ease), transform .12s var(--ease);
+}
+.sp-entry-open:hover { color: var(--accent); transform: translateX(2px); text-decoration: none; }
+.sp-entry-open:focus-visible { outline: 1px solid var(--accent); outline-offset: 2px; }
+
+.sp-peek[hidden] { display: none; }
+.sp-peek { position: fixed; inset: 0; z-index: 200; }
+.sp-peek-scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  opacity: 0;
+  transition: opacity .2s var(--ease);
+}
+.sp-peek.is-open .sp-peek-scrim { opacity: .82; }
+.sp-peek-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: min(620px, 100vw);
+  background: var(--bg);
+  border-left: 1px solid var(--rule);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  transform: translateX(100%);
+  transition: transform .22s var(--ease);
+  padding: 0 var(--sp-6) var(--sp-7);
+}
+.sp-peek.is-open .sp-peek-panel { transform: none; }
+.sp-peek-panel:focus { outline: none; }
+.sp-peek-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-4);
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+  margin: 0 calc(var(--sp-6) * -1) var(--sp-6);
+  padding: var(--sp-4) var(--sp-6);
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+}
+.sp-peek-crumb {
+  flex: 1;
+  min-width: 0;
+  color: var(--ink-3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sp-peek-full { color: var(--ink-3); text-decoration: none; white-space: nowrap; }
+.sp-peek-full:hover { color: var(--accent); }
+.sp-peek-close {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  line-height: 1;
+  color: var(--ink-2);
+  background: transparent;
+  border: 0;
+  padding: 0 2px;
+  cursor: pointer;
+}
+.sp-peek-close:hover { color: var(--accent); }
+.sp-peek-body .sp-post-header { margin-bottom: var(--sp-6); }
+.sp-peek-body .sp-post-header h1 { font-size: var(--fs-2xl); }
+.sp-peek-status { font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); }
+.sp-peek-lock, .sp-peek-lock body { overflow: hidden; }
+
+@media (max-width: 640px) {
+  .sp-entry { grid-template-columns: 56px minmax(0, 1fr) 26px; gap: 0 var(--sp-3); }
+  .sp-entry-thumb { width: 56px; height: 56px; }
+  .sp-peek-panel { padding-left: var(--sp-4); padding-right: var(--sp-4); }
+  .sp-peek-bar { margin-left: calc(var(--sp-4) * -1); margin-right: calc(var(--sp-4) * -1); padding-left: var(--sp-4); padding-right: var(--sp-4); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sp-peek-panel, .sp-peek-scrim, .sp-entry-open, .sp-entry-thumb img { transition: none; }
+}

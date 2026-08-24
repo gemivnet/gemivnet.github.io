@@ -31,14 +31,123 @@
   <% if (y !== lastYear) { lastYear = y; %>
     <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); border-bottom: 1px solid var(--rule); padding-bottom: var(--sp-2); margin: var(--sp-5) 0 var(--sp-4);">// <%= y %></div>
   <% } %>
-  <article class="sp-card">
-    <div class="sp-meta">
-      <span style="color: var(--accent); font-weight: 600;"><%= fmtMetaDate(p.date) %></span>
-      <% if (p.category.length) { %><span class="sep">·</span><span class="cat"><%= (p.category.slice(1).join('/') || p.category.join('/')) %></span><% } %>
-      <span class="sep">·</span>
-      <span><%= p.wordCount.toLocaleString() %> w · ~<%= p.readTime %> min</span>
+  <article class="sp-card sp-entry">
+    <a class="sp-entry-thumb<%= p.featuredThumb ? '' : ' is-empty' %>" href="<%= p.url %>" tabindex="-1" aria-hidden="true">
+      <% if (p.featuredThumb) { %><img src="<%= p.featuredThumb %>" alt="" width="160" height="160" loading="lazy" decoding="async"><% } %>
+    </a>
+    <div class="sp-entry-body">
+      <div class="sp-meta">
+        <span style="color: var(--accent); font-weight: 600;"><%= fmtMetaDate(p.date) %></span>
+        <% if (p.category.length) { %><span class="sep">·</span><span class="cat"><%= (p.category.slice(1).join('/') || p.category.join('/')) %></span><% } %>
+        <span class="sep">·</span>
+        <span><%= p.wordCount.toLocaleString() %> w · ~<%= p.readTime %> min</span>
+      </div>
+      <h3><a href="<%= p.url %>"><%= p.title %></a></h3>
+      <% if (p.subtitle) { %><p class="sp-sub"><%= p.subtitle %></p><% } %>
     </div>
-    <h3><a href="<%= p.url %>"><%= p.title %></a></h3>
-    <% if (p.subtitle) { %><p class="sp-sub"><%= p.subtitle %></p><% } %>
+    <a class="sp-entry-open" href="<%= p.url %>" data-peek data-peek-title="<%= escapeHtml(p.title) %>" aria-label="Read <%= escapeHtml(p.title) %>">&rsaquo;</a>
   </article>
 <% }) %>
+
+<%
+  /* Reading pane. Markup ships inert and empty; the script below moves it to
+     <body> and fills it on demand. With JS off the › above is just a link. */
+%>
+<aside class="sp-peek" id="sp-peek" hidden>
+  <div class="sp-peek-scrim" data-peek-close></div>
+  <div class="sp-peek-panel" role="dialog" aria-modal="true" aria-labelledby="sp-peek-title" tabindex="-1">
+    <div class="sp-peek-bar">
+      <span class="sp-peek-crumb" id="sp-peek-title"></span>
+      <a class="sp-peek-full" id="sp-peek-full" href="<%= section.base %>">full page &rarr;</a>
+      <button class="sp-peek-close" type="button" data-peek-close aria-label="Close reading pane">&times;</button>
+    </div>
+    <div class="sp-peek-body" id="sp-peek-body"></div>
+  </div>
+</aside>
+
+<script>
+(function () {
+  var mount = document.getElementById('sp-peek');
+  // No fetch/DOMParser: leave the › as an ordinary link and do nothing.
+  if (!mount || !window.fetch || !window.DOMParser || !document.body.closest) return;
+  document.body.appendChild(mount); // out of .site-shell's stacking context
+
+  var main   = document.getElementById('main');
+  var panel  = mount.querySelector('.sp-peek-panel');
+  var bodyEl = document.getElementById('sp-peek-body');
+  var titleEl= document.getElementById('sp-peek-title');
+  var fullEl = document.getElementById('sp-peek-full');
+  var cache  = {};
+  var openUrl = null;
+  var lastFocus = null;
+
+  function inert(on) { try { if (main) main.inert = on; } catch (_) {} }
+
+  function close(fromPop) {
+    if (!openUrl) return;
+    var hadState = history.state && history.state.spPeek;
+    openUrl = null;
+    mount.classList.remove('is-open');
+    inert(false);
+    document.documentElement.classList.remove('sp-peek-lock');
+    setTimeout(function () { if (!openUrl) { mount.hidden = true; bodyEl.innerHTML = ''; } }, 220);
+    if (!fromPop && hadState) history.back();
+    if (lastFocus) { try { lastFocus.focus(); } catch (_) {} }
+  }
+
+  function fill(url) {
+    if (cache[url]) { bodyEl.innerHTML = cache[url]; return; }
+    bodyEl.innerHTML = '<p class="sp-peek-status">loading&hellip;</p>';
+    fetch(url, { credentials: 'same-origin' })
+      .then(function (r) { if (!r.ok) throw 0; return r.text(); })
+      .then(function (t) {
+        var doc = new DOMParser().parseFromString(t, 'text/html');
+        var head = doc.querySelector('.sp-post-header');
+        var art  = doc.querySelector('article.sp-prose');
+        if (!art) throw 0;
+        if (head) { var c = head.querySelector('.crumbs'); if (c) c.remove(); }
+        cache[url] = (head ? head.outerHTML : '') + art.outerHTML;
+        if (openUrl === url) bodyEl.innerHTML = cache[url];
+      })
+      .catch(function () { if (openUrl === url) window.location.href = url; });
+  }
+
+  function open(url, title) {
+    if (openUrl === url) return;
+    if (!openUrl) lastFocus = document.activeElement;
+    var replacing = !!openUrl;
+    openUrl = url;
+    titleEl.textContent = title || '';
+    fullEl.href = url;
+    mount.hidden = false;
+    document.documentElement.classList.add('sp-peek-lock');
+    // Two frames: let [hidden] drop before the transform transition starts.
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () { mount.classList.add('is-open'); });
+    });
+    inert(true);
+    panel.scrollTop = 0;
+    panel.focus();
+    var st = { spPeek: url };
+    if (replacing && history.state && history.state.spPeek) history.replaceState(st, '', url);
+    else history.pushState(st, '', url);
+    fill(url);
+  }
+
+  document.addEventListener('click', function (e) {
+    if (!e.target || !e.target.closest) return;
+    if (e.target.closest('[data-peek-close]')) { e.preventDefault(); close(false); return; }
+    var link = e.target.closest('[data-peek]');
+    if (!link) return;
+    if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return; // let new-tab through
+    e.preventDefault();
+    open(link.getAttribute('href'), link.getAttribute('data-peek-title'));
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (openUrl && (e.key === 'Escape' || e.key === 'Esc')) { e.preventDefault(); close(false); }
+  });
+
+  window.addEventListener('popstate', function () { close(true); });
+})();
+</script>
