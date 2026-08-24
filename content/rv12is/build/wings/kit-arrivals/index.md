@@ -99,20 +99,20 @@ student. Not that much progress for having had the kit for two months.
 
 ## Photos
 
-![Powerplant and finishing crates in the garage, next to the wing spars and the finished empennage.](media/kits-in-garage.jpg)
+![The two powerplant boxes and finishing kit delivered into the garage. You can see the wing spars and the finished empennage also in the garage.](media/kits-in-garage.jpg)
 
-![Everything unpacked in the backyard before inventory.](media/unpacked-backyard.jpg)
+![All of the pieces unpacked in the backyard before being brought inside for inventorying.](media/unpacked-backyard.jpg)
 
-![The scratch on the left wing main spar.](media/spar-scratch.jpg)
+![Up close of the scratch on the wing spar.](media/spar-scratch.jpg)
 
-![The three rivets countersunk at 120 degrees. The middle one is the bad one.](media/countersunk-rivets.jpg)
+![Up close of the incorrectly countersunk rivets. The middle one is really bad, and I was going to ask my technical counselor about this as well.](media/countersunk-rivets.jpg)
 
-![The rest of the bulkhead. Those rivets look good.](media/bulkhead.jpg)
+![The whole fuselage bulkhead. The other rivets look good.](media/bulkhead.jpg)
 
-![Wing ribs and the rest of the pieces on the shop floor.](media/wing-ribs.jpg)
+![The wing ribs and all of the other pieces on the floor of the workshop.](media/wing-ribs.jpg)
 
-![Flaperon counterbalances, worked on while the rib deburring goes on.](media/flaperon-counterbalances.jpg)
+![Working on the flaperon counterbalances while deburring of the wing ribs is happening.](media/flaperon-counterbalances.jpg)
 
-![Flaperon parts Vans now supplies ready-made instead of fabricated.](media/flaperon-parts.jpg)
+![The flaperon pieces that used to have to be fabricated, but are now provided by Vans, which makes things a lot easier than the instructions would imply.](media/flaperon-parts.jpg)
 
-![Flaperon leading edge. Right hole: straight in with a #30. Left hole: #40 first.](media/flaperon-leading-edge.jpg)
+![The flaperon leading edge. I'm not proud to show this, but if it helps somebody, that's awesome. See the hole on the right which was drilled straight with a #30 and the hole on the left which was a #40 before the #30 drill.](media/flaperon-leading-edge.jpg)
