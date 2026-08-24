@@ -1127,11 +1127,13 @@
   transition: filter .15s var(--ease);
 }
 .sp-entry:hover .sp-entry-thumb img { filter: none; }
-/* No featured image: hold the column so titles still line up. */
+/* No featured image: hold the column so titles still line up, but show
+   nothing. An empty slot reads as deliberate; a placeholder reads as a
+   missing image. */
 .sp-entry-thumb.is-empty {
-  background:
-    repeating-linear-gradient(135deg, transparent 0 7px, var(--rule) 7px 8px);
-  opacity: .45;
+  background: none;
+  border: 0;
+  pointer-events: none;
 }
 .sp-entry-open {
   align-self: center;
@@ -1276,10 +1278,9 @@
   overflow: hidden;
 }
 .sp-pin-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.sp-pin-thumb.is-empty {
-  background: repeating-linear-gradient(135deg, transparent 0 7px, var(--rule) 7px 8px);
-  opacity: .45;
-}
+/* A pin is its own item, so there is no column to hold: drop the slot
+   entirely and let the title sit flush. */
+.sp-pin-thumb.is-empty { display: none; }
 .sp-pin-text { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
 .sp-pin-title {
   font-family: var(--font-mono);
