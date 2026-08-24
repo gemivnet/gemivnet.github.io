@@ -57,7 +57,7 @@
 
     <% /* Multi-pronged: a JS-free lane filter. One generated rule per track,
           because CSS can't match a checked input's value against an attribute.
-          Untracked events are never hidden — they belong to every prong. */ %>
+          Untracked events are never hidden. They belong to every prong. */ %>
     <% if (req.tracks.length > 1) { %>
       <style>
         <% ;(req.tracks).forEach(function(t){ %>
