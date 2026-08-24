@@ -1018,6 +1018,27 @@ async function renderPostSection(posts, section) {
     : renderTreeHtml(tree, activeUrl, activeCategory);
   allRoutes.add(section.base);
 
+  // The timeline index shows a thumbnail per entry. Featured images are stored
+  // full-size (1800px wide), so bake a small square crop rather than making the
+  // index pull a dozen of them at full weight. Entries without a featured image
+  // just get an empty slot — see .sp-entry-thumb.is-empty.
+  if (section.timeline) {
+    for (const m of posts) {
+      const prefix = m.url + '/media/';
+      if (!m.featured || !m.featured.startsWith(prefix)) continue;
+      const src = path.join(m.mediaDir, m.featured.slice(prefix.length));
+      if (!(await exists(src))) continue;
+      const rel = `${m.url.slice(1)}/media/thumb-${m.featured.slice(prefix.length)}`;
+      try {
+        await writeFile(rel, await sharp(src).rotate()
+          .resize({ width: 160, height: 160, fit: 'cover', position: 'attention' })
+          .jpeg({ quality: 76, progressive: true, mozjpeg: true })
+          .toBuffer());
+        m.featuredThumb = '/' + rel;
+      } catch {}
+    }
+  }
+
   // Index page. Timeline sections list everything date-first in one stream.
   const indexHtml = await renderPage(section.timeline ? 'timeline-index' : 'musings-index', {
     page: {
