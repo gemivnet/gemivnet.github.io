@@ -142,7 +142,7 @@
       </p>
     </div>
 
-    <div style="text-align: center; margin-top: var(--sp-6); font-family: var(--font-mono); font-size: 12px; color: var(--ink-3);">
+    <div class="sp-backlink" style="text-align: center; margin-top: var(--sp-6); font-family: var(--font-mono); font-size: 12px; color: var(--ink-3);">
       <a href="/foia"><%= copy.foia.request.back_label %></a>
     </div>
   </div>

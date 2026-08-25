@@ -823,66 +823,8 @@
    Fold into the next Claude Design bundle and delete this block. */
 
 /* â”€â”€ the ledger: /foia and the agency/tag archives â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-.foia-table-wrap { overflow-x: auto; }
-.foia-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: var(--sp-6);
-}
-.foia-table thead th {
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  font-weight: 500;
-  text-align: left;
-  border-bottom: 1px solid var(--rule);
-  padding: 0 var(--sp-4) var(--sp-2) 0;
-}
-.foia-table thead th.r { text-align: right; padding-right: 0; }
-.foia-table tbody tr { border-bottom: 1px solid var(--rule); }
-.foia-table td,
-.foia-table th[scope="row"] {
-  padding: var(--sp-4) var(--sp-4) var(--sp-4) 0;
-  vertical-align: baseline;
-  text-align: left;
-  font-weight: 400;
-}
-.foia-table .when {
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
-  color: var(--ink-3);
-  white-space: nowrap;
-}
-.foia-table th[scope="row"] a {
-  font-size: var(--fs-lg);
-  text-decoration: none;
-  line-height: var(--lh-snug);
-}
 /* everything secondary about a request lives on one muted line */
-.foia-table .sub {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
-  color: var(--ink-3);
-  margin-top: 4px;
-}
-.foia-table .sub a { color: var(--ink-3); text-decoration: none; }
-.foia-table .sub a:hover { color: var(--accent); }
-.foia-table td.out {
-  font-family: var(--font-mono);
-  font-size: var(--fs-tiny);
-  color: var(--ink-2);
-  white-space: nowrap;
-  text-align: right;
-  padding-right: 0;
-}
-.foia-table td.out .fee { display: block; color: var(--ink-3); margin-top: 4px; }
-.foia-table td.out .paid { color: var(--accent); }
 /* quoted but never paid â€” withdrawn, narrowed, or still open */
-.foia-table td.out .strike { text-decoration: line-through; }
-.foia-table .is-open { color: var(--accent); }
 
 /* â”€â”€ one quiet footnote instead of three notice boxes â”€â”€â”€â”€â”€â”€â”€â”€ */
 .foia-note-foot {
@@ -1095,7 +1037,6 @@
 @media (max-width: 900px) {
   .foia-event { grid-template-columns: 52px minmax(0, 1fr); gap: 0 var(--sp-3); }
   .foia-fold summary { padding-left: calc(52px + var(--sp-3)); }
-  .foia-table { min-width: 520px; }
   .foia-viewer .stage { padding: var(--sp-2); max-height: 70vh; }
   .foia-viewer .grp.right { margin-left: 0; }
 }
@@ -1322,3 +1263,44 @@
 }
 .sp-sort button:hover { color: var(--accent); }
 .sp-sort button.is-on { color: var(--accent); font-weight: 600; }
+
+/* ── shared entry list: browse strip + row internals ───────
+   Hand-written 2026-08-24, ad-hoc. Fold into the next Claude Design bundle.
+   /musings, /rv12is and /foia all render templates/_entries.eta, so these
+   rules are the one place the list is styled. */
+.sp-browse {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: var(--sp-4) 0;
+  margin-bottom: var(--sp-6);
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+}
+.sp-browse-label {
+  color: var(--ink-3);
+  margin-bottom: var(--sp-2);
+  font-size: var(--fs-tiny);
+}
+.sp-browse-row { line-height: 1.9; }
+.sp-browse-row a {
+  color: var(--ink-2);
+  text-decoration: none;
+  margin-right: 14px;
+}
+.sp-browse-row a:hover { color: var(--accent); }
+.sp-browse-row a.is-all { color: var(--accent); }
+.sp-browse-row .n { color: var(--ink-3); }
+
+/* The date leads every row in all three sections. */
+.sp-entry .sp-meta .date { color: var(--accent); font-weight: 600; }
+.sp-entry .sp-entry-body > *:last-child { margin-bottom: 0; }
+.sp-entry .sp-preview { margin-top: var(--sp-2); margin-bottom: 0; }
+.sp-entry .sp-tags { margin-top: var(--sp-3); }
+
+/* The sort control sits on its own line above the stream. */
+.sp-sort {
+  margin: 0 0 var(--sp-4);
+  padding: 0;
+  border-top: 0;
+  font-family: var(--font-mono);
+}
