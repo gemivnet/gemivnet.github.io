@@ -61,3 +61,8 @@ allowed:
 
   # Specific dates in published travelogues are not the kind of PII we worry about.
   # If a particular date should be redacted, REMOVE it here (or never list it).
+
+  # Not a phone number: the Numerical Recipes LCG multiplier/increment pair in
+  # scripts/build.mjs (`s = (s * 1664525 + 1013904223) >>> 0`), used to seed the
+  # deterministic shuffle. Ten digits, so the phone pattern matches it.
+  - "1013904223"
