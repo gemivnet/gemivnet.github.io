@@ -246,6 +246,20 @@ not in the hook.
 Allowlist known-public strings in `.pii-allowlist.yaml`. Bypass once with
 `git commit --no-verify`. Don't bypass habitually.
 
+Two modes. `npm run check:pii` scans the staged diff, which is what the hook wants.
+`npm run check:pii:all` sweeps every tracked file, which is what CI wants, because a
+fresh checkout has nothing staged and the staged mode would pass having read nothing.
+
+`content/sites/` is skipped **entirely**, not just its `assets/`. Sub-sites are
+self-contained artifacts reviewed as a whole when they go up, and their payload is the
+data: coordinate arrays and minified bundles where `4294967296` is 2³². Scanning them
+was 498 hits of the thing the page exists to show. The cost is real: a new sub-site is
+unscanned, so review it before adding it.
+
+All git invocations pass `-c core.quotepath=false`. Without it git quotes and
+octal-escapes any path with a non-ASCII byte, the `+++ b/` match fails, and the file is
+skipped. That was 1373 of 2585 tracked paths.
+
 **If it starts crying wolf, fix the pattern, not the allowlist.** Records
 reference numbers (`S106782-061225`) and sha256 substrings both read as phone
 numbers until the pattern gained lookarounds rejecting digit runs inside a
@@ -278,8 +292,13 @@ blocked" rather than as a scanner error.
 ## CI
 
 `.github/workflows/deploy.yml` — on push to `main`: checkout (fetch-depth:
-0 so the version-count works), `npm ci`, `npm run build`, upload
-`_site` as the Pages artifact, deploy. No tests yet.
+0 so the version-count works), `npm ci`, `npm run check:pii:all`, `npm run build`,
+upload `_site` as the Pages artifact, deploy. No tests yet.
+
+The scan runs **before** the build, so a leak blocks the deploy rather than being
+spotted after it is live. It uses `--all` rather than the staged-diff mode on purpose:
+nothing is staged on a CI checkout, so plain `check:pii` would exit 0 having read
+nothing.
 
 GitHub Pages is configured for **workflow** deploy (not legacy branch).
 If you ever re-clone the repo and Pages is set to legacy, switch via:
