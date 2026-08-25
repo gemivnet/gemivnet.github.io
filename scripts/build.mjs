@@ -140,6 +140,61 @@ function pictureFor(im, size, alt, extraAttrs = '') {
   return `<img src="${jpg}" alt="${altSafe}"${dims}${lqipBg} ${extraAttrs}>`;
 }
 
+// ── shared entry shape ────────────────────────────────────────────────
+// /musings, /rv12is and /foia all render templates/_entries.eta. These turn a
+// post or a records request into the one shape that component understands, so
+// the list markup, the sort control and the reading pane exist exactly once.
+const entryFromPost = (p, section, opts = {}) => ({
+  url: p.url,
+  title: p.title,
+  subtitle: p.subtitle,
+  ts: p.date.getTime(),
+  year: p.date.getUTCFullYear(),
+  thumb: p.featuredThumb || null,
+  meta: [
+    { text: section.timeline ? fmtMetaDate(p.date) : fmtDate(p.date).replace(/-/g, '\u00b7'), cls: 'date' },
+    ...(p.category.length
+      ? [{ text: section.timeline ? (p.category.slice(1).join('/') || p.category.join('/')) : p.category[0], cls: 'cat' }]
+      : []),
+    { text: `${p.wordCount.toLocaleString()} w \u00b7 ~${p.readTime} min`, cls: '' },
+  ],
+  preview: opts.preview ? p.preview : null,
+  tags: opts.tags ? (p.tags || []).map(t => ({ label: t, href: `${section.base}/tag/${slugify(t)}` })) : null,
+});
+
+// A request has no featured image, so its thumb slot stays empty. That keeps
+// the left gutter aligned with the other two sections rather than saving a
+// few pixels here and reading as a different site.
+const entryFromRequest = (r, opts = {}) => {
+  const vol = [
+    r.docCount ? `${r.docCount} doc${r.docCount === 1 ? '' : 's'}` : '',
+    r.pageCount ? `${r.pageCount.toLocaleString()} pp` : '',
+  ].filter(Boolean).join(' \u00b7 ');
+  const money = r.fees.paid ? `${r.fees.paidFmt} paid`
+    : (r.fees.pending && r.fees.quoted) ? `${r.fees.quotedFmt} pending`
+    : r.fees.waiver === 'granted' ? COPY.foia.table.fee_waived
+    : '';
+  return {
+    url: r.url,
+    title: r.title,
+    subtitle: [r.statusLabel, money].filter(Boolean).join(' \u00b7 '),
+    ts: new Date(r.filedSort).getTime(),
+    year: new Date(r.filedSort).getUTCFullYear(),
+    thumb: null,
+    meta: [
+      { text: r.filed, cls: 'date' },
+      // On an agency page every row shares the agency, so show the statute
+      // instead of repeating it down the column.
+      { text: opts.showStatute ? r.statute : r.agencyShort, cls: 'cat' },
+      ...(vol ? [{ text: vol, cls: '' }] : []),
+      ...(r.tracking ? [{ text: r.tracking, cls: '' }] : []),
+    ],
+    preview: r.blurb || null,
+    tags: (r.tags || []).map(t => ({ label: t, href: `/foia/tag/${slugify(t)}` })),
+    isOpen: r.status === 'open',
+  };
+};
+
 const pageHelpers = {
   site: SITE,
   copy: COPY,
@@ -344,12 +399,16 @@ async function loadPosts(root) {
 
     // Featured image URL: prefer the S3 entry if mapped, else fall back to a post-local path.
     let featured = null;
+    // S3-backed posts already carry a 600px thumb, so the index can point
+    // straight at it; local ones get a crop baked in renderPostSection.
+    let featuredThumb = null;
     if (fm.featured_image) {
       const cleaned = fm.featured_image.replace(/^\.\//, '');
       if (cleaned.startsWith('media/')) {
         const file = cleaned.replace(/^media\//, '');
         const e = imagesMap[file];
         featured = (e && (e.s3_med || e.s3)) || `${url}/${cleaned}`;
+        if (e && e.s3_thumb) featuredThumb = e.s3_thumb;
       } else {
         featured = `${url}/${cleaned}`;
       }
@@ -368,6 +427,7 @@ async function loadPosts(root) {
       pinned: !!fm.pinned,
       tags: fm.tags || [],
       featured,
+      featuredThumb,
       seo: fm.seo || {},
       gallery: fm.gallery || null,   // optional: { path, title?, subtitle?, location?, date? }
       imageRefs,                     // [{ file, alt }] referenced in body + featured
@@ -1019,13 +1079,14 @@ async function renderPostSection(posts, section) {
     : renderTreeHtml(tree, activeUrl, activeCategory);
   allRoutes.add(section.base);
 
-  // The timeline index shows a thumbnail per entry. Featured images are stored
+  // Every index shows a thumbnail per entry. Featured images are stored
   // full-size (1800px wide), so bake a small square crop rather than making the
   // index pull a dozen of them at full weight. Entries without a featured image
-  // just get an empty slot — see .sp-entry-thumb.is-empty.
-  if (section.timeline) {
+  // just get an empty slot. See .sp-entry-thumb.is-empty.
+  {
     for (const m of posts) {
       const prefix = m.url + '/media/';
+      if (m.featuredThumb) continue;
       if (!m.featured || !m.featured.startsWith(prefix)) continue;
       const src = path.join(m.mediaDir, m.featured.slice(prefix.length));
       if (!(await exists(src))) continue;
@@ -1060,6 +1121,10 @@ async function renderPostSection(posts, section) {
     // that stay useful long after their date scrolls away.
     pinnedPosts: posts.filter(p => p.pinned),
     datedPosts: posts.filter(p => !p.pinned),
+    // Musings are longer-form, so their rows keep the excerpt and tag line.
+    entries: posts.filter(p => !p.pinned)
+      .map(p => entryFromPost(p, section, { preview: !section.timeline, tags: !section.timeline })),
+    pinnedEntries: posts.filter(p => p.pinned).map(p => entryFromPost(p, section)),
     // The index is otherwise a bare list of links, which reads as thin content.
     // The ItemList gives crawlers the entries; the Blog gives them the section.
     jsonLd: !section.timeline ? null : {
@@ -1181,6 +1246,7 @@ async function renderPostSection(posts, section) {
       categoryKey: key,
       categorySegs: cat.segs,
       posts: directPosts,
+      entries: directPosts.map(p => entryFromPost(p, section, { preview: !section.timeline, tags: !section.timeline })),
       allDescendants,
       children,
       treeHtml: sidebarFor(url, key),
@@ -1241,6 +1307,7 @@ async function renderPostSection(posts, section) {
       section, sectionCopy: sc,
       year,
       posts: yearPosts,
+      entries: yearPosts.map(p => entryFromPost(p, section, { preview: !section.timeline, tags: !section.timeline })),
       otherYears,
     });
     collectLinks(`${section.base}/${year}`, yearHtml);
@@ -1263,6 +1330,7 @@ async function renderPostSection(posts, section) {
       section, sectionCopy: sc,
       tag,
       posts: tagged,
+      entries: tagged.map(p => entryFromPost(p, section, { preview: !section.timeline, tags: !section.timeline })),
     });
     collectLinks(url, html);
     await writeFile(path.join(section.root, 'tag', slugify(tag), 'index.html'), html);
@@ -1558,6 +1626,8 @@ async function renderFoia(requests) {
     requests: requests.map(cardFor),
     agencies, tagList, totals,
     ledger, ledgerTotals,
+    entries: ledger.slice().reverse().filter(r => !r.pinned).map(entryFromRequest),
+    pinnedEntries: ledger.filter(r => r.pinned).map(entryFromRequest),
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
@@ -1714,6 +1784,9 @@ async function renderFoia(requests) {
       active: 'foia',
       archive: a,
       requests: a.items.map(cardFor),
+      entries: a.items.map(cardFor)
+        .sort((x, y) => new Date(y.filedSort) - new Date(x.filedSort))
+        .map(r => entryFromRequest(r, { showStatute: true })),
       treeHtml: renderFoiaSidebarHtml(requests, a.url),
     });
     collectLinks(a.url, html);

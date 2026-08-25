@@ -6,22 +6,4 @@
   <p style="margin-top: var(--sp-4); color: var(--ink-2); font-size: 18px;"><%= sectionCopy.tag.intro %></p>
 </section>
 
-<section class="sp-section">
-  <% if (posts.length === 0) { %>
-    <div class="sp-empty"><%= copy.empty.tag %></div>
-  <% } %>
-  <% posts.forEach(function(p){ %>
-    <article class="sp-card">
-      <div class="sp-meta">
-        <%= fmtDate(p.date).replace(/-/g, '·') %><br>
-        <%= p.wordCount.toLocaleString() %> w
-      </div>
-      <div>
-        <h3><a href="<%= p.url %>"><%= p.title %></a></h3>
-        <% if (p.subtitle) { %><div class="sp-sub"><%= p.subtitle %></div><% } %>
-        <p class="sp-preview"><%= p.preview %></p>
-        <div style="font-family: var(--font-mono); font-size: 11px; color: var(--ink-3); letter-spacing: 0.04em;">in <a href="<%= p.categoryPath %>" style="color: var(--ink-3);"><%= [section.root].concat(p.category).join('/') %></a></div>
-      </div>
-    </article>
-  <% }) %>
-</section>
+<%~ include('_entries', { entries: entries, listCopy: sectionCopy.index, section: section, escapeHtml: escapeHtml }) %>

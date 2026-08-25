@@ -13,6 +13,21 @@ Actions to GitHub Pages. Source of truth is the working tree on `main`.
   Single file on purpose. Don't pull in a framework.
 - `templates/` — Eta templates. `_base.eta` is the layout; everything else is
   rendered then injected as `body`.
+- `templates/_entries.eta` — **the one list component.** Every page that lists
+  things (`/musings`, `/rv12is`, `/foia`, plus their category, tag, year and
+  agency sub-pages) includes it. It owns the entry row (thumbnail, meta line,
+  title, subtitle, optional excerpt and tags, the `>` link), the pinned strip,
+  the sort toggle and the reading pane, plus the two inline scripts driving the
+  last two. Callers pass a normalized `entries` array built by `entryFromPost`
+  or `entryFromRequest` in `build.mjs`; the component knows nothing about
+  musings, build-log entries or records requests.
+
+  **Don't hand-roll another list.** If a new section needs one, write an
+  `entryFrom*` normalizer and include the partial. Changing how a row looks is
+  one edit in `_entries.eta` plus its CSS block in `site.css`. The reading pane
+  pulls `.musings-main` out of the target page and strips `.crumbs`,
+  `.sp-postnav` and `.sp-backlink`, so any new post-page template needs that
+  wrapper to be peekable.
 - `design/` — `tokens.css` and `site.css` from Claude Design. Copied verbatim
   into `_site/` at build time. **Don't hand-edit these as the primary source
   of design changes** — request a new bundle from Claude Design and replace
@@ -310,6 +325,7 @@ subjects and so reflects ten historical commits written before this rule.
 - Hand-written SVGs more complex than basic shapes.
 - Drop shadows, gradients, rounded SaaS-style cards. The aesthetic is
   late-90s/early-blogspot — flat, narrow column, mono chrome.
+- A second copy of the entry list. See `templates/_entries.eta` above.
 - Bordered boxes stacked on bordered boxes. Rules beat borders; one muted
   sub-line beats a grid of labelled cells; a footnote beats a callout. If a
   new page type is growing notice blocks above the content, or showing the

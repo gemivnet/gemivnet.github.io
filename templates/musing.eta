@@ -63,7 +63,7 @@
       </div>
     </nav>
 
-    <div style="text-align: center; margin-top: var(--sp-5); font-family: var(--font-mono); font-size: 12px; color: var(--ink-3);">
+    <div class="sp-backlink" style="text-align: center; margin-top: var(--sp-5); font-family: var(--font-mono); font-size: 12px; color: var(--ink-3);">
       <a href="<%= section.base %>"><%= sectionCopy.post.back_label %></a>
     </div>
   </div>

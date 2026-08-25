@@ -1,8 +1,9 @@
 <header style="margin-bottom: var(--sp-6);">
   <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); margin-bottom: var(--sp-3);">
-    <%= sectionCopy.index.breadcrumb %> · <%= posts.length %> posts · newest first
+    <%= sectionCopy.index.breadcrumb %> · <%= posts.length %> posts
   </div>
   <h1><%= sectionCopy.heading %></h1>
+  <% if (sectionCopy.index.summary) { %><p class="sp-index-summary"><%= sectionCopy.index.summary %></p><% } %>
 </header>
 
 <%
@@ -15,18 +16,18 @@
 %>
 
 <% if (folders.length || topTags.length) { %>
-<div style="border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: var(--sp-4) 0; margin-bottom: var(--sp-6); font-family: var(--font-mono); font-size: var(--fs-small);">
+<div class="sp-browse">
   <% if (folders.length) { %>
-    <div style="color: var(--ink-3); margin-bottom: var(--sp-2); font-size: var(--fs-tiny);">browse by folder:</div>
-    <div style="line-height: 1.9;">
-      <a href="<%= section.base %>" style="color: var(--accent); margin-right: 14px;">all (<%= posts.length %>)</a>
+    <div class="sp-browse-label">browse by folder:</div>
+    <div class="sp-browse-row">
+      <a href="<%= section.base %>" class="is-all">all (<%= posts.length %>)</a>
       <% folders.forEach(function(k){ %>
-        <a href="<%= section.base %>/<%= k %>" style="color: var(--ink-2); text-decoration: none; margin-right: 14px;"><%= k %>/ <span style="color: var(--ink-3);"><%= folderCounts[k] %></span></a>
+        <a href="<%= section.base %>/<%= k %>"><%= k %>/ <span class="n"><%= folderCounts[k] %></span></a>
       <% }) %>
     </div>
   <% } %>
   <% if (topTags.length) { %>
-    <div style="color: var(--ink-3); margin-top: var(--sp-3); margin-bottom: var(--sp-2); font-size: var(--fs-tiny);">browse by tag:</div>
+    <div class="sp-browse-label" style="margin-top: var(--sp-3);">browse by tag:</div>
     <div>
       <% topTags.forEach(function(t){ %><a class="sp-tag" href="<%= section.base %>/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %>
     </div>
@@ -34,23 +35,4 @@
 </div>
 <% } %>
 
-<% if (posts.length === 0) { %>
-  <div class="sp-empty"><span class="glyph">∅</span>nothing here yet.</div>
-<% } %>
-
-<% posts.forEach(function(p){ %>
-  <article class="sp-card">
-    <div class="sp-meta">
-      <span><%= fmtDate(p.date).replace(/-/g, '·') %></span>
-      <% if (p.category[0]) { %><span class="sep">·</span><span class="cat"><%= p.category[0] %></span><% } %>
-      <span class="sep">·</span>
-      <span><%= p.wordCount.toLocaleString() %> w · ~<%= p.readTime %> min</span>
-    </div>
-    <h3><a href="<%= p.url %>"><%= p.title %></a></h3>
-    <% if (p.subtitle) { %><p class="sp-sub"><%= p.subtitle %></p><% } %>
-    <p class="sp-preview"><%= p.preview %></p>
-    <div class="sp-tags">
-      <% p.tags.forEach(function(t){ %><a class="sp-tag" href="<%= section.base %>/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %>
-    </div>
-  </article>
-<% }) %>
+<%~ include('_entries', { entries: entries, pinnedEntries: pinnedEntries, listCopy: sectionCopy.index, section: section, escapeHtml: escapeHtml }) %>
