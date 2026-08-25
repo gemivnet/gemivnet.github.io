@@ -23,9 +23,13 @@ jobs:
           fetch-depth: 0   # full history so `git rev-list --count HEAD` works for auto-versioning
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
           cache: 'npm'
       - run: npm ci
+      # Whole-tree sweep, not the staged diff: nothing is staged on a CI checkout, so
+      # `npm run check:pii` would exit 0 having read nothing. Runs before the build so a
+      # leak stops the deploy rather than being noticed after it is live.
+      - run: npm run check:pii:all
       - run: npm run build
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

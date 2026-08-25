@@ -9,3 +9,6 @@ staging/
 dump/
 AWSCLIV2.pkg
 _site.stale/
+
+# Local agent settings. Machine paths and usernames, and this repo is public.
+.claude/settings.local.json

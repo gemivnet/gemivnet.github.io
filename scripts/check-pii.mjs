@@ -16,12 +16,18 @@
 // pass is best-effort and never blocks if it can't reach the API.
 
 import { execFileSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import exifr from 'exifr';
 
 import { loadAllowlist, buildPatterns } from './lib/pii-patterns.mjs';
 
 const ROOT = path.resolve(import.meta.dirname || new URL('.', import.meta.url).pathname, '..');
+
+// --all sweeps every tracked file instead of the staged diff. The staged mode is right
+// for the pre-commit hook; --all is what CI needs, because on a fresh checkout nothing
+// is staged and the staged scan exits 0 having examined nothing.
+const SCAN_ALL = process.argv.includes('--all');
 
 // execFileSync, not execSync: execSync routes through cmd.exe, which refuses a
 // UNC working directory ("CMD.EXE was started with the above path ... UNC paths
@@ -33,7 +39,12 @@ const ROOT = path.resolve(import.meta.dirname || new URL('.', import.meta.url).p
 // produced a 1.3 MB diff, this threw, and the catch below reported it as "not in
 // a git repo" and waved the commit through — the scan skipping itself on
 // precisely the largest commits, which are the ones worth scanning.
-const git = (args) => execFileSync('git', args, {
+//
+// core.quotepath=false: by default git wraps any path containing a non-ASCII byte in
+// quotes and octal-escapes it ("...Brass\303\263.mp3"). The diff parser below matches
+// on a bare `+++ b/` prefix, so every one of those files fell out of the scan --
+// 1373 of 2585 tracked paths, more than half the repo, silently unscanned.
+const git = (args) => execFileSync('git', ['-c', 'core.quotepath=false', ...args], {
   cwd: ROOT,
   encoding: 'utf8',
   maxBuffer: 256 * 1024 * 1024,
@@ -44,9 +55,9 @@ const git = (args) => execFileSync('git', args, {
 const isAllowed = loadAllowlist(ROOT);
 
 // ── get staged content ─────────────────────────────────────
-let staged;
+let staged = '';
 try {
-  staged = git(['diff', '--cached', '--unified=0', '--no-color']);
+  if (!SCAN_ALL) staged = git(['diff', '--cached', '--unified=0', '--no-color']);
 } catch (err) {
   // Fail closed. A scanner that cannot read the diff and says nothing is worse than no
   // scanner at all, because it looks like it passed. --no-verify is the deliberate way past.
@@ -55,34 +66,71 @@ try {
   process.exit(1);
 }
 
-// Walk through diff and collect (file, line, addedText) tuples.
-const lines = [];
-let currentFile = null;
-for (const raw of staged.split('\n')) {
-  if (raw.startsWith('+++ b/')) { currentFile = raw.slice(6); continue; }
-  if (raw.startsWith('+++') || raw.startsWith('---') || raw.startsWith('@@') || raw.startsWith('diff ') || raw.startsWith('index ')) continue;
-  if (!raw.startsWith('+')) continue;
-  const text = raw.slice(1);
-  if (!text.trim()) continue;
-  // Skip vendor/build/lockfile noise.
-  if (!currentFile) continue;
-  if (currentFile.startsWith('node_modules/')) continue;
-  if (currentFile.startsWith('_site/')) continue;
-  if (currentFile === 'package-lock.json') continue;
-  // Compiled bundles for a published site. These are minified machine output where number
-  // literals routinely trip the heuristics -- 4294967296 is 2^32, and a model's weight array
-  // reads as GPS coordinates. The authored sources are reviewed in their own repo.
-  if (/^content\/sites\/[^/]+\/assets\//.test(currentFile)) continue;
+// Which files are out of scope, for both the staged scan and the --all sweep.
+function skipFile(file) {
+  if (!file) return true;
+  // Vendor/build/lockfile noise.
+  if (file.startsWith('node_modules/')) return true;
+  if (file.startsWith('_site/')) return true;
+  if (file === 'package-lock.json') return true;
+  // Sub-sites are self-contained published artifacts, reviewed as a whole when they are
+  // put up rather than line by line here: a flight track, a word game, and so on. Their
+  // payload IS the data -- coordinate arrays, minified bundles where 4294967296 is 2^32
+  // and a weight array reads as GPS -- so scanning them produces only noise. Authored
+  // sources live in their own repos.
+  //
+  // The trade-off, stated plainly: anything dropped under content/sites/ is unscanned.
+  // Review a new sub-site before adding it, because this check will not.
+  if (/^content\/sites\//.test(file)) return true;
   // Same reasoning for vendored third-party builds: design/vendor/pdfjs is
   // minified upstream output where 4294967296 is 2^32, not a phone number.
   // Provenance for it is recorded in design/vendor/pdfjs/VENDORED.md.
-  if (/^design\/vendor\//.test(currentFile)) continue;
+  if (/^design\/vendor\//.test(file)) return true;
   // Skip the hook itself and the shared pattern module — they document, in
   // comments and examples, exactly the shapes they detect.
-  if (currentFile === 'scripts/check-pii.mjs') continue;
-  if (currentFile === 'scripts/lib/pii-patterns.mjs') continue;
-  if (currentFile.startsWith('.claude/skills/pii-audit/')) continue;
-  lines.push({ file: currentFile, text });
+  if (file === 'scripts/check-pii.mjs') return true;
+  if (file === 'scripts/lib/pii-patterns.mjs') return true;
+  if (file.startsWith('.claude/skills/pii-audit/')) return true;
+  return false;
+}
+
+// Binary payloads carry no reviewable text and produce only noise. EXIF in images is a
+// real concern but is a separate check, not this line-oriented one.
+const BINARY_EXT =
+  /\.(png|jpe?g|gif|webp|avif|ico|svgz|mp3|m4a|ogg|wav|flac|mp4|mov|webm|pdf|woff2?|ttf|otf|eot|zip|gz|bz2|xz|7z|docx?|xlsx?|pptx?|sqlite3?|db)$/i;
+
+const lines = [];
+
+if (SCAN_ALL) {
+  // Whole-tree sweep, for CI. The staged-diff mode below is right for a pre-commit hook
+  // but passes vacuously when nothing is staged -- which is exactly what happens on a CI
+  // checkout, so a green tick there meant "nothing was scanned", not "nothing was found".
+  const tracked = git(['ls-files', '-z']).split('\0').filter(Boolean);
+  for (const file of tracked) {
+    if (skipFile(file) || BINARY_EXT.test(file)) continue;
+    let body;
+    try {
+      body = readFileSync(path.join(ROOT, file), 'utf8');
+    } catch {
+      continue; // unreadable or vanished between ls-files and here
+    }
+    if (body.includes('\0')) continue; // binary without a telltale extension
+    for (const text of body.split('\n')) {
+      if (text.trim()) lines.push({ file, text });
+    }
+  }
+} else {
+  // Walk through diff and collect (file, line, addedText) tuples.
+  let currentFile = null;
+  for (const raw of staged.split('\n')) {
+    if (raw.startsWith('+++ b/')) { currentFile = raw.slice(6); continue; }
+    if (raw.startsWith('+++') || raw.startsWith('---') || raw.startsWith('@@') || raw.startsWith('diff ') || raw.startsWith('index ')) continue;
+    if (!raw.startsWith('+')) continue;
+    const text = raw.slice(1);
+    if (!text.trim()) continue;
+    if (skipFile(currentFile)) continue;
+    lines.push({ file: currentFile, text });
+  }
 }
 
 // ── pattern definitions ───────────────────────────────────
