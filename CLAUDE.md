@@ -61,12 +61,10 @@ npm run foia:publish <slug>          # upload to S3, rewrite yaml, clear dump/
 npm run check:pii    # manually run the PII scanner
 ```
 
-**Shell out to git with `execFileSync`, never `execSync`.** `execSync` routes
-through `cmd.exe` on Windows, which refuses a UNC working directory and
-silently runs from `C:\Windows` instead. The repo lives on a network share
-(`N:` = `\\server\nas`), where that made the PII hook unable to read its own
-staged diff — so, failing closed, it refused every commit — and made the
-version fall back to `v1` with an empty changelog.
+**Shell out to git with `execFileSync`, never `execSync`.** `execSync` hands the
+command to a shell, so anything in a path or a commit subject gets re-parsed.
+`execFileSync` passes argv straight through. The scripts already do this; keep
+it that way.
 
 ## Design source-of-truth flow
 
@@ -253,8 +251,8 @@ vendored bundles are skipped wholesale for the same reason — `4294967296` is
 
 The hook **fails closed**: if it can't read the diff it refuses the commit
 rather than waving it through. That is correct, and it means an unrelated
-breakage (see the `execFileSync` note above) presents as "every commit is
-blocked".
+breakage in how the hook shells out to git presents as "every commit is
+blocked" rather than as a scanner error.
 
 ## Build failures the script enforces
 
