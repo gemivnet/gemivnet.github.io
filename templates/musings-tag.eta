@@ -1,9 +1,9 @@
-<section style="margin-bottom: var(--sp-6);">
-  <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">
+<section class="sp-page-head">
+  <div class="sp-eyebrow">
     <%= sectionCopy.tag.breadcrumb_prefix %><%= tag %> · <%= posts.length %> posts
   </div>
   <h1>#<%= tag %></h1>
   <p style="margin-top: var(--sp-4); color: var(--ink-2); font-size: 18px;"><%= sectionCopy.tag.intro %></p>
 </section>
 
-<%~ include('_entries', { entries: entries, listCopy: sectionCopy.index, section: section, escapeHtml: escapeHtml }) %>
+<%~ include('_entries', { copy: copy, entries: entries, listCopy: sectionCopy.index, section: section, escapeHtml: escapeHtml }) %>

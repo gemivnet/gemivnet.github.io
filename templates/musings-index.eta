@@ -1,5 +1,5 @@
-<header style="margin-bottom: var(--sp-6);">
-  <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); margin-bottom: var(--sp-3);">
+<header class="sp-page-head">
+  <div class="sp-crumb">
     <%= sectionCopy.index.breadcrumb %> · <%= posts.length %> posts
   </div>
   <h1><%= sectionCopy.heading %></h1>
@@ -18,16 +18,16 @@
 <% if (folders.length || topTags.length) { %>
 <div class="sp-browse">
   <% if (folders.length) { %>
-    <div class="sp-browse-label">browse by folder:</div>
+    <div class="sp-browse-label"><%= copy.ui.browse_folder %></div>
     <div class="sp-browse-row">
-      <a href="<%= section.base %>" class="is-all">all (<%= posts.length %>)</a>
+      <a href="<%= section.base %>" class="is-all"><%= copy.ui.all_label %> (<%= posts.length %>)</a>
       <% folders.forEach(function(k){ %>
         <a href="<%= section.base %>/<%= k %>"><%= k %>/ <span class="n"><%= folderCounts[k] %></span></a>
       <% }) %>
     </div>
   <% } %>
   <% if (topTags.length) { %>
-    <div class="sp-browse-label" style="margin-top: var(--sp-3);">browse by tag:</div>
+    <div class="sp-browse-label" style="margin-top: var(--sp-3);"><%= copy.ui.browse_tag %></div>
     <div>
       <% topTags.forEach(function(t){ %><a class="sp-tag" href="<%= section.base %>/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %>
     </div>
@@ -35,4 +35,4 @@
 </div>
 <% } %>
 
-<%~ include('_entries', { entries: entries, pinnedEntries: pinnedEntries, listCopy: sectionCopy.index, section: section, escapeHtml: escapeHtml }) %>
+<%~ include('_entries', { copy: copy, entries: entries, pinnedEntries: pinnedEntries, listCopy: sectionCopy.index, section: section, escapeHtml: escapeHtml }) %>

@@ -1,7 +1,7 @@
 <div class="musings-layout">
   <aside class="musings-tree" aria-label="FOIA archive">
     <input type="checkbox" id="tree-toggle" class="tree-toggle">
-    <label class="tree-head" for="tree-toggle">browse</label>
+    <label class="tree-head" for="tree-toggle"><%= copy.ui.sidebar_browse %></label>
     <%~ treeHtml %>
   </aside>
 
@@ -14,9 +14,9 @@
       <h1><%= archive.heading %></h1>
     </header>
 
-    <%~ include('_entries', { entries: entries, listCopy: copy.foia.index, section: { base: '/foia' }, escapeHtml: escapeHtml }) %>
+    <%~ include('_entries', { copy: copy, entries: entries, listCopy: copy.foia.index, section: { base: '/foia' }, escapeHtml: escapeHtml }) %>
 
-    <div style="text-align: center; margin-top: var(--sp-6); font-family: var(--font-mono); font-size: 12px; color: var(--ink-3);">
+    <div class="sp-backlink is-wide">
       <a href="/foia"><%= copy.foia.request.back_label %></a>
     </div>
   </div>

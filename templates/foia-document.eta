@@ -208,6 +208,6 @@
   </p>
 </div>
 
-<div style="text-align: center; margin-top: var(--sp-5); font-family: var(--font-mono); font-size: 12px; color: var(--ink-3);">
+<div class="sp-backlink">
   <a href="<%= ev.url %>">↑ <%= ev.title %></a>
 </div>

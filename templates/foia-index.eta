@@ -1,5 +1,5 @@
-<header style="margin-bottom: var(--sp-6);">
-  <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); margin-bottom: var(--sp-3);">
+<header class="sp-page-head">
+  <div class="sp-crumb">
     <%= copy.foia.index.breadcrumb %> · <%= totals.requests %> request<%= totals.requests === 1 ? '' : 's' %> · <%= totals.documents %> documents<% if (totals.pages) { %> · <%= totals.pages.toLocaleString() %> pages<% } %>
   </div>
   <h1><%= copy.foia.heading %></h1>
@@ -10,7 +10,7 @@
 <div class="sp-browse">
   <div class="sp-browse-label"><%= copy.foia.index.browse_agency %>:</div>
   <div class="sp-browse-row">
-    <a href="/foia" class="is-all">all (<%= totals.requests %>)</a>
+    <a href="/foia" class="is-all"><%= copy.ui.all_label %> (<%= totals.requests %>)</a>
     <% agencies.forEach(function(a){ %>
       <a href="/foia/agency/<%= a.slug %>"><%= a.label %> <span class="n"><%= a.count %></span></a>
     <% }) %>
@@ -24,7 +24,7 @@
 </div>
 <% } %>
 
-<%~ include('_entries', { entries: entries, pinnedEntries: pinnedEntries, listCopy: copy.foia.index, section: { base: '/foia' }, escapeHtml: escapeHtml }) %>
+<%~ include('_entries', { copy: copy, entries: entries, pinnedEntries: pinnedEntries, listCopy: copy.foia.index, section: { base: '/foia' }, escapeHtml: escapeHtml }) %>
 
 <div class="foia-note-foot">
   <p><span style="color: var(--accent);">ⓘ</span> <%= copy.foia.ai_notice.short %></p>

@@ -34,7 +34,12 @@ Actions to GitHub Pages. Source of truth is the working tree on `main`.
   the files. Small ad-hoc additions are appended at the end with a comment.
 - `copy.yaml` — every human-facing string on the site. Edit here, not in
   templates. If you're tempted to add a template literal in an Eta file,
-  put it in `copy.yaml` instead.
+  put it in `copy.yaml` instead. `ui:` holds the chrome shared by more than
+  one template (breadcrumb labels, the reading-pane buttons, unit words).
+- `site.config.yaml` — build tunables: which sections exist and whether their
+  index is a timeline, reserved FOIA routes, reading-speed and excerpt lengths,
+  every image width and JPEG quality, RSS and keyword limits. **A number that
+  affects output belongs here, not as a literal in `build.mjs`.**
 - `content/musings/<category>/<slug>/index.md` — blog posts. Markdown +
   frontmatter. `media/` subfolder for images.
 - `content/media/<path>/metadata.yaml` — standalone photo galleries.
@@ -324,6 +329,11 @@ subjects and so reflects ten historical commits written before this rule.
 - Drop shadows, gradients, rounded SaaS-style cards. The aesthetic is
   late-90s/early-blogspot — flat, narrow column, mono chrome.
 - A second copy of the entry list. See `templates/_entries.eta` above.
+- `style="..."` in a template for anything that repeats. Add a class to the
+  ad-hoc block at the end of `site.css`. Inline styles are for values that are
+  genuinely dynamic (a `background-image` built from a photo URL).
+- Literal strings or tunable numbers in `build.mjs` or an `.eta` file. They go
+  in `copy.yaml` and `site.config.yaml` respectively.
 - Bordered boxes stacked on bordered boxes. Rules beat borders; one muted
   sub-line beats a grid of labelled cells; a footnote beats a callout. If a
   new page type is growing notice blocks above the content, or showing the

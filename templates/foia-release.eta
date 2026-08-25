@@ -1,7 +1,7 @@
 <div class="musings-layout">
   <aside class="musings-tree" aria-label="FOIA archive">
     <input type="checkbox" id="tree-toggle" class="tree-toggle">
-    <label class="tree-head" for="tree-toggle">browse</label>
+    <label class="tree-head" for="tree-toggle"><%= copy.ui.sidebar_browse %></label>
     <%~ treeHtml %>
   </aside>
 
@@ -62,7 +62,7 @@
       </div>
     </nav>
 
-    <div style="text-align: center; margin-top: var(--sp-5); font-family: var(--font-mono); font-size: 12px; color: var(--ink-3);">
+    <div class="sp-backlink">
       <a href="<%= req.url %>">↑ <%= req.title %></a>
     </div>
   </div>

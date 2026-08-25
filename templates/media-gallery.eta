@@ -1,4 +1,4 @@
-<section style="margin-bottom: var(--sp-6);">
+<section class="sp-page-head">
   <div class="crumbs" style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); letter-spacing: 0.04em; margin-bottom: var(--sp-3);">
     <a href="/" style="color: var(--ink-3); text-decoration: none;">~</a>
     <% breadcrumbs.forEach(function(b, i){ %>

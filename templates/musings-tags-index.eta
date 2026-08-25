@@ -1,13 +1,13 @@
-<header style="margin-bottom: var(--sp-6);">
-  <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); margin-bottom: var(--sp-3);">
+<header class="sp-page-head">
+  <div class="sp-crumb">
     ~/<%= section.root %>/tags · <%= tagList.length %> tags
   </div>
-  <h1>Tags.</h1>
+  <h1><%= sectionCopy.tags_index.heading %></h1>
 </header>
 
 <section>
   <% if (tagList.length === 0) { %>
-    <div class="sp-empty"><span class="glyph">∅</span>no tags yet.</div>
+    <div class="sp-empty"><span class="glyph">∅</span><%= sectionCopy.tags_index.empty %></div>
   <% } %>
   <ul class="cat-list">
     <% tagList.forEach(function(t){ %>

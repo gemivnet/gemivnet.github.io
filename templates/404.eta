@@ -1,6 +1,6 @@
 <div style="max-width: 580px; margin: var(--sp-9) auto; padding-block: var(--sp-7);">
-  <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">
-    ~/404 · page not found
+  <div class="sp-eyebrow">
+    <%= copy.not_found.breadcrumb %>
   </div>
   <h1 style="font-size: var(--fs-mega); letter-spacing: -0.025em; line-height: 1.0; margin-bottom: var(--sp-4);"><%= copy.not_found.heading %></h1>
   <p style="font-size: 19px; color: var(--ink-2); margin-bottom: var(--sp-6);"><%= copy.not_found.paragraph %></p>
