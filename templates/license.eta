@@ -1,7 +1,7 @@
 <div class="site-reading">
-  <header style="margin-bottom: var(--sp-6);">
-    <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">
-      ~/license
+  <header class="sp-page-head">
+    <div class="sp-eyebrow">
+      <%= copy.license.breadcrumb %>
     </div>
     <h1><%= copy.license.title %></h1>
   </header>

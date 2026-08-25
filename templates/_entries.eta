@@ -55,7 +55,7 @@
       <% if (e.preview) { %><p class="sp-preview"><%= e.preview %></p><% } %>
       <% if (e.tags && e.tags.length) { %><div class="sp-tags"><% e.tags.forEach(function(t){ %><a class="sp-tag" href="<%= t.href %>"><%= t.label %></a><% }) %></div><% } %>
     </div>
-    <a class="sp-entry-open" href="<%= e.url %>" data-peek data-peek-title="<%= escapeHtml(e.title) %>" aria-label="Read <%= escapeHtml(e.title) %>">&rsaquo;</a>
+    <a class="sp-entry-open" href="<%= e.url %>" data-peek data-peek-title="<%= escapeHtml(e.title) %>" aria-label="<%= escapeHtml(copy.ui.peek_open_aria.replace('{title}', e.title)) %>"><%= copy.ui.peek_open %></a>
   </article>
 <% }) %>
 </div>
@@ -70,8 +70,8 @@
   <div class="sp-peek-panel" role="dialog" aria-modal="true" aria-labelledby="sp-peek-title" tabindex="-1">
     <div class="sp-peek-bar">
       <span class="sp-peek-crumb" id="sp-peek-title"></span>
-      <a class="sp-peek-full" id="sp-peek-full" href="<%= section.base %>">full page &rarr;</a>
-      <button class="sp-peek-close" type="button" data-peek-close aria-label="Close reading pane">&times;</button>
+      <a class="sp-peek-full" id="sp-peek-full" href="<%= section.base %>"><%= copy.ui.peek_full %></a>
+      <button class="sp-peek-close" type="button" data-peek-close aria-label="<%= copy.ui.peek_close_aria %>"><%= copy.ui.peek_close %></button>
     </div>
     <div class="sp-peek-body" id="sp-peek-body"></div>
   </div>

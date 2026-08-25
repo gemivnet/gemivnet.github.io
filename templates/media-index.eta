@@ -1,5 +1,5 @@
-<section style="margin-bottom: var(--sp-6);">
-  <div style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">
+<section class="sp-page-head">
+  <div class="sp-eyebrow">
     <%= copy.media.index.breadcrumb %> · <%= albums.length %> albums
   </div>
   <h1><%= copy.media.index.title %></h1>

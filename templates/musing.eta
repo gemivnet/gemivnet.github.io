@@ -1,7 +1,7 @@
 <div class="musings-layout">
   <aside class="musings-tree" aria-label="Musings folder tree">
     <input type="checkbox" id="tree-toggle" class="tree-toggle">
-    <label class="tree-head" for="tree-toggle">browse</label>
+    <label class="tree-head" for="tree-toggle"><%= copy.ui.sidebar_browse %></label>
     <%~ treeHtml %>
   </aside>
 
@@ -36,8 +36,8 @@
     <% if (related && related.length) { %>
     <section class="sp-section" aria-label="Related musings">
       <div class="sp-section-head">
-        <span class="sp-section-tag">related</span>
-        <h2>by shared tag</h2>
+        <span class="sp-section-tag"><%= sectionCopy.post.related_tag %></span>
+        <h2><%= sectionCopy.post.related_title %></h2>
       </div>
       <ul class="cat-list">
         <% related.forEach(function(r){ %>
@@ -63,7 +63,7 @@
       </div>
     </nav>
 
-    <div class="sp-backlink" style="text-align: center; margin-top: var(--sp-5); font-family: var(--font-mono); font-size: 12px; color: var(--ink-3);">
+    <div class="sp-backlink">
       <a href="<%= section.base %>"><%= sectionCopy.post.back_label %></a>
     </div>
   </div>

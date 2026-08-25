@@ -1304,3 +1304,32 @@
   border-top: 0;
   font-family: var(--font-mono);
 }
+
+/* ── template utility classes ──────────────────────────────
+   Hand-written 2026-08-25, ad-hoc. Fold into the next Claude Design bundle.
+   These replace inline style= attributes that were repeated across templates.
+   Each carries exactly the declarations the inline rule did. */
+.sp-page-head { margin-bottom: var(--sp-6); }
+.sp-crumb {
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  color: var(--ink-3);
+  margin-bottom: var(--sp-3);
+}
+.sp-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  color: var(--ink-3);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.sp-backlink {
+  text-align: center;
+  margin-top: var(--sp-5);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-3);
+}
+/* FOIA request and archive pages sat this 32px down, not 24px. */
+.sp-backlink.is-wide { margin-top: var(--sp-6); }

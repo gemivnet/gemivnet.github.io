@@ -1,0 +1,40 @@
+# Build tunables for scripts/build.mjs.
+# Numbers that used to be scattered through the script as literals. Change them
+# here; the build reads this file at startup and nothing else hardcodes them.
+
+# Where post sections come from and how their index renders.
+# root = content/<root>/ and the URL base. timeline = one dated stream on the
+# index instead of cards grouped by folder.
+sections:
+  musings:
+    root: musings
+    base: /musings
+    active: musings
+    timeline: false
+  rv12is:
+    root: rv12is
+    base: /rv12is
+    active: rv12is
+    timeline: true
+
+# Folder names that would collide with generated routes under /foia.
+# A request slug matching one of these fails the build.
+foia_reserved_routes: [agency, tag, tags, index]
+
+text:
+  words_per_minute: 220      # reading-time estimate
+  preview_chars: 220         # index excerpt length
+  seo_description_chars: 158 # fallback <meta description> when seo.description is absent
+  foia_blurb_chars: 180      # fallback request blurb from the summary's first line
+
+images:
+  # Gallery derivatives written next to the original.
+  gallery_med:   { width: 1400, quality: 82 }
+  gallery_thumb: { width: 600,  quality: 78 }
+  # Square crop shown beside each row in the shared entry list.
+  # position: attention picks the crop by entropy so it lands on the subject.
+  entry_thumb:   { width: 160, height: 160, quality: 76, position: attention }
+
+limits:
+  rss_items: 30       # entries in rss.xml / atom.xml
+  tag_keywords: 10    # <meta keywords> on a tag page

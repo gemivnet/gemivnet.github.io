@@ -49,7 +49,7 @@
     <a class="next" href="<%= next.pageUrl %>"><span class="label">next →</span><span class="title"><%= next.title || next.alt || next.file %></span></a>
   </nav>
 
-  <div style="text-align: center; margin-top: var(--sp-5); font-family: var(--font-mono); font-size: 12px; color: var(--ink-3);">
+  <div class="sp-backlink">
     <a href="<%= node.url %>">↑ back to <%= node.title %></a>
   </div>
 </div>

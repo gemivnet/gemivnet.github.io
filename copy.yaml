@@ -65,6 +65,37 @@ footer:
     - { label: "/rss.xml", href: "/rss.xml", indicator: true }
     - { label: "/changelog", href: "/changelog" }
 
+# ── shared UI chrome ────────────────────────────────────────
+# Strings that appear in more than one template. Anything here is safe to
+# reword without touching an .eta file.
+ui:
+  skip_to_content: "Skip to content"
+  sidebar_browse: "browse"          # the folder-tree toggle on post pages
+  all_label: "all"
+  browse_folder: "browse by folder:"
+  browse_tag: "browse by tag:"
+  random_link: "take me somewhere"
+  theme_light: "&#9728; light"
+  theme_dark: "&#9789; dark"
+  # the shared entry list (templates/_entries.eta)
+  peek_open: "&rsaquo;"
+  peek_open_aria: "Read {title}"
+  peek_full: "full page &rarr;"
+  peek_close: "&times;"
+  peek_close_aria: "Close reading pane"
+  peek_loading: "loading&hellip;"
+  # units
+  words: "words"
+  min_read: "min read"
+  words_abbr: "w"          # the compact form used in entry meta lines
+  min_abbr: "min"
+  doc_singular: "doc"
+  doc_plural: "docs"
+  pages_abbr: "pp"
+  pages: "pages"
+  file: "file"
+  sha256: "sha256"
+
 # ── musings index / category / tag ──────────────────────────
 musings:
   heading: "Musings."
@@ -81,14 +112,14 @@ musings:
     empty: "nothing here yet."
   category:
     breadcrumb_prefix: "~/musings/"
-    subfolders_tag: "subfolders"
-    subfolders_title: "browse deeper"
-    random_tag: "random pick"
-    random_title: "start somewhere"
+    subfolders_tag: "sub-folders"
     chronological_tag: "in this folder"
-    chronological_title: "chronological"
-    chronological_aside: "direct posts only (subfolders linked above)"
     no_direct_posts: "no posts directly here, see subfolders"
+  year:
+    other_years: "other years:"
+  tags_index:
+    heading: "Tags."
+    empty: "no tags yet."
   tag:
     breadcrumb_prefix: "~/musings/tag/"
     intro: "Cross-cutting tag. Posts here can live in different folders."
@@ -99,6 +130,8 @@ musings:
     oldest_note: "(this is the oldest)"
     newest_note: "(this is the newest)"
     back_label: "↑ back to all musings"
+    related_tag: "related"
+    related_title: "by shared tag"
 
 # ── rv-12is build log ───────────────────────────────────────
 rv12is:
@@ -121,7 +154,14 @@ rv12is:
     sort_oldest: "oldest first"
   category:
     breadcrumb_prefix: "~/rv12is/"
+    subfolders_tag: "sub-folders"
+    chronological_tag: "in this folder"
     no_direct_posts: "no entries directly here, see subfolders"
+  year:
+    other_years: "other years:"
+  tags_index:
+    heading: "Tags."
+    empty: "no tags yet."
   tag:
     breadcrumb_prefix: "~/rv12is/tag/"
     intro: "Cross-cutting tag. Entries here can live in different folders."
@@ -132,6 +172,8 @@ rv12is:
     oldest_note: "(this is the oldest)"
     newest_note: "(this is the newest)"
     back_label: "↑ back to the build log"
+    related_tag: "related"
+    related_title: "by shared tag"
 
 # ── media ───────────────────────────────────────────────────
 media:
@@ -301,6 +343,7 @@ empty:
 
 # ── 404 ─────────────────────────────────────────────────────
 not_found:
+  breadcrumb: "~/404 · page not found"
   heading: "404."
   paragraph: "That page doesn't exist. Try the homepage."
   buttons:
@@ -310,6 +353,7 @@ not_found:
 
 # ── /license ────────────────────────────────────────────────
 license:
+  breadcrumb: "~/license"
   title: "License & reuse"
   short: "© George Main. All rights reserved. Non-commercial reuse allowed freely under license; commercial reuse by permission."
   body:
@@ -329,5 +373,8 @@ copyright:
 # ── /changelog ──────────────────────────────────────────────
 # Entries are pulled from git log at build time. No manual list to maintain.
 changelog:
+  breadcrumb: "~/changelog · currently"
+  empty: "no commits yet."
+  details_label: "details"
   title: "changelog"
   intro: "Commits to this site, newest first. Versions auto-increment per push. Co-authored with claude."

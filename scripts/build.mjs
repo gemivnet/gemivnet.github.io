@@ -20,8 +20,10 @@ const OUT = SRC('_site');
 
 const COPY = yaml.load(await fs.readFile(SRC('copy.yaml'), 'utf8'));
 const SITE = COPY.site;
+// Build tunables. Everything that used to be a literal in this file.
+const CFG = yaml.load(await fs.readFile(SRC('site.config.yaml'), 'utf8'));
 
-// execFileSync, not execSync — execSync goes via cmd.exe on Windows, which
+// execFileSync, not execSync. execSync hands the command to a shell, which
 // can't take a UNC path as its working directory and quietly runs from
 // C:\Windows instead. This repo lives on a network share, where that turned
 // the version into v1 and the changelog into "git log failed".
@@ -87,7 +89,7 @@ const escapeHtml = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', 
 const xmlEscape = (s) => String(s).replace(/[&<>'"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&apos;', '"': '&quot;' }[c]));
 
 const wordCount = (txt) => stripHtml(txt).split(/\s+/).filter(Boolean).length;
-const readTime = (words) => Math.max(1, Math.round(words / 220));
+const readTime = (words) => Math.max(1, Math.round(words / CFG.text.words_per_minute));
 const fmtDate = (d) => {
   const dt = d instanceof Date ? d : new Date(d);
   return dt.toISOString().slice(0, 10);
@@ -156,7 +158,7 @@ const entryFromPost = (p, section, opts = {}) => ({
     ...(p.category.length
       ? [{ text: section.timeline ? (p.category.slice(1).join('/') || p.category.join('/')) : p.category[0], cls: 'cat' }]
       : []),
-    { text: `${p.wordCount.toLocaleString()} w \u00b7 ~${p.readTime} min`, cls: '' },
+    { text: `${p.wordCount.toLocaleString()} ${COPY.ui.words_abbr} \u00b7 ~${p.readTime} ${COPY.ui.min_abbr}`, cls: '' },
   ],
   preview: opts.preview ? p.preview : null,
   tags: opts.tags ? (p.tags || []).map(t => ({ label: t, href: `${section.base}/tag/${slugify(t)}` })) : null,
@@ -167,8 +169,8 @@ const entryFromPost = (p, section, opts = {}) => ({
 // few pixels here and reading as a different site.
 const entryFromRequest = (r, opts = {}) => {
   const vol = [
-    r.docCount ? `${r.docCount} doc${r.docCount === 1 ? '' : 's'}` : '',
-    r.pageCount ? `${r.pageCount.toLocaleString()} pp` : '',
+    r.docCount ? `${r.docCount} ${r.docCount === 1 ? COPY.ui.doc_singular : COPY.ui.doc_plural}` : '',
+    r.pageCount ? `${r.pageCount.toLocaleString()} ${COPY.ui.pages_abbr}` : '',
   ].filter(Boolean).join(' \u00b7 ');
   const money = r.fees.paid ? `${r.fees.paidFmt} paid`
     : (r.fees.pending && r.fees.quoted) ? `${r.fees.quotedFmt} pending`
@@ -298,11 +300,7 @@ function imgFigure(href, alt, title, kls) {
 // Post sections: each is a musings-shaped tree of markdown posts with its own
 // nav tab, index, category pages, tags, and year archives. Home page, feeds,
 // and gallery synthesis remain musings-only.
-const SECTIONS = {
-  musings: { root: 'musings', base: '/musings', active: 'musings' },
-  // timeline: index lists all posts date-first in one stream instead of cards-by-folder.
-  rv12is:  { root: 'rv12is',  base: '/rv12is',  active: 'rv12is', timeline: true },
-};
+const SECTIONS = CFG.sections;
 
 async function loadPosts(root) {
   const indices = await fg(root + '/**/index.md', { cwd: SRC('content') });
@@ -395,7 +393,7 @@ async function loadPosts(root) {
     });
 
     const words = wordCount(bodyMd);
-    const preview = truncate(stripHtml(marked.parse(bodyMd.split('\n\n').slice(0, 2).join('\n\n'), { async: false })), 220);
+    const preview = truncate(stripHtml(marked.parse(bodyMd.split('\n\n').slice(0, 2).join('\n\n'), { async: false })), CFG.text.preview_chars);
 
     // Featured image URL: prefer the S3 entry if mapped, else fall back to a post-local path.
     let featured = null;
@@ -530,7 +528,7 @@ async function loadMedia() {
 // keeps the timeline the single complete account of the request.
 
 // Route segments under /foia that are ours, so a request folder can't shadow them.
-const FOIA_RESERVED = new Set(['agency', 'tag', 'tags', 'index']);
+const FOIA_RESERVED = new Set(CFG.foia_reserved_routes);
 
 const foiaLocalDir = (slug) => path.join(SRC('content'), 'foia', slug, 'files');
 
@@ -776,8 +774,8 @@ async function buildMediaImages(node) {
     if (!im.absPath) continue;  // S3-backed image, no local processing needed
     const baseOut = path.join(node.dir, im.file);
     await copyFile(im.absPath, baseOut);
-    await processImage(im.absPath, path.join(node.dir, '_med', im.file), { width: 1400 });
-    await processImage(im.absPath, path.join(node.dir, '_thumb', im.file), { width: 600, quality: 78 });
+    await processImage(im.absPath, path.join(node.dir, '_med', im.file), CFG.images.gallery_med);
+    await processImage(im.absPath, path.join(node.dir, '_thumb', im.file), CFG.images.gallery_thumb);
   }
 }
 
@@ -832,7 +830,7 @@ async function renderHome(musings, rvPosts, mediaNodes) {
     url: m.url, title: m.title, subtitle: m.subtitle, preview: m.preview,
     featured: m.featured, tags: m.tags, date: fmtDate(m.date),
     dateLong: fmtLongDate(m.date),
-    readtime: `${fmtLongDate(m.date).split(',')[0]} · ${m.wordCount.toLocaleString()} words · ~${m.readTime} min read`,
+    readtime: `${fmtLongDate(m.date).split(',')[0]} · ${m.wordCount.toLocaleString()} ${COPY.ui.words} · ~${m.readTime} ${COPY.ui.min_read}`,
     path: m.folder, category: m.category.join('/') || 'misc',
   })), 7);
 
@@ -859,7 +857,7 @@ async function renderHome(musings, rvPosts, mediaNodes) {
   }
   const shuffledImages = seededShuffle(allImages, 13);
 
-  const recent = musings.slice(0, 5).map(m => ({
+  const recent = musings.slice(0, COPY.home.lately.recent_count).map(m => ({
     date: fmtDate(m.date).replace(/-/g, '·'),
     dateLong: fmtLongDate(m.date),
     title: m.title,
@@ -1093,8 +1091,9 @@ async function renderPostSection(posts, section) {
       const rel = `${m.url.slice(1)}/media/thumb-${m.featured.slice(prefix.length)}`;
       try {
         await writeFile(rel, await sharp(src).rotate()
-          .resize({ width: 160, height: 160, fit: 'cover', position: 'attention' })
-          .jpeg({ quality: 76, progressive: true, mozjpeg: true })
+          .resize({ width: CFG.images.entry_thumb.width, height: CFG.images.entry_thumb.height,
+                    fit: 'cover', position: CFG.images.entry_thumb.position })
+          .jpeg({ quality: CFG.images.entry_thumb.quality, progressive: true, mozjpeg: true })
           .toBuffer());
         m.featuredThumb = '/' + rel;
       } catch {}
@@ -1170,7 +1169,7 @@ async function renderPostSection(posts, section) {
     const html = await renderPage('musing', {
       page: {
         title: `${m.title}, ${SITE.title}`,
-        description: m.seo.description || truncate(m.preview, 158),
+        description: m.seo.description || truncate(m.preview, CFG.text.seo_description_chars),
         keywords: m.seo.keywords || m.tags,
         url: m.url,
         bodyClass: pageHelpers.bodyClass(section.active),
@@ -1188,7 +1187,7 @@ async function renderPostSection(posts, section) {
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
         headline: m.title,
-        description: m.seo.description || truncate(m.preview, 158),
+        description: m.seo.description || truncate(m.preview, CFG.text.seo_description_chars),
         image: m.featured ? pageHelpers.absUrl(m.featured) : undefined,
         datePublished: m.date.toISOString(),
         author: { '@type': 'Person', name: SITE.author },
@@ -1321,7 +1320,7 @@ async function renderPostSection(posts, section) {
       page: {
         title: `#${tag}, ${SITE.title}`,
         description: `Posts tagged "${tag}" by ${SITE.author}.`,
-        keywords: [tag, ...tagged.flatMap(p => p.tags)].slice(0, 10),
+        keywords: [tag, ...tagged.flatMap(p => p.tags)].slice(0, CFG.limits.tag_keywords),
         url,
         bodyClass: pageHelpers.bodyClass(section.active),
         type: 'website',
@@ -1578,7 +1577,7 @@ async function renderFoia(requests) {
     docCount: r.docCount, pageCount: r.pageCount, byteCountFmt: r.byteCountFmt,
     releaseCount: r.releases.length,
     fees: r.fees,
-    blurb: r.seo.description || (r.summary ? truncate(r.summary.text.split('\n')[0], 180) : ''),
+    blurb: r.seo.description || (r.summary ? truncate(r.summary.text.split('\n')[0], CFG.text.foia_blurb_chars) : ''),
   });
 
   // ── /foia ──
@@ -1879,7 +1878,7 @@ ${urls.map(u => `  <url><loc>${xmlEscape(pageHelpers.absUrl(u))}</loc></url>`).j
   await writeFile('robots.txt', `User-agent: *\nAllow: /\nSitemap: ${SITE.url}/sitemap.xml\n`);
 
   // rss
-  const items = musings.slice(0, 30).map(m => `
+  const items = musings.slice(0, CFG.limits.rss_items).map(m => `
     <item>
       <title>${xmlEscape(m.title)}</title>
       <link>${xmlEscape(pageHelpers.absUrl(m.url))}</link>

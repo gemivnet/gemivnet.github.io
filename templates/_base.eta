@@ -35,7 +35,7 @@
 </head>
 <body class="<%= page.bodyClass %>">
 
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main"><%= copy.ui.skip_to_content %></a>
 
   <header class="sp-top">
     <div class="sp-top-inner">
@@ -50,7 +50,7 @@
         <% }) %>
       </nav>
       <div class="sp-status">
-        <button class="sp-theme-toggle" id="theme-toggle" type="button" title="toggle theme">&#9728; light</button>
+        <button class="sp-theme-toggle" id="theme-toggle" type="button" title="toggle theme"><%= copy.ui.theme_light %></button>
       </div>
     </div>
   </header>
@@ -80,7 +80,7 @@
             <li><a href="<%= s.href %>"><%= s.label %></a><% if (s.indicator) { %> &nbsp;<span style="color: var(--accent);">&#9679;</span><% } %></li>
           <% }) %>
           <% if (typeof allPostUrls !== 'undefined' && allPostUrls && allPostUrls.length) { %>
-            <li><a href="#" id="random-musing-link" data-urls='<%~ JSON.stringify(allPostUrls) %>'>take me somewhere</a></li>
+            <li><a href="#" id="random-musing-link" data-urls='<%~ JSON.stringify(allPostUrls) %>'><%= copy.ui.random_link %></a></li>
           <% } %>
           <li><a href="/license"><%= copy.copyright.link_text %></a></li>
           <li style="margin-top: var(--sp-3); color: var(--ink-3);"><%= copy.copyright.line %></li>
