@@ -36,7 +36,9 @@ http.createServer(async (req, res) => {
   let url = decodeURIComponent(req.url.split('?')[0]);
   if (url.endsWith('/')) url += 'index.html';
   let p = path.join(ROOT, url);
-  if (!p.startsWith(ROOT)) { res.writeHead(403); res.end(); return; }
+  // ROOT + separator, not a bare prefix: ROOT is _site, and a bare startsWith also
+  // accepts _site.stale (which exists in this repo), so ../\_site.stale/x escaped here.
+  if (p !== ROOT && !p.startsWith(ROOT + path.sep)) { res.writeHead(403); res.end(); return; }
   if (await serveFile(p, res)) return;
   // try clean URL: /foo -> /foo/index.html or /foo.html
   if (!path.extname(p)) {
@@ -46,4 +48,6 @@ http.createServer(async (req, res) => {
   const fallback = await fs.readFile(path.join(ROOT, '404.html')).catch(() => null);
   res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
   res.end(fallback || 'Not found');
-}).listen(PORT, () => console.log(`http://localhost:${PORT}`));
+  // Bound to loopback, matching the URL it prints. It served every interface before,
+  // which put an unbuilt local copy of the site on the LAN during `npm run dev`.
+}).listen(PORT, '127.0.0.1', () => console.log(`http://localhost:${PORT}`));
