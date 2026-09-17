@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Maskable: the launcher crops this to a circle, a squircle or a rounded square depending on
+       the device, so the background runs edge to edge and the mark sits inside the 80% safe
+       zone. The ordinary favicon keeps its own rounded corners; this one must not have any. -->
+  <rect width="64" height="64" fill="#e2604a" />
+  <text
+    x="32"
+    y="42"
+    font-family="ui-rounded, 'SF Pro Rounded', 'Segoe UI', system-ui, sans-serif"
+    font-size="28"
+    font-weight="700"
+    fill="#fdfaf4"
+    text-anchor="middle"
+  >Sz</text>
+</svg>
