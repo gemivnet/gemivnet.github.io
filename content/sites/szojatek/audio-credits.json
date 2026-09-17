@@ -5488,5 +5488,20 @@
     "file": "tts_hu_zongoratanár.mp3",
     "source": "macOS speech synthesis (Tünde, hu_HU)",
     "page": null
+  },
+  {
+    "file": "tts_hu_jókat_lehet_valakivel_valamit_csinálni.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_szokni_valamit_csinálni.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_Senkit_nem_érdekel.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
+    "page": null
   }
 ]
