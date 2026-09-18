@@ -44,6 +44,13 @@ The 6 day wrench week was awesome. We met some great people in our 11
 person class and learned a lot. Thanks to Ben and Mike at Joby and Mike and
 Lauren at MotiveAero for setting up an awesome program.
 
+## Flightline Interiors
+
+A couple of weekends ago we took a drive up to Wisconsin to meet with Abby
+and her husband at Flightline Interiors. We discussed the interior design,
+fabric options, and everything else. It was great to meet them in person
+and we're really excited to see their work when it's done.
+
 ## Rib deburring
 
 As for the plane, full steam ahead with deburring. Joby is an authorized
