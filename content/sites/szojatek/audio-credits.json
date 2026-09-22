@@ -1,5 +1,860 @@
 [
   {
+    "file": "tts_hu_asztali_tenisz.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_asztaliteniszezik.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_az_a.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_az_enyém.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_Az_összes_tetszik.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_bemegy.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_beül_az_autóba.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_biciklis.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_bioétel.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_bióétel.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_biztos_lenni_valamiben.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_Biztos_vagyok_benne!.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_bőrönd.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_Borünnep.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_brassói_aprópecsenye.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_buszozik.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_cipős.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_Csókolom!.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_délelőttre.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_egész_hét.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_egész_hétvége.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_egészen_pontosan.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_Egyesült_Arab_Emírségek.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_elköltözik.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_előszoba.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_először.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_érdekel.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_étvágyat.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_ez_a.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_fagyizó.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_fagylaltozik.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_felnőttjegy.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_fényképezik.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_férficipő.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_forrónadrág.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_franciatanár.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_frissensült.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_frusztráló.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_gitárfesztivál.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_gyerekjegy.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_gyógyít.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_gyors_vonat.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_hajvágásra.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_hány_ember.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_hánykor.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_házhoz_szállítani.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_hazulról.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_hiányzik.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_Himalája.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_honnanhonnét.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_hortobágyi_húsos_palacsinta.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_hortobágyi.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_hosszúkávé.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_hovahová.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_hozhatok.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_húsféle.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_illik.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_imád.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_inneninnét.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_jelen_idő.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_jó_a_közbiztonság.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_jó_a_közlekedés.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_jó,_ha.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_jóillatú.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_jókat_lehet_valakivel_valamit_csinálni.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_kenyérféle.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_kezd_csinálni.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_kézilabdázik.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_kiért.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_kijön.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_kinek.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_kistestvér.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_kistévé.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_kitől.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_koncentrál.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_koncertezik.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_Köszi!.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_közelre.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_kürtöskalács.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_legyen_szíves.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_lehet_ség.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_lemegy.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_luxusétterem.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_magas_az_életszínvonal.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_magyarkönyv.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_magyartanár.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_magyartanfolyam.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_már_nem.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_Már_szombat_van!.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_marketingmenedzser.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_meddig.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_még_csak.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_még_egy.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_Messze_van.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_mettől_meddig.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_Milyen_névre.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_mind_a_ketten.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_mind_a_kettő.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_minden_szombaton.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_mindenhonnanmindenhonnét.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_mindenhova.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_mindenhovamindenhová.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_motorozik.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_munkalehet_ség.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_munkaszüneti_nap.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_nem_működik.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_nem_olyan.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_Nem_túl_nagyon.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_Nincs_messze.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_Nincs_mit.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_női_cipő.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_nyitva_tartás.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_nyitva_van.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_nyitvatartás.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_ölel_,.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_onnanonnét.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_országnév.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_ötcsillagos.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_pezsg.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_pizzásdoboz.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_pizzázik.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_Portugálul_beszélek.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_puzzle.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_ragozott.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_relaxáló.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_rendet_rak.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_rockkoncert.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_rózsaszín.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_sehonnansehonnét.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_sehovasehová.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_Senkit_nem_érdekel.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_simogat.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_sportcentrum.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_sportolási.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_stabilitás.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_szabadidős_programok.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_személyjel.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_szendvicsbár.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_szénsavas_ásványvíz.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_szeret_csinálni.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_szokni_valamit_csinálni.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_tanul_nyelven.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_tárgyas.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_tatárbifsztek.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_telekommunikáció.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_teniszüt.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_Tessék.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_tesztmérnök.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_tölt_időt.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_Tud_segíteni.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_Újházi_tyúkhúsleves.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_újházi.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_üknagyapa.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_ünnepel.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_üveg_víz.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_vala-.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_valahonnanvalahonnét.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_valahovavalahová.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_válaszol.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_valószínűleg.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_van_időm_valamire.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_Van_nálam.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_vaníliapuding.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_vár.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_vegyes_köret.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_vegyes_saláta.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_videokonferencia.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_villamosvezető.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_wellness.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_zárva_van.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_zongoratanár.mp3",
+    "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
     "file": "wiktionary_hu_abban.mp3",
     "source": "Hu-abban.ogg",
     "page": "https://commons.wikimedia.org/wiki/File:Hu-abban.ogg"
@@ -253,6 +1108,11 @@
     "file": "wiktionary_hu_április.mp3",
     "source": "Hu-április.ogg",
     "page": "https://commons.wikimedia.org/wiki/File:Hu-%C3%A1prilis.ogg"
+  },
+  {
+    "file": "wiktionary_hu_apró.mp3",
+    "source": "Hu-apró.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu-apr%C3%B3.ogg"
   },
   {
     "file": "wiktionary_hu_ár.mp3",
@@ -830,6 +1690,16 @@
     "page": "https://commons.wikimedia.org/wiki/File:Hu-%C3%A9des.ogg"
   },
   {
+    "file": "wiktionary_hu_edz.mp3",
+    "source": "Hu-edz.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu-edz.ogg"
+  },
+  {
+    "file": "wiktionary_hu_edző.mp3",
+    "source": "Hu-edző.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu-edz%C5%91.ogg"
+  },
+  {
     "file": "wiktionary_hu_egész.mp3",
     "source": "Hu-egész.ogg",
     "page": "https://commons.wikimedia.org/wiki/File:Hu-eg%C3%A9sz.ogg"
@@ -1118,6 +1988,11 @@
     "file": "wiktionary_hu_eső.mp3",
     "source": "Hu-eső.ogg",
     "page": "https://commons.wikimedia.org/wiki/File:Hu-es%C5%91.ogg"
+  },
+  {
+    "file": "wiktionary_hu_esőerdő.mp3",
+    "source": "Hu-esőerdő.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu-es%C5%91erd%C5%91.ogg"
   },
   {
     "file": "wiktionary_hu_este.mp3",
@@ -1478,6 +2353,11 @@
     "file": "wiktionary_hu_gondol.mp3",
     "source": "Hu-gondol.ogg",
     "page": "https://commons.wikimedia.org/wiki/File:Hu-gondol.ogg"
+  },
+  {
+    "file": "wiktionary_hu_gondolkodik (vmin).mp3",
+    "source": "Hu-gondolkodik.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu-gondolkodik.ogg"
   },
   {
     "file": "wiktionary_hu_görög.mp3",
@@ -1908,6 +2788,11 @@
     "file": "wiktionary_hu_ilyenkor.mp3",
     "source": "Hu-ilyenkor.ogg",
     "page": "https://commons.wikimedia.org/wiki/File:Hu-ilyenkor.ogg"
+  },
+  {
+    "file": "wiktionary_hu_indul.mp3",
+    "source": "Hu-indul.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu-indul.ogg"
   },
   {
     "file": "wiktionary_hu_információ.mp3",
@@ -2960,6 +3845,11 @@
     "page": "https://commons.wikimedia.org/wiki/File:Hu-m%C5%B1k%C3%B6dik.ogg"
   },
   {
+    "file": "wiktionary_hu_múlt.mp3",
+    "source": "Hu-múlt.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu-m%C3%BAlt.ogg"
+  },
+  {
     "file": "wiktionary_hu_múlva.mp3",
     "source": "Hu-múlva.ogg",
     "page": "https://commons.wikimedia.org/wiki/File:Hu-m%C3%BAlva.ogg"
@@ -3008,6 +3898,11 @@
     "file": "wiktionary_hu_nap.mp3",
     "source": "Hu-nap.ogg",
     "page": "https://commons.wikimedia.org/wiki/File:Hu-nap.ogg"
+  },
+  {
+    "file": "wiktionary_hu_napos.mp3",
+    "source": "Hu-napos.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu-napos.ogg"
   },
   {
     "file": "wiktionary_hu_nappali.mp3",
@@ -3128,6 +4023,11 @@
     "file": "wiktionary_hu_névelő.mp3",
     "source": "Hu-névelő.ogg",
     "page": "https://commons.wikimedia.org/wiki/File:Hu-n%C3%A9vel%C5%91.ogg"
+  },
+  {
+    "file": "wiktionary_hu_nevet.mp3",
+    "source": "Hu-nevet.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu-nevet.ogg"
   },
   {
     "file": "wiktionary_hu_néz.mp3",
@@ -3643,6 +4543,11 @@
     "file": "wiktionary_hu_rossz.mp3",
     "source": "Hu-rossz.ogg",
     "page": "https://commons.wikimedia.org/wiki/File:Hu-rossz.ogg"
+  },
+  {
+    "file": "wiktionary_hu_rosszul.mp3",
+    "source": "Hu-rosszul.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu-rosszul.ogg"
   },
   {
     "file": "wiktionary_hu_rövid.mp3",
@@ -4535,6 +5440,11 @@
     "page": "https://commons.wikimedia.org/wiki/File:LL-Q9067_(hun)-Procrastineur49-vend%C3%A9gl%C5%91.wav"
   },
   {
+    "file": "wiktionary_hu_verseny.mp3",
+    "source": "Hu-verseny.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu-verseny.ogg"
+  },
+  {
     "file": "wiktionary_hu_vesz.mp3",
     "source": "Hu-vesz.ogg",
     "page": "https://commons.wikimedia.org/wiki/File:Hu-vesz.ogg"
@@ -4648,860 +5558,5 @@
     "file": "wiktionary_hu_zsiráf.mp3",
     "source": "Hu-zsiráf.ogg",
     "page": "https://commons.wikimedia.org/wiki/File:Hu-zsir%C3%A1f.ogg"
-  },
-  {
-    "file": "tts_hu_asztali_tenisz.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_asztaliteniszezik.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_az_a.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_az_enyém.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_Az_összes_tetszik.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_bőrönd.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_bemegy.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_beül_az_autóba.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_biciklis.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_bioétel.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_bióétel.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_biztos_lenni_valamiben.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_Biztos_vagyok_benne!.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_Borünnep.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_brassói_aprópecsenye.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_buszozik.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_cipős.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_Csókolom!.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_délelőttre.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_egész_hét.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_egész_hétvége.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_egészen_pontosan.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_Egyesült_Arab_Emírségek.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_előszoba.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_először.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_elköltözik.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_érdekel.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_étvágyat.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_ez_a.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_fagyizó.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_fagylaltozik.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_felnőttjegy.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_fényképezik.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_férficipő.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_forrónadrág.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_franciatanár.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_frissensült.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_frusztráló.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_gitárfesztivál.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_gyerekjegy.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_gyógyít.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_gyors_vonat.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_hajvágásra.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_hány_ember.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_hánykor.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_házhoz_szállítani.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_hazulról.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_hiányzik.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_Himalája.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_honnanhonnét.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_hortobágyi.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_hortobágyi_húsos_palacsinta.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_hosszúkávé.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_hovahová.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_hozhatok.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_húsféle.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_illik.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_imád.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_inneninnét.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_jelen_idő.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_jó_a_közbiztonság.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_jó_a_közlekedés.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_jó,_ha.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_jóillatú.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_kenyérféle.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_kezd_csinálni.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_kézilabdázik.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_kiért.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_kijön.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_kinek.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_kistestvér.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_kistévé.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_kitől.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_koncentrál.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_koncertezik.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_Köszi!.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_közelre.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_kürtöskalács.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_legyen_szíves.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_lehet_ség.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_lemegy.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_luxusétterem.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_magas_az_életszínvonal.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_magyarkönyv.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_magyartanár.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_magyartanfolyam.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_már_nem.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_Már_szombat_van!.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_marketingmenedzser.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_meddig.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_még_csak.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_még_egy.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_Messze_van.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_mettől_meddig.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_Milyen_névre.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_mind_a_ketten.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_mind_a_kettő.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_minden_szombaton.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_mindenhonnanmindenhonnét.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_mindenhova.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_mindenhovamindenhová.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_motorozik.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_munkalehet_ség.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_munkaszüneti_nap.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_nem_működik.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_nem_olyan.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_Nem_túl_nagyon.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_Nincs_messze.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_Nincs_mit.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_női_cipő.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_nyitva_tartás.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_nyitva_van.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_nyitvatartás.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_onnanonnét.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_országnév.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_ölel_,.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_ötcsillagos.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_pezsg.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_pizzásdoboz.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_pizzázik.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_Portugálul_beszélek.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_puzzle.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_ragozott.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_relaxáló.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_rendet_rak.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_rockkoncert.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_rózsaszín.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_sehonnansehonnét.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_sehovasehová.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_simogat.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_sportcentrum.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_sportolási.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_stabilitás.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_szabadidős_programok.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_személyjel.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_szendvicsbár.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_szénsavas_ásványvíz.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_szeret_csinálni.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_tanul_nyelven.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_tárgyas.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_tatárbifsztek.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_telekommunikáció.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_teniszüt.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_Tessék.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_tesztmérnök.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_tölt_időt.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_Tud_segíteni.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_újházi.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_Újházi_tyúkhúsleves.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_üknagyapa.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_ünnepel.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_üveg_víz.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_vala-.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_valahonnanvalahonnét.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_valahovavalahová.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_válaszol.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_valószínűleg.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_van_időm_valamire.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_Van_nálam.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_vaníliapuding.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_vár.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_vegyes_köret.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_vegyes_saláta.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_videokonferencia.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_villamosvezető.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_wellness.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_zárva_van.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_zongoratanár.mp3",
-    "source": "macOS speech synthesis (Tünde, hu_HU)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_jókat_lehet_valakivel_valamit_csinálni.mp3",
-    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_szokni_valamit_csinálni.mp3",
-    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_Senkit_nem_érdekel.mp3",
-    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
-    "page": null
   }
 ]
