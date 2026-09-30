@@ -5558,5 +5558,40 @@
     "file": "wiktionary_hu_zsiráf.mp3",
     "source": "Hu-zsiráf.ogg",
     "page": "https://commons.wikimedia.org/wiki/File:Hu-zsir%C3%A1f.ogg"
+  },
+  {
+    "file": "tts_hu_esik_az_eső.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_evezős_verseny.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_gyógypedagógia.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_gyógypedagógus.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_nagyon_jól_éreztem_magam.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_süt_a_nap.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_ükapa.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
+    "page": null
   }
 ]
