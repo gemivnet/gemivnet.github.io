@@ -135,8 +135,18 @@
     "page": null
   },
   {
+    "file": "tts_hu_esik_az_eső.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
+    "page": null
+  },
+  {
     "file": "tts_hu_étvágyat.mp3",
     "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_evezős_verseny.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
     "page": null
   },
   {
@@ -202,6 +212,16 @@
   {
     "file": "tts_hu_gyógyít.mp3",
     "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_gyógypedagógia.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_gyógypedagógus.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
     "page": null
   },
   {
@@ -525,6 +545,11 @@
     "page": null
   },
   {
+    "file": "tts_hu_nagyon_jól_éreztem_magam.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
+    "page": null
+  },
+  {
     "file": "tts_hu_nem_működik.mp3",
     "source": "macOS speech synthesis (Tünde, hu_HU)",
     "page": null
@@ -675,6 +700,11 @@
     "page": null
   },
   {
+    "file": "tts_hu_süt_a_nap.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
+    "page": null
+  },
+  {
     "file": "tts_hu_szabadidős_programok.mp3",
     "source": "macOS speech synthesis (Tünde, hu_HU)",
     "page": null
@@ -757,6 +787,11 @@
   {
     "file": "tts_hu_újházi.mp3",
     "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_ükapa.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
     "page": null
   },
   {
@@ -2110,6 +2145,11 @@
     "page": "https://commons.wikimedia.org/wiki/File:Hu-f%C3%A1raszt%C3%B3.ogg"
   },
   {
+    "file": "wiktionary_hu_fázik.mp3",
+    "source": "Hu-fázik.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu-f%C3%A1zik.ogg"
+  },
+  {
     "file": "wiktionary_hu_február.mp3",
     "source": "Hu-február.ogg",
     "page": "https://commons.wikimedia.org/wiki/File:Hu-febru%C3%A1r.ogg"
@@ -2153,6 +2193,11 @@
     "file": "wiktionary_hu_feleség.mp3",
     "source": "LL-Q9067 (hun)-Beaudine Wilson-feleség.wav",
     "page": "https://commons.wikimedia.org/wiki/File:LL-Q9067_(hun)-Beaudine_Wilson-feles%C3%A9g.wav"
+  },
+  {
+    "file": "wiktionary_hu_felhő.mp3",
+    "source": "Hu-felhő.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu-felh%C5%91.ogg"
   },
   {
     "file": "wiktionary_hu_felület.mp3",
@@ -2738,6 +2783,11 @@
     "file": "wiktionary_hu_idő.mp3",
     "source": "Hu-idő.ogg",
     "page": "https://commons.wikimedia.org/wiki/File:Hu-id%C5%91.ogg"
+  },
+  {
+    "file": "wiktionary_hu_időjárás.mp3",
+    "source": "LL-Q9067 (hun)-Procrastineur49-időjárás.wav",
+    "page": "https://commons.wikimedia.org/wiki/File:LL-Q9067_(hun)-Procrastineur49-id%C5%91j%C3%A1r%C3%A1s.wav"
   },
   {
     "file": "wiktionary_hu_igaz.mp3",
@@ -4755,6 +4805,16 @@
     "page": "https://commons.wikimedia.org/wiki/File:Hu-szekr%C3%A9ny.ogg"
   },
   {
+    "file": "wiktionary_hu_szél.mp3",
+    "source": "Hu-szél.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu-sz%C3%A9l.ogg"
+  },
+  {
+    "file": "wiktionary_hu_szeles.mp3",
+    "source": "Hu-szeles.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu-szeles.ogg"
+  },
+  {
     "file": "wiktionary_hu_széles.mp3",
     "source": "Hu-széles.ogg",
     "page": "https://commons.wikimedia.org/wiki/File:Hu-sz%C3%A9les.ogg"
@@ -5558,40 +5618,5 @@
     "file": "wiktionary_hu_zsiráf.mp3",
     "source": "Hu-zsiráf.ogg",
     "page": "https://commons.wikimedia.org/wiki/File:Hu-zsir%C3%A1f.ogg"
-  },
-  {
-    "file": "tts_hu_esik_az_eső.mp3",
-    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_evezős_verseny.mp3",
-    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_gyógypedagógia.mp3",
-    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_gyógypedagógus.mp3",
-    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_nagyon_jól_éreztem_magam.mp3",
-    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_süt_a_nap.mp3",
-    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_ükapa.mp3",
-    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
-    "page": null
   }
 ]
