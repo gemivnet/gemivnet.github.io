@@ -2095,6 +2095,11 @@
     "page": "https://commons.wikimedia.org/wiki/File:Hu-%C3%A9ves.ogg"
   },
   {
+    "file": "wiktionary_hu_evez.mp3",
+    "source": "Hu-evez.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu-evez.ogg"
+  },
+  {
     "file": "wiktionary_hu_évszak.mp3",
     "source": "Hu-évszak.ogg",
     "page": "https://commons.wikimedia.org/wiki/File:Hu-%C3%A9vszak.ogg"
@@ -5278,6 +5283,11 @@
     "file": "wiktionary_hu_uborka.mp3",
     "source": "LL-Q9067 (hun)-Beaudine Wilson-uborka.wav",
     "page": "https://commons.wikimedia.org/wiki/File:LL-Q9067_(hun)-Beaudine_Wilson-uborka.wav"
+  },
+  {
+    "file": "wiktionary_hu_ugyan.mp3",
+    "source": "Hu-ugyan.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu-ugyan.ogg"
   },
   {
     "file": "wiktionary_hu_ugyanaz.mp3",
