@@ -109,7 +109,6 @@ timeline:
       before the Public Access Counselor.
     files:
       - id: response-letter
-        dump_file: chicago-mayor-mcdonalds/F155072_Response_Letter.pdf
         file: 2026-10-19-response-letter.pdf
         title: Response letter
         description: >-
@@ -121,7 +120,6 @@ timeline:
         s3: >-
           https://georgemain-com-media.s3.amazonaws.com/foia/chicago-mayor-mcdonalds/2026-10-19-release/2026-10-19-response-letter.pdf
       - id: mayor-emails
-        dump_file: chicago-mayor-mcdonalds/F155072_Emails_R.pdf
         file: 2026-10-19-mayor-emails.pdf
         title: Responsive emails
         description: >-
