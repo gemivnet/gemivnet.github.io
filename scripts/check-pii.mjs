@@ -100,6 +100,7 @@ const BINARY_EXT =
   /\.(png|jpe?g|gif|webp|avif|ico|svgz|mp3|m4a|ogg|wav|flac|mp4|mov|webm|pdf|woff2?|ttf|otf|eot|zip|gz|bz2|xz|7z|docx?|xlsx?|pptx?|sqlite3?|db)$/i;
 
 const lines = [];
+let scanned = 0;   // files actually read in --all mode, for the summary line
 
 if (SCAN_ALL) {
   // Whole-tree sweep, for CI. The staged-diff mode below is right for a pre-commit hook
@@ -108,6 +109,7 @@ if (SCAN_ALL) {
   const tracked = git(['ls-files', '-z']).split('\0').filter(Boolean);
   for (const file of tracked) {
     if (skipFile(file) || BINARY_EXT.test(file)) continue;
+    scanned++;
     let body;
     try {
       body = readFileSync(path.join(ROOT, file), 'utf8');
@@ -174,7 +176,12 @@ try {
 
 // ── report ────────────────────────────────────────────────
 if (hits.length === 0) {
-  console.log('[pii] no obvious PII in staged changes ✓');
+  // Name the mode. Both modes used to report "staged changes", so a green
+  // --all run read as though it had scanned nothing, which is the exact
+  // failure --all exists to prevent.
+  console.log(SCAN_ALL
+    ? `[pii] no obvious PII in ${scanned} tracked file(s) ✓`
+    : '[pii] no obvious PII in staged changes ✓');
   // optional AI pass
   await maybeAiPass(lines);
   process.exit(0);
