@@ -1,0 +1,141 @@
+title: Mayor Brandon Johnson's emails mentioning McDonald's
+agency: City of Chicago
+agency_short: Chicago
+jurisdiction: us-local
+statute: Illinois FOIA (5 ILCS 140)
+tracking: F155072-100726
+status: partial
+filed: "2026-10-07"
+closed: "2026-10-19"
+category: city-hall
+tags:
+  - chicago
+  - brandon-johnson
+  - mayors-office
+  - mcdonalds
+  - illinois-foia
+seo:
+  description: >-
+    Every email in the Chicago mayor's office mentioning McDonald's since the start of Brandon
+    Johnson's term, released with five exemptions cited.
+  keywords:
+    - Brandon Johnson emails FOIA
+    - Chicago mayor McDonald's
+    - Chicago Office of the Mayor FOIA
+    - F155072-100726
+    - MPO Daily News Clips
+    - Golden Arches FOIA
+    - 5 ILCS 140/7(1)(b)
+summary:
+  text: |
+    One release, two documents, 1,084 pages, covering May 2023 to October 2026.
+    The emails account for 1,081 of those pages, and 59 of them contain one of
+    the requested terms.
+
+    The volume is almost entirely the Mayor's Press Office daily news clips
+    digest, 18 editions between August 5 and November 15, 2024, in which the
+    chain appears inside press coverage rather than in correspondence. The
+    remainder is subscription newsletters that mention it in passing, including
+    The Daily Line, The Well News and Axios, and constituent letters to the
+    mayor on unrelated subjects whose quoted threads carry one of the terms.
+    One message is addressed to the chain's chief executive at his corporate
+    address.
+
+    Other correspondents on the released pages include members of the City
+    Council, Chicago Police district CAPS mailboxes, the Illinois governor's
+    office, and federal offices at the Department of Justice, DEA, ATF and
+    Homeland Security.
+
+    Redactions are applied throughout under five sections of the Act. Personal
+    contact details, third-party names and personal events are blacked out, as
+    are the names of officers assigned to the mayor's security detail.
+  generated_by: Claude (Opus 5)
+  generated_on: "2026-10-19"
+  reviewed: false
+fees:
+  paid: 0
+  note: No fee was charged.
+rights:
+  note: >-
+    Records released by the City of Chicago Office of the Mayor under the Illinois Freedom of
+    Information Act (5 ILCS 140). Chicago publishes the text of every FOIA request it receives and
+    asserts no copyright in these records. Note that 17 U.S.C. § 105, which places federal works
+    outside copyright, does not apply to municipal records.
+timeline:
+  - id: filed
+    date: "2026-10-07"
+    type: filed
+    tracking: F155072-100726
+    title: Request submitted to the Office of the Mayor
+    note: >-
+      Filed through the Chicago Public Records portal for every email sent or received by Mayor
+      Brandon Johnson since May 15, 2023, the start of his term, referencing the McDonald's
+      restaurant chain or McDonald's Corporation. The request listed the terms to search, being
+      "McDonald's", "McDonalds", "Mc Donalds", "MCD" and "Golden Arches", and asked that emails
+      mentioning people with the surname McDonald be excluded unless they also referenced the chain.
+  - id: received
+    date: "2026-10-08"
+    type: acknowledged
+    title: Received by the office
+    note: >-
+      The response letter records the request as reaching the Office of the Mayor the day after it
+      was submitted.
+  - id: extension
+    date: "2026-10-16"
+    type: extension
+    title: Five-day extension
+    note: >-
+      The office took the extension allowed by 5 ILCS 140/3(e), checking one ground: that the
+      request could not be met within the 3(d) time limits without unduly burdening or interfering
+      with its operations.
+  - id: 2026-10-19-release
+    date: "2026-10-19"
+    type: partial
+    title: Partial release, 1,084 pages
+    exemptions:
+      - 7(1)(b)
+      - 7(1)(c)
+      - 7(1)(d)(v)
+      - 7(1)(d)(vi)
+      - 7(1)(v)
+    note: >-
+      Released with redactions under five sections of the Act. Section 7(1)(b) covers private
+      information, applied to personal cell numbers, home addresses and personal email addresses.
+      Section 7(1)(c) covers personal information whose release would be an unwarranted invasion of
+      privacy, applied to personal events and third-party names. Sections 7(1)(d)(vi) and 7(1)(d)(v)
+      cover danger to life or physical safety and specialised investigative techniques, applied to
+      the names of officers assigned to the mayor's detail. Section 7(1)(v) covers security
+      measures, applied to information about the detail's members. The letter sets out review rights
+      before the Public Access Counselor.
+    files:
+      - id: response-letter
+        dump_file: chicago-mayor-mcdonalds/F155072_Response_Letter.pdf
+        file: 2026-10-19-response-letter.pdf
+        title: Response letter
+        description: >-
+          The Office of the Mayor's response, setting out each exemption claimed and the statutory
+          text it rests on.
+        bytes: 202824
+        sha256: fe4963aba86810b0a0cc22cdacf1b3ee5d67422ef3d82f12f07ed96ffd089b77
+        pages: 3
+        s3: >-
+          https://georgemain-com-media.s3.amazonaws.com/foia/chicago-mayor-mcdonalds/2026-10-19-release/2026-10-19-response-letter.pdf
+      - id: mayor-emails
+        dump_file: chicago-mayor-mcdonalds/F155072_Emails_R.pdf
+        file: 2026-10-19-mayor-emails.pdf
+        title: Responsive emails
+        description: >-
+          The responsive emails as released, redactions applied. Mostly the Mayor's Press Office
+          daily news clips digest, 18 editions between August and November 2024, plus subscription
+          newsletters and constituent correspondence. Fifty-nine of the 1,081 pages contain one of
+          the requested terms.
+        bytes: 12913952
+        sha256: 2895191250a40979b6eba4b66043bd5a0df0f932467e4b7484b41677d8e36c51
+        pages: 1081
+        s3: >-
+          https://georgemain-com-media.s3.amazonaws.com/foia/chicago-mayor-mcdonalds/2026-10-19-release/2026-10-19-mayor-emails.pdf
+    zip:
+      s3: >-
+        https://georgemain-com-media.s3.amazonaws.com/foia/chicago-mayor-mcdonalds/2026-10-19-release.zip
+      bytes: 11764317
+      sha256: 0332f7b1d9ed4017195d9668fce1c6f41debd5cf62d7105ea8513ad9f5653297

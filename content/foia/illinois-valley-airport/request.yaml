@@ -3,8 +3,9 @@ agency: Josephine County, Oregon
 agency_short: Josephine County
 jurisdiction: us-local
 statute: Oregon Public Records Law (ORS 192.311–192.478)
-status: open
+status: complete
 filed: "2026-07-19"
+closed: "2026-08-31"
 category: aviation
 tags:
   - illinois-valley-airport
@@ -25,15 +26,14 @@ seo:
     - ORS 192.415 district attorney petition
 fees:
   quoted: 780
-  paid: 0
-  pending: true
+  paid: 80
   waiver: upheld
   note: >-
     Initially quoted $1,275 for 15 hours at a managerial rate. After challenge the County found a
     staff-classification error and revised it to $780 (14.5 hours clerical at $50 plus 0.5 hours
     legal at $110). A fee reduction under ORS 192.324(5) was denied, and the district attorney
-    declined to order one. The County offered items 1, 2 and 5 for $80, which was accepted; payment
-    by cheque was outstanding as of August 14, 2026.
+    declined to order one. The County offered items 1, 2 and 5 for $80, which was accepted and paid.
+    The $780 was never charged, because the full request was never produced.
 rights:
   note: >-
     Correspondence with Josephine County, Oregon under the Oregon Public Records Law (ORS
@@ -74,10 +74,10 @@ timeline:
     type: fee
     title: Estimate corrected to $780, fee reduction denied
     note: >-
-      The County declined to itemise, but acknowledged an error in the original calculation. A
-      staff member had been billed at a managerial rate they no longer held, and revised the figure
-      to $780 (14.5 hours clerical at $50, plus 0.5 hours legal at $110). The fee reduction was
-      denied in a single sentence, with no reasoning.
+      The County declined to itemise, but acknowledged an error in the original calculation. A staff
+      member had been billed at a managerial rate they no longer held, and revised the figure to
+      $780 (14.5 hours clerical at $50, plus 0.5 hours legal at $110). The fee reduction was denied
+      in a single sentence, with no reasoning.
   - id: notice-of-petition
     date: "2026-07-22"
     type: appeal
@@ -164,4 +164,62 @@ timeline:
     title: County provides payment instructions
     note: >-
       The County agreed to try for a spreadsheet export and asked for a cheque. Records are to be
-      compiled and reviewed for release once payment arrives. Nothing has been released yet.
+      compiled and reviewed for release once payment arrives.
+  - id: 2026-08-31-release
+    date: "2026-08-31"
+    type: final
+    title: Records released for items 1 and 2
+    note: >-
+      The paid portion was produced: the airport manager's appointment letter and position
+      description, and the Illinois Valley airport fund trial balance for the year to June 2026. The
+      ledger came as a scanned report rather than the spreadsheet export that was asked for, and
+      carries its own generation date of August 31, 2026, which is the date used here. No appraisal
+      or broker opinion of value was among the documents, so item 5 produced nothing. Items 3 and 4,
+      the maintenance invoices and the active leases, were never part of the $80 and remain
+      unproduced.
+    files:
+      - id: appointment-letter
+        dump_file: illinois-valley-final/0177_001_Redacted.pdf
+        file: 2025-03-17-airport-manager-appointment-letter.pdf
+        title: Airport manager appointment letter
+        description: >-
+          Josephine County's offer of the full-time Airport Manager post to Michael Crisafulli,
+          dated March 17, 2025, at a starting rate of $3,828.01 biweekly, with a 12 month
+          probationary period. The County redacted his home address and both signatures.
+        bytes: 108646
+        sha256: cb1576e7284def1ce54503bfb40f9050b20d3aea827de4c358b4de77866454be
+        pages: 1
+        s3: >-
+          https://georgemain-com-media.s3.amazonaws.com/foia/illinois-valley-airport/2026-08-31-release/2025-03-17-airport-manager-appointment-letter.pdf
+      - id: position-description
+        dump_file: illinois-valley-final/Airport Manager.pdf
+        file: 2025-03-06-airport-manager-position-description.pdf
+        title: Airport manager position description
+        description: >-
+          The classification for the post, effective November 1997 and last revised March 6, 2025.
+          Pay grade NU20, exempt, non-union management, covering both county airports and
+          supervising the Grants Pass and Illinois Valley caretakers.
+        bytes: 261727
+        sha256: 8230c112a616c6e00841c4bf5cad47345d17453925c26d1c6522536b4f869504
+        pages: 4
+        s3: >-
+          https://georgemain-com-media.s3.amazonaws.com/foia/illinois-valley-airport/2026-08-31-release/2025-03-06-airport-manager-position-description.pdf
+      - id: trial-balance
+        dump_file: illinois-valley-final/Balance Sheet_Redacted.pdf
+        file: 2026-08-31-airport-fund-trial-balance.pdf
+        title: Illinois Valley airport fund trial balance, FY 2025-26
+        description: >-
+          Transaction level detail for the two Illinois Valley airport fund keys for July 2025 to
+          June 2026, covering commercial and private ground leases, hangar rental charges, land use,
+          salaries and overtime, interfund transfers, and fuel farm capital spending. The County
+          blacked out the names of individual hangar tenants beside their lease lines.
+        bytes: 10790686
+        sha256: 27b66be86caf9ec9be08a1bf5212b2f5e2d8dcad8adf93da196bbd56f7a9a02f
+        pages: 13
+        s3: >-
+          https://georgemain-com-media.s3.amazonaws.com/foia/illinois-valley-airport/2026-08-31-release/2026-08-31-airport-fund-trial-balance.pdf
+    zip:
+      s3: >-
+        https://georgemain-com-media.s3.amazonaws.com/foia/illinois-valley-airport/2026-08-31-release.zip
+      bytes: 9863914
+      sha256: c9d1a522a1c1e2c445fdafd06f8980a513c9c540a378577f1aafe4b487c737a6
