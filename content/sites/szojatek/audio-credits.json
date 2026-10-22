@@ -2110,6 +2110,11 @@
     "page": "https://commons.wikimedia.org/wiki/File:Hu-ez.ogg"
   },
   {
+    "file": "wiktionary_hu_ezelőtt.mp3",
+    "source": "Hu-ezelőtt.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu-ezel%C5%91tt.ogg"
+  },
+  {
     "file": "wiktionary_hu_ezenkívül.mp3",
     "source": "Hu-ezenkívül.ogg",
     "page": "https://commons.wikimedia.org/wiki/File:Hu-ezenk%C3%ADv%C3%BCl.ogg"
@@ -5628,5 +5633,20 @@
     "file": "wiktionary_hu_zsiráf.mp3",
     "source": "Hu-zsiráf.ogg",
     "page": "https://commons.wikimedia.org/wiki/File:Hu-zsir%C3%A1f.ogg"
+  },
+  {
+    "file": "tts_hu_mese_este.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_necesszer.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_Zemplén.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
+    "page": null
   }
 ]
