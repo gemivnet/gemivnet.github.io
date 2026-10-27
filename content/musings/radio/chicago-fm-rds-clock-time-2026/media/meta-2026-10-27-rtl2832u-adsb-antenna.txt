@@ -1,0 +1,11 @@
+Generic RTL2832U dongle with a 1090 MHz bandpass filter, on a 1090 MHz ADS-B antenna, gain 49.6 dB.
+
+started: 09:19:28 -05:00 on 2026-10-27
+redsea: redsea 1.3.1 by OH2EIQ
+gain_db: 49.6  pass1_s: 12  pass2_s: 130
+dongle: Bus 001 Device 003: ID 0bda:2832 Realtek Semiconductor Corp. RTL2832U DVB-T
+clock:
+Timezone=America/Chicago
+NTP=yes
+NTPSynchronized=yes
+finished: 10:32:27 -05:00 on 2026-10-27

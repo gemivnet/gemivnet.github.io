@@ -1947,7 +1947,7 @@ function verifyLinks() {
     // try as a file route (e.g. /sites/foo)
     if (target.startsWith('/sites/')) continue;
     // image/static asset references — not page routes
-    if (/\.(jpe?g|png|webp|gif|svg|ico|pdf|zip|csv|xlsx?|docx?|mp4|webm|mp3)$/i.test(target)) continue;
+    if (/\.(jpe?g|png|webp|gif|svg|ico|pdf|zip|gz|csv|txt|sh|jsonl?|xlsx?|docx?|mp4|webm|mp3)$/i.test(target)) continue;
     fail(`Broken internal link: ${href}  (on ${from})`);
   }
 }
