@@ -1333,3 +1333,25 @@
 }
 /* FOIA request and archive pages sat this 32px down, not 24px. */
 .sp-backlink.is-wide { margin-top: var(--sp-6); }
+
+/* ── data tables in posts ──────────────────────────────────
+   Hand-written 2026-10-27, ad-hoc. Fold into the next Claude Design bundle.
+   Rules, not borders; mono and small so a wide survey table stays readable,
+   and it scrolls sideways inside the column instead of the page. */
+.sp-prose table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 0 0 var(--sp-5) 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  line-height: var(--lh-snug);
+}
+.sp-prose th, .sp-prose td {
+  padding: 6px var(--sp-3) 6px 0;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  vertical-align: top;
+  white-space: nowrap;
+}
+.sp-prose th { color: var(--ink-3); font-weight: normal; border-bottom-color: var(--rule-2); }

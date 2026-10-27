@@ -1,0 +1,12 @@
+RTL-SDR Blog V4, on a G5RV Jr wire antenna, gain 20 dB.
+
+started: 09:48:03 -05:00 on 2026-10-27
+redsea: redsea 1.3.1 by OH2EIQ
+device: 00000001  gain_db: 20  pass1_s: 12  pass2_s: 130
+channels: all
+dongle: Bus 001 Device 002: ID 0bda:2838 Realtek Semiconductor Corp. RTL2838 DVB-T
+clock:
+Timezone=America/Chicago
+NTP=yes
+NTPSynchronized=yes
+finished: 11:06:03 -05:00 on 2026-10-27
