@@ -490,6 +490,11 @@
     "page": null
   },
   {
+    "file": "tts_hu_megreggelizik.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
+    "page": null
+  },
+  {
     "file": "tts_hu_mese_este.mp3",
     "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
     "page": null
@@ -917,6 +922,11 @@
   {
     "file": "tts_hu_zongoratanár.mp3",
     "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_zoomol.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
     "page": null
   },
   {
@@ -1500,6 +1510,11 @@
     "page": "https://commons.wikimedia.org/wiki/File:Hu-bor.ogg"
   },
   {
+    "file": "wiktionary_hu_bőrönd.mp3",
+    "source": "Hu-bőrönd.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu-b%C5%91r%C3%B6nd.ogg"
+  },
+  {
     "file": "wiktionary_hu_burgonya.mp3",
     "source": "LL-Q9067 (hun)-Beaudine Wilson-burgonya.wav",
     "page": "https://commons.wikimedia.org/wiki/File:LL-Q9067_(hun)-Beaudine_Wilson-burgonya.wav"
@@ -1915,6 +1930,11 @@
     "page": "https://commons.wikimedia.org/wiki/File:Hu-el%C5%91re.ogg"
   },
   {
+    "file": "wiktionary_hu_először.mp3",
+    "source": "Hu-először.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu-el%C5%91sz%C3%B6r.ogg"
+  },
+  {
     "file": "wiktionary_hu_előtt.mp3",
     "source": "Hu-előtt.ogg",
     "page": "https://commons.wikimedia.org/wiki/File:Hu-el%C5%91tt.ogg"
@@ -1960,6 +1980,11 @@
     "page": "https://commons.wikimedia.org/wiki/File:Hu-enn%C3%A9l.ogg"
   },
   {
+    "file": "wiktionary_hu_ennyi.mp3",
+    "source": "Hu-ennyi.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu-ennyi.ogg"
+  },
+  {
     "file": "wiktionary_hu_eper.mp3",
     "source": "LL-Q9067 (hun)-Beaudine Wilson-eper.wav",
     "page": "https://commons.wikimedia.org/wiki/File:LL-Q9067_(hun)-Beaudine_Wilson-eper.wav"
@@ -1973,6 +1998,11 @@
     "file": "wiktionary_hu_épület.mp3",
     "source": "Hu-épület.ogg",
     "page": "https://commons.wikimedia.org/wiki/File:Hu-%C3%A9p%C3%BClet.ogg"
+  },
+  {
+    "file": "wiktionary_hu_ér.mp3",
+    "source": "Hu-ér.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu-%C3%A9r.ogg"
   },
   {
     "file": "wiktionary_hu_érdekes.mp3",
@@ -5468,6 +5498,11 @@
     "file": "wiktionary_hu_valóban.mp3",
     "source": "Hu-valóban.ogg",
     "page": "https://commons.wikimedia.org/wiki/File:Hu-val%C3%B3ban.ogg"
+  },
+  {
+    "file": "wiktionary_hu_valószínűleg.mp3",
+    "source": "Hu-valószínűleg.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu-val%C3%B3sz%C3%ADn%C5%B1leg.ogg"
   },
   {
     "file": "wiktionary_hu_van.mp3",
