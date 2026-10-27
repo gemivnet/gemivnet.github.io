@@ -245,6 +245,11 @@
     "page": null
   },
   {
+    "file": "tts_hu_haza-.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
+    "page": null
+  },
+  {
     "file": "tts_hu_házhoz_szállítani.mp3",
     "source": "macOS speech synthesis (Tünde, hu_HU)",
     "page": null
@@ -485,6 +490,11 @@
     "page": null
   },
   {
+    "file": "tts_hu_mese_este.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
+    "page": null
+  },
+  {
     "file": "tts_hu_Messze_van.mp3",
     "source": "macOS speech synthesis (Tünde, hu_HU)",
     "page": null
@@ -535,6 +545,11 @@
     "page": null
   },
   {
+    "file": "tts_hu_multifunkcionális.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
+    "page": null
+  },
+  {
     "file": "tts_hu_munkalehet_ség.mp3",
     "source": "macOS speech synthesis (Tünde, hu_HU)",
     "page": null
@@ -546,6 +561,11 @@
   },
   {
     "file": "tts_hu_nagyon_jól_éreztem_magam.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_necesszer.mp3",
     "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
     "page": null
   },
@@ -657,6 +677,11 @@
   {
     "file": "tts_hu_rockkoncert.mp3",
     "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_rohanó.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
     "page": null
   },
   {
@@ -882,6 +907,11 @@
   {
     "file": "tts_hu_zárva_van.mp3",
     "source": "macOS speech synthesis (Tünde, hu_HU)",
+    "page": null
+  },
+  {
+    "file": "tts_hu_Zemplén.mp3",
+    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
     "page": null
   },
   {
@@ -1793,6 +1823,11 @@
     "file": "wiktionary_hu_egyetem.mp3",
     "source": "Hu-egyetem.ogg",
     "page": "https://commons.wikimedia.org/wiki/File:Hu-egyetem.ogg"
+  },
+  {
+    "file": "wiktionary_hu_egyforma.mp3",
+    "source": "Hu-egyforma.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu-egyforma.ogg"
   },
   {
     "file": "wiktionary_hu_egyik.mp3",
@@ -5130,6 +5165,11 @@
     "page": "https://commons.wikimedia.org/wiki/File:LL-Q9067_(hun)-Procrastineur49-t%C3%A9rk%C3%A9p.wav"
   },
   {
+    "file": "wiktionary_hu_termék.mp3",
+    "source": "Hu-termék.ogg",
+    "page": "https://commons.wikimedia.org/wiki/File:Hu-term%C3%A9k.ogg"
+  },
+  {
     "file": "wiktionary_hu_természetes.mp3",
     "source": "Hu-természetes.ogg",
     "page": "https://commons.wikimedia.org/wiki/File:Hu-term%C3%A9szetes.ogg"
@@ -5633,20 +5673,5 @@
     "file": "wiktionary_hu_zsiráf.mp3",
     "source": "Hu-zsiráf.ogg",
     "page": "https://commons.wikimedia.org/wiki/File:Hu-zsir%C3%A1f.ogg"
-  },
-  {
-    "file": "tts_hu_mese_este.mp3",
-    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_necesszer.mp3",
-    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
-    "page": null
-  },
-  {
-    "file": "tts_hu_Zemplén.mp3",
-    "source": "Piper neural speech synthesis (hu_HU-anna-medium, local)",
-    "page": null
   }
 ]
