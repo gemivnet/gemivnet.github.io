@@ -143,20 +143,20 @@ show up.
 
 ## Photos
 
-![The basement mid-remodel.](media/basement-construction.jpg)
+![The basement mid-remodel.](media/basement-construction.jpg){section=workshop}
 
-![The workshop, new shop lights installed.](media/workshop.jpg)
+![The workshop, new shop lights installed.](media/workshop.jpg){section=workshop}
 
-![An Aircraft Tool Supply order laid out.](media/tools-arrived.jpg)
+![An Aircraft Tool Supply order laid out.](media/tools-arrived.jpg){section=workshop}
 
-![One of many tool runs.](media/tool-run-back-seat.jpg)
+![One of many tool runs.](media/tool-run-back-seat.jpg){section=workshop}
 
-![The trunk after another tool run.](media/tool-run-trunk.jpg)
+![The trunk after another tool run.](media/tool-run-trunk.jpg){section=workshop}
 
-![The first practice kit, no primer. Lots of mistakes.](media/practice-kit-first.jpg)
+![The first practice kit, no primer. Lots of mistakes.](media/practice-kit-first.jpg){section=practice-kit}
 
-![Working on the second practice kit.](media/practice-kit-second.jpg)
+![Working on the second practice kit.](media/practice-kit-second.jpg){section=practice-kit}
 
-![The cleaning and etching bench.](media/cleaning-bench.jpg)
+![The cleaning and etching bench.](media/cleaning-bench.jpg){section=workshop}
 
-![The paint wall and heater in the garage.](media/paint-wall.jpg)
+![The paint wall and heater in the garage.](media/paint-wall.jpg){section=workshop}

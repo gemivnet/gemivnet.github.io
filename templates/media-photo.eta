@@ -23,6 +23,7 @@
         <% if (image.date)  { %><tr><td>date</td><td><%= fmtDate(image.date) %></td></tr><% } %>
         <% if (image.location || node.location) { %><tr><td>where</td><td><%= image.location || node.location %></td></tr><% } %>
         <tr><td>album</td><td><a href="<%= node.url %>"><%= node.title %></a></td></tr>
+        <% if (image.fromPost) { %><tr><td><%= copy.media.photo.from_label %></td><td><a href="<%= image.fromPost.url %>"><%= image.fromPost.title %></a></td></tr><% } %>
         <% if (image.exif) { %>
           <% if (image.exif.camera)       { %><tr><td>camera</td><td><%= image.exif.camera %></td></tr><% } %>
           <% if (image.exif.lens)         { %><tr><td>lens</td><td><%= image.exif.lens %></td></tr><% } %>

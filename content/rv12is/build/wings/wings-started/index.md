@@ -109,9 +109,9 @@ along well. Maybe I'm just being naive. We'll see.
 
 ## Photos
 
-![The fuselage crate.](media/fuselage-crate.jpg)
+![The fuselage crate.](media/fuselage-crate.jpg){section=fuselage}
 
-![Fasteners counted, labeled, and organized.](media/fastener-organizers.jpg)
+![Fasteners counted, labeled, and organized.](media/fastener-organizers.jpg){section=workshop}
 
 ![Wing pieces in prep.](media/wing-parts.jpg)
 

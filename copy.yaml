@@ -187,6 +187,28 @@ media:
     photos_tag: "photos"
     photos_title: "loose images"
     photos_aside: "images directly at this level"
+  photo:
+    from_label: "from"
+  # Post sections whose photos are pooled into one gallery per build section
+  # rather than one per post. A photo lands in its post's folder section unless
+  # the markdown says otherwise: ![alt](media/x.jpg){section=wings}. Order here
+  # is the order on the page.
+  collections:
+    rv12is:
+      title: "RV-12iS build"
+      description: "Build photos, grouped by section of the airplane."
+      from_label: "build log"
+      section_description: "{section} photos from the RV-12iS build, in build order."
+      sections:
+        workshop: "Workshop"
+        practice-kit: "Practice kit"
+        empennage: "Empennage"
+        wings: "Wings"
+        fuselage: "Fuselage"
+        finishing: "Finishing"
+        avionics: "Avionics"
+        powerplant: "Powerplant"
+        misc: "Misc"
 
 # ── foia archive ────────────────────────────────────────────
 foia:

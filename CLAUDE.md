@@ -225,7 +225,22 @@ commentary" requires and what keeps a machine-written summary defensible.
 ## RV-12iS build log (`/rv12is`)
 
 Mirrors the user's Van's Air Force thread. New thread posts become entries under
-`content/rv12is/build/{empennage,wings,misc}`. `npm run vaf:fetch` logs in with
+`content/rv12is/build/{empennage,wings,fuselage,misc}`.
+
+**Photos are grouped by build section, not by post.** `/media/rv12is` has one
+gallery per section (workshop, practice kit, empennage, wings, fuselage, finishing,
+avionics, powerplant, misc), pooled across every post in post-date order, each photo
+linking back to its post. The section list and titles live in `copy.yaml` under
+`media.collections.rv12is`; the parent album's title and SEO come from
+`content/media/rv12is/metadata.yaml`. A photo defaults to its post's folder section.
+When a post's photos span sections, tag the exceptions in the markdown:
+`![alt](media/avionics-boxes.jpg){section=avionics}`. An unknown section fails the
+build. Posts routinely mix sections (a wings post with the fuselage crate, a fuselage
+post with wing priming), so check every photo when adding a post, not just the
+folder. The `{...}` on an image takes `.classes` and `key=value` pairs together:
+`{.inline section=wings}`.
+
+`npm run vaf:fetch` logs in with
 `~/.config/vaf/credentials.json` (outside the repo; this repo is public), fetches every
 post by the thread author newer than the last run, and writes `staging/vaf/<post-id>/`
 with `post.md`, `post.json` and the full-size attachments. `--all` refetches everything,

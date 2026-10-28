@@ -99,15 +99,15 @@ student. Not that much progress for having had the kit for two months.
 
 ## Photos
 
-![The two powerplant boxes and finishing kit delivered into the garage. You can see the wing spars and the finished empennage also in the garage.](media/kits-in-garage.jpg)
+![The two powerplant boxes and finishing kit delivered into the garage. You can see the wing spars and the finished empennage also in the garage.](media/kits-in-garage.jpg){section=powerplant}
 
-![All of the pieces unpacked in the backyard before being brought inside for inventorying.](media/unpacked-backyard.jpg)
+![All of the pieces unpacked in the backyard before being brought inside for inventorying.](media/unpacked-backyard.jpg){section=finishing}
 
 ![Up close of the scratch on the wing spar.](media/spar-scratch.jpg)
 
-![Up close of the incorrectly countersunk rivets. The middle one is really bad, and I was going to ask my technical counselor about this as well.](media/countersunk-rivets.jpg)
+![Up close of the incorrectly countersunk rivets. The middle one is really bad, and I was going to ask my technical counselor about this as well.](media/countersunk-rivets.jpg){section=fuselage}
 
-![The whole fuselage bulkhead. The other rivets look good.](media/bulkhead.jpg)
+![The whole fuselage bulkhead. The other rivets look good.](media/bulkhead.jpg){section=fuselage}
 
 ![The wing ribs and all of the other pieces on the floor of the workshop.](media/wing-ribs.jpg)
 
