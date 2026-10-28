@@ -43,7 +43,7 @@ weekend, more during the week.
 
 ![Everything ready for cleaning and etching.](media/skins-ready.jpg)
 
-![The outdoor cleaning station.](media/outdoor-station.jpg)
+![The outdoor cleaning station.](media/outdoor-station.jpg){section=workshop}
 
 ![Everything cleaned and etched.](media/cleaned-etched.jpg)
 

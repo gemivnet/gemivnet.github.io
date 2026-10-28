@@ -266,7 +266,9 @@ marked.use({
       };
     },
     renderer(t) {
-      const klass = t.cls.replace(/[.{}\s]+/g, ' ').trim();
+      // `.name` tokens are classes; `key=value` tokens (section=wings) are
+      // read by the post loader, not rendered.
+      const klass = t.cls.split(/\s+/).filter(x => x.startsWith('.')).map(x => x.slice(1)).join(' ');
       return imgFigure(t.href, t.text, t.title, klass);
     },
   }],
@@ -334,11 +336,12 @@ async function loadPosts(root) {
       imageRefs.push({ file, alt: fm.title, ...(imagesMap[file] || {}) });
       seenFiles.add(file);
     }
-    const imgRe = /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g;
+    const imgRe = /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)(?:\{([^}]+)\})?/g;
     let mref;
     while ((mref = imgRe.exec(bodyMd))) {
       const alt = mref[1];
       const src = mref[2];
+      const section = /(?:^|\s)section=([a-z0-9-]+)/.exec(mref[3] || '')?.[1] || null;
       if (/^https?:/.test(src)) continue;
       if (src.startsWith('media/')) {
         const file = src.replace(/^media\//, '');
@@ -349,8 +352,13 @@ async function loadPosts(root) {
           if (!(await exists(abs))) fail(`${rel}: image '${src}' not found locally and no entry in frontmatter.images`);
         }
         if (!seenFiles.has(file)) {
-          imageRefs.push({ file, alt, ...(imagesMap[file] || {}) });
+          imageRefs.push({ file, alt, section, ...(imagesMap[file] || {}) });
           seenFiles.add(file);
+        } else {
+          // The featured image was pushed first with the post title as its
+          // alt. The body occurrence carries the real caption and section.
+          const ref = imageRefs.find(r => r.file === file);
+          if (ref) { if (alt) ref.alt = alt; if (section) ref.section = section; }
         }
       }
     }
@@ -1018,6 +1026,107 @@ function synthesizeFromMusings(musings, existingNodes, opts = {}) {
       });
       allRoutes.add('/' + subDir);
     }
+  }
+  return out;
+}
+
+// Synthesize one gallery per build section from a post section's images,
+// pooled across posts in post-date order. Sections and their titles come from
+// copy.yaml media.collections.<base>. A photo belongs to its post's folder
+// section unless the markdown overrides it with {section=...}; an unknown
+// section fails the build. Every image keeps a link back to its post.
+function synthesizeSections(posts, existingNodes, opts) {
+  const { base, collection } = opts;
+  const sections = collection.sections || {};
+  const keys = Object.keys(sections);
+  const groups = new Map(keys.map(k => [k, []]));
+  const sorted = [...posts].sort((a, b) => a.date - b.date);
+  for (const m of sorted) {
+    if (m.gallery === false) continue;
+    const own = m.category.length > 1 ? m.category[1] : m.category[0];
+    for (const ref of m.imageRefs || []) {
+      const section = ref.section || own;
+      if (!groups.has(section)) {
+        fail(`${m.sourceRel}: image '${ref.file}' is in section '${section}', which is not one of: ${keys.join(', ')} (copy.yaml media.collections.${base}.sections)`);
+        continue;
+      }
+      groups.get(section).push({ m, ref });
+    }
+  }
+  const out = [];
+  const rootDir = `media/${base}`;
+  // A real content/media/<base>/metadata.yaml may already describe the parent
+  // album (title, subtitle, seo); the sections then hang under it. Otherwise a
+  // virtual parent is made from copy.yaml.
+  const haveRoot = existingNodes.some(n => n.dir === rootDir);
+  let latest = null;
+  for (const key of keys) {
+    const items = groups.get(key);
+    if (!items.length) continue;
+    const dir = `${rootDir}/${key}`;
+    if (existingNodes.some(n => n.dir === dir)) { fail(`Gallery path collision: ${dir} already exists.`); continue; }
+    const slugs = new Set();
+    const images = items.map(({ m, ref }) => {
+      let slug = ref.file.replace(/\.[^.]+$/, '');
+      if (slugs.has(slug)) slug = `${m.slug}-${slug}`;
+      slugs.add(slug);
+      const hasS3 = !!ref.s3;
+      return {
+        file: ref.file,
+        slug,
+        alt: ref.alt || '',
+        title: '',
+        date: m.date,
+        location: '',
+        src:      hasS3 ? ref.s3       : `${m.url}/media/${ref.file}`,
+        srcMed:   hasS3 ? ref.s3_med   : `${m.url}/media/${ref.file}`,
+        srcThumb: hasS3 ? ref.s3_thumb : `${m.url}/media/${ref.file}`,
+        bytes: ref.bytes,
+        exif: ref.exif,
+        s3: ref.s3,
+        s3_med: ref.s3_med,
+        s3_thumb: ref.s3_thumb,
+        pageUrl: `/${dir}/${slug}`,
+        absPath: hasS3 ? null : path.join(m.mediaDir, ref.file),
+        fromPost: { title: m.title, url: m.url, label: collection.from_label },
+      };
+    });
+    const date = items[items.length - 1].m.date;
+    if (!latest || date > latest) latest = date;
+    out.push({
+      type: 'gallery',
+      url: '/' + dir,
+      dir,
+      depth: 2,
+      title: sections[key],
+      order: keys.indexOf(key),
+      subtitle: '',
+      location: '',
+      date,
+      seo: { description: (collection.section_description || '{section}').replace('{section}', sections[key]) },
+      images,
+      synthesized: true,
+      children: [],
+    });
+    allRoutes.add('/' + dir);
+  }
+  if (out.length && !haveRoot) {
+    out.unshift({
+      type: 'gallery',
+      url: '/' + rootDir,
+      dir: rootDir,
+      depth: 1,
+      title: collection.title || base,
+      subtitle: '',
+      location: '',
+      date: latest,
+      seo: { description: collection.description || '' },
+      images: [],
+      synthesized: true,
+      virtual: true,
+      children: [],
+    });
+    allRoutes.add('/' + rootDir);
   }
   return out;
 }
@@ -1976,7 +2085,7 @@ async function main() {
   log(`${musings.length} musings, ${rvPosts.length} rv12is posts`);
   const { nodes: realMediaNodes } = await loadMedia();
   const synthNodes = synthesizeFromMusings(musings, realMediaNodes)
-    .concat(synthesizeFromMusings(rvPosts, realMediaNodes, { baseSegs: ['rv12is'], label: 'build log' }));
+    .concat(synthesizeSections(rvPosts, realMediaNodes, { base: 'rv12is', collection: COPY.media.collections.rv12is }));
   const mediaNodes = realMediaNodes.concat(synthNodes);
   // Ensure every ancestor folder has a (possibly virtual) node so breadcrumbs
   // and the album tree resolve — even if no metadata.yaml was created for it.
@@ -2008,7 +2117,10 @@ async function main() {
   // Re-wire parent/child relationships across real + synthesized + virtual.
   for (const n of mediaNodes) {
     n.children = mediaNodes.filter(o => path.dirname(o.dir) === n.dir);
-    n.children.sort((a, b) => a.title.localeCompare(b.title));
+    // Section galleries carry an explicit order (build order); everything
+    // else is alphabetical.
+    n.children.sort((a, b) =>
+      (a.order ?? Infinity) - (b.order ?? Infinity) || a.title.localeCompare(b.title));
   }
   log(`${realMediaNodes.length} real + ${synthNodes.length} synthesized gallery nodes`);
 

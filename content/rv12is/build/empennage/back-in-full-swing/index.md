@@ -83,7 +83,7 @@ about these pieces. Still learning.
 
 ## Photos
 
-![The new priming table.](media/priming-table.jpg)
+![The new priming table.](media/priming-table.jpg){section=workshop}
 
 ![Re-drilling the replacement lower spar cap.](media/spar-cap-redrill.jpg)
 

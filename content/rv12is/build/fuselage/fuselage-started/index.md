@@ -111,15 +111,15 @@ there's always tools to buy.
 
 ## Photos
 
-![The three boxes of avionics. I was honestly expecting more, but everything was accounted for. One of our cats is checking things out as well.](media/avionics-boxes.jpg)
+![The three boxes of avionics. I was honestly expecting more, but everything was accounted for. One of our cats is checking things out as well.](media/avionics-boxes.jpg){section=avionics}
 
-![First priming session of the wings. Etching took longer than expected, so we ended up priming at night. I wouldn't recommend it.](media/first-wing-priming.jpg)
+![First priming session of the wings. Etching took longer than expected, so we ended up priming at night. I wouldn't recommend it.](media/first-wing-priming.jpg){section=wings}
 
-![First rivets pulled on the wings themselves.](media/first-wing-rivets.jpg)
+![First rivets pulled on the wings themselves.](media/first-wing-rivets.jpg){section=wings}
 
-![This is the rivet issue I sent to Vans for their thoughts. As you can see, the wedge tool leaves a bit of an imprint on the rivet head. It only happened a few times, but I want to know if I should replace these or not.](media/wedge-tool-rivet.jpg)
+![This is the rivet issue I sent to Vans for their thoughts. As you can see, the wedge tool leaves a bit of an imprint on the rivet head. It only happened a few times, but I want to know if I should replace these or not.](media/wedge-tool-rivet.jpg){section=wings}
 
-![Second priming batch on the wing ribs. This one we did during the day and it was sunny. The primer cures a lot better in the sun and it was my favorite priming experience yet, but as always, I was short 25g of primer so I had to go back inside and mix a tiny batch.](media/second-priming-batch.jpg)
+![Second priming batch on the wing ribs. This one we did during the day and it was sunny. The primer cures a lot better in the sun and it was my favorite priming experience yet, but as always, I was short 25g of primer so I had to go back inside and mix a tiny batch.](media/second-priming-batch.jpg){section=wings}
 
 ![The duplicate piece received in the fuselage kit.](media/duplicate-fuselage-part.jpg)
 

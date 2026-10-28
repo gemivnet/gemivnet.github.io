@@ -57,7 +57,7 @@ plane is just cleco, uncleco, cleco, uncleco, and so on. She's not wrong.
 
 ![The first rivets on the plane.](media/first-rivets.jpg)
 
-![My riveter modification. It's not pretty, but it works.](media/riveter-mod.jpg)
+![My riveter modification. It's not pretty, but it works.](media/riveter-mod.jpg){section=workshop}
 
 ![Finished lines of rivets look cool.](media/rivet-line.jpg)
 
