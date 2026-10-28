@@ -58,7 +58,10 @@ export function buildPatterns(isAllowed) {
       // scanner that cries wolf on every commit just teaches you --no-verify.
       // A real number is still caught — "(630) 226-8416" matches from the 6,
       // preceded by "(", which is not alphanumeric.
-      re: /(?<![A-Za-z0-9])\+?\d[\d ()\-.]{8,}\d(?![A-Za-z0-9])/g,
+      // The second lookbehind rejects a run hyphenated onto a preceding token,
+      // which is a slug (vansairforce.net/threads/rv-12is-121708.241503/), not
+      // a number anyone dials.
+      re: /(?<![A-Za-z0-9])(?<![A-Za-z0-9]-)\+?\d[\d ()\-.]{8,}\d(?![A-Za-z0-9])/g,
       test: (m) => {
         const digits = m.replace(/\D/g, '');
         if (digits.length < 10 || digits.length > 15) return false;

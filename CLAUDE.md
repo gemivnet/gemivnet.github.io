@@ -64,6 +64,7 @@ npm run media        # interactive media ingest from staging/
 npm run foia:inspect dump/<folder>   # hash, page-count and PII-scan a dump
 npm run foia:publish <slug>          # upload to S3, rewrite yaml, clear dump/
 npm run check:pii    # manually run the PII scanner
+npm run vaf:fetch    # pull new posts from the VAF build thread into staging/vaf/
 ```
 
 **Shell out to git with `execFileSync`, never `execSync`.** `execSync` hands the
@@ -220,6 +221,19 @@ build fails if `summary.text` has no `generated_by` + `generated_on`.** A
 summary must be descriptive — what the records *are*, their counts, dates,
 correspondents, cited exemptions — and never interpretive. That is what "no
 commentary" requires and what keeps a machine-written summary defensible.
+
+## RV-12iS build log (`/rv12is`)
+
+Mirrors the user's Van's Air Force thread. New thread posts become entries under
+`content/rv12is/build/{empennage,wings,misc}`. `npm run vaf:fetch` logs in with
+`~/.config/vaf/credentials.json` (outside the repo; this repo is public), fetches every
+post by the thread author newer than the last run, and writes `staging/vaf/<post-id>/`
+with `post.md`, `post.json` and the full-size attachments. `--all` refetches everything,
+`--post <id>` one post. It runs a headed Chromium under Xvfb because VAF is behind
+Cloudflare and the headless modes never clear the interstitial; the browser profile in
+`~/.config/vaf/profile` keeps the clearance and the login between runs. Convert the
+post by hand: "the YL" becomes Shelby, forum members are genericized, vendor people keep
+their names, and the user's words are otherwise reproduced verbatim.
 
 ## Versioning
 
