@@ -275,6 +275,12 @@ not in the hook.
 Allowlist known-public strings in `.pii-allowlist.yaml`. Bypass once with
 `git commit --no-verify`. Don't bypass habitually.
 
+**The hook can't read photos or scanned PDFs, and OCR misses most of what matters.**
+Before publishing one, open it at full size and check the corners and background for
+packing lists, shipping labels, binder covers, whiteboards, licence plates, house
+numbers and screens. Blur what shows, and do it before the first commit, because a
+later fix leaves the original in public history.
+
 Two modes. `npm run check:pii` scans the staged diff, which is what the hook wants.
 `npm run check:pii:all` sweeps every tracked file, which is what CI wants, because a
 fresh checkout has nothing staged and the staged mode would pass having read nothing.
