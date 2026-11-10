@@ -279,7 +279,9 @@ Allowlist known-public strings in `.pii-allowlist.yaml`. Bypass once with
 Before publishing one, open it at full size and check the corners and background for
 packing lists, shipping labels, binder covers, whiteboards, licence plates, house
 numbers and screens. Blur what shows, and do it before the first commit, because a
-later fix leaves the original in public history.
+later fix leaves the original in public history. The hook enforces the prompt: a commit
+that adds a new photo or PDF stops and lists it until you re-run with
+`PII_BINARIES_REVIEWED=1` after looking at each one.
 
 Two modes. `npm run check:pii` scans the staged diff, which is what the hook wants.
 `npm run check:pii:all` sweeps every tracked file, which is what CI wants, because a

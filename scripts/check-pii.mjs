@@ -8,6 +8,7 @@
 //   - GPS coordinates
 //   - precise ISO-style timestamps (e.g., 2026-05-19T14:32:08)
 //   - US street addresses (heuristic)
+//   - newly added photos and PDFs are held for a visual review (PII_BINARIES_REVIEWED=1)
 //
 // Items listed in .pii-allowlist.yaml are ignored.
 // Exits non-zero on any hit. Use `git commit --no-verify` to bypass.
@@ -173,6 +174,29 @@ try {
     } catch { /* file unreadable / no EXIF — fine */ }
   }
 } catch { /* no staged files */ }
+
+// ── new photos and PDFs need a human look ─────────────────
+// Text scanning and OCR cannot read a photo or a scanned PDF (tesseract missed a binder
+// cover even at 3x), so a newly added one is held until someone has opened it at full
+// size. Only *added* files count: edits and renames of already-published ones do not.
+// Acknowledge with PII_BINARIES_REVIEWED=1 once every listed file has been looked at.
+const REVIEW_EXT = /\.(jpe?g|png|gif|webp|avif|heic|heif|tiff?|pdf)$/i;
+if (!SCAN_ALL && process.env.PII_BINARIES_REVIEWED !== '1') {
+  try {
+    const added = git(['diff', '--cached', '--name-only', '--diff-filter=A'])
+      .split('\n').map(s => s.trim()).filter(Boolean)
+      .filter(f => REVIEW_EXT.test(f) && !skipFile(f));
+    if (added.length) {
+      console.error('\n[pii] new photo/PDF files need a visual review (the scanner cannot read them):\n');
+      for (const f of added) console.error('  ' + f);
+      console.error('\nOpen each at full size and check the corners and background for packing lists,');
+      console.error('shipping labels, binder covers, whiteboards, licence plates, house numbers and');
+      console.error('screens. Blur what shows BEFORE the first commit. Then re-run with');
+      console.error('PII_BINARIES_REVIEWED=1 git commit ...');
+      process.exit(1);
+    }
+  } catch { /* no staged files */ }
+}
 
 // ── report ────────────────────────────────────────────────
 if (hits.length === 0) {
