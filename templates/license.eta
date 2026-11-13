@@ -23,7 +23,7 @@
     <h2>For commercial use</h2>
     <p><%~ copy.license.commercial %></p>
 
-    <% if (analytics.ga4_id) { %>
+    <% if (analytics.tag_id) { %>
     <h2 id="analytics"><%= copy.license.analytics_heading %></h2>
     <p><%~ copy.license.analytics %></p>
     <% } %>

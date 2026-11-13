@@ -7,7 +7,7 @@
   <% if (page.description) { %><meta name="description" content="<%= escapeHtml(page.description) %>"><% } %>
   <% if (page.keywords && page.keywords.length) { %><meta name="keywords" content="<%= escapeHtml(page.keywords.join(', ')) %>"><% } %>
   <link rel="canonical" href="<%= absUrl(page.url) %>">
-  <% if (analytics.ga4_id) { %>
+  <% if (analytics.tag_id) { %>
   <script>
     // Google Analytics 4, live host only. Page views, for the owner's curiosity.
     // Skipped when the visitor turned it off in the footer (stored in this
@@ -19,12 +19,11 @@
     if (location.hostname === <%~ JSON.stringify(new URL(site.url).hostname) %> && !window.gmAnalyticsOff()) {
       var s = document.createElement('script');
       s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=<%= analytics.ga4_id %>';
+      s.src = 'https://www.googletagmanager.com/gtm.js?id=<%= analytics.tag_id %>';
       document.head.appendChild(s);
       window.dataLayer = window.dataLayer || [];
       window.gtag = function () { dataLayer.push(arguments); };
       gtag('js', new Date());
-      gtag('config', '<%= analytics.ga4_id %>');
     }
   </script>
   <% } %>
@@ -102,7 +101,7 @@
           <% ;(copy.footer.site_links || []).forEach(function(s){ %>
             <li><a href="<%= s.href %>"><%= s.label %></a><% if (s.indicator) { %> &nbsp;<span style="color: var(--accent);">&#9679;</span><% } %></li>
           <% }) %>
-          <% if (analytics.ga4_id) { %>
+          <% if (analytics.tag_id) { %>
           <li class="sp-optout" id="sp-optout" hidden>
             <a href="/license#analytics"><%= copy.footer.analytics.label %></a>
             <span id="sp-optout-state"></span>

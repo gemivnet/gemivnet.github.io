@@ -51,10 +51,13 @@ search:
   snippet_chars: 160
   max_results: 50
 
-# Google Analytics 4. Null = no tag at all. The tag only loads on the live
-# host, so `npm run dev` never counts.
+# Google Analytics. tag_id is the Google tag Google gave for the site (it loads
+# the GA4 stream below); ga4_id is that stream's measurement id, used for the
+# opt-out's ga-disable flag. tag_id null = no tag at all. The tag only loads
+# on the live host, so `npm run dev` never counts.
 analytics:
-  ga4_id: G-0C68EWM96E
+  tag_id: GTM-P8NDMP97
+  ga4_id: G-9KD99X1TP2
 
 # Recipe SEO. The heaviest ingredients by weight become keywords, minus the
 # ones every recipe has. A credit starting with one of anonymous_sources isn't

@@ -278,8 +278,8 @@ A new section with pages should add itself to `renderSearch`. Results are built 
 DOM calls, not an HTML string, which also keeps the build's link checker from reading
 the script as a link.
 
-Google Analytics 4 is wired through `analytics.ga4_id` in `site.config.yaml` (null = no
-tag at all). The tag loads only on the live host, never under `npm run dev`. It is skipped
+Google Analytics 4 is wired through `analytics.tag_id` (the Google tag, `GTM-...`, which
+loads stream `analytics.ga4_id`) in `site.config.yaml` (tag_id null = no tag at all). The tag loads only on the live host, never under `npm run dev`. It is skipped
 when the visitor turned it off with the footer switch in the "this site" column (`localStorage['gm-analytics']`)
 or the browser sends Global Privacy Control. The user wants it for seeing which pages get
 read, nothing sold or shared; the note saying so is on `/license#analytics` (the creed is kept short on purpose). Don't add events, ads
