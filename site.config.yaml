@@ -44,6 +44,18 @@ limits:
 recipes:
   source: ../recipes
 
+# Site search (/search). Each entry's searchable text is capped at body_chars;
+# snippet_chars is the line shown under a result.
+search:
+  body_chars: 4000
+  snippet_chars: 160
+  max_results: 50
+
+# Google Analytics 4. Null = no tag at all. The tag only loads on the live
+# host, so `npm run dev` never counts.
+analytics:
+  ga4_id: null
+
 # Recipe SEO. The heaviest ingredients by weight become keywords, minus the
 # ones every recipe has. A credit starting with one of anonymous_sources isn't
 # named in the meta description ("adapted from Printout" says nothing).

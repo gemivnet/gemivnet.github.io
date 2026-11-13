@@ -64,7 +64,14 @@ home:
 
 # ── footer ──────────────────────────────────────────────────
 footer:
-  creed: "a personal knowledge page, made for fun. no ads, no tracking, no warranty."
+  # The opt-out under the creed. Only rendered when analytics.ga4_id is set.
+  analytics:
+    on: "analytics are on in this browser."
+    off: "analytics are off in this browser."
+    gpc: "analytics are off: your browser sends Global Privacy Control."
+    turn_off: "turn off"
+    turn_on: "turn back on"
+  creed: "a personal knowledge page, made for fun. no ads, no warranty. analytics are just for my personal enjoyment, to see what pages are being viewed. not sold, not shared."
   elsewhere_heading: "elsewhere"
   elsewhere:
     - { label: "github.com/gemivnet", href: "https://github.com/gemivnet" }
@@ -361,6 +368,27 @@ foia:
     granted: "waiver granted"
     denied: "waiver denied"
     upheld: "waiver denied, upheld on review"
+
+# ── search ──────────────────────────────────────────────────
+search:
+  nav_label: "search"
+  title: "search"
+  heading: "Search."
+  seo_description: "Search every musing, build-log entry, recipe, records request and photo album on georgemain.com."
+  placeholder: "search musings, recipes, the build log, FOIA…"
+  label: "Search the site"
+  hint: "every word has to match. titles rank first."
+  empty: "nothing matches that."
+  count_one: "1 result"
+  count_many: "{n} results"
+  more: "showing the first {n}. add a word to narrow it."
+  nojs: "Search needs JavaScript. Everything is also reachable from the tabs above."
+  sections:
+    musings: "musing"
+    rv12is: "RV-12iS"
+    recipes: "recipe"
+    foia: "FOIA"
+    media: "album"
 
 # ── recipes ─────────────────────────────────────────────────
 # /recipes, one page per card plus a print page that prints the binder PDF.

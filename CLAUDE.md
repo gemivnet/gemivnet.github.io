@@ -269,6 +269,22 @@ the PDF, not the HTML.
   aggregated, adapted to the user's taste, not verified, nutrition least of all. The
   user asked for it; don't drop it.
 
+## Search and analytics
+
+`/search` filters `/search-index.json` in the browser: every musing, build-log entry,
+recipe, FOIA request and photo album, built by `renderSearch`. All query words must
+appear (accent-folded, so "langos" finds Lángos); title hits rank first. No library.
+A new section with pages should add itself to `renderSearch`. Results are built with
+DOM calls, not an HTML string, which also keeps the build's link checker from reading
+the script as a link.
+
+Google Analytics 4 is wired through `analytics.ga4_id` in `site.config.yaml` (null = no
+tag at all). The tag loads only on the live host, never under `npm run dev`. It is skipped
+when the visitor turned it off with the footer toggle (`localStorage['gm-analytics']`)
+or the browser sends Global Privacy Control. The user wants it for seeing which pages get
+read, nothing sold or shared, and the footer creed says so. Don't add events, ads
+features, or other trackers on the back of it.
+
 ## RV-12iS build log (`/rv12is`)
 
 Mirrors the user's Van's Air Force thread. New thread posts become entries under
@@ -427,7 +443,8 @@ subjects and so reflects ten historical commits written before this rule.
 
 - Frameworks, build tools beyond what's already here.
 - "Smart" features the user didn't ask for (dark-mode auto-detect,
-  reading progress bars, share buttons, comments, analytics).
+  reading progress bars, share buttons, comments). Google Analytics *was* asked for
+  (2026-11-13) and is the one exception; see *Search and analytics*.
 - Hand-written SVGs more complex than basic shapes.
 - Drop shadows, gradients, rounded SaaS-style cards. The aesthetic is
   late-90s/early-blogspot — flat, narrow column, mono chrome.

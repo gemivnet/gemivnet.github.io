@@ -1,0 +1,71 @@
+<%
+  /* Site search. The whole index is /search-index.json (built by renderSearch
+     in build.mjs); this filters it in the browser. ?q= keeps a search
+     linkable and lets the back button return to it. */
+  var sc = copy.search;
+%>
+<header class="sp-page-head">
+  <div class="sp-crumb">~/search</div>
+  <h1><%= sc.heading %></h1>
+</header>
+
+<form class="sx-form" action="/search" method="get" role="search">
+  <label class="sx-label" for="sx-q"><%= sc.label %></label>
+  <input class="sx-input" id="sx-q" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="<%= sc.placeholder %>">
+  <p class="sx-hint"><%= sc.hint %></p>
+</form>
+
+<p class="sx-status" id="sx-status" aria-live="polite"></p>
+<ol class="sx-results" id="sx-results"></ol>
+<noscript><p class="sx-status"><%= sc.nojs %></p></noscript>
+
+<script>
+(function () {
+  var C = <%~ JSON.stringify({ empty: sc.empty, one: sc.count_one, many: sc.count_many, more: sc.more, max: maxResults }) %>;
+  var input = document.getElementById('sx-q');
+  var list = document.getElementById('sx-results');
+  var status = document.getElementById('sx-status');
+  var index = null, timer = null;
+
+  function fold(s) { return String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); }
+
+  function run() {
+    var q = input.value.trim();
+    var url = q ? '/search?q=' + encodeURIComponent(q) : '/search';
+    history.replaceState(null, '', url);
+    list.innerHTML = '';
+    if (!q || !index) { status.textContent = ''; return; }
+    var words = fold(q).split(/\s+/).filter(Boolean);
+    var hits = [];
+    index.forEach(function (e) {
+      var t = fold(e.t), score = 0;
+      for (var i = 0; i < words.length; i++) {
+        if (e.x.indexOf(words[i]) === -1) return;
+        score += t.indexOf(words[i]) !== -1 ? 10 : 1;
+      }
+      hits.push({ e: e, score: score });
+    });
+    hits.sort(function (a, b) { return b.score - a.score || a.e.t.localeCompare(b.e.t); });
+    status.textContent = hits.length === 0 ? C.empty : hits.length === 1 ? C.one : C.many.replace('{n}', hits.length);
+    // Built with the DOM rather than an HTML string: safe by construction, and
+    // the build's link checker doesn't mistake a string template for a link.
+    hits.slice(0, C.max).forEach(function (h) {
+      var li = document.createElement('li'); li.className = 'sx-hit';
+      var sec = document.createElement('span'); sec.className = 'sx-sec'; sec.textContent = h.e.s;
+      var a = document.createElement('a'); a.className = 'sx-title'; a.textContent = h.e.t; a.setAttribute('href', h.e.u);
+      li.appendChild(sec); li.appendChild(a);
+      if (h.e.d) { var p = document.createElement('p'); p.className = 'sx-snip'; p.textContent = h.e.d; li.appendChild(p); }
+      list.appendChild(li);
+    });
+    if (hits.length > C.max) status.textContent += ' · ' + C.more.replace('{n}', C.max);
+  }
+
+  input.addEventListener('input', function () { clearTimeout(timer); timer = setTimeout(run, 120); });
+  input.form.addEventListener('submit', function (e) { e.preventDefault(); run(); });
+
+  var initial = new URLSearchParams(location.search).get('q');
+  if (initial) input.value = initial;
+  input.focus();
+  fetch('/search-index.json').then(function (r) { return r.json(); }).then(function (d) { index = d; run(); });
+})();
+</script>

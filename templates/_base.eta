@@ -7,6 +7,27 @@
   <% if (page.description) { %><meta name="description" content="<%= escapeHtml(page.description) %>"><% } %>
   <% if (page.keywords && page.keywords.length) { %><meta name="keywords" content="<%= escapeHtml(page.keywords.join(', ')) %>"><% } %>
   <link rel="canonical" href="<%= absUrl(page.url) %>">
+  <% if (analytics.ga4_id) { %>
+  <script>
+    // Google Analytics 4, live host only. Page views, for the owner's curiosity.
+    // Skipped when the visitor turned it off in the footer (stored in this
+    // browser only) or the browser sends Global Privacy Control.
+    window.gmAnalyticsOff = function () {
+      try { if (localStorage.getItem('gm-analytics') === 'off') return true; } catch (_) {}
+      return navigator.globalPrivacyControl === true;
+    };
+    if (location.hostname === <%~ JSON.stringify(new URL(site.url).hostname) %> && !window.gmAnalyticsOff()) {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=<%= analytics.ga4_id %>';
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', '<%= analytics.ga4_id %>');
+    }
+  </script>
+  <% } %>
   <% if (page.jsonLd) { %><script type="application/ld+json"><%~ page.jsonLd %></script><% } %>
 
   <meta property="og:type" content="<%= page.type || 'website' %>">
@@ -51,6 +72,7 @@
         <% }) %>
       </nav>
       <div class="sp-status">
+        <a href="/search" class="sp-search-link<%= active === 'search' ? ' active' : '' %>"><%= copy.search.nav_label %></a>
         <button class="sp-theme-toggle" id="theme-toggle" type="button" title="toggle theme"><%= copy.ui.theme_light %></button>
       </div>
     </div>
@@ -65,6 +87,38 @@
       <div>
         <div class="sp-footer-mark"><span class="tilde">~</span>/george.main</div>
         <% if (copy.footer.creed) { %><p class="creed"><%= copy.footer.creed %></p><% } %>
+        <% if (analytics.ga4_id) { %>
+        <p class="creed sp-optout" id="sp-optout" hidden>
+          <span id="sp-optout-state"></span>
+          <button type="button" class="sp-link-btn" id="sp-optout-btn"></button>
+        </p>
+        <script>
+        (function () {
+          // The analytics opt-out. A choice made here is kept in this browser
+          // and applies from the next page on; turning it off also stops this
+          // page's tag from sending anything further.
+          var C = <%~ JSON.stringify(copy.footer.analytics) %>;
+          var box = document.getElementById('sp-optout');
+          var state = document.getElementById('sp-optout-state');
+          var btn = document.getElementById('sp-optout-btn');
+          var gpc = navigator.globalPrivacyControl === true;
+          function paint() {
+            var off = window.gmAnalyticsOff && window.gmAnalyticsOff();
+            state.textContent = gpc ? C.gpc : off ? C.off : C.on;
+            btn.textContent = off ? C.turn_on : C.turn_off;
+            btn.hidden = gpc;
+            window['ga-disable-<%= analytics.ga4_id %>'] = !!off;
+          }
+          btn.addEventListener('click', function () {
+            var off = window.gmAnalyticsOff && window.gmAnalyticsOff();
+            try { if (off) localStorage.removeItem('gm-analytics'); else localStorage.setItem('gm-analytics', 'off'); } catch (_) {}
+            paint();
+          });
+          box.hidden = false;
+          paint();
+        })();
+        </script>
+        <% } %>
       </div>
       <div>
         <h3><%= copy.footer.elsewhere_heading %></h3>

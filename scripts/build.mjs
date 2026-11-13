@@ -222,6 +222,7 @@ const pageHelpers = {
   copy: COPY,
   tabs: COPY.nav.tabs,
   pictureFor,
+  analytics: CFG.analytics || {},
   bodyClass(active = '', extra = '') {
     const mode = (SITE.theme && SITE.theme.mode) || 'light';
     const cls = ['site-page'];
@@ -2185,6 +2186,55 @@ async function renderRecipes(recipes) {
   log(`${recipes.length} recipes in ${categories.length} categories`);
 }
 
+// ── render: search ───────────────────────────────────────────
+//
+// One flat index of everything with a page, written to /search-index.json and
+// filtered in the browser by templates/search.eta. No library and no server:
+// a few hundred entries, every query word must appear, title hits rank first.
+// `x` is the haystack, lowercased with accents folded so "langos" finds Lángos.
+
+const foldText = (s) => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s+/g, ' ').trim();
+
+async function renderSearch({ musings, rvPosts, recipes, foiaRequests, mediaNodes }) {
+  const sc = COPY.search;
+  const max = CFG.search.body_chars;
+  const clip = (s) => stripHtml(s || '').slice(0, max);
+  const index = [];
+  const add = (section, url, title, snippet, ...text) => index.push({
+    u: url, t: title, s: section, d: truncate(stripHtml(snippet || ''), CFG.search.snippet_chars),
+    x: foldText([title, ...text].join(' ')),
+  });
+  for (const p of musings) add(sc.sections.musings, p.url, p.title, p.seo.description || p.preview, p.subtitle, (p.tags || []).join(' '), p.category.join(' '), clip(p.bodyHtml));
+  for (const p of rvPosts) add(sc.sections.rv12is, p.url, p.title, p.seo.description || p.preview, p.subtitle, (p.tags || []).join(' '), clip(p.bodyHtml));
+  for (const r of recipes) {
+    const ings = r.items.filter(it => it.kind === 'step').flatMap(it => it.ings.map(i => stripHtml(i.name)));
+    add(sc.sections.recipes, r.url, r.title, [r.category, r.source && stripHtml(r.source)].filter(Boolean).join(' \u00b7 '),
+      r.category, r.source, ings.join(' '), clip(r.items.filter(it => it.kind === 'step').map(it => it.body).join(' ')), r.notes.join(' '));
+  }
+  for (const r of foiaRequests) add(sc.sections.foia, r.url, r.title, r.seo.description || r.agency, r.agency, (r.tags || []).join(' '), r.summary ? clip(r.summary.text) : '');
+  for (const n of mediaNodes) {
+    if (n.virtual || !n.images || !n.images.length) continue;
+    add(sc.sections.media, n.url, n.title, [n.subtitle, n.location].filter(Boolean).join(' \u00b7 '), n.subtitle, n.location, n.images.map(im => im.alt || '').join(' ').slice(0, max));
+  }
+  await writeFile('search-index.json', JSON.stringify(index));
+  allRoutes.add('/search');
+  allRoutes.add('/search-index.json');
+  const html = await renderPage('search', {
+    page: {
+      title: `${sc.title}, ${SITE.title}`,
+      description: sc.seo_description,
+      url: '/search',
+      bodyClass: pageHelpers.bodyClass('search'),
+      type: 'website',
+    },
+    active: 'search',
+    maxResults: CFG.search.max_results,
+  });
+  collectLinks('/search', html);
+  await writeFile('search/index.html', html);
+  log(`search index: ${index.length} entries`);
+}
+
 // ── render: static sites passthrough ─────────────────────────
 
 async function copyStaticSites() {
@@ -2420,6 +2470,7 @@ async function main() {
   await renderMedia(mediaNodes);
   await renderFoia(foiaRequests);
   await renderRecipes(recipes);
+  await renderSearch({ musings, rvPosts, recipes, foiaRequests, mediaNodes });
   await renderChangelog();
   await renderLicense();
   await copyStaticSites();
