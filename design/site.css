@@ -1459,3 +1459,7 @@
   .sp-footer-inner { grid-template-columns: minmax(0, 1fr); }
   .sp-footer a { overflow-wrap: anywhere; }
 }
+
+/* home: the recipes group under By the numbers */
+.stats-sub { margin: var(--sp-5) 0 var(--sp-3); border-bottom: 0; padding-bottom: 0; }
+.stats-sub a { color: inherit; }

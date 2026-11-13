@@ -922,7 +922,7 @@ async function computeStats(posts, mediaNodes) {
   };
 }
 
-async function renderHome(musings, rvPosts, mediaNodes) {
+async function renderHome(musings, rvPosts, mediaNodes, recipes = []) {
   const shuffled = seededShuffle(musings.map(m => ({
     url: m.url, title: m.title, subtitle: m.subtitle, preview: m.preview,
     featured: m.featured, tags: m.tags, date: fmtDate(m.date),
@@ -975,6 +975,14 @@ async function renderHome(musings, rvPosts, mediaNodes) {
     shuffled, shuffledImages, recent,
     totalMusings: musings.length,
     stats: await computeStats(musings.concat(rvPosts), mediaNodes),
+    recipeStats: recipes.length ? {
+      recipes: recipes.length,
+      categories: new Set(recipes.map(r => r.category)).size,
+      steps: recipes.reduce((n, r) => n + r.items.filter(it => it.kind === 'step').length, 0),
+      ingredients: recipes.reduce((n, r) => n + r.items.reduce((m, it) => m + (it.ings ? it.ings.length : 0), 0), 0),
+      withNutrition: recipes.filter(r => r.nutrition).length,
+      pages: recipes.reduce((n, r) => n + (r.pages || 0), 0),
+    } : null,
   });
   collectLinks('/', html);
   await writeFile('index.html', html);
@@ -2317,7 +2325,7 @@ async function main() {
   const foiaRequests = await loadFoia();
   const recipes = await loadRecipes();
 
-  await renderHome(musings, rvPosts, mediaNodes);
+  await renderHome(musings, rvPosts, mediaNodes, recipes);
   ALL_POST_URLS = musings.map(m => m.url);
   await renderPostSection(musings, SECTIONS.musings);
   await renderPostSection(rvPosts, SECTIONS.rv12is);

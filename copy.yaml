@@ -53,6 +53,14 @@ home:
     section_tag: "04 · numbers"
     title: "By the numbers"
     aside: "computed at build"
+    recipes_label: "recipes"
+    recipes:
+      recipes: "recipes"
+      categories: "categories"
+      steps: "steps"
+      ingredients: "ingredient lines"
+      with_nutrition: "with nutrition"
+      pages: "binder pages"
 
 # ── footer ──────────────────────────────────────────────────
 footer:

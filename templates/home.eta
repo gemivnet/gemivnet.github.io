@@ -93,6 +93,17 @@
     <div><dt>first post</dt><dd><%= stats.firstPost || '-' %></dd></div>
     <div><dt>last post</dt><dd><%= stats.lastPost || '-' %></dd></div>
   </dl>
+  <% if (recipeStats) { var rl = copy.home.stats.recipes; %>
+  <div class="sp-strip-label stats-sub">// <a href="/recipes"><%= copy.home.stats.recipes_label %></a></div>
+  <dl class="stats-grid">
+    <div><dt><%= rl.recipes %></dt><dd><%= recipeStats.recipes.toLocaleString() %></dd></div>
+    <div><dt><%= rl.categories %></dt><dd><%= recipeStats.categories %></dd></div>
+    <div><dt><%= rl.steps %></dt><dd><%= recipeStats.steps.toLocaleString() %></dd></div>
+    <div><dt><%= rl.ingredients %></dt><dd><%= recipeStats.ingredients.toLocaleString() %></dd></div>
+    <div><dt><%= rl.with_nutrition %></dt><dd><%= recipeStats.withNutrition %></dd></div>
+    <div><dt><%= rl.pages %></dt><dd><%= recipeStats.pages %></dd></div>
+  </dl>
+  <% } %>
 </section>
 <% } %>
 
