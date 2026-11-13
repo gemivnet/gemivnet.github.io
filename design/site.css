@@ -811,6 +811,22 @@ html, body { margin: 0; padding: 0; }
 .photo-nav .next { text-align: right; }
 .photo-nav .counter { color: var(--ink-2); font-size: var(--fs-meta); }
 
+/* hover-grow: photos lean toward the mouse. Mouse only (a touchscreen would
+   leave them stuck zoomed after a tap), and off under reduced motion. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .sp-figure { position: relative; z-index: 1; }
+  .sp-figure:has(img:hover) { z-index: 5; }
+  .sp-figure img, .home-photo img, .photo-figure img,
+  .sp-album .sp-img.has-photo, .sp-vsco .cell .sp-img { transition: transform .2s var(--ease); transform-origin: center; }
+  .sp-figure img:hover { transform: scale(1.12); }
+  .home-photo img:hover { transform: scale(1.03); }
+  .photo-figure img:hover { transform: scale(1.04); }
+  .sp-album:hover .sp-img.has-photo { transform: scale(1.04); }
+  .sp-vsco .cell:hover .sp-img { transform: scale(1.04); }
+  .sp-entry-thumb img { filter: saturate(0.85); transition: filter .15s var(--ease); }
+  .sp-entry:hover .sp-entry-thumb img { filter: none; }
+}
+
 /* ── 11. FOIA ─────────────────────────────────────────────── */
 /* facts: label beside value, the one place a request's numbers live */
 .facts {
