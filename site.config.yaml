@@ -35,6 +35,18 @@ images:
   # position: attention picks the crop by entropy so it lands on the subject.
   entry_thumb:   { width: 160, height: 160, quality: 76, position: attention }
 
+# The left rail (templates/_rail.eta). A post with at least toc_min_headings
+# h2s lists them under "on this page"; index rails show the top_tags commonest
+# tags with a link to the rest.
+rail:
+  toc_min_headings: 3
+  top_tags: 12
+
+# Home page. "Lately" lists this many of the newest musings, build-log entries
+# and records requests together.
+home:
+  lately_count: 8
+
 limits:
   rss_items: 30       # entries in rss.xml / atom.xml
   tag_keywords: 10    # <meta keywords> on a tag page

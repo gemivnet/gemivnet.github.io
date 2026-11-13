@@ -1,23 +1,18 @@
-<section class="sp-page-head">
-  <div class="crumbs" style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); letter-spacing: 0.04em; margin-bottom: var(--sp-3);">
-    <a href="/" style="color: var(--ink-3); text-decoration: none;">~</a>
-    <% breadcrumbs.forEach(function(b, i){ %>
-      / <a href="<%= b.url %>" style="color: <%= i === breadcrumbs.length - 1 ? 'var(--ink)' : 'var(--ink-3)' %>; text-decoration: none;"><%= b.label %></a>
-    <% }) %>
-  </div>
+<header class="sp-page-head">
+  <nav class="crumbs" aria-label="Breadcrumb">
+    <a href="/">~</a><% breadcrumbs.forEach(function(b, i){ %><span class="sep">/</span><% if (i === breadcrumbs.length - 1) { %><span class="here" aria-current="page"><%= b.label %></span><% } else { %><a href="<%= b.url %>"><%= b.label %></a><% } %><% }) %>
+  </nav>
   <h1><%= node.title %></h1>
-  <% if (node.subtitle) { %><p style="font-style: italic; color: var(--ink-2); font-size: 20px; margin-top: var(--sp-3);"><%= node.subtitle %></p><% } %>
+  <% if (node.subtitle) { %><p class="subtitle"><%= node.subtitle %></p><% } %>
   <% if (node.fromPost) { %>
-    <p style="font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); margin-top: var(--sp-3); letter-spacing: 0.02em;">
-      ↩ from the <%= node.fromPost.label || 'musing' %>: <a href="<%= node.fromPost.url %>"><%= node.fromPost.title %></a>
-    </p>
+    <p class="from-post">↩ from the <%= node.fromPost.label || 'musing' %>: <a href="<%= node.fromPost.url %>"><%= node.fromPost.title %></a></p>
   <% } %>
-  <div style="font-family: var(--font-mono); font-size: var(--fs-small); color: var(--ink-3); margin-top: var(--sp-3); display: flex; gap: var(--sp-4); flex-wrap: wrap; align-items: center;">
-    <% if (node.location) { %><span><%= node.location %></span><% } %>
-    <% if (node.date) { %><span><%= fmtDate(node.date) %></span><% } %>
+  <p class="meta">
+    <% if (node.location) { %><span><%= node.location %></span><span class="sep">·</span><% } %>
+    <% if (node.date) { %><span><%= fmtDate(node.date) %></span><span class="sep">·</span><% } %>
     <span><%= allDescendantImages.length %> photos<% if (subAlbums.length) { %> · <%= subAlbums.length %> sub-albums<% } %></span>
-  </div>
-</section>
+  </p>
+</header>
 
 <% if (subAlbums.length) { %>
   <div class="gallery-view">
@@ -40,16 +35,7 @@
         </div>
         <div class="sp-album-grid">
           <% subAlbums.forEach(function(a){ %>
-            <a class="sp-album" href="<%= a.url %>">
-              <% if (a.cover) { %>
-                <div class="sp-img has-photo" style="aspect-ratio: 4/3; background-image: url('<%= a.cover.med %>'); background-size: cover; background-position: center;"></div>
-              <% } else { %>
-                <div class="sp-img tinted" style="aspect-ratio: 4/3;"><span class="sp-img-label">[ <%= a.title %> ]</span></div>
-              <% } %>
-              <div class="meta-row"><span><%= a.date %></span><span><%= a.count %> photos</span></div>
-              <h4><%= a.title %></h4>
-              <% if (a.subtitle) { %><div class="sub"><%= a.subtitle %></div><% } %>
-            </a>
+            <%~ include('_album', { a: a }) %>
           <% }) %>
         </div>
       </section>
@@ -64,7 +50,7 @@
           <div class="sp-vsco">
             <% node.images.forEach(function(im){ %>
               <a class="cell" href="<%= im.pageUrl %>" title="<%= escapeHtml(im.alt || '') %>">
-                <div class="sp-img has-photo" style="background-image: url('<%= im.srcThumb %>'); background-size: cover; background-position: center;" aria-label="<%= escapeHtml(im.alt || '') %>"></div>
+                <div class="sp-img has-photo" style="background-image: url('<%= im.srcThumb %>');" role="img" aria-label="<%= escapeHtml(im.alt || '') %>"></div>
                 <div class="caption">
                   <% if (im.title) { %><div class="title"><%= im.title %></div><% } %>
                   <% if (im.location) { %><div class="where"><%= im.location %></div><% } %>
@@ -82,7 +68,7 @@
       <div class="sp-vsco">
         <% allDescendantImages.forEach(function(im){ %>
           <a class="cell" href="<%= im.pageUrl %>" title="<%= escapeHtml(im.alt || '') %>">
-            <div class="sp-img has-photo" style="background-image: url('<%= im.srcThumb %>'); background-size: cover; background-position: center;" aria-label="<%= escapeHtml(im.alt || '') %>"></div>
+            <div class="sp-img has-photo" style="background-image: url('<%= im.srcThumb %>');" role="img" aria-label="<%= escapeHtml(im.alt || '') %>"></div>
             <div class="caption">
               <% if (im.title) { %><div class="title"><%= im.title %></div><% } %>
               <% if (im.album && im.album !== node.url) { %><div class="where"><%= im.albumTitle %></div><% } %>
@@ -138,7 +124,7 @@
     <div class="sp-vsco">
       <% node.images.forEach(function(im){ %>
         <a class="cell" href="<%= im.pageUrl %>" title="<%= escapeHtml(im.alt || '') %>">
-          <div class="sp-img has-photo" style="background-image: url('<%= im.srcThumb %>'); background-size: cover; background-position: center;" aria-label="<%= escapeHtml(im.alt || '') %>"></div>
+          <div class="sp-img has-photo" style="background-image: url('<%= im.srcThumb %>');" role="img" aria-label="<%= escapeHtml(im.alt || '') %>"></div>
           <div class="caption">
             <% if (im.title) { %><div class="title"><%= im.title %></div><% } %>
             <% if (im.location) { %><div class="where"><%= im.location %></div><% } %>

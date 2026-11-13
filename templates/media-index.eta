@@ -1,12 +1,8 @@
-<section class="sp-page-head">
-  <div class="sp-eyebrow">
-    <%= copy.media.index.breadcrumb %> · <%= albums.length %> albums
-  </div>
+<header class="sp-page-head">
+  <div class="sp-crumb"><%= copy.media.index.breadcrumb %> · <%= albums.length %> albums</div>
   <h1><%= copy.media.index.title %></h1>
-  <p style="margin-top: var(--sp-4); color: var(--ink-2); font-size: 18px; max-width: 640px;">
-    <%= copy.media.index.intro %>
-  </p>
-</section>
+  <p class="sp-index-summary"><%= copy.media.index.intro %></p>
+</header>
 
 <% if (albums.length === 0) { %>
   <div class="sp-empty"><%= copy.empty.media %></div>
@@ -14,19 +10,6 @@
 
 <div class="sp-album-grid">
   <% albums.forEach(function(a){ %>
-    <a class="sp-album" href="<%= a.url %>">
-      <% if (a.cover) { %>
-        <div class="sp-img has-photo" style="aspect-ratio: 4/3; background-image: url('<%= a.cover.med %>'); background-size: cover; background-position: center;"></div>
-      <% } else { %>
-        <div class="sp-img tinted" style="aspect-ratio: 4/3;"><span class="sp-img-label">[ <%= a.title %> ]</span></div>
-      <% } %>
-      <div class="meta-row">
-        <span><%= a.date %></span>
-        <span><%= a.count %> photos</span>
-      </div>
-      <h4><%= a.title %></h4>
-      <% if (a.subtitle) { %><div class="sub"><%= a.subtitle %></div><% } %>
-      <% if (a.location) { %><div class="meta-row"><span><%= a.location %></span></div><% } %>
-    </a>
+    <%~ include('_album', { a: a }) %>
   <% }) %>
 </div>

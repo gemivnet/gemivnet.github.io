@@ -1,9 +1,13 @@
-<section class="sp-page-head">
-  <div class="sp-eyebrow">
-    <%= sectionCopy.tag.breadcrumb_prefix %><%= tag %> · <%= posts.length %> posts
-  </div>
-  <h1>#<%= tag %></h1>
-  <p style="margin-top: var(--sp-4); color: var(--ink-2); font-size: 18px;"><%= sectionCopy.tag.intro %></p>
-</section>
+<div class="musings-layout">
+  <%~ include('_rail', { copy: copy, rail: rail, escapeHtml: escapeHtml }) %>
 
-<%~ include('_entries', { copy: copy, entries: entries, listCopy: sectionCopy.index, section: section, escapeHtml: escapeHtml }) %>
+  <div class="musings-main">
+    <header class="sp-page-head">
+      <div class="sp-crumb"><%= sectionCopy.tag.breadcrumb_prefix %><%= tag %> · <%= posts.length %> posts</div>
+      <h1>#<%= tag %></h1>
+      <p class="sp-index-summary"><%= sectionCopy.tag.intro %></p>
+    </header>
+
+    <%~ include('_entries', { copy: copy, entries: entries, listCopy: sectionCopy.index, section: section, escapeHtml: escapeHtml }) %>
+  </div>
+</div>

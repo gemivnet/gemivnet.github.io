@@ -1,8 +1,12 @@
 <!doctype html>
-<html lang="<%= site.language %>">
+<html lang="<%= site.language %>"<% if (themeDefault === 'dark') { %> class="dark"<% } %>>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    // Theme before first paint, so a dark-mode visitor never sees light flash.
+    try { var gmT = localStorage.getItem('gm-theme'); if (gmT) document.documentElement.classList.toggle('dark', gmT === 'dark'); } catch (_) {}
+  </script>
   <title><%= page.title %></title>
   <% if (page.description) { %><meta name="description" content="<%= escapeHtml(page.description) %>"><% } %>
   <% if (page.keywords && page.keywords.length) { %><meta name="keywords" content="<%= escapeHtml(page.keywords.join(', ')) %>"><% } %>
@@ -46,10 +50,6 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="/tokens.css<%= typeof assetV !== 'undefined' && assetV ? '?v=' + assetV : '' %>">
   <link rel="stylesheet" href="/site.css<%= typeof assetV !== 'undefined' && assetV ? '?v=' + assetV : '' %>">
-  <style>
-    html, body { margin: 0; padding: 0; }
-    body { min-height: 100vh; background: var(--bg, #f5f0e6); }
-  </style>
   <% if (typeof jsonLd !== 'undefined' && jsonLd) { %>
   <script type="application/ld+json"><%~ JSON.stringify(jsonLd) %></script>
   <% } %>
@@ -67,17 +67,17 @@
       %></a>
       <nav class="sp-nav" aria-label="Primary">
         <% tabs.forEach(function(t){ %>
-          <a href="<%= t.href %>" class="<%= active === t.id ? 'active' : '' %>"><%= t.label %></a>
+          <a href="<%= t.href %>"<% if (active === t.id) { %> aria-current="page"<% } %>><%= t.label %></a>
         <% }) %>
       </nav>
       <div class="sp-status">
-        <a href="/search" class="sp-search-link<%= active === 'search' ? ' active' : '' %>"><%= copy.search.nav_label %></a>
-        <button class="sp-theme-toggle" id="theme-toggle" type="button" title="toggle theme"><%= copy.ui.theme_light %></button>
+        <a href="/search" class="sp-search-link"<% if (active === 'search') { %> aria-current="page"<% } %>><%= copy.search.nav_label %></a>
+        <button class="sp-theme-toggle" id="theme-toggle" type="button" aria-label="<%= copy.ui.theme_aria %>"><%= copy.ui.theme_light %></button>
       </div>
     </div>
   </header>
 
-  <main class="site-shell" id="main" style="padding-top: var(--sp-7); padding-bottom: var(--sp-7);">
+  <main class="site-shell" id="main">
     <%~ body %>
   </main>
 
@@ -99,7 +99,7 @@
         <h3><%= copy.footer.site_links_heading %></h3>
         <ul>
           <% ;(copy.footer.site_links || []).forEach(function(s){ %>
-            <li><a href="<%= s.href %>"><%= s.label %></a><% if (s.indicator) { %> &nbsp;<span style="color: var(--accent);">&#9679;</span><% } %></li>
+            <li><a href="<%= s.href %>"><%= s.label %></a><% if (s.indicator) { %><span class="dot" aria-hidden="true">&#9679;</span><% } %></li>
           <% }) %>
           <% if (analytics.tag_id) { %>
           <li class="sp-optout" id="sp-optout" hidden>
@@ -138,8 +138,8 @@
             <li><a href="#" id="random-musing-link" data-urls='<%~ JSON.stringify(allPostUrls) %>'><%= copy.ui.random_link %></a></li>
           <% } %>
           <li><a href="/license"><%= copy.copyright.link_text %></a></li>
-          <li style="margin-top: var(--sp-3); color: var(--ink-3);"><%= copy.copyright.line %></li>
-          <li class="version" style="color: var(--ink-3);"><%= site.version %></li>
+          <li class="fine"><%= copy.copyright.line %></li>
+          <li class="version"><%= site.version %></li>
         </ul>
       </div>
     </div>
@@ -147,16 +147,16 @@
 
   <script>
     (function () {
-      var page = document.body;
+      var root = document.documentElement;
       var toggle = document.getElementById('theme-toggle');
-      function setTheme(t) {
-        if (t === 'dark') { page.classList.remove('light'); toggle.innerHTML = '&#9789; dark'; }
-        else { page.classList.add('light'); toggle.innerHTML = '&#9728; light'; }
-        try { localStorage.setItem('gm-theme', t); } catch (_) {}
-      }
-      try { var s = localStorage.getItem('gm-theme'); if (s) setTheme(s); } catch (_) {}
+      var LABEL = <%~ JSON.stringify({ light: copy.ui.theme_light, dark: copy.ui.theme_dark }) %>;
+      function paint() { if (toggle) toggle.innerHTML = root.classList.contains('dark') ? LABEL.dark : LABEL.light; }
+      paint();
       toggle && toggle.addEventListener('click', function () {
-        setTheme(page.classList.contains('light') ? 'dark' : 'light');
+        var dark = !root.classList.contains('dark');
+        root.classList.toggle('dark', dark);
+        try { localStorage.setItem('gm-theme', dark ? 'dark' : 'light'); } catch (_) {}
+        paint();
       });
 
       var rnd = document.getElementById('random-musing-link');

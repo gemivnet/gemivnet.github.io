@@ -1,27 +1,13 @@
-<header class="sp-page-head">
-  <div class="sp-crumb">
-    <%= sectionCopy.index.breadcrumb %> · <%= posts.length %> entries
-  </div>
-  <h1><%= sectionCopy.heading %></h1>
-  <% if (sectionCopy.index.summary) { %><p class="sp-index-summary"><%= sectionCopy.index.summary %></p><% } %>
-</header>
+<div class="musings-layout">
+  <%~ include('_rail', { copy: copy, rail: rail, escapeHtml: escapeHtml }) %>
 
-<%
-  var catCounts = {};
-  posts.forEach(function(p){ var k = p.category.join('/'); if (k) catCounts[k] = (catCounts[k] || 0) + 1; });
-  var cats = Object.keys(catCounts).sort();
-%>
+  <div class="musings-main">
+    <header class="sp-page-head">
+      <div class="sp-crumb"><%= sectionCopy.index.breadcrumb %> · <%= posts.length %> entries</div>
+      <h1><%= sectionCopy.heading %></h1>
+      <% if (sectionCopy.index.summary) { %><p class="sp-index-summary"><%= sectionCopy.index.summary %></p><% } %>
+    </header>
 
-<% if (cats.length) { %>
-<div class="sp-browse">
-  <div class="sp-browse-label"><%= copy.ui.browse_folder %></div>
-  <div class="sp-browse-row">
-    <a href="<%= section.base %>" class="is-all"><%= copy.ui.all_label %> (<%= posts.length %>)</a>
-    <% cats.forEach(function(k){ %>
-      <a href="<%= section.base %>/<%= k %>"><%= k %>/ <span class="n"><%= catCounts[k] %></span></a>
-    <% }) %>
+    <%~ include('_entries', { copy: copy, entries: entries, pinnedEntries: pinnedEntries, listCopy: sectionCopy.index, section: section, escapeHtml: escapeHtml }) %>
   </div>
 </div>
-<% } %>
-
-<%~ include('_entries', { copy: copy, entries: entries, pinnedEntries: pinnedEntries, listCopy: sectionCopy.index, section: section, escapeHtml: escapeHtml }) %>

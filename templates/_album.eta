@@ -1,0 +1,15 @@
+<%
+  /* One album tile: square-ish cover, then title and count on one line, then
+     one muted line for whatever else the album says about itself. Used on
+     /media and in every gallery's sub-album grid. */
+  var _sub = [a.subtitle, a.location, a.date].filter(Boolean);
+%>
+<a class="sp-album" href="<%= a.url %>">
+  <% if (a.cover) { %>
+    <div class="sp-img has-photo" style="background-image: url('<%= a.cover.med %>');" role="img" aria-label="<%= a.title %>"></div>
+  <% } else { %>
+    <div class="sp-img"></div>
+  <% } %>
+  <div class="sp-album-cap"><span class="t"><%= a.title %></span><span class="n"><%= a.count %></span></div>
+  <% if (_sub.length) { %><div class="sub"><%= _sub.join(' · ') %></div><% } %>
+</a>

@@ -1,0 +1,52 @@
+<%
+  /* The left rail. One partial for every page that has one.
+
+     `rail` is built in build.mjs:
+       label   aria-label for the <aside>
+       tree    pre-rendered folder tree HTML (detail pages), or null
+       groups  [{ title, inline, items: [{ href, label, n, current }], more: { href, label } }]
+       toc     [{ id, text }] the post's own h2s, or []
+
+     Under 960px it folds into a closed "browse" line above the page. It ships
+     open so it works with JS off; the script below closes it on a narrow
+     screen before first paint. */
+  var _r = (typeof rail !== 'undefined' && rail) || {};
+  var _groups = _r.groups || [];
+  var _toc = _r.toc || [];
+%>
+<aside class="rail" aria-label="<%= _r.label || copy.ui.rail.label %>">
+  <details class="rail-box" open>
+    <summary><%= copy.ui.sidebar_browse %></summary>
+    <div class="rail-body">
+      <% if (_toc.length) { %>
+        <section class="rail-group">
+          <h2 class="rail-h"><%= copy.ui.rail.toc %></h2>
+          <ul class="rail-list">
+            <% _toc.forEach(function(t){ %><li><a href="#<%= t.id %>"><span class="label" title="<%= escapeHtml(t.text) %>"><%= t.text %></span></a></li><% }) %>
+          </ul>
+        </section>
+      <% } %>
+      <% if (_r.tree) { %>
+        <div class="rail-tree<%= _toc.length ? ' rail-group' : '' %>"><%~ _r.tree %></div>
+      <% } %>
+      <% _groups.forEach(function(g){ %>
+        <section class="rail-group">
+          <h2 class="rail-h"><%= g.title %></h2>
+          <ul class="rail-list<%= g.inline ? ' is-inline' : '' %>">
+            <% g.items.forEach(function(it){ %><li><a<% if (g.inline) { %> class="sp-tag"<% } %> href="<%= it.href %>"<% if (it.current) { %> aria-current="page"<% } %>><span class="label" title="<%= escapeHtml(it.label) %>"><%= it.label %></span><% if (it.n != null) { %><span class="n"><%= it.n %></span><% } %></a></li><% }) %>
+          </ul>
+          <% if (g.more) { %><a class="rail-more" href="<%= g.more.href %>"><%= g.more.label %></a><% } %>
+        </section>
+      <% }) %>
+    </div>
+  </details>
+</aside>
+<script>
+(function () {
+  var box = document.currentScript.previousElementSibling.querySelector('.rail-box');
+  var narrow = window.matchMedia('(max-width: 959px)');
+  if (narrow.matches) box.open = false;
+  // Back to a wide window: the rail is a column again, so it has to be open.
+  (narrow.addEventListener ? narrow.addEventListener.bind(narrow, 'change') : narrow.addListener.bind(narrow))(function (e) { if (!e.matches) box.open = true; });
+})();
+</script>

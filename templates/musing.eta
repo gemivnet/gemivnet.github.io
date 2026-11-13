@@ -1,32 +1,19 @@
 <div class="musings-layout">
-  <aside class="musings-tree" aria-label="Musings folder tree">
-    <input type="checkbox" id="tree-toggle" class="tree-toggle">
-    <label class="tree-head" for="tree-toggle"><%= copy.ui.sidebar_browse %></label>
-    <%~ treeHtml %>
-  </aside>
+  <%~ include('_rail', { copy: copy, rail: rail, escapeHtml: escapeHtml }) %>
 
   <div class="musings-main">
     <header class="sp-post-header">
-      <div class="crumbs">
-        <a href="/">~</a> &nbsp;/&nbsp; <a href="<%= section.base %>"><%= sectionCopy.post.crumbs_root %></a>
-        <% post.category.forEach(function(c, idx){ %>
-          &nbsp;/&nbsp; <a href="<%= section.base %>/<%= post.category.slice(0, idx+1).join('/') %>"><%= c %></a>
-        <% }) %>
-        &nbsp;/&nbsp; <span style="color: var(--ink-2);"><%= post.slug %></span>
-      </div>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">~</a><span class="sep">/</span><a href="<%= section.base %>"><%= sectionCopy.post.crumbs_root %></a><% post.category.forEach(function(c, idx){ %><span class="sep">/</span><a href="<%= section.base %>/<%= post.category.slice(0, idx+1).join('/') %>"><%= c %></a><% }) %><span class="sep">/</span><span class="here" aria-current="page"><%= post.slug %></span></nav>
       <h1><%= post.title %></h1>
       <% if (post.subtitle) { %><p class="subtitle"><%= post.subtitle %></p><% } %>
-      <div class="meta">
-        <% if (section.timeline) { %><span style="color: var(--accent); font-weight: 600;"><%= fmtMetaDate(post.date) %></span><% } else { %><span><%= fmtDate(post.date) %></span><% } %>
-        <span class="sep">·</span>
-        <span><%= post.wordCount.toLocaleString() %> words</span>
-        <span class="sep">·</span>
-        <span>~<%= post.readTime %> min read</span>
-        <% if (post.tags.length) { %>
-          <span class="sep">·</span>
-          <% post.tags.forEach(function(t){ %><a class="sp-tag" href="<%= section.base %>/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %>
-        <% } %>
-      </div>
+      <p class="meta">
+        <time datetime="<%= fmtDate(post.date) %>"><%= section.timeline ? fmtLongDate(post.date) : fmtDate(post.date) %></time>
+        <span class="sep">·</span><span><%= post.wordCount.toLocaleString() %> <%= copy.ui.words %></span>
+        <span class="sep">·</span><span>~<%= post.readTime %> <%= copy.ui.min_read %></span>
+      </p>
+      <% if (post.tags.length) { %>
+        <div class="sp-tags"><% post.tags.forEach(function(t){ %><a class="sp-tag" href="<%= section.base %>/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %></div>
+      <% } %>
     </header>
 
     <article class="sp-prose">
@@ -34,17 +21,14 @@
     </article>
 
     <% if (related && related.length) { %>
-    <section class="sp-section" aria-label="Related musings">
+    <section class="sp-section" aria-label="Related">
       <div class="sp-section-head">
         <span class="sp-section-tag"><%= sectionCopy.post.related_tag %></span>
         <h2><%= sectionCopy.post.related_title %></h2>
       </div>
       <ul class="cat-list">
         <% related.forEach(function(r){ %>
-          <li>
-            <a href="<%= r.url %>"><%= r.title %></a>
-            <span class="count"><%= fmtDate(r.date).slice(0, 7) %></span>
-          </li>
+          <li><a href="<%= r.url %>"><%= r.title %></a><span class="count"><%= fmtDate(r.date).slice(0, 7) %></span></li>
         <% }) %>
       </ul>
     </section>
@@ -54,12 +38,12 @@
       <div class="prev">
         <span class="label"><%= sectionCopy.post.prev_label %></span>
         <% if (prev) { %><a href="<%= prev.url %>"><%= prev.title %></a>
-        <% } else { %><span style="color: var(--ink-3);"><%= sectionCopy.post.oldest_note %></span><% } %>
+        <% } else { %><span class="none"><%= sectionCopy.post.oldest_note %></span><% } %>
       </div>
       <div class="next">
         <span class="label"><%= sectionCopy.post.next_label %></span>
         <% if (next) { %><a href="<%= next.url %>"><%= next.title %></a>
-        <% } else { %><span style="color: var(--ink-3);"><%= sectionCopy.post.newest_note %></span><% } %>
+        <% } else { %><span class="none"><%= sectionCopy.post.newest_note %></span><% } %>
       </div>
     </nav>
 

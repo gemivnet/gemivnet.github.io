@@ -1,88 +1,93 @@
 <%
-  /* Shared entry list. Used by /musings, /rv12is and /foia so all three
-     scroll, sort and read the same way. /recipes uses it too, undated. Callers pass a normalized `entries`
-     array built by entryFromPost/entryFromRequest in build.mjs; nothing in
-     here knows what a musing or a records request is.
+  /* The one list. /musings, /rv12is, /foia, /recipes, the home page's
+     "Lately", and every category, tag, year and agency page include it.
+     Callers pass a normalized `entries` array built by entryFromPost,
+     entryFromRequest or entryFromRecipe in build.mjs; nothing in here knows
+     what a musing or a records request is.
+
+     Options (all optional):
+       layout    'rows' (default) or 'compact' (undated: title left, time
+                 right, two columns; recipes)
+       sortable  false hides the newest/oldest control
+       peek      false leaves out the reading pane
 
      Locals are underscored because `useWith` puts the caller's data in scope:
      `var entries = entries || []` would shadow it with undefined. */
-  var _entries = (typeof entries !== 'undefined' && entries) || [];
-  var _pinned  = (typeof pinnedEntries !== 'undefined' && pinnedEntries) || [];
-  var _c       = (typeof listCopy !== 'undefined' && listCopy) || {};
+  var _entries  = (typeof entries !== 'undefined' && entries) || [];
+  var _pinned   = (typeof pinnedEntries !== 'undefined' && pinnedEntries) || [];
+  var _c        = (typeof listCopy !== 'undefined' && listCopy) || {};
+  var _layout   = (typeof layout !== 'undefined' && layout) || 'rows';
+  var _sortable = typeof sortable === 'undefined' ? true : !!sortable;
+  var _peek     = typeof peek === 'undefined' ? true : !!peek;
+  var _dated    = _entries.some(function(e){ return e.ts != null; });
 %>
 
 <% if (_pinned.length) { %>
-<section class="sp-pinned" aria-label="Pinned entries">
-  <div class="sp-strip-label">// <%= _c.pinned_label || 'pinned' %></div>
-  <div class="sp-pinned-row">
+<section class="sp-pinned" aria-label="<%= _c.pinned_label || copy.ui.pinned %>">
+  <div class="sp-strip-label"><%= _c.pinned_label || copy.ui.pinned %></div>
+  <ul>
     <% _pinned.forEach(function(e){ %>
-      <a class="sp-pin" href="<%= e.url %>">
-        <span class="sp-pin-thumb<%= e.thumb ? '' : ' is-empty' %>"><% if (e.thumb) { %><img src="<%= e.thumb %>" alt="" width="160" height="160" loading="lazy" decoding="async"><% } %></span>
-        <span class="sp-pin-text">
-          <span class="sp-pin-title"><%= e.title %></span>
-          <% if (e.subtitle) { %><span class="sp-pin-sub"><%= e.subtitle %></span><% } %>
-        </span>
-      </a>
+      <li><a href="<%= e.url %>"><%= e.title %></a><% if (e.subtitle) { %><span class="muted"><%= e.subtitle %></span><% } %></li>
     <% }) %>
-  </div>
+  </ul>
 </section>
 <% } %>
 
 <% if (_entries.length === 0) { %>
-  <div class="sp-empty"><span class="glyph">∅</span><%= _c.empty || 'nothing here yet.' %></div>
+  <div class="sp-empty"><span class="glyph">∅</span><%= _c.empty || copy.ui.empty %></div>
+<% } else if (_layout === 'compact') { %>
+
+<div class="sp-compact">
+<% var _open = false, _lastG = {}; _entries.forEach(function(e){ %>
+  <% if (e.group != null && e.group !== _lastG) { _lastG = e.group; %>
+    <% if (_open) { %></ul></section><% } _open = true; %>
+    <section class="sp-cgroup"><h2 class="sp-year"><% if (e.groupHref) { %><a href="<%= e.groupHref %>"><%= e.group %></a><% } else { %><%= e.group %><% } %></h2><ul>
+  <% } else if (!_open) { _open = true; %>
+    <section class="sp-cgroup"><ul>
+  <% } %>
+      <li><a href="<%= e.url %>"><span><%= e.title %></span><% if (e.aside) { %><span class="t"><%~ e.aside %></span><% } %></a></li>
+<% }) %>
+<% if (_open) { %></ul></section><% } %>
+</div>
+
 <% } else { %>
 
-<% if (_entries.some(function(e){ return e.ts != null; })) { %>
+<div class="sp-list">
+<% if (_dated && _sortable) { %>
 <div class="sp-sort" hidden>
-  <span class="sp-sort-label"><%= _c.sort_label || 'sort:' %></span>
-  <button type="button" data-sort="desc" class="is-on"><%= _c.sort_newest || 'newest first' %></button>
+  <span class="sp-sort-label"><%= _c.sort_label || copy.ui.sort_label %></span>
+  <button type="button" data-sort="desc" class="is-on" aria-pressed="true"><%= _c.sort_newest || copy.ui.sort_newest %></button>
   <span class="sp-sort-sep">/</span>
-  <button type="button" data-sort="asc"><%= _c.sort_oldest || 'oldest first' %></button>
+  <button type="button" data-sort="asc" aria-pressed="false"><%= _c.sort_oldest || copy.ui.sort_oldest %></button>
 </div>
 <% } %>
 
 <div id="sp-stream">
 <% var _lastGroup = null; _entries.forEach(function(e){
-     /* Dated entries group by year. Undated ones (recipes) may pass `group`
-        instead, or nothing for a flat list. Only dated rows get data-ts, so
-        the sort script finds nothing to sort on an undated list. */
+     /* Dated entries group by year. Undated ones may pass `group` instead,
+        or nothing for a flat list. Only dated rows get data-ts, so the sort
+        script finds nothing to sort on an undated list. */
      var _g = e.group != null ? e.group : e.year; %>
   <% if (_g != null && _g !== _lastGroup) { _lastGroup = _g; %>
-    <div class="sp-year" data-year="<%= e.year %>">// <%= _g %></div>
+    <div class="sp-year" data-year="<%= e.year %>"><%= _g %></div>
   <% } %>
-  <article class="sp-card sp-entry"<% if (e.ts != null) { %> data-ts="<%= e.ts %>" data-year="<%= e.year %>"<% } %>>
-    <a class="sp-entry-thumb<%= e.thumb ? '' : ' is-empty' %>" href="<%= e.url %>" tabindex="-1" aria-hidden="true"><% if (e.thumb) { %><img src="<%= e.thumb %>" alt="" width="160" height="160" loading="lazy" decoding="async"><% } %></a>
+  <article class="sp-entry<%= e.date ? '' : ' no-date' %>"<% if (e.ts != null) { %> data-ts="<%= e.ts %>" data-year="<%= e.year %>"<% } %>>
+    <% if (e.date) { %><div class="sp-entry-date"><%= e.date %></div><% } %>
     <div class="sp-entry-body">
-      <div class="sp-meta">
-        <% ;(e.meta || []).forEach(function(m, i){ %><% if (i) { %><span class="sep">·</span><% } %><span class="<%= m.cls || '' %>"><%= m.text %></span><% }) %>
-      </div>
-      <h3><a href="<%= e.url %>"><%= e.title %></a></h3>
+      <h3 class="sp-entry-title"><a href="<%= e.url %>"><%= e.title %></a></h3>
       <% if (e.subtitle) { %><p class="sp-sub"><%= e.subtitle %></p><% } %>
+      <% if (e.meta && e.meta.length) { %><p class="sp-meta"><% e.meta.forEach(function(m, i){ %><% if (i) { %><span class="sep">·</span><% } %><span><%= m.text %></span><% }) %></p><% } %>
       <% if (e.preview) { %><p class="sp-preview"><%= e.preview %></p><% } %>
       <% if (e.tags && e.tags.length) { %><div class="sp-tags"><% e.tags.forEach(function(t){ %><a class="sp-tag" href="<%= t.href %>"><%= t.label %></a><% }) %></div><% } %>
     </div>
-    <a class="sp-entry-open" href="<%= e.url %>" data-peek data-peek-title="<%= escapeHtml(e.title) %>" aria-label="<%= escapeHtml(copy.ui.peek_open_aria.replace('{title}', e.title)) %>"><%= copy.ui.peek_open %></a>
+    <% if (e.thumb) { %><a class="sp-entry-thumb" href="<%= e.url %>" tabindex="-1" aria-hidden="true"><img src="<%= e.thumb %>" alt="" width="160" height="160" loading="lazy" decoding="async"></a><% } %>
+    <% if (_peek) { %><a class="sp-entry-open" href="<%= e.url %>" data-peek data-peek-title="<%= escapeHtml(e.title) %>" aria-label="<%= escapeHtml(copy.ui.peek_open_aria.replace('{title}', e.title)) %>"><%~ copy.ui.peek_open %></a><% } %>
   </article>
 <% }) %>
 </div>
-<% } %>
+</div>
 
-<%
-  /* Reading pane. Ships inert and empty; the script moves it to <body> and
-     fills it on demand. With JS off the > above is an ordinary link. */
-%>
-<aside class="sp-peek" id="sp-peek" hidden>
-  <div class="sp-peek-scrim" data-peek-close></div>
-  <div class="sp-peek-panel" role="dialog" aria-modal="true" aria-labelledby="sp-peek-title" tabindex="-1">
-    <div class="sp-peek-bar">
-      <span class="sp-peek-crumb" id="sp-peek-title"></span>
-      <a class="sp-peek-full" id="sp-peek-full" href="<%= section.base %>"><%= copy.ui.peek_full %></a>
-      <button class="sp-peek-close" type="button" data-peek-close aria-label="<%= copy.ui.peek_close_aria %>"><%= copy.ui.peek_close %></button>
-    </div>
-    <div class="sp-peek-body" id="sp-peek-body"></div>
-  </div>
-</aside>
-
+<% if (_dated && _sortable) { %>
 <script>
 (function () {
   // Sort control. The markup ships newest-first, so with JS off the default is
@@ -99,7 +104,7 @@
       var d = +a.getAttribute('data-ts') - +b.getAttribute('data-ts');
       return dir === 'asc' ? d : -d;
     });
-    // Rebuild from scratch so the // year rules land in the right places.
+    // Rebuild from scratch so the year markers land in the right places.
     [].slice.call(stream.querySelectorAll('.sp-year')).forEach(function (n) { n.remove(); });
     var lastYear = null;
     sorted.forEach(function (el) {
@@ -109,13 +114,15 @@
         var h = document.createElement('div');
         h.className = 'sp-year';
         h.setAttribute('data-year', y);
-        h.textContent = '// ' + y;
+        h.textContent = y;
         stream.appendChild(h);
       }
       stream.appendChild(el);
     });
     [].slice.call(bar.querySelectorAll('button')).forEach(function (b) {
-      b.classList.toggle('is-on', b.getAttribute('data-sort') === dir);
+      var on = b.getAttribute('data-sort') === dir;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
     try { localStorage.setItem('gm-rv-sort', dir); } catch (_) {}
   }
@@ -128,24 +135,52 @@
   try { var s = localStorage.getItem('gm-rv-sort'); if (s === 'asc') apply('asc'); } catch (_) {}
 })();
 </script>
+<% } %>
+
+<% } %>
+
+<% if (_peek && _layout !== 'compact' && _entries.length) { %>
+<%
+  /* Reading pane. Wide screens with a mouse only; everywhere else the peek
+     control is hidden and the row is an ordinary link. Ships inert and empty;
+     the script moves it to <body> and fills it on demand. */
+%>
+<aside class="sp-peek" id="sp-peek" hidden>
+  <div class="sp-peek-scrim" data-peek-close></div>
+  <div class="sp-peek-panel" role="dialog" aria-modal="true" aria-labelledby="sp-peek-title" tabindex="-1">
+    <div class="sp-peek-bar">
+      <span class="sp-peek-crumb" id="sp-peek-title"></span>
+      <a class="sp-peek-full" id="sp-peek-full" href="<%= section.base %>"><%~ copy.ui.peek_full %></a>
+      <button class="sp-peek-close" type="button" data-peek-close aria-label="<%= copy.ui.peek_close_aria %>"><%~ copy.ui.peek_close %></button>
+    </div>
+    <div class="sp-peek-body" id="sp-peek-body"></div>
+  </div>
+</aside>
 
 <script>
 (function () {
   var mount = document.getElementById('sp-peek');
-  // No fetch/DOMParser: leave the › as an ordinary link and do nothing.
+  // No fetch/DOMParser: leave the control as an ordinary link and do nothing.
   if (!mount || !window.fetch || !window.DOMParser || !document.body.closest) return;
   document.body.appendChild(mount); // out of .site-shell's stacking context
 
-  var main   = document.getElementById('main');
+  var wide   = window.matchMedia('(min-width: 960px) and (hover: hover)');
   var panel  = mount.querySelector('.sp-peek-panel');
   var bodyEl = document.getElementById('sp-peek-body');
   var titleEl= document.getElementById('sp-peek-title');
   var fullEl = document.getElementById('sp-peek-full');
+  var LOADING = <%~ JSON.stringify(copy.ui.peek_loading) %>;
   var cache  = {};
   var openUrl = null;
   var lastFocus = null;
 
-  function inert(on) { try { if (main) main.inert = on; } catch (_) {} }
+  // Everything but the pane goes inert, header and footer included, so Tab
+  // stays inside the dialog.
+  function inert(on) {
+    [].slice.call(document.body.children).forEach(function (el) {
+      if (el !== mount && el.tagName !== 'SCRIPT') { try { el.inert = on; } catch (_) {} }
+    });
+  }
 
   function close(fromPop) {
     if (!openUrl) return;
@@ -161,7 +196,7 @@
 
   function fill(url) {
     if (cache[url]) { bodyEl.innerHTML = cache[url]; return; }
-    bodyEl.innerHTML = '<p class="sp-peek-status">loading&hellip;</p>';
+    bodyEl.innerHTML = '<p class="sp-peek-status">' + LOADING + '</p>';
     fetch(url, { credentials: 'same-origin' })
       .then(function (r) { if (!r.ok) throw 0; return r.text(); })
       .then(function (t) {
@@ -174,6 +209,9 @@
           var n = main.querySelector(sel);
           if (n) n.remove();
         });
+        // Drop the page's inline scripts (the rail's, the print button's).
+        // innerHTML wouldn't run them, and they'd only be dead weight.
+        [].slice.call(main.querySelectorAll('script')).forEach(function (n) { n.remove(); });
         cache[url] = main.innerHTML;
         if (openUrl === url) bodyEl.innerHTML = cache[url];
       })
@@ -206,7 +244,7 @@
     if (!e.target || !e.target.closest) return;
     if (e.target.closest('[data-peek-close]')) { e.preventDefault(); close(false); return; }
     var link = e.target.closest('[data-peek]');
-    if (!link) return;
+    if (!link || !wide.matches) return;
     if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return; // let new-tab through
     e.preventDefault();
     open(link.getAttribute('href'), link.getAttribute('data-peek-title'));
@@ -219,3 +257,4 @@
   window.addEventListener('popstate', function () { close(true); });
 })();
 </script>
+<% } %>

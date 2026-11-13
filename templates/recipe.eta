@@ -16,18 +16,13 @@
   var stepNo = 0;
 %>
 <div class="musings-layout">
-  <aside class="musings-tree" aria-label="Recipes">
-    <input type="checkbox" id="tree-toggle" class="tree-toggle">
-    <label class="tree-head" for="tree-toggle"><%= copy.ui.sidebar_browse %></label>
-    <%~ treeHtml %>
-  </aside>
+  <%~ include('_rail', { copy: copy, rail: rail, escapeHtml: escapeHtml }) %>
 
   <div class="musings-main">
     <header class="sp-post-header rc-head">
-      <div class="crumbs">
-        <a href="/">~</a> &nbsp;/&nbsp; <a href="/recipes"><%= rc.post.crumbs_root %></a>
-        &nbsp;/&nbsp; <a href="/recipes/<%= r.categorySlug %>"><%= escapeHtml(r.category) %></a>
-      </div>
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">~</a><span class="sep">/</span><a href="/recipes"><%= rc.post.crumbs_root %></a><span class="sep">/</span><a href="/recipes/<%= r.categorySlug %>"><%= escapeHtml(r.category) %></a>
+      </nav>
       <h1><%= escapeHtml(r.title) %></h1>
       <% if (r.source) { %><p class="subtitle rc-source"><%= rc.spec.source %>: <%~ r.source %></p><% } %>
       <div class="rc-actions">
@@ -69,12 +64,12 @@
     <% if (r.swaps) { %>
     <section class="rc-block">
       <h2 class="rc-h"><%= rc.swaps_tag %></h2>
-      <table class="rc-table">
+      <div class="rc-table-wrap"><table class="rc-table">
         <tr><th><%~ r.swaps.header[0] %></th><th><%~ r.swaps.header[1] %></th></tr>
         <% r.swaps.rows.forEach(function(row){ %>
           <tr><td><%~ row.original %></td><td><% row.alts.forEach(function(a, n){ %><% if (n) { %><span class="rc-sep"> · </span><% } %><span class="rc-alt"><b><%= n + 1 %></b> <%~ a %></span><% }) %></td></tr>
         <% }) %>
-      </table>
+      </table></div>
     </section>
     <% } %>
 
@@ -88,14 +83,14 @@
     <% if (r.nutrition) { var nu = r.nutrition; %>
     <section class="rc-block">
       <h2 class="rc-h"><%= rc.nutrition.tag %></h2>
-      <table class="rc-table rc-nutrition">
+      <div class="rc-table-wrap"><table class="rc-table rc-nutrition">
         <tr><th></th><th class="num"><%= rc.nutrition.mass %></th><% nu.used.forEach(function(k){ %><th class="num"><%= rc.nutrition.columns[k] %></th><% }) %></tr>
         <% nu.rows.forEach(function(x){ %>
           <tr><td><%~ x.name %><% if (x.note) { %><span class="rc-note">, <%~ x.note %></span><% } %></td><td class="num"><%~ mass(x.g) %></td><% x.values.forEach(function(v){ %><td class="num"><%= v %></td><% }) %></tr>
         <% }) %>
         <tr class="rc-total rc-total-first"><td><%= rc.nutrition.total %></td><td></td><% nu.totals.forEach(function(v){ %><td class="num"><%= v %></td><% }) %></tr>
         <% if (nu.per) { %><tr class="rc-total"><td><%= rc.nutrition.per_serving.replace('{n}', r.servings) %></td><td></td><% nu.per.forEach(function(v){ %><td class="num"><%= v %></td><% }) %></tr><% } %>
-      </table>
+      </table></div>
       <% if (r.nutritionSource) { %><p class="rc-caption"><%= rc.nutrition.source_prefix %> <%~ r.nutritionSource %></p><% } %>
     </section>
     <% } %>

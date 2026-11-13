@@ -1,22 +1,17 @@
 <div class="musings-layout">
-  <aside class="musings-tree" aria-label="FOIA archive">
-    <input type="checkbox" id="tree-toggle" class="tree-toggle">
-    <label class="tree-head" for="tree-toggle"><%= copy.ui.sidebar_browse %></label>
-    <%~ treeHtml %>
-  </aside>
+  <%~ include('_rail', { copy: copy, rail: rail, escapeHtml: escapeHtml }) %>
 
   <div class="musings-main">
-    <header class="sp-post-header">
-      <div class="crumbs">
-        <a href="/">~</a> &nbsp;/&nbsp; <a href="/foia"><%= copy.foia.request.crumbs_root %></a>
-        &nbsp;/&nbsp; <span style="color: var(--ink-2);"><%= archive.kind %></span>
-      </div>
+    <header class="sp-page-head">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">~</a><span class="sep">/</span><a href="/foia"><%= copy.foia.request.crumbs_root %></a><span class="sep">/</span><span class="here"><%= archive.kind %></span>
+      </nav>
       <h1><%= archive.heading %></h1>
     </header>
 
     <%~ include('_entries', { copy: copy, entries: entries, listCopy: copy.foia.index, section: { base: '/foia' }, escapeHtml: escapeHtml }) %>
 
-    <div class="sp-backlink is-wide">
+    <div class="sp-backlink">
       <a href="/foia"><%= copy.foia.request.back_label %></a>
     </div>
   </div>

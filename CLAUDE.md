@@ -14,13 +14,18 @@ Actions to GitHub Pages. Source of truth is the working tree on `main`.
 - `templates/` — Eta templates. `_base.eta` is the layout; everything else is
   rendered then injected as `body`.
 - `templates/_entries.eta` — **the one list component.** Every page that lists
-  things (`/musings`, `/rv12is`, `/foia`, `/recipes`, plus their category, tag,
-  year and agency sub-pages) includes it. It owns the entry row (thumbnail, meta line,
-  title, subtitle, optional excerpt and tags, the `>` link), the pinned strip,
+  things (`/musings`, `/rv12is`, `/foia`, `/recipes`, the home page's "Lately",
+  plus their category, tag, year and agency sub-pages) includes it. It owns the
+  entry row (date column, title, subtitle, one meta line, optional excerpt and
+  tags, optional thumbnail on the right, the `peek` control), the pinned strip,
   the sort toggle and the reading pane, plus the two inline scripts driving the
-  last two. Callers pass a normalized `entries` array built by `entryFromPost`
-  or `entryFromRequest` in `build.mjs`; the component knows nothing about
-  musings, build-log entries or records requests.
+  last two. Options: `layout: 'compact'` (undated lists: title left, `aside`
+  right, two columns; recipes), `sortable: false`, `peek: false`. The whole row
+  is the link (the title's `::after` covers it). The reading pane is desktop
+  only (960px and up with a mouse); elsewhere the peek control is hidden.
+  Callers pass a normalized `entries` array built by `entryFromPost`,
+  `entryFromRequest` or `entryFromRecipe` in `build.mjs`; the component knows
+  nothing about musings, build-log entries or records requests.
 
   **Don't hand-roll another list.** If a new section needs one, write an
   `entryFrom*` normalizer and include the partial. Changing how a row looks is
@@ -28,10 +33,20 @@ Actions to GitHub Pages. Source of truth is the working tree on `main`.
   pulls `.musings-main` out of the target page and strips `.crumbs`,
   `.sp-postnav` and `.sp-backlink`, so any new post-page template needs that
   wrapper to be peekable.
-- `design/` — `tokens.css` and `site.css` from Claude Design. Copied verbatim
-  into `_site/` at build time. **Don't hand-edit these as the primary source
-  of design changes** — request a new bundle from Claude Design and replace
-  the files. Small ad-hoc additions are appended at the end with a comment.
+- `templates/_rail.eta`: **the one left rail.** Every page with a sidebar
+  includes it with a `rail` object built in `build.mjs`: `postSectionRail`,
+  `foiaRail` and `recipesRail` give index-type pages their filters (folders,
+  agencies or categories with counts, then tags, then years); `treeRail(tree,
+  toc)` gives detail pages the folder tree plus "on this page" (the post's h2s,
+  when there are at least `rail.toc_min_headings`). Under 960px it folds into
+  a closed "browse" line above the page. Don't hand-roll another sidebar.
+- `design/`: `tokens.css` and `site.css`, **owned here** (George retired the
+  Claude Design bundle workflow on 2026-11-13). Edit them directly. Copied
+  verbatim into `_site/` at build time. `tokens.css` holds every number;
+  `site.css` is one ordered file (base, links, shell, page heads, buttons,
+  rail, lists, reading pages, home, media, FOIA, recipes, search, then
+  accessibility, breakpoints and print). Put a new rule in its section, not
+  at the end.
 - `copy.yaml` — every human-facing string on the site. Edit here, not in
   templates. If you're tempted to add a template literal in an Eta file,
   put it in `copy.yaml` instead. `ui:` holds the chrome shared by more than
@@ -79,22 +94,39 @@ command to a shell, so anything in a path or a commit subject gets re-parsed.
 `execFileSync` passes argv straight through. The scripts already do this; keep
 it that way.
 
-## Design source-of-truth flow
+## Design rules
 
-The user iterates on the visual design in Claude Design (claude.ai/design).
-When a new bundle arrives:
+The look is 90s personal site: flat cream (or dark) background, one narrow
+column, serif for reading, IBM Plex Mono for chrome. The 2026-11-13 redesign
+kept that look and fixed usability. Hold these when changing anything:
 
-1. Read the bundle's `README.md` and the chat transcript first.
-2. Replace `design/tokens.css` and `design/site.css` verbatim with the new files.
-3. Update templates to match new structural patterns (new class names,
-   nested elements, etc.) — the chat transcript usually highlights what
-   moved.
-4. Build, push, then summarize the deltas back so the user can paste them
-   into Claude Design to keep the prototype in sync with the live site.
+1. **One shell.** 920px max. Pages with a rail split it 200 / 40 / 680; the
+   logo sits over the rail. Home, `/media` and the FOIA document viewer use
+   the full 920. Text never runs wider than 680.
+2. **14px floor.** Nothing on screen is smaller (print excepted). Body 18px,
+   one size on every reading page. Titles use `--fs-h1`, a clamp.
+3. **Meta is `--ink-2`.** `--ink-3` is for separators and decoration only;
+   `--rule-2` is never a text colour.
+4. **Links are red and underlined** (George, 2026-11-13: "red links also
+   look cool"). Hover darkens to `--accent-2` and thickens the underline;
+   visited is `--accent-2`. Three exceptions stay ink: list titles (they are
+   headings), nav tabs and rail entries, where red marks the current one.
+5. **The logo is red**, the whole `~/george.main`. Red also marks the
+   current tab and rail entry (`aria-current`), `//` markers, recipe step
+   numbers and focus.
+6. **Tap targets.** Anything clickable is at least `--tap` tall: 28px with a
+   mouse, 44px under a finger (`pointer: coarse`). Add padding, not type size.
+   Links inside running text are exempt.
+7. **Two breakpoints:** 960px (the rail folds up) and 640px (one column,
+   floated figures stop floating, grids drop a column).
+8. **Rules, not borders.** One muted sub-line, not a grid of labelled cells.
+9. **Theme** lives on `<html>`: `:root` is light, `html.dark` swaps the
+   palette, and a script in `<head>` applies the saved choice before first
+   paint. No OS auto-detect.
 
-**Outstanding:** the `.foia-*` rules at the end of `site.css` are hand-written
-(2026-08-22) and marked as ad-hoc. Feed them to Claude Design and fold them
-into the next bundle so the prototype and the live site don't drift.
+The audit that keeps those honest is a Playwright pass at 1440, 390 and
+320px over every page type: no `scrollWidth > clientWidth`, no text under
+14px, no target under `--tap`, no mojibake.
 
 The Eta `<%-` raw-output tag is **NOT** valid in Eta 3. Use `<%~` for
 raw or `<%=` (which is also raw since the build runs with `autoEscape:false`).
@@ -261,8 +293,9 @@ the PDF, not the HTML.
 - SEO: `recipeSeo` builds the meta description, keywords and a schema.org `Recipe`
   JSON-LD block (`page.jsonLd`, emitted by `_base.eta`). Durations only go in when they
   parse cleanly. Tunables live under `recipes_seo` in `site.config.yaml`.
-- The list uses `_entries.eta` undated: rows carry `group` (the category) instead of a
-  year and no `ts`, which also hides the sort control.
+- The list uses `_entries.eta` in the `compact` layout: rows carry `group` (the category)
+  and `groupHref` instead of a year, `aside` (the total time), and no `ts`, which also
+  hides the sort control.
 - Credit is the card's `source:` line. `Paperless #NNN` (the user's own archive ids) is
   stripped from it on the site; the PDF footer keeps it as printed.
 - Every page carries the disclaimer in `copy.yaml` under `recipes.disclaimer`: AI

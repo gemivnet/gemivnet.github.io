@@ -1,12 +1,8 @@
 <div class="musings-layout">
-  <aside class="musings-tree" aria-label="Musings folder tree">
-    <input type="checkbox" id="tree-toggle" class="tree-toggle">
-    <label class="tree-head" for="tree-toggle"><%= copy.ui.sidebar_browse %></label>
-    <%~ treeHtml %>
-  </aside>
+  <%~ include('_rail', { copy: copy, rail: rail, escapeHtml: escapeHtml }) %>
 
   <div class="musings-main">
-    <header style="margin-bottom: var(--sp-5);">
+    <header class="sp-page-head">
       <div class="sp-crumb">
         <%= sectionCopy.category.breadcrumb_prefix %><%= categoryKey %> · <%= allDescendants.length %> post<%= allDescendants.length === 1 ? '' : 's' %><% if (children.length) { %> · <%= children.length %> sub-folder<%= children.length === 1 ? '' : 's' %><% } %>
       </div>
@@ -14,8 +10,8 @@
     </header>
 
     <% if (children.length) { %>
-    <section style="margin-top: var(--sp-5); border-top: 1px solid var(--rule); padding-top: var(--sp-4);">
-      <div class="sp-crumb">// <%= sectionCopy.category.subfolders_tag %></div>
+    <section class="sp-block-list">
+      <div class="sp-strip-label"><%= sectionCopy.category.subfolders_tag %></div>
       <ul class="cat-list">
         <% children.forEach(function(c){ %>
           <li><a href="<%= c.url %>"><%= c.label %>/</a><span class="count">(<%= c.count %>)</span></li>
@@ -29,14 +25,14 @@
     <% } %>
 
     <% if (posts.length > 0) { %>
-    <section style="margin-top: var(--sp-6); border-top: 1px solid var(--rule); padding-top: var(--sp-4);">
-      <div class="sp-crumb">// <%= sectionCopy.category.chronological_tag %></div>
+    <section class="sp-block-list">
+      <div class="sp-strip-label"><%= sectionCopy.category.chronological_tag %></div>
       <%~ include('_entries', { copy: copy, entries: entries, listCopy: sectionCopy.index, section: section, escapeHtml: escapeHtml }) %>
     </section>
     <% } %>
 
     <% if (children.length > 0 && posts.length === 0) { %>
-      <p style="margin-top: var(--sp-5); color: var(--ink-3); font-family: var(--font-mono); font-size: var(--fs-tiny);"><%= sectionCopy.category.no_direct_posts %></p>
+      <p class="sp-empty"><%= sectionCopy.category.no_direct_posts %></p>
     <% } %>
   </div>
 </div>

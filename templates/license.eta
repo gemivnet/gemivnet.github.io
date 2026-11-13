@@ -1,6 +1,6 @@
 <div class="site-reading">
   <header class="sp-page-head">
-    <div class="sp-eyebrow">
+    <div class="sp-crumb">
       <%= copy.license.breadcrumb %>
     </div>
     <h1><%= copy.license.title %></h1>

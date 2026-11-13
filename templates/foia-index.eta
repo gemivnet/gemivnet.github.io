@@ -1,39 +1,27 @@
-<header class="sp-page-head">
-  <div class="sp-crumb">
-    <%= copy.foia.index.breadcrumb %> · <%= totals.requests %> request<%= totals.requests === 1 ? '' : 's' %> · <%= totals.documents %> documents<% if (totals.pages) { %> · <%= totals.pages.toLocaleString() %> pages<% } %>
-  </div>
-  <h1><%= copy.foia.heading %></h1>
-  <p class="sp-index-summary"><%= copy.foia.index.intro %></p>
-</header>
+<div class="musings-layout">
+  <%~ include('_rail', { copy: copy, rail: rail, escapeHtml: escapeHtml }) %>
 
-<% if (agencies.length) { %>
-<div class="sp-browse">
-  <div class="sp-browse-label"><%= copy.foia.index.browse_agency %>:</div>
-  <div class="sp-browse-row">
-    <a href="/foia" class="is-all"><%= copy.ui.all_label %> (<%= totals.requests %>)</a>
-    <% agencies.forEach(function(a){ %>
-      <a href="/foia/agency/<%= a.slug %>"><%= a.label %> <span class="n"><%= a.count %></span></a>
-    <% }) %>
-  </div>
-  <% if (tagList.length) { %>
-    <div class="sp-browse-label" style="margin-top: var(--sp-3);"><%= copy.foia.index.browse_tag %>:</div>
-    <div>
-      <% tagList.forEach(function(t){ %><a class="sp-tag" href="/foia/tag/<%= t.slug %>"><%= t.name %></a><% }) %>
+  <div class="musings-main">
+    <header class="sp-page-head">
+      <div class="sp-crumb">
+        <%= copy.foia.index.breadcrumb %> · <%= totals.requests %> request<%= totals.requests === 1 ? '' : 's' %> · <%= totals.documents %> documents<% if (totals.pages) { %> · <%= totals.pages.toLocaleString() %> pages<% } %>
+      </div>
+      <h1><%= copy.foia.heading %></h1>
+      <p class="sp-index-summary"><%= copy.foia.index.intro %></p>
+    </header>
+
+    <%~ include('_entries', { copy: copy, entries: entries, pinnedEntries: pinnedEntries, listCopy: copy.foia.index, section: { base: '/foia' }, escapeHtml: escapeHtml }) %>
+
+    <div class="foia-note-foot">
+      <p><span class="info">ⓘ</span> <%= copy.foia.ai_notice.short %></p>
+      <p><%= copy.foia.rights.site_note %></p>
+      <details>
+        <summary><%= copy.foia.rights.tag %> &amp; <%= copy.foia.ai_notice.tag %></summary>
+        <% ;(copy.foia.ai_notice.body).forEach(function(p){ %><p><%= p %></p><% }) %>
+        <p><%= copy.foia.rights.caveat %>
+          <a href="<%= copy.foia.rights.contact_href %>"><%= copy.foia.rights.contact_label %></a>
+        </p>
+      </details>
     </div>
-  <% } %>
-</div>
-<% } %>
-
-<%~ include('_entries', { copy: copy, entries: entries, pinnedEntries: pinnedEntries, listCopy: copy.foia.index, section: { base: '/foia' }, escapeHtml: escapeHtml }) %>
-
-<div class="foia-note-foot">
-  <p><span style="color: var(--accent);">ⓘ</span> <%= copy.foia.ai_notice.short %></p>
-  <p><%= copy.foia.rights.site_note %></p>
-  <details>
-    <summary><%= copy.foia.rights.tag %> &amp; <%= copy.foia.ai_notice.tag %></summary>
-    <% ;(copy.foia.ai_notice.body).forEach(function(p){ %><p><%= p %></p><% }) %>
-    <p><%= copy.foia.rights.caveat %>
-      <a href="<%= copy.foia.rights.contact_href %>"><%= copy.foia.rights.contact_label %></a>
-    </p>
-  </details>
+  </div>
 </div>

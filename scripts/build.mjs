@@ -147,27 +147,30 @@ function pictureFor(im, size, alt, extraAttrs = '') {
 // /musings, /rv12is and /foia all render templates/_entries.eta. These turn a
 // post or a records request into the one shape that component understands, so
 // the list markup, the sort control and the reading pane exist exactly once.
+// `date` is the short day shown in the row's left column; the year is the
+// divider above it. `meta` is the one muted line under the title.
+const fmtShortDate = (d) => fmtMetaDate(d).slice(0, 6);
+
 const entryFromPost = (p, section, opts = {}) => ({
   url: p.url,
   title: p.title,
   subtitle: p.subtitle,
   ts: p.date.getTime(),
   year: p.date.getUTCFullYear(),
+  date: fmtShortDate(p.date),
   thumb: p.featuredThumb || null,
   meta: [
-    { text: section.timeline ? fmtMetaDate(p.date) : fmtDate(p.date).replace(/-/g, '\u00b7'), cls: 'date' },
+    ...(opts.label ? [{ text: opts.label }] : []),
     ...(p.category.length
-      ? [{ text: section.timeline ? (p.category.slice(1).join('/') || p.category.join('/')) : p.category[0], cls: 'cat' }]
+      ? [{ text: section.timeline ? (p.category.slice(1).join('/') || p.category.join('/')) : p.category[0] }]
       : []),
-    { text: `${p.wordCount.toLocaleString()} ${COPY.ui.words_abbr} \u00b7 ~${p.readTime} ${COPY.ui.min_abbr}`, cls: '' },
+    { text: `${p.wordCount.toLocaleString()} ${COPY.ui.words_abbr} \u00b7 ~${p.readTime} ${COPY.ui.min_abbr}` },
   ],
   preview: opts.preview ? p.preview : null,
   tags: opts.tags ? (p.tags || []).map(t => ({ label: t, href: `${section.base}/tag/${slugify(t)}` })) : null,
 });
 
-// A request has no featured image, so its thumb slot stays empty. That keeps
-// the left gutter aligned with the other two sections rather than saving a
-// few pixels here and reading as a different site.
+// A request has no featured image, so its row simply has no thumbnail.
 const entryFromRequest = (r, opts = {}) => {
   const vol = [
     r.docCount ? `${r.docCount} ${r.docCount === 1 ? COPY.ui.doc_singular : COPY.ui.doc_plural}` : '',
@@ -183,14 +186,15 @@ const entryFromRequest = (r, opts = {}) => {
     subtitle: [r.statusLabel, money].filter(Boolean).join(' \u00b7 '),
     ts: new Date(r.filedSort).getTime(),
     year: new Date(r.filedSort).getUTCFullYear(),
+    date: r.filed.slice(0, 6),
     thumb: null,
     meta: [
-      { text: r.filed, cls: 'date' },
+      ...(opts.label ? [{ text: opts.label }] : []),
       // On an agency page every row shares the agency, so show the statute
       // instead of repeating it down the column.
-      { text: opts.showStatute ? r.statute : r.agencyShort, cls: 'cat' },
-      ...(vol ? [{ text: vol, cls: '' }] : []),
-      ...(r.tracking ? [{ text: r.tracking, cls: '' }] : []),
+      { text: opts.showStatute ? r.statute : r.agencyShort },
+      ...(vol ? [{ text: vol }] : []),
+      ...(r.tracking ? [{ text: r.tracking }] : []),
     ],
     preview: r.blurb || null,
     tags: (r.tags || []).map(t => ({ label: t, href: `/foia/tag/${slugify(t)}` })),
@@ -199,19 +203,22 @@ const entryFromRequest = (r, opts = {}) => {
 };
 
 // A recipe has no date, so it carries no ts: the list groups it under its
-// category instead of a year and leaves the sort control out.
+// category instead of a year and leaves the sort control out. Recipes render
+// in the compact layout, which shows the title and `aside` (the total time).
 const entryFromRecipe = (r, opts = {}) => ({
   url: r.url,
   title: r.title,
   subtitle: r.source || '',
   ts: null,
   year: null,
+  date: null,
   group: opts.group ? r.category : null,
+  groupHref: opts.group ? `/recipes/${r.categorySlug}` : null,
+  aside: r.total || '',
   thumb: null,
   meta: [
-    ...(r.total ? [{ text: r.total, cls: 'date' }] : []),
-    ...(r.yield ? [{ text: r.yield, cls: '' }] : []),
-    ...(r.kcalLine ? [{ text: r.kcalLine, cls: '' }] : []),
+    ...(r.yield ? [{ text: r.yield }] : []),
+    ...(r.kcalLine ? [{ text: r.kcalLine }] : []),
   ],
   preview: null,
   tags: null,
@@ -223,10 +230,10 @@ const pageHelpers = {
   tabs: COPY.nav.tabs,
   pictureFor,
   analytics: CFG.analytics || {},
+  // The palette lives on <html> (light, or html.dark); see tokens.css.
+  themeDefault: (SITE.theme && SITE.theme.mode) || 'light',
   bodyClass(active = '', extra = '') {
-    const mode = (SITE.theme && SITE.theme.mode) || 'light';
     const cls = ['site-page'];
-    if (mode === 'light') cls.push('light');
     if (extra) cls.push(extra);
     if (active) cls.push('active-' + active);
     return cls.join(' ');
@@ -303,6 +310,23 @@ marked.use({
     },
   },
 });
+
+// h2/h3 get ids so the rail's "on this page" list (and anyone) can link to
+// them. marked v14 emits bare headings. Duplicates get -2, -3.
+function addHeadingIds(html) {
+  const seen = new Set();
+  const toc = [];
+  const out = html.replace(/<h([23])>([\s\S]*?)<\/h\1>/g, (_, lvl, inner) => {
+    const text = stripHtml(inner);
+    const base = slugify(text) || 'section';
+    let id = base;
+    for (let n = 2; seen.has(id); n++) id = `${base}-${n}`;
+    seen.add(id);
+    if (lvl === '2') toc.push({ id, text });
+    return `<h${lvl} id="${id}">${inner}</h${lvl}>`;
+  });
+  return { html: out, toc };
+}
 
 function imgFigure(href, alt, title, kls) {
   const cls = /inline-(l|r)|full|bleed/.test(kls)
@@ -397,7 +421,7 @@ async function loadPosts(root) {
       } catch {}
     }
 
-    const bodyHtml = marked.parse(bodyMd, { async: false });
+    const { html: bodyHtml, toc } = addHeadingIds(marked.parse(bodyMd, { async: false }));
     // Rewrite <img ... src="media/<file>" ...> — swap to S3 med URL and inject
     // width/height (from EXIF) so browsers reserve space and avoid CLS.
     let rewritten = bodyHtml.replace(/<img\s+([^>]*?)src="media\/([^"]+)"([^>]*)>/g, (_, before, file, after) => {
@@ -459,6 +483,7 @@ async function loadPosts(root) {
       gallery: fm.gallery || null,   // optional: { path, title?, subtitle?, location?, date? }
       imageRefs,                     // [{ file, alt }] referenced in body + featured
       bodyHtml: rewritten,
+      toc,
       bodyMd,
       preview,
       wordCount: words,
@@ -925,7 +950,7 @@ async function computeStats(posts, mediaNodes) {
   };
 }
 
-async function renderHome(musings, rvPosts, mediaNodes, recipes = []) {
+async function renderHome(musings, rvPosts, mediaNodes, recipes = [], foiaRequests = []) {
   const shuffled = seededShuffle(musings.map(m => ({
     url: m.url, title: m.title, subtitle: m.subtitle, preview: m.preview,
     featured: m.featured, tags: m.tags, date: fmtDate(m.date),
@@ -957,13 +982,19 @@ async function renderHome(musings, rvPosts, mediaNodes, recipes = []) {
   }
   const shuffledImages = seededShuffle(allImages, 13);
 
-  const recent = musings.slice(0, COPY.home.lately.recent_count).map(m => ({
-    date: fmtDate(m.date).replace(/-/g, '·'),
-    dateLong: fmtLongDate(m.date),
-    title: m.title,
-    url: m.url,
-    category: m.category[0] || 'misc',
-  }));
+  // "Lately": the newest things across the dated sections, one list. A
+  // records request dates from its latest activity, since a new release is
+  // the news. Recipes carry no date and stay out.
+  const S = COPY.search.sections;
+  const recent = [
+    ...musings.map(m => entryFromPost(m, SECTIONS.musings, { label: S.musings })),
+    ...rvPosts.map(m => entryFromPost(m, SECTIONS.rv12is, { label: S.rv12is })),
+    ...foiaRequests.map(r => {
+      const when = new Date(r.lastActivity || r.filed);
+      const e = entryFromRequest({ ...r, filed: fmtMetaDate(r.filed), filedSort: r.filed, blurb: '' }, { label: S.foia });
+      return { ...e, tags: null, ts: when.getTime(), year: when.getUTCFullYear(), date: fmtShortDate(when) };
+    }),
+  ].sort((a, b) => b.ts - a.ts).slice(0, CFG.home.lately_count);
 
   const html = await renderPage('home', {
     page: {
@@ -976,6 +1007,7 @@ async function renderHome(musings, rvPosts, mediaNodes, recipes = []) {
     },
     active: 'home',
     shuffled, shuffledImages, recent,
+    section: { base: '/' },
     totalMusings: musings.length,
     stats: await computeStats(musings.concat(rvPosts), mediaNodes),
     recipeStats: recipes.length ? {
@@ -1242,7 +1274,7 @@ function renderTreeHtml(tree, activeUrl, activeCategory) {
     if (node.type === 'folder') cls.push('is-folder');
     if (isActive) cls.push('active');
     if (inActive) cls.push('in-active');
-    let item = `<li class="${cls.join(' ')}"><a href="${node.url}" class="${isActive ? 'active' : (inActive ? 'in-active' : '')}">${escapeHtml(name)}</a>`;
+    let item = `<li class="${cls.join(' ')}"><a href="${node.url}" class="${isActive ? 'active' : (inActive ? 'in-active' : '')}"${isActive ? ' aria-current="page"' : ''}><span class="label" title="${escapeHtml(name)}">${escapeHtml(name)}</span></a>`;
     if (node.children && node.children.length) {
       item += '<ul>' + node.children.map(c => walk(c, depth + 1)).join('') + '</ul>';
     }
@@ -1255,25 +1287,85 @@ function renderTreeHtml(tree, activeUrl, activeCategory) {
 // Sidebar for timeline sections: a dated entry list (newest first, grouped
 // by year) instead of the folder tree. Reuses the tree-list CSS classes.
 function renderTimelineSidebarHtml(posts, section, activeUrl) {
-  let out = `<ul class="tree-list"><li class="tree-item is-folder"><a href="${section.base}">${escapeHtml(section.root)}/</a><ul>`;
+  let out = `<ul class="tree-list"><li class="tree-item is-folder"><a href="${section.base}"><span class="label">${escapeHtml(section.root)}/</span></a><ul>`;
   let lastYear = null;
   let open = false;
   for (const p of posts) {
     const y = p.date.getUTCFullYear();
     if (y !== lastYear) {
       if (open) out += '</ul></li>';
-      out += `<li class="tree-item is-folder"><a href="${section.base}/${y}">${y}/</a><ul>`;
+      out += `<li class="tree-item is-folder"><a href="${section.base}/${y}"><span class="label">${y}/</span></a><ul>`;
       lastYear = y;
       open = true;
     }
     const isActive = p.url === activeUrl;
     const day = fmtMetaDate(p.date).slice(0, 6);
-    out += `<li class="tree-item${isActive ? ' active' : ''}"><a href="${p.url}" class="${isActive ? 'active' : ''}"><span style="color: var(--ink-3);">${day}</span> ${escapeHtml(p.title)}</a></li>`;
+    out += `<li class="tree-item${isActive ? ' active' : ''}"><a href="${p.url}" class="${isActive ? 'active' : ''}"${isActive ? ' aria-current="page"' : ''}><span class="tree-date">${day}</span><span class="label" title="${escapeHtml(p.title)}">${escapeHtml(p.title)}</span></a></li>`;
   }
   if (open) out += '</ul></li>';
   out += '</ul></li></ul>';
   return out;
 }
+
+// ── the rail (templates/_rail.eta) ────────────────────────────
+// Index-type pages (a section's index, its tag, year and tags pages) get
+// filters: folders with counts, the commonest tags, years. Detail pages get
+// the folder tree plus the post's own headings. `current` marks the page
+// you're on.
+const RAIL = COPY.ui.rail;
+const markCurrent = (items, currentUrl) => items.map(i => ({ ...i, current: i.href === currentUrl }));
+const tocFor = (post) => (post.toc && post.toc.length >= CFG.rail.toc_min_headings) ? post.toc : [];
+
+function postSectionRail(section, posts, currentUrl) {
+  const folderOf = (p) => section.timeline ? p.category.join('/') : p.category[0];
+  const folderCounts = new Map();
+  for (const p of posts) { const k = folderOf(p); if (k) folderCounts.set(k, (folderCounts.get(k) || 0) + 1); }
+  const folders = [{ href: section.base, label: COPY.ui.all_label, n: posts.length },
+    ...[...folderCounts.keys()].sort().map(k => ({ href: `${section.base}/${k}`, label: k + '/', n: folderCounts.get(k) }))];
+  const tagCounts = new Map();
+  for (const p of posts) for (const t of p.tags) tagCounts.set(t, (tagCounts.get(t) || 0) + 1);
+  const tags = [...tagCounts.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .slice(0, CFG.rail.top_tags)
+    .map(([t]) => ({ href: `${section.base}/tag/${slugify(t)}`, label: t }));
+  const yearCounts = new Map();
+  for (const p of posts) { const y = p.date.getUTCFullYear(); yearCounts.set(y, (yearCounts.get(y) || 0) + 1); }
+  const years = [...yearCounts.keys()].sort((a, b) => b - a)
+    .map(y => ({ href: `${section.base}/${y}`, label: String(y), n: yearCounts.get(y) }));
+  return {
+    label: RAIL.label,
+    groups: [
+      { title: RAIL.folders, items: markCurrent(folders, currentUrl) },
+      ...(tags.length ? [{
+        title: RAIL.tags, inline: true, items: markCurrent(tags, currentUrl),
+        more: { href: `${section.base}/tags`, label: RAIL.all_tags.replace('{n}', tagCounts.size) },
+      }] : []),
+      ...(years.length > 1 ? [{ title: RAIL.years, items: markCurrent(years, currentUrl) }] : []),
+    ],
+  };
+}
+
+function foiaRail(agencies, tagList, total, currentUrl) {
+  return {
+    label: RAIL.label,
+    groups: [
+      { title: RAIL.agencies, items: markCurrent([{ href: '/foia', label: COPY.ui.all_label, n: total },
+        ...agencies.map(a => ({ href: `/foia/agency/${a.slug}`, label: a.label, n: a.count }))], currentUrl) },
+      ...(tagList.length ? [{ title: RAIL.tags, inline: true,
+        items: markCurrent(tagList.map(t => ({ href: `/foia/tag/${t.slug}`, label: t.name })), currentUrl) }] : []),
+    ],
+  };
+}
+
+function recipesRail(categories, total, currentUrl) {
+  return {
+    label: RAIL.label,
+    groups: [{ title: RAIL.categories, items: markCurrent([{ href: '/recipes', label: COPY.ui.all_label, n: total },
+      ...categories.map(c => ({ href: `/recipes/${c.slug}`, label: c.name, n: c.items.length }))], currentUrl) }],
+  };
+}
+
+const treeRail = (tree, toc = []) => ({ label: RAIL.label, tree, toc });
 
 // ── render: post sections (musings, rv12is, …) ────────────────
 
@@ -1352,7 +1444,7 @@ async function renderPostSection(posts, section) {
         image: p.featured ? pageHelpers.absUrl(p.featured) : undefined,
       })),
     },
-    treeHtml: sidebarFor(section.base, ''),
+    rail: postSectionRail(section, posts, section.base),
   });
   collectLinks(section.base, indexHtml);
   await writeFile(path.join(section.root, 'index.html'), indexHtml);
@@ -1391,7 +1483,7 @@ async function renderPostSection(posts, section) {
       prev,
       next,
       related: relatedFor(m, 3),
-      treeHtml: sidebarFor(m.url, m.category.join('/')),
+      rail: treeRail(sidebarFor(m.url, m.category.join('/')), tocFor(m)),
       jsonLd: {
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
@@ -1457,7 +1549,7 @@ async function renderPostSection(posts, section) {
       entries: directPosts.map(p => entryFromPost(p, section, { preview: !section.timeline, tags: !section.timeline })),
       allDescendants,
       children,
-      treeHtml: sidebarFor(url, key),
+      rail: treeRail(sidebarFor(url, key)),
       randomPick: allDescendants[Math.floor((allDescendants.length || 1) / 2) % Math.max(allDescendants.length, 1)],
     });
     collectLinks(url, html);
@@ -1487,6 +1579,7 @@ async function renderPostSection(posts, section) {
     active: section.active,
     section, sectionCopy: sc,
     tagList,
+    rail: postSectionRail(section, posts, `${section.base}/tags`),
   });
   collectLinks(`${section.base}/tags`, tagsIndexHtml);
   await writeFile(path.join(section.root, 'tags', 'index.html'), tagsIndexHtml);
@@ -1517,6 +1610,7 @@ async function renderPostSection(posts, section) {
       posts: yearPosts,
       entries: yearPosts.map(p => entryFromPost(p, section, { preview: !section.timeline, tags: !section.timeline })),
       otherYears,
+      rail: postSectionRail(section, posts, `${section.base}/${year}`),
     });
     collectLinks(`${section.base}/${year}`, yearHtml);
     await writeFile(path.join(section.root, year, 'index.html'), yearHtml);
@@ -1539,6 +1633,7 @@ async function renderPostSection(posts, section) {
       tag,
       posts: tagged,
       entries: tagged.map(p => entryFromPost(p, section, { preview: !section.timeline, tags: !section.timeline })),
+      rail: postSectionRail(section, posts, url),
     });
     collectLinks(url, html);
     await writeFile(path.join(section.root, 'tag', slugify(tag), 'index.html'), html);
@@ -1747,14 +1842,14 @@ function renderFoiaSidebarHtml(requests, activeUrl) {
     byAgency.get(r.agencyShort).push(r);
   }
   const agencies = [...byAgency.keys()].sort((a, b) => a.localeCompare(b));
-  let out = `<ul class="tree-list"><li class="tree-item is-folder"><a href="/foia">foia/</a><ul>`;
+  let out = `<ul class="tree-list"><li class="tree-item is-folder"><a href="/foia"><span class="label">foia/</span></a><ul>`;
   for (const a of agencies) {
     const rs = byAgency.get(a);
-    out += `<li class="tree-item is-folder"><a href="/foia/agency/${slugify(a)}">${escapeHtml(a)}/</a><ul>`;
+    out += `<li class="tree-item is-folder"><a href="/foia/agency/${slugify(a)}"><span class="label" title="${escapeHtml(a)}">${escapeHtml(a)}/</span></a><ul>`;
     for (const r of rs) {
       const isActive = r.url === activeUrl;
       out += `<li class="tree-item${isActive ? ' active' : ''}">` +
-             `<a href="${r.url}" class="${isActive ? 'active' : ''}">${escapeHtml(r.title)}</a></li>`;
+             `<a href="${r.url}" class="${isActive ? 'active' : ''}"${isActive ? ' aria-current="page"' : ''}><span class="label" title="${escapeHtml(r.title)}">${escapeHtml(r.title)}</span></a></li>`;
     }
     out += '</ul></li>';
   }
@@ -1836,6 +1931,7 @@ async function renderFoia(requests) {
     ledger, ledgerTotals,
     entries: ledger.slice().reverse().filter(r => !r.pinned).map(entryFromRequest),
     pinnedEntries: ledger.filter(r => r.pinned).map(entryFromRequest),
+    rail: foiaRail(agencies, tagList, requests.length, '/foia'),
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
@@ -1862,7 +1958,7 @@ async function renderFoia(requests) {
       active: 'foia',
       req: r,
       groups: foldTimeline(r.timeline),
-      treeHtml: renderFoiaSidebarHtml(requests, r.url),
+      rail: treeRail(renderFoiaSidebarHtml(requests, r.url)),
       jsonLd: {
         '@context': 'https://schema.org',
         '@type': 'Dataset',
@@ -1905,7 +2001,7 @@ async function renderFoia(requests) {
         ev,
         prev: r.releases[i - 1] || null,
         next: r.releases[i + 1] || null,
-        treeHtml: renderFoiaSidebarHtml(requests, r.url),
+        rail: treeRail(renderFoiaSidebarHtml(requests, r.url)),
       });
       collectLinks(ev.url, relHtml);
       await writeFile(path.join('foia', r.slug, ev.id, 'index.html'), relHtml);
@@ -1995,7 +2091,7 @@ async function renderFoia(requests) {
       entries: a.items.map(cardFor)
         .sort((x, y) => new Date(y.filedSort) - new Date(x.filedSort))
         .map(r => entryFromRequest(r, { showStatute: true })),
-      treeHtml: renderFoiaSidebarHtml(requests, a.url),
+      rail: foiaRail(agencies, tagList, requests.length, a.url),
     });
     collectLinks(a.url, html);
     await writeFile(path.join(a.dir, 'index.html'), html);
@@ -2010,16 +2106,16 @@ async function renderFoia(requests) {
 function renderRecipeSidebarHtml(categories, activeUrl, activeSlug) {
   // Seventy titles in a 200px column was a wall. Categories always show; only
   // the one being read lists its recipes.
-  let out = `<ul class="tree-list"><li class="tree-item is-folder"><a href="/recipes">recipes/</a><ul>`;
+  let out = `<ul class="tree-list"><li class="tree-item is-folder"><a href="/recipes"><span class="label">recipes/</span></a><ul>`;
   for (const c of categories) {
     const open = c.slug === activeSlug;
     const onCat = `/recipes/${c.slug}` === activeUrl;
-    out += `<li class="tree-item is-folder"><a href="/recipes/${c.slug}" class="${onCat ? 'active' : open ? 'in-active' : ''}">${escapeHtml(c.name)}/</a>`;
+    out += `<li class="tree-item is-folder"><a href="/recipes/${c.slug}" class="${onCat ? 'active' : open ? 'in-active' : ''}"${onCat ? ' aria-current="page"' : ''}><span class="label" title="${escapeHtml(c.name)}">${escapeHtml(c.name)}/</span></a>`;
     if (open) {
       out += '<ul>';
       for (const r of c.items) {
         const on = r.url === activeUrl;
-        out += `<li class="tree-item${on ? ' active' : ''}"><a href="${r.url}" class="${on ? 'active' : ''}">${escapeHtml(r.title)}</a></li>`;
+        out += `<li class="tree-item${on ? ' active' : ''}"><a href="${r.url}" class="${on ? 'active' : ''}"${on ? ' aria-current="page"' : ''}><span class="label" title="${escapeHtml(r.title)}">${escapeHtml(r.title)}</span></a></li>`;
       }
       out += '</ul>';
     }
@@ -2126,6 +2222,7 @@ async function renderRecipes(recipes) {
     categories,
     listCopy,
     entries: recipes.map(r => entryFromRecipe(r, { group: true })),
+    rail: recipesRail(categories, recipes.length, '/recipes'),
   });
   collectLinks('/recipes', indexHtml);
   await writeFile('recipes/index.html', indexHtml);
@@ -2145,7 +2242,7 @@ async function renderRecipes(recipes) {
       active: 'recipes',
       category: c,
       listCopy,
-      treeHtml: renderRecipeSidebarHtml(categories, url, c.slug),
+      rail: recipesRail(categories, recipes.length, url),
       entries: c.items.map(r => entryFromRecipe(r)),
     });
     collectLinks(url, html);
@@ -2167,7 +2264,7 @@ async function renderRecipes(recipes) {
         },
         active: 'recipes',
         recipe: r,
-        treeHtml: renderRecipeSidebarHtml(categories, r.url, c.slug),
+        rail: treeRail(renderRecipeSidebarHtml(categories, r.url, c.slug)),
         pagesLabel: r.pages > 1 ? rc.post.pages_many.replace('{n}', r.pages) : rc.post.pages_one,
       });
       collectLinks(r.url, page);
@@ -2463,8 +2560,9 @@ async function main() {
   const foiaRequests = await loadFoia();
   const recipes = await loadRecipes();
 
-  await renderHome(musings, rvPosts, mediaNodes, recipes);
+  // Before the home page, or its footer loses the "take me somewhere" link.
   ALL_POST_URLS = musings.map(m => m.url);
+  await renderHome(musings, rvPosts, mediaNodes, recipes, foiaRequests);
   await renderPostSection(musings, SECTIONS.musings);
   await renderPostSection(rvPosts, SECTIONS.rv12is);
   await renderMedia(mediaNodes);

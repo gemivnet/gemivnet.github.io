@@ -46,8 +46,7 @@ home:
     section_tag: "03 · pulse"
     title: "Lately"
     aside: "auto-updated"
-    recent_count: 5
-    recent_label: "last {{count}} musings"
+    more: "browse all {n} musings →"
 
   stats:
     section_tag: "04 · numbers"
@@ -61,6 +60,14 @@ home:
       ingredients: "ingredient lines"
       with_nutrition: "with nutrition"
       pages: "binder pages"
+    labels:
+      musings: "musings"
+      words: "words written"
+      musings_size: "musings size"
+      pictures: "pictures"
+      pictures_size: "pictures size"
+      first_post: "first post"
+      last_post: "last post"
 
 # ── footer ──────────────────────────────────────────────────
 footer:
@@ -95,9 +102,25 @@ ui:
   random_link: "take me somewhere"
   theme_light: "&#9728; light"
   theme_dark: "&#9789; dark"
+  theme_aria: "switch between light and dark"
+  # the left rail (templates/_rail.eta)
+  rail:
+    label: "Browse"
+    toc: "on this page"
+    folders: "folders"
+    tags: "tags"
+    years: "years"
+    agencies: "agencies"
+    categories: "categories"
+    all_tags: "all {n} tags →"
   # the shared entry list (templates/_entries.eta)
-  peek_open: "&rsaquo;"
-  peek_open_aria: "Read {title}"
+  pinned: "pinned"
+  empty: "nothing here yet."
+  sort_label: "sort:"
+  sort_newest: "newest first"
+  sort_oldest: "oldest first"
+  peek_open: "peek &rsaquo;"
+  peek_open_aria: "Preview {title}"
   peek_full: "full page &rarr;"
   peek_close: "&times;"
   peek_close_aria: "Close reading pane"
@@ -198,7 +221,7 @@ media:
   index:
     breadcrumb: "~/media"
     title: "media"
-    intro: "Photographs grouped by place and time. Click any album to descend. Galleries nest; hover any image for its alt text."
+    intro: "Photographs grouped by place and time. Click any album to descend. Galleries nest; click any image for its alt text."
   gallery:
     subalbums_tag: "sub-albums"
     subalbums_title: "browse deeper"
@@ -261,6 +284,8 @@ foia:
     view_label: "read →"
     single_file_note: "single document, no bundle."
     pages_label: "pp"
+    first_note: "(first release)"
+    latest_note: "(latest release)"
   document:
     viewer_hint: "arrow keys page · press F to fit width"
     loading: "loading…"
@@ -271,6 +296,8 @@ foia:
     integrity_label: "sha256"
     prev_label: "← previous"
     next_label: "next →"
+    first_note: "(first in this release)"
+    last_note: "(last in this release)"
 
   # AI disclosure. Rendered directly beneath every generated summary; the build
   # refuses to publish a summary without generated_by + generated_on.
@@ -349,6 +376,16 @@ foia:
     releases: "releases"
     fees: "fees"
     also: "also"
+    tags: "tags"
+    paid: "paid"
+    quoted: "quoted"
+    date: "date"
+    type: "type"
+    track: "track"
+    files: "files"
+    format: "format"
+    release: "release"
+    request: "request"
 
   # Summary table on /foia.
   table:

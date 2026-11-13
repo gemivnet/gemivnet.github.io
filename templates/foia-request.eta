@@ -1,41 +1,33 @@
 <div class="musings-layout">
-  <aside class="musings-tree" aria-label="FOIA archive">
-    <input type="checkbox" id="tree-toggle" class="tree-toggle">
-    <label class="tree-head" for="tree-toggle"><%= copy.ui.sidebar_browse %></label>
-    <%~ treeHtml %>
-  </aside>
+  <%~ include('_rail', { copy: copy, rail: rail, escapeHtml: escapeHtml }) %>
 
   <div class="musings-main">
     <header class="sp-post-header">
-      <div class="crumbs">
-        <a href="/">~</a> &nbsp;/&nbsp; <a href="/foia"><%= copy.foia.request.crumbs_root %></a>
-        &nbsp;/&nbsp; <span style="color: var(--ink-2);"><%= req.slug %></span>
-      </div>
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">~</a><span class="sep">/</span><a href="/foia"><%= copy.foia.request.crumbs_root %></a><span class="sep">/</span><span class="here" aria-current="page"><%= req.slug %></span>
+      </nav>
       <h1><%= req.title %></h1>
     </header>
 
-    <% /* facts as one run of prose, not a grid of boxes */ %>
-    <div class="foia-meta">
-      <b><%= req.agency %></b><span class="sep">·</span><%= req.statute %>
-      <% if (req.tracking) { %><span class="sep">·</span><%= req.tracking %><% } %>
-      <br>
-      filed <b><%= fmtLongDate(req.filed) %></b><% if (req.closed) { %><span class="sep">·</span>closed <b><%= fmtLongDate(req.closed) %></b><% } %>
-      <span class="sep">·</span><b class="<%= req.status === 'open' ? '' : '' %>"><%= req.statusLabel %></b>
-      <% if (req.docCount) { %>
-        <span class="sep">·</span><b><%= req.docCount %></b> document<%= req.docCount === 1 ? '' : 's' %><% if (req.pageCount) { %>, <b><%= req.pageCount.toLocaleString() %></b> pages<% } %>
-      <% } %>
+    <% var FL = copy.foia.labels; %>
+    <dl class="facts">
+      <dt><%= FL.agency %></dt><dd><%= req.agency %></dd>
+      <dt><%= FL.statute %></dt><dd><%= req.statute %></dd>
+      <% if (req.tracking) { %><dt><%= FL.tracking %></dt><dd><%= req.tracking %></dd><% } %>
+      <dt><%= FL.filed %></dt><dd><%= fmtLongDate(req.filed) %></dd>
+      <% if (req.closed) { %><dt><%= FL.closed %></dt><dd><%= fmtLongDate(req.closed) %></dd><% } %>
+      <dt><%= FL.status %></dt><dd><%= req.statusLabel %></dd>
+      <% if (req.docCount) { %><dt><%= FL.documents %></dt><dd><%= req.docCount %><% if (req.pageCount) { %><span class="sep">·</span><%= req.pageCount.toLocaleString() %> <%= copy.ui.pages %><% } %></dd><% } %>
       <% if (req.fees.quoted || req.fees.paid || req.fees.waiverLabel) { %>
-        <br>
-        <% if (req.fees.paid) { %><b><%= req.fees.paidFmt %></b> paid<% } %>
-        <% if (req.fees.quoted) { %><% if (req.fees.paid) { %><span class="sep">·</span><% } %><b><%= req.fees.quotedFmt %></b> quoted<% } %>
-        <% if (req.fees.waiverLabel) { %><span class="sep">·</span><%= req.fees.waiverLabel %><% } %>
+        <dt><%= FL.fees %></dt>
+        <dd><% var _f = []; if (req.fees.paid) _f.push(req.fees.paidFmt + ' ' + FL.paid); if (req.fees.quoted) _f.push(req.fees.quotedFmt + ' ' + FL.quoted); if (req.fees.waiverLabel) _f.push(req.fees.waiverLabel); %><%~ _f.join('<span class="sep">·</span>') %></dd>
       <% } %>
       <% if (req.tags.length) { %>
-        <br>
-        <% ;(req.tags).forEach(function(t){ %><a href="/foia/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>">#<%= t %></a> <% }) %>
+        <dt><%= FL.tags %></dt>
+        <dd><span class="sp-tags"><% ;(req.tags).forEach(function(t){ %><a class="sp-tag" href="/foia/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %></span></dd>
       <% } %>
-      <% if (req.fees.note) { %><span class="fee-note"><%= req.fees.note %></span><% } %>
-    </div>
+    </dl>
+    <% if (req.fees.note) { %><p class="fee-note"><%= req.fees.note %></p><% } %>
 
     <% if (req.summary) { %>
       <div class="foia-summary" data-ai-generated="true">
@@ -43,7 +35,7 @@
           <p><%= para.replace(/\n/g, ' ') %></p>
         <% }) %>
         <p class="disclosure">
-          <span style="color: var(--accent);">ⓘ</span>
+          <span class="info">ⓘ</span>
           <%= (req.summary.reviewed ? copy.foia.summary.disclosure_reviewed : copy.foia.summary.disclosure)
                 .replace('{model}', req.summary.generatedBy)
                 .replace('{date}', req.summary.generatedOn) %>
@@ -62,9 +54,9 @@
       <style>
         <% ;(req.tracks).forEach(function(t){ %>
           #tf-<%= req.slug %>-<%= t.id %>:checked ~ .foia-timeline [data-track]:not([data-track="<%= t.id %>"]) { display: none; }
-          #tf-<%= req.slug %>-<%= t.id %>:checked ~ .foia-track-pick label[for="tf-<%= req.slug %>-<%= t.id %>"] { color: var(--accent); border-bottom-color: var(--accent); }
+          #tf-<%= req.slug %>-<%= t.id %>:checked ~ .foia-track-pick label[for="tf-<%= req.slug %>-<%= t.id %>"] { color: var(--ink); text-decoration: none; font-weight: 600; }
         <% }) %>
-        #tf-<%= req.slug %>-all:checked ~ .foia-track-pick label[for="tf-<%= req.slug %>-all"] { color: var(--accent); border-bottom-color: var(--accent); }
+        #tf-<%= req.slug %>-all:checked ~ .foia-track-pick label[for="tf-<%= req.slug %>-all"] { color: var(--ink); text-decoration: none; font-weight: 600; }
       </style>
       <div class="foia-tracks">
         <input type="radio" name="tf-<%= req.slug %>" id="tf-<%= req.slug %>-all" checked>
@@ -84,14 +76,14 @@
            var d = g.kind === 'fold' ? g.events[0].date : g.ev.date;
            var y = d.getUTCFullYear(); %>
         <% if (y !== lastYear) { lastYear = y; %>
-          <li class="foia-year">// <%= y %></li>
+          <li class="foia-year"><%= y %></li>
         <% } %>
 
         <% if (g.kind === 'fold') { %>
           <li>
             <details class="foia-fold"<% if (g.track) { %> data-track="<%= g.track %>"<% } %>>
               <summary><%= g.span %> · <%= g.label %><% if (g.trackLabel) { %> · <%= g.trackLabel %><% } %></summary>
-              <ol style="list-style: none; padding: 0; margin: 0;">
+              <ol>
                 <% ;(g.events).forEach(function(ev){ %>
                   <li class="foia-event is-minor">
                     <div class="when"><%= fmtMetaDate(ev.date).slice(0, 6) %></div>
@@ -120,7 +112,7 @@
               <% if (ev.isRelease) { %>
                 <ul class="docs">
                   <% ;(ev.files).forEach(function(d){ %>
-                    <li><a href="<%= d.url %>"><%= d.title %></a> <span class="m"><% if (d.pages) { %><%= d.pages %> pp · <% } %><%= d.bytesFmt %></span></li>
+                    <li><a href="<%= d.url %>"><%= d.title %></a><span class="m"><% if (d.pages) { %><%= d.pages %> <%= copy.ui.pages_abbr %> · <% } %><%= d.bytesFmt %></span></li>
                   <% }) %>
                 </ul>
                 <a class="more" href="<%= ev.url %>"><%= copy.foia.request.open_label %></a>
@@ -135,14 +127,14 @@
     <% } %>
 
     <div class="foia-note-foot">
-      <p><span style="color: var(--accent);">ⓘ</span> <%= copy.foia.ai_notice.short %></p>
+      <p><span class="info">ⓘ</span> <%= copy.foia.ai_notice.short %></p>
       <p><%= req.rights.note %></p>
       <p><%= copy.foia.rights.caveat %>
         <a href="<%= copy.foia.rights.contact_href %>"><%= copy.foia.rights.contact_label %></a>
       </p>
     </div>
 
-    <div class="sp-backlink is-wide">
+    <div class="sp-backlink">
       <a href="/foia"><%= copy.foia.request.back_label %></a>
     </div>
   </div>

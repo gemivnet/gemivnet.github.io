@@ -1,17 +1,19 @@
-<header class="sp-page-head">
-  <div class="sp-crumb">
-    ~/<%= section.root %>/tags · <%= tagList.length %> tags
-  </div>
-  <h1><%= sectionCopy.tags_index.heading %></h1>
-</header>
+<div class="musings-layout">
+  <%~ include('_rail', { copy: copy, rail: rail, escapeHtml: escapeHtml }) %>
 
-<section>
-  <% if (tagList.length === 0) { %>
-    <div class="sp-empty"><span class="glyph">∅</span><%= sectionCopy.tags_index.empty %></div>
-  <% } %>
-  <ul class="cat-list">
-    <% tagList.forEach(function(t){ %>
-      <li><a href="<%= section.base %>/tag/<%= t.slug %>">#<%= t.name %></a><span class="count">(<%= t.count %>)</span></li>
-    <% }) %>
-  </ul>
-</section>
+  <div class="musings-main">
+    <header class="sp-page-head">
+      <div class="sp-crumb">~/<%= section.root %>/tags · <%= tagList.length %> tags</div>
+      <h1><%= sectionCopy.tags_index.heading %></h1>
+    </header>
+
+    <% if (tagList.length === 0) { %>
+      <div class="sp-empty"><span class="glyph">∅</span><%= sectionCopy.tags_index.empty %></div>
+    <% } %>
+    <ul class="cat-list">
+      <% tagList.forEach(function(t){ %>
+        <li><a href="<%= section.base %>/tag/<%= t.slug %>">#<%= t.name %></a><span class="count">(<%= t.count %>)</span></li>
+      <% }) %>
+    </ul>
+  </div>
+</div>
