@@ -64,14 +64,16 @@ home:
 
 # ── footer ──────────────────────────────────────────────────
 footer:
-  # The opt-out under the creed. Only rendered when analytics.ga4_id is set.
+  # The opt-out line in the "this site" column. Only rendered when
+  # analytics.ga4_id is set. The label links to the note on /license.
   analytics:
-    on: "analytics are on in this browser."
-    off: "analytics are off in this browser."
-    gpc: "analytics are off: your browser sends Global Privacy Control."
+    label: "analytics"
+    on: "on"
+    off: "off"
+    gpc: "off (GPC)"
     turn_off: "turn off"
-    turn_on: "turn back on"
-  creed: "a personal knowledge page, made for fun. no ads, no warranty. analytics are just for my personal enjoyment, to see what pages are being viewed. not sold, not shared."
+    turn_on: "turn on"
+  creed: "a personal knowledge page, made for fun. no ads, no warranty."
   elsewhere_heading: "elsewhere"
   elsewhere:
     - { label: "github.com/gemivnet", href: "https://github.com/gemivnet" }
@@ -491,6 +493,8 @@ license:
     - "<strong>You may</strong> quote, share, blog, screenshot, print, translate, or remix anything here for personal or non-commercial purposes, including class use, fan projects, and personal websites."
     - "<strong>Please credit</strong> the work as &ldquo;George Main, georgemain.com&rdquo; and link back where possible."
     - "<strong>Don&rsquo;t use it commercially</strong> without asking first. This includes ads, paid newsletters, AI-training datasets sold for profit, stock-photo resale, books for sale, paid courses, or any product where someone pays you to access my work."
+  analytics_heading: "Analytics"
+  analytics: "Analytics are just for my personal enjoyment, to see what pages are being viewed. Not sold, not shared. Turn them off any time with the switch at the bottom of every page; browsers that send Global Privacy Control are never counted."
   commercial: "Email <a href=\"mailto:george.main@gemiv.net\">george.main@gemiv.net</a> with what you&rsquo;d like to use and how. I almost always say yes for non-profits, journalism, and education."
 
 # ── short copyright shown in the site footer ─────────────────
