@@ -3,7 +3,6 @@ title: Empennage arrival & first weekend
 subtitle: The kit shows up and the vertical stabilizer comes together.
 date: '2026-03-01'
 tags:
-  - rv12is
   - empennage
   - priming
 featured_image: media/kit-crate.jpg

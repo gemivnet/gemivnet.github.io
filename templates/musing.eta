@@ -7,9 +7,10 @@
       <h1><%= post.title %></h1>
       <% if (post.subtitle) { %><p class="subtitle"><%= post.subtitle %></p><% } %>
       <p class="meta">
-        <time datetime="<%= fmtDate(post.date) %>"><%= section.timeline ? fmtLongDate(post.date) : fmtDate(post.date) %></time>
+        <time datetime="<%= fmtDate(post.date) %>"><%= fmtFull(post.date) %></time>
         <span class="sep">·</span><span><%= post.wordCount.toLocaleString() %> <%= copy.ui.words %></span>
         <span class="sep">·</span><span>~<%= post.readTime %> <%= copy.ui.min_read %></span>
+        <% if (post.updated && fmtFull(post.updated) !== fmtFull(post.date)) { %><span class="sep">·</span><span><%= copy.ui.updated %> <time datetime="<%= fmtDate(post.updated) %>"><%= fmtFull(post.updated) %></time></span><% } %>
       </p>
       <% if (post.tags.length) { %>
         <div class="sp-tags"><% post.tags.forEach(function(t){ %><a class="sp-tag" href="<%= section.base %>/tag/<%= t.toLowerCase().replace(/[^a-z0-9]+/g,'-') %>"><%= t %></a><% }) %></div>
@@ -19,6 +20,7 @@
     <article class="sp-prose">
       <%~ post.bodyHtml %>
     </article>
+    <p class="print-url"><%= absUrl(post.url).replace(/^https?:\/\//, '') %></p>
 
     <% if (related && related.length) { %>
     <section class="sp-section" aria-label="Related">
@@ -28,7 +30,7 @@
       </div>
       <ul class="cat-list">
         <% related.forEach(function(r){ %>
-          <li><a href="<%= r.url %>"><%= r.title %></a><span class="count"><%= fmtDate(r.date).slice(0, 7) %></span></li>
+          <li><a href="<%= r.url %>"><%= r.title %></a><span class="count"><%= fmtMonth(r.date) %></span></li>
         <% }) %>
       </ul>
     </section>

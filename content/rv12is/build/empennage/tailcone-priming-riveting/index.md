@@ -3,7 +3,6 @@ title: Tailcone priming & riveting
 subtitle: Shelby almost laps me on hours, and the priming finally clicks.
 date: '2026-06-14'
 tags:
-  - rv12is
   - empennage
   - priming
   - riveting

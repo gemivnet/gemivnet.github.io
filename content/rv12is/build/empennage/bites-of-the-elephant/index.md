@@ -3,10 +3,9 @@ title: Bites of the elephant
 subtitle: Rudder, stabilator, tailcone, and the process that ties it together.
 date: '2026-04-03'
 tags:
-  - rv12is
   - empennage
   - priming
-  - process
+  - lessons
 featured_image: media/tailcone-dryfit.jpg
 draft: false
 seo:

@@ -14,8 +14,8 @@
       <dt><%= FL.agency %></dt><dd><%= req.agency %></dd>
       <dt><%= FL.statute %></dt><dd><%= req.statute %></dd>
       <% if (req.tracking) { %><dt><%= FL.tracking %></dt><dd><%= req.tracking %></dd><% } %>
-      <dt><%= FL.filed %></dt><dd><%= fmtLongDate(req.filed) %></dd>
-      <% if (req.closed) { %><dt><%= FL.closed %></dt><dd><%= fmtLongDate(req.closed) %></dd><% } %>
+      <dt><%= FL.filed %></dt><dd><%= fmtFull(req.filed) %></dd>
+      <% if (req.closed) { %><dt><%= FL.closed %></dt><dd><%= fmtFull(req.closed) %></dd><% } %>
       <dt><%= FL.status %></dt><dd><%= req.statusLabel %></dd>
       <% if (req.docCount) { %><dt><%= FL.documents %></dt><dd><%= req.docCount %><% if (req.pageCount) { %><span class="sep">·</span><%= req.pageCount.toLocaleString() %> <%= copy.ui.pages %><% } %></dd><% } %>
       <% if (req.fees.quoted || req.fees.paid || req.fees.waiverLabel) { %>
@@ -41,6 +41,18 @@
                 .replace('{date}', req.summary.generatedOn) %>
         </p>
       </div>
+    <% } %>
+
+    <% var _docs = []; ;(req.releases).forEach(function(ev){ ;(ev.files || []).forEach(function(d){ _docs.push({ d: d, ev: ev }); }); }); %>
+    <% if (_docs.length) { %>
+      <section class="foia-docs-index" aria-label="<%= copy.foia.request.documents_label %>">
+        <div class="sp-strip-label"><%= copy.foia.request.documents_label %></div>
+        <ul class="docs">
+          <% _docs.forEach(function(x){ %>
+            <li><a href="<%= x.d.url %>"><%= x.d.title %></a><span class="m"><% if (x.d.pages) { %><%= x.d.pages.toLocaleString() %> <%= copy.ui.pages_abbr %> · <% } %><%= x.d.bytesFmt %> · <%= fmtFull(x.ev.date) %></span></li>
+          <% }) %>
+        </ul>
+      </section>
     <% } %>
 
     <% if (req.timeline.length === 0) { %>
@@ -86,7 +98,7 @@
               <ol>
                 <% ;(g.events).forEach(function(ev){ %>
                   <li class="foia-event is-minor">
-                    <div class="when"><%= fmtMetaDate(ev.date).slice(0, 6) %></div>
+                    <div class="when"><%= fmtDay(ev.date) %></div>
                     <div class="what">
                       <h3><%= ev.title %></h3>
                       <div class="kind"><span class="t"><%= ev.typeLabel %></span><% if (ev.tracking) { %> · <%= ev.tracking %><% } %></div>
@@ -99,7 +111,7 @@
           </li>
         <% } else { var ev = g.ev; %>
           <li class="foia-event is-<%= ev.type %>"<% if (ev.track) { %> data-track="<%= ev.track %>"<% } %>>
-            <div class="when"><%= fmtMetaDate(ev.date).slice(0, 6) %></div>
+            <div class="when"><%= fmtDay(ev.date) %></div>
             <div class="what">
               <h3><%= ev.title %></h3>
               <div class="kind">

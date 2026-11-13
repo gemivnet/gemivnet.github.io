@@ -2,7 +2,7 @@
 title: "Budapest Suggestions"
 subtitle: "Food, walks, and things to eat more of"
 date: 2025-11-01
-tags: [travel, budapest, hungary, food]
+tags: [travel, hungary, food]
 featured_image: null
 draft: false
 seo:

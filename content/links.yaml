@@ -1,0 +1,7 @@
+# /links: sites worth visiting, 90s-blogroll style. The page (and its footer
+# link) only exists once `links` has an entry. `note` is optional, one line.
+#
+# Example:
+#   - { label: "blog.n912bc.us", href: "https://blog.n912bc.us", note: "another RV-12 build log" }
+intro: ""
+links: []

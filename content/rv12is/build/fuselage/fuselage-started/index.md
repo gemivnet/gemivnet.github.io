@@ -3,7 +3,6 @@ title: Fuselage started
 subtitle: Forty hours of deburring, two priming sessions, a storage unit, and the last crate.
 date: '2026-10-28'
 tags:
-  - rv12is
   - fuselage
   - wings
   - priming

@@ -19,7 +19,7 @@ the slug and becomes `/foia/<slug>`. Reserved slugs the build rejects: `agency`,
 | `filed` | **yes** | `YYYY-MM-DD`. |
 | `closed` | | `YYYY-MM-DD`. |
 | `category` | | Single segment, e.g. `aviation`, `streets`. |
-| `tags` | | List. Each becomes `/foia/tag/<slug>`. |
+| `tags` | | List. Each becomes `/foia/tag/<slug>`. Topics and the state only (`airports`, `traffic-safety`, `police`, `illinois`), reused across requests: not the agency, town or statute (the agency filter and the facts list already show those) and not one-off names. Check the existing tags first; a tag on one request is a filter that filters nothing. |
 | `seo` | | `description` (one sentence, <160 chars) and `keywords` (list). |
 | `summary` | | See below. |
 | `rights` | | `note:` — the rights statement for these particular records. |

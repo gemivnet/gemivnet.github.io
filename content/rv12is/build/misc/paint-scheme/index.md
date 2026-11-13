@@ -3,7 +3,6 @@ title: The paint scheme
 subtitle: Settled, rendered, and impatiently waiting to exist.
 date: '2026-06-08'
 tags:
-  - rv12is
   - paint
 featured_image: media/paint-scheme.jpg
 draft: false

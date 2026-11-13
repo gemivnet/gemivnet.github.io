@@ -64,6 +64,12 @@ Actions to GitHub Pages. Source of truth is the working tree on `main`.
   change the card in the recipes folder and re-import. See *Recipes* below.
 - `design/vendor/pdfjs/` — the only vendored library. Copied to
   `_site/vendor/`. Provenance and re-vendoring steps in its `VENDORED.md`.
+- `design/fonts/`: IBM Plex Mono and Serif, self-hosted (OFL), latin and
+  latin-ext woff2 plus `plex.css`, copied to `/fonts/`. No Google Fonts call.
+  `scripts/assets/fonts/` holds TTF copies, used only to draw the
+  link-preview cards (the text renderer can't read woff2).
+- `content/links.yaml`: the `/links` blogroll. No entries means no page and
+  no footer link.
 - `scripts/lib/` — the two things more than one script needs:
   `pii-patterns.mjs` (shared by the hook and the FOIA pre-flight) and
   `zip.mjs` (zero-dep ZIP writer over `node:zlib`).
@@ -120,9 +126,30 @@ kept that look and fixed usability. Hold these when changing anything:
 7. **Two breakpoints:** 960px (the rail folds up) and 640px (one column,
    floated figures stop floating, grids drop a column).
 8. **Rules, not borders.** One muted sub-line, not a grid of labelled cells.
-9. **Theme** lives on `<html>`: `:root` is light, `html.dark` swaps the
+9. **Dates:** lists say `Oct 27` (`fmtDay`), pages say `27 Oct 2026`
+   (`fmtFull`), month-only lines `Nov 2025` (`fmtMonth`). ISO (`fmtDate`) is
+   for `datetime` attributes, URLs and sorting only.
+10. **Theme** lives on `<html>`: `:root` is light, `html.dark` swaps the
    palette, and a script in `<head>` applies the saved choice before first
    paint. No OS auto-detect.
+
+Smaller pieces that ride on those:
+
+- **Photos:** hover-grow on post images, album covers, grid tiles and the
+  photo page (mouse only, off under reduced motion). A photo's second,
+  xkcd-style caption is its hover text: the markdown title
+  (`![alt](media/x.jpg "hover text")`) or `hover:` on a `metadata.yaml`
+  image. On a touchscreen it shows under the caption instead.
+- **Post images** get a `srcset`: S3 ones from their 600/1400 copies, local
+  ones (the build log) from 800/1400 copies baked at build
+  (`images.post_widths`). A phone downloads the 800.
+- **Link previews:** `previewCard` draws a 1200x630 card for every page with
+  no photo of its own (FOIA, recipes, section indexes, imageless posts) into
+  `/cards/`. Tunables under `cards` in `site.config.yaml`.
+- **Updated line:** a pinned post shows "updated <date>" from its file's last
+  commit, or `updated:` in frontmatter.
+- **`/`** from any page goes to search. Ctrl+P on a musing or build-log
+  entry prints the article alone, with outside links written out.
 
 The audit that keeps those honest is a Playwright pass at 1440, 390 and
 320px over every page type: no `scrollWidth > clientWidth`, no text under

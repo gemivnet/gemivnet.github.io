@@ -4,7 +4,6 @@ subtitle: Exact numbers, updated as the build goes on.
 date: '2026-02-23'
 pinned: true
 tags:
-  - rv12is
   - costs
 featured_image: null
 draft: false

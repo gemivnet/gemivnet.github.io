@@ -3,7 +3,6 @@ title: Administrative notes
 subtitle: No building this time. Parts, payments, and plans.
 date: '2026-03-05'
 tags:
-  - rv12is
   - costs
   - decisions
 featured_image: null

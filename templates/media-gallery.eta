@@ -9,7 +9,7 @@
   <% } %>
   <p class="meta">
     <% if (node.location) { %><span><%= node.location %></span><span class="sep">·</span><% } %>
-    <% if (node.date) { %><span><%= fmtDate(node.date) %></span><span class="sep">·</span><% } %>
+    <% if (node.date) { %><span><%= fmtFull(node.date) %></span><span class="sep">·</span><% } %>
     <span><%= allDescendantImages.length %> photos<% if (subAlbums.length) { %> · <%= subAlbums.length %> sub-albums<% } %></span>
   </p>
 </header>
@@ -49,12 +49,12 @@
           </div>
           <div class="sp-vsco">
             <% node.images.forEach(function(im){ %>
-              <a class="cell" href="<%= im.pageUrl %>" title="<%= escapeHtml(im.alt || '') %>">
+              <a class="cell" href="<%= im.pageUrl %>" title="<%= escapeHtml(im.hover || im.alt || '') %>">
                 <div class="sp-img has-photo" style="background-image: url('<%= im.srcThumb %>');" role="img" aria-label="<%= escapeHtml(im.alt || '') %>"></div>
                 <div class="caption">
                   <% if (im.title) { %><div class="title"><%= im.title %></div><% } %>
                   <% if (im.location) { %><div class="where"><%= im.location %></div><% } %>
-                  <% if (im.date) { %><div><%= fmtDate(im.date) %></div><% } %>
+                  <% if (im.date) { %><div><%= fmtFull(im.date) %></div><% } %>
                 </div>
               </a>
             <% }) %>
@@ -67,12 +67,12 @@
     <div class="gv-grid">
       <div class="sp-vsco">
         <% allDescendantImages.forEach(function(im){ %>
-          <a class="cell" href="<%= im.pageUrl %>" title="<%= escapeHtml(im.alt || '') %>">
+          <a class="cell" href="<%= im.pageUrl %>" title="<%= escapeHtml(im.hover || im.alt || '') %>">
             <div class="sp-img has-photo" style="background-image: url('<%= im.srcThumb %>');" role="img" aria-label="<%= escapeHtml(im.alt || '') %>"></div>
             <div class="caption">
               <% if (im.title) { %><div class="title"><%= im.title %></div><% } %>
               <% if (im.album && im.album !== node.url) { %><div class="where"><%= im.albumTitle %></div><% } %>
-              <% if (im.date) { %><div><%= fmtDate(im.date) %></div><% } %>
+              <% if (im.date) { %><div><%= fmtFull(im.date) %></div><% } %>
             </div>
           </a>
         <% }) %>
@@ -92,7 +92,7 @@
             <span class="m">
               <% if (im.album && im.album !== node.url) { %><a href="<%= im.album %>"><%= im.albumTitle %></a> · <% } %>
               <% if (im.fromPost) { %><a href="<%= im.fromPost.url %>"><%= im.fromPost.title %></a> · <% } %>
-              <% if (im.date) { %><%= fmtDate(im.date) %><% } %>
+              <% if (im.date) { %><%= fmtFull(im.date) %><% } %>
             </span>
           </figcaption>
         </figure>
@@ -123,13 +123,13 @@
   <section class="sp-section first">
     <div class="sp-vsco">
       <% node.images.forEach(function(im){ %>
-        <a class="cell" href="<%= im.pageUrl %>" title="<%= escapeHtml(im.alt || '') %>">
+        <a class="cell" href="<%= im.pageUrl %>" title="<%= escapeHtml(im.hover || im.alt || '') %>">
           <div class="sp-img has-photo" style="background-image: url('<%= im.srcThumb %>');" role="img" aria-label="<%= escapeHtml(im.alt || '') %>"></div>
           <div class="caption">
             <% if (im.title) { %><div class="title"><%= im.title %></div><% } %>
             <% if (im.location) { %><div class="where"><%= im.location %></div><% } %>
             <% if (im.fromPost) { %><div class="where"><%= im.fromPost.title %></div><% } %>
-            <% if (im.date) { %><div><%= fmtDate(im.date) %></div><% } %>
+            <% if (im.date) { %><div><%= fmtFull(im.date) %></div><% } %>
           </div>
         </a>
       <% }) %>

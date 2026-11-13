@@ -9,7 +9,7 @@
   </div>
   <div class="sp-block">
     <p class="meta">
-      <span id="musing-path"><%= shuffled[0].path %></span><span class="sep">·</span><span id="musing-readtime"><%= shuffled[0].readtime %></span>
+      <span class="home-path" id="musing-path"><%= shuffled[0].path %></span><span class="sep">·</span><span id="musing-readtime"><%= shuffled[0].readtime %></span>
     </p>
     <h3 class="home-title"><a id="musing-title" href="<%= shuffled[0].url %>"><%= shuffled[0].title %></a></h3>
     <p class="home-sub" id="musing-sub"><%= shuffled[0].subtitle %></p>
@@ -35,7 +35,7 @@
   <div class="sp-block wide">
     <p class="meta" id="photo-path"></p>
     <a class="home-photo" id="photo-link" href="<%= shuffledImages[0].album %>">
-      <img id="photo-img" src="<%= shuffledImages[0].src %>" alt="<%= escapeHtml(shuffledImages[0].alt || '') %>" title="<%= escapeHtml(shuffledImages[0].alt || '') %>">
+      <img id="photo-img" src="<%= shuffledImages[0].src %>" alt="<%= escapeHtml(shuffledImages[0].alt || '') %>" title="<%= escapeHtml(shuffledImages[0].hover || shuffledImages[0].alt || '') %>">
     </a>
     <p class="home-sub" id="photo-sub"><%= shuffledImages[0].title || shuffledImages[0].alt || '' %></p>
     <p class="meta" id="photo-meta"></p>
@@ -150,7 +150,7 @@
       if (p.date) parts.push(p.date);
       set('photo-meta', parts.join(' · '));
       var img = document.getElementById('photo-img');
-      img.src = p.src; img.alt = p.alt || ''; img.title = p.alt || '';
+      img.src = p.src; img.alt = p.alt || ''; img.title = p.hover || p.alt || '';
       document.getElementById('photo-link').href = p.album;
       var open = document.getElementById('photo-open'); if (open) open.href = p.album;
       warmPhotos(list, i);

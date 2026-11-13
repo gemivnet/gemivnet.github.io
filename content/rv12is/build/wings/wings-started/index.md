@@ -3,7 +3,6 @@ title: Wings started
 subtitle: Fuselage delivered, fasteners organized, and lessons worth sharing.
 date: '2026-07-31'
 tags:
-  - rv12is
   - wings
   - lessons
 featured_image: media/wing-parts.jpg

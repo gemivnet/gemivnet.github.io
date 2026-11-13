@@ -3,7 +3,6 @@ title: Tailcone deburring & the weight question
 subtitle: Big pieces, fiberglass dust, and running the W&B math early.
 date: '2026-06-07'
 tags:
-  - rv12is
   - empennage
   - deburring
   - weight

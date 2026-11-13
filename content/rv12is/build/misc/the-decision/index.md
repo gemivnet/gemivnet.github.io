@@ -3,7 +3,6 @@ title: We're building a plane
 subtitle: The first post for our RV-12iS #121708 build log.
 date: '2026-02-22'
 tags:
-  - rv12is
   - decisions
   - workshop
   - priming

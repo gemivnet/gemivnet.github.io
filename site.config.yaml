@@ -34,6 +34,24 @@ images:
   # Square crop shown beside each row in the shared entry list.
   # position: attention picks the crop by entropy so it lands on the subject.
   entry_thumb:   { width: 160, height: 160, quality: 76, position: attention }
+  # Local post images (the build log keeps its photos in the repo) get these
+  # smaller copies baked at build, offered by srcset with `sizes` so a phone
+  # takes 800 and a wide screen 1400. 32px is the phone gutter, twice 16.
+  post_widths:
+    widths: [800, 1400]
+    quality: 80
+    sizes_full: "(max-width: 639px) calc(100vw - 32px), 680px"
+    sizes_inline: "(max-width: 639px) calc(100vw - 32px), 300px"
+
+# Link-preview cards (og:image) for pages without a photo of their own:
+# FOIA, recipes, section indexes, posts with no featured image. Long titles
+# and sub-lines are cut at a word to these lengths.
+cards:
+  width: 1200
+  height: 630
+  margin: 80
+  title_chars: 70
+  sub_chars: 90
 
 # The left rail (templates/_rail.eta). A post with at least toc_min_headings
 # h2s lists them under "on this page"; index rails show the top_tags commonest

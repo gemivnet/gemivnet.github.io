@@ -125,6 +125,7 @@ ui:
   peek_close: "&times;"
   peek_close_aria: "Close reading pane"
   peek_loading: "loading&hellip;"
+  updated: "updated"       # reference pages: "updated 13 Nov 2026"
   # units
   words: "words"
   min_read: "min read"
@@ -417,6 +418,7 @@ search:
   placeholder: "search musings, recipes, the build log, FOIA…"
   label: "Search the site"
   hint: "every word has to match. titles rank first."
+  shortcut_hint: "press / from any page to get here."
   empty: "nothing matches that."
   count_one: "1 result"
   count_many: "{n} results"
@@ -538,6 +540,14 @@ license:
 copyright:
   line: "© George Main · CC BY-NC 4.0"
   link_text: "license"
+
+# ── /links ───────────────────────────────────────────────────
+# The blogroll. The list itself is content/links.yaml.
+links:
+  breadcrumb: "~/links"
+  heading: "Links."
+  footer_label: "links"
+  seo_description: "{n} sites {author} likes."
 
 # ── /changelog ──────────────────────────────────────────────
 # Entries are pulled from git log at build time. No manual list to maintain.

@@ -6,9 +6,6 @@ tags:
   - travel
   - japan
   - food
-  - kyoto
-  - tokyo
-  - kobe
 featured_image: media/kiyomizu-dera-view.jpg
 draft: false
 seo:

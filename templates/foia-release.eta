@@ -11,7 +11,7 @@
 
     <% var FL = copy.foia.labels; %>
     <dl class="facts">
-      <dt><%= FL.date %></dt><dd><%= fmtLongDate(ev.date) %></dd>
+      <dt><%= FL.date %></dt><dd><%= fmtFull(ev.date) %></dd>
       <dt><%= FL.type %></dt><dd><%= ev.typeLabel %></dd>
       <% if (ev.trackLabel) { %><dt><%= FL.track %></dt><dd><%= ev.trackLabel %></dd><% } %>
       <dt><%= FL.agency %></dt><dd><%= req.agencyShort %></dd>

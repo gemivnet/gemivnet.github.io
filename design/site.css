@@ -39,6 +39,7 @@ html, body { margin: 0; padding: 0; }
   letter-spacing: -0.01em;
   color: var(--ink);
   overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 .site-page h1 { font-size: var(--fs-h1); letter-spacing: -0.02em; line-height: 1.12; }
 .site-page h2 { font-size: var(--fs-h2); }
@@ -628,6 +629,10 @@ html, body { margin: 0; padding: 0; }
   color: var(--ink-2);
   margin-top: var(--sp-2);
 }
+/* the second, xkcd-style caption: the image's hover text. A touchscreen
+   has no hover, so there it sits under the caption instead. */
+.hover-text { display: none; }
+@media (hover: none) { .hover-text { display: block; font-style: italic; margin-top: 2px; } }
 .sp-figure.inline-l img, .sp-figure.inline-r img { max-height: none; object-fit: initial; }
 @media (min-width: 640px) {
   .sp-figure.inline-r { float: right; width: 44%; margin: 6px 0 var(--sp-3) var(--sp-5); }
@@ -845,6 +850,7 @@ html, body { margin: 0; padding: 0; }
 .fee-note { font-size: var(--fs-small); color: var(--ink); line-height: 1.6; margin: 0 0 var(--sp-5); }
 
 .foia-summary { margin-bottom: var(--sp-6); }
+.foia-docs-index { margin-bottom: var(--sp-6); padding-bottom: var(--sp-4); border-bottom: 1px solid var(--rule); }
 .foia-summary p { margin: 0 0 var(--sp-3); }
 .foia-summary .disclosure, .foia-note-foot {
   font-family: var(--font-mono);
@@ -900,11 +906,11 @@ html, body { margin: 0; padding: 0; }
 .foia-event .kind { font-family: var(--font-mono); font-size: var(--fs-meta); color: var(--ink-2); margin-top: 2px; line-height: var(--lh-snug); }
 .foia-event .kind .t { color: var(--ink); }
 .foia-event .note { font-size: 17px; color: var(--ink); margin: var(--sp-2) 0 0; line-height: 1.6; }
-.foia-event .docs { list-style: none; padding: 0; margin: var(--sp-2) 0 0; font-family: var(--font-mono); font-size: var(--fs-small); line-height: var(--lh-snug); }
-.foia-event .docs li { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 0.6em; }
-.foia-event .docs li::before { content: "\2192"; color: var(--ink-2); }
-.site-page .foia-event .docs a { display: inline-flex; align-items: center; min-height: var(--tap); }
-.foia-event .docs .m { font-size: var(--fs-meta); color: var(--ink-2); }
+:is(.foia-event, .foia-docs-index) .docs { list-style: none; padding: 0; margin: var(--sp-2) 0 0; font-family: var(--font-mono); font-size: var(--fs-small); line-height: var(--lh-snug); }
+:is(.foia-event, .foia-docs-index) .docs li { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 0.6em; }
+:is(.foia-event, .foia-docs-index) .docs li::before { content: "\2192"; color: var(--ink-2); }
+.site-page :is(.foia-event, .foia-docs-index) .docs a { display: inline-flex; align-items: center; min-height: var(--tap); }
+:is(.foia-event, .foia-docs-index) .docs .m { font-size: var(--fs-meta); color: var(--ink-2); }
 .site-page .foia-event .more { display: inline-flex; align-items: center; min-height: var(--tap); font-family: var(--font-mono); font-size: var(--fs-small); }
 
 .foia-fold { padding-bottom: var(--sp-4); }
@@ -1119,6 +1125,8 @@ html, body { margin: 0; padding: 0; }
 .sx-input:focus { outline: none; border-bottom-color: var(--accent); }
 .sx-hint, .sx-status { font-family: var(--font-mono); font-size: var(--fs-meta); color: var(--ink-2); margin: var(--sp-2) 0 0; }
 .sx-status:empty { display: none; }
+@media (pointer: coarse) { .sx-key { display: none; } }
+.nf .sx-form { margin: 0 0 var(--sp-5); }
 .sx-results { list-style: none; margin: var(--sp-4) 0 0; padding: 0; max-width: var(--reading-width); }
 .sx-hit { padding: var(--sp-3) 0; border-top: 1px solid var(--rule); }
 .sx-sec { display: block; font-family: var(--font-mono); font-size: var(--fs-meta); color: var(--ink-2); }
@@ -1216,6 +1224,13 @@ html, body { margin: 0; padding: 0; }
   .sp-entry.no-date { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "body thumb"; }
   .sp-entry-date { padding-top: 0; }
   .sp-entry-thumb { width: 56px; height: 56px; }
+  /* tags are on the post itself; in a phone list they were 90px a row */
+  .sp-entry .sp-tags { display: none; }
+  /* home: the section number on its own line, so the title and its counter
+     share the next one; the post's path gets a line to itself */
+  .sp-section-tag { flex-basis: 100%; }
+  .home-path { display: block; }
+  .home-path + .sep { display: none; }
   .site-page .sp-entry-title { font-size: 19px; }
 
   .sp-album-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1239,6 +1254,33 @@ html, body { margin: 0; padding: 0; }
 
 @media (max-width: 399px) {
   .sp-sort { position: static; margin-bottom: var(--sp-1); }
+}
+
+.print-url { display: none; }
+
+/* Ctrl+P on a musing or build-log entry: the article on paper. No chrome,
+   black on white, photos kept whole, web addresses written out after
+   outside links, and the page's own address at the end. */
+@media print {
+  @page { size: letter; margin: 0.6in 0.7in; }
+  :is(.active-musings, .active-rv12is) { background: #fff !important; color: #000; font-size: 11pt; }
+  :is(.active-musings, .active-rv12is) :is(.sp-top, .sp-footer, .rail, .crumbs, .sp-postnav, .sp-backlink,
+    .sp-section, .skip-link, .sp-peek, .sp-tags) { display: none !important; }
+  :is(.active-musings, .active-rv12is) :is(.site-shell, .musings-layout, .musings-main) {
+    display: block; max-width: none; width: auto; margin: 0; padding: 0 !important;
+  }
+  :is(.active-musings, .active-rv12is) * { color: #000 !important; background: transparent !important; }
+  :is(.active-musings, .active-rv12is) .meta, :is(.active-musings, .active-rv12is) .subtitle,
+  :is(.active-musings, .active-rv12is) figcaption { color: #444 !important; }
+  :is(.active-musings, .active-rv12is) h1 { font-size: 22pt; }
+  :is(.active-musings, .active-rv12is) .sp-prose { font-size: 11pt; line-height: 1.5; }
+  :is(.active-musings, .active-rv12is) .sp-prose > p:first-child { font-size: 12pt; }
+  :is(.active-musings, .active-rv12is) .sp-prose h2, :is(.active-musings, .active-rv12is) .sp-prose h3 { break-after: avoid; }
+  :is(.active-musings, .active-rv12is) .sp-figure { break-inside: avoid; }
+  :is(.active-musings, .active-rv12is) .sp-figure img { max-height: 4in; width: auto; max-width: 100%; transform: none !important; }
+  :is(.active-musings, .active-rv12is) .sp-prose a { text-decoration: none; }
+  :is(.active-musings, .active-rv12is) .sp-prose a[href^="http"]::after { content: " (" attr(href) ")"; font-family: var(--font-mono); font-size: 8.5pt; color: #444 !important; overflow-wrap: anywhere; }
+  :is(.active-musings, .active-rv12is) .print-url { display: block; margin-top: 18pt; font-family: var(--font-mono); font-size: 8.5pt; color: #444 !important; }
 }
 
 /* Ctrl+P on a recipe page: the card, not the website. Black on white, no

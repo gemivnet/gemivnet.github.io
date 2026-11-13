@@ -3,7 +3,6 @@ title: Empennage complete
 subtitle: 167 combined hours, one rattle can, and a garage to reclaim.
 date: '2026-06-15'
 tags:
-  - rv12is
   - empennage
   - milestones
 featured_image: media/tailcone-done.jpg

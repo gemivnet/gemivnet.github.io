@@ -6,8 +6,8 @@
   <div class="photo-frame-row">
     <a class="photo-arrow prev" href="<%= prev.pageUrl %>" aria-label="Previous photo">‹</a>
     <figure class="photo-figure">
-      <%~ pictureFor(image, 'med', image.alt, 'fetchpriority="high" title="' + escapeHtml(image.alt || '') + '"') %>
-      <% if (image.alt) { %><figcaption><%= image.alt %></figcaption><% } %>
+      <%~ pictureFor(image, 'med', image.alt, 'fetchpriority="high" title="' + escapeHtml(image.hover || image.alt || '') + '"') %>
+      <% if (image.alt || image.hover) { %><figcaption><%= image.alt %><% if (image.hover) { %><span class="hover-text"><%= image.hover %></span><% } %></figcaption><% } %>
     </figure>
     <a class="photo-arrow next" href="<%= next.pageUrl %>" aria-label="Next photo">›</a>
   </div>
@@ -16,7 +16,7 @@
     <table>
       <tbody>
         <% if (image.title) { %><tr><td>title</td><td><%= image.title %></td></tr><% } %>
-        <% if (image.date)  { %><tr><td>date</td><td><%= fmtDate(image.date) %></td></tr><% } %>
+        <% if (image.date)  { %><tr><td>date</td><td><%= fmtFull(image.date) %></td></tr><% } %>
         <% if (image.location || node.location) { %><tr><td>where</td><td><%= image.location || node.location %></td></tr><% } %>
         <tr><td>album</td><td><a href="<%= node.url %>"><%= node.title %></a></td></tr>
         <% if (image.fromPost) { %><tr><td><%= copy.media.photo.from_label %></td><td><a href="<%= image.fromPost.url %>"><%= image.fromPost.title %></a></td></tr><% } %>

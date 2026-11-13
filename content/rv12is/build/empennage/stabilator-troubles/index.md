@@ -3,7 +3,6 @@ title: Stabilator troubles
 subtitle: A month away, a first solo, and the rivets that fought back.
 date: '2026-05-30'
 tags:
-  - rv12is
   - empennage
   - riveting
   - training

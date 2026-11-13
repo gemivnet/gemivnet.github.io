@@ -1,0 +1,12 @@
+<div class="site-reading">
+  <header class="sp-page-head">
+    <div class="sp-crumb"><%= copy.links.breadcrumb %> · <%= links.length %></div>
+    <h1><%= copy.links.heading %></h1>
+    <% if (intro) { %><p class="sp-index-summary"><%= intro %></p><% } %>
+  </header>
+  <ul class="cat-list links-list">
+    <% links.forEach(function(l){ %>
+      <li><a href="<%= l.href %>"><%= l.label %></a><% if (l.note) { %><span class="count"><%= l.note %></span><% } %></li>
+    <% }) %>
+  </ul>
+</div>

@@ -2,6 +2,10 @@
   <div class="sp-crumb"><%= copy.not_found.breadcrumb %></div>
   <h1><%= copy.not_found.heading %></h1>
   <p><%= copy.not_found.paragraph %></p>
+  <form class="sx-form" action="/search" method="get" role="search">
+    <label class="sx-label" for="nf-q"><%= copy.search.label %></label>
+    <input class="sx-input" id="nf-q" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="<%= copy.search.placeholder %>">
+  </form>
   <div class="actions">
     <% copy.not_found.buttons.forEach(function(b, i){ %>
       <a class="sp-btn <%= i === 0 ? 'primary' : '' %>" href="<%= b.href %>"><%= b.label %></a>

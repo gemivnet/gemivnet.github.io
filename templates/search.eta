@@ -12,7 +12,7 @@
 <form class="sx-form" action="/search" method="get" role="search">
   <label class="sx-label" for="sx-q"><%= sc.label %></label>
   <input class="sx-input" id="sx-q" name="q" type="search" autocomplete="off" spellcheck="false" placeholder="<%= sc.placeholder %>">
-  <p class="sx-hint"><%= sc.hint %></p>
+  <p class="sx-hint"><%= sc.hint %><span class="sx-key"> <%= sc.shortcut_hint %></span></p>
 </form>
 
 <p class="sx-status" id="sx-status" aria-live="polite"></p>

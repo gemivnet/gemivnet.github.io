@@ -3,7 +3,6 @@ title: Sport pilot checkride passed
 subtitle: Three flight schools, 72.3 hours, and a 300nm XC to get it done.
 date: '2026-07-11'
 tags:
-  - rv12is
   - training
   - milestones
 featured_image: media/checkride-sling.jpg

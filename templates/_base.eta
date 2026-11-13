@@ -40,10 +40,10 @@
   <% if (page.ogImage) { %><meta property="og:image" content="<%= absUrl(page.ogImage) %>"><% } %>
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://georgemain-com-media.s3.amazonaws.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="preload" href="/fonts/ibm-plex-serif-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/ibm-plex-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/plex.css<%= typeof assetV !== 'undefined' && assetV ? '?v=' + assetV : '' %>">
   <link rel="alternate" type="application/rss+xml" title="<%= site.title %> (RSS)" href="/rss.xml">
   <link rel="alternate" type="application/atom+xml" title="<%= site.title %> (Atom)" href="/atom.xml">
 
@@ -137,6 +137,7 @@
           <% if (typeof allPostUrls !== 'undefined' && allPostUrls && allPostUrls.length) { %>
             <li><a href="#" id="random-musing-link" data-urls='<%~ JSON.stringify(allPostUrls) %>'><%= copy.ui.random_link %></a></li>
           <% } %>
+          <% if (typeof hasLinks !== 'undefined' && hasLinks) { %><li><a href="/links"><%= copy.links.footer_label %></a></li><% } %>
           <li><a href="/license"><%= copy.copyright.link_text %></a></li>
           <li class="fine"><%= copy.copyright.line %></li>
           <li class="version"><%= site.version %></li>
@@ -157,6 +158,16 @@
         root.classList.toggle('dark', dark);
         try { localStorage.setItem('gm-theme', dark ? 'dark' : 'light'); } catch (_) {}
         paint();
+      });
+
+      // "/" from anywhere: jump to search (or into the box, if it's on the page).
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== '/' || e.metaKey || e.ctrlKey || e.altKey) return;
+        var t = e.target;
+        if (t && (/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName) || t.isContentEditable)) return;
+        e.preventDefault();
+        var box = document.getElementById('sx-q');
+        if (box) box.focus(); else window.location.href = '/search';
       });
 
       var rnd = document.getElementById('random-musing-link');

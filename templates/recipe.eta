@@ -28,7 +28,7 @@
       <div class="rc-actions">
         <a class="sp-btn primary" href="<%= r.url %>/print" data-print-pdf="<%= r.pdfUrl %>"><%= rc.post.print_label %></a>
         <a class="sp-btn" href="<%= r.pdfUrl %>" download><%= rc.post.pdf_label %></a>
-        <span class="rc-dim"><%= pagesLabel %><% if (r.revised) { %> · <%= rc.spec.revised %> <%= r.revised %><% } %></span>
+        <span class="rc-dim"><%= pagesLabel %><% if (r.revised) { %> · <%= rc.spec.revised %> <%= fmtFull(r.revised) %><% } %></span>
       </div>
     </header>
 

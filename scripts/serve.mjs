@@ -21,6 +21,7 @@ const TYPES = {
   '.zip': 'application/zip',
   '.xml': 'application/xml; charset=utf-8',
   '.txt': 'text/plain; charset=utf-8',
+  '.woff2': 'font/woff2',
 };
 
 async function serveFile(p, res) {

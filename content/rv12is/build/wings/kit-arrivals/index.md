@@ -3,7 +3,6 @@ title: Kit arrivals & rib deburring
 subtitle: Two more crates, an avionics question, and a third set of hands.
 date: '2026-08-23'
 tags:
-  - rv12is
   - wings
   - lessons
 featured_image: media/kits-in-garage.jpg

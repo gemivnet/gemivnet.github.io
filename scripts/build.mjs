@@ -113,6 +113,15 @@ const fmtLongDate = (d) => {
   return `${mo} ${dt.getUTCDate()}, ${dt.getUTCFullYear()}`;
 };
 
+// The two display formats (George, 2026-11-13): lists say "Oct 27", pages
+// say "27 Oct 2026". fmtMonth is for month-only lines ("Nov 2025"). Keep ISO
+// (fmtDate) for datetime attributes, URLs and sorting.
+const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const asDate = (d) => d instanceof Date ? d : new Date(d);
+const fmtDay = (d) => { const t = asDate(d); return `${MON[t.getUTCMonth()]} ${t.getUTCDate()}`; };
+const fmtFull = (d) => { const t = asDate(d); return `${t.getUTCDate()} ${MON[t.getUTCMonth()]} ${t.getUTCFullYear()}`; };
+const fmtMonth = (d) => { const t = asDate(d); return `${MON[t.getUTCMonth()]} ${t.getUTCFullYear()}`; };
+
 // Deterministic seeded shuffle so the random-musing manifest is stable per build.
 const seededShuffle = (arr, seed = 1) => {
   const a = arr.slice();
@@ -149,7 +158,7 @@ function pictureFor(im, size, alt, extraAttrs = '') {
 // the list markup, the sort control and the reading pane exist exactly once.
 // `date` is the short day shown in the row's left column; the year is the
 // divider above it. `meta` is the one muted line under the title.
-const fmtShortDate = (d) => fmtMetaDate(d).slice(0, 6);
+const fmtShortDate = fmtDay;
 
 const entryFromPost = (p, section, opts = {}) => ({
   url: p.url,
@@ -186,7 +195,7 @@ const entryFromRequest = (r, opts = {}) => {
     subtitle: [r.statusLabel, money].filter(Boolean).join(' \u00b7 '),
     ts: new Date(r.filedSort).getTime(),
     year: new Date(r.filedSort).getUTCFullYear(),
-    date: r.filed.slice(0, 6),
+    date: fmtDay(r.filedSort),
     thumb: null,
     meta: [
       ...(opts.label ? [{ text: opts.label }] : []),
@@ -246,6 +255,9 @@ const pageHelpers = {
   fmtDate,
   fmtMetaDate,
   fmtLongDate,
+  fmtDay,
+  fmtFull,
+  fmtMonth,
   fmtBytes,
   escapeHtml,
 };
@@ -337,8 +349,8 @@ function imgFigure(href, alt, title, kls) {
   const titleText = title ? decodeEntities(title) : '';
   const t = titleText ? ` title="${escapeHtml(titleText)}"` : '';
   return `<figure class="sp-figure ${cls}">
-    <img src="${escapeHtml(href)}" alt="${escapeHtml(altText)}"${t} loading="lazy">
-    ${altText ? `<figcaption>${escapeHtml(altText)}</figcaption>` : ''}
+    <img src="${escapeHtml(href)}" alt="${escapeHtml(altText)}"${t}${cls.startsWith('inline') ? ' data-inline' : ''} loading="lazy">
+    ${altText || titleText ? `<figcaption>${escapeHtml(altText)}${titleText ? `<span class="hover-text">${escapeHtml(titleText)}</span>` : ''}</figcaption>` : ''}
   </figure>`;
 }
 
@@ -348,6 +360,15 @@ function imgFigure(href, alt, title, kls) {
 // nav tab, index, category pages, tags, and year archives. Home page, feeds,
 // and gallery synthesis remain musings-only.
 const SECTIONS = CFG.sections;
+
+// Last commit touching a file, or null when git can't say (a fresh file, no
+// repo). CI checks out with fetch-depth 0, so this is real there too.
+function lastCommitDate(file) {
+  try {
+    const out = git(['-c', 'core.quotepath=false', 'log', '-1', '--format=%cI', '--', path.relative(ROOT, file)]).trim();
+    return out ? new Date(out) : null;
+  } catch { return null; }
+}
 
 async function loadPosts(root) {
   const indices = await fg(root + '/**/index.md', { cwd: SRC('content') });
@@ -381,12 +402,15 @@ async function loadPosts(root) {
       imageRefs.push({ file, alt: fm.title, ...(imagesMap[file] || {}) });
       seenFiles.add(file);
     }
-    const imgRe = /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)(?:\{([^}]+)\})?/g;
+    // ![alt](src "hover"){...}: the quoted title is the photo's second,
+    // xkcd-style caption, shown on hover (and under the photo on a touchscreen).
+    const imgRe = /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)(?:\{([^}]+)\})?/g;
     let mref;
     while ((mref = imgRe.exec(bodyMd))) {
       const alt = mref[1];
       const src = mref[2];
-      const section = /(?:^|\s)section=([a-z0-9-]+)/.exec(mref[3] || '')?.[1] || null;
+      const hover = mref[3] || '';
+      const section = /(?:^|\s)section=([a-z0-9-]+)/.exec(mref[4] || '')?.[1] || null;
       if (/^https?:/.test(src)) continue;
       if (src.startsWith('media/')) {
         const file = src.replace(/^media\//, '');
@@ -397,13 +421,13 @@ async function loadPosts(root) {
           if (!(await exists(abs))) fail(`${rel}: image '${src}' not found locally and no entry in frontmatter.images`);
         }
         if (!seenFiles.has(file)) {
-          imageRefs.push({ file, alt, section, ...(imagesMap[file] || {}) });
+          imageRefs.push({ file, alt, hover, section, ...(imagesMap[file] || {}) });
           seenFiles.add(file);
         } else {
           // The featured image was pushed first with the post title as its
           // alt. The body occurrence carries the real caption and section.
           const ref = imageRefs.find(r => r.file === file);
-          if (ref) { if (alt) ref.alt = alt; if (section) ref.section = section; }
+          if (ref) { if (alt) ref.alt = alt; if (hover) ref.hover = hover; if (section) ref.section = section; }
         }
       }
     }
@@ -423,21 +447,39 @@ async function loadPosts(root) {
 
     const { html: bodyHtml, toc } = addHeadingIds(marked.parse(bodyMd, { async: false }));
     // Rewrite <img ... src="media/<file>" ...> — swap to S3 med URL and inject
-    // width/height (from EXIF) so browsers reserve space and avoid CLS.
+    // width/height (from EXIF) so browsers reserve space and avoid CLS. Every
+    // image gets a srcset so a phone downloads a copy sized for it: S3 images
+    // from their thumb (600) and med (1400) copies, local ones from the
+    // copies renderPostSection bakes (CFG.images.post_widths).
+    const derivs = new Set();
+    const PW = CFG.images.post_widths;
     let rewritten = bodyHtml.replace(/<img\s+([^>]*?)src="media\/([^"]+)"([^>]*)>/g, (_, before, file, after) => {
       const entry = imagesMap[file];
-      const dest = (entry && (entry.s3_med || entry.s3)) || `${url}/media/${file}`;
       const size = entry?.exif || localDims[file];
       const dims = (size?.width && size?.height)
         ? ` width="${size.width}" height="${size.height}"`
         : '';
-      // If WebP variants exist, emit a <picture> with WebP source + JPEG <img> fallback,
-      // and a LQIP base64 background so something paints instantly.
-      if (entry?.s3_med_webp) {
-        const lqipBg = entry.lqip ? ` style="background-image:url(${entry.lqip});background-size:cover;background-position:center;"` : '';
-        return `<picture${lqipBg}><source type="image/webp" srcset="${entry.s3_med_webp}"><img ${before}src="${dest}"${dims}${after}></picture>`;
+      const sizes = ` sizes="${/data-inline/.test(before + after) ? PW.sizes_inline : PW.sizes_full}"`;
+      if (entry) {
+        const dest = entry.s3_med || entry.s3;
+        const jpgSet = entry.s3_thumb && entry.s3_med ? ` srcset="${entry.s3_thumb} ${CFG.images.gallery_thumb.width}w, ${entry.s3_med} ${CFG.images.gallery_med.width}w"${sizes}` : '';
+        // If WebP variants exist, emit a <picture> with WebP source + JPEG <img> fallback,
+        // and a LQIP base64 background so something paints instantly.
+        if (entry.s3_med_webp) {
+          const lqipBg = entry.lqip ? ` style="background-image:url(${entry.lqip});background-size:cover;background-position:center;"` : '';
+          const webpSet = entry.s3_thumb_webp
+            ? `${entry.s3_thumb_webp} ${CFG.images.gallery_thumb.width}w, ${entry.s3_med_webp} ${CFG.images.gallery_med.width}w`
+            : entry.s3_med_webp;
+          return `<picture${lqipBg}><source type="image/webp" srcset="${webpSet}"${entry.s3_thumb_webp ? sizes : ''}><img ${before}src="${dest}"${jpgSet}${dims}${after}></picture>`;
+        }
+        return `<img ${before}src="${dest}"${jpgSet}${dims}${after}>`;
       }
-      return `<img ${before}src="${dest}"${dims}${after}>`;
+      const full = `${url}/media/${file}`;
+      const widths = /\.jpe?g$/i.test(file) && size?.width ? PW.widths.filter(w => w < size.width) : [];
+      if (!widths.length) return `<img ${before}src="${full}"${dims}${after}>`;
+      derivs.add(file);
+      const set = widths.map(w => `${url}/media/w${w}-${file} ${w}w`).concat(`${full} ${size.width}w`).join(', ');
+      return `<img ${before}src="${url}/media/w${widths[widths.length - 1]}-${file}" srcset="${set}"${sizes}${dims}${after}>`;
     });
     // Also rewrite plain href="media/..." (rare, e.g. wrapper links) to the full-size URL.
     rewritten = rewritten.replace(/href="media\/([^"]+)"/g, (_, file) => {
@@ -475,6 +517,10 @@ async function loadPosts(root) {
       title: fm.title,
       subtitle: fm.subtitle || '',
       date: new Date(fm.date),
+      // Reference pages (pinned ones, like Costs & hours) change after they're
+      // posted, so they say when. `updated:` in frontmatter wins; otherwise
+      // it's the file's last commit. Shown only when it's a different day.
+      updated: fm.updated ? new Date(fm.updated) : (fm.pinned ? lastCommitDate(full) : null),
       pinned: !!fm.pinned,
       tags: fm.tags || [],
       featured,
@@ -484,6 +530,7 @@ async function loadPosts(root) {
       imageRefs,                     // [{ file, alt }] referenced in body + featured
       bodyHtml: rewritten,
       toc,
+      derivs: [...derivs],
       bodyMd,
       preview,
       wordCount: words,
@@ -624,7 +671,7 @@ async function loadFoia() {
       summary = {
         text: String(s.text).trim(),
         generatedBy: s.generated_by,
-        generatedOn: fmtDate(s.generated_on),
+        generatedOn: fmtFull(s.generated_on),
         reviewed: !!s.reviewed,
       };
     }
@@ -943,8 +990,8 @@ async function computeStats(posts, mediaNodes) {
     pictures: imageCount,
     picturesBytes: imageBytes,
     picturesBytesFmt: fmtBytes(imageBytes),
-    firstPost: dates[0] ? fmtDate(dates[0]) : null,
-    lastPost: dates[dates.length - 1] ? fmtDate(dates[dates.length - 1]) : null,
+    firstPost: dates[0] ? fmtFull(dates[0]) : null,
+    lastPost: dates[dates.length - 1] ? fmtFull(dates[dates.length - 1]) : null,
     firstPostLong: dates[0] ? fmtLongDate(dates[0]) : null,
     lastPostLong: dates[dates.length - 1] ? fmtLongDate(dates[dates.length - 1]) : null,
   };
@@ -955,7 +1002,7 @@ async function renderHome(musings, rvPosts, mediaNodes, recipes = [], foiaReques
     url: m.url, title: m.title, subtitle: m.subtitle, preview: m.preview,
     featured: m.featured, tags: m.tags, date: fmtDate(m.date),
     dateLong: fmtLongDate(m.date),
-    readtime: `${fmtLongDate(m.date).split(',')[0]} · ${m.wordCount.toLocaleString()} ${COPY.ui.words} · ~${m.readTime} ${COPY.ui.min_read}`,
+    readtime: `${fmtFull(m.date)} · ${m.wordCount.toLocaleString()} ${COPY.ui.words} · ~${m.readTime} ${COPY.ui.min_read}`,
     path: m.folder, category: m.category.join('/') || 'misc',
   })), 7);
 
@@ -973,10 +1020,11 @@ async function renderHome(musings, rvPosts, mediaNodes, recipes = [], foiaReques
         src, thumb: im.srcThumb, full: im.src,
         title: im.title || '',
         location: im.location || n.location || '',
-        date: im.date ? fmtDate(im.date) : (n.date ? fmtDate(n.date) : ''),
+        date: im.date ? fmtFull(im.date) : (n.date ? fmtFull(n.date) : ''),
         dateLong: im.date ? fmtLongDate(im.date) : (n.date ? fmtLongDate(n.date) : ''),
         album: n.url, albumTitle: n.title,
         alt: im.alt || '',
+        hover: im.hover || '',
       });
     }
   }
@@ -1104,6 +1152,7 @@ function synthesizeFromMusings(musings, existingNodes, opts = {}) {
         file: ref.file,
         slug,
         alt: ref.alt || '',
+        hover: ref.hover || '',
         title: '',
         date: m.date,
         location: galleryConfig.location || '',
@@ -1207,6 +1256,7 @@ function synthesizeSections(posts, existingNodes, opts) {
         file: ref.file,
         slug,
         alt: ref.alt || '',
+        hover: ref.hover || '',
         title: '',
         date: m.date,
         location: '',
@@ -1299,7 +1349,7 @@ function renderTimelineSidebarHtml(posts, section, activeUrl) {
       open = true;
     }
     const isActive = p.url === activeUrl;
-    const day = fmtMetaDate(p.date).slice(0, 6);
+    const day = fmtDay(p.date);
     out += `<li class="tree-item${isActive ? ' active' : ''}"><a href="${p.url}" class="${isActive ? 'active' : ''}"${isActive ? ' aria-current="page"' : ''}><span class="tree-date">${day}</span><span class="label" title="${escapeHtml(p.title)}">${escapeHtml(p.title)}</span></a></li>`;
   }
   if (open) out += '</ul></li>';
@@ -1367,6 +1417,46 @@ function recipesRail(categories, total, currentUrl) {
 
 const treeRail = (tree, toc = []) => ({ label: RAIL.label, tree, toc });
 
+// ── link-preview cards ─────────────────────────────────────────
+// A page with no photo of its own gets a plain 1200x630 card for og:image, so
+// a shared FOIA request or recipe shows something: the logo, the section, the
+// title and one line. Drawn by sharp with the site's own fonts (TTF copies in
+// scripts/assets/fonts, since the text renderer can't read woff2). Written to
+// /cards/<name>.png; names come from slugs, so they're Windows-safe.
+const CARD = CFG.cards;
+const CARD_FONT = (f) => SRC(`scripts/assets/fonts/ibm-plex-${f}.ttf`);
+const xmlEsc = (t) => String(t).normalize('NFC').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const cardText = (markup, font, fontfile, width) => sharp({ text: { text: markup, font, fontfile, width, rgba: true, dpi: 72, wrap: 'word' } })
+  .png().toBuffer({ resolveWithObject: true });
+const cardsMade = new Map();
+
+async function previewCard(name, { section, title, sub }) {
+  if (cardsMade.has(name)) return cardsMade.get(name);
+  const { width: W, height: H, margin: M } = CARD;
+  const ink = '#1c1814', ink2 = '#564f47', red = '#b8281a';
+  const clip = (t, n) => t.length > n ? t.slice(0, n - 1).replace(/\s+\S*$/, '') + '…' : t;
+  const bg = Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}"><rect width="100%" height="100%" fill="#f5f0e6"/><rect y="${H - 92}" width="${W}" height="1" fill="#d6cdb9"/></svg>`);
+  const logo = await cardText(`<span foreground="${red}">~/george.main</span>`, 'IBM Plex Mono SemiBold, 34', CARD_FONT('mono-600'), W - 2 * M);
+  const sec = await cardText(`<span foreground="${red}">//</span><span foreground="${ink2}"> ${xmlEsc(section)}</span>`, 'IBM Plex Mono, 28', CARD_FONT('mono-400'), W - 2 * M);
+  const head = await cardText(`<span foreground="${ink}">${xmlEsc(clip(title, CARD.title_chars))}</span>`, 'IBM Plex Mono SemiBold, 60', CARD_FONT('mono-600'), W - 2 * M);
+  const layers = [
+    { input: logo.data, top: M - 8, left: M },
+    { input: sec.data, top: 150, left: M },
+    { input: head.data, top: 200, left: M },
+  ];
+  if (sub) {
+    const line = await cardText(`<span foreground="${ink2}">${xmlEsc(clip(sub, CARD.sub_chars))}</span>`, 'IBM Plex Serif, Italic 30', CARD_FONT('serif-400i'), W - 2 * M);
+    layers.push({ input: line.data, top: Math.min(200 + head.info.height + 24, H - 92 - 24 - line.info.height), left: M });
+  }
+  const site = await cardText(`<span foreground="${ink2}">${xmlEsc(new URL(SITE.url).hostname)}</span>`, 'IBM Plex Mono, 24', CARD_FONT('mono-400'), W - 2 * M);
+  layers.push({ input: site.data, top: H - 60, left: M });
+  const rel = `cards/${name}.png`;
+  await writeFile(rel, await sharp(bg).composite(layers).png({ compressionLevel: 9, palette: true }).toBuffer());
+  cardsMade.set(name, '/' + rel);
+  return '/' + rel;
+}
+const cardName = (url) => url.replace(/^\/|\/$/g, '').replace(/\//g, '-') || 'home';
+
 // ── render: post sections (musings, rv12is, …) ────────────────
 
 async function renderPostSection(posts, section) {
@@ -1412,6 +1502,7 @@ async function renderPostSection(posts, section) {
       url: section.base,
       bodyClass: pageHelpers.bodyClass(section.active),
       type: 'website',
+      ogImage: await previewCard(cardName(section.base), { section: section.root, title: sc.heading, sub: sc.index.summary || sc.index.seo_description?.replace('{count}', posts.length).replace('{author}', SITE.author) }),
     },
     active: section.active,
     section, sectionCopy: sc,
@@ -1475,7 +1566,7 @@ async function renderPostSection(posts, section) {
         url: m.url,
         bodyClass: pageHelpers.bodyClass(section.active),
         type: 'article',
-        ogImage: m.featured,
+        ogImage: m.featured || await previewCard(cardName(m.url), { section: [section.root, ...m.category].join('/'), title: m.title, sub: m.subtitle }),
       },
       active: section.active,
       section, sectionCopy: sc,
@@ -1502,6 +1593,17 @@ async function renderPostSection(posts, section) {
     if (await exists(m.mediaDir)) {
       const files = await fg('**/*', { cwd: m.mediaDir, onlyFiles: true });
       for (const f of files) await copyFile(path.join(m.mediaDir, f), path.join(m.url.slice(1), 'media', f));
+    }
+    // Smaller copies of local body images, for the srcset written in loadPosts.
+    for (const f of m.derivs || []) {
+      const src = path.join(m.mediaDir, f);
+      const width = (await sharp(src).metadata()).width;
+      for (const w of CFG.images.post_widths.widths.filter(x => x < width)) {
+        await writeFile(path.join(m.url.slice(1), 'media', `w${w}-${f}`), await sharp(src).rotate()
+          .resize({ width: w })
+          .jpeg({ quality: CFG.images.post_widths.quality, progressive: true, mozjpeg: true })
+          .toBuffer());
+      }
     }
   }
 
@@ -1661,7 +1763,7 @@ async function renderMedia(mediaNodes) {
     active: 'media',
     albums: topNodes.map(n => ({
       url: n.url, title: n.title, subtitle: n.subtitle, location: n.location,
-      date: n.date ? fmtDate(n.date) : '',
+      date: n.date ? fmtFull(n.date) : '',
       cover: coverImage(n),
       count: countImages(n, mediaNodes),
       fromPost: n.fromPost || null,
@@ -1687,7 +1789,7 @@ async function renderMedia(mediaNodes) {
       isLeaf,
       subAlbums: n.children.map(c => ({
         url: c.url, title: c.title, subtitle: c.subtitle, location: c.location,
-        date: c.date ? fmtDate(c.date) : '',
+        date: c.date ? fmtFull(c.date) : '',
         cover: coverImage(c),
         count: countImages(c, mediaNodes),
         fromPost: c.fromPost || null,
@@ -1820,8 +1922,8 @@ function foldTimeline(timeline) {
   for (const g of out) {
     if (g.kind !== 'fold') continue;
     const first = g.events[0], last = g.events[g.events.length - 1];
-    g.from = fmtMetaDate(first.date).slice(0, 6);
-    g.to = fmtMetaDate(last.date).slice(0, 6);
+    g.from = fmtDay(first.date);
+    g.to = fmtDay(last.date);
     g.span = g.from === g.to ? g.from : `${g.from} – ${g.to}`;
     // Name what's in the run rather than saying "4 steps".
     const counts = {};
@@ -1924,6 +2026,7 @@ async function renderFoia(requests) {
       url: '/foia',
       bodyClass: pageHelpers.bodyClass('foia'),
       type: 'website',
+      ogImage: await previewCard('foia', { section: 'foia', title: fc.heading, sub: fc.index.intro }),
     },
     active: 'foia',
     requests: requests.map(cardFor),
@@ -1946,6 +2049,7 @@ async function renderFoia(requests) {
 
   // ── /foia/<slug> ──
   for (const r of requests) {
+    const card = await previewCard(cardName(r.url), { section: `foia/${r.agencyShort}`, title: r.title, sub: `${r.statusLabel} · ${r.statute}` });
     const html = await renderPage('foia-request', {
       page: {
         title: `${r.title}, foia, ${SITE.title}`,
@@ -1954,6 +2058,7 @@ async function renderFoia(requests) {
         url: r.url,
         bodyClass: pageHelpers.bodyClass('foia'),
         type: 'article',
+        ogImage: card,
       },
       active: 'foia',
       req: r,
@@ -1995,6 +2100,7 @@ async function renderFoia(requests) {
           url: ev.url,
           bodyClass: pageHelpers.bodyClass('foia'),
           type: 'article',
+          ogImage: card,
         },
         active: 'foia',
         req: r,
@@ -2018,6 +2124,7 @@ async function renderFoia(requests) {
             url: doc.url,
             bodyClass: pageHelpers.bodyClass('foia'),
             type: 'article',
+            ogImage: card,
           },
           active: 'foia',
           req: r,
@@ -2216,6 +2323,7 @@ async function renderRecipes(recipes) {
       url: '/recipes',
       bodyClass: pageHelpers.bodyClass('recipes'),
       type: 'website',
+      ogImage: await previewCard('recipes', { section: 'recipes', title: rc.heading, sub: rc.index.intro }),
     },
     active: 'recipes',
     count: recipes.length,
@@ -2261,6 +2369,7 @@ async function renderRecipes(recipes) {
           url: r.url,
           bodyClass: pageHelpers.bodyClass('recipes'),
           type: 'article',
+          ogImage: await previewCard(cardName(r.url), { section: `recipes/${r.categorySlug}`, title: r.title, sub: [stripHtml(r.yield || ''), stripHtml(r.total || '')].filter(Boolean).join(' · ') }),
         },
         active: 'recipes',
         recipe: r,
@@ -2344,6 +2453,30 @@ async function copyStaticSites() {
 }
 
 // ── render: changelog (static stub from copy.yaml) ───────────
+
+// /links, a blogroll. content/links.yaml holds the list; no entries, no page.
+async function loadLinks() {
+  const f = SRC('content/links.yaml');
+  if (!(await exists(f))) return { intro: '', links: [] };
+  const d = yaml.load(await fs.readFile(f, 'utf8')) || {};
+  const links = (d.links || []).filter(l => {
+    if (!l.label || !l.href) { fail(`content/links.yaml: every link needs a label and an href`); return false; }
+    return true;
+  });
+  return { intro: d.intro || '', links };
+}
+
+async function renderLinks({ intro, links }) {
+  if (!links.length) return;
+  allRoutes.add('/links');
+  const html = await renderPage('links', {
+    page: { title: `links, ${SITE.title}`, description: copy_links_desc(links.length), url: '/links', bodyClass: pageHelpers.bodyClass('links'), type: 'website' },
+    active: 'links', intro, links,
+  });
+  collectLinks('/links', html);
+  await writeFile('links/index.html', html);
+}
+const copy_links_desc = (n) => COPY.links.seo_description.replace('{n}', n).replace('{author}', SITE.author);
 
 async function renderLicense() {
   const html = await renderPage('license', {
@@ -2498,7 +2631,11 @@ async function copyDesign() {
   pageHelpers.assetV = createHash('sha1')
     .update(await fs.readFile(SRC('design/tokens.css')))
     .update(await fs.readFile(SRC('design/site.css')))
+    .update(await fs.readFile(SRC('design/fonts/plex.css')))
     .digest('hex').slice(0, 10);
+  // IBM Plex, self-hosted so pages don't call Google for every view.
+  await copyTree(SRC('design/fonts'), 'fonts');
+  for (const f of await fg('*', { cwd: SRC('design/fonts') })) allRoutes.add('/fonts/' + f);
   if (await exists(SRC('design/favicon.svg'))) await copyFile(SRC('design/favicon.svg'), 'favicon.svg');
   if (await exists(SRC('CNAME'))) await copyFile(SRC('CNAME'), 'CNAME');
   // Vendored pdf.js — the FOIA document viewer. See design/vendor/pdfjs/VENDORED.md.
@@ -2560,6 +2697,8 @@ async function main() {
   const foiaRequests = await loadFoia();
   const recipes = await loadRecipes();
 
+  const links = await loadLinks();
+  pageHelpers.hasLinks = links.links.length > 0;
   // Before the home page, or its footer loses the "take me somewhere" link.
   ALL_POST_URLS = musings.map(m => m.url);
   await renderHome(musings, rvPosts, mediaNodes, recipes, foiaRequests);
@@ -2571,6 +2710,7 @@ async function main() {
   await renderSearch({ musings, rvPosts, recipes, foiaRequests, mediaNodes });
   await renderChangelog();
   await renderLicense();
+  await renderLinks(links);
   await copyStaticSites();
   await renderFeeds(musings);
 

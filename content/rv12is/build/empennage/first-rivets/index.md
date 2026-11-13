@@ -3,7 +3,6 @@ title: First rivets
 subtitle: The vertical stabilizer is done. Cleco, uncleco, cleco, uncleco.
 date: '2026-03-31'
 tags:
-  - rv12is
   - empennage
   - riveting
 featured_image: media/vs-riveted.jpg

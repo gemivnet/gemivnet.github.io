@@ -3,7 +3,6 @@ title: Vans disposition & LSRM complete
 subtitle: Two open items closed, two new mechanics, and a lot more ribs to deburr.
 date: '2026-09-18'
 tags:
-  - rv12is
   - wings
   - deburring
   - training

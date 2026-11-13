@@ -3,7 +3,6 @@ title: Back in full swing
 subtitle: A priming table, a paint scheme, and signing up for wrench school.
 date: '2026-03-25'
 tags:
-  - rv12is
   - empennage
   - priming
   - training

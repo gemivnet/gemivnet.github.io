@@ -4,12 +4,8 @@ subtitle: Which Chicago FM stations send RDS clock time, and whether it's right.
 date: '2026-10-27'
 tags:
   - radio
-  - fm radio
   - rds
-  - rbds
-  - clock time
   - sdr
-  - rtl-sdr
   - chicago
 featured_image: null
 draft: false

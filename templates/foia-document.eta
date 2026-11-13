@@ -8,7 +8,7 @@
 
 <% var FL = copy.foia.labels; %>
 <dl class="facts">
-  <dt><%= FL.date %></dt><dd><%= fmtLongDate(ev.date) %></dd>
+  <dt><%= FL.date %></dt><dd><%= fmtFull(ev.date) %></dd>
   <dt><%= FL.agency %></dt><dd><%= req.agencyShort %></dd>
   <dt><%= FL.format %></dt><dd><%= doc.ext %><% if (doc.pages) { %><span class="sep">·</span><%= doc.pages.toLocaleString() %> <%= copy.ui.pages %><% } %><% if (doc.bytesFmt) { %><span class="sep">·</span><%= doc.bytesFmt %><% } %></dd>
   <dt><%= FL.release %></dt><dd><a href="<%= ev.url %>"><%= ev.title %></a></dd>
