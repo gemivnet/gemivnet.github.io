@@ -54,7 +54,7 @@ search:
 # Google Analytics 4. Null = no tag at all. The tag only loads on the live
 # host, so `npm run dev` never counts.
 analytics:
-  ga4_id: null
+  ga4_id: G-0C68EWM96E
 
 # Recipe SEO. The heaviest ingredients by weight become keywords, minus the
 # ones every recipe has. A credit starting with one of anonymous_sources isn't
