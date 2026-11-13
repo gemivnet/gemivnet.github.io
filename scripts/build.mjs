@@ -7,6 +7,7 @@ import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { Eta } from 'eta';
 import matter from 'gray-matter';
 import { marked } from 'marked';
@@ -824,6 +825,7 @@ function recipeNutrition(r) {
     totals: totals.map(fmtNum),
     per: per && per.map(fmtNum),
     rawKcal: used.includes('kcal') ? totals[used.indexOf('kcal')] : null,
+    raw: Object.fromEntries(used.map((k, n) => [k, totals[n]])),
     // The spec-strip line: per serving, or the whole batch when servings is 1.
     headline: r.servings ? used.map((k, n) => `${fmtNum(totals[n] / r.servings)} ${COPY.recipes.nutrition.units[k]}`).join(' · ') : null,
   };
@@ -2004,17 +2006,98 @@ async function renderFoia(requests) {
 
 // ── render: recipes ──────────────────────────────────────────
 
-function renderRecipeSidebarHtml(categories, activeUrl) {
+function renderRecipeSidebarHtml(categories, activeUrl, activeSlug) {
+  // Seventy titles in a 200px column was a wall. Categories always show; only
+  // the one being read lists its recipes.
   let out = `<ul class="tree-list"><li class="tree-item is-folder"><a href="/recipes">recipes/</a><ul>`;
   for (const c of categories) {
-    out += `<li class="tree-item is-folder"><a href="/recipes/${c.slug}">${escapeHtml(c.name)}/</a><ul>`;
-    for (const r of c.items) {
-      const on = r.url === activeUrl;
-      out += `<li class="tree-item${on ? ' active' : ''}"><a href="${r.url}" class="${on ? 'active' : ''}">${escapeHtml(r.title)}</a></li>`;
+    const open = c.slug === activeSlug;
+    const onCat = `/recipes/${c.slug}` === activeUrl;
+    out += `<li class="tree-item is-folder"><a href="/recipes/${c.slug}" class="${onCat ? 'active' : open ? 'in-active' : ''}">${escapeHtml(c.name)}/</a>`;
+    if (open) {
+      out += '<ul>';
+      for (const r of c.items) {
+        const on = r.url === activeUrl;
+        out += `<li class="tree-item${on ? ' active' : ''}"><a href="${r.url}" class="${on ? 'active' : ''}">${escapeHtml(r.title)}</a></li>`;
+      }
+      out += '</ul>';
     }
-    out += '</ul></li>';
+    out += '</li>';
   }
   return out + '</ul></li></ul>';
+}
+
+// "≈2 h 15 min" -> PT2H15M. Anything vaguer ("2-3 days", "+ drying overnight")
+// gets no duration rather than a wrong one.
+const isoDuration = (txt) => {
+  const m = /^≈?\s*(?:(\d+)\s*h)?\s*(?:(\d+)\s*min)?\s*(\(.*\))?$/.exec(txt.trim());
+  if (!m || (!m[1] && !m[2])) return null;
+  return 'PT' + (m[1] ? m[1] + 'H' : '') + (m[2] ? m[2] + 'M' : '');
+};
+
+// Base ingredient name for keywords: "Flour, all-purpose" -> "flour",
+// "Tej (milk)" -> "milk".
+const ingredientWord = (nameHtml) => {
+  const t = stripHtml(nameHtml);
+  const paren = /\(([^)]+)\)/.exec(t);
+  return (paren ? paren[1] : t).split(/[,(]/)[0].trim().toLowerCase();
+};
+
+function recipeSeo(r) {
+  const rc = COPY.recipes.post;
+  const plain = (h) => h ? stripHtml(h) : '';
+  // "King Arthur Baking, adapted" reads twice after "adapted from"; and a
+  // printout or handwritten note credits nobody a reader would know.
+  const credit = plain(r.source).replace(/,?\s*adapted$/i, '').trim();
+  const named = credit && !CFG.recipes_seo.anonymous_sources.some(w => credit.toLowerCase().startsWith(w));
+  const parts = [];
+  parts.push(named ? rc.seo_lead_source.replace('{title}', r.title).replace('{source}', credit)
+                   : rc.seo_lead.replace('{title}', r.title));
+  if (r.yield && r.total) parts.push(rc.seo_makes.replace('{yield}', plain(r.yield)).replace('{total}', plain(r.total)));
+  else if (r.yield) parts.push(rc.seo_makes_no_time.replace('{yield}', plain(r.yield)));
+  let description = parts.join(' ');
+  if (description.length > CFG.text.seo_description_chars) description = parts[0];
+  description = truncate(description, CFG.text.seo_description_chars);
+
+  const ings = r.items.filter(it => it.kind === 'step').flatMap(it => it.ings);
+  const skip = new Set(CFG.recipes_seo.keyword_skip);
+  const main = [...new Set(ings.filter(i => typeof i.g === 'number').sort((a, b) => b.g - a.g).map(i => ingredientWord(i.name)))]
+    .filter(w => w && !skip.has(w))
+    .slice(0, CFG.recipes_seo.keyword_ingredients);
+  const keywords = [r.title.toLowerCase() + ' ' + rc.keyword, r.category.toLowerCase(), ...main];
+
+  // schema.org/Recipe, the structured data search engines read for recipes.
+  const ld = {
+    '@context': 'https://schema.org',
+    '@type': 'Recipe',
+    name: r.title,
+    description,
+    url: pageHelpers.absUrl(r.url),
+    author: { '@type': 'Person', name: SITE.author },
+    recipeCategory: r.category,
+    keywords: keywords.join(', '),
+    ...(r.revised ? { dateModified: r.revised } : {}),
+    ...(r.yield ? { recipeYield: plain(r.yield) } : {}),
+    ...(r.active && isoDuration(plain(r.active)) ? { prepTime: isoDuration(plain(r.active)) } : {}),
+    ...(r.total && isoDuration(plain(r.total)) ? { totalTime: isoDuration(plain(r.total)) } : {}),
+    ...(r.source ? { isBasedOn: plain(r.source) } : {}),
+    recipeIngredient: ings.map(i => [
+      typeof i.g === 'number' ? `${i.g} g` : plain(i.g),
+      plain(i.name) + (i.note ? ', ' + plain(i.note) : ''),
+      i.vol ? `(${plain(i.vol)})` : '',
+    ].filter(Boolean).join(' ')),
+    recipeInstructions: r.items.filter(it => it.kind === 'step').map(it => ({ '@type': 'HowToStep', text: plain(it.body) })),
+  };
+  if (r.nutrition && r.servings) {
+    const per = (k) => r.nutrition.raw[k] == null ? null : Math.round(r.nutrition.raw[k] / r.servings);
+    ld.nutrition = {
+      '@type': 'NutritionInformation',
+      ...(per('kcal') != null ? { calories: `${per('kcal')} calories` } : {}),
+      ...(per('na') != null ? { sodiumContent: `${per('na')} mg` } : {}),
+      ...(per('pro') != null ? { proteinContent: `${per('pro')} g` } : {}),
+    };
+  }
+  return { description, keywords, jsonLd: JSON.stringify(ld).replace(/</g, '\\u003c') };
 }
 
 async function renderRecipes(recipes) {
@@ -2061,7 +2144,7 @@ async function renderRecipes(recipes) {
       active: 'recipes',
       category: c,
       listCopy,
-      treeHtml: renderRecipeSidebarHtml(categories, url),
+      treeHtml: renderRecipeSidebarHtml(categories, url, c.slug),
       entries: c.items.map(r => entryFromRecipe(r)),
     });
     collectLinks(url, html);
@@ -2070,21 +2153,20 @@ async function renderRecipes(recipes) {
     for (const r of c.items) {
       // ── /recipes/<category>/<slug> ──
       allRoutes.add(r.url);
-      const plainYield = r.yield ? stripHtml(r.yield) : '';
-      const desc = (plainYield ? rc.post.seo_description : rc.post.seo_description_no_yield)
-        .replace('{title}', r.title).replace('{yield}', plainYield);
+      const seo = recipeSeo(r);
       const page = await renderPage('recipe', {
         page: {
-          title: `${r.title}, recipes, ${SITE.title}`,
-          description: desc,
-          keywords: [r.title, r.category, rc.post.keyword],
+          title: rc.post.page_title.replace('{title}', r.title).replace('{site}', SITE.title),
+          description: seo.description,
+          keywords: seo.keywords,
+          jsonLd: seo.jsonLd,
           url: r.url,
           bodyClass: pageHelpers.bodyClass('recipes'),
           type: 'article',
         },
         active: 'recipes',
         recipe: r,
-        treeHtml: renderRecipeSidebarHtml(categories, r.url),
+        treeHtml: renderRecipeSidebarHtml(categories, r.url, c.slug),
         pagesLabel: r.pages > 1 ? rc.post.pages_many.replace('{n}', r.pages) : rc.post.pages_one,
       });
       collectLinks(r.url, page);
@@ -2264,6 +2346,12 @@ function verifyLinks() {
 async function copyDesign() {
   await copyFile(SRC('design/tokens.css'), 'tokens.css');
   await copyFile(SRC('design/site.css'), 'site.css');
+  // Pages link the stylesheets as ?v=<hash of both>. Pages caches them for ten
+  // minutes, and an unversioned link served a fresh page against stale CSS.
+  pageHelpers.assetV = createHash('sha1')
+    .update(await fs.readFile(SRC('design/tokens.css')))
+    .update(await fs.readFile(SRC('design/site.css')))
+    .digest('hex').slice(0, 10);
   if (await exists(SRC('design/favicon.svg'))) await copyFile(SRC('design/favicon.svg'), 'favicon.svg');
   if (await exists(SRC('CNAME'))) await copyFile(SRC('CNAME'), 'CNAME');
   // Vendored pdf.js — the FOIA document viewer. See design/vendor/pdfjs/VENDORED.md.

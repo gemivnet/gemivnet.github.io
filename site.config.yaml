@@ -43,3 +43,11 @@ limits:
 # (path relative to this repo) and writes content/recipes/<slug>/.
 recipes:
   source: ../recipes
+
+# Recipe SEO. The heaviest ingredients by weight become keywords, minus the
+# ones every recipe has. A credit starting with one of anonymous_sources isn't
+# named in the meta description ("adapted from Printout" says nothing).
+recipes_seo:
+  keyword_ingredients: 4
+  keyword_skip: [water, salt, table salt, kosher salt, sugar, ice, oil, pan spray]
+  anonymous_sources: [printout, handwritten, typed]

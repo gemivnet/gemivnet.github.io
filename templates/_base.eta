@@ -7,6 +7,7 @@
   <% if (page.description) { %><meta name="description" content="<%= escapeHtml(page.description) %>"><% } %>
   <% if (page.keywords && page.keywords.length) { %><meta name="keywords" content="<%= escapeHtml(page.keywords.join(', ')) %>"><% } %>
   <link rel="canonical" href="<%= absUrl(page.url) %>">
+  <% if (page.jsonLd) { %><script type="application/ld+json"><%~ page.jsonLd %></script><% } %>
 
   <meta property="og:type" content="<%= page.type || 'website' %>">
   <meta property="og:title" content="<%= escapeHtml(page.title) %>">
@@ -23,8 +24,8 @@
   <link rel="alternate" type="application/atom+xml" title="<%= site.title %> (Atom)" href="/atom.xml">
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="stylesheet" href="/tokens.css">
-  <link rel="stylesheet" href="/site.css">
+  <link rel="stylesheet" href="/tokens.css<%= typeof assetV !== 'undefined' && assetV ? '?v=' + assetV : '' %>">
+  <link rel="stylesheet" href="/site.css<%= typeof assetV !== 'undefined' && assetV ? '?v=' + assetV : '' %>">
   <style>
     html, body { margin: 0; padding: 0; }
     body { min-height: 100vh; background: var(--bg, #f5f0e6); }

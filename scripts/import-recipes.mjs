@@ -7,12 +7,12 @@
 // (template/recipe.typ) drops the card's data into invisible metadata()
 // elements, so `typst eval 'query(metadata)'` hands back exactly what the PDF
 // was typeset from: header, steps with their ingredients, swaps and notes.
-// This script turns that into content/recipes/<slug>/recipe.json and copies the
-// card's PDF next to it, so the site build needs neither typst nor the recipes
+// This script turns that into content/recipes/<slug>/recipe.json and compiles the
+// site's copy of the card's PDF next to it, so the site build needs neither typst nor the recipes
 // folder, and CI can build from the repo alone.
 //
-// A card whose PDF is older than its source is rebuilt first with the recipes
-// project's own build.sh, so the print page is never a stale card.
+// The PDF is compiled fresh from the card with the page's URL in its footer, so
+// the site's copy is never stale and the binder's copies stay URL-free.
 
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
@@ -24,9 +24,11 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const CFG = yaml.load(await fs.readFile(path.join(ROOT, 'site.config.yaml'), 'utf8')).recipes;
 const SRC = path.resolve(ROOT, CFG.source);
 const OUT = path.join(ROOT, 'content', 'recipes');
+const SITE_URL = yaml.load(await fs.readFile(path.join(ROOT, 'copy.yaml'), 'utf8')).site.url.replace(/\/$/, '');
+// Must match build.mjs's slugify, which turns the category into the URL segment.
+const slugify = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
 const escapeHtml = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const mtime = async (p) => (await fs.stat(p).catch(() => null))?.mtimeMs ?? 0;
 
 // ── Typst content → HTML ─────────────────────────────────────
 // Only the node types the cards actually use. Anything else is an error, so a
@@ -125,16 +127,6 @@ async function main() {
   const slugs = wanted.length ? wanted : all;
   for (const s of slugs) if (!all.includes(s)) throw new Error(`no card ${s}.typ in ${path.join(SRC, 'src')}`);
 
-  const stale = [];
-  for (const s of slugs) {
-    if (await mtime(path.join(SRC, 'src', `${s}.typ`)) > await mtime(path.join(SRC, 'pdf', `${s}.pdf`))
-      || await mtime(path.join(SRC, 'template', 'recipe.typ')) > await mtime(path.join(SRC, 'pdf', `${s}.pdf`))) stale.push(s);
-  }
-  if (stale.length) {
-    console.log(`· rebuilding ${stale.length} stale PDF(s): ${stale.join(', ')}`);
-    execFileSync(path.join(SRC, 'build.sh'), stale, { cwd: SRC, stdio: 'inherit' });
-  }
-
   const skipped = [];
   let written = 0;
   for (const slug of slugs) {
@@ -150,13 +142,20 @@ async function main() {
       await fs.rm(dir, { recursive: true, force: true });
       continue;
     }
-    const pdf = path.join(SRC, 'pdf', `${slug}.pdf`);
-    const info = execFileSync('pdfinfo', [pdf], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
-    recipe.pages = Number((info.match(/^Pages:\s+(\d+)/m) || [])[1]) || 1;
+    // The site's copy of the card is compiled here, not copied from the binder's
+    // pdf/: same card, plus its own address in the footer (the template prints
+    // `url` only when it's passed in). The binder PDFs are never touched.
     recipe.pdf = `${slug}.pdf`;
     await fs.mkdir(dir, { recursive: true });
+    const pdf = path.join(dir, recipe.pdf);
+    execFileSync('typst', [
+      'compile', '--root', SRC, '--font-path', path.join(SRC, 'fonts'),
+      '--input', `url=${SITE_URL}/recipes/${slugify(recipe.category)}/${slug}`,
+      path.join(SRC, 'src', `${slug}.typ`), pdf,
+    ], { stdio: ['ignore', 'inherit', 'inherit'] });
+    const info = execFileSync('pdfinfo', [pdf], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+    recipe.pages = Number((info.match(/^Pages:\s+(\d+)/m) || [])[1]) || 1;
     await fs.writeFile(path.join(dir, 'recipe.json'), JSON.stringify(recipe, null, 2) + '\n');
-    await fs.copyFile(pdf, path.join(dir, recipe.pdf));
     written++;
   }
 

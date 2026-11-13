@@ -1362,25 +1362,55 @@
    then the procedure. Rules between steps, no boxes. Under 720px the
    ingredients stack above the procedure. */
 .rc-dim { color: var(--ink-3); }
-.rc-crumb-here { color: var(--ink-2); }
 .rc-nw { white-space: nowrap; }
 .rc-muted { color: var(--ink-3); font-size: 0.9em; }
-.rc-meta .rc-line { display: block; }
-.rc-meta .rc-spec { white-space: normal; }
-.rc-meta .rc-actions { margin-top: var(--sp-2); }
-.rc-meta .rc-actions a { color: var(--accent); text-decoration: none; }
-.rc-meta .rc-actions a:hover { text-decoration: underline; }
+.rc-sep { color: var(--rule-2); }
+
+.rc-head { margin-bottom: var(--sp-5); }
+.rc-head .rc-source { margin-top: var(--sp-2); }
+.rc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-top: var(--sp-4);
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+}
+.rc-actions .sp-btn { text-decoration: none; }
+
+/* specs: label over value, like the strip on the printed card */
+.rc-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4) var(--sp-6);
+  margin: 0 0 var(--sp-6);
+  padding: 0 0 var(--sp-4);
+  border-bottom: 2px solid var(--ink);
+}
+.rc-specs > div { min-width: 0; }
+.rc-specs .rc-wide { flex-basis: 100%; }
+.rc-specs dt {
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 2px;
+}
+.rc-specs dd { margin: 0; font-size: var(--fs-small); line-height: var(--lh-snug); }
 
 .rc-steps { list-style: none; margin: 0 0 var(--sp-6); padding: 0; }
 .rc-step {
   display: grid;
-  grid-template-columns: 2em minmax(0, 17em) minmax(0, 1fr);
+  grid-template-columns: 1.6em minmax(0, 18em) minmax(0, 1fr);
   column-gap: var(--sp-4);
   padding: var(--sp-3) 0;
   border-top: 1px solid var(--rule);
 }
+.rc-steps > .rc-step:first-child { border-top: 0; }
 .rc-step.no-ings .rc-proc { grid-column: 2 / -1; }
-.rc-num { font-family: var(--font-mono); font-weight: 700; color: var(--accent); }
+.rc-num { font-family: var(--font-mono); font-weight: 700; color: var(--accent); line-height: var(--lh-body); }
 .rc-proc { line-height: var(--lh-body); }
 .rc-stage {
   font-family: var(--font-mono);
@@ -1389,30 +1419,36 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink);
-  border-top: 2px solid var(--ink);
+  border-top: 1px solid var(--ink);
   padding: var(--sp-4) 0 var(--sp-1);
-  margin-top: var(--sp-3);
+  margin-top: var(--sp-4);
 }
-.rc-steps > .rc-stage:first-child { margin-top: 0; }
+.rc-steps > .rc-stage:first-child { margin-top: 0; border-top: 0; padding-top: 0; }
 .rc-stage + .rc-step { border-top: 0; }
-.rc-ings { border-collapse: collapse; width: 100%; align-self: start; font-size: var(--fs-small); line-height: var(--lh-snug); }
-.rc-ings td { padding: 2px var(--sp-2) 4px 0; vertical-align: top; }
-.rc-ing-g, .rc-ing-vol { font-family: var(--font-mono); font-size: var(--fs-tiny); white-space: nowrap; }
+.rc-ings { border-collapse: collapse; width: 100%; align-self: start; font-size: var(--fs-small); line-height: var(--lh-snug); margin-top: 3px; }
+.rc-ings td { padding: 1px var(--sp-2) 5px 0; vertical-align: top; }
+.rc-ing-g, .rc-ing-vol { font-family: var(--font-mono); font-size: var(--fs-tiny); white-space: nowrap; padding-top: 3px !important; }
 .rc-ing-g { text-align: right; }
 .rc-ing-vol { color: var(--ink-2); }
 .rc-note { color: var(--ink-3); font-style: italic; }
 @media (max-width: 720px) {
-  .rc-step { grid-template-columns: 2em minmax(0, 1fr); row-gap: var(--sp-2); }
+  .rc-step { grid-template-columns: 1.6em minmax(0, 1fr); row-gap: var(--sp-2); }
   .rc-step .rc-proc, .rc-step.no-ings .rc-proc { grid-column: 2; }
 }
 
-.rc-block { margin-bottom: var(--sp-6); max-width: var(--reading-width); }
-.rc-table {
-  border-collapse: collapse;
-  width: 100%;
-  font-size: var(--fs-small);
-  line-height: var(--lh-snug);
+.rc-block { margin-bottom: var(--sp-6); }
+.rc-h, .musings-main .rc-h {
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-top: 1px solid var(--ink);
+  padding-top: var(--sp-3);
+  margin: 0 0 var(--sp-3);
 }
+.rc-table { border-collapse: collapse; width: 100%; font-size: var(--fs-small); line-height: var(--lh-snug); }
 .rc-table th {
   font-family: var(--font-mono);
   font-size: var(--fs-tiny);
@@ -1426,12 +1462,14 @@
 .rc-table .num { text-align: right; font-family: var(--font-mono); font-size: var(--fs-tiny); white-space: nowrap; }
 .rc-table .rc-total td { font-weight: 600; border-bottom: 0; }
 .rc-table .rc-total-first td { border-top: 1px solid var(--ink); }
-.rc-alt { white-space: normal; }
 .rc-alt b { font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--accent); }
-.rc-table .sep { color: var(--rule-2); }
 .rc-notes { margin: 0; padding-left: 1.2em; }
 .rc-notes li { margin-bottom: var(--sp-2); }
 .rc-caption { font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); margin-top: var(--sp-2); }
+.rc-print-url { display: none; }
+/* the off-screen frame the print button loads the PDF into; it needs a real
+   size or the browser never lays the PDF out to print */
+.rc-print-frame-hidden { position: fixed; left: -10000px; top: 0; width: 816px; height: 1056px; border: 0; }
 
 /* print page: the binder PDF fills the window under one mono bar */
 .rc-print-page { margin: 0; display: flex; flex-direction: column; height: 100vh; }
@@ -1439,15 +1477,46 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--sp-2) var(--sp-4);
-  align-items: baseline;
+  align-items: center;
   padding: var(--sp-3) var(--sp-4);
   border-bottom: 1px solid var(--rule);
   font-family: var(--font-mono);
   font-size: var(--fs-small);
 }
 .rc-print-bar a { color: var(--ink-2); }
-.rc-print-bar button { font: inherit; }
 .rc-print-frame { flex: 1; width: 100%; border: 0; }
+
+/* Ctrl+P on a recipe page: the card, not the website. Black on white, no
+   chrome, the steps table kept whole, the page's address at the bottom. */
+@media print {
+  @page { size: letter; margin: 0.5in 0.55in; }
+  .active-recipes { background: #fff !important; color: #000; }
+  .active-recipes .sp-top, .active-recipes .sp-footer, .active-recipes .musings-tree,
+  .active-recipes .crumbs, .active-recipes .rc-actions, .active-recipes .sp-backlink,
+  .active-recipes .foia-note-foot details, .active-recipes .skip-link,
+  .active-recipes .sp-peek, .active-recipes .rc-print-frame-hidden { display: none !important; }
+  .active-recipes .site-shell, .active-recipes .musings-layout, .active-recipes .musings-main {
+    display: block; max-width: none; width: auto; margin: 0; padding: 0 !important;
+  }
+  .active-recipes * { color: #000 !important; background: transparent !important; }
+  .active-recipes .rc-dim, .active-recipes .rc-note, .active-recipes .rc-muted,
+  .active-recipes .rc-specs dt, .active-recipes .rc-caption, .active-recipes .foia-note-foot p { color: #555 !important; }
+  .active-recipes { font-size: 10.5pt; }
+  .active-recipes h1 { font-size: 24pt; margin: 0; }
+  .active-recipes .rc-head { margin-bottom: 8pt; }
+  .active-recipes .rc-specs { margin-bottom: 6pt; padding: 6pt 0; gap: 6pt 18pt; border-bottom-color: #000; }
+  .active-recipes .rc-step { padding: 5pt 0; break-inside: avoid; grid-template-columns: 1.6em 3in minmax(0, 1fr); }
+  .active-recipes .rc-step.no-ings .rc-proc { grid-column: 2 / -1; }
+  .active-recipes .rc-step .rc-proc { grid-column: auto; }
+  .active-recipes .rc-proc { font-size: 10.5pt; line-height: 1.4; }
+  .active-recipes .rc-stage { break-after: avoid; margin-top: 6pt; padding-top: 6pt; }
+  .active-recipes .rc-block { margin-bottom: 10pt; }
+  .active-recipes .rc-h { break-after: avoid; }
+  .active-recipes .rc-table tr, .active-recipes .rc-notes li { break-inside: avoid; }
+  .active-recipes .foia-note-foot { margin-top: 10pt; padding-top: 4pt; font-size: 7.5pt; }
+  .active-recipes .rc-print-url { display: block; font-family: var(--font-mono); font-size: 8pt; color: #555 !important; margin: 10pt 0 0; }
+  .active-recipes a { text-decoration: none; }
+}
 
 /* phone width: the fifth tab (recipes) pushed the nav and the theme toggle
    past a 390px screen, and the three-column footer already overflowed there.

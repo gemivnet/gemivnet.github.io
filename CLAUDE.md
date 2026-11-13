@@ -70,6 +70,10 @@ npm run recipes:import [slug]        # pull recipe cards from ../recipes
 npm run vaf:fetch    # pull new posts from the VAF build thread into staging/vaf/
 ```
 
+Stylesheets are linked as `/site.css?v=<hash>` (`pageHelpers.assetV`, set in
+`copyDesign`). Pages caches CSS for ten minutes, and before this a fresh page could
+render against stale CSS and look broken.
+
 **Shell out to git with `execFileSync`, never `execSync`.** `execSync` hands the
 command to a shell, so anything in a path or a commit subject gets re-parsed.
 `execFileSync` passes argv straight through. The scripts already do this; keep
@@ -237,9 +241,12 @@ card template emits invisible `#metadata` tagged `<recipe-meta>`, `<recipe-steps
 `<recipe-swaps>`, `<recipe-notes>`, so the site gets exactly what the PDF was typeset
 from. The import converts the Typst content to HTML (only the node types the cards use;
 an unknown one is an error, so add it to `toHtml` rather than dropping it), writes
-`content/recipes/<slug>/recipe.json` and copies `<slug>.pdf` beside it. A PDF older than
-its card is rebuilt first with the recipes folder's `build.sh`. CI needs neither typst
-nor that folder. A card with no steps (the calorie reference) is skipped.
+`content/recipes/<slug>/recipe.json` and compiles `<slug>.pdf` beside it with
+`--input url=https://georgemain.com/recipes/<category>/<slug>`, which the template prints
+in the footer. **Only the site's copies carry the URL**: the binder PDFs in the recipes
+folder's `pdf/` are never read or written by the import, and its `build.sh` never passes
+the input. The category slug in that URL must match `slugify` in `build.mjs`. CI needs
+neither typst nor that folder. A card with no steps (the calorie reference) is skipped.
 
 Routes: `/recipes` (grouped by category), `/recipes/<category>`, `/recipes/<category>/<slug>`
 (the card as a page, with its nutrition table recomputed by `recipeNutrition` using the
@@ -247,6 +254,13 @@ same merge rules as the Typst template), and `/recipes/<category>/<slug>/print`,
 page that frames the binder PDF and calls `print()` on it. That page deliberately prints
 the PDF, not the HTML.
 
+- Printing, three ways. The "print this card" button loads the site's PDF into an
+  off-screen frame and calls its `print()`; on iOS, or with JS off, it is a link to
+  `/print`. Ctrl+P on the HTML page is handled by the `@media print` block in the recipes
+  CSS, scoped to `.active-recipes`, which lays the page out as a card.
+- SEO: `recipeSeo` builds the meta description, keywords and a schema.org `Recipe`
+  JSON-LD block (`page.jsonLd`, emitted by `_base.eta`). Durations only go in when they
+  parse cleanly. Tunables live under `recipes_seo` in `site.config.yaml`.
 - The list uses `_entries.eta` undated: rows carry `group` (the category) instead of a
   year and no `ts`, which also hides the sort control.
 - Credit is the card's `source:` line. `Paperless #NNN` (the user's own archive ids) is

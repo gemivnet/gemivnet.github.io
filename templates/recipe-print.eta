@@ -7,8 +7,8 @@
   <title><%= pageTitle %></title>
   <link rel="canonical" href="<%= absUrl(recipe.url) %>">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="stylesheet" href="/tokens.css">
-  <link rel="stylesheet" href="/site.css">
+  <link rel="stylesheet" href="/tokens.css?v=<%= assetV %>">
+  <link rel="stylesheet" href="/site.css?v=<%= assetV %>">
 </head>
 <body class="<%= bodyClass('recipes') %> rc-print-page">
   <%
