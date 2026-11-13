@@ -20,6 +20,7 @@ nav:
     - { id: media,   label: "media",   href: "/media" }
     - { id: rv12is,  label: "RV-12iS", href: "/rv12is" }
     - { id: foia,    label: "FOIA",    href: "/foia" }
+    - { id: recipes, label: "recipes", href: "/recipes" }
 
 # ── homepage ────────────────────────────────────────────────
 home:
@@ -352,6 +353,71 @@ foia:
     granted: "waiver granted"
     denied: "waiver denied"
     upheld: "waiver denied, upheld on review"
+
+# ── recipes ─────────────────────────────────────────────────
+# /recipes, one page per card plus a print page that prints the binder PDF.
+# The cards themselves come from the recipes project (npm run recipes:import).
+recipes:
+  heading: "Recipes."
+  index:
+    breadcrumb: "~/recipes"
+    intro: "The recipe cards from my kitchen binder. Ingredients sit beside the step that uses them."
+    seo_description: "{count} recipe cards from {author}'s kitchen binder: breads, pizza, desserts, Hungarian and family recipes, each with a printable card."
+    browse_category: "by category"
+    pinned_label: "pinned"
+    empty: "no recipes yet."
+    kcal_serving: "{kcal} kcal per serving"
+    kcal_batch: "{kcal} kcal per batch"
+  post:
+    crumbs_root: "recipes"
+    back_label: "↑ back to all recipes"
+    keyword: "recipe"
+    seo_description: "{title}: {yield}. Ingredients listed beside each step, with a printable card."
+    seo_description_no_yield: "{title}. Ingredients listed beside each step, with a printable card."
+    print_label: "print card"
+    pdf_label: "⤓ pdf"
+    pages_one: "1 page"
+    pages_many: "{n} pages, front and back"
+  spec:
+    yield: "yield"
+    active: "active"
+    total: "total"
+    oven: "oven"
+    per_serving: "per serving"
+    per_batch: "per batch"
+    equipment: "equipment"
+    source: "source"
+    revised: "revised"
+  steps:
+    heading_num: "#"
+    heading_ingredients: "ingredients"
+    heading_procedure: "procedure"
+  swaps_tag: "swaps"
+  notes_tag: "notes"
+  nutrition:
+    tag: "nutrition"
+    mass: "mass"
+    total: "Total"
+    per_serving: "Per serving (1/{n})"
+    columns: { kcal: "Calories", na: "Sodium mg", pro: "Protein g" }
+    units: { kcal: "kcal", na: "mg Na", pro: "g protein" }
+    source_prefix: "Nutrition:"
+  category:
+    kind: "category"
+  print:
+    title: "{title}, print"
+    back_label: "← back to the recipe"
+    print_label: "print"
+    open_label: "open the PDF"
+    hint: "Prints the binder card. If the print dialog doesn't open, use the button or open the PDF."
+  # Standing disclaimer, under the list and under every recipe.
+  disclaimer:
+    tag: "disclaimer"
+    short: "AI-aggregated from various websites and family cards, adapted to my taste, and not verified. The nutrition numbers least of all."
+    body:
+      - "Claude put these cards together from the sources named on each one, then changed them to how I actually make them. Credit for the originals belongs to those sources."
+      - "Nothing here has been tested by anyone but me, and the calorie, sodium and protein figures are machine-computed from USDA data and product labels without being checked. Don't rely on them for a diet or an allergy."
+      - "The site license covers my adaptations, not the original recipes."
 
 # ── empty states ────────────────────────────────────────────
 empty:

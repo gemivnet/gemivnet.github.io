@@ -1,0 +1,133 @@
+{
+  "slug": "grandma-carters-amish-noodles",
+  "title": "Grandma Carter's Amish Noodles",
+  "category": "Breads & Doughs",
+  "yield": "≈2 servings",
+  "servings": 2,
+  "active": "30 min",
+  "total": "≈1 h 30 min + drying overnight",
+  "oven": null,
+  "equipment": [
+    "Rolling pin",
+    "Large pot with a lid"
+  ],
+  "source": "Grandma Carter (index card)",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "The day before"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flour, all-purpose",
+          "g": 125,
+          "vol": "1 cup",
+          "note": null,
+          "kcal": 455,
+          "na": 2.5,
+          "pro": 12.91,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, all-purpose"
+        },
+        {
+          "name": "Egg",
+          "g": 50,
+          "vol": "1 large",
+          "note": null,
+          "kcal": 71.5,
+          "na": 71,
+          "pro": 6.28,
+          "counted": null,
+          "countedNote": null,
+          "key": "Egg"
+        },
+        {
+          "name": "Neutral oil (canola)",
+          "g": 14,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": 123.76,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Neutral oil (canola)"
+        },
+        {
+          "name": "Water",
+          "g": 45,
+          "vol": "3 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        }
+      ],
+      "body": "Put the flour, egg, oil and water in a bowl and mix until they form a dough."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Knead the dough for 5 min on a lightly floured counter. Cover it and let it rest ≈45 min."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Roll the dough out thin, ≈⅛ in, on a floured counter. Cut it into noodles. Spread them out in one layer and let them dry uncovered overnight."
+    },
+    {
+      "kind": "stage",
+      "name": "Cooking day"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Water",
+          "g": 948,
+          "vol": "4 cups",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Chicken stock, Better Than Bouillon",
+          "g": 24,
+          "vol": "4 tsp",
+          "note": null,
+          "kcal": 40,
+          "na": 2720,
+          "pro": 4,
+          "counted": null,
+          "countedNote": null,
+          "key": "Chicken stock, Better Than Bouillon"
+        }
+      ],
+      "body": "Put the water and Better Than Bouillon in the pot, stir, and bring to a boil. This is the broth."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Drop the dried noodles into the boiling broth and cook for 10 min, stirring now and then so they don’t stick. Turn off the heat, put the lid on and let them steam for ≈30 min, or until tender."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (flour, egg, canola oil) and Branded Foods label (Better Than Bouillon Roasted Chicken). All the broth is counted, so sodium is lower if you leave some in the pot. Water not counted.",
+  "swaps": null,
+  "notes": [
+    "The card just says “broth”, with no kind or amount, so 4 cups of chicken is a fill-in. The noodles soak up a lot, so add a splash more if the pot looks dry.",
+    "The thickness and turning off the heat for the steam aren’t on the card."
+  ],
+  "pages": 1,
+  "pdf": "grandma-carters-amish-noodles.pdf"
+}

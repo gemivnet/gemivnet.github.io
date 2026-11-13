@@ -131,7 +131,9 @@ if (SCAN_ALL) {
     if (!raw.startsWith('+')) continue;
     const text = raw.slice(1);
     if (!text.trim()) continue;
-    if (skipFile(currentFile)) continue;
+    // Same skip as --all. git diffs a PDF as text when its first 8 KB has no NUL
+    // (Typst's do not), and the xref offsets then read as phone numbers.
+    if (skipFile(currentFile) || BINARY_EXT.test(currentFile)) continue;
     lines.push({ file: currentFile, text });
   }
 }

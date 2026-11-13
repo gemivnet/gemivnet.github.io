@@ -17,7 +17,8 @@
     "setup": "git config core.hooksPath .githooks && echo 'git hooks installed (run once per clone)'",
     "check:pii:all": "node scripts/check-pii.mjs --all",
     "vaf:fetch": "xvfb-run -a node scripts/vaf-fetch.mjs",
-    "vaf:attend": "xvfb-run -a node scripts/vaf-fetch.mjs --attend"
+    "vaf:attend": "xvfb-run -a node scripts/vaf-fetch.mjs --attend",
+    "recipes:import": "node scripts/import-recipes.mjs"
   },
   "engines": {
     "node": ">=24"

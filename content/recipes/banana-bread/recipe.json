@@ -1,0 +1,204 @@
+{
+  "slug": "banana-bread",
+  "title": "Banana Bread",
+  "category": "Breads & Doughs",
+  "yield": "9 × 5 in loaf, 12 slices",
+  "servings": 12,
+  "active": "≈30 min",
+  "total": "≈2 h 30 min",
+  "oven": "<span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>",
+  "equipment": [
+    "9 × 5 in loaf pan",
+    "Fine-mesh strainer",
+    "Small pot",
+    "Probe thermometer (optional)"
+  ],
+  "source": "Printout",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flour, all-purpose",
+          "g": 310,
+          "vol": "2½ cups",
+          "note": null,
+          "kcal": 1128.4,
+          "na": 6.2,
+          "pro": 32.02,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, all-purpose"
+        },
+        {
+          "name": "Baking soda",
+          "g": 6.9,
+          "vol": "1½ tsp",
+          "note": null,
+          "kcal": null,
+          "na": 1887.8,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Baking soda"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 3.6,
+          "vol": "¾ tsp",
+          "note": null,
+          "kcal": null,
+          "na": 1440,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        }
+      ],
+      "body": "Oven to <span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>, rack in the middle. Grease the pan. Whisk the flour, soda and salt in a large bowl."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Bananas, very ripe",
+          "g": 720,
+          "vol": "≈6",
+          "note": "peeled",
+          "kcal": 640.8,
+          "na": 7.2,
+          "pro": 7.85,
+          "counted": null,
+          "countedNote": null,
+          "key": "Bananas, very ripe"
+        }
+      ],
+      "body": "Put the peeled bananas in a medium bowl. Cover with plastic wrap and poke a few holes. Microwave on high until soft and sitting in liquid, 6–7 min."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Drain the bananas in the strainer over a bowl, 15 min, stirring once or twice without pressing. Expect ≈1 cup liquid."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Boil the liquid in the small pot over medium-high until ≈⅓ cup of thin syrup is left, 6–8 min. Pour it back over the bananas and mash until mostly smooth."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Light brown sugar",
+          "g": 186,
+          "vol": "¾ cup + 1½ tbsp",
+          "note": "packed",
+          "kcal": 706.8,
+          "na": 52.1,
+          "pro": 0.22,
+          "counted": null,
+          "countedNote": null,
+          "key": "Light brown sugar"
+        },
+        {
+          "name": "Butter, unsalted",
+          "g": 142,
+          "vol": "10 tbsp",
+          "note": "melted",
+          "kcal": 1018.1,
+          "na": 15.6,
+          "pro": 1.21,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, unsalted"
+        },
+        {
+          "name": "Eggs",
+          "g": 100,
+          "vol": "2 large",
+          "note": null,
+          "kcal": 143,
+          "na": 142,
+          "pro": 12.56,
+          "counted": null,
+          "countedNote": null,
+          "key": "Eggs"
+        },
+        {
+          "name": "Egg yolk",
+          "g": 17,
+          "vol": "1 large",
+          "note": null,
+          "kcal": 54.7,
+          "na": 8.2,
+          "pro": 2.7,
+          "counted": null,
+          "countedNote": null,
+          "key": "Egg yolk"
+        },
+        {
+          "name": "Vanilla extract",
+          "g": 4.2,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": 12.1,
+          "na": 0.4,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Vanilla extract"
+        }
+      ],
+      "body": "Whisk the brown sugar, melted butter, eggs, yolk and vanilla into the bananas until even."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Pour the banana mixture into the flour from step 1 and stir gently. Stop while a little dry flour still shows; mixed smooth, the bread turns tough."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Banana",
+          "g": 118,
+          "vol": "1",
+          "note": "the firmest, thin diagonal slices",
+          "kcal": 105,
+          "na": 1.2,
+          "pro": 1.29,
+          "counted": null,
+          "countedNote": null,
+          "key": "Banana"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 8.4,
+          "vol": "2 tsp",
+          "note": null,
+          "kcal": 32.5,
+          "na": 0.1,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        }
+      ],
+      "body": "Pour the batter into the pan. Lay the banana slices along both long edges, leaving a gap down the middle. Sprinkle the sugar over the top."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Bake until the center reads <span class=\"rc-nw\">205 °F <span class=\"rc-muted\">(96 °C)</span></span>, 60–75 min (or a toothpick comes out clean, then 5 min more). Cool in the pan 15 min, then on a rack. Don’t slice it hot."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (unbleached all-purpose flour, baking soda, bananas, brown sugar, unsalted butter, eggs, yolk, vanilla, sugar) and Branded Foods label (Morton). All the banana liquid is counted; boiling only drives off water.",
+  "swaps": null,
+  "notes": [
+    "Optional: stir 70 g chopped walnuts in at the end of step 6. Adds ≈38 kcal and 1 g protein per slice (not counted above).",
+    "The reduced banana syrup is where the flavor comes from. Don’t skip it."
+  ],
+  "pages": 2,
+  "pdf": "banana-bread.pdf"
+}

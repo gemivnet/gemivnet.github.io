@@ -1,0 +1,184 @@
+{
+  "slug": "belgian-waffles",
+  "title": "Classic Belgian Waffles",
+  "category": "Breakfast",
+  "yield": "1 batch per 142 g of mix (mix makes 5 batches)",
+  "servings": 1,
+  "active": "15 min",
+  "total": "20 min",
+  "oven": null,
+  "equipment": [
+    "Waffle iron",
+    "Stand mixer, whisk",
+    "Scale"
+  ],
+  "source": null,
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Dry mix (makes 710 g, 5 batches · 2,445 kcal)"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flour",
+          "g": 600,
+          "vol": null,
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour"
+        },
+        {
+          "name": "Sugar",
+          "g": 65,
+          "vol": null,
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Sugar"
+        },
+        {
+          "name": "Baking powder",
+          "g": 35,
+          "vol": null,
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Baking powder"
+        },
+        {
+          "name": "Salt",
+          "g": 10,
+          "vol": null,
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Salt"
+        }
+      ],
+      "body": "Whisk the flour, sugar, baking powder and salt together thoroughly. Store airtight."
+    },
+    {
+      "kind": "stage",
+      "name": "Single batch"
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Heat the waffle iron to medium-high."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Dry mix",
+          "g": 142,
+          "vol": null,
+          "note": null,
+          "kcal": 489,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Dry mix"
+        }
+      ],
+      "body": "Weigh the dry mix into a bowl."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Egg",
+          "g": null,
+          "vol": "1",
+          "note": "separated",
+          "kcal": 70,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Egg"
+        },
+        {
+          "name": "Milk",
+          "g": 210,
+          "vol": null,
+          "note": null,
+          "kcal": 126,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Milk"
+        },
+        {
+          "name": "Vegetable oil",
+          "g": 37,
+          "vol": null,
+          "note": null,
+          "kcal": 344,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Vegetable oil"
+        }
+      ],
+      "body": "Separate the egg and save the white for step 6. In a second bowl, whisk the yolk, milk and oil until combined."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Pour the wet ingredients into the dry. Mix until just combined. Lumps are fine."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "In the stand mixer, whip the saved egg white to very stiff peaks, until nearly over-whipped."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Gently fold the white into the batter. Some white streaks are fine."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Butter",
+          "g": 10.5,
+          "vol": null,
+          "note": "for the iron",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter"
+        }
+      ],
+      "body": "Brush the hot iron with butter. Pour batter into the center, close the iron and cook until steam stops escaping. Repeat with the rest of the batter, buttering the iron each time."
+    }
+  ],
+  "nutritionSource": null,
+  "swaps": null,
+  "notes": [],
+  "pages": 1,
+  "pdf": "belgian-waffles.pdf"
+}

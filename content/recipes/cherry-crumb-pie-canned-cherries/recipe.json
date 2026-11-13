@@ -1,0 +1,239 @@
+{
+  "slug": "cherry-crumb-pie-canned-cherries",
+  "title": "Cherry Crumb Pie (Canned Cherries)",
+  "category": "Desserts",
+  "yield": "1 pie, 9 in, 8 slices",
+  "servings": 8,
+  "active": "≈40 min",
+  "total": "≈5 h + the dough",
+  "oven": "<span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>",
+  "equipment": [
+    "9 in glass pie plate",
+    "Strainer",
+    "Medium saucepan",
+    "Half sheet pan",
+    "Foil"
+  ],
+  "source": "Feast and Farm and Oregon Fruit (filling), Smitten Kitchen (crumb), Stella Parks (crust), adapted",
+  "revised": "2026-11-11",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Ahead"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flaky Pie Dough",
+          "g": 293,
+          "vol": "1 blind-baked shell",
+          "note": "card",
+          "kcal": 1243.32,
+          "na": 732.44,
+          "pro": 15.96,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flaky Pie Dough"
+        }
+      ],
+      "body": "Make one shell on the Flaky Pie Dough card: rolled, chilled at least 2 h and blind-baked. It can be baked up to 12 h ahead."
+    },
+    {
+      "kind": "stage",
+      "name": "Crumb"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Butter, unsalted",
+          "g": 140,
+          "vol": "10 tbsp",
+          "note": "melted",
+          "kcal": 1003.8,
+          "na": 15.4,
+          "pro": 1.19,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, unsalted"
+        },
+        {
+          "name": "Light brown sugar",
+          "g": 110,
+          "vol": "½ cup",
+          "note": "packed",
+          "kcal": 418,
+          "na": 30.8,
+          "pro": 0.13,
+          "counted": null,
+          "countedNote": null,
+          "key": "Light brown sugar"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 50,
+          "vol": "¼ cup",
+          "note": null,
+          "kcal": 193.5,
+          "na": 0.5,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        }
+      ],
+      "body": "In a bowl, whisk the brown sugar and granulated sugar into the melted butter until smooth."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flour, all-purpose",
+          "g": 215,
+          "vol": "≈1¾ cups",
+          "note": null,
+          "kcal": 788.33,
+          "na": null,
+          "pro": 28.67,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, all-purpose"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 1.2,
+          "vol": "¼ tsp",
+          "note": null,
+          "kcal": null,
+          "na": 480,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        }
+      ],
+      "body": "Stir the flour and salt into the butter mixture until no dry flour shows. Press it into the bowl and cool until firm, <span class=\"rc-nw\">10–15 min</span>."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Break it into <span class=\"rc-nw\">½–¾ in</span> chunks, leaving some smaller. Bigger chunks stay soft in the middle. Spread on a plate or quarter sheet pan and refrigerate at least 30 min."
+    },
+    {
+      "kind": "stage",
+      "name": "Filling"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Tart cherries, Meijer canned",
+          "g": 1275,
+          "vol": "3 cans, 15 oz",
+          "note": "pitted, in water",
+          "kcal": 459,
+          "na": 51,
+          "pro": 9.05,
+          "counted": null,
+          "countedNote": null,
+          "key": "Tart cherries, Meijer canned"
+        }
+      ],
+      "body": "Open the cans and pour them into the strainer set over a bowl. Measure out 240 g (1 cup) of the liquid and pour off the rest. Leave the cherries in the strainer."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Granulated sugar",
+          "g": 200,
+          "vol": "1 cup",
+          "note": null,
+          "kcal": 774,
+          "na": 2,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        },
+        {
+          "name": "Cornstarch",
+          "g": 32,
+          "vol": "¼ cup",
+          "note": null,
+          "kcal": 121.92,
+          "na": 2.88,
+          "pro": 0.08,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cornstarch"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 0.6,
+          "vol": "⅛ tsp",
+          "note": null,
+          "kcal": null,
+          "na": 240,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        }
+      ],
+      "body": "In the saucepan, whisk the sugar, cornstarch and salt, then whisk in the 240 g of cherry liquid. Bring to a boil over medium-high, stirring. Turn to medium and simmer, stirring, until thick and glossy and it coats a spoon, <span class=\"rc-nw\">3–5 min</span>."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Almond extract",
+          "g": 2.1,
+          "vol": "½ tsp",
+          "note": null,
+          "kcal": 5.04,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Almond extract"
+        }
+      ],
+      "body": "Off the heat, stir in the almond extract, then gently fold in the drained cherries."
+    },
+    {
+      "kind": "stage",
+      "name": "Assemble + bake"
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Rack in the lower-middle, oven to <span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>. Set the cooled shell on the half sheet pan. Scrape in all the filling and spread it level."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Scatter all the cold crumb chunks over the filling without pressing them in. Leave a few small gaps so you can see the juice. Cover the crust rim with strips of foil so it doesn’t burn."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Bake until the crumb is deep golden and the filling bubbles thickly in the gaps at the center, not only at the edge, <span class=\"rc-nw\">≈45–60 min</span>. Crumb browning too fast? Lay foil loosely on top."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Cool on a rack at least 3 h so the filling sets before slicing."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: Branded Foods labels (Meijer red tart pitted cherries in water, 15 oz, FDC 2638597; King Arthur All-Purpose; Morton; almond extract counted as Morton Bassett) and SR Legacy (sugar, brown sugar, unsalted butter, cornstarch). The cans are counted whole, liquid and all, so pouring some off makes it a little high. Shell from its card.",
+  "swaps": null,
+  "notes": [
+    "Filling from Feast and Farm’s canned tart cherry pie (1 cup liquid, 1 cup sugar, ¼ cup cornstarch), made with 3 cans for a deeper pie; Oregon Fruit’s recipe uses the same stovetop method. Its 2 tbsp butter is left out, since the crumb has plenty. Crumb from the Dutch Apple Crumb Pie card.",
+    "Bake time is an estimate: a smaller crumb takes 40–50 min at <span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>, and this one is bigger. Go by the color and the bubbling.",
+    "Keeps 2 days at room temp, loosely covered; the fridge softens the crumb. To recrisp, <span class=\"rc-nw\">300 °F <span class=\"rc-muted\">(149 °C)</span></span> for <span class=\"rc-nw\">15–20 min</span>, not the microwave."
+  ],
+  "pages": 2,
+  "pdf": "cherry-crumb-pie-canned-cherries.pdf"
+}

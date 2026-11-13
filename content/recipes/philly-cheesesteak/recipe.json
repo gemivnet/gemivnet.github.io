@@ -1,0 +1,167 @@
+{
+  "slug": "philly-cheesesteak",
+  "title": "Philly Cheesesteak",
+  "category": "Hearty",
+  "yield": "2 sandwiches",
+  "servings": null,
+  "active": "30 min",
+  "total": "30 min",
+  "oven": null,
+  "equipment": [
+    "Cast iron griddle or skillet",
+    "Parchment paper"
+  ],
+  "source": "Ethan Chlebowski, adapted",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Sirloin steak, 2 in",
+          "g": 450,
+          "vol": "1 lb",
+          "note": "partly frozen",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Sirloin steak, 2 in"
+        }
+      ],
+      "body": "Trim the fat and gristle off the steak. Slice it paper-thin, ⅛ in or less, across the grain while still firm. Refrigerate until the onion is done."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Cooking oil",
+          "g": 14,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cooking oil"
+        },
+        {
+          "name": "Sweet onion",
+          "g": 60,
+          "vol": "¼ onion",
+          "note": "diced",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Sweet onion"
+        },
+        {
+          "name": "Salt",
+          "g": null,
+          "vol": "pinch",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Salt"
+        }
+      ],
+      "body": "Heat oil in the griddle over low. Add onion and salt. Cook, stirring now and then, until translucent, ≈8 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Salt",
+          "g": null,
+          "vol": "pinch",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Salt"
+        }
+      ],
+      "body": "Turn the heat to high. Push the onions to the side. Add the beef and salt. Cook, breaking it up, until mostly cooked with a little pink left, ≈3–4 min."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Mix the onions back in. Cook until no pink remains, ≈1 min. Turn off the heat."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Cheese slices",
+          "g": null,
+          "vol": "6 slices",
+          "note": "American or provolone",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cheese slices"
+        }
+      ],
+      "body": "Split the meat into 2 portions on the griddle. Lay 3 slices over each and let them melt, ≈1 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Hoagie rolls",
+          "g": null,
+          "vol": "2",
+          "note": "split",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Hoagie rolls"
+        }
+      ],
+      "body": "Scoop each portion into a roll."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Wrap each sandwich tightly in parchment. Rest ≈2 min so the juices soak into the bread."
+    }
+  ],
+  "nutritionSource": null,
+  "swaps": {
+    "header": [
+      "Instead of sirloin",
+      "From the freezer, best first"
+    ],
+    "rows": [
+      {
+        "original": "Sirloin steak, 2 in",
+        "alts": [
+          "Half sirloin, half T-bone strip (fattier)",
+          "T-bone, cut off the bone (strip + tenderloin)",
+          "Hanger steak, center membrane removed",
+          "Tri-tip, halved where the grain turns",
+          "Round steak or rump roast: lean, shave extra thin, don’t overcook"
+        ]
+      }
+    ]
+  },
+  "notes": [
+    "Original whiz: melt 50 g evaporated milk, 50 g grated medium cheddar and 4 American slices over medium-low, stirring until smooth. Use half on the griddle and drizzle the rest in the rolls.",
+    "Slicing: a thawed steak firms up enough in ≈1 h in the freezer. Pre-shaved store beef works too: skip step 1."
+  ],
+  "pages": 1,
+  "pdf": "philly-cheesesteak.pdf"
+}

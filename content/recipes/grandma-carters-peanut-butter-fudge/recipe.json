@@ -1,0 +1,128 @@
+{
+  "slug": "grandma-carters-peanut-butter-fudge",
+  "title": "Grandma Carter's Peanut Butter Fudge",
+  "category": "Desserts",
+  "yield": "13 × 9 in pan, ≈4 lb, 60 pieces",
+  "servings": 60,
+  "active": "15 min",
+  "total": "≈2 h 15 min (incl. cooling)",
+  "oven": null,
+  "equipment": [
+    "Large heavy pot, 5 qt+",
+    "Probe thermometer",
+    "Cake pan, 13 × 9 in"
+  ],
+  "source": "Grandma Carter (index card)",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Butter, salted",
+          "g": null,
+          "vol": "a little",
+          "note": "for the pan",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, salted"
+        }
+      ],
+      "body": "Butter the pan. Stir the jar of natural peanut butter very well, then measure it out with the marshmallows and keep them by the stove. Step 4 moves fast."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Granulated sugar",
+          "g": 900,
+          "vol": "4½ cups",
+          "note": null,
+          "kcal": 3483,
+          "na": 9,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        },
+        {
+          "name": "Butter, salted",
+          "g": 113,
+          "vol": "1 stick",
+          "note": null,
+          "kcal": 810.21,
+          "na": 726.59,
+          "pro": 0.96,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, salted"
+        },
+        {
+          "name": "Milnot",
+          "g": 252,
+          "vol": "1 cup",
+          "note": null,
+          "kcal": 320,
+          "na": 240,
+          "pro": 16,
+          "counted": null,
+          "countedNote": null,
+          "key": "Milnot"
+        }
+      ],
+      "body": "Put the sugar, butter and Milnot in the pot over medium-high heat, stirring until it comes to a rolling boil."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Keep stirring constantly at a rolling boil until it reaches soft ball stage, <span class=\"rc-nw\">235 °F <span class=\"rc-muted\">(113 °C)</span></span> on the probe thermometer, ≈5 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Peanut butter, Smucker&#39;s Natural",
+          "g": 384,
+          "vol": "1½ cups",
+          "note": null,
+          "kcal": 2280,
+          "na": 1320,
+          "pro": 96,
+          "counted": null,
+          "countedNote": null,
+          "key": "Peanut butter, Smucker's Natural"
+        },
+        {
+          "name": "Mini marshmallows, Jet-Puffed",
+          "g": 283,
+          "vol": "1 bag (10 oz)",
+          "note": null,
+          "kcal": 943.33,
+          "na": 235.83,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Mini marshmallows, Jet-Puffed"
+        }
+      ],
+      "body": "Take the pot off the heat. Add the peanut butter and marshmallows and stir until they melt and the mixture is smooth. Pour into the buttered pan right away."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Let it cool at room temperature until firm, ≈2 h. Cut 6 × 10 into pieces."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (sugar, butter) and Branded Foods labels (Milnot, 2 tbsp = 30 mL = 40 kcal, 30 mg, 2 g; Smucker’s Natural; Jet-Puffed Mini, 30 g = 100 kcal, 25 mg, 0 g). Butter for the pan not counted.",
+  "swaps": null,
+  "notes": [
+    "Milnot is canned evaporated filled milk. Regular evaporated milk works the same way, cup for cup.",
+    "The card says “soft boil on candy thermometer”, which means soft ball stage, and “1 small pkg small marshmallows”, taken here as a 10 oz bag. “Large buttered pan or dish” is taken as 13 × 9.",
+    "Natural peanut butter can set softer than the regular kind. If it’s too soft to cut cleanly, chill it first."
+  ],
+  "pages": 1,
+  "pdf": "grandma-carters-peanut-butter-fudge.pdf"
+}

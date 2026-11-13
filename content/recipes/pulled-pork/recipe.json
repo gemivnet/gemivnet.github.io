@@ -1,0 +1,244 @@
+{
+  "slug": "pulled-pork",
+  "title": "Pulled Pork",
+  "category": "Hearty",
+  "yield": "8–10 servings",
+  "servings": null,
+  "active": "30 min",
+  "total": "≈5 h 45 min",
+  "oven": "<span class=\"rc-nw\">300 °F <span class=\"rc-muted\">(149 °C)</span></span>",
+  "equipment": [
+    "Dutch oven, 6 qt+",
+    "Probe thermometer"
+  ],
+  "source": "Serious Eats (Kenji López-Alt), adapted",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Set oven rack to the lower-middle position. Preheat oven to <span class=\"rc-nw\">300 °F <span class=\"rc-muted\">(149 °C)</span></span>."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Kosher salt",
+          "g": 9,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt"
+        },
+        {
+          "name": "Paprika",
+          "g": 7,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Paprika"
+        },
+        {
+          "name": "Cumin, ground",
+          "g": null,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cumin, ground"
+        },
+        {
+          "name": "Black pepper, fresh ground",
+          "g": null,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Black pepper, fresh ground"
+        },
+        {
+          "name": "Coriander, ground",
+          "g": null,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Coriander, ground"
+        },
+        {
+          "name": "Fennel seed, ground",
+          "g": null,
+          "vol": "½ tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Fennel seed, ground"
+        },
+        {
+          "name": "Cayenne",
+          "g": null,
+          "vol": "large pinch",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cayenne"
+        },
+        {
+          "name": "Pork butt",
+          "g": "2.25–3 kg",
+          "vol": "5–7 lb",
+          "note": "bone-in or boneless",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Pork butt"
+        }
+      ],
+      "body": "Mix the salt and spices in a small bowl. Rub over every side of the pork."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Vegetable oil",
+          "g": 14,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Vegetable oil"
+        }
+      ],
+      "body": "Heat oil in the Dutch oven over medium-high until it shimmers. Brown pork on all sides, ≈5 min total."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Onion",
+          "g": 170,
+          "vol": "1 large",
+          "note": "finely minced",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Onion"
+        }
+      ],
+      "body": "Add onion. Cook, scraping up the fond, until softened, ≈2 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "BBQ sauce",
+          "g": 60,
+          "vol": "¼ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "BBQ sauce"
+        },
+        {
+          "name": "Cider vinegar",
+          "g": 60,
+          "vol": "¼ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cider vinegar"
+        },
+        {
+          "name": "Chicken stock",
+          "g": 120,
+          "vol": "½ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Chicken stock"
+        }
+      ],
+      "body": "Turn pork fat side up. Add sauce, vinegar and stock."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Cover and move to the oven. Cook until just starting to turn tender, ≈4 h."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Uncover. Cook until a fork twists in the meat with little resistance and a dark bark has formed, ≈1 h more (internal ≈<span class=\"rc-nw\">200 °F <span class=\"rc-muted\">(93 °C)</span></span>)."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Move pork to a large bowl. Keep the liquid in the pot and skim off the fat. Once it’s cool enough to handle, shred the pork with two forks."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Cider vinegar",
+          "g": 60,
+          "vol": "¼ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cider vinegar"
+        }
+      ],
+      "body": "Stir vinegar into the skimmed liquid. Toss with the pork to taste."
+    }
+  ],
+  "nutritionSource": null,
+  "swaps": null,
+  "notes": [
+    "The amount of BBQ sauce is a starting point. The original card just said “a small amount”.",
+    "Keeps 5 days refrigerated, 3 months frozen with some of its liquid."
+  ],
+  "pages": 1,
+  "pdf": "pulled-pork.pdf"
+}

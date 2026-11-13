@@ -1,0 +1,181 @@
+{
+  "slug": "lofty-buttermilk-pancakes",
+  "title": "Lofty Buttermilk Pancakes",
+  "category": "Breakfast",
+  "yield": "9–10 pancakes, 3 in (half batch)",
+  "servings": 3,
+  "active": "≈25 min",
+  "total": "≈30 min",
+  "oven": null,
+  "equipment": [
+    "Cast iron griddle or skillet",
+    "Wooden spoon"
+  ],
+  "source": "The Kitchn (Dana Velden), via Food52 Genius Recipes",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flour, all-purpose",
+          "g": 150,
+          "vol": "1¼ cups",
+          "note": null,
+          "kcal": 546,
+          "na": 3,
+          "pro": 15.49,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, all-purpose"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 12.5,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": 48.4,
+          "na": 0.1,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 4.5,
+          "vol": "1 scant tsp",
+          "note": null,
+          "kcal": null,
+          "na": 1800,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        },
+        {
+          "name": "Baking powder, Davis",
+          "g": 2.4,
+          "vol": "½ tsp",
+          "note": null,
+          "kcal": null,
+          "na": 259.2,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Baking powder, Davis"
+        },
+        {
+          "name": "Baking soda",
+          "g": 2.3,
+          "vol": "½ tsp",
+          "note": null,
+          "kcal": null,
+          "na": 629.3,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Baking soda"
+        }
+      ],
+      "body": "Whisk the flour, sugar, salt, baking powder and baking soda together in a large bowl."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Egg yolk",
+          "g": 17,
+          "vol": "1 large",
+          "note": null,
+          "kcal": 54.7,
+          "na": 8.2,
+          "pro": 2.7,
+          "counted": null,
+          "countedNote": null,
+          "key": "Egg yolk"
+        },
+        {
+          "name": "Buttermilk, low-fat",
+          "g": 245,
+          "vol": "1 cup",
+          "note": null,
+          "kcal": 98,
+          "na": 362.6,
+          "pro": 8.11,
+          "counted": null,
+          "countedNote": null,
+          "key": "Buttermilk, low-fat"
+        },
+        {
+          "name": "Milk",
+          "g": 61,
+          "vol": "¼ cup",
+          "note": "whole",
+          "kcal": 37.2,
+          "na": 26.2,
+          "pro": 1.92,
+          "counted": null,
+          "countedNote": null,
+          "key": "Milk"
+        },
+        {
+          "name": "Butter, unsalted",
+          "g": 71,
+          "vol": "5 tbsp",
+          "note": "melted, cooled",
+          "kcal": 509.1,
+          "na": 7.8,
+          "pro": 0.6,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, unsalted"
+        }
+      ],
+      "body": "In a second bowl, whisk the yolk, buttermilk and milk. Whisk in the butter until combined."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Egg white",
+          "g": 33,
+          "vol": "1 large",
+          "note": "not beaten",
+          "kcal": 17.2,
+          "na": 54.8,
+          "pro": 3.6,
+          "counted": null,
+          "countedNote": null,
+          "key": "Egg white"
+        }
+      ],
+      "body": "Pour the wet mix into the dry and stir with the spoon until barely combined. Add the white and stir just until a thick batter forms. Rest 5 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Neutral oil (canola)",
+          "g": null,
+          "vol": "½ tsp per batch",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Neutral oil (canola)"
+        }
+      ],
+      "body": "Heat the oil over medium-high until shimmering, then turn to medium-low. Pour ≈¼ cup per pancake. When the edge bubbles look dry and airy, ≈2½ min, flip. Cook until golden, ≈2½ min more."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (unbleached all-purpose flour, sugar, baking soda, egg yolk and white, low-fat cultured buttermilk, whole milk, unsalted butter) and Branded Foods labels (Morton; Davis baking powder, ⅛ tsp = 0.6 g). Pan oil and toppings not counted.",
+  "swaps": null,
+  "notes": [
+    "Double for 18–20 (1¾ tsp Morton). Don’t beat the white: stirred in unwhipped, it makes these lofty. Lumps are fine. Too brown? Lower the heat. Keep batches warm on a rack in a <span class=\"rc-nw\">200 °F <span class=\"rc-muted\">(93 °C)</span></span> oven."
+  ],
+  "pages": 1,
+  "pdf": "lofty-buttermilk-pancakes.pdf"
+}

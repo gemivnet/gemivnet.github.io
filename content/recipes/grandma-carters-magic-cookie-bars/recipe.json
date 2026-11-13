@@ -1,0 +1,126 @@
+{
+  "slug": "grandma-carters-magic-cookie-bars",
+  "title": "Grandma Carter's Magic Cookie Bars",
+  "category": "Desserts",
+  "yield": "13 × 9 in pan, 24 bars",
+  "servings": 24,
+  "active": "10 min",
+  "total": "≈45 min",
+  "oven": "<span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>",
+  "equipment": [
+    "Cake pan, 13 × 9 in"
+  ],
+  "source": "Grandma Carter (index card)",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Butter, unsalted",
+          "g": 113,
+          "vol": "½ cup (1 stick)",
+          "note": null,
+          "kcal": 810.21,
+          "na": 12.43,
+          "pro": 0.96,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, unsalted"
+        }
+      ],
+      "body": "Preheat the oven to <span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>. Melt the butter and pour it into the pan. Tilt the pan so the butter covers the bottom."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Graham cracker crumbs, Honey Maid",
+          "g": 126,
+          "vol": "1½ cups",
+          "note": null,
+          "kcal": 546,
+          "na": 546,
+          "pro": 8.4,
+          "counted": null,
+          "countedNote": null,
+          "key": "Graham cracker crumbs, Honey Maid"
+        }
+      ],
+      "body": "Sprinkle the crumbs evenly over the melted butter. Don’t stir."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Nuts, chopped (optional)",
+          "g": null,
+          "vol": "1 cup",
+          "note": "pecans or walnuts",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Nuts, chopped (optional)"
+        },
+        {
+          "name": "Semi-sweet chips, Toll House",
+          "g": 170,
+          "vol": "1 cup",
+          "note": null,
+          "kcal": 850,
+          "na": null,
+          "pro": 12.14,
+          "counted": null,
+          "countedNote": null,
+          "key": "Semi-sweet chips, Toll House"
+        },
+        {
+          "name": "Coconut, sweetened flaked",
+          "g": 113,
+          "vol": "1⅓ cups",
+          "note": null,
+          "kcal": 515.28,
+          "na": 322.05,
+          "pro": 3.54,
+          "counted": null,
+          "countedNote": null,
+          "key": "Coconut, sweetened flaked"
+        }
+      ],
+      "body": "Layer these over the crumbs in this order: the nuts if you’re using them, then the chocolate chips, then the coconut. Press down a little with your hand."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Sweetened condensed milk, Eagle Brand",
+          "g": 397,
+          "vol": "1 can (14 oz)",
+          "note": null,
+          "kcal": 1323.33,
+          "na": 407.18,
+          "pro": 30.54,
+          "counted": null,
+          "countedNote": null,
+          "key": "Sweetened condensed milk, Eagle Brand"
+        }
+      ],
+      "body": "Pour the condensed milk evenly over everything."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Bake until the edges are golden, <span class=\"rc-nw\">20–25 min</span>. Let it cool in the pan for <span class=\"rc-nw\">10–15 min</span>, then cut 4 × 6 into squares."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (unsalted butter, coconut; 84 g per cup of graham crumbs) and Branded Foods labels (Honey Maid, Toll House, Eagle Brand). Nuts not counted.",
+  "swaps": null,
+  "notes": [
+    "Nuts are your choice. 1 cup of pecans adds 753 kcal and 10 g protein, or ≈31 kcal per bar. 1 cup of walnuts adds 765 kcal and 18 g protein, or ≈32 kcal per bar.",
+    "The card says 1 to 1½ cups of crumbs; this uses 1½. Unsalted butter because a salted-butter graham crust has come out too salty before."
+  ],
+  "pages": 1,
+  "pdf": "grandma-carters-magic-cookie-bars.pdf"
+}

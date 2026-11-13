@@ -1,0 +1,261 @@
+{
+  "slug": "parker-rolls",
+  "title": "Parker Rolls",
+  "category": "Breads & Doughs",
+  "yield": "15 rolls (≈68 g dough each)",
+  "servings": null,
+  "active": "30 min",
+  "total": "≈2 h 30 min",
+  "oven": "<span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>",
+  "equipment": [
+    "Stand mixer + dough hook",
+    "9×13 in dish or large cast iron",
+    "Scale"
+  ],
+  "source": "Sam the Cooking Guy",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Milk",
+          "g": 240,
+          "vol": "1 cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Milk"
+        },
+        {
+          "name": "Water",
+          "g": 118,
+          "vol": "½ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Butter",
+          "g": 57,
+          "vol": "¼ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter"
+        },
+        {
+          "name": "Sugar",
+          "g": 50,
+          "vol": "¼ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Sugar"
+        }
+      ],
+      "body": "Put the milk, water, butter and sugar in a small pot. Warm until the butter melts. Don’t go above <span class=\"rc-nw\">115 °F <span class=\"rc-muted\">(46 °C)</span></span>."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Active dry yeast",
+          "g": 7,
+          "vol": "1 packet",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Active dry yeast"
+        }
+      ],
+      "body": "Sprinkle over the milk mixture and stir. Let it stand until foamy, <span class=\"rc-nw\">4–5 min</span>. No foam means dead yeast, so start over."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flour, all-purpose",
+          "g": 480,
+          "vol": "4 cups",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, all-purpose"
+        },
+        {
+          "name": "Kosher salt",
+          "g": null,
+          "vol": "1½ tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt"
+        }
+      ],
+      "body": "Put the flour and salt in the mixer bowl and mix briefly with the dough hook."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Egg",
+          "g": 50,
+          "vol": "1 large",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Egg"
+        },
+        {
+          "name": "Egg yolk",
+          "g": 18,
+          "vol": "1 large",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Egg yolk"
+        }
+      ],
+      "body": "Beat the egg and yolk together. Add them to the mixer bowl with the yeast mixture and knead on medium until smooth and just slightly tacky, ≈5 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Neutral oil",
+          "g": null,
+          "vol": "for the bowl",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Neutral oil"
+        }
+      ],
+      "body": "Oil a bowl, put the dough in and cover with a towel. Rise somewhere warm until doubled, ≈1 h."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Deflate with 3 fingers and turn out onto a lightly floured surface. Knead a couple of minutes. Divide into 15 pieces (≈68 g each)."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Shape into tight balls by pulling the edges underneath. Butter the baking dish, set the balls in it, cover and rise ≈30 min. Preheat oven to <span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Egg",
+          "g": 50,
+          "vol": "1 large",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Egg"
+        },
+        {
+          "name": "Water",
+          "g": 15,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        }
+      ],
+      "body": "Beat the egg and water together and brush over the rolls."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Bake until lightly browned and doubled, <span class=\"rc-nw\">25–30 min</span> (center ≈<span class=\"rc-nw\">190 °F <span class=\"rc-muted\">(88 °C)</span></span>). Brush with egg wash again halfway."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Butter",
+          "g": 28,
+          "vol": "2 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter"
+        },
+        {
+          "name": "Honey",
+          "g": 21,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Honey"
+        },
+        {
+          "name": "Flaky or kosher salt",
+          "g": null,
+          "vol": "sprinkle",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flaky or kosher salt"
+        }
+      ],
+      "body": "Melt the butter with the honey. Brush over the hot rolls and sprinkle with salt."
+    }
+  ],
+  "nutritionSource": null,
+  "swaps": null,
+  "notes": [],
+  "pages": 1,
+  "pdf": "parker-rolls.pdf"
+}

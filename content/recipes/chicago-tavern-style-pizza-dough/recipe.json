@@ -1,0 +1,165 @@
+{
+  "slug": "chicago-tavern-style-pizza-dough",
+  "title": "Chicago Tavern-Style Pizza Dough",
+  "category": "Breads & Doughs",
+  "yield": "2 balls, ≈250 g each (14 in crusts)",
+  "servings": 2,
+  "active": "30 min",
+  "total": "3–5 days cold + overnight cure",
+  "oven": null,
+  "equipment": [
+    "Stand mixer + dough hook",
+    "Scale, 0.01 g for the yeast",
+    "2 quart deli containers",
+    "Rolling pin",
+    "Parchment"
+  ],
+  "source": "J. Kenji López-Alt, NYT Cooking",
+  "revised": "2026-11-05",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Day 1"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Bread flour, King Arthur",
+          "g": 300,
+          "vol": "≈2½ cups",
+          "note": null,
+          "kcal": 1100,
+          "na": null,
+          "pro": 40,
+          "counted": null,
+          "countedNote": null,
+          "key": "Bread flour, King Arthur"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 7,
+          "vol": "≈1½ tsp",
+          "note": null,
+          "kcal": 27.09,
+          "na": 0.07,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 7,
+          "vol": "≈1½ tsp",
+          "note": null,
+          "kcal": null,
+          "na": 2800,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        },
+        {
+          "name": "Instant yeast",
+          "g": 1,
+          "vol": "≈¼ tsp",
+          "note": "weigh it",
+          "kcal": 3.25,
+          "na": 0.51,
+          "pro": 0.4,
+          "counted": null,
+          "countedNote": null,
+          "key": "Instant yeast"
+        }
+      ],
+      "body": "Put the flour, sugar, salt and yeast in the mixer bowl and whisk to combine."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Water",
+          "g": 150,
+          "vol": "≈⅔ cup",
+          "note": "cold",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Neutral oil (canola)",
+          "g": 30,
+          "vol": "≈2 tbsp",
+          "note": null,
+          "kcal": 265.2,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Neutral oil (canola)"
+        }
+      ],
+      "body": "Add the water and oil. Mix on low with the dough hook, scraping down the bowl now and then, until it comes together in a shaggy ball. Cover the bowl and rest 10 min."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Knead on medium-low until silky and pulling away from the sides of the bowl, ≈5 min."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Turn out onto a lightly floured counter and cut into 2 pieces of ≈250 g. Shape each into a smooth ball, coat it lightly with oil, and put it in a quart deli container with the lid on."
+    },
+    {
+      "kind": "stage",
+      "name": "Days 2–4"
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Refrigerate 3–5 days, which gives the lightest crust and the easiest rolling. Short on time? Overnight in the fridge still works, or ≈3 h at room temp until doubled."
+    },
+    {
+      "kind": "stage",
+      "name": "The day before baking"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Semolina",
+          "g": null,
+          "vol": "for the counter",
+          "note": "or cornmeal",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Semolina"
+        }
+      ],
+      "body": "Dust the counter generously with semolina. Roll one ball very thin into a 14 in circle, lifting and turning it as you go, and measure it. It can come straight from the fridge, though 1 h covered at room temp rolls easier. If it springs back, cover it with an upside-down bowl for 30 min and roll again. Repeat with the second ball."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Move each round onto its own sheet of parchment on a flat surface; the 3 × 2 ft cutting board fits both. Leave uncovered at room temp overnight, until the top is dry and leathery, like a flour tortilla. Push any bubbles flat with a fork."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (sugar, canola oil, active dry yeast) and Branded Foods labels (King Arthur Unbleached Bread Flour, Morton). Water, semolina and the oil coating the balls not counted.",
+  "swaps": null,
+  "notes": [
+    "The overnight cure is what makes the crust cracker-crisp, and it makes the round easy to top and move. Bake it the next day on the Chicago Tavern-Style Pizza card.",
+    "For 2 × 12 in crusts: 225 g flour, 5 g sugar, 5 g salt, 1 g yeast, 115 g water, 22.5 g oil.",
+    "No mixer? Food processor: run everything until the dough rides around the blade, then 30 s more. By hand: stir, rest 10 min, knead 7–10 min.",
+    "Baker’s %: flour 100, water 50, salt 2.3, sugar 2.3, oil 10, instant yeast 0.33."
+  ],
+  "pages": 2,
+  "pdf": "chicago-tavern-style-pizza-dough.pdf"
+}

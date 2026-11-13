@@ -1,0 +1,276 @@
+{
+  "slug": "langos",
+  "title": "Lángos",
+  "category": "Hungarian",
+  "yield": "8 lángos (≈110 g dough each)",
+  "servings": null,
+  "active": "45 min",
+  "total": "≈1 h 45 min",
+  "oven": null,
+  "equipment": [
+    "Wide heavy pot or deep skillet",
+    "Deep-fry thermometer",
+    "Wire rack",
+    "Fine grater"
+  ],
+  "source": "Krumpli (scaled), Budapest street-stand style",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Dough"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Tej (milk)",
+          "g": 170,
+          "vol": "¾ cup",
+          "note": "lukewarm",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Tej (milk)"
+        },
+        {
+          "name": "Friss élesztő (fresh yeast)",
+          "g": 25,
+          "vol": null,
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Friss élesztő (fresh yeast)"
+        },
+        {
+          "name": "Cukor (sugar)",
+          "g": 5,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cukor (sugar)"
+        }
+      ],
+      "body": "Stir the yeast and sugar into the warm milk. Let it stand until foamy, ≈10 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Finomliszt (BL55 flour)",
+          "g": 500,
+          "vol": "4 cups",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Finomliszt (BL55 flour)"
+        },
+        {
+          "name": "Víz (water)",
+          "g": 180,
+          "vol": "¾ cup",
+          "note": "lukewarm",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Víz (water)"
+        },
+        {
+          "name": "Só (salt)",
+          "g": 10,
+          "vol": "1¾ tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Só (salt)"
+        }
+      ],
+      "body": "Add the flour, water and salt to the milk. Knead into a soft, slightly sticky dough, <span class=\"rc-nw\">5–8 min</span>. Cover and rise until doubled, ≈1 h."
+    },
+    {
+      "kind": "stage",
+      "name": "Garlic water (fokhagymás víz)"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Fokhagyma (garlic), grated",
+          "g": null,
+          "vol": "6 cloves",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Fokhagyma (garlic), grated"
+        },
+        {
+          "name": "Víz (water)",
+          "g": 100,
+          "vol": "⅓ cup + 1 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Víz (water)"
+        },
+        {
+          "name": "Olaj (sunflower oil)",
+          "g": 100,
+          "vol": "½ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Olaj (sunflower oil)"
+        },
+        {
+          "name": "Só (salt)",
+          "g": null,
+          "vol": "pinch",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Só (salt)"
+        }
+      ],
+      "body": "During the rise, shake the garlic, water, oil and salt together in a jar. Let it sit at least 15 min and shake again before using."
+    },
+    {
+      "kind": "stage",
+      "name": "Fry + top"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Olaj (sunflower oil)",
+          "g": null,
+          "vol": "≈1 in deep",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Olaj (sunflower oil)"
+        }
+      ],
+      "body": "Heat the oil in the pot to <span class=\"rc-nw\">340–350 °F</span>. Divide the dough into 8. With oiled hands, stretch each into a 7–8 in round, thin in the middle with a thicker rim. Fry one at a time until golden, ≈2 min per side. Drain."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Tejföl (sour cream, 20%)",
+          "g": 400,
+          "vol": "1¾ cups",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Tejföl (sour cream, 20%)"
+        },
+        {
+          "name": "Trappista, finely grated",
+          "g": 200,
+          "vol": "2 cups",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Trappista, finely grated"
+        }
+      ],
+      "body": "While each lángos is hot: brush with garlic water, spread with tejföl, then heap on the cheese. (Some stands put the garlic on last.) Eat right away."
+    }
+  ],
+  "nutritionSource": null,
+  "swaps": {
+    "header": [
+      "Original",
+      "US alternatives, best first"
+    ],
+    "rows": [
+      {
+        "original": "Dough (steps 1–2)",
+        "alts": [
+          "Rhodes frozen bread dough, 2 loaves, thawed + risen",
+          "Store pizza dough, ≈900 g"
+        ]
+      },
+      {
+        "original": "Friss élesztő 25 g",
+        "alts": [
+          "Instant yeast 7 g",
+          "Active dry yeast 7 g"
+        ]
+      },
+      {
+        "original": "Finomliszt (BL55)",
+        "alts": [
+          "All-purpose flour",
+          "Bread flour (chewier)"
+        ]
+      },
+      {
+        "original": "Tejföl (20%, loose, tangy)",
+        "alts": [
+          "Smetana (Eastern European deli)",
+          "Mexican crema (milder, add a spoon of sour cream)",
+          "Full-fat sour cream thinned with milk",
+          "Crème fraîche, thinned"
+        ]
+      },
+      {
+        "original": "Trappista",
+        "alts": [
+          "Edam",
+          "Young Gouda",
+          "Havarti",
+          "Muenster"
+        ]
+      },
+      {
+        "original": "Napraforgóolaj",
+        "alts": [
+          "Sunflower oil",
+          "Canola or vegetable oil"
+        ]
+      }
+    ]
+  },
+  "notes": [],
+  "pages": 1,
+  "pdf": "langos.pdf"
+}

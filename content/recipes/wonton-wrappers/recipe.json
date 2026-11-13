@@ -1,0 +1,101 @@
+{
+  "slug": "wonton-wrappers",
+  "title": "Wonton Wrappers",
+  "category": "Breads & Doughs",
+  "yield": "≈400 g dough",
+  "servings": null,
+  "active": "30 min",
+  "total": "1 h 30 min",
+  "oven": null,
+  "equipment": [
+    "Rolling pin or pasta roller"
+  ],
+  "source": null,
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "All-purpose flour, unbleached",
+          "g": 240,
+          "vol": "2 cups",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "All-purpose flour, unbleached"
+        },
+        {
+          "name": "Egg",
+          "g": 50,
+          "vol": "1 large",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Egg"
+        },
+        {
+          "name": "Salt",
+          "g": 2,
+          "vol": "⅓ tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Salt"
+        },
+        {
+          "name": "Water",
+          "g": 114,
+          "vol": "½ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        }
+      ],
+      "body": "Combine the flour, egg, salt and water in a bowl. Knead until smooth, ≈8 min. The dough will be stiff."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Cover and rest 1 h at room temp."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Cornstarch",
+          "g": null,
+          "vol": "for dusting",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cornstarch"
+        }
+      ],
+      "body": "Roll very thin (≈1 mm, translucent) and cut into squares. Dust with cornstarch so they don’t stick when stacked."
+    }
+  ],
+  "nutritionSource": null,
+  "swaps": null,
+  "notes": [
+    "Wrap tightly. Keeps 3 days refrigerated, 2 months frozen."
+  ],
+  "pages": 1,
+  "pdf": "wonton-wrappers.pdf"
+}

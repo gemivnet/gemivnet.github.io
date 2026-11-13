@@ -1,0 +1,268 @@
+{
+  "slug": "grandma-carters-fudge-sheet-cake",
+  "title": "Grandma Carter's Fudge Sheet Cake",
+  "category": "Desserts",
+  "yield": "1 half sheet pan, 24 squares",
+  "servings": 24,
+  "active": "25 min",
+  "total": "≈1 h 30 min (incl. cooling)",
+  "oven": "<span class=\"rc-nw\">400 °F <span class=\"rc-muted\">(204 °C)</span></span>",
+  "equipment": [
+    "Half sheet pan, 13 × 18 in",
+    "Saucepan",
+    "Large mixing bowl"
+  ],
+  "source": "Grandma Carter (index card)",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Cake"
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Preheat the oven to <span class=\"rc-nw\">400 °F <span class=\"rc-muted\">(204 °C)</span></span>. Grease the half sheet pan, including the sides. Dust it with flour and tap out the extra."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flour, all-purpose",
+          "g": 250,
+          "vol": "2 cups",
+          "note": null,
+          "kcal": 910,
+          "na": 5,
+          "pro": 25.82,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, all-purpose"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 400,
+          "vol": "2 cups",
+          "note": null,
+          "kcal": 1548,
+          "na": 4,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        },
+        {
+          "name": "Baking soda",
+          "g": 4.6,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": null,
+          "na": 1258.56,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Baking soda"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 4.8,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": null,
+          "na": 1920,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        },
+        {
+          "name": "Cinnamon, ground",
+          "g": 2.6,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": 6.42,
+          "na": 0.26,
+          "pro": 0.1,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cinnamon, ground"
+        }
+      ],
+      "body": "Whisk the flour, sugar, baking soda, salt and cinnamon together in the large bowl. Leave them in the bowl."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Butter, unsalted",
+          "g": 226,
+          "vol": "2 sticks",
+          "note": null,
+          "kcal": 1620.42,
+          "na": 24.86,
+          "pro": 1.92,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, unsalted"
+        },
+        {
+          "name": "Cocoa powder, unsweetened",
+          "g": 32,
+          "vol": "4 heaping tbsp",
+          "note": null,
+          "kcal": 72.96,
+          "na": 6.72,
+          "pro": 6.27,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cocoa powder, unsweetened"
+        },
+        {
+          "name": "Water",
+          "g": 237,
+          "vol": "1 cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        }
+      ],
+      "body": "Put the butter, cocoa and water in the saucepan. Bring to a boil, stirring, until the butter has melted. Pour it over the dry ingredients in the bowl and stir until smooth."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Eggs",
+          "g": 100,
+          "vol": "2 large",
+          "note": null,
+          "kcal": 143,
+          "na": 142,
+          "pro": 12.56,
+          "counted": null,
+          "countedNote": null,
+          "key": "Eggs"
+        },
+        {
+          "name": "Buttermilk",
+          "g": 82,
+          "vol": "⅓ cup",
+          "note": null,
+          "kcal": 32.8,
+          "na": 121.36,
+          "pro": 2.71,
+          "counted": null,
+          "countedNote": null,
+          "key": "Buttermilk"
+        },
+        {
+          "name": "Vanilla extract",
+          "g": 4.2,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": 12.1,
+          "na": 0.38,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Vanilla extract"
+        }
+      ],
+      "body": "Add the eggs, buttermilk and vanilla to the bowl and mix until smooth. The batter will be thin. Pour it into the pan and tilt the pan so it reaches the corners."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Bake until a toothpick in the center comes out clean, ≈15 min. Let the cake cool completely in the pan before icing it."
+    },
+    {
+      "kind": "stage",
+      "name": "Icing"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Butter, unsalted",
+          "g": 113,
+          "vol": "1 stick",
+          "note": null,
+          "kcal": 810.21,
+          "na": 12.43,
+          "pro": 0.96,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, unsalted"
+        },
+        {
+          "name": "Cocoa powder, unsweetened",
+          "g": 21.6,
+          "vol": "4 tbsp",
+          "note": null,
+          "kcal": 49.25,
+          "na": 4.54,
+          "pro": 4.23,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cocoa powder, unsweetened"
+        },
+        {
+          "name": "Buttermilk",
+          "g": 92,
+          "vol": "6 tbsp",
+          "note": null,
+          "kcal": 36.8,
+          "na": 136.16,
+          "pro": 3.05,
+          "counted": null,
+          "countedNote": null,
+          "key": "Buttermilk"
+        }
+      ],
+      "body": "Rinse the saucepan. Put in the butter, cocoa and buttermilk and bring to a boil, stirring."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Powdered sugar",
+          "g": 454,
+          "vol": "1 box (1 lb)",
+          "note": "or more",
+          "kcal": 1766.06,
+          "na": 9.08,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Powdered sugar"
+        },
+        {
+          "name": "Nuts, chopped (optional)",
+          "g": null,
+          "vol": "½ cup",
+          "note": "pecans or walnuts",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Nuts, chopped (optional)"
+        }
+      ],
+      "body": "Take the pan off the heat and whisk in the powdered sugar until smooth, adding a little more if the icing is too runny. Stir in the nuts, if using. Spread over the cooled cake right away, because it sets quickly. Cut 4 × 6 once set."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (flour, sugar, powdered sugar, baking soda, cinnamon, unsalted butter, cocoa, eggs, buttermilk, vanilla) and Morton’s label. Heaping tbsp taken as 1½ level (8 g). Water and nuts not counted.",
+  "swaps": null,
+  "notes": [
+    "Pan: the card says “11 × 7 cookie sheet pan with 1 in sides”, which can’t hold this batter. She almost certainly meant 11 × 17, and the half sheet is the closest pan.",
+    "Nuts are optional, and the card gives no amount. ½ cup of pecans adds 377 kcal and 5 g protein. ½ cup of walnuts adds 383 kcal and 9 g protein.",
+    "The card allows butter or margarine in the icing."
+  ],
+  "pages": 2,
+  "pdf": "grandma-carters-fudge-sheet-cake.pdf"
+}

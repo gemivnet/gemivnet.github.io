@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="<%= site.language %>">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title><%= pageTitle %></title>
+  <link rel="canonical" href="<%= absUrl(recipe.url) %>">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/tokens.css">
+  <link rel="stylesheet" href="/site.css">
+</head>
+<body class="<%= bodyClass('recipes') %> rc-print-page">
+  <%
+    /* Prints the binder card exactly: the PDF, not a re-rendering of it.
+       The PDF is same-origin, so the frame's own print() is reachable once it
+       has loaded. Browsers that won't (iOS Safari shows PDFs as images) still
+       have the button and the plain link. */
+  %>
+  <div class="rc-print-bar">
+    <a href="<%= recipe.url %>"><%= copy.recipes.print.back_label %></a>
+    <button type="button" id="rc-print"><%= copy.recipes.print.print_label %></button>
+    <a href="<%= recipe.pdfUrl %>"><%= copy.recipes.print.open_label %></a>
+    <span class="rc-dim"><%= copy.recipes.print.hint %></span>
+  </div>
+  <iframe id="rc-pdf" class="rc-print-frame" src="<%= recipe.pdfUrl %>" title="<%= escapeHtml(recipe.title) %>"></iframe>
+  <script>
+  (function () {
+    var f = document.getElementById('rc-pdf');
+    function go() { try { f.contentWindow.focus(); f.contentWindow.print(); } catch (_) { window.location.href = f.src; } }
+    document.getElementById('rc-print').addEventListener('click', go);
+    // Give the browser's PDF viewer a moment to lay out before printing.
+    f.addEventListener('load', function () { setTimeout(go, 600); });
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+{
+  "slug": "instant-pot-brisket-barbacoa",
+  "title": "Instant Pot Brisket Barbacoa",
+  "category": "Mexican",
+  "yield": "≈6 servings (18 tacos)",
+  "servings": null,
+  "active": "45 min",
+  "total": "≈2 h 30 min",
+  "oven": "Broil, high",
+  "equipment": [
+    "Instant Pot, 6 qt+",
+    "Blender",
+    "Sheet pan"
+  ],
+  "source": null,
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Beef brisket",
+          "g": "1.8 kg",
+          "vol": "4 lb",
+          "note": "trimmed",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Beef brisket"
+        },
+        {
+          "name": "Kosher salt",
+          "g": 9,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt"
+        }
+      ],
+      "body": "Trim grey or freezer-burned patches off the brisket. Cut it into 2 in cubes, salt all over, and rest while you make the sauce."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Yellow onion",
+          "g": null,
+          "vol": "1",
+          "note": "quartered",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Yellow onion"
+        },
+        {
+          "name": "Garlic",
+          "g": null,
+          "vol": "6 cloves",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Garlic"
+        },
+        {
+          "name": "Chipotles in adobo",
+          "g": null,
+          "vol": "4",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Chipotles in adobo"
+        },
+        {
+          "name": "Adobo sauce",
+          "g": 30,
+          "vol": "2 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Adobo sauce"
+        },
+        {
+          "name": "Cumin, ground",
+          "g": 6,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cumin, ground"
+        },
+        {
+          "name": "Mexican oregano",
+          "g": null,
+          "vol": "2 tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Mexican oregano"
+        },
+        {
+          "name": "Cloves, ground",
+          "g": null,
+          "vol": "½ tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cloves, ground"
+        },
+        {
+          "name": "Lime juice",
+          "g": 80,
+          "vol": "⅓ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Lime juice"
+        },
+        {
+          "name": "Cider vinegar",
+          "g": 30,
+          "vol": "2 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cider vinegar"
+        },
+        {
+          "name": "Beef stock",
+          "g": 240,
+          "vol": "1 cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Beef stock"
+        }
+      ],
+      "body": "Put the onion, garlic, chipotles, adobo sauce, spices, lime juice, vinegar and stock in the blender. Blend until smooth. This is the sauce."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Neutral oil",
+          "g": 28,
+          "vol": "2 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Neutral oil"
+        }
+      ],
+      "body": "Set the Instant Pot to Sauté (high) and add the oil. Sear the beef in 3 batches, turning once, until deeply browned on two sides. Don’t crowd the pot. Set aside."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Bay leaves",
+          "g": null,
+          "vol": "2",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Bay leaves"
+        }
+      ],
+      "body": "Add a splash of sauce and scrape up every browned bit (prevents the BURN warning). Return the beef and juices, pour over the rest of the sauce, tuck in the bay leaves."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Lock the lid, valve on Sealing. High pressure 70 min (other cuts: see table), then natural release ≥20 min. The beef should fall apart under a fork."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Remove the bay leaves. Shred the beef on the sheet pan with two forks. Skim the fat off the pot and toss the beef with ≈1 cup (240 g) of the juices. Broil on high until the edges are crisp, 4–6 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Corn tortillas",
+          "g": null,
+          "vol": "18",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Corn tortillas"
+        },
+        {
+          "name": "White onion",
+          "g": null,
+          "vol": "1",
+          "note": "finely diced",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "White onion"
+        },
+        {
+          "name": "Cilantro",
+          "g": null,
+          "vol": "1 cup",
+          "note": "chopped",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cilantro"
+        },
+        {
+          "name": "Limes",
+          "g": null,
+          "vol": "3",
+          "note": "wedges",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Limes"
+        },
+        {
+          "name": "Cotija",
+          "g": 60,
+          "vol": "½ cup",
+          "note": "crumbled",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cotija"
+        }
+      ],
+      "body": "Warm the tortillas in a dry skillet or over a burner flame. Fill with barbacoa and top with the onion, cilantro, a squeeze of lime and the cotija."
+    }
+  ],
+  "nutritionSource": null,
+  "swaps": {
+    "header": [
+      "Instead of brisket",
+      "From the freezer, best first"
+    ],
+    "rows": [
+      {
+        "original": "Beef brisket, 4 lb, 2 in cubes",
+        "alts": [
+          "Chuck roast: 60 min",
+          "Arm roast (chuck, leaner): 60 min",
+          "Short ribs: 45 min",
+          "Oxtail: 45 min, pull meat off the bones",
+          "Stew meat: 35 min",
+          "Rump roast (lean, drier): 60 min, toss with extra juices"
+        ]
+      }
+    ]
+  },
+  "notes": [
+    "Weigh boneless meat for the 4 lb. Bone-in short ribs and oxtail yield less meat per pound, so add more. Mixing cuts is fine: use the longest time.",
+    "Don’t braise the steaks (sirloin, T-bone, hanger, tri-tip) or cubed or round steak. They go dry and stringy.",
+    "Skimmed pot-roast liquid can stand in for some or all of the stock.",
+    "Store leftovers in the juices and reheat in a skillet. Good for burrito bowls or crispy quesadillas."
+  ],
+  "pages": 2,
+  "pdf": "instant-pot-brisket-barbacoa.pdf"
+}

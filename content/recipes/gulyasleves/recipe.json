@@ -1,0 +1,331 @@
+{
+  "slug": "gulyasleves",
+  "title": "Gulyásleves",
+  "category": "Hungarian",
+  "yield": "2 generous portions",
+  "servings": 2,
+  "active": "35 min",
+  "total": "≈2 h 30 min",
+  "oven": null,
+  "equipment": [
+    "Dutch oven, 6 qt",
+    "Nokedli maker"
+  ],
+  "source": "Printout dated 2025-12-15",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Gulyásleves"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Zsír (lard)",
+          "g": 40,
+          "vol": "3 tbsp",
+          "note": null,
+          "kcal": 360.8,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Zsír (lard)"
+        },
+        {
+          "name": "Vöröshagyma (onion)",
+          "g": 150,
+          "vol": "1 medium",
+          "note": "finely diced",
+          "kcal": 60,
+          "na": 6,
+          "pro": 1.65,
+          "counted": null,
+          "countedNote": null,
+          "key": "Vöröshagyma (onion)"
+        }
+      ],
+      "body": "Heat the zsír in the Dutch oven over medium heat. Add the onion and cook until glassy (üvegesre), <span class=\"rc-nw\">8–10 min</span>. Don’t let it brown; add a splash of water if it starts to color."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Fokhagyma (garlic)",
+          "g": 6,
+          "vol": "2 gerezd (cloves)",
+          "note": "minced",
+          "kcal": 8.94,
+          "na": 1.02,
+          "pro": 0.38,
+          "counted": null,
+          "countedNote": null,
+          "key": "Fokhagyma (garlic)"
+        },
+        {
+          "name": "Paradicsom (tomato)",
+          "g": 123,
+          "vol": "1 medium",
+          "note": "diced",
+          "kcal": 22.14,
+          "na": 6.15,
+          "pro": 1.08,
+          "counted": null,
+          "countedNote": null,
+          "key": "Paradicsom (tomato)"
+        },
+        {
+          "name": "Paprika (bell pepper)",
+          "g": 74,
+          "vol": "1 small",
+          "note": "diced",
+          "kcal": 19.24,
+          "na": 2.96,
+          "pro": 0.73,
+          "counted": null,
+          "countedNote": null,
+          "key": "Paprika (bell pepper)"
+        }
+      ],
+      "body": "Add the garlic and cook 1 min. Add the tomato and bell pepper and cook <span class=\"rc-nw\">2–3 min</span> more."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Marhahús (stew beef)",
+          "g": 500,
+          "vol": null,
+          "note": "2 cm cubes",
+          "kcal": 640,
+          "na": 400,
+          "pro": 108.75,
+          "counted": null,
+          "countedNote": null,
+          "key": "Marhahús (stew beef)"
+        }
+      ],
+      "body": "Add the beef and stir to coat. Cook until the outside turns white-gray, <span class=\"rc-nw\">3–4 min</span>. It should not brown."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Gulyáskrém (goulash paste)",
+          "g": 16,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": 19.52,
+          "na": 736,
+          "pro": 0.35,
+          "counted": null,
+          "countedNote": null,
+          "key": "Gulyáskrém (goulash paste)"
+        },
+        {
+          "name": "Édes paprika (sweet paprika)",
+          "g": 10,
+          "vol": "1½ tbsp",
+          "note": null,
+          "kcal": 28.2,
+          "na": 6.8,
+          "pro": 1.41,
+          "counted": null,
+          "countedNote": null,
+          "key": "Édes paprika (sweet paprika)"
+        },
+        {
+          "name": "Kömény (caraway), ground",
+          "g": 1,
+          "vol": "½ tsp",
+          "note": null,
+          "kcal": 3.33,
+          "na": 0.17,
+          "pro": 0.2,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kömény (caraway), ground"
+        }
+      ],
+      "body": "<strong>Take the pot off the heat first</strong>, because burnt paprika turns bitter. Stir in the gulyáskrém, sweet paprika and caraway until everything is coated."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Víz (water)",
+          "g": null,
+          "vol": "≈1.5–2 L total",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Víz (water)"
+        },
+        {
+          "name": "Babérlevél (bay leaf)",
+          "g": null,
+          "vol": "1",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Babérlevél (bay leaf)"
+        }
+      ],
+      "body": "Return the pot to the heat. Add water to cover the meat by 3 cm, and add the bay leaf. Bring to a boil, then lower to a gentle simmer. Cover and cook until the meat is nearly tender, <span class=\"rc-nw\">1–1½ h</span>, adding water as needed."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Sárgarépa (carrots)",
+          "g": 150,
+          "vol": null,
+          "note": "sliced",
+          "kcal": 61.5,
+          "na": 103.5,
+          "pro": 1.4,
+          "counted": null,
+          "countedNote": null,
+          "key": "Sárgarépa (carrots)"
+        },
+        {
+          "name": "Burgonya (gold potatoes)",
+          "g": 300,
+          "vol": null,
+          "note": "1.5 cm cubes",
+          "kcal": 231,
+          "na": 18,
+          "pro": 6.15,
+          "counted": null,
+          "countedNote": null,
+          "key": "Burgonya (gold potatoes)"
+        }
+      ],
+      "body": "Add the carrots and cook 15 min. Add the potatoes and enough water to keep it soupy, not thick. Cook until the potatoes are almost tender, ≈15 min. Start the nokedli batter now."
+    },
+    {
+      "kind": "stage",
+      "name": "Nokedli, right in the soup"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Finomliszt (all-purpose flour)",
+          "g": 100,
+          "vol": "¾ cup + 1 tbsp",
+          "note": null,
+          "kcal": 364,
+          "na": 2,
+          "pro": 10.33,
+          "counted": null,
+          "countedNote": null,
+          "key": "Finomliszt (all-purpose flour)"
+        },
+        {
+          "name": "Só (salt)",
+          "g": null,
+          "vol": "pinch",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Só (salt)"
+        },
+        {
+          "name": "Tojás (egg)",
+          "g": 50,
+          "vol": "1 large",
+          "note": null,
+          "kcal": 71.5,
+          "na": 71,
+          "pro": 6.28,
+          "counted": null,
+          "countedNote": null,
+          "key": "Tojás (egg)"
+        },
+        {
+          "name": "Víz (water)",
+          "g": "50–75 g",
+          "vol": "≈¼ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Víz (water)"
+        }
+      ],
+      "body": "Put the flour and salt in a bowl, make a well and crack in the egg. Mix with a fork, adding the water a little at a time, until the batter is thick but pourable. Make it right before cooking; it stiffens if it sits."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Load the nokedli maker and press the batter directly into the simmering soup. Cook <span class=\"rc-nw\">3–4 min</span>. The nokedli float when done; give them 30 s more."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Só (salt) + black pepper",
+          "g": null,
+          "vol": "to taste",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Só (salt) + black pepper"
+        }
+      ],
+      "body": "Taste before adding salt. The gulyáskrém is very salty, so you may need less than you expect. Serve in deep bowls with crusty white bread."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (lard, onion, garlic, tomato, red bell pepper, chuck for stew, paprika, caraway, carrot, potato, flour, egg). Univer Gulyáskrém per Kifli.hu’s listing: 122 kcal, 11.5 g salt (4,600 mg sodium), 2.2 g protein per 100 g; 1 tbsp taken as 16 g, the same as tomato paste. Salt to taste and water not counted.",
+  "swaps": {
+    "header": [
+      "Original",
+      "Alternatives, best first"
+    ],
+    "rows": [
+      {
+        "original": "Marhahús (stew beef)",
+        "alts": [
+          "Freezer stew meat",
+          "Freezer arm roast, cubed",
+          "Freezer chuck roast, cubed"
+        ]
+      },
+      {
+        "original": "Gulyáskrém",
+        "alts": [
+          "Univer tube, Eastern European shops or online",
+          "½ tbsp more sweet paprika, then salt to taste"
+        ]
+      },
+      {
+        "original": "Zsír (lard)",
+        "alts": [
+          "Duck fat",
+          "Neutral oil"
+        ]
+      }
+    ]
+  },
+  "notes": [
+    "Sour cream on the table is optional, for individual bowls rather than the pot. Some people add csípős (hot) paprika at the table for heat."
+  ],
+  "pages": 2,
+  "pdf": "gulyasleves.pdf"
+}

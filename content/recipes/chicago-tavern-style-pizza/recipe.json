@@ -1,0 +1,195 @@
+{
+  "slug": "chicago-tavern-style-pizza",
+  "title": "Chicago Tavern-Style Pizza",
+  "category": "Hearty",
+  "yield": "2 pies, 14 in, 4 servings each",
+  "servings": 8,
+  "active": "35 min",
+  "total": "≈1 h 30 min + the dough",
+  "oven": "<span class=\"rc-nw\">500 °F <span class=\"rc-muted\">(260 °C)</span></span>",
+  "equipment": [
+    "Pizza steel, 14.5 × 16 × ⅜ in",
+    "Metal peel",
+    "Strainer",
+    "Coarse and fine graters",
+    "Pizza cutter"
+  ],
+  "source": "J. Kenji López-Alt, NYT Cooking; sauce from the New York card",
+  "revised": "2026-11-05",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Sauce (raw; ≥1 h ahead)"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Ground tomatoes, Stanislaus 7/11",
+          "g": 375,
+          "vol": "1½ cups",
+          "note": "from the #10 can",
+          "kcal": 180,
+          "na": 990,
+          "pro": 12,
+          "counted": null,
+          "countedNote": null,
+          "key": "Ground tomatoes, Stanislaus 7/11"
+        },
+        {
+          "name": "Oregano, dried",
+          "g": 0.5,
+          "vol": "½ tsp",
+          "note": "rubbed",
+          "kcal": 1.33,
+          "na": 0.13,
+          "pro": 0.05,
+          "counted": null,
+          "countedNote": null,
+          "key": "Oregano, dried"
+        },
+        {
+          "name": "Basil, fresh",
+          "g": 1,
+          "vol": "2 leaves",
+          "note": "torn",
+          "kcal": 0.23,
+          "na": 0.04,
+          "pro": 0.03,
+          "counted": null,
+          "countedNote": null,
+          "key": "Basil, fresh"
+        }
+      ],
+      "body": "Stir the tomatoes, oregano and basil together; don’t cook. Taste it: the tomatoes are already salted, so add salt only if it needs it. Too thick to spread? A splash of water. Rest ≥1 h; use at room temp."
+    },
+    {
+      "kind": "stage",
+      "name": "Toppings"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Mozzarella, Galbani whole milk",
+          "g": 568,
+          "vol": "1¼ lb",
+          "note": "low-moisture, cold",
+          "kcal": 1704,
+          "na": 3595.44,
+          "pro": 113.6,
+          "counted": null,
+          "countedNote": null,
+          "key": "Mozzarella, Galbani whole milk"
+        },
+        {
+          "name": "Pecorino Romano, Locatelli",
+          "g": 114,
+          "vol": "4 oz",
+          "note": "finely grated",
+          "kcal": 448.02,
+          "na": 1949.4,
+          "pro": 32.6,
+          "counted": null,
+          "countedNote": null,
+          "key": "Pecorino Romano, Locatelli"
+        }
+      ],
+      "body": "Grate the mozzarella on the large holes and split it into 2 × 284 g. Split the Pecorino into 4 × 28 g: each pie gets one portion under the cheese and one after baking. Keep everything in the fridge until topping."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Hot giardiniera, Marconi",
+          "g": 240,
+          "vol": "≈1½ cups",
+          "note": null,
+          "kcal": 429.6,
+          "na": 856.8,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Hot giardiniera, Marconi"
+        },
+        {
+          "name": "Spicy Italian sausage, Lombardi&#39;s",
+          "g": 454,
+          "vol": "1 lb",
+          "note": "raw, no casings",
+          "kcal": 1116.84,
+          "na": 2960.08,
+          "pro": 84.81,
+          "counted": null,
+          "countedNote": null,
+          "key": "Spicy Italian sausage, Lombardi's"
+        }
+      ],
+      "body": "Toss the giardiniera in the strainer over a bowl to drain off as much oil as you can, then split it into 2 × 120 g. The oil can go back in the jar. Split the sausage into 2 × 227 g."
+    },
+    {
+      "kind": "stage",
+      "name": "Bake (each pie)"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Chicago Tavern-Style Pizza Dough",
+          "g": 495,
+          "vol": "2 cured rounds",
+          "note": "card",
+          "kcal": 1395.54,
+          "na": 2800.58,
+          "pro": 40.4,
+          "counted": null,
+          "countedNote": null,
+          "key": "Chicago Tavern-Style Pizza Dough"
+        }
+      ],
+      "body": "At least 45 min ahead: steel on the lower-middle rack, oven to <span class=\"rc-nw\">500 °F <span class=\"rc-muted\">(260 °C)</span></span>. The dough stays on its parchment for now."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Semolina",
+          "g": null,
+          "vol": "for the peel",
+          "note": "or cornmeal",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Semolina"
+        }
+      ],
+      "body": "Dust the peel with semolina. Flip one round onto it so the dry top faces down and the parchment faces up. Peel off the parchment and throw it away. Poke the crust all over with a fork to stop big bubbles."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Spread ≈188 g sauce (¾ cup) right to the edge. Sprinkle on 28 g Pecorino, then 284 g mozzarella, also right to the edge. Pinch 227 g raw sausage into marble-size bits all over, then scatter on 120 g giardiniera."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Shake the peel to check the pie moves; loosen any sticky spot with a metal spatula. Slide it onto the steel. Bake until bubbly and browned in the center, lightly charred at the edges and the sausage is cooked, ≈10 min. Lift an edge to check the bottom."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Onto a cutting board; sprinkle with the other 28 g Pecorino right away. Rest 3 min, then cut into <span class=\"rc-nw\">1½–2 in</span> squares. Reheat the oven ≥10 min before the next pie."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (oregano, basil) and Branded Foods labels (Galbani whole milk, Locatelli, Marconi). Stanislaus 7/11 label (½ cup = 125 g = 60 kcal, 330 mg, 4 g). Lombardi’s isn’t in USDA, so the sausage is counted as its maker Roma Packing’s hot pork sausage (FDC 1895559) until the package is checked. Giardiniera counted as it comes from the jar, so draining makes it a little high. Dough from its card. Peel dusting not counted.",
+  "swaps": null,
+  "notes": [
+    "No fresh mozzarella on this one. Kenji’s backup for whole-milk low-moisture: part-skim low-moisture plus Monterey Jack.",
+    "Keep it to 2–3 toppings. For 12 in pies, use the dough card’s 12 in amounts and ¾ of the toppings.",
+    "If semolina scorches on the steel, a reader’s fix is rice flour on the peel."
+  ],
+  "pages": 2,
+  "pdf": "chicago-tavern-style-pizza.pdf"
+}

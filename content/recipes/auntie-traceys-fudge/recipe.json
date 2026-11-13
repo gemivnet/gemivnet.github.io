@@ -1,0 +1,94 @@
+{
+  "slug": "auntie-traceys-fudge",
+  "title": "Auntie Tracey's Fudge",
+  "category": "Desserts",
+  "yield": "9 in round pan, ≈2 lb, 36 pieces",
+  "servings": 36,
+  "active": "10 min",
+  "total": "≈2 h 10 min (incl. chill)",
+  "oven": null,
+  "equipment": [
+    "Heavy saucepan",
+    "9 in round cake pan (same area as 8 in square)",
+    "Wax paper"
+  ],
+  "source": "Auntie Tracey (Eagle Brand Festive Fudge), no nuts",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Line the pan with wax paper."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Semi-sweet chips, Toll House",
+          "g": 510,
+          "vol": "3 cups (18 oz)",
+          "note": null,
+          "kcal": 2550,
+          "na": null,
+          "pro": 36.42,
+          "counted": null,
+          "countedNote": null,
+          "key": "Semi-sweet chips, Toll House"
+        },
+        {
+          "name": "Sweetened condensed milk, Eagle Brand",
+          "g": 397,
+          "vol": "1 can (14 oz)",
+          "note": "not evaporated",
+          "kcal": 1321.7,
+          "na": 408.8,
+          "pro": 30.52,
+          "counted": null,
+          "countedNote": null,
+          "key": "Sweetened condensed milk, Eagle Brand"
+        },
+        {
+          "name": "Salt",
+          "g": null,
+          "vol": "dash",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Salt"
+        }
+      ],
+      "body": "Put the chips, condensed milk and salt in the saucepan. Melt over low heat, stirring, until smooth."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Vanilla extract",
+          "g": 6.3,
+          "vol": "1½ tsp",
+          "note": null,
+          "kcal": 18.1,
+          "na": 0.6,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Vanilla extract"
+        }
+      ],
+      "body": "Off the heat, stir in the vanilla. Spread evenly in the pan."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Chill until firm, ≈2 h. Turn out onto a cutting board, peel off the paper and cut a 6 × 6 grid into squares (the edge pieces come out curved). Store covered in the fridge."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (vanilla) and Branded Foods labels (Nestlé Toll House Semi-Sweet Morsels; Eagle Brand, 2 tbsp = 39 g = 130 kcal, 40 mg, 3 g). Dash of salt not counted.",
+  "swaps": null,
+  "notes": [],
+  "pages": 1,
+  "pdf": "auntie-traceys-fudge.pdf"
+}

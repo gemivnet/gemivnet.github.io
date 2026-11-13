@@ -1,0 +1,140 @@
+{
+  "slug": "new-york-pizza-dough",
+  "title": "New York Pizza Dough",
+  "category": "Breads & Doughs",
+  "yield": "3 balls, ≈484 g each (16 in pies)",
+  "servings": 3,
+  "active": "25 min",
+  "total": "3 days + 3–5 h warm-up",
+  "oven": null,
+  "equipment": [
+    "Stand mixer + dough hook",
+    "Scale, 0.01 g for the yeast",
+    "3 quart deli containers"
+  ],
+  "source": "Dough Guy (Sam Cagle), half his 6-ball batch",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Day 1"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Water",
+          "g": 529,
+          "vol": "2¼ cups",
+          "note": "ice-cold, ≈<span class=\"rc-nw\">40 °F</span>",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Active dry yeast",
+          "g": 3.41,
+          "vol": "≈¾ tsp",
+          "note": "weigh it",
+          "kcal": 11.1,
+          "na": 1.7,
+          "pro": 1.38,
+          "counted": null,
+          "countedNote": null,
+          "key": "Active dry yeast"
+        }
+      ],
+      "body": "Chill the water in the fridge, or use ≈20 % ice and weigh it. Stir the yeast into the water in the mixer bowl."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Bread flour, King Arthur",
+          "g": 853,
+          "vol": "≈7 cups",
+          "note": null,
+          "kcal": 3127.67,
+          "na": null,
+          "pro": 113.73,
+          "counted": null,
+          "countedNote": null,
+          "key": "Bread flour, King Arthur"
+        },
+        {
+          "name": "Olive oil, extra-virgin",
+          "g": 28,
+          "vol": "2 tbsp",
+          "note": null,
+          "kcal": 247.5,
+          "na": 0.6,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Olive oil, extra-virgin"
+        }
+      ],
+      "body": "Add the flour and oil. Mix on low until shaggy, ≈2 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Kosher salt, Morton",
+          "g": 21.3,
+          "vol": "≈4½ tsp",
+          "note": null,
+          "kcal": null,
+          "na": 8520,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 17,
+          "vol": "4 tsp",
+          "note": null,
+          "kcal": 65.8,
+          "na": 0.2,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        }
+      ],
+      "body": "Add the salt and sugar. Knead on speed 2 until smooth and elastic, 8–9 min more (10–11 total). Keep the dough under <span class=\"rc-nw\">70 °F</span>."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Cover and rest at room temp, 1–3 h."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Divide into 3 pieces of ≈484 g. Ball tightly and pinch the seams shut. Into lightly oiled containers, lids on, into the fridge."
+    },
+    {
+      "kind": "stage",
+      "name": "Days 2–4"
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Cold ferment 3 days (2–4 is fine). Bake day: take the balls out 3–5 h before stretching, still covered, until soft and relaxed."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (sugar, olive oil, active dry yeast) and Branded Foods labels (King Arthur Unbleached Bread Flour, Morton). Water not counted.",
+  "swaps": null,
+  "notes": [
+    "Baker’s %: flour 100, water 62, salt 2.5, sugar 2, oil 3.3, active dry yeast 0.4, exactly Dough Guy’s. The sugar is his “secret”: it browns the crust in a home oven.",
+    "Not yeasty: very little yeast and 3 days cold. The flavor comes from slow fermentation, not the yeast."
+  ],
+  "pages": 1,
+  "pdf": "new-york-pizza-dough.pdf"
+}

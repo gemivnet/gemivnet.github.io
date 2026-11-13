@@ -1,0 +1,305 @@
+{
+  "slug": "katsudon",
+  "title": "Katsudon",
+  "category": "Japanese",
+  "yield": "2 bowls",
+  "servings": 2,
+  "active": "50 min",
+  "total": "≈1 h 15 min",
+  "oven": null,
+  "equipment": [
+    "Rice cooker or lidded pot",
+    "Heavy pot for frying",
+    "Probe thermometer",
+    "Wire rack",
+    "8 in skillet with lid"
+  ],
+  "source": "Just One Cookbook (tonkatsu, katsudon); MEXT Japan (batter, oil uptake); no mirin or sake",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Rice"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Rice, Nishiki",
+          "g": 168,
+          "vol": "1 cup raw",
+          "note": null,
+          "kcal": 600,
+          "na": null,
+          "pro": 12,
+          "counted": null,
+          "countedNote": null,
+          "key": "Rice, Nishiki"
+        }
+      ],
+      "body": "Start first. Rinse the rice until the water runs nearly clear, then cook per the package."
+    },
+    {
+      "kind": "stage",
+      "name": "Tonkatsu"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Pork loin chops",
+          "g": 225,
+          "vol": "2 boneless",
+          "note": "fat on",
+          "kcal": 452.25,
+          "na": 184.5,
+          "pro": 47.56,
+          "counted": null,
+          "countedNote": null,
+          "key": "Pork loin chops"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 1.2,
+          "vol": "¼ tsp",
+          "note": null,
+          "kcal": null,
+          "na": 480,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        },
+        {
+          "name": "Black pepper",
+          "g": null,
+          "vol": "⅛ tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Black pepper"
+        }
+      ],
+      "body": "Slit the connective tissue between fat and meat on both sides so it stays flat. Pound to an even ½ in and season both sides with the salt and pepper."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flour, all-purpose",
+          "g": 31,
+          "vol": "¼ cup",
+          "note": null,
+          "kcal": 30.3,
+          "na": 0.17,
+          "pro": 0.86,
+          "counted": 8.3,
+          "countedNote": "adhered",
+          "key": "Flour, all-purpose"
+        },
+        {
+          "name": "Water",
+          "g": 59,
+          "vol": "¼ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Panko, Kikkoman",
+          "g": 60,
+          "vol": "1 cup",
+          "note": null,
+          "kcal": 76.72,
+          "na": 24.41,
+          "pro": 2.79,
+          "counted": 21,
+          "countedNote": "adhered",
+          "key": "Panko, Kikkoman"
+        }
+      ],
+      "body": "Whisk the flour and water into a smooth batter. Dip each cutlet in batter, then press firmly into the panko. Rest on a rack 5–10 min so the coating sets."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Neutral oil (canola)",
+          "g": 654,
+          "vol": "3 cups",
+          "note": null,
+          "kcal": 266.53,
+          "na": null,
+          "pro": null,
+          "counted": 30,
+          "countedNote": "absorbed",
+          "key": "Neutral oil (canola)"
+        }
+      ],
+      "body": "Heat 2 in of oil to <span class=\"rc-nw\">340 °F <span class=\"rc-muted\">(171 °C)</span></span>. Fry one cutlet 1 min per side, undisturbed for the first 30 s. Rest on the rack 4 min. Repeat."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Raise the oil to <span class=\"rc-nw\">355 °F <span class=\"rc-muted\">(179 °C)</span></span>. Fry each cutlet again 30 s per side, until deep golden and <span class=\"rc-nw\">145 °F <span class=\"rc-muted\">(63 °C)</span></span> inside. Rest on the rack 2 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Green cabbage",
+          "g": 140,
+          "vol": "2 cups",
+          "note": "shredded",
+          "kcal": 35,
+          "na": 25.2,
+          "pro": 1.79,
+          "counted": null,
+          "countedNote": null,
+          "key": "Green cabbage"
+        }
+      ],
+      "body": "Shred the cabbage hair-thin. Soak in ice water 5 min, then drain and spin dry."
+    },
+    {
+      "kind": "stage",
+      "name": "Katsudon (one bowl at a time)"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Water",
+          "g": 267,
+          "vol": "1 cup + 2 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Hondashi",
+          "g": 1.5,
+          "vol": "½ tsp",
+          "note": null,
+          "kcal": null,
+          "na": 270,
+          "pro": 0.45,
+          "counted": null,
+          "countedNote": null,
+          "key": "Hondashi"
+        },
+        {
+          "name": "Soy sauce, Kikkoman",
+          "g": 32,
+          "vol": "2 tbsp",
+          "note": null,
+          "kcal": 20,
+          "na": 1920,
+          "pro": 4,
+          "counted": null,
+          "countedNote": null,
+          "key": "Soy sauce, Kikkoman"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 25,
+          "vol": "2 tbsp",
+          "note": null,
+          "kcal": 96.75,
+          "na": 0.25,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        }
+      ],
+      "body": "Stir the water, Hondashi, soy sauce and sugar in a bowl until dissolved. This is the simmering sauce for both bowls."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Onion",
+          "g": 110,
+          "vol": "1 medium",
+          "note": "¼ in slices",
+          "kcal": 44,
+          "na": 4.4,
+          "pro": 1.21,
+          "counted": null,
+          "countedNote": null,
+          "key": "Onion"
+        }
+      ],
+      "body": "Put half the simmering sauce and half the onion in the skillet. Simmer over medium until the onion is soft and translucent, ≈3 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Eggs",
+          "g": 200,
+          "vol": "4 large",
+          "note": "2 per bowl",
+          "kcal": 286,
+          "na": 284,
+          "pro": 25.12,
+          "counted": null,
+          "countedNote": null,
+          "key": "Eggs"
+        }
+      ],
+      "body": "Slice a cutlet into ¾ in strips and lay it on the onion. Beat 2 eggs just until streaky. Pour ⅔ around the cutlet, not over the crust. Cover until mostly set, ≈1 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Scallion",
+          "g": 15,
+          "vol": "1",
+          "note": "thinly sliced",
+          "kcal": 4.8,
+          "na": 2.4,
+          "pro": 0.27,
+          "counted": null,
+          "countedNote": null,
+          "key": "Scallion"
+        },
+        {
+          "name": "Tonkatsu sauce (see card)",
+          "g": 35,
+          "vol": "2 tbsp",
+          "note": null,
+          "kcal": 47.19,
+          "na": 336.96,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Tonkatsu sauce (see card)"
+        }
+      ],
+      "body": "Add the rest of the egg, cover, and take off the heat 30 s for soft egg. Slide onto rice and add scallion. Pile cabbage alongside and drizzle 1 tbsp tonkatsu sauce over it and the cutlet’s edge. Repeat."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (pork, flour, canola, cabbage, onion, eggs, scallion, sugar) and Branded Foods labels (Nishiki, Kikkoman soy and panko, Hondashi, Morton). Batter, panko and oil counted at the amounts MEXT measured on fried pork loin (Japan Food Composition Tables 2020, table 13: per 100 g raw pork, 3.7 g flour, 9.3 g panko, 13.4 g oil absorbed). Water and pepper not counted.",
+  "swaps": null,
+  "notes": [
+    "No mirin or sake. Each tbsp of mirin is replaced with 2 tsp sugar plus 1 tbsp water, which matches mirin’s ≈49% sugar.",
+    "Flour-and-water batter instead of egg wash keeps every egg for the bowl, and it’s the method MEXT measured. Mitsuba is the traditional garnish if you can find it.",
+    "Katsudon is the classic use for leftover tonkatsu, since the crust softens in the sauce anyway."
+  ],
+  "pages": 2,
+  "pdf": "katsudon.pdf"
+}

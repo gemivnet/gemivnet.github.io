@@ -1,0 +1,25 @@
+<div class="musings-layout">
+  <aside class="musings-tree" aria-label="Recipes">
+    <input type="checkbox" id="tree-toggle" class="tree-toggle">
+    <label class="tree-head" for="tree-toggle"><%= copy.ui.sidebar_browse %></label>
+    <%~ treeHtml %>
+  </aside>
+
+  <div class="musings-main">
+    <header class="sp-post-header">
+      <div class="crumbs">
+        <a href="/">~</a> &nbsp;/&nbsp; <a href="/recipes"><%= copy.recipes.post.crumbs_root %></a>
+        &nbsp;/&nbsp; <span class="rc-crumb-here"><%= copy.recipes.category.kind %></span>
+      </div>
+      <h1><%= escapeHtml(category.name) %></h1>
+    </header>
+
+    <%~ include('_entries', { copy: copy, entries: entries, listCopy: listCopy, section: { base: '/recipes' }, escapeHtml: escapeHtml }) %>
+
+    <%~ include('_recipe-disclaimer', { copy: copy }) %>
+
+    <div class="sp-backlink is-wide">
+      <a href="/recipes"><%= copy.recipes.post.back_label %></a>
+    </div>
+  </div>
+</div>

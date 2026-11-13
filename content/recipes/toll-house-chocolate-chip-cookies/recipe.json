@@ -1,0 +1,163 @@
+{
+  "slug": "toll-house-chocolate-chip-cookies",
+  "title": "Toll House Chocolate Chip Cookies",
+  "category": "Desserts",
+  "yield": "≈5 dozen cookies",
+  "servings": 60,
+  "active": "15 min",
+  "total": "≈45 min",
+  "oven": "<span class=\"rc-nw\">375 °F <span class=\"rc-muted\">(191 °C)</span></span>",
+  "equipment": [
+    "Mixer",
+    "Baking sheets, ungreased",
+    "Wire rack"
+  ],
+  "source": "Nestlé Toll House (the bag recipe), no nuts",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flour, all-purpose",
+          "g": 281,
+          "vol": "2¼ cups",
+          "note": null,
+          "kcal": 1022.8,
+          "na": 5.6,
+          "pro": 29.03,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, all-purpose"
+        },
+        {
+          "name": "Baking soda",
+          "g": 4.6,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": null,
+          "na": 1258.6,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Baking soda"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 4.8,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": null,
+          "na": 1920,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        }
+      ],
+      "body": "Oven to <span class=\"rc-nw\">375 °F <span class=\"rc-muted\">(191 °C)</span></span>. Combine the flour, baking soda and salt in a small bowl."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Butter, unsalted",
+          "g": 227,
+          "vol": "1 cup (2 sticks)",
+          "note": "softened",
+          "kcal": 1627.6,
+          "na": 25,
+          "pro": 1.93,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, unsalted"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 150,
+          "vol": "¾ cup",
+          "note": null,
+          "kcal": 580.5,
+          "na": 1.5,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        },
+        {
+          "name": "Light brown sugar",
+          "g": 165,
+          "vol": "¾ cup",
+          "note": "packed",
+          "kcal": 627,
+          "na": 46.2,
+          "pro": 0.2,
+          "counted": null,
+          "countedNote": null,
+          "key": "Light brown sugar"
+        },
+        {
+          "name": "Vanilla extract",
+          "g": 4.2,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": 12.1,
+          "na": 0.4,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Vanilla extract"
+        }
+      ],
+      "body": "Beat the butter, both sugars and vanilla in a large bowl until creamy."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Eggs",
+          "g": 100,
+          "vol": "2 large",
+          "note": null,
+          "kcal": 143,
+          "na": 142,
+          "pro": 12.56,
+          "counted": null,
+          "countedNote": null,
+          "key": "Eggs"
+        }
+      ],
+      "body": "Add the eggs one at a time, beating well after each."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Semi-sweet chips, Toll House",
+          "g": 340,
+          "vol": "2 cups (12 oz bag)",
+          "note": null,
+          "kcal": 1700,
+          "na": null,
+          "pro": 24.28,
+          "counted": null,
+          "countedNote": null,
+          "key": "Semi-sweet chips, Toll House"
+        }
+      ],
+      "body": "Gradually beat in the flour mixture, then stir in the chips."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Drop rounded tablespoons onto ungreased sheets. Bake until golden brown, 9–11 min. Cool on the sheets 2 min, then move to racks."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (unbleached all-purpose flour, baking soda, unsalted butter, sugars, vanilla, eggs) and Branded Foods labels (Morton; Nestlé Toll House Semi-Sweet Morsels, 1 tbsp = 14 g). Brown sugar at 220 g per packed cup.",
+  "swaps": null,
+  "notes": [
+    "A rounded tablespoon is ≈21 g of dough (1,277 g batch ÷ 60). The bag recipe also lists 1 cup chopped nuts; left out here."
+  ],
+  "pages": 1,
+  "pdf": "toll-house-chocolate-chip-cookies.pdf"
+}

@@ -1,0 +1,364 @@
+{
+  "slug": "tacos-al-pastor",
+  "title": "Tacos al Pastor",
+  "category": "Mexican",
+  "yield": "18 tacos, 3 per serving",
+  "servings": 6,
+  "active": "≈1 h",
+  "total": "≈11 h 20 min (2 days)",
+  "oven": "<span class=\"rc-nw\">275 °F <span class=\"rc-muted\">(135 °C)</span></span>, then <span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>",
+  "equipment": [
+    "Blender",
+    "Disposable aluminum loaf pan",
+    "Rimmed sheet pan",
+    "Cast iron skillet"
+  ],
+  "source": "Serious Eats (J. Kenji López-Alt), adapted",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Marinade"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Ancho chiles, dried",
+          "g": 34,
+          "vol": "2",
+          "note": "seeded",
+          "kcal": 95.54,
+          "na": 14.62,
+          "pro": 4.03,
+          "counted": null,
+          "countedNote": null,
+          "key": "Ancho chiles, dried"
+        },
+        {
+          "name": "Pasilla chiles, dried",
+          "g": 14,
+          "vol": "2",
+          "note": "or guajillo",
+          "kcal": 48.3,
+          "na": 12.46,
+          "pro": 1.73,
+          "counted": null,
+          "countedNote": null,
+          "key": "Pasilla chiles, dried"
+        },
+        {
+          "name": "Water",
+          "g": 118,
+          "vol": "½ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Better Than Bouillon, roasted chicken",
+          "g": 3,
+          "vol": "½ tsp",
+          "note": null,
+          "kcal": 5.01,
+          "na": 339.99,
+          "pro": 0.5,
+          "counted": null,
+          "countedNote": null,
+          "key": "Better Than Bouillon, roasted chicken"
+        }
+      ],
+      "body": "Toast the chiles in a dry saucepan over medium-high, turning, until puffed and pliable, ≈5 min. Add the water and base (it boils at once). Tip into a bowl; cover."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Neutral oil (canola)",
+          "g": 9,
+          "vol": "2 tsp",
+          "note": null,
+          "kcal": 79.56,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Neutral oil (canola)"
+        },
+        {
+          "name": "Cumin, ground",
+          "g": null,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": 7.88,
+          "na": 3.53,
+          "pro": 0.37,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cumin, ground"
+        },
+        {
+          "name": "Mexican oregano",
+          "g": null,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": 3.18,
+          "na": 0.3,
+          "pro": 0.11,
+          "counted": null,
+          "countedNote": null,
+          "key": "Mexican oregano"
+        },
+        {
+          "name": "Achiote powder",
+          "g": 14,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": 51.94,
+          "na": 5.04,
+          "pro": 2,
+          "counted": null,
+          "countedNote": null,
+          "key": "Achiote powder"
+        }
+      ],
+      "body": "Wipe out the pan. Heat the oil over medium-high until shimmering. Add the spices and stir until fragrant but not browned, ≈30 s."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Chipotles in adobo",
+          "g": 15,
+          "vol": "1",
+          "note": "La Costeña",
+          "kcal": 10.05,
+          "na": 120,
+          "pro": 0.5,
+          "counted": null,
+          "countedNote": null,
+          "key": "Chipotles in adobo"
+        },
+        {
+          "name": "Adobo sauce",
+          "g": 10,
+          "vol": "2 tsp",
+          "note": null,
+          "kcal": 6.7,
+          "na": 80,
+          "pro": 0.33,
+          "counted": null,
+          "countedNote": null,
+          "key": "Adobo sauce"
+        },
+        {
+          "name": "White vinegar",
+          "g": 60,
+          "vol": "¼ cup",
+          "note": null,
+          "kcal": 10.8,
+          "na": 1.2,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "White vinegar"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 7.2,
+          "vol": "1½ tsp",
+          "note": null,
+          "kcal": null,
+          "na": 2880,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 8.4,
+          "vol": "2 tsp",
+          "note": null,
+          "kcal": 32.51,
+          "na": 0.08,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        }
+      ],
+      "body": "Add the chipotle and sauce and cook ≈30 s. Add the vinegar, salt and sugar, then take off the heat."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Garlic",
+          "g": 9,
+          "vol": "3 cloves",
+          "note": null,
+          "kcal": 13.41,
+          "na": 1.53,
+          "pro": 0.57,
+          "counted": null,
+          "countedNote": null,
+          "key": "Garlic"
+        }
+      ],
+      "body": "Scrape the pan into the blender with the chiles and their liquid, and add the garlic. Blend until completely smooth, ≈1 min. Cool slightly."
+    },
+    {
+      "kind": "stage",
+      "name": "Pork loaf (day 1)"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Pork loin, center-cut",
+          "g": 907,
+          "vol": "2 lb",
+          "note": null,
+          "kcal": 1505.62,
+          "na": 426.29,
+          "pro": 193.55,
+          "counted": null,
+          "countedNote": null,
+          "key": "Pork loin, center-cut"
+        }
+      ],
+      "body": "Slice the pork as thin as possible (15 min in the freezer firms it). Pound each slice inside a split zip bag to under ¼ in. Toss with the marinade until coated."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Bacon, Smithfield",
+          "g": 227,
+          "vol": "8 oz",
+          "note": "sliced",
+          "kcal": 892.11,
+          "na": 1704.77,
+          "pro": 31.01,
+          "counted": null,
+          "countedNote": null,
+          "key": "Bacon, Smithfield"
+        }
+      ],
+      "body": "Layer bacon and pork in the loaf pan, bacon first, until all the meat is in. It can mound over the top. Cover tightly. Refrigerate <span class=\"rc-nw\">4–36 h</span>."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Roast uncovered at <span class=\"rc-nw\">275 °F <span class=\"rc-muted\">(135 °C)</span></span> on a foil-lined sheet pan until completely tender, ≈4 h. Cool slightly, cover and refrigerate ≥2 h or overnight."
+    },
+    {
+      "kind": "stage",
+      "name": "Serve (day 2)"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Pineapple",
+          "g": 905,
+          "vol": "1",
+          "note": "peeled, cored, quartered",
+          "kcal": 452.5,
+          "na": 9.05,
+          "pro": 4.89,
+          "counted": null,
+          "countedNote": null,
+          "key": "Pineapple"
+        }
+      ],
+      "body": "Oven to <span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>. Lift out the loaf and scrape off its fat and jelly. Keep fat and juices separate. Brush the pineapple with melted fat and roast on foil until tender, ≈25 min."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Slice the loaf as thin as possible into shavings. ≈10 min before the pineapple is done, crisp the meat in 1 tbsp fat in the skillet over medium-high until browned in spots. Add the juices and cook to a moist glaze."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Corn tortillas, El Milagro",
+          "g": 850,
+          "vol": "36",
+          "note": "warmed",
+          "kcal": 1801.15,
+          "na": null,
+          "pro": 36.02,
+          "counted": null,
+          "countedNote": null,
+          "key": "Corn tortillas, El Milagro"
+        },
+        {
+          "name": "White onion",
+          "g": 160,
+          "vol": "1 cup",
+          "note": "finely diced",
+          "kcal": 64,
+          "na": 6.4,
+          "pro": 1.76,
+          "counted": null,
+          "countedNote": null,
+          "key": "White onion"
+        },
+        {
+          "name": "Cilantro",
+          "g": 8,
+          "vol": "½ cup",
+          "note": "minced",
+          "kcal": 1.84,
+          "na": 3.68,
+          "pro": 0.17,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cilantro"
+        },
+        {
+          "name": "Salsa verde",
+          "g": null,
+          "vol": "1 cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Salsa verde"
+        },
+        {
+          "name": "Limes",
+          "g": null,
+          "vol": "3–4",
+          "note": "wedges",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Limes"
+        }
+      ],
+      "body": "Chop the pineapple. Pack the meat into double-stacked tortillas, and top with pineapple, onion, cilantro, salsa and a squeeze of lime."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (chiles, canola, cumin, oregano, vinegar, sugar, garlic, pork loin roast, bacon, pineapple, onion, cilantro) and Branded Foods labels (Better Than Bouillon, La Nuestra achiote, La Costeña, Morton, El Milagro). Pork and bacon counted raw, including all the fat; much of the bacon fat drips off, so real calories are lower. Water, salsa and limes not counted.",
+  "swaps": null,
+  "notes": [
+    "Center-cut loin is leaner than the blade-end loin Kenji uses, so the bacon carries the fat. Don’t skip it.",
+    "Serious Eats measures Diamond Crystal: 2½ tsp Diamond weighs the same as 1½ tsp Morton.",
+    "The cooked loaf keeps a few days in the fridge, so only the day-2 steps are day-of work.",
+    "Grill instead: cool side of the grill at ≈<span class=\"rc-nw\">275 °F <span class=\"rc-muted\">(135 °C)</span></span> air until <span class=\"rc-nw\">180–190 °F</span> in the center, ≈4 h."
+  ],
+  "pages": 2,
+  "pdf": "tacos-al-pastor.pdf"
+}

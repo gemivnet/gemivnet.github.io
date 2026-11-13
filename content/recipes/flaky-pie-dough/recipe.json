@@ -1,0 +1,169 @@
+{
+  "slug": "flaky-pie-dough",
+  "title": "Flaky Pie Dough",
+  "category": "Breads & Doughs",
+  "yield": "2 single 9 in crusts",
+  "servings": 2,
+  "active": "≈30 min",
+  "total": "≈4 h",
+  "oven": "<span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>",
+  "equipment": [
+    "Fine strainer",
+    "Rubber spatula",
+    "Rolling pin",
+    "9 in glass pie plate",
+    "Half sheet pan",
+    "Foil"
+  ],
+  "source": "Stella Parks (BraveTart), No-Stress Pie Dough, via The Splendid Table",
+  "revised": "2026-11-11",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Dough (makes 2 crusts)"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flour, all-purpose",
+          "g": 225,
+          "vol": "1¾ cups + 1 tbsp",
+          "note": null,
+          "kcal": 825,
+          "na": null,
+          "pro": 30,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, all-purpose"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 12.5,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": 48.38,
+          "na": 0.13,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 3.6,
+          "vol": "¾ tsp",
+          "note": null,
+          "kcal": null,
+          "na": 1440,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        }
+      ],
+      "body": "Sift the flour through the fine strainer into a medium bowl. Whisk in the sugar and salt."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Butter, unsalted",
+          "g": 225,
+          "vol": "2 sticks",
+          "note": "very cold, ½ in cubes",
+          "kcal": 1613.25,
+          "na": 24.75,
+          "pro": 1.91,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, unsalted"
+        }
+      ],
+      "body": "Add the butter to the flour and toss to coat, pulling apart any cubes that stick together. Pinch each cube flat, ≈¼ in thick. Don’t work it in any further: the flat pieces make the flaky layers."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Water",
+          "g": 120,
+          "vol": "½ cup",
+          "note": "very cold",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        }
+      ],
+      "body": "Pour in all the water at once and stir with the rubber spatula. Then press and knead it in the bowl just until it forms a shaggy ball. It should look rough. Don’t add more water."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "On a well-floured counter, roll the dough into a ≈10 × 15 in rectangle. If the butter turns soft and sticky at any point, refrigerate the dough 15 min, then carry on."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Fold both short ends in to meet in the middle, then close it like a book. Fold that in half, then cut it into 2 equal pieces. Wrap one tightly in plastic and refrigerate up to 2 days, or freeze up to 3 months and thaw overnight in the fridge."
+    },
+    {
+      "kind": "stage",
+      "name": "Shell (each crust)"
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "On a floured counter, roll the other piece into a 14 in round, <span class=\"rc-nw\">⅛–¼ in</span> thick. Lay it in the pie plate and ease it into the corners without stretching. Trim to a 1¼ in overhang, fold the overhang under, and press it into a ¾ in border on the rim. Crimp with your fingers or a fork."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Cover the shell with plastic and refrigerate at least 2 h, or overnight."
+    },
+    {
+      "kind": "stage",
+      "name": "Blind-bake"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Sugar, for weighting",
+          "g": null,
+          "vol": "to the brim",
+          "note": "reusable",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Sugar, for weighting"
+        }
+      ],
+      "body": "Rack in the lower-middle, oven to <span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>. Line the cold shell with a 16 in square of foil (not parchment), pressing it into the corners, and fill it to the brim with sugar. Set it on the half sheet pan."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Bake until the crust is cooked through and lightly browned, ≈1 h. Check the bottom through the glass: it should be golden, not pale."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Lift out the foil and sugar together with both hands and set them on a plate. Once the sugar cools, keep it for baking. Cool the shell on a rack and fill it within 12 h."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (sugar, unsalted butter) and Branded Foods labels (King Arthur All-Purpose, Morton). Per serving is one crust. Water, the sugar used for weighting and the flour for the counter not counted.",
+  "swaps": null,
+  "notes": [
+    "Equal weights of butter and flour, all the water at once, and a quick roll and fold for layers, so there’s no squeeze test to over-water. Serious Eats says the folds keep it from turning “leathery and dense”. Parks bakes low and slow so it shrinks less.",
+    "Parks prefers Gold Medal bleached flour for tenderness. The numbers are for King Arthur all-purpose. Her 1¼ tsp Diamond Crystal is ¾ tsp Morton by weight.",
+    "One glass plate, so one shell at a time. The second piece makes the next pie."
+  ],
+  "pages": 2,
+  "pdf": "flaky-pie-dough.pdf"
+}

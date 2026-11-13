@@ -1,0 +1,19 @@
+<header class="sp-page-head">
+  <div class="sp-crumb"><%= copy.recipes.index.breadcrumb %> · <%= count %> recipes · <%= categories.length %> categories</div>
+  <h1><%= copy.recipes.heading %></h1>
+  <p class="sp-index-summary"><%= copy.recipes.index.intro %></p>
+</header>
+
+<div class="sp-browse">
+  <div class="sp-browse-label"><%= copy.recipes.index.browse_category %>:</div>
+  <div class="sp-browse-row">
+    <a href="/recipes" class="is-all"><%= copy.ui.all_label %> (<%= count %>)</a>
+    <% categories.forEach(function(c){ %>
+      <a href="/recipes/<%= c.slug %>"><%= escapeHtml(c.name) %> <span class="n"><%= c.items.length %></span></a>
+    <% }) %>
+  </div>
+</div>
+
+<%~ include('_entries', { copy: copy, entries: entries, listCopy: listCopy, section: { base: '/recipes' }, escapeHtml: escapeHtml }) %>
+
+<%~ include('_recipe-disclaimer', { copy: copy }) %>

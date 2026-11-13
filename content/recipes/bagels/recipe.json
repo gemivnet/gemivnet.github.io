@@ -1,0 +1,120 @@
+{
+  "slug": "bagels",
+  "title": "Bagels",
+  "category": "Breads & Doughs",
+  "yield": "8 bagels (≈105 g dough each)",
+  "servings": null,
+  "active": "45 min",
+  "total": "≈2 h 15 min",
+  "oven": "<span class=\"rc-nw\">425 °F <span class=\"rc-muted\">(218 °C)</span></span>",
+  "equipment": [
+    "Wide pot",
+    "Sheet pan + parchment",
+    "Scale"
+  ],
+  "source": null,
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Bread flour",
+          "g": 500,
+          "vol": "4 cups",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Bread flour"
+        },
+        {
+          "name": "White sugar",
+          "g": 23,
+          "vol": "2 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "White sugar"
+        },
+        {
+          "name": "Instant yeast",
+          "g": 10,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Instant yeast"
+        },
+        {
+          "name": "Water",
+          "g": 297,
+          "vol": "1¼ cups",
+          "note": "<span class=\"rc-nw\">90 °F <span class=\"rc-muted\">(32 °C)</span></span>",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Salt",
+          "g": 6,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Salt"
+        }
+      ],
+      "body": "Put the flour, sugar, yeast, water and salt in the mixer bowl. Mix, then knead with the hook until smooth and elastic, ≈10 min. The dough will be stiff."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Cover the bowl. Let the dough rise until roughly doubled, ≈1 h."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Preheat oven to <span class=\"rc-nw\">425 °F <span class=\"rc-muted\">(218 °C)</span></span>. Line the sheet pan with parchment. Bring a wide pot of water to a boil."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Divide the dough into 8 pieces (≈105 g each). Roll each into a tight ball."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Poke a hole through the center of each ball and stretch it to ≈2 in across."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Boil the bagels in the pot, a few at a time, 1–2 min, flipping halfway. Lift them out and drain."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Bake on the lined sheet until deep golden, ≈20 min."
+    }
+  ],
+  "nutritionSource": null,
+  "swaps": null,
+  "notes": [],
+  "pages": 1,
+  "pdf": "bagels.pdf"
+}

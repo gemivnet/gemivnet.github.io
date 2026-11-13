@@ -1,0 +1,219 @@
+{
+  "slug": "instant-pot-oreo-cheesecake",
+  "title": "Instant Pot Oreo Cheesecake",
+  "category": "Desserts",
+  "yield": "6 in cheesecake, 8 slices",
+  "servings": 8,
+  "active": "30 min",
+  "total": "≈5 h 30 min (incl. 4 h chill)",
+  "oven": null,
+  "equipment": [
+    "Instant Pot + trivet",
+    "Food processor",
+    "6 in springform, high-walled",
+    "Foil",
+    "Parchment"
+  ],
+  "source": "Binging with Babish; Oreo crust and mix-in after My Baking Addiction",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Crust"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Oreo cookies",
+          "g": 125,
+          "vol": "11",
+          "note": null,
+          "kcal": 586.67,
+          "na": 495,
+          "pro": 3.67,
+          "counted": null,
+          "countedNote": null,
+          "key": "Oreo cookies"
+        },
+        {
+          "name": "Butter, salted",
+          "g": 28,
+          "vol": "2 tbsp",
+          "note": "melted",
+          "kcal": 203.6,
+          "na": 182.6,
+          "pro": 0.24,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, salted"
+        }
+      ],
+      "body": "Process the whole cookies, filling and all, to a fine crumb. Tip into a bowl and mix in the butter until it packs like wet sand."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Clamp a sheet of parchment into the base of the springform and tear off the excess. Spray generously. Press the crumbs in and use a flat-bottomed ramekin to pack them flat and up the sides. Wrap the outside of the base in foil. Freeze while you make the filling."
+    },
+    {
+      "kind": "stage",
+      "name": "Filling (food processor)"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Cream cheese, Philadelphia",
+          "g": 454,
+          "vol": "2 × 8 oz bricks",
+          "note": "room temp",
+          "kcal": 1620,
+          "na": 1782,
+          "pro": 32.4,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cream cheese, Philadelphia"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 100,
+          "vol": "½ cup",
+          "note": null,
+          "kcal": 387,
+          "na": 1,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 1.2,
+          "vol": "¼ tsp",
+          "note": null,
+          "kcal": null,
+          "na": 480,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        },
+        {
+          "name": "Lemon juice",
+          "g": 31,
+          "vol": "2 tbsp",
+          "note": "fresh",
+          "kcal": 6.7,
+          "na": 0.3,
+          "pro": 0.11,
+          "counted": null,
+          "countedNote": null,
+          "key": "Lemon juice"
+        },
+        {
+          "name": "Vanilla extract",
+          "g": 4.2,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": 12.1,
+          "na": 0.4,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Vanilla extract"
+        }
+      ],
+      "body": "Process the cream cheese, sugar and salt until smooth. Add the lemon and vanilla and process until smooth again."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Eggs",
+          "g": 100,
+          "vol": "2 large",
+          "note": "room temp",
+          "kcal": 143,
+          "na": 142,
+          "pro": 12.56,
+          "counted": null,
+          "countedNote": null,
+          "key": "Eggs"
+        }
+      ],
+      "body": "Add the eggs one at a time, processing and scraping down between each."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Heavy whipping cream",
+          "g": 60,
+          "vol": "¼ cup",
+          "note": "room temp",
+          "kcal": 202.3,
+          "na": 16.1,
+          "pro": 1.69,
+          "counted": null,
+          "countedNote": null,
+          "key": "Heavy whipping cream"
+        }
+      ],
+      "body": "Add the cream and process until just incorporated."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Oreo cookies",
+          "g": 91,
+          "vol": "8",
+          "note": "coarsely chopped",
+          "kcal": 426.67,
+          "na": 360,
+          "pro": 2.67,
+          "counted": null,
+          "countedNote": null,
+          "key": "Oreo cookies"
+        }
+      ],
+      "body": "Fold the chopped Oreos in by hand with a spatula; don’t process. Pour into the crust and tap the pan hard several times to release bubbles. Cover the top tightly with foil."
+    },
+    {
+      "kind": "stage",
+      "name": "Cook"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Water",
+          "g": 237,
+          "vol": "1 cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        }
+      ],
+      "body": "Pour the water into the pot and lower the pan onto the trivet (a foil sling helps). Lock the lid, valve on Sealing. High pressure 35 min, then natural release."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "It will still jiggle. Refrigerate until completely cold and set, at least 4 h. Unmold and slide it off the base."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (sugar, butter, lemon, vanilla, eggs, cream) and Branded Foods labels (Oreo, Philadelphia, Morton). Water and pan spray not counted.",
+  "swaps": null,
+  "notes": [
+    "Room-temp ingredients prevent lumps. Check that the pan fits your pot.",
+    "Same filling as the plain Instant Pot Cheesecake card, with Oreos folded in. The numbers are for Original Oreos (3 cookies = 34 g)."
+  ],
+  "pages": 2,
+  "pdf": "instant-pot-oreo-cheesecake.pdf"
+}

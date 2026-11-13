@@ -1,0 +1,226 @@
+{
+  "slug": "grandma-carters-fly-off-the-plate-pancakes",
+  "title": "Grandma Carter's Fly-Off-the-Plate Pancakes",
+  "category": "Breakfast",
+  "yield": "≈8 pancakes + syrup, 3 servings",
+  "servings": 3,
+  "active": "25 min",
+  "total": "≈25 min",
+  "oven": null,
+  "equipment": [
+    "Cast iron griddle or skillet",
+    "Sifter or strainer",
+    "Small saucepan"
+  ],
+  "source": "Grandma Carter (index card)",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Brown sugar syrup"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Brown sugar, packed",
+          "g": 220,
+          "vol": "1 cup",
+          "note": null,
+          "kcal": 836,
+          "na": 61.6,
+          "pro": 0.26,
+          "counted": null,
+          "countedNote": null,
+          "key": "Brown sugar, packed"
+        },
+        {
+          "name": "Water",
+          "g": 118,
+          "vol": "½ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Butter, unsalted",
+          "g": 57,
+          "vol": "¼ cup",
+          "note": null,
+          "kcal": 408.69,
+          "na": 6.27,
+          "pro": 0.48,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, unsalted"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": null,
+          "vol": "dash",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        }
+      ],
+      "body": "Put the brown sugar, water, butter and salt in the saucepan. Boil, stirring, until thick, <span class=\"rc-nw\">3–4 min</span>."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Vanilla extract",
+          "g": 1,
+          "vol": "¼ tsp",
+          "note": null,
+          "kcal": 2.88,
+          "na": 0.09,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Vanilla extract"
+        }
+      ],
+      "body": "Take the pan off the heat and stir in the vanilla. Keep the syrup warm while you make the pancakes."
+    },
+    {
+      "kind": "stage",
+      "name": "Pancakes"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flour, all-purpose",
+          "g": 125,
+          "vol": "1 cup",
+          "note": null,
+          "kcal": 455,
+          "na": 2.5,
+          "pro": 12.91,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, all-purpose"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 12.5,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": 48.38,
+          "na": 0.12,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        },
+        {
+          "name": "Baking powder, Davis",
+          "g": 14.4,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": 1555.2,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Baking powder, Davis"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 1.2,
+          "vol": "¼ tsp",
+          "note": null,
+          "kcal": null,
+          "na": 480,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        }
+      ],
+      "body": "Sift the flour, sugar, baking powder and salt into a bowl, then mix them together."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Egg",
+          "g": 50,
+          "vol": "1 large",
+          "note": null,
+          "kcal": 71.5,
+          "na": 71,
+          "pro": 6.28,
+          "counted": null,
+          "countedNote": null,
+          "key": "Egg"
+        },
+        {
+          "name": "Milk",
+          "g": 244,
+          "vol": "1 cup",
+          "note": null,
+          "kcal": 148.84,
+          "na": 104.92,
+          "pro": 7.69,
+          "counted": null,
+          "countedNote": null,
+          "key": "Milk"
+        },
+        {
+          "name": "Sour cream",
+          "g": 36,
+          "vol": "2 rounded tbsp",
+          "note": null,
+          "kcal": 71.28,
+          "na": 11.16,
+          "pro": 0.88,
+          "counted": null,
+          "countedNote": null,
+          "key": "Sour cream"
+        }
+      ],
+      "body": "In a second bowl, beat the egg, milk and sour cream together. Stir in the dry ingredients from step 3 until just combined; a few lumps are fine."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Butter, unsalted",
+          "g": 28,
+          "vol": "2 tbsp",
+          "note": "melted",
+          "kcal": 200.76,
+          "na": 3.08,
+          "pro": 0.24,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, unsalted"
+        }
+      ],
+      "body": "Stir the melted butter into the batter."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Heat the griddle over medium and grease it lightly. Pour ≈¼ cup of batter per pancake. Flip when bubbles pop on top and the edges look set, ≈2 min. Cook ≈1 min more. Serve with the warm syrup."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (brown sugar, unsalted butter, vanilla, flour, sugar, egg, milk, sour cream) and Branded Foods labels (Davis, Morton). Rounded tbsp taken as 1½ level (18 g). All the syrup is counted, so the numbers drop if you use less. Dash of salt, water and griddle grease not counted.",
+  "swaps": null,
+  "notes": [
+    "On the card: “Recipe from Memaw, your great G-ma, my mother Lilly.”",
+    "The griddle step isn’t on the card, and the syrup is moved first here so it’s ready when the pancakes are."
+  ],
+  "pages": 2,
+  "pdf": "grandma-carters-fly-off-the-plate-pancakes.pdf"
+}

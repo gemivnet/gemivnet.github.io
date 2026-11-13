@@ -1,0 +1,124 @@
+{
+  "slug": "new-york-bacon-pineapple-bbq",
+  "title": "Bacon-Pineapple + BBQ Chicken Pies",
+  "category": "Hearty",
+  "yield": "Toppings for one 16 in pie each, 8 slices",
+  "servings": null,
+  "active": "15–30 min per pie",
+  "total": null,
+  "oven": "<span class=\"rc-nw\">550 °F <span class=\"rc-muted\">(288 °C)</span></span>",
+  "equipment": [
+    "Same setup as the New York–Style Pizza card",
+    "Skillet",
+    "Rimmed sheet pan"
+  ],
+  "source": "Ken Forkish (Elements of Pizza), California Pizza Kitchen",
+  "revised": "2026-11-05",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Bacon + pineapple"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Pineapple chunks, canned in juice",
+          "g": 180,
+          "vol": "≈1 cup",
+          "note": "drained, halved",
+          "kcal": 108,
+          "na": 1.8,
+          "pro": 0.92,
+          "counted": null,
+          "countedNote": null,
+          "key": "Pineapple chunks, canned in juice"
+        },
+        {
+          "name": "Sweet onion",
+          "g": 50,
+          "vol": "⅓ cup",
+          "note": "½ in pieces",
+          "kcal": 16,
+          "na": 4,
+          "pro": 0.4,
+          "counted": null,
+          "countedNote": null,
+          "key": "Sweet onion"
+        },
+        {
+          "name": "Olive oil, extra-virgin",
+          "g": 6.75,
+          "vol": "1½ tsp",
+          "note": null,
+          "kcal": 59.7,
+          "na": 0.1,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Olive oil, extra-virgin"
+        },
+        {
+          "name": "Bacon, Smithfield",
+          "g": 130,
+          "vol": "5 slices",
+          "note": "1 in pieces",
+          "kcal": 510.9,
+          "na": 976.3,
+          "pro": 17.76,
+          "counted": null,
+          "countedNote": null,
+          "key": "Bacon, Smithfield"
+        }
+      ],
+      "body": "Pat the pineapple dry; toss with the onion, oil, a pinch of salt and chile flakes. Roast on the sheet pan at <span class=\"rc-nw\">550 °F <span class=\"rc-muted\">(288 °C)</span></span> until caramelized at the edges, ≈10 min. Cook the bacon in the skillet over medium-high until half done and still pliable, ≈3 min. Drain; keep 1 tsp fat."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Dough + sauce, from the cards",
+          "g": 629,
+          "vol": "1 ball + 145 g",
+          "note": null,
+          "kcal": 1220.59,
+          "na": 3222.26,
+          "pro": 43.02,
+          "counted": null,
+          "countedNote": null,
+          "key": "Dough + sauce, from the cards"
+        },
+        {
+          "name": "Pecorino Romano, Locatelli",
+          "g": 4,
+          "vol": "≈1 tbsp",
+          "note": null,
+          "kcal": 15.72,
+          "na": 68.4,
+          "pro": 1.14,
+          "counted": null,
+          "countedNote": null,
+          "key": "Pecorino Romano, Locatelli"
+        },
+        {
+          "name": "Mozzarella blend, main card",
+          "g": 130,
+          "vol": "4½ oz",
+          "note": "grated",
+          "kcal": 390,
+          "na": 822.9,
+          "pro": 30.36,
+          "counted": null,
+          "countedNote": null,
+          "key": "Mozzarella blend, main card"
+        }
+      ],
+      "body": "Brush the stretched dough with the bacon fat, then sauce, Pecorino and mozzarella. Pineapple and onion, then bacon on top so it crisps under the broiler."
+    }
+  ],
+  "nutritionSource": "SR Legacy (drained canned pineapple, sweet onion, oil, raw bacon with all its fat). Salt, chile, optional jalapeño or hot honey not counted.",
+  "swaps": null,
+  "notes": [],
+  "pages": 2,
+  "pdf": "new-york-bacon-pineapple-bbq.pdf"
+}

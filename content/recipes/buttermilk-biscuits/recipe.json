@@ -1,0 +1,137 @@
+{
+  "slug": "buttermilk-biscuits",
+  "title": "Buttermilk Biscuits",
+  "category": "Breads & Doughs",
+  "yield": "12 biscuits",
+  "servings": 12,
+  "active": "15 min",
+  "total": "≈40 min",
+  "oven": "<span class=\"rc-nw\">400 °F <span class=\"rc-muted\">(204 °C)</span></span>",
+  "equipment": [
+    "Half sheet pan",
+    "Metal bench scraper"
+  ],
+  "source": "Handwritten notes; method from Alton Brown, Food Network",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Preheat the oven to <span class=\"rc-nw\">400 °F <span class=\"rc-muted\">(204 °C)</span></span>. Keep the butter and buttermilk in the fridge until you need them."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flour, all-purpose",
+          "g": 360,
+          "vol": "3 cups",
+          "note": null,
+          "kcal": 1320,
+          "na": null,
+          "pro": 48,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, all-purpose"
+        },
+        {
+          "name": "Baking powder, Davis",
+          "g": 14.4,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": 1555.2,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Baking powder, Davis"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 4.8,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": null,
+          "na": 1920,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        }
+      ],
+      "body": "Whisk the flour, baking powder and salt together in a large bowl."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Butter, unsalted",
+          "g": 85,
+          "vol": "6 tbsp",
+          "note": "cold, cubed",
+          "kcal": 609.45,
+          "na": 9.35,
+          "pro": 0.72,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, unsalted"
+        }
+      ],
+      "body": "Rub the cold butter into the flour with your fingertips until it looks like coarse crumbs."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Buttermilk",
+          "g": 240,
+          "vol": "≈1 cup",
+          "note": "cold",
+          "kcal": 96,
+          "na": 355.2,
+          "pro": 7.94,
+          "counted": null,
+          "countedNote": null,
+          "key": "Buttermilk"
+        }
+      ],
+      "body": "Make a well in the middle and pour in the buttermilk. Stir until the dough just comes together, then knead it in the bowl until all the flour is taken up. If it’s still dry, add up to 15 g more buttermilk."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flour, all-purpose",
+          "g": null,
+          "vol": "a few tbsp",
+          "note": "for the counter",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, all-purpose"
+        }
+      ],
+      "body": "Turn the dough out onto a floured counter. Fold it over and knead gently for 30 s, until soft and smooth. Press it into a rectangle 1 in thick."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Cut into 12 squares with the bench scraper, pushing straight down without twisting. Set them on the sheet pan so they just touch. Press a thumb dimple into the center of each."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Bake until tall and light gold on top, <span class=\"rc-nw\">15–20 min</span>."
+    }
+  ],
+  "nutritionSource": "USDA SR Legacy (butter, buttermilk) and labels (King Arthur all-purpose, Davis, Morton). Counter flour not counted.",
+  "swaps": null,
+  "notes": [
+    "Half batch, from the second column of the notes: 180 g flour, ½ tsp salt, 1½ tsp baking powder, 43 g butter, 120 g buttermilk. Makes 6.",
+    "Alton’s version: 340 g flour, 4 tsp baking powder, ¼ tsp baking soda, ¾ tsp kosher salt, 1 oz butter + 2 oz shortening, 8 fl oz buttermilk, cut in 3 in rounds. Squares here since there’s no biscuit cutter."
+  ],
+  "pages": 1,
+  "pdf": "buttermilk-biscuits.pdf"
+}

@@ -1,0 +1,97 @@
+{
+  "slug": "grammys-fried-dough",
+  "title": "Grammy's Fried Dough",
+  "category": "Desserts",
+  "yield": "1–2 loaves&#39; worth",
+  "servings": null,
+  "active": "30 min",
+  "total": "Thaw/rise time + 30 min",
+  "oven": null,
+  "equipment": [
+    "Heavy skillet (cast iron)",
+    "Probe thermometer",
+    "Wire rack or paper towels"
+  ],
+  "source": "Grammy",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Rhodes frozen white bread dough",
+          "g": "454 g each",
+          "vol": "1–2 loaves",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Rhodes frozen white bread dough"
+        }
+      ],
+      "body": "Thaw the dough and let it rise until doubled, following the package. Overnight in the fridge or a few hours at room temp."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Neutral oil",
+          "g": null,
+          "vol": "≈½ in deep",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Neutral oil"
+        }
+      ],
+      "body": "Heat the oil in the skillet over medium to <span class=\"rc-nw\">350–375 °F</span>."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Pull off pieces and stretch them a little. Shallow-fry in batches until golden on both sides, ≈1–2 min per side. Drain."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Butter",
+          "g": null,
+          "vol": "to taste",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter"
+        },
+        {
+          "name": "Powdered sugar",
+          "g": null,
+          "vol": "for dusting",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Powdered sugar"
+        }
+      ],
+      "body": "Serve hot, buttered and dusted with powdered sugar."
+    }
+  ],
+  "nutritionSource": null,
+  "swaps": null,
+  "notes": [
+    "Oil too cool soaks into the dough. Too hot browns the outside before the inside cooks."
+  ],
+  "pages": 1,
+  "pdf": "grammys-fried-dough.pdf"
+}

@@ -1,0 +1,107 @@
+{
+  "slug": "white-chocolate-mocha",
+  "title": "White Chocolate Mocha",
+  "category": "Drinks",
+  "yield": "1 drink, 16 oz (a Starbucks grande)",
+  "servings": 1,
+  "active": "≈7 min",
+  "total": "≈7 min",
+  "oven": null,
+  "equipment": [
+    "Espresso machine + steam wand",
+    "Steaming pitcher",
+    "16 oz mug",
+    "Probe thermometer"
+  ],
+  "source": "Copycat of the Starbucks White Chocolate Mocha (grande: 2 shots, steamed milk, white chocolate)",
+  "revised": "2026-11-12",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "White baking chips, Meijer",
+          "g": 45,
+          "vol": "3 tbsp",
+          "note": null,
+          "kcal": 239.85,
+          "na": 30.15,
+          "pro": 3,
+          "counted": null,
+          "countedNote": null,
+          "key": "White baking chips, Meijer"
+        }
+      ],
+      "body": "Run hot water through the steam wand into the mug to warm it, then pour the water out. Put the white chips in the empty mug."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Espresso",
+          "g": 59,
+          "vol": "2 shots, 2 fl oz",
+          "note": "fresh",
+          "kcal": 5.31,
+          "na": 8.26,
+          "pro": 0.07,
+          "counted": null,
+          "countedNote": null,
+          "key": "Espresso"
+        }
+      ],
+      "body": "Pull the double shot straight onto the chips in the mug. Let it sit 30 s, then stir until the chips melt and the espresso is smooth, ≈1 min. Lumps left? Microwave the mug 10 s and stir again."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Milk, whole",
+          "g": 274,
+          "vol": "1 cup + 2 tbsp",
+          "note": "cold",
+          "kcal": 167.14,
+          "na": 117.82,
+          "pro": 8.63,
+          "counted": null,
+          "countedNote": null,
+          "key": "Milk, whole"
+        }
+      ],
+      "body": "Pour the cold milk into the steaming pitcher (no more than ⅓ full). Purge the wand, sink the tip just under the surface and steam, letting in a little air for the first 5 s for a thin layer of foam. Then lower the tip and heat to <span class=\"rc-nw\">150 °F <span class=\"rc-muted\">(66 °C)</span></span>, when the pitcher is too hot to hold, <span class=\"rc-nw\">≈30–45 s</span>."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Wipe and purge the wand. Tap the pitcher on the counter and swirl to break big bubbles. Pour the milk into the mug, holding back the foam with a spoon, then spoon the foam on top."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Caramel sauce, Ghirardelli",
+          "g": 20,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": 55,
+          "na": 32.4,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Caramel sauce, Ghirardelli"
+        }
+      ],
+      "body": "Drizzle the caramel sauce over the foam in a crisscross. Serve right away."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: Branded Foods labels (Meijer Vanilla White Baking Chips, 11 oz, FDC 2632879; Ghirardelli Premium Caramel Sauce, 16 oz, FDC 2580730) and SR Legacy (espresso 171891; whole milk 171265). Whipped cream not counted.",
+  "swaps": null,
+  "notes": [
+    "Starbucks’s white mocha has no caramel; skip the drizzle for the classic drink (412 kcal). For a caramel white mocha all the way through, stir the caramel into the espresso with the chips instead.",
+    "Sweetness: 3 tbsp chips is café-sweet. Use 2 tbsp (30 g) for less sweet. The Meijer chips are “vanilla white” (palm oil, no cocoa butter), so they melt thinner than real white chocolate. Stir well.",
+    "Starbucks tops it with whipped cream: a short pull from the iSi Gourmet Whip works, not counted above.",
+    "Iced: melt the chips in the hot espresso, stir in the cold milk unsteamed, then pour over a cup of ice."
+  ],
+  "pages": 1,
+  "pdf": "white-chocolate-mocha.pdf"
+}

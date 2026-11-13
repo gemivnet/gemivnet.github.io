@@ -1,0 +1,120 @@
+{
+  "slug": "nokedli",
+  "title": "Nokedli",
+  "category": "Hungarian",
+  "yield": "≈4 side servings",
+  "servings": null,
+  "active": "15 min",
+  "total": "20 min",
+  "oven": null,
+  "equipment": [
+    "Large pot",
+    "Nokedli maker (spätzle press)",
+    "Slotted spoon"
+  ],
+  "source": null,
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Water",
+          "g": null,
+          "vol": "large pot",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Salt",
+          "g": "10 g/L",
+          "vol": null,
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Salt"
+        }
+      ],
+      "body": "Bring the salted water to a boil."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flour",
+          "g": 200,
+          "vol": "1⅔ cups",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour"
+        },
+        {
+          "name": "Eggs",
+          "g": 100,
+          "vol": "2 large",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Eggs"
+        },
+        {
+          "name": "Water",
+          "g": 120,
+          "vol": "½ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Salt",
+          "g": null,
+          "vol": "pinch",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Salt"
+        }
+      ],
+      "body": "In a bowl, whisk the flour, eggs, water and salt into a thick, smooth batter that falls slowly from a spoon."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Press the batter through the nokedli maker into the boiling water, in batches."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Cook until they float, 1–2 min. Skim out and drain."
+    }
+  ],
+  "nutritionSource": null,
+  "swaps": null,
+  "notes": [
+    "Toss with a little butter to keep them from sticking. Serve with paprikás or pörkölt."
+  ],
+  "pages": 1,
+  "pdf": "nokedli.pdf"
+}

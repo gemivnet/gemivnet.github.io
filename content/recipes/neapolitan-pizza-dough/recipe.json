@@ -1,0 +1,175 @@
+{
+  "slug": "neapolitan-pizza-dough",
+  "title": "Neapolitan Pizza Dough",
+  "category": "Breads & Doughs",
+  "yield": "4 balls, ≈257 g each (11–12 in pies)",
+  "servings": 4,
+  "active": "30 min",
+  "total": "≈2 days (poolish + 24 h cold + 2–4 h proof)",
+  "oven": null,
+  "equipment": [
+    "Stand mixer, paddle + hook",
+    "Scale, 0.01 g",
+    "Covered tray or 4 containers"
+  ],
+  "source": "Vito Iacopelli poolish method; AVPN rules; home-oven changes after Da Michele",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Day 1, ≈7 pm: poolish"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flour, Caputo Chef&#39;s 00",
+          "g": 174,
+          "vol": "≈1½ cups",
+          "note": null,
+          "kcal": 575.41,
+          "na": null,
+          "pro": 23.02,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, Caputo Chef's 00"
+        },
+        {
+          "name": "Water",
+          "g": 174,
+          "vol": "¾ cup",
+          "note": "room temp",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Instant yeast",
+          "g": 1.7,
+          "vol": "½ tsp",
+          "note": "weigh it",
+          "kcal": 5.5,
+          "na": 0.9,
+          "pro": 0.69,
+          "counted": null,
+          "countedNote": null,
+          "key": "Instant yeast"
+        },
+        {
+          "name": "Honey",
+          "g": 1.7,
+          "vol": "¼ tsp",
+          "note": null,
+          "kcal": 5.2,
+          "na": 0.1,
+          "pro": 0.01,
+          "counted": null,
+          "countedNote": null,
+          "key": "Honey"
+        }
+      ],
+      "body": "In a bowl, stir the flour, water, yeast and honey to a smooth batter. Cover; 1 h at room temp, then refrigerate 16–24 h."
+    },
+    {
+      "kind": "stage",
+      "name": "Day 2, ≈1 pm: final dough"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Water",
+          "g": 232,
+          "vol": "1 cup",
+          "note": "cold, hold back 20 g",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Flour, Caputo Chef&#39;s 00",
+          "g": 406,
+          "vol": "≈3⅓ cups",
+          "note": null,
+          "kcal": 1342.62,
+          "na": null,
+          "pro": 53.7,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, Caputo Chef's 00"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 8.7,
+          "vol": "2 tsp",
+          "note": null,
+          "kcal": 33.7,
+          "na": 0.1,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        }
+      ],
+      "body": "Dissolve the poolish in 212 g of the water in the mixer bowl. Add the flour and sugar. Paddle on speed 1 for 2 min. Rest 20 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Kosher salt, Morton",
+          "g": 16.2,
+          "vol": "≈3⅓ tsp",
+          "note": null,
+          "kcal": null,
+          "na": 6480,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        },
+        {
+          "name": "Olive oil, extra-virgin",
+          "g": 14.5,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": 128.2,
+          "na": 0.3,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Olive oil, extra-virgin"
+        }
+      ],
+      "body": "Add the salt; switch to the hook. Speed 2, trickling in the last 20 g water, until smooth and it stretches to a thin windowpane, 6–8 min. Add the oil last and mix until absorbed. Aim for ≈<span class=\"rc-nw\">75 °F</span>."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Cover; 1 h at room temp, then refrigerate ≈24 h."
+    },
+    {
+      "kind": "stage",
+      "name": "Day 3"
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "≈1 pm: take it out. ≈2 pm: divide into 4 × 257 g and ball tightly. Proof covered at <span class=\"rc-nw\">72–77 °F</span> until 1½–2× and soft and airy, 2–4 h. Bake with the Neapolitan Buffalo Margherita card."
+    }
+  ],
+  "nutritionSource": "Caputo Chef’s 00 label via the US importer (¼ cup = 100 kcal, 0 mg, 4 g; 33 per 2.2 lb bag, ≈30.2 g). SR Legacy (yeast as active dry, honey, sugar, olive oil); Morton label. Water not counted.",
+  "swaps": null,
+  "notes": [
+    "Baker’s %: flour 100 (30 in the poolish), water 70, salt 2.8, oil 2.5, sugar 1.5, instant yeast 0.3. Wetter than Naples (≈60 %) plus oil and sugar, because a home oven bakes 2–4 min, not 60–90 s.",
+    "The rim comes from a fully proofed, room-temperature ball more than from technique. Don’t rush the proof."
+  ],
+  "pages": 1,
+  "pdf": "neapolitan-pizza-dough.pdf"
+}

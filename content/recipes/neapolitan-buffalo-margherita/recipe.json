@@ -1,0 +1,164 @@
+{
+  "slug": "neapolitan-buffalo-margherita",
+  "title": "Neapolitan Buffalo Margherita",
+  "category": "Hearty",
+  "yield": "4 pies, 11–12 in",
+  "servings": 4,
+  "active": "≈45 min",
+  "total": "≈1 h 30 min (dough made 2 days ahead)",
+  "oven": "<span class=\"rc-nw\">550 °F <span class=\"rc-muted\">(288 °C)</span></span>, then broil",
+  "equipment": [
+    "Pizza steel, 14.5 × 16 × ⅜ in",
+    "Pizza stone",
+    "Wood pizza peel",
+    "IR thermometer"
+  ],
+  "source": "AVPN / EU STG Margherita rules, Mangieri, Modernist Pizza, Kenji, Baking Steel",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Night before"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Mozzarella di bufala, DOP",
+          "g": 360,
+          "vol": "≈3 × 125 g balls",
+          "note": "1½ cm chunks",
+          "kcal": 1141.2,
+          "na": 2761.2,
+          "pro": 60.01,
+          "counted": null,
+          "countedNote": null,
+          "key": "Mozzarella di bufala, DOP"
+        }
+      ],
+      "body": "Cut the mozzarella and drain it in a sieve over paper towels, uncovered, in the fridge. Pat dry before using. Out of the fridge 30 min before baking."
+    },
+    {
+      "kind": "stage",
+      "name": "Sauce (raw)"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "San Marzano tomatoes, Mutti DOP",
+          "g": 300,
+          "vol": "2 × 14 oz cans",
+          "note": "drained",
+          "kcal": 72,
+          "na": 12,
+          "pro": 2.37,
+          "counted": null,
+          "countedNote": null,
+          "key": "San Marzano tomatoes, Mutti DOP"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 2.7,
+          "vol": "½ tsp + pinch",
+          "note": null,
+          "kcal": null,
+          "na": 1080,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        }
+      ],
+      "body": "Drain the tomatoes 10 min. Trim stem ends and any skin. Crush by hand into small pieces; don’t blend (broken seeds turn bitter). Weigh 300 g and stir in the salt. Nothing else. Use at room temp."
+    },
+    {
+      "kind": "stage",
+      "name": "Bake (each pie)"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Neapolitan Pizza Dough",
+          "g": 1029,
+          "vol": "4 balls",
+          "note": "card",
+          "kcal": 2090.63,
+          "na": 6481.4,
+          "pro": 77.42,
+          "counted": null,
+          "countedNote": null,
+          "key": "Neapolitan Pizza Dough"
+        }
+      ],
+      "body": "T − 1 h: steel on the top rack, its surface ≈4 in below the broiler (no closer than 3 in). Stone on the lowest rack. Oven to <span class=\"rc-nw\">550 °F <span class=\"rc-muted\">(288 °C)</span></span> for a full hour; broil on high the last 5–10 min. The steel should read ≈<span class=\"rc-nw\">600–650 °F</span>."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Semolina + flour",
+          "g": null,
+          "vol": "for the peel",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Semolina + flour"
+        }
+      ],
+      "body": "Flour the ball. Press with fingertips from the center out, pushing air to the edge; leave a 1 in rim untouched. Flip, repeat. Stretch over the backs of your hands to 11–12 in. Never press the rim."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Basil, fresh",
+          "g": 10,
+          "vol": "≈20 leaves",
+          "note": "3 before, 2 after per pie",
+          "kcal": 2.3,
+          "na": 0.4,
+          "pro": 0.32,
+          "counted": null,
+          "countedNote": null,
+          "key": "Basil, fresh"
+        },
+        {
+          "name": "Olive oil, extra-virgin",
+          "g": 30,
+          "vol": "≈2 tbsp",
+          "note": "5 g before, 2.5 g after per pie",
+          "kcal": 265.2,
+          "na": 0.6,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Olive oil, extra-virgin"
+        }
+      ],
+      "body": "On the peel: 75 g sauce in a spiral, rim bare; 3 basil leaves; 5 g oil in a spiral. Launch under the lit broiler; close the door."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Rotate 180° at ≈1 min. At ≈2½ min, when the rim has puffed and set, pull it onto the peel. Scatter 90 g bufala. Back under the broiler until just melted and the rim is leopard-spotted, 1½–2 min. Top racing ahead of the bottom? Broiler off for the last minute."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Finish with 2 fresh basil leaves and 2.5 g raw oil. Serve at once. Broil 5–7 min between pies to reheat the steel."
+    }
+  ],
+  "nutritionSource": "Mutti San Marzano PDO label (FDC 1144271); Il Villaggio Bufala Campana DOP label (FDC 1884913) as the DOP reference; Morton; SR Legacy (basil, olive oil). Dough from its card. Peel dusting not counted.",
+  "swaps": null,
+  "notes": [
+    "Use true DOP tomatoes: look for the Consorzio seal and a numbered strip. Cento “Certified San Marzano” is not DOP.",
+    "This is the best Neapolitan a home oven makes (2–4 min). For the real 60–90 s pie, the upgrade is an Effeuno P134HA: ≈<span class=\"rc-nw\">950 °F</span>, 240 V, AVPN-approved, indoors."
+  ],
+  "pages": 2,
+  "pdf": "neapolitan-buffalo-margherita.pdf"
+}

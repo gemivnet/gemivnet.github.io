@@ -1,0 +1,311 @@
+{
+  "slug": "italian-beef",
+  "title": "Italian Beef",
+  "category": "Hearty",
+  "yield": "6 sandwiches",
+  "servings": 6,
+  "active": "≈1 h",
+  "total": "≈5 h + overnight chill",
+  "oven": "<span class=\"rc-nw\">300 °F <span class=\"rc-muted\">(149 °C)</span></span>, then <span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>",
+  "equipment": [
+    "Dutch oven, 6 qt+",
+    "Fine-mesh strainer",
+    "Sheet pan"
+  ],
+  "source": "Jeff Mauro (Food Network), adapted: sliced thin, no wine",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Pot roast (day 1)"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Water",
+          "g": 1183,
+          "vol": "5 cups",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Better Than Bouillon, roasted beef",
+          "g": 30,
+          "vol": "5 tsp",
+          "note": null,
+          "kcal": 50.1,
+          "na": 3399.9,
+          "pro": 5,
+          "counted": null,
+          "countedNote": null,
+          "key": "Better Than Bouillon, roasted beef"
+        }
+      ],
+      "body": "Oven to <span class=\"rc-nw\">300 °F <span class=\"rc-muted\">(149 °C)</span></span>, rack in the middle. Whisk the base into the water. This is the stock."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Chuck roast",
+          "g": 1588,
+          "vol": "3½ lb",
+          "note": "boneless",
+          "kcal": 3938.24,
+          "na": 1079.84,
+          "pro": 272.5,
+          "counted": null,
+          "countedNote": null,
+          "key": "Chuck roast"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 7.2,
+          "vol": "1½ tsp",
+          "note": null,
+          "kcal": null,
+          "na": 2880,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        },
+        {
+          "name": "Black pepper",
+          "g": null,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Black pepper"
+        },
+        {
+          "name": "Vegetable oil",
+          "g": 27,
+          "vol": "2 tbsp",
+          "note": null,
+          "kcal": 238.68,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Vegetable oil"
+        }
+      ],
+      "body": "Season the roast all over with the salt and pepper. Heat the oil in the Dutch oven over medium-high. Brown on all sides until deeply golden; lower the heat if the fat smokes. Set aside."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Onion",
+          "g": 110,
+          "vol": "1 medium",
+          "note": "rough chop",
+          "kcal": 44,
+          "na": 4.4,
+          "pro": 1.21,
+          "counted": null,
+          "countedNote": null,
+          "key": "Onion"
+        }
+      ],
+      "body": "Lower the heat to medium and add the onion to the pot. Sauté, stirring now and then, until just beginning to brown, <span class=\"rc-nw\">8–10 min</span>."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Italian seasoning",
+          "g": null,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": 9.54,
+          "na": 0.9,
+          "pro": 0.32,
+          "counted": null,
+          "countedNote": null,
+          "key": "Italian seasoning"
+        },
+        {
+          "name": "Crushed red pepper",
+          "g": null,
+          "vol": "2 tsp",
+          "note": null,
+          "kcal": 11.45,
+          "na": 1.08,
+          "pro": 0.43,
+          "counted": null,
+          "countedNote": null,
+          "key": "Crushed red pepper"
+        },
+        {
+          "name": "Garlic",
+          "g": 18,
+          "vol": "6 cloves",
+          "note": "rough chop",
+          "kcal": 26.82,
+          "na": 3.06,
+          "pro": 1.14,
+          "counted": null,
+          "countedNote": null,
+          "key": "Garlic"
+        }
+      ],
+      "body": "Add the seasoning and pepper flakes; sauté until fragrant, ≈1 min. Add the garlic, ≈30 s."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Thyme, fresh",
+          "g": null,
+          "vol": "2 sprigs",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Thyme, fresh"
+        }
+      ],
+      "body": "Deglaze with ½ cup of the stock, scraping up the browned bits, and reduce by half. Add the rest of the stock and the thyme. Bring to a simmer."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Return the roast and its juices. Braise in the oven, turning every 30 min, until fork-tender but still holding together, <span class=\"rc-nw\">3½–4 h</span>. For slicing, don’t let it fall apart."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Lift out the roast. Strain the jus and discard the solids. Cool, then refrigerate the roast and jus separately overnight so the roast firms up for slicing."
+    },
+    {
+      "kind": "stage",
+      "name": "Sweet peppers + build (day 2)"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Green bell peppers",
+          "g": 476,
+          "vol": "4",
+          "note": "seeded, strips",
+          "kcal": 95.2,
+          "na": 14.28,
+          "pro": 4.09,
+          "counted": null,
+          "countedNote": null,
+          "key": "Green bell peppers"
+        },
+        {
+          "name": "Olive oil",
+          "g": 27,
+          "vol": "2 tbsp",
+          "note": null,
+          "kcal": 238.68,
+          "na": 0.54,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Olive oil"
+        },
+        {
+          "name": "Garlic powder",
+          "g": null,
+          "vol": "1 tsp",
+          "note": "granulated",
+          "kcal": 10.26,
+          "na": 1.86,
+          "pro": 0.51,
+          "counted": null,
+          "countedNote": null,
+          "key": "Garlic powder"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 1.2,
+          "vol": "¼ tsp",
+          "note": null,
+          "kcal": null,
+          "na": 480,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        }
+      ],
+      "body": "Oven to <span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>. Toss the peppers, oil, garlic powder and salt on the sheet pan. Bake, stirring halfway, until soft and lighter in color, ≈20 min."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Slice the cold roast across the grain as thin as you can. Firm it in the freezer first (firm, not frozen) for thinner slices. Bring the jus to a simmer. Taste before adding any salt."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "French rolls, Turano",
+          "g": 462,
+          "vol": "6",
+          "note": "soft, hinged",
+          "kcal": 1201.2,
+          "na": 2517.9,
+          "pro": 42,
+          "counted": null,
+          "countedNote": null,
+          "key": "French rolls, Turano"
+        },
+        {
+          "name": "Hot giardiniera, Marconi",
+          "g": 168,
+          "vol": "6 oz",
+          "note": "1 oz each",
+          "kcal": 300.72,
+          "na": 599.76,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Hot giardiniera, Marconi"
+        }
+      ],
+      "body": "Drop the beef into the simmering jus just until hot through. Pile onto each roll with sweet peppers and giardiniera. Dunk the whole sandwich in hot jus, or serve the jus on the side."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (chuck blade roast, oils, onion, garlic, crushed red pepper as cayenne, Italian seasoning as dried oregano at McCormick’s 0.3 g per ¼ tsp, bell peppers, garlic powder) and Branded Foods labels (Better Than Bouillon, Morton, Turano, Marconi). All the jus is counted, though much of it stays in the pot. Water, black pepper and thyme (strained out) not counted.",
+  "swaps": {
+    "header": [
+      "Instead of chuck roast",
+      "From the freezer, best first"
+    ],
+    "rows": [
+      {
+        "original": "Chuck roast, 3½ lb",
+        "alts": [
+          "Arm roast (chuck, leaner, slices cleaner)",
+          "Rump roast (round, like the stands use; leanest, so pull it as soon as it’s tender)"
+        ]
+      }
+    ]
+  },
+  "notes": [
+    "No wine: ½ cup of the stock does the deglazing.",
+    "Mauro says Turano or Gonnella rolls, no substitute. The numbers are for Turano Original French Rolls (6 per 16 oz bag).",
+    "Short on time? Pull the warm beef into chunks instead of chilling and slicing. That’s how Mauro serves it."
+  ],
+  "pages": 2,
+  "pdf": "italian-beef.pdf"
+}

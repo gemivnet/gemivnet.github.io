@@ -1355,3 +1355,107 @@
   white-space: nowrap;
 }
 .sp-prose th { color: var(--ink-3); font-weight: normal; border-bottom-color: var(--rule-2); }
+
+/* ── recipes: /recipes and the card pages ──────────────────
+   Hand-written 2026-11-13, ad-hoc. Fold into the next Claude Design bundle.
+   The card's step table on the web: number, the ingredients that step uses,
+   then the procedure. Rules between steps, no boxes. Under 720px the
+   ingredients stack above the procedure. */
+.rc-dim { color: var(--ink-3); }
+.rc-crumb-here { color: var(--ink-2); }
+.rc-nw { white-space: nowrap; }
+.rc-muted { color: var(--ink-3); font-size: 0.9em; }
+.rc-meta .rc-line { display: block; }
+.rc-meta .rc-spec { white-space: normal; }
+.rc-meta .rc-actions { margin-top: var(--sp-2); }
+.rc-meta .rc-actions a { color: var(--accent); text-decoration: none; }
+.rc-meta .rc-actions a:hover { text-decoration: underline; }
+
+.rc-steps { list-style: none; margin: 0 0 var(--sp-6); padding: 0; }
+.rc-step {
+  display: grid;
+  grid-template-columns: 2em minmax(0, 17em) minmax(0, 1fr);
+  column-gap: var(--sp-4);
+  padding: var(--sp-3) 0;
+  border-top: 1px solid var(--rule);
+}
+.rc-step.no-ings .rc-proc { grid-column: 2 / -1; }
+.rc-num { font-family: var(--font-mono); font-weight: 700; color: var(--accent); }
+.rc-proc { line-height: var(--lh-body); }
+.rc-stage {
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border-top: 2px solid var(--ink);
+  padding: var(--sp-4) 0 var(--sp-1);
+  margin-top: var(--sp-3);
+}
+.rc-steps > .rc-stage:first-child { margin-top: 0; }
+.rc-stage + .rc-step { border-top: 0; }
+.rc-ings { border-collapse: collapse; width: 100%; align-self: start; font-size: var(--fs-small); line-height: var(--lh-snug); }
+.rc-ings td { padding: 2px var(--sp-2) 4px 0; vertical-align: top; }
+.rc-ing-g, .rc-ing-vol { font-family: var(--font-mono); font-size: var(--fs-tiny); white-space: nowrap; }
+.rc-ing-g { text-align: right; }
+.rc-ing-vol { color: var(--ink-2); }
+.rc-note { color: var(--ink-3); font-style: italic; }
+@media (max-width: 720px) {
+  .rc-step { grid-template-columns: 2em minmax(0, 1fr); row-gap: var(--sp-2); }
+  .rc-step .rc-proc, .rc-step.no-ings .rc-proc { grid-column: 2; }
+}
+
+.rc-block { margin-bottom: var(--sp-6); max-width: var(--reading-width); }
+.rc-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: var(--fs-small);
+  line-height: var(--lh-snug);
+}
+.rc-table th {
+  font-family: var(--font-mono);
+  font-size: var(--fs-tiny);
+  font-weight: normal;
+  color: var(--ink-3);
+  text-align: left;
+  border-bottom: 1px solid var(--rule-2);
+  padding: 4px var(--sp-3) 4px 0;
+}
+.rc-table td { padding: 5px var(--sp-3) 5px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.rc-table .num { text-align: right; font-family: var(--font-mono); font-size: var(--fs-tiny); white-space: nowrap; }
+.rc-table .rc-total td { font-weight: 600; border-bottom: 0; }
+.rc-table .rc-total-first td { border-top: 1px solid var(--ink); }
+.rc-alt { white-space: normal; }
+.rc-alt b { font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--accent); }
+.rc-table .sep { color: var(--rule-2); }
+.rc-notes { margin: 0; padding-left: 1.2em; }
+.rc-notes li { margin-bottom: var(--sp-2); }
+.rc-caption { font-family: var(--font-mono); font-size: var(--fs-tiny); color: var(--ink-3); margin-top: var(--sp-2); }
+
+/* print page: the binder PDF fills the window under one mono bar */
+.rc-print-page { margin: 0; display: flex; flex-direction: column; height: 100vh; }
+.rc-print-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-4);
+  align-items: baseline;
+  padding: var(--sp-3) var(--sp-4);
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+}
+.rc-print-bar a { color: var(--ink-2); }
+.rc-print-bar button { font: inherit; }
+.rc-print-frame { flex: 1; width: 100%; border: 0; }
+
+/* phone width: the fifth tab (recipes) pushed the nav and the theme toggle
+   past a 390px screen, and the three-column footer already overflowed there.
+   Let the bar wrap (logo and toggle on one line, tabs under them) and stack
+   the footer columns. */
+@media (max-width: 600px) {
+  .sp-top-inner { flex-wrap: wrap; row-gap: var(--sp-2); }
+  .sp-nav { order: 3; flex-basis: 100%; flex-wrap: wrap; margin-left: 0; gap: var(--sp-2) var(--sp-4); }
+  .sp-footer-inner { grid-template-columns: minmax(0, 1fr); }
+  .sp-footer a { overflow-wrap: anywhere; }
+}

@@ -1,0 +1,226 @@
+{
+  "slug": "creamy-taco-chicken-spaghetti-squash",
+  "title": "Creamy Taco Chicken Spaghetti Squash",
+  "category": "Hearty",
+  "yield": "4 servings",
+  "servings": 4,
+  "active": "25 min",
+  "total": "≈1 h 15 min",
+  "oven": "<span class=\"rc-nw\">400 °F <span class=\"rc-muted\">(204 °C)</span></span>",
+  "equipment": [
+    "Half sheet pan",
+    "Dutch oven, 6 qt"
+  ],
+  "source": "Printout",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Squash"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Spaghetti squash",
+          "g": 1240,
+          "vol": "8 cups cooked",
+          "note": "≈2 medium",
+          "kcal": 334.8,
+          "na": 223.2,
+          "pro": 8.18,
+          "counted": null,
+          "countedNote": null,
+          "key": "Spaghetti squash"
+        }
+      ],
+      "body": "Preheat the oven to <span class=\"rc-nw\">400 °F <span class=\"rc-muted\">(204 °C)</span></span>. Cut each squash in half lengthwise and scoop out the seeds. Set the halves cut side down on the sheet pan. Roast until tender, <span class=\"rc-nw\">40–50 min</span>. Scrape the flesh into strands with a fork and measure out 8 cups."
+    },
+    {
+      "kind": "stage",
+      "name": "Sauce"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Mushrooms, baby portabella",
+          "g": 120,
+          "vol": "6",
+          "note": "sliced",
+          "kcal": 26.4,
+          "na": 7.2,
+          "pro": 3,
+          "counted": null,
+          "countedNote": null,
+          "key": "Mushrooms, baby portabella"
+        },
+        {
+          "name": "Spinach",
+          "g": 120,
+          "vol": "4 cups",
+          "note": "chopped",
+          "kcal": 27.6,
+          "na": 94.8,
+          "pro": 3.43,
+          "counted": null,
+          "countedNote": null,
+          "key": "Spinach"
+        },
+        {
+          "name": "Garlic",
+          "g": 12,
+          "vol": "4 cloves",
+          "note": "minced",
+          "kcal": 17.88,
+          "na": 2.04,
+          "pro": 0.76,
+          "counted": null,
+          "countedNote": null,
+          "key": "Garlic"
+        }
+      ],
+      "body": "Put the mushrooms, spinach and garlic in the Dutch oven over medium heat. Sauté, stirring, until the mushrooms soften and the spinach wilts, ≈5 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Water",
+          "g": 237,
+          "vol": "1 cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Chicken stock, Better Than Bouillon",
+          "g": 6,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": 10,
+          "na": 680,
+          "pro": 1,
+          "counted": null,
+          "countedNote": null,
+          "key": "Chicken stock, Better Than Bouillon"
+        },
+        {
+          "name": "Lime juice",
+          "g": 88,
+          "vol": "juice of 2 limes",
+          "note": null,
+          "kcal": 22,
+          "na": 1.76,
+          "pro": 0.37,
+          "counted": null,
+          "countedNote": null,
+          "key": "Lime juice"
+        },
+        {
+          "name": "Taco seasoning",
+          "g": 11.4,
+          "vol": "4 tsp",
+          "note": null,
+          "kcal": 36.71,
+          "na": 821.14,
+          "pro": 0.51,
+          "counted": null,
+          "countedNote": null,
+          "key": "Taco seasoning"
+        }
+      ],
+      "body": "Add the water, Better Than Bouillon, lime juice and taco seasoning to the pot. Stir and bring to a simmer."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Cream cheese, Philadelphia",
+          "g": 113,
+          "vol": "4 oz (½ brick)",
+          "note": "cubed",
+          "kcal": 403.57,
+          "na": 443.93,
+          "pro": 8.07,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cream cheese, Philadelphia"
+        }
+      ],
+      "body": "Add the cream cheese cubes and stir until they melt into the sauce."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Parmesan, Kraft grated",
+          "g": 113,
+          "vol": "4 oz",
+          "note": null,
+          "kcal": 452,
+          "na": 1808,
+          "pro": 45.2,
+          "counted": null,
+          "countedNote": null,
+          "key": "Parmesan, Kraft grated"
+        }
+      ],
+      "body": "Stir in the Parmesan until it melts."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Greek yogurt, nonfat",
+          "g": 227,
+          "vol": "1 cup",
+          "note": null,
+          "kcal": 133.93,
+          "na": 81.72,
+          "pro": 23.13,
+          "counted": null,
+          "countedNote": null,
+          "key": "Greek yogurt, nonfat"
+        },
+        {
+          "name": "Cilantro",
+          "g": 6,
+          "vol": "6 tbsp",
+          "note": "chopped",
+          "kcal": 1.38,
+          "na": 2.76,
+          "pro": 0.13,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cilantro"
+        },
+        {
+          "name": "Chicken breast, grilled",
+          "g": 510,
+          "vol": "18 oz",
+          "note": "cooked weight, chopped",
+          "kcal": 841.5,
+          "na": 377.4,
+          "pro": 158.2,
+          "counted": null,
+          "countedNote": null,
+          "key": "Chicken breast, grilled"
+        }
+      ],
+      "body": "Turn off the heat. Stir in the yogurt and cilantro, then the squash from step 1 and the chopped chicken. Stir until everything is coated and warmed through."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (cooked spaghetti squash, crimini mushrooms, spinach, garlic, lime juice, taco seasoning, nonfat Greek yogurt, cilantro, roasted chicken breast) and Branded Foods labels (Better Than Bouillon, Philadelphia, Kraft Grated Parmesan). Water not counted.",
+  "swaps": null,
+  "notes": [
+    "Grill the chicken ahead; ≈1½ lb raw makes ≈18 oz cooked. The page never says when the chicken goes in, so it’s stirred in at the end. It has no title either, so the name is new.",
+    "The page lists no fat for the sauté. If the pot looks dry, add a little pan spray."
+  ],
+  "pages": 2,
+  "pdf": "creamy-taco-chicken-spaghetti-squash.pdf"
+}

@@ -1,0 +1,121 @@
+{
+  "slug": "grandma-carters-parmesan-chicken",
+  "title": "Grandma Carter's Parmesan Chicken",
+  "category": "Hearty",
+  "yield": "4 servings",
+  "servings": 4,
+  "active": "10 min",
+  "total": "≈55 min",
+  "oven": "<span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>",
+  "equipment": [
+    "Baking dish, 9 × 13 in",
+    "Probe thermometer"
+  ],
+  "source": "Grandma Carter (index card)",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Pan spray",
+          "g": null,
+          "vol": "to coat",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Pan spray"
+        }
+      ],
+      "body": "Set a rack second from the top of the oven and preheat to <span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>. Spray the bottom of the baking dish."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Miracle Whip",
+          "g": 240,
+          "vol": "1 cup",
+          "note": null,
+          "kcal": 640,
+          "na": 1520,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Miracle Whip"
+        },
+        {
+          "name": "Parmesan, Kraft grated",
+          "g": 60,
+          "vol": "½ cup",
+          "note": null,
+          "kcal": 240,
+          "na": 960,
+          "pro": 24,
+          "counted": null,
+          "countedNote": null,
+          "key": "Parmesan, Kraft grated"
+        },
+        {
+          "name": "Oregano, dried",
+          "g": 1,
+          "vol": "1 tsp",
+          "note": "optional",
+          "kcal": 2.65,
+          "na": 0.25,
+          "pro": 0.09,
+          "counted": null,
+          "countedNote": null,
+          "key": "Oregano, dried"
+        },
+        {
+          "name": "Garlic powder",
+          "g": 3.1,
+          "vol": "1 tsp",
+          "note": "optional",
+          "kcal": 10.26,
+          "na": 1.86,
+          "pro": 0.51,
+          "counted": null,
+          "countedNote": null,
+          "key": "Garlic powder"
+        }
+      ],
+      "body": "In a bowl, stir the Miracle Whip, Parmesan, oregano and garlic powder together until evenly mixed."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Whole chicken (broiler-fryer)",
+          "g": 1588,
+          "vol": "1, ≈3½ lb",
+          "note": "cut into pieces",
+          "kcal": 2076.9,
+          "na": 676.2,
+          "pro": 179.68,
+          "counted": 966,
+          "countedNote": "meat and skin",
+          "key": "Whole chicken (broiler-fryer)"
+        }
+      ],
+      "body": "Lay the chicken pieces in the dish in one layer, skin side up. Spoon the Miracle Whip mixture over the chicken, covering the tops of all the pieces."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Bake on that second rack from the top until golden, ≈45 min. It’s done when the thickest part of the breast reads <span class=\"rc-nw\">165 °F <span class=\"rc-muted\">(74 °C)</span></span> and the thigh reads <span class=\"rc-nw\">175 °F <span class=\"rc-muted\">(79 °C)</span></span>. Rest 5 min before serving."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (chicken, with USDA’s yield of 276 g meat and skin per lb; oregano; garlic powder) and Branded Foods labels (Miracle Whip, 1 tbsp = 15 g = 40 kcal, 95 mg, 0 g; Kraft Grated Parmesan, 2 tsp = 5 g = 20 kcal, 80 mg, 2 g). Assumes you eat the skin. Pan spray not counted.",
+  "swaps": null,
+  "notes": [
+    "The card says “about 45 minutes”. Big pieces can take longer, so go by the thermometer.",
+    "The oregano and garlic powder are “if desired” on the card."
+  ],
+  "pages": 1,
+  "pdf": "grandma-carters-parmesan-chicken.pdf"
+}

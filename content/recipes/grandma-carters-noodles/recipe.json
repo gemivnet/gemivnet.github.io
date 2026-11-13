@@ -1,0 +1,101 @@
+{
+  "slug": "grandma-carters-noodles",
+  "title": "Grandma Carter's Noodles",
+  "category": "Breads & Doughs",
+  "yield": "≈8 servings",
+  "servings": 8,
+  "active": "45 min",
+  "total": "≈1 h 30 min",
+  "oven": null,
+  "equipment": [
+    "Rolling pin",
+    "Large mixing bowl"
+  ],
+  "source": "Grandma Carter (index card)",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Eggs",
+          "g": 300,
+          "vol": "6 large",
+          "note": null,
+          "kcal": 429,
+          "na": 426,
+          "pro": 37.68,
+          "counted": null,
+          "countedNote": null,
+          "key": "Eggs"
+        },
+        {
+          "name": "Cream, light",
+          "g": 90,
+          "vol": "6 tbsp",
+          "note": null,
+          "kcal": 175.5,
+          "na": 64.8,
+          "pro": 2.66,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cream, light"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 4.8,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": null,
+          "na": 1920,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        }
+      ],
+      "body": "Put the eggs, cream and salt in the large bowl and beat them together."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flour, all-purpose",
+          "g": 500,
+          "vol": "4 cups",
+          "note": "or more",
+          "kcal": 1820,
+          "na": 10,
+          "pro": 51.65,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, all-purpose"
+        }
+      ],
+      "body": "Stir in the flour until it forms a dough, adding a little more if it’s too wet to handle. It will be sticky. Flour your hands well; a little oil on your hands may help too."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Knead the dough for ≈10 min on a floured counter, then divide it into 4 parts."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Roll out each part thin, ≈⅛ in, on a floured pastry cloth or counter. Let the sheets dry until they’re no longer sticky, then cut them into noodles."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "To cook, drop the noodles into boiling broth or salted water and cook until tender, ≈10 min."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (eggs, light cream, flour) and Morton’s label. Counts the 4 cups of flour only, and not the broth or the flour for the counter.",
+  "swaps": null,
+  "notes": [
+    "The card leaves “flour” out of the “4 cup or more to make dough” line, and stops once the noodles are cut. The thickness and the cooking step are filled in; her Amish Noodles card cooks them in broth.",
+    "The card says “lite cream”, which is light cream. Half-and-half works too."
+  ],
+  "pages": 1,
+  "pdf": "grandma-carters-noodles.pdf"
+}

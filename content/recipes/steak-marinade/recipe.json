@@ -1,0 +1,150 @@
+{
+  "slug": "steak-marinade",
+  "title": "Steak Marinade",
+  "category": "Sauces & Marinades",
+  "yield": "≈240 g (1 cup), for ≈2 lb steak",
+  "servings": null,
+  "active": "5 min",
+  "total": "5 min + 2–8 h marinate",
+  "oven": null,
+  "equipment": [
+    "Zip-top bag or shallow dish"
+  ],
+  "source": null,
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Soy sauce",
+          "g": 64,
+          "vol": "¼ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Soy sauce"
+        },
+        {
+          "name": "Canola oil",
+          "g": 55,
+          "vol": "¼ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Canola oil"
+        },
+        {
+          "name": "Lime juice",
+          "g": 30,
+          "vol": "1 lime",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Lime juice"
+        },
+        {
+          "name": "Brown sugar, packed",
+          "g": 53,
+          "vol": "4 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Brown sugar, packed"
+        },
+        {
+          "name": "Chili powder",
+          "g": 16,
+          "vol": "2 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Chili powder"
+        },
+        {
+          "name": "Garlic",
+          "g": 15,
+          "vol": "1 heaped tbsp",
+          "note": "minced",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Garlic"
+        },
+        {
+          "name": "Salt",
+          "g": 6,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Salt"
+        },
+        {
+          "name": "Black pepper",
+          "g": null,
+          "vol": "to taste",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Black pepper"
+        }
+      ],
+      "body": "Whisk the soy sauce, oil, lime juice, brown sugar, chili powder, garlic, salt and pepper in a bowl until the sugar dissolves."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Steak",
+          "g": 900,
+          "vol": "≈2 lb",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Steak"
+        }
+      ],
+      "body": "Coat the steak in the marinade. Refrigerate <span class=\"rc-nw\">2–8 h</span>, turning once."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Lift the steak out and let the excess drip off before cooking. Discard the used marinade."
+    }
+  ],
+  "nutritionSource": null,
+  "swaps": null,
+  "notes": [
+    "Past ≈8 h the lime starts to make the surface mushy.",
+    "The sugar burns over very high heat, so watch for charring on the grill."
+  ],
+  "pages": 1,
+  "pdf": "steak-marinade.pdf"
+}

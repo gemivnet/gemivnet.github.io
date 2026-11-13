@@ -1,0 +1,135 @@
+{
+  "slug": "creme-brulee",
+  "title": "Crème Brûlée (Sous Vide)",
+  "category": "Desserts",
+  "yield": "≈6 × 4 oz jars",
+  "servings": null,
+  "active": "20 min",
+  "total": "≈6 h 30 min",
+  "oven": null,
+  "equipment": [
+    "Sous vide circulator",
+    "4 oz canning jars + lids",
+    "Torch"
+  ],
+  "source": null,
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Preheat the water bath to <span class=\"rc-nw\">180 °F <span class=\"rc-muted\">(82 °C)</span></span>."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Vanilla bean",
+          "g": null,
+          "vol": "½ bean",
+          "note": "seeds scraped",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Vanilla bean"
+        },
+        {
+          "name": "Heavy cream",
+          "g": 500,
+          "vol": "2 cups",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Heavy cream"
+        },
+        {
+          "name": "Egg yolks",
+          "g": 75,
+          "vol": "≈5 large",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Egg yolks"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 65,
+          "vol": "⅓ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        },
+        {
+          "name": "Salt",
+          "g": null,
+          "vol": "pinch",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Salt"
+        }
+      ],
+      "body": "Put the vanilla seeds, cream, yolks, sugar and salt in a bowl. Whisk until the sugar dissolves."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Divide evenly among the jars. Tap each jar on the counter to release air bubbles. Close lids fingertip-tight."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Lower the closed jars into the water bath. Cook 60–75 min."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Lift the jars out and cool them on a wire rack for 1 h."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Refrigerate at least 4 h."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Granulated sugar",
+          "g": null,
+          "vol": "≈1 tsp per jar",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        }
+      ],
+      "body": "Just before serving, spread a thin even layer of sugar on each and torch until amber."
+    }
+  ],
+  "nutritionSource": null,
+  "swaps": null,
+  "notes": [
+    "The custard keeps 5 days in the fridge. Torch right before serving."
+  ],
+  "pages": 1,
+  "pdf": "creme-brulee.pdf"
+}

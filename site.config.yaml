@@ -38,3 +38,8 @@ images:
 limits:
   rss_items: 30       # entries in rss.xml / atom.xml
   tag_keywords: 10    # <meta keywords> on a tag page
+
+# Recipe cards. `npm run recipes:import` reads the Typst cards from <source>/src
+# (path relative to this repo) and writes content/recipes/<slug>/.
+recipes:
+  source: ../recipes

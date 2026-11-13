@@ -1,0 +1,164 @@
+{
+  "slug": "flourless-chocolate-pb-banana-cupcakes",
+  "title": "Flourless Chocolate PB Banana Cupcakes",
+  "category": "Desserts",
+  "yield": "12 cupcakes",
+  "servings": 12,
+  "active": "10 min",
+  "total": "≈40 min",
+  "oven": "<span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>",
+  "equipment": [
+    "12-cup muffin tin + liners",
+    "Blender or food processor"
+  ],
+  "source": "Printout",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Bananas, overripe",
+          "g": 472,
+          "vol": "4 medium",
+          "note": "peeled",
+          "kcal": 420.1,
+          "na": 4.7,
+          "pro": 5.14,
+          "counted": null,
+          "countedNote": null,
+          "key": "Bananas, overripe"
+        }
+      ],
+      "body": "Oven to <span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>. Line the tin with liners or spray it. Blend the bananas until very smooth."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Eggs",
+          "g": 200,
+          "vol": "4 large",
+          "note": null,
+          "kcal": 286,
+          "na": 284,
+          "pro": 25.12,
+          "counted": null,
+          "countedNote": null,
+          "key": "Eggs"
+        },
+        {
+          "name": "Peanut butter, Smucker&#39;s Natural",
+          "g": 64,
+          "vol": "¼ cup",
+          "note": "creamy",
+          "kcal": 380.16,
+          "na": 220.16,
+          "pro": 16,
+          "counted": null,
+          "countedNote": null,
+          "key": "Peanut butter, Smucker's Natural"
+        },
+        {
+          "name": "Vanilla extract",
+          "g": 4.2,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": 12.1,
+          "na": 0.4,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Vanilla extract"
+        },
+        {
+          "name": "Honey",
+          "g": 42,
+          "vol": "2 tbsp",
+          "note": null,
+          "kcal": 127.7,
+          "na": 1.7,
+          "pro": 0.13,
+          "counted": null,
+          "countedNote": null,
+          "key": "Honey"
+        }
+      ],
+      "body": "Add the eggs, peanut butter, vanilla and honey to the bananas. Whisk or blend until smooth."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Cocoa powder, unsweetened",
+          "g": 43,
+          "vol": "½ cup",
+          "note": null,
+          "kcal": 98,
+          "na": 9,
+          "pro": 8.43,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cocoa powder, unsweetened"
+        },
+        {
+          "name": "Baking powder, Davis",
+          "g": 4.8,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": null,
+          "na": 518.4,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Baking powder, Davis"
+        },
+        {
+          "name": "Salt",
+          "g": null,
+          "vol": "pinch",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Salt"
+        }
+      ],
+      "body": "Add the cocoa, baking powder and salt. Fold in gently until just combined. Don’t overmix."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Dark chocolate chips, Toll House",
+          "g": 56,
+          "vol": "¼ cup",
+          "note": "53%",
+          "kcal": 319.76,
+          "na": null,
+          "pro": 4,
+          "counted": null,
+          "countedNote": null,
+          "key": "Dark chocolate chips, Toll House"
+        }
+      ],
+      "body": "Fold in the chocolate chips. Divide the batter evenly among the cups."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Bake until a toothpick comes out with a few moist crumbs, 18–22 min. They’ll look slightly underdone; that’s right. Cool in the tin 10 min."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (bananas, eggs, vanilla, honey, natural cocoa) and Branded Foods labels (Smucker’s Natural Creamy, Davis, Nestlé Toll House Dark 53%). Pinch of salt and pan spray not counted.",
+  "swaps": null,
+  "notes": [
+    "Dense and fudgy like a brownie, not fluffy. Great cold from the fridge.",
+    "Keeps 5 days in the fridge, or freeze individually up to 2 months.",
+    "Extras, not counted: ½ tsp Nutella swirled into each before baking, or a frosting of Greek yogurt, cocoa and honey whipped together."
+  ],
+  "pages": 1,
+  "pdf": "flourless-chocolate-pb-banana-cupcakes.pdf"
+}

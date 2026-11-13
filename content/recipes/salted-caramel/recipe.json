@@ -1,0 +1,99 @@
+{
+  "slug": "salted-caramel",
+  "title": "Salted Caramel",
+  "category": "Desserts",
+  "yield": "≈400 g (1¼ cups)",
+  "servings": null,
+  "active": "15 min",
+  "total": "15 min",
+  "oven": null,
+  "equipment": [
+    "Heavy saucepan, 2 qt+",
+    "Heat-proof spatula",
+    "Whisk"
+  ],
+  "source": null,
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Granulated sugar",
+          "g": 200,
+          "vol": "1 cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        }
+      ],
+      "body": "Heat the sugar in a heavy saucepan over medium, stirring constantly. It will clump, then melt into a thick amber liquid (≈<span class=\"rc-nw\">340 °F <span class=\"rc-muted\">(171 °C)</span></span>). Don’t let it smoke."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Salted butter",
+          "g": 90,
+          "vol": "6 tbsp",
+          "note": "room temp, 6 pieces",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Salted butter"
+        }
+      ],
+      "body": "Once the sugar is fully melted, add the butter. It will bubble hard. Stir until melted, ≈2 min. If it separates or clumps, take it off the heat and whisk hard until it comes back together."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Heavy cream",
+          "g": 120,
+          "vol": "½ cup",
+          "note": "room temp",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Heavy cream"
+        }
+      ],
+      "body": "Drizzle in the cream very slowly while stirring. Boil 1 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Fine salt",
+          "g": 6,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Fine salt"
+        }
+      ],
+      "body": "Off the heat, stir in the salt."
+    }
+  ],
+  "nutritionSource": null,
+  "swaps": null,
+  "notes": [
+    "Thickens as it cools. Keeps 2 weeks refrigerated. Warm gently to pour.",
+    "Cold cream makes the caramel seize, so let it come to room temp first."
+  ],
+  "pages": 1,
+  "pdf": "salted-caramel.pdf"
+}

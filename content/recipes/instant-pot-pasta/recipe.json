@@ -1,0 +1,141 @@
+{
+  "slug": "instant-pot-pasta",
+  "title": "Instant Pot Pasta",
+  "category": "Hearty",
+  "yield": "2 servings (½ pot each)",
+  "servings": 2,
+  "active": "15 min",
+  "total": "≈35 min",
+  "oven": null,
+  "equipment": [
+    "Instant Pot",
+    "Scale"
+  ],
+  "source": null,
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Onion",
+          "g": 117,
+          "vol": null,
+          "note": "diced",
+          "kcal": 47,
+          "na": 5,
+          "pro": 1,
+          "counted": null,
+          "countedNote": null,
+          "key": "Onion"
+        },
+        {
+          "name": "Ground beef, 80/20",
+          "g": 223,
+          "vol": null,
+          "note": "raw",
+          "kcal": 566,
+          "na": 149,
+          "pro": 56,
+          "counted": null,
+          "countedNote": null,
+          "key": "Ground beef, 80/20"
+        }
+      ],
+      "body": "Set the Instant Pot to Sauté (high). Add the onion and beef. Cook until the beef is browned and the onion is soft, ≈6 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Water",
+          "g": 80,
+          "vol": "⅓ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Macaroni, dry",
+          "g": 217,
+          "vol": null,
+          "note": null,
+          "kcal": 775,
+          "na": 0,
+          "pro": 27,
+          "counted": null,
+          "countedNote": null,
+          "key": "Macaroni, dry"
+        },
+        {
+          "name": "Whole tomatoes, canned",
+          "g": 804,
+          "vol": null,
+          "note": null,
+          "kcal": 166,
+          "na": 1196,
+          "pro": 7,
+          "counted": null,
+          "countedNote": null,
+          "key": "Whole tomatoes, canned"
+        },
+        {
+          "name": "Kosher salt",
+          "g": 2,
+          "vol": null,
+          "note": null,
+          "kcal": 0,
+          "na": 800,
+          "pro": 0,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt"
+        },
+        {
+          "name": "Garlic",
+          "g": null,
+          "vol": "to taste",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Garlic"
+        },
+        {
+          "name": "Black pepper",
+          "g": null,
+          "vol": "to taste",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Black pepper"
+        }
+      ],
+      "body": "Add the water and scrape the bottom clean. Add the macaroni, tomatoes, salt, garlic and pepper, and push the pasta under the liquid."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Lock the lid, valve on Sealing. High pressure 9 min, then quick release."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Stir, breaking up the tomatoes. Split into 2 equal portions."
+    }
+  ],
+  "nutritionSource": null,
+  "swaps": null,
+  "notes": [],
+  "pages": 1,
+  "pdf": "instant-pot-pasta.pdf"
+}

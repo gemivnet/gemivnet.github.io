@@ -1,0 +1,144 @@
+{
+  "slug": "classic-white-sandwich-bread",
+  "title": "Classic White Sandwich Bread",
+  "category": "Breads & Doughs",
+  "yield": "1 large loaf (9×5 in pan)",
+  "servings": null,
+  "active": "25 min",
+  "total": "≈3 h + cooling",
+  "oven": "<span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>",
+  "equipment": [
+    "9×5 in loaf pan",
+    "Foil",
+    "Probe thermometer",
+    "Stand mixer (optional)"
+  ],
+  "source": "King Arthur Baking (PJ Hamel)",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Water",
+          "g": "284–340 g",
+          "vol": "1¼–1½ cups",
+          "note": "lukewarm",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Honey",
+          "g": 32,
+          "vol": "1 heaping tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Honey"
+        },
+        {
+          "name": "Instant yeast",
+          "g": 7,
+          "vol": "2¼ tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Instant yeast"
+        },
+        {
+          "name": "Table salt",
+          "g": 11,
+          "vol": "1¾ tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Table salt"
+        },
+        {
+          "name": "Butter",
+          "g": 28,
+          "vol": "2 tbsp",
+          "note": "softened",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter"
+        },
+        {
+          "name": "Flour, all-purpose",
+          "g": 480,
+          "vol": "4 cups",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, all-purpose"
+        },
+        {
+          "name": "Nonfat dry milk",
+          "g": 37,
+          "vol": "⅓ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Nonfat dry milk"
+        }
+      ],
+      "body": "Add to the mixer bowl in the order listed, starting with 284 g water. Knead until smooth, bouncy and elastic, ≈8–10 min. Add water only if needed: the dough starts a bit sticky but should end soft, not sticky."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Cover in a lightly greased bowl. Rise until quite puffy (not necessarily doubled), <span class=\"rc-nw\">60–90 min</span>."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Gently deflate. Shape into a fat 9 in log and set in the greased pan."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Cover. Rise until crowned <span class=\"rc-nw\">1–1½ in</span> over the rim, <span class=\"rc-nw\">60–90 min</span>. Toward the end, preheat oven to <span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Bake 20 min. Tent loosely with foil and bake until golden and the center reads <span class=\"rc-nw\">195–200 °F</span>, <span class=\"rc-nw\">15–20 min</span> more."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Turn out onto a rack. Cool completely before wrapping."
+    }
+  ],
+  "nutritionSource": null,
+  "swaps": null,
+  "notes": [
+    "Water: use less in summer or humid weather and more in winter or dry weather.",
+    "Short on yeast: use 1 tsp. Rise at <span class=\"rc-nw\">85–88 °F</span> (≈2 h, then ≈1 h in the pan) or at room temp (≈3 h, then ≈3 h).",
+    "Store wrapped at room temp."
+  ],
+  "pages": 1,
+  "pdf": "classic-white-sandwich-bread.pdf"
+}

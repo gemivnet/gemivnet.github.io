@@ -1,0 +1,149 @@
+{
+  "slug": "no-knead-crusty-bread",
+  "title": "No-Knead Crusty Bread",
+  "category": "Breads & Doughs",
+  "yield": "1 large loaf (≈800 g dough)",
+  "servings": null,
+  "active": "15 min",
+  "total": "≈6 h (dough keeps 7 days)",
+  "oven": "<span class=\"rc-nw\">450 °F <span class=\"rc-muted\">(232 °C)</span></span>",
+  "equipment": [
+    "Lidded container, 4 qt+",
+    "Baking stone or sheet pan",
+    "Metal pan for steam",
+    "Probe thermometer"
+  ],
+  "source": "King Arthur Baking, adapted",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Dough"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flour, all-purpose",
+          "g": 450,
+          "vol": "3¾ cups",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, all-purpose"
+        },
+        {
+          "name": "Water",
+          "g": 340,
+          "vol": "1½ cups",
+          "note": "lukewarm, ≈<span class=\"rc-nw\">105 °F <span class=\"rc-muted\">(41 °C)</span></span>",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Table salt",
+          "g": 9,
+          "vol": "1½ tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Table salt"
+        },
+        {
+          "name": "Instant yeast",
+          "g": 7,
+          "vol": "2¼ tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Instant yeast"
+        }
+      ],
+      "body": "Stir the flour, water, salt and yeast into a very sticky, rough dough (stand mixer: beater, medium, 30–60 s). Weigh the flour. The ratio matters."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Cover. Rise at room temp for 2 h."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Refrigerate at least 2 h, up to 7 days. It rises, then falls. That’s normal. The longer it chills, the tangier it gets."
+    },
+    {
+      "kind": "stage",
+      "name": "Bake day"
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Dust the top of the dough with flour. With greased hands, turn out <strong>all</strong> of it onto a floured surface and round into a ball. Don’t fuss."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Set on parchment or a greased sheet pan. Sift a light coat of flour over the top. Cover loosely with greased plastic. Rise until it relaxes and spreads, ≈90 min (up to 2 h if the kitchen is cool)."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "During the rise, preheat oven to <span class=\"rc-nw\">450 °F <span class=\"rc-muted\">(232 °C)</span></span> with the stone on the middle rack and a metal pan (not glass) on the lowest rack."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Slash the top 2–3 times, ½ in deep."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Water, hot",
+          "g": 240,
+          "vol": "1 cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water, hot"
+        }
+      ],
+      "body": "Load the bread. Pour the hot water into the pan below and close the door fast."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Bake until deep golden brown and <span class=\"rc-nw\">205–210 °F</span> internal, <span class=\"rc-nw\">≈40–45 min</span>."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Cool on a rack at least 1 h before slicing."
+    }
+  ],
+  "nutritionSource": null,
+  "swaps": null,
+  "notes": [
+    "This is a half batch of the original, baked as one loaf. The full batch (900 g flour) makes 2 loaves this size or <span class=\"rc-nw\">3–4</span> small ones (400–540 g, bake 25–35 min).",
+    "Bread flour: add ≈10 g water per cup of flour. Whole wheat: up to half the flour, same extra water.",
+    "Store in a plastic bag at room temp."
+  ],
+  "pages": 1,
+  "pdf": "no-knead-crusty-bread.pdf"
+}

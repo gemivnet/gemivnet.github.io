@@ -1,0 +1,117 @@
+{
+  "slug": "vanilla-sauce",
+  "title": "Vanilla Sauce (Crème Anglaise)",
+  "category": "Desserts",
+  "yield": "≈¾ cup, ¼ cup per serving",
+  "servings": 3,
+  "active": "15 min",
+  "total": "15 min (warm) or + 2 h chill",
+  "oven": null,
+  "equipment": [
+    "Small saucepan",
+    "Wooden spoon",
+    "Fine-mesh strainer",
+    "Probe thermometer"
+  ],
+  "source": "America&#39;s Test Kitchen (Cook&#39;s Illustrated), vanilla extract version",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Milk",
+          "g": 146,
+          "vol": "½ cup + 2 tbsp",
+          "note": "whole",
+          "kcal": 89.1,
+          "na": 62.8,
+          "pro": 4.6,
+          "counted": null,
+          "countedNote": null,
+          "key": "Milk"
+        }
+      ],
+      "body": "Warm the milk in the saucepan over medium heat until steaming, ≈3 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Egg yolks",
+          "g": 34,
+          "vol": "2 large",
+          "note": null,
+          "kcal": 109.5,
+          "na": 16.3,
+          "pro": 5.39,
+          "counted": null,
+          "countedNote": null,
+          "key": "Egg yolks"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 20,
+          "vol": "1 tbsp + 2 tsp",
+          "note": null,
+          "kcal": 77.4,
+          "na": 0.2,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        },
+        {
+          "name": "Salt",
+          "g": null,
+          "vol": "pinch",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Salt"
+        }
+      ],
+      "body": "Whisk the yolks, sugar and salt in a small bowl until pale yellow, ≈1 min. Whisking constantly, slowly pour in ≈3 tbsp of the hot milk."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Pour the yolk mixture back into the pan with the milk. Cook over low heat, stirring constantly along the bottom and sides, until it thickens slightly, coats the spoon in a thin film and reads <span class=\"rc-nw\">175–180 °F</span>, ≈3–5 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Vanilla extract",
+          "g": 2.1,
+          "vol": "½ tsp",
+          "note": null,
+          "kcal": 6,
+          "na": 0.2,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Vanilla extract"
+        }
+      ],
+      "body": "Strain at once into a clean bowl. Stir in the vanilla."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Drizzle warm, or press plastic wrap onto the surface and refrigerate until cold. Keeps 2 days."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (whole milk, egg yolks, sugar, vanilla extract). Pinch of salt not counted.",
+  "swaps": null,
+  "notes": [
+    "A 40% batch of ATK’s recipe (5 yolks, 1½ cups milk, ¼ cup sugar makes ≈2 cups). Keep the heat low and keep stirring. Too hot and the yolks curdle; the strainer catches small bits.",
+    "Vanilla bean version (ATK’s original): steep the seeds and pod of ¼ bean in the hot milk, covered, 20 min. Reheat until steaming, then go on. Skip the extract.",
+    "Made for French toast on the Braided Brioche. Also good on the Instant Pot Cheesecake or fruit."
+  ],
+  "pages": 1,
+  "pdf": "vanilla-sauce.pdf"
+}

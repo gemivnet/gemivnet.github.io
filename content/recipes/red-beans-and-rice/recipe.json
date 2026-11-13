@@ -1,0 +1,307 @@
+{
+  "slug": "red-beans-and-rice",
+  "title": "Red Beans and Rice",
+  "category": "Hearty",
+  "yield": "6–8 servings",
+  "servings": null,
+  "active": "40 min",
+  "total": "≈3 h 30 min + soak",
+  "oven": null,
+  "equipment": [
+    "Dutch oven, 5 qt+"
+  ],
+  "source": "Serious Eats (Kenji López-Alt), adapted",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Night before"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Red kidney beans",
+          "g": 450,
+          "vol": "1 lb",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Red kidney beans"
+        },
+        {
+          "name": "Kosher salt",
+          "g": 9,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt"
+        },
+        {
+          "name": "Water",
+          "g": 2000,
+          "vol": "2 qt",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        }
+      ],
+      "body": "Soak beans in the salted water at room temp for 8–24 h. Drain."
+    },
+    {
+      "kind": "stage",
+      "name": "Cook"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Vegetable oil or lard",
+          "g": 14,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Vegetable oil or lard"
+        },
+        {
+          "name": "Andouille, cooked",
+          "g": 450,
+          "vol": "1 lb",
+          "note": "½ in disks",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Andouille, cooked"
+        }
+      ],
+      "body": "Heat oil in the Dutch oven over medium-high until it shimmers. Brown the andouille, stirring, ≈5 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Onion",
+          "g": 340,
+          "vol": "1 large",
+          "note": "finely chopped",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Onion"
+        },
+        {
+          "name": "Green bell pepper",
+          "g": 225,
+          "vol": "1",
+          "note": "finely chopped",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Green bell pepper"
+        },
+        {
+          "name": "Celery",
+          "g": 225,
+          "vol": "4 ribs",
+          "note": "finely chopped",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Celery"
+        },
+        {
+          "name": "Kosher salt",
+          "g": null,
+          "vol": "to taste",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt"
+        }
+      ],
+      "body": "Add the onion, bell pepper and celery and season with salt. Cook, stirring, until soft and just browning at the edges, ≈8 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Garlic",
+          "g": null,
+          "vol": "4 cloves",
+          "note": "minced",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Garlic"
+        }
+      ],
+      "body": "Add the garlic. Cook, stirring, until fragrant, ≈45 s."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Cayenne, ground",
+          "g": "1–5 g",
+          "vol": "½ tsp–1 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cayenne, ground"
+        },
+        {
+          "name": "Sage, ground",
+          "g": null,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Sage, ground"
+        },
+        {
+          "name": "Black pepper, fresh ground",
+          "g": null,
+          "vol": "to taste",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Black pepper, fresh ground"
+        }
+      ],
+      "body": "Add the cayenne, sage and black pepper. Cook, stirring, until fragrant, ≈30 s."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Water",
+          "g": null,
+          "vol": "6–8 cups",
+          "note": "to cover by 2 in",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Bay leaves",
+          "g": null,
+          "vol": "3",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Bay leaves"
+        }
+      ],
+      "body": "Add the drained beans, bay leaves and enough water to cover by 2 in. Bring to a boil, then drop to a bare simmer."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Cover. Simmer until the beans are completely tender, 1½–2½ h (older beans take longer)."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Uncover. Simmer, stirring now and then, until thick and creamy, ≈20 min. If it goes dry before it turns creamy, add 1 cup water and keep going."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Hot sauce",
+          "g": null,
+          "vol": "to taste",
+          "note": "Crystal or Frank&#39;s",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Hot sauce"
+        },
+        {
+          "name": "Cider vinegar",
+          "g": null,
+          "vol": "a few tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cider vinegar"
+        }
+      ],
+      "body": "Remove bay leaves. Season with hot sauce, vinegar, salt and pepper."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "White rice, cooked",
+          "g": null,
+          "vol": "for serving",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "White rice, cooked"
+        }
+      ],
+      "body": "Serve over the rice."
+    }
+  ],
+  "nutritionSource": null,
+  "swaps": null,
+  "notes": [
+    "Cayenne sets the heat: ½ tsp is mild and 1 tbsp is hot.",
+    "Better the next day. Keeps 5 days refrigerated, 3 months frozen."
+  ],
+  "pages": 1,
+  "pdf": "red-beans-and-rice.pdf"
+}

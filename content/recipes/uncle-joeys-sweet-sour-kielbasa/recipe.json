@@ -1,0 +1,126 @@
+{
+  "slug": "uncle-joeys-sweet-sour-kielbasa",
+  "title": "Uncle Joey's Sweet & Sour Kielbasa",
+  "category": "Hearty",
+  "yield": "4 servings over rice",
+  "servings": 4,
+  "active": "10 min",
+  "total": "≈4 h",
+  "oven": null,
+  "equipment": [
+    "Slow cooker",
+    "Skillet (optional)"
+  ],
+  "source": "Uncle Joey (family index card; printout)",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Kielbasa, Hillshire Farm Polska",
+          "g": 397,
+          "vol": "1 ring (14 oz)",
+          "note": null,
+          "kcal": 1276.07,
+          "na": 3686.43,
+          "pro": 49.62,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kielbasa, Hillshire Farm Polska"
+        }
+      ],
+      "body": "Cut the kielbasa into ½ in coins, on a slight angle so they sit flat."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Optional, but worth the extra pan: brown the coins in a dry skillet over medium-high, in batches, until the cut faces take real color, <span class=\"rc-nw\">5–6 min</span>. Pour off the fat."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Ketchup, Heinz",
+          "g": 136,
+          "vol": "½ cup",
+          "note": null,
+          "kcal": 160,
+          "na": 1360,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Ketchup, Heinz"
+        },
+        {
+          "name": "Crushed pineapple",
+          "g": 567,
+          "vol": "1 can (20 oz)",
+          "note": "with juice",
+          "kcal": 340.2,
+          "na": 5.67,
+          "pro": 2.38,
+          "counted": null,
+          "countedNote": null,
+          "key": "Crushed pineapple"
+        },
+        {
+          "name": "Brown sugar, packed",
+          "g": 110,
+          "vol": "½ cup",
+          "note": null,
+          "kcal": 418,
+          "na": 30.8,
+          "pro": 0.13,
+          "counted": null,
+          "countedNote": null,
+          "key": "Brown sugar, packed"
+        },
+        {
+          "name": "Yellow mustard",
+          "g": 15,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": 9,
+          "na": 165.6,
+          "pro": 0.56,
+          "counted": null,
+          "countedNote": null,
+          "key": "Yellow mustard"
+        },
+        {
+          "name": "Worcestershire",
+          "g": null,
+          "vol": "a dash",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Worcestershire"
+        }
+      ],
+      "body": "Put the kielbasa coins in the slow cooker. Add the ketchup, the pineapple with all its juice, the brown sugar, mustard and Worcestershire. Stir once to coat."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Cover and cook on Low for <span class=\"rc-nw\">3–4 h</span>, or on High for 2 h. Stir at the halfway mark if you happen to walk past."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Take the lid off for the last 30 min so the sauce thickens and turns glossy. It’s ready when a spoon pulled through leaves a track that holds for a second. Hold on Warm until serving."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (juice-pack pineapple, brown sugar, yellow mustard) and Branded Foods labels (Hillshire Farm Polska Kielbasa 14 oz, 2 oz = 180 kcal, 520 mg, 7 g; Heinz). A dash of Worcestershire and the rice aren’t counted.",
+  "swaps": null,
+  "notes": [
+    "<strong>Party batch,</strong> 20 servings on toothpicks: 3 lb kielbasa, 1 cup ketchup, 2 cans pineapple, 1 cup brown sugar, 2 tbsp mustard, 2 dashes Worcestershire. Same steps. Leave it in the slow cooker on Warm with toothpicks and small plates.",
+    "Serve over white rice or buttered egg noodles. Don’t drain the can; the juice is the sour half of the sauce. Too sweet? Add a splash of cider vinegar (not on the original card).",
+    "Better on day two. Keeps 4 days in the fridge. Freezes fine, though the pineapple softens."
+  ],
+  "pages": 1,
+  "pdf": "uncle-joeys-sweet-sour-kielbasa.pdf"
+}

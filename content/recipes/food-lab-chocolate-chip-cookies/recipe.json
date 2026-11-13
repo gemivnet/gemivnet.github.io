@@ -1,0 +1,226 @@
+{
+  "slug": "food-lab-chocolate-chip-cookies",
+  "title": "Food Lab Chocolate Chip Cookies",
+  "category": "Desserts",
+  "yield": "≈28 cookies (≈40 g dough each)",
+  "servings": null,
+  "active": "40 min",
+  "total": "≈1 h 30 min + overnight",
+  "oven": "<span class=\"rc-nw\">325 °F <span class=\"rc-muted\">(163 °C)</span></span>",
+  "equipment": [
+    "Stand mixer, whisk + paddle",
+    "1 oz scoop",
+    "2 sheet pans + parchment",
+    "Wire rack",
+    "Scale"
+  ],
+  "source": "Serious Eats (J. Kenji López-Alt)",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Dough (day before)"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Butter, unsalted",
+          "g": 225,
+          "vol": "2 sticks",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, unsalted"
+        }
+      ],
+      "body": "Melt the butter in a saucepan over medium-high, swirling constantly, until the solids are golden and nutty, ≈5 min. Off the heat, swirl until rich brown, ≈15 s."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Ice cube",
+          "g": 30,
+          "vol": "1 standard",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Ice cube"
+        }
+      ],
+      "body": "Pour the browned butter into a medium bowl and whisk in the ice. Refrigerate until opaque and firm at the edges, ≈20 min, whisking now and then."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flour, all-purpose",
+          "g": 280,
+          "vol": "2 cups",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, all-purpose"
+        },
+        {
+          "name": "Baking soda",
+          "g": 3,
+          "vol": "¾ tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Baking soda"
+        },
+        {
+          "name": "Kosher salt (Diamond)",
+          "g": 4,
+          "vol": "2 tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt (Diamond)"
+        }
+      ],
+      "body": "Whisk the flour, baking soda and salt together in a bowl."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Granulated sugar",
+          "g": 140,
+          "vol": "¾ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        },
+        {
+          "name": "Eggs",
+          "g": 100,
+          "vol": "2 large",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Eggs"
+        },
+        {
+          "name": "Vanilla extract",
+          "g": 10,
+          "vol": "2 tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Vanilla extract"
+        }
+      ],
+      "body": "Put the sugar, eggs and vanilla in the mixer with the whisk. Beat on medium-high until pale and falling off in thick ribbons, ≈5 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Dark brown sugar, packed",
+          "g": 140,
+          "vol": "½ cup + 2 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Dark brown sugar, packed"
+        }
+      ],
+      "body": "Switch to the paddle. Add the brown sugar and the cooled butter. Mix on medium, ≈15 s."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Semisweet chocolate",
+          "g": 225,
+          "vol": null,
+          "note": "chopped, ¼–½ in",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Semisweet chocolate"
+        }
+      ],
+      "body": "Add the flour mix from step 3. Mix on low until barely combined, ≈15 s. Add the chocolate and mix on low until it just comes together, ≈15 s."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Refrigerate airtight overnight, up to 3 days."
+    },
+    {
+      "kind": "stage",
+      "name": "Bake"
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Preheat oven to <span class=\"rc-nw\">325 °F <span class=\"rc-muted\">(163 °C)</span></span>, racks upper- and lower-middle. Scoop ≈40 g balls onto the lined sheets, 6–8 per sheet. Tear each in half and press back together, rough sides out."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Bake from the fridge until the edges are golden but the centers are soft, <span class=\"rc-nw\">13–16 min</span>. Rotate the pans halfway."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Coarse sea salt",
+          "g": null,
+          "vol": "pinch each",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Coarse sea salt"
+        }
+      ],
+      "body": "Sprinkle the salt lightly on the hot cookies and press it in. Cool 2 min on the pan, then on a rack. Repeat with the rest of the dough."
+    }
+  ],
+  "nutritionSource": null,
+  "swaps": null,
+  "notes": [
+    "Weigh everything. If they spread too much, bake the dough nearly frozen, 6 per sheet.",
+    "Dough balls freeze well. Baked cookies keep 5 days airtight."
+  ],
+  "pages": 1,
+  "pdf": "food-lab-chocolate-chip-cookies.pdf"
+}

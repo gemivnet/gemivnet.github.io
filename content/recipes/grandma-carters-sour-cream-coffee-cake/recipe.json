@@ -1,0 +1,143 @@
+{
+  "slug": "grandma-carters-sour-cream-coffee-cake",
+  "title": "Grandma Carter's Sour Cream Coffee Cake",
+  "category": "Breakfast",
+  "yield": "1 tube pan, 16 slices",
+  "servings": 16,
+  "active": "15 min",
+  "total": "≈1 h 45 min",
+  "oven": "<span class=\"rc-nw\">325 °F <span class=\"rc-muted\">(163 °C)</span></span>",
+  "equipment": [
+    "Tube pan, 10 in",
+    "Stand mixer, paddle"
+  ],
+  "source": "Grandma Carter (index card)",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Preheat the oven to <span class=\"rc-nw\">325 °F <span class=\"rc-muted\">(163 °C)</span></span>. Grease the tube pan well and dust it with flour."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Yellow cake mix, Duncan Hines",
+          "g": 432,
+          "vol": "1 box (15.25 oz)",
+          "note": "dry",
+          "kcal": 1607.44,
+          "na": 3516.28,
+          "pro": 10.05,
+          "counted": null,
+          "countedNote": null,
+          "key": "Yellow cake mix, Duncan Hines"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 100,
+          "vol": "½ cup",
+          "note": null,
+          "kcal": 387,
+          "na": 1,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        },
+        {
+          "name": "Neutral oil (canola)",
+          "g": 164,
+          "vol": "¾ cup",
+          "note": null,
+          "kcal": 1449.76,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Neutral oil (canola)"
+        },
+        {
+          "name": "Sour cream",
+          "g": 227,
+          "vol": "8 oz",
+          "note": null,
+          "kcal": 449.46,
+          "na": 70.37,
+          "pro": 5.54,
+          "counted": null,
+          "countedNote": null,
+          "key": "Sour cream"
+        }
+      ],
+      "body": "Put the dry cake mix, sugar, oil and sour cream in the stand mixer with the paddle. Mix until combined."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Eggs",
+          "g": 200,
+          "vol": "4 large",
+          "note": null,
+          "kcal": 286,
+          "na": 284,
+          "pro": 25.12,
+          "counted": null,
+          "countedNote": null,
+          "key": "Eggs"
+        }
+      ],
+      "body": "With the mixer running, beat in the eggs one at a time. Mix until the batter is smooth."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Granulated sugar",
+          "g": 50,
+          "vol": "4 tbsp",
+          "note": null,
+          "kcal": 193.5,
+          "na": 0.5,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        },
+        {
+          "name": "Cinnamon, ground",
+          "g": 15.6,
+          "vol": "2 tbsp",
+          "note": null,
+          "kcal": 38.53,
+          "na": 1.56,
+          "pro": 0.62,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cinnamon, ground"
+        }
+      ],
+      "body": "In a small bowl, stir the sugar and cinnamon together."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Pour half the batter into the pan and sprinkle half the cinnamon sugar over it. Add the rest of the batter, then the rest of the cinnamon sugar on top."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Bake until a skewer in the thickest part comes out clean, <span class=\"rc-nw\">50–60 min</span>. Cool in the pan ≈20 min, then turn it out onto a rack."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (sugar, canola oil, sour cream, eggs, cinnamon) and Branded Foods label (Duncan Hines Classic Yellow, 43 g = 160 kcal, 350 mg, 1 g). Pan grease and flour not counted.",
+  "swaps": null,
+  "notes": [
+    "The card says “4 Tbl. spoon of cinn &amp; 2 Tbl. cinnamon”. The first “cinn” looks like a slip for sugar.",
+    "White or yellow mix both work. Boxes have shrunk to 15.25 oz, so check the cake a few minutes early."
+  ],
+  "pages": 1,
+  "pdf": "grandma-carters-sour-cream-coffee-cake.pdf"
+}

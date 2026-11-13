@@ -1,0 +1,202 @@
+{
+  "slug": "uncle-joeys-pizza-dip",
+  "title": "Uncle Joey's Pizza Dip",
+  "category": "Appetizers",
+  "yield": "1 pie plate, ~8 servings",
+  "servings": null,
+  "active": "15 min",
+  "total": "35 min",
+  "oven": "<span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>",
+  "equipment": [
+    "Stand mixer, paddle",
+    "Pie plate, 2 in deep"
+  ],
+  "source": "Uncle Joey",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Cream cheese",
+          "g": 226,
+          "vol": "1 block (8 oz)",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cream cheese"
+        }
+      ],
+      "body": "Let the cream cheese soften to room temperature. Preheat oven to <span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Sour cream",
+          "g": 123,
+          "vol": "½ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Sour cream"
+        },
+        {
+          "name": "Oregano",
+          "g": null,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Oregano"
+        },
+        {
+          "name": "Crushed red pepper",
+          "g": null,
+          "vol": "⅛ tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Crushed red pepper"
+        },
+        {
+          "name": "Garlic powder",
+          "g": null,
+          "vol": "½ tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Garlic powder"
+        }
+      ],
+      "body": "Beat the sour cream, oregano, red pepper and garlic powder with the cream cheese until smooth. Spread evenly in the pie plate."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Pizza sauce",
+          "g": 112,
+          "vol": "½ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Pizza sauce"
+        },
+        {
+          "name": "Pepperoni or soupy",
+          "g": 70,
+          "vol": "½ cup",
+          "note": "chopped",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Pepperoni or soupy"
+        },
+        {
+          "name": "Green onion",
+          "g": 22,
+          "vol": "2 stalks",
+          "note": "sliced",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Green onion"
+        },
+        {
+          "name": "Green pepper",
+          "g": 23,
+          "vol": "¼ pepper",
+          "note": "diced",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Green pepper"
+        },
+        {
+          "name": "Mozzarella, shredded",
+          "g": 50,
+          "vol": "½ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Mozzarella, shredded"
+        }
+      ],
+      "body": "In a bowl, mix the sauce, pepperoni, green onion, green pepper and ½ cup of mozzarella together. Spread over the cream cheese layer."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Bake until bubbling at the edges, ≈10 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Mozzarella, shredded",
+          "g": 50,
+          "vol": "½ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Mozzarella, shredded"
+        }
+      ],
+      "body": "Top with the rest of the mozzarella. Bake 6 min more, until melted."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Tortilla chips",
+          "g": null,
+          "vol": "1 bag",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Tortilla chips"
+        }
+      ],
+      "body": "Serve hot with the tortilla chips."
+    }
+  ],
+  "nutritionSource": null,
+  "swaps": null,
+  "notes": [],
+  "pages": 1,
+  "pdf": "uncle-joeys-pizza-dip.pdf"
+}

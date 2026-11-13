@@ -1,0 +1,171 @@
+{
+  "slug": "chocolate-chip-cookies-for-one",
+  "title": "Chocolate Chip Cookies for One",
+  "category": "Desserts",
+  "yield": "2 cookies",
+  "servings": null,
+  "active": "12 min",
+  "total": "≈35 min",
+  "oven": "<span class=\"rc-nw\">325 °F <span class=\"rc-muted\">(163 °C)</span></span>",
+  "equipment": [
+    "Quarter sheet pan",
+    "Parchment",
+    "Small whisk"
+  ],
+  "source": "Serious Eats (Leah Colins)",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Preheat oven to <span class=\"rc-nw\">325 °F <span class=\"rc-muted\">(163 °C)</span></span>, rack in the middle. Line the sheet pan with parchment."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flour, all-purpose",
+          "g": 32,
+          "vol": "¼ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, all-purpose"
+        },
+        {
+          "name": "Baking soda",
+          "g": null,
+          "vol": "⅛ tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Baking soda"
+        },
+        {
+          "name": "Kosher salt",
+          "g": null,
+          "vol": "⅛ tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt"
+        }
+      ],
+      "body": "Whisk the flour, baking soda and salt together in a small bowl."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Butter, unsalted",
+          "g": 28,
+          "vol": "2 tbsp",
+          "note": "melted, slightly cooled",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, unsalted"
+        },
+        {
+          "name": "Brown sugar, packed",
+          "g": 44,
+          "vol": "3 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Brown sugar, packed"
+        }
+      ],
+      "body": "In a medium bowl, whisk the butter and brown sugar hard until the sugar dissolves, ≈1 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Egg yolk",
+          "g": 18,
+          "vol": "1 large",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Egg yolk"
+        },
+        {
+          "name": "Vanilla extract",
+          "g": null,
+          "vol": "⅛ tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Vanilla extract"
+        }
+      ],
+      "body": "Add the yolk and vanilla and whisk hard until glossy, ≈1 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Chocolate chips or chunks",
+          "g": 21,
+          "vol": "2 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Chocolate chips or chunks"
+        }
+      ],
+      "body": "Stir in the flour mix from step 2 until just combined, then stir in the chocolate."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Cover and refrigerate until slightly thickened, <span class=\"rc-nw\">5–10 min</span>."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "With wet hands, roll into 2 equal balls. Set 2 in apart on the pan."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Bake until the edges are set and starting to brown but the centers are still soft and puffy, <span class=\"rc-nw\">8–12 min</span>."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Cool on the pan 10 min before eating."
+    }
+  ],
+  "nutritionSource": null,
+  "swaps": null,
+  "notes": [
+    "Keeps up to 7 days airtight at room temp."
+  ],
+  "pages": 1,
+  "pdf": "chocolate-chip-cookies-for-one.pdf"
+}

@@ -1,0 +1,266 @@
+{
+  "slug": "stuffed-cabbage-rolls",
+  "title": "Stuffed Cabbage Rolls",
+  "category": "Hearty",
+  "yield": "6 servings (12–14 rolls)",
+  "servings": null,
+  "active": "45 min",
+  "total": "≈1 h 45 min",
+  "oven": "<span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>",
+  "equipment": [
+    "Large skillet",
+    "Large saucepan",
+    "9×13 in baking dish",
+    "Foil"
+  ],
+  "source": "Serious Eats (Jennifer Olvera), adapted",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Filling"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Savoy cabbage",
+          "g": null,
+          "vol": "1 head",
+          "note": "cored",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Savoy cabbage"
+        },
+        {
+          "name": "Water, boiling",
+          "g": null,
+          "vol": "to cover",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water, boiling"
+        }
+      ],
+      "body": "Preheat oven to <span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>, rack lower-middle. Cover the cabbage with boiling water and let it stand 10 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Spicy turkey sausage",
+          "g": 680,
+          "vol": "1½ lb",
+          "note": "no casings",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Spicy turkey sausage"
+        },
+        {
+          "name": "White rice, cooked",
+          "g": 320,
+          "vol": "2 cups",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "White rice, cooked"
+        }
+      ],
+      "body": "Brown the sausage in the skillet over medium-high, breaking it into small bits, ≈10 min. Drain if needed and stir in the rice."
+    },
+    {
+      "kind": "stage",
+      "name": "Sauce"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Bacon",
+          "g": null,
+          "vol": "3 slices",
+          "note": "chopped",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Bacon"
+        }
+      ],
+      "body": "Cook the bacon in the saucepan over medium-high until crisp and rendered, ≈5 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Yellow onion",
+          "g": null,
+          "vol": "1 medium",
+          "note": "chopped",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Yellow onion"
+        },
+        {
+          "name": "Red bell pepper",
+          "g": null,
+          "vol": "1",
+          "note": "chopped",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Red bell pepper"
+        }
+      ],
+      "body": "Add the onion and bell pepper. Cook, stirring often, until starting to soften, ≈4 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Garlic",
+          "g": null,
+          "vol": "2 cloves",
+          "note": "minced",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Garlic"
+        }
+      ],
+      "body": "Lower to medium. Add the garlic and cook 2 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Water",
+          "g": 355,
+          "vol": "1½ cups",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Better Than Bouillon, roasted chicken",
+          "g": null,
+          "vol": "1½ tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Better Than Bouillon, roasted chicken"
+        }
+      ],
+      "body": "Stir in the water and Better Than Bouillon. Bring to a boil, then simmer 5 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Tomato purée",
+          "g": 794,
+          "vol": "28 oz can",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Tomato purée"
+        },
+        {
+          "name": "Paprika",
+          "g": null,
+          "vol": "½ tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Paprika"
+        },
+        {
+          "name": "Caraway, ground",
+          "g": null,
+          "vol": "¼ tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Caraway, ground"
+        },
+        {
+          "name": "Salt + black pepper",
+          "g": null,
+          "vol": "to taste",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Salt + black pepper"
+        }
+      ],
+      "body": "Add the tomato purée, paprika, caraway, salt and pepper. Return to a boil, then simmer on low until slightly thickened, ≈25 min."
+    },
+    {
+      "kind": "stage",
+      "name": "Assemble + bake"
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Drain the cabbage and peel off 12–14 large leaves. Cut out the tough ribs and pat dry. Fill each with ≈⅓ cup filling and roll like a burrito, sides in first."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Grease the dish. Pack the rolls in tightly and pour the sauce over. Cover with foil and bake until bubbly, <span class=\"rc-nw\">35–40 min</span>."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Rest 10 min. Serve with the sauce spooned over."
+    }
+  ],
+  "nutritionSource": null,
+  "swaps": null,
+  "notes": [
+    "No beer: stock replaces the 12 oz of light beer in the original.",
+    "Leaves can also be wilted by freezing a few hours and thawing, with no boiling.",
+    "Make ahead: assemble up to 1 day early, then pull from the fridge 45 min before baking. Freezes well. Good with nokedli."
+  ],
+  "pages": 1,
+  "pdf": "stuffed-cabbage-rolls.pdf"
+}

@@ -1,0 +1,57 @@
+{
+  "slug": "new-york-pepperoni-margherita",
+  "title": "Pepperoni + Margherita Pies",
+  "category": "Hearty",
+  "yield": "Toppings for one 16 in pie each, 8 slices",
+  "servings": null,
+  "active": "15–30 min per pie",
+  "total": null,
+  "oven": "<span class=\"rc-nw\">550 °F <span class=\"rc-muted\">(288 °C)</span></span>",
+  "equipment": [
+    "Same setup as the New York–Style Pizza card",
+    "Paper towels"
+  ],
+  "source": "Scarr&#39;s, Lucali, Di Fara; Kenji (pepperoni test)",
+  "revised": "2026-11-05",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Classic pepperoni"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Cheese pie, as on the main card",
+          "g": 824,
+          "vol": "1 of 3",
+          "note": null,
+          "kcal": 1898.59,
+          "na": 4440.77,
+          "pro": 89.47,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cheese pie, as on the main card"
+        },
+        {
+          "name": "Pepperoni, Boar&#39;s Head natural casing",
+          "g": 85,
+          "vol": "≈33 slices",
+          "note": "⅛ in thick",
+          "kcal": 394.4,
+          "na": 1730.6,
+          "pro": 18.22,
+          "counted": null,
+          "countedNote": null,
+          "key": "Pepperoni, Boar's Head natural casing"
+        }
+      ],
+      "body": "Slice the stick yourself, ⅛ in. Build the cheese pie, then lay the pepperoni on top of the cheese, edges just touching. Natural casing cups and chars under the broiler."
+    }
+  ],
+  "nutritionSource": "Boar’s Head Natural Casing Traditional Pepperoni label (FDC 2565747). Optional Scarr’s-style jalapeño slices before, hot honey after: not counted.",
+  "swaps": null,
+  "notes": [],
+  "pages": 2,
+  "pdf": "new-york-pepperoni-margherita.pdf"
+}

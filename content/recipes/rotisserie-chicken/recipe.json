@@ -1,0 +1,132 @@
+{
+  "slug": "rotisserie-chicken",
+  "title": "Rotisserie Chicken",
+  "category": "Hearty",
+  "yield": "2–4 servings",
+  "servings": null,
+  "active": "30 min",
+  "total": "≈1 h 30 min + overnight",
+  "oven": null,
+  "equipment": [
+    "Charcoal grill + rotisserie",
+    "Chimney starter",
+    "Foil drip pan",
+    "Wire rack + sheet pan",
+    "Butcher twine",
+    "Probe thermometer"
+  ],
+  "source": "Serious Eats (Joshua Bousel)",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Night before"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Whole chicken",
+          "g": "1.8 kg",
+          "vol": "≈4 lb",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Whole chicken"
+        },
+        {
+          "name": "Kosher salt (Diamond)",
+          "g": 18,
+          "vol": "2 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt (Diamond)"
+        }
+      ],
+      "body": "Pat the chicken dry. Salt it all over, outside and in the cavity. Refrigerate uncovered on the rack over the sheet pan overnight (≈12 h)."
+    },
+    {
+      "kind": "stage",
+      "name": "Cook"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Charcoal briquettes",
+          "g": null,
+          "vol": "1 chimney",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Charcoal briquettes"
+        }
+      ],
+      "body": "Fill the chimney with charcoal and light it."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "While the coals light: poke holes all over the chicken with a skewer, especially the fatty thigh areas. Tuck the wings under and truss the legs. Run the spit through the cavity and lock it with the forks."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Charcoal briquettes",
+          "g": null,
+          "vol": "¼–⅓ chimney",
+          "note": "per side",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Charcoal briquettes"
+        }
+      ],
+      "body": "Once the coals are covered in gray ash, bank them in two piles on either side of the grate with the foil pan between. Add the extra charcoal to each pile and let it ash over. Target: <span class=\"rc-nw\">425–450 °F</span> in the grill."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Butter",
+          "g": 28,
+          "vol": "2 tbsp",
+          "note": "melted",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter"
+        }
+      ],
+      "body": "Mount the spit and brush the chicken all over with butter. Cover and cook until the skin is deep brown and the breast reads <span class=\"rc-nw\">155–160 °F</span>, <span class=\"rc-nw\">30–45 min</span>."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Rest 10 min. Remove the spit, carve and serve."
+    }
+  ],
+  "nutritionSource": null,
+  "swaps": null,
+  "notes": [
+    "Also check the thickest part of the thigh (≥<span class=\"rc-nw\">175 °F <span class=\"rc-muted\">(79 °C)</span></span>). Some cooks report the center lagging behind the breast.",
+    "Lump charcoal burns hotter than briquettes for even more browning."
+  ],
+  "pages": 1,
+  "pdf": "rotisserie-chicken.pdf"
+}

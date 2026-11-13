@@ -1,0 +1,177 @@
+{
+  "slug": "nans-awesome-baked-beans",
+  "title": "Nan's Awesome Baked Beans",
+  "category": "Sides",
+  "yield": "≈8 servings",
+  "servings": 8,
+  "active": "30 min",
+  "total": "Overnight soak + ≈11 h",
+  "oven": null,
+  "equipment": [
+    "Slow cooker",
+    "Large pot",
+    "Saucepan",
+    "Colander"
+  ],
+  "source": "Nan (typed page)",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "The night before"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Yellow eye beans",
+          "g": 454,
+          "vol": "1 bag (1 lb)",
+          "note": null,
+          "kcal": 1566.3,
+          "na": 54.48,
+          "pro": 99.88,
+          "counted": null,
+          "countedNote": null,
+          "key": "Yellow eye beans"
+        }
+      ],
+      "body": "Put the beans in a large bowl, cover them well with cold water and soak overnight."
+    },
+    {
+      "kind": "stage",
+      "name": "The next day"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Salt pork",
+          "g": 227,
+          "vol": "½ lb",
+          "note": "1 in chunks",
+          "kcal": 1697.96,
+          "na": 6092.68,
+          "pro": 11.46,
+          "counted": null,
+          "countedNote": null,
+          "key": "Salt pork"
+        },
+        {
+          "name": "Pork shoulder",
+          "g": 227,
+          "vol": "½ lb",
+          "note": "1 in chunks",
+          "kcal": 535.72,
+          "na": 147.55,
+          "pro": 39,
+          "counted": null,
+          "countedNote": null,
+          "key": "Pork shoulder"
+        },
+        {
+          "name": "Water",
+          "g": null,
+          "vol": "to cover",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        }
+      ],
+      "body": "Put the salt pork and pork shoulder in the saucepan and cover them with water. Simmer until the pork is tender, ≈45 min. <strong>Save all of this water</strong>; it goes in the slow cooker in step 5."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Drain the beans, put them in the large pot with fresh water to cover and boil for ½ hour. To test, lift a few on a spoon and blow on them; they’re ready when the skins peel back."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Baking soda",
+          "g": 4.6,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Baking soda"
+        }
+      ],
+      "body": "Add the baking soda; it foams up, so stir. Boil another minute or two. Drain in the colander and rinse with cold water."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Molasses",
+          "g": 30,
+          "vol": "1 heaping tbsp",
+          "note": null,
+          "kcal": 87,
+          "na": 11.1,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Molasses"
+        },
+        {
+          "name": "Brown sugar, packed",
+          "g": 165,
+          "vol": "¾ cup",
+          "note": null,
+          "kcal": 627,
+          "na": 46.2,
+          "pro": 0.2,
+          "counted": null,
+          "countedNote": null,
+          "key": "Brown sugar, packed"
+        },
+        {
+          "name": "Onion",
+          "g": 70,
+          "vol": "1 small",
+          "note": "finely chopped",
+          "kcal": 28,
+          "na": 2.8,
+          "pro": 0.77,
+          "counted": null,
+          "countedNote": null,
+          "key": "Onion"
+        },
+        {
+          "name": "Mustard, dry",
+          "g": 2,
+          "vol": "1 level tsp",
+          "note": null,
+          "kcal": 10.16,
+          "na": 0.26,
+          "pro": 0.52,
+          "counted": null,
+          "countedNote": null,
+          "key": "Mustard, dry"
+        }
+      ],
+      "body": "Put the rinsed beans in the slow cooker. Add the salt pork, the pork shoulder and all their saved water. Add the molasses, brown sugar, onion and dry mustard, and stir."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Cover and cook on Low until the beans are soft, ≈<span class=\"rc-nw\">8–10 h</span>. If they look dry, add a little hot water."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central, SR Legacy. Baking soda is rinsed off, so it isn’t counted. Heaping tbsp taken as 1½ level.",
+  "swaps": null,
+  "notes": [
+    "Nan’s page gives no pork amounts or times (“until done”), so those are fill-ins. Navy or Great Northern beans work if you can’t find yellow eye."
+  ],
+  "pages": 1,
+  "pdf": "nans-awesome-baked-beans.pdf"
+}

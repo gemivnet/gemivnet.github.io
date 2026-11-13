@@ -1,0 +1,100 @@
+{
+  "slug": "cast-iron-pizza",
+  "title": "Cast Iron Pizza Dough",
+  "category": "Breads & Doughs",
+  "yield": "1 dough ball (≈310 g)",
+  "servings": null,
+  "active": "10 min",
+  "total": "2–3 days",
+  "oven": null,
+  "equipment": [
+    "Lidded container"
+  ],
+  "source": null,
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Yeast",
+          "g": null,
+          "vol": "¼ tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Yeast"
+        },
+        {
+          "name": "Sugar",
+          "g": 5,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Sugar"
+        },
+        {
+          "name": "Water",
+          "g": 118,
+          "vol": "½ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Salt",
+          "g": 3,
+          "vol": "½ tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Salt"
+        },
+        {
+          "name": "Bread flour",
+          "g": "180–200 g",
+          "vol": "1½ cups",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Bread flour"
+        }
+      ],
+      "body": "Combine the yeast, sugar, water and salt in a bowl, then stir in the flour. Start at 180 g flour and add more only if it’s unworkable. The dough should be wet."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Knead until smooth."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Cover and refrigerate 2–3 days."
+    }
+  ],
+  "nutritionSource": null,
+  "swaps": null,
+  "notes": [
+    "Dough only. The bake steps were never written down."
+  ],
+  "pages": 1,
+  "pdf": "cast-iron-pizza.pdf"
+}

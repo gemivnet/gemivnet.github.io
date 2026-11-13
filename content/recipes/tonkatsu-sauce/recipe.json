@@ -1,0 +1,79 @@
+{
+  "slug": "tonkatsu-sauce",
+  "title": "Tonkatsu Sauce",
+  "category": "Sauces & Marinades",
+  "yield": "≈13 tbsp (≈⅘ cup), 1 tbsp per serving",
+  "servings": 13,
+  "active": "5 min",
+  "total": "35 min (incl. 30 min chill)",
+  "oven": null,
+  "equipment": [
+    "Jar with lid"
+  ],
+  "source": "Japanese 3 : 3 : 1 home ratio; Just One Cookbook (method)",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Worcestershire, Lea &amp; Perrins",
+          "g": 102,
+          "vol": "6 tbsp",
+          "note": null,
+          "kcal": 90,
+          "na": 1170,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Worcestershire, Lea & Perrins"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 25,
+          "vol": "2 tbsp",
+          "note": null,
+          "kcal": 96.75,
+          "na": 0.25,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        }
+      ],
+      "body": "Stir the Worcestershire and sugar in the jar until the sugar is fully dissolved and no grains show on the spoon."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Ketchup, Heinz",
+          "g": 102,
+          "vol": "6 tbsp",
+          "note": null,
+          "kcal": 120,
+          "na": 1020,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Ketchup, Heinz"
+        }
+      ],
+      "body": "Add the ketchup and stir until smooth and evenly brown."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Refrigerate at least 30 min. It thickens as it chills."
+    }
+  ],
+  "nutritionSource": "Labels in USDA FoodData Central Branded Foods (Lea &amp; Perrins, Heinz); USDA SR Legacy (sugar, Worcestershire g per tbsp). Yield includes the volume of the dissolved sugar.",
+  "swaps": null,
+  "notes": [
+    "Thick and sweet-tangy like Bull-Dog. For Bull-Dog thickness, simmer with 1 tsp cornstarch stirred into 1 tbsp water until glossy, ≈1 min (adds 10 kcal per batch).",
+    "Keeps 2–3 weeks refrigerated.",
+    "Goes on tonkatsu and shredded cabbage. Used in <em>Katsudon</em>."
+  ],
+  "pages": 1,
+  "pdf": "tonkatsu-sauce.pdf"
+}

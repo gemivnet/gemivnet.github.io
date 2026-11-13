@@ -1,0 +1,193 @@
+{
+  "slug": "braided-brioche",
+  "title": "Braided Brioche",
+  "category": "Breads & Doughs",
+  "yield": "9×13 in pan, 3 braids",
+  "servings": 12,
+  "active": "≈1 h 30 min",
+  "total": "≈14 h (incl. overnight chill)",
+  "oven": "<span class=\"rc-nw\">300 °F <span class=\"rc-muted\">(149 °C)</span></span>",
+  "equipment": [
+    "Stand mixer + dough hook",
+    "9×13 in pan",
+    "Bench knife",
+    "Probe thermometer"
+  ],
+  "source": "Bakery Parra (YouTube), via a reader&#39;s post, adapted",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Dough (day 1)"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Milk",
+          "g": 150,
+          "vol": "½ cup + 2 tbsp",
+          "note": "whole, cold",
+          "kcal": 91.5,
+          "na": 64.5,
+          "pro": 4.72,
+          "counted": null,
+          "countedNote": null,
+          "key": "Milk"
+        },
+        {
+          "name": "Eggs",
+          "g": 150,
+          "vol": "≈3 large",
+          "note": "beaten",
+          "kcal": 214.5,
+          "na": 213,
+          "pro": 18.84,
+          "counted": null,
+          "countedNote": null,
+          "key": "Eggs"
+        },
+        {
+          "name": "Bread flour, King Arthur",
+          "g": 500,
+          "vol": "≈4⅛ cups",
+          "note": null,
+          "kcal": 1833.33,
+          "na": null,
+          "pro": 66.67,
+          "counted": null,
+          "countedNote": null,
+          "key": "Bread flour, King Arthur"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 9,
+          "vol": "2 scant tsp",
+          "note": null,
+          "kcal": null,
+          "na": 3600,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 70,
+          "vol": "⅓ cup + 1 tsp",
+          "note": null,
+          "kcal": 270.9,
+          "na": 0.7,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        },
+        {
+          "name": "Instant yeast",
+          "g": 7.5,
+          "vol": "1 packet",
+          "note": null,
+          "kcal": 24.4,
+          "na": 3.8,
+          "pro": 3.03,
+          "counted": null,
+          "countedNote": null,
+          "key": "Instant yeast"
+        }
+      ],
+      "body": "Add to the mixer bowl in this order. Knead with the hook on medium-low until it passes the windowpane test, ≈20 min. Strong gluten makes the stringy crumb."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Butter, unsalted",
+          "g": 150,
+          "vol": "10½ tbsp",
+          "note": "soft, ½ in cubes",
+          "kcal": 1075.5,
+          "na": 16.5,
+          "pro": 1.27,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, unsalted"
+        }
+      ],
+      "body": "With the mixer running, add a few cubes at a time. Knead until smooth and elastic, <span class=\"rc-nw\">15–20 min</span> more."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Rest in an oiled container, 30 min at room temp. Fold: turn the dough inside out and tuck the edges under. Cover and refrigerate at least 10 h."
+    },
+    {
+      "kind": "stage",
+      "name": "Shape + bake (day 2)"
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Divide the cold dough into 9 pieces, ≈115 g each. Flatten each and fold it in half twice in the same direction into a short log. Refrigerate 10 min."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Degas each with your palm, fold twice again, sealing the seam with your palm, and roll to ≈15 in (38 cm). Braid 3 strands at a time: start in the middle, braid to one end, flip the braid, braid the other half. Pinch the ends."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Lay the 3 braids lengthwise, side by side, in the greased pan. Proof in the turned-off oven with a bowl of hot water until puffy, ≈1½ h (1–2 h)."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "At ≈1¼ h, take the pan out and heat the oven to <span class=\"rc-nw\">300 °F <span class=\"rc-muted\">(149 °C)</span></span>, convection if you have it."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Egg",
+          "g": 50,
+          "vol": "1 large",
+          "note": null,
+          "kcal": 71.5,
+          "na": 71,
+          "pro": 6.28,
+          "counted": null,
+          "countedNote": null,
+          "key": "Egg"
+        },
+        {
+          "name": "Egg yolk",
+          "g": 17,
+          "vol": "1 large",
+          "note": null,
+          "kcal": 54.7,
+          "na": 8.2,
+          "pro": 2.7,
+          "counted": null,
+          "countedNote": null,
+          "key": "Egg yolk"
+        }
+      ],
+      "body": "Whisk the egg and yolk for egg wash. Brush it over the braids gently so the dough doesn’t deflate. A little sugar on top is optional."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Bake until deep golden and the center reads <span class=\"rc-nw\">190 °F <span class=\"rc-muted\">(88 °C)</span></span>, <span class=\"rc-nw\">25–35 min</span>. Cool in the pan 10 min, then on a rack."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (whole milk, eggs, sugar, active dry yeast, unsalted butter, yolk) and Branded Foods labels (King Arthur Unbleached Bread Flour, Morton). All the egg wash is counted, though some stays in the bowl. Pan grease and oil not counted.",
+  "swaps": null,
+  "notes": [
+    "The long knead is the point. If the mixer gets hot, pause it a few minutes.",
+    "The video uses a 27 cm (10½ in) square pan with 33 cm strands. The strands are rolled longer here to fill the 13 in length.",
+    "Our French toast bread. Also great with the Salted Caramel card."
+  ],
+  "pages": 2,
+  "pdf": "braided-brioche.pdf"
+}

@@ -1,0 +1,7 @@
+<div class="foia-note-foot">
+  <p><%= copy.recipes.disclaimer.short %></p>
+  <details>
+    <summary><%= copy.recipes.disclaimer.tag %></summary>
+    <% ;(copy.recipes.disclaimer.body).forEach(function(p){ %><p><%= p %></p><% }) %>
+  </details>
+</div>

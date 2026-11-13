@@ -1,0 +1,176 @@
+{
+  "slug": "garlic-smashed-red-potatoes",
+  "title": "Garlic Smashed Red Potatoes",
+  "category": "Sides",
+  "yield": "Serves 4–6",
+  "servings": 6,
+  "active": "15 min",
+  "total": "≈1 h",
+  "oven": null,
+  "equipment": [
+    "Large saucepan",
+    "Small skillet",
+    "Mixing bowl + whisk",
+    "Paring knife"
+  ],
+  "source": "America&#39;s Test Kitchen (Garlic-Rosemary Smashed Potatoes)",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Butter, unsalted",
+          "g": 57,
+          "vol": "4 tbsp",
+          "note": null,
+          "kcal": 407.3,
+          "na": 6.2,
+          "pro": 0.48,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, unsalted"
+        },
+        {
+          "name": "Rosemary, fresh",
+          "g": null,
+          "vol": "½ tsp",
+          "note": "chopped",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Rosemary, fresh"
+        },
+        {
+          "name": "Garlic",
+          "g": 3,
+          "vol": "1 clove",
+          "note": "minced, for the butter",
+          "kcal": 4.47,
+          "na": 0.5,
+          "pro": 0.19,
+          "counted": null,
+          "countedNote": null,
+          "key": "Garlic"
+        }
+      ],
+      "body": "<strong>Make the garlic butter.</strong> Melt the butter in the skillet over medium heat. When the foam subsides, add the rosemary and the minced garlic. Cook until fragrant, ≈30 s. Take it off the heat and set it aside for step 4."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Baby red potatoes",
+          "g": 907,
+          "vol": "2 lb",
+          "note": "unpeeled, scrubbed",
+          "kcal": 634.9,
+          "na": 163.3,
+          "pro": 17.14,
+          "counted": null,
+          "countedNote": null,
+          "key": "Baby red potatoes"
+        },
+        {
+          "name": "Garlic",
+          "g": 6,
+          "vol": "2 cloves",
+          "note": "peeled, left whole, for the pot",
+          "kcal": 8.93,
+          "na": 1,
+          "pro": 0.38,
+          "counted": null,
+          "countedNote": null,
+          "key": "Garlic"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": null,
+          "vol": "1¼ tsp",
+          "note": "for the water",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        },
+        {
+          "name": "Bay leaf",
+          "g": null,
+          "vol": "1",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Bay leaf"
+        }
+      ],
+      "body": "<strong>Boil the potatoes.</strong> Put the potatoes, the 2 whole garlic cloves, the salt and the bay leaf all in the saucepan together. Add cold water until everything is covered by 1 in. The garlic boils with the potatoes, which makes it soft and mild. Bring to a boil, then lower to a gentle simmer. Cook until a paring knife slides into a potato with no resistance, 35–45 min (check early; baby reds cook faster)."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "<strong>Drain.</strong> Scoop out ½ cup of the cooking water and save it. Drain the pot in a colander. Throw away the bay leaf. Pick out the 2 boiled garlic cloves and save them for step 4. Put the potatoes back in the empty pot and let them stand uncovered until their surfaces look dry, ≈5 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Cream cheese, Philadelphia",
+          "g": 113,
+          "vol": "4 oz (½ brick)",
+          "note": "room temp",
+          "kcal": 404.84,
+          "na": 445.66,
+          "pro": 8.1,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cream cheese, Philadelphia"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 3,
+          "vol": "½ tsp + pinch",
+          "note": "for the sauce",
+          "kcal": null,
+          "na": 1200,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        },
+        {
+          "name": "Black pepper",
+          "g": null,
+          "vol": "½ tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Black pepper"
+        }
+      ],
+      "body": "<strong>Make the sauce</strong> while the potatoes dry. In the mixing bowl, mash the 2 boiled garlic cloves with a fork. Add the garlic butter from step 1 and the cream cheese, and whisk until smooth. Whisk in ¼ cup of the saved cooking water, the salt and the pepper."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "<strong>Smash and serve.</strong> In the pot, smash the potatoes with a spoon just enough to break the skins. Fold in the sauce until it’s mostly absorbed, leaving some chunks. Add more of the saved cooking water, 1 tbsp at a time, until they’re slightly looser than you want; they thicken as they stand. Taste, add salt and pepper if needed, and serve."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (red potatoes with skin, unsalted butter, garlic) and Branded Foods labels (Philadelphia, Morton). Salt in the cooking water mostly drains away and isn’t counted; neither are rosemary, bay leaf or pepper.",
+  "swaps": null,
+  "notes": [
+    "The garlic is used two ways: 1 minced clove goes in the butter (step 1), and 2 whole cloves boil with the potatoes (step 2). Both end up in the sauce. Want more garlic? Boil extra whole cloves.",
+    "Keep the potatoes about the same size so they finish together. Morton amounts match the weight of ATK’s table salt."
+  ],
+  "pages": 2,
+  "pdf": "garlic-smashed-red-potatoes.pdf"
+}

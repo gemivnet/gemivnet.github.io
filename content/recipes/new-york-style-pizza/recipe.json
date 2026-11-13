@@ -1,0 +1,225 @@
+{
+  "slug": "new-york-style-pizza",
+  "title": "New York–Style Pizza",
+  "category": "Hearty",
+  "yield": "3 pies, 16 in, 8 slices each",
+  "servings": 24,
+  "active": "≈1 h",
+  "total": "≈1 h 30 min (dough made 3 days ahead)",
+  "oven": "<span class=\"rc-nw\">550 °F <span class=\"rc-muted\">(288 °C)</span></span>",
+  "equipment": [
+    "Pizza steel, 14.5 × 16 × ⅜ in",
+    "16 in wood peel",
+    "Coarse grater",
+    "IR thermometer"
+  ],
+  "source": "Dough Guy, dopnyc (r/Pizza), Scarr&#39;s, Paulie Gee&#39;s, Lucali",
+  "revised": "2026-11-05",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Sauce (raw; ≥1 h ahead)"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Ground tomatoes, Stanislaus 7/11",
+          "g": 800,
+          "vol": "≈3¼ cups",
+          "note": "from the #10 can",
+          "kcal": 179.33,
+          "na": 986.3,
+          "pro": 11.96,
+          "counted": 373.6,
+          "countedNote": "3 pies",
+          "key": "Ground tomatoes, Stanislaus 7/11"
+        },
+        {
+          "name": "Oregano, dried",
+          "g": 1,
+          "vol": "1 tsp",
+          "note": "rubbed",
+          "kcal": 1.2,
+          "na": 0.1,
+          "pro": 0.04,
+          "counted": 0.47,
+          "countedNote": "3 pies",
+          "key": "Oregano, dried"
+        },
+        {
+          "name": "Basil, fresh",
+          "g": 2,
+          "vol": "4 leaves",
+          "note": "torn",
+          "kcal": 0.2,
+          "na": null,
+          "pro": 0.03,
+          "counted": 0.93,
+          "countedNote": "3 pies",
+          "key": "Basil, fresh"
+        }
+      ],
+      "body": "Stir the tomatoes, oregano and basil together; don’t cook. Taste it: the tomatoes are already salted, so add salt only if it needs it. Too thick to spread? A splash of water. Rest ≥1 h; use at room temp. Freeze the rest of the can in 125 g portions."
+    },
+    {
+      "kind": "stage",
+      "name": "Cheese"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Mozzarella, Galbani whole milk",
+          "g": 240,
+          "vol": "8½ oz",
+          "note": "low-moisture, cold",
+          "kcal": 720,
+          "na": 1519.2,
+          "pro": 48,
+          "counted": null,
+          "countedNote": null,
+          "key": "Mozzarella, Galbani whole milk"
+        },
+        {
+          "name": "Mozzarella, Galbani part-skim",
+          "g": 240,
+          "vol": "8½ oz",
+          "note": "low-moisture, cold",
+          "kcal": 720,
+          "na": 1519.2,
+          "pro": 64.08,
+          "counted": null,
+          "countedNote": null,
+          "key": "Mozzarella, Galbani part-skim"
+        },
+        {
+          "name": "Fresh mozzarella, Galbani",
+          "g": 120,
+          "vol": "4 oz",
+          "note": "torn small, blotted",
+          "kcal": 343.2,
+          "na": 428.4,
+          "pro": 21.48,
+          "counted": null,
+          "countedNote": null,
+          "key": "Fresh mozzarella, Galbani"
+        },
+        {
+          "name": "Pecorino Romano, Locatelli",
+          "g": 12,
+          "vol": "≈3 tbsp",
+          "note": "finely grated",
+          "kcal": 47.16,
+          "na": 205.2,
+          "pro": 3.43,
+          "counted": null,
+          "countedNote": null,
+          "key": "Pecorino Romano, Locatelli"
+        }
+      ],
+      "body": "Grate both low-moisture blocks on the large holes, toss together and split into 3 × 160 g. Keep everything in the fridge until topping."
+    },
+    {
+      "kind": "stage",
+      "name": "Bake (each pie)"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "New York Pizza Dough",
+          "g": 1452,
+          "vol": "3 balls",
+          "note": "card",
+          "kcal": 3452.07,
+          "na": 8522.5,
+          "pro": 115.11,
+          "counted": null,
+          "countedNote": null,
+          "key": "New York Pizza Dough"
+        }
+      ],
+      "body": "T − 4 h: dough out of the fridge. T − 1 h: steel on the second rack from the top, ≈6 in below the broiler. Oven to <span class=\"rc-nw\">550 °F <span class=\"rc-muted\">(288 °C)</span></span> for a full hour. The steel should read <span class=\"rc-nw\">550–575 °F</span>."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Semolina + flour",
+          "g": null,
+          "vol": "for the peel",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Semolina + flour"
+        }
+      ],
+      "body": "Flour the ball. Press the center flat, leaving a ¾ in rim, and dimple both sides. Stretch over your knuckles to 16 in, letting gravity help. Onto the dusted peel; shimmy to check it slides."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Fast: 125 g sauce spread thin, rim bare. 4 g Pecorino, then 160 g grated mozzarella, then 40 g fresh mozzarella in small pieces. Launch with a quick, low-angle shake."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "After 1 min, turn on the broiler (crack the door if it won’t fire). Rotate at ≈3 min. Done at 5–7 min: underside spotted, rim deep golden, cheese bubbling hard and golden, not brown."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Parmigiano-Reggiano",
+          "g": 12,
+          "vol": "≈3 tbsp",
+          "note": "finely grated",
+          "kcal": 47,
+          "na": 141,
+          "pro": 4.29,
+          "counted": null,
+          "countedNote": null,
+          "key": "Parmigiano-Reggiano"
+        },
+        {
+          "name": "Olive oil, extra-virgin",
+          "g": 21,
+          "vol": "1½ tsp per pie",
+          "note": null,
+          "kcal": 185.6,
+          "na": 0.4,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Olive oil, extra-virgin"
+        },
+        {
+          "name": "Basil, fresh",
+          "g": null,
+          "vol": "a few leaves",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Basil, fresh"
+        }
+      ],
+      "body": "Rest 1–2 min on a wire rack. Finish with 4 g Parm, basil, and oil brushed on the crust. Cut 8. Back to <span class=\"rc-nw\">550 °F <span class=\"rc-muted\">(288 °C)</span></span> bake; let the steel recover 8–10 min between pies."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (oregano, basil, Parmesan, olive oil) and Branded Foods labels (Galbani whole-milk, part-skim and fresh mozzarella; Locatelli). Stanislaus 7/11 label (½ cup = 125 g = 60 kcal, 330 mg, 4 g). Dough from its card. Sauce counted for 3 × 125 g. Peel dusting and finishing basil not counted.",
+  "swaps": null,
+  "notes": [
+    "Escalon 6-in-1 also works for the sauce. It’s less salty, so add ½ tsp Morton per 800 g of tomatoes.",
+    "Cheese is used sparingly on purpose. The best NYC shops (Scarr’s ≈100 g on a 12 in) let the crust and sauce show.",
+    "Steel: NerdChef Steel Stone Pro, 14.5 × 16 × ⅜ in, long side left to right. Launch from the back edge and pull the peel straight out."
+  ],
+  "pages": 2,
+  "pdf": "new-york-style-pizza.pdf"
+}

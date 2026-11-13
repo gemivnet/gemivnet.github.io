@@ -1,0 +1,264 @@
+{
+  "slug": "dutch-apple-crumb-pie",
+  "title": "Dutch Apple Crumb Pie",
+  "category": "Desserts",
+  "yield": "1 pie, 9 in, 8 slices",
+  "servings": 8,
+  "active": "≈45 min",
+  "total": "≈4 h",
+  "oven": "<span class=\"rc-nw\">425 °F <span class=\"rc-muted\">(218 °C)</span></span>",
+  "equipment": [
+    "9 in glass pie plate",
+    "Half sheet pan",
+    "Rolling pin",
+    "Foil"
+  ],
+  "source": "King Arthur, Smitten Kitchen (crumb), Food &amp; Wine (buttermilk), adapted",
+  "revised": "2026-11-08",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Crust"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flour, all-purpose",
+          "g": 150,
+          "vol": "1¼ cups",
+          "note": null,
+          "kcal": 550,
+          "na": null,
+          "pro": 20,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, all-purpose"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 3,
+          "vol": "scant ¾ tsp",
+          "note": null,
+          "kcal": null,
+          "na": 1200,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        },
+        {
+          "name": "Butter, unsalted",
+          "g": 113,
+          "vol": "1 stick",
+          "note": "cold, diced",
+          "kcal": 810.21,
+          "na": 12.43,
+          "pro": 0.96,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, unsalted"
+        }
+      ],
+      "body": "Whisk the flour and salt in a bowl. Add the butter, in ½ in dice, and rub it in with your fingertips until the biggest lumps are pea-size."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Buttermilk",
+          "g": 45,
+          "vol": "3 tbsp",
+          "note": "cold, or ice water",
+          "kcal": 18,
+          "na": 66.6,
+          "pro": 1.49,
+          "counted": null,
+          "countedNote": null,
+          "key": "Buttermilk"
+        }
+      ],
+      "body": "Stir it into the bowl with a fork. Squeeze a handful: if it holds, stop, even if shaggy. Crumbles? Add 1 tsp at a time, 1 tbsp more at most; extra liquid makes it leathery. Flatten into a disk without kneading, wrap, and refrigerate ≥30 min."
+    },
+    {
+      "kind": "stage",
+      "name": "Crumb"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Butter, unsalted",
+          "g": 140,
+          "vol": "10 tbsp",
+          "note": "melted",
+          "kcal": 1003.8,
+          "na": 15.4,
+          "pro": 1.19,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, unsalted"
+        },
+        {
+          "name": "Light brown sugar",
+          "g": 110,
+          "vol": "½ cup",
+          "note": "packed",
+          "kcal": 418,
+          "na": 30.8,
+          "pro": 0.13,
+          "counted": null,
+          "countedNote": null,
+          "key": "Light brown sugar"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 50,
+          "vol": "¼ cup",
+          "note": null,
+          "kcal": 193.5,
+          "na": 0.5,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        }
+      ],
+      "body": "In a second bowl, whisk the brown sugar and granulated sugar into the melted butter until smooth."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flour, all-purpose",
+          "g": 215,
+          "vol": "≈1¾ cups",
+          "note": null,
+          "kcal": 788.33,
+          "na": null,
+          "pro": 28.67,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, all-purpose"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 1.2,
+          "vol": "¼ tsp",
+          "note": null,
+          "kcal": null,
+          "na": 480,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        }
+      ],
+      "body": "Stir the flour and salt into the butter mixture until no dry flour shows. Press it into the bowl and cool until firm, <span class=\"rc-nw\">10–15 min</span>."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Break it into <span class=\"rc-nw\">½–¾ in</span> chunks, leaving some smaller. Bigger chunks stay soft in the middle. Spread on a plate or quarter sheet pan and refrigerate at least 30 min."
+    },
+    {
+      "kind": "stage",
+      "name": "Assemble + bake"
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Rack in the lowest position, oven to <span class=\"rc-nw\">425 °F <span class=\"rc-muted\">(218 °C)</span></span>. On a lightly floured counter, roll the chilled dough to a 13 in round. Fit it into the pie plate, crimp a high rim, and refrigerate it while you do the apples."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Apples, Granny Smith + Golden Delicious",
+          "g": 907,
+          "vol": "8 cups, ≈6 medium",
+          "note": "half and half; peeled, cored, sliced",
+          "kcal": 435.36,
+          "na": null,
+          "pro": 2.45,
+          "counted": null,
+          "countedNote": null,
+          "key": "Apples, Granny Smith + Golden Delicious"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 149,
+          "vol": "¾ cup",
+          "note": null,
+          "kcal": 576.63,
+          "na": 1.49,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        },
+        {
+          "name": "Flour, all-purpose",
+          "g": 30,
+          "vol": "¼ cup",
+          "note": null,
+          "kcal": 110,
+          "na": null,
+          "pro": 4,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, all-purpose"
+        },
+        {
+          "name": "Cinnamon, ground",
+          "g": 2.6,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": 6.42,
+          "na": 0.26,
+          "pro": 0.1,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cinnamon, ground"
+        },
+        {
+          "name": "Nutmeg, ground",
+          "g": 0.55,
+          "vol": "¼ tsp",
+          "note": null,
+          "kcal": 2.89,
+          "na": 0.09,
+          "pro": 0.03,
+          "counted": null,
+          "countedNote": null,
+          "key": "Nutmeg, ground"
+        }
+      ],
+      "body": "Weigh the sliced apples into a large bowl. Add the sugar, flour, cinnamon and nutmeg, and toss until every slice is coated. Pile it all into the chilled shell, including whatever is left in the bowl, and mound the middle."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Scatter all the cold crumb chunks over the apples; don’t press them in. Set the pie on the half sheet pan to catch drips. Bake at <span class=\"rc-nw\">425 °F <span class=\"rc-muted\">(218 °C)</span></span> for 15 min."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Lower the oven to <span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>. Bake <span class=\"rc-nw\">≈1–1½ h</span> more, until juice bubbles up through the crumb in the center, a skewer slides easily through the apples, and the bottom looks golden brown through the glass. Still pale underneath? Keep going. Once the crumb is deep golden, cover it loosely with foil."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Cool on a rack until lukewarm, at least 1 h, before slicing."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (apples without skin, sugar, brown sugar, unsalted butter, buttermilk, cinnamon, nutmeg) and Branded Foods labels (King Arthur All-Purpose, Morton). Buttermilk counted at 3 tbsp; ice water is ≈2 kcal and 8 mg a slice less. Flour for the counter not counted.",
+  "swaps": null,
+  "notes": [
+    "Built from King Arthur’s crust and filling and Smitten Kitchen’s crumb. Buttermilk instead of water won Food &amp; Wine’s six-way crust test, 10/10 to 9/10. First bake, 2026-11-08: the filling set to a perfect jelly after ≈1 h at <span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>, but extra ice water and the lower-middle rack gave a leathery crust. King Arthur: less liquid makes a more tender crust, and glass belongs on the bottom rack. Go by the cues, not the clock.",
+    "Half tart and half sweet works best and holds its shape. Braeburn or Jonagold can replace the Golden Delicious.",
+    "Keeps 2 days at room temp, loosely covered; the fridge softens the crumb. To recrisp, <span class=\"rc-nw\">300 °F <span class=\"rc-muted\">(149 °C)</span></span> for 15–20 min, not the microwave."
+  ],
+  "pages": 2,
+  "pdf": "dutch-apple-crumb-pie.pdf"
+}

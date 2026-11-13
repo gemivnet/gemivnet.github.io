@@ -1,0 +1,278 @@
+{
+  "slug": "cinnamon-rolls",
+  "title": "Cinnamon Rolls",
+  "category": "Breakfast",
+  "yield": "12 large rolls",
+  "servings": null,
+  "active": "45 min",
+  "total": "≈2 h",
+  "oven": "<span class=\"rc-nw\">375 °F <span class=\"rc-muted\">(191 °C)</span></span>",
+  "equipment": [
+    "Stand mixer, paddle + hook",
+    "Rolling pin",
+    "9×13 in pan"
+  ],
+  "source": "Tastes of Lizzy T",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Dough"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Milk",
+          "g": 240,
+          "vol": "1 cup",
+          "note": "<span class=\"rc-nw\">115 °F <span class=\"rc-muted\">(46 °C)</span></span>",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Milk"
+        },
+        {
+          "name": "Instant yeast",
+          "g": 8,
+          "vol": "2½ tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Instant yeast"
+        }
+      ],
+      "body": "Sprinkle the yeast over the milk in the mixer bowl. Let it stand until frothy, <span class=\"rc-nw\">3–4 min</span>."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Eggs",
+          "g": 100,
+          "vol": "2 large",
+          "note": "room temp",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Eggs"
+        },
+        {
+          "name": "Salted butter",
+          "g": 76,
+          "vol": "⅓ cup",
+          "note": "melted, ≤<span class=\"rc-nw\">110 °F <span class=\"rc-muted\">(43 °C)</span></span>",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Salted butter"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 100,
+          "vol": "½ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        }
+      ],
+      "body": "Add the eggs, butter and sugar. Mix until combined."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Salt",
+          "g": 6,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Salt"
+        },
+        {
+          "name": "Bread flour",
+          "g": 480,
+          "vol": "4 cups",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Bread flour"
+        }
+      ],
+      "body": "Add the salt and flour. Mix with the paddle until barely combined. Rest 5 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Bread flour",
+          "g": "0–60 g",
+          "vol": "up to ½ cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Bread flour"
+        }
+      ],
+      "body": "Switch to the hook. Knead on medium until smooth and elastic, <span class=\"rc-nw\">5–7 min</span>, adding flour only if needed. It should stay tacky. Rise covered in a greased bowl until nearly doubled, ≈30 min. Don’t over-rise."
+    },
+    {
+      "kind": "stage",
+      "name": "Fill + shape"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Salted butter",
+          "g": 113,
+          "vol": "½ cup",
+          "note": "almost melted",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Salted butter"
+        },
+        {
+          "name": "Brown sugar, packed",
+          "g": 213,
+          "vol": "1 cup",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Brown sugar, packed"
+        },
+        {
+          "name": "Cinnamon",
+          "g": null,
+          "vol": "2 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cinnamon"
+        }
+      ],
+      "body": "During the rise, mix the butter, brown sugar and cinnamon into a paste."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Roll the dough to ≈24×15 in on a floured surface. Spread the filling and roll up tightly from the long side. Cut 12 slices into the greased pan. Cover and rise 20 min. Preheat oven to <span class=\"rc-nw\">375 °F <span class=\"rc-muted\">(191 °C)</span></span>."
+    },
+    {
+      "kind": "stage",
+      "name": "Bake + frost"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Heavy cream",
+          "g": 116,
+          "vol": "½ cup",
+          "note": "warm, not hot",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Heavy cream"
+        }
+      ],
+      "body": "Pour the cream over the rolls. Bake until golden and the center roll reads <span class=\"rc-nw\">190 °F <span class=\"rc-muted\">(88 °C)</span></span>, <span class=\"rc-nw\">25–30 min</span>. Tent with foil if browning fast."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Cream cheese",
+          "g": 170,
+          "vol": "6 oz",
+          "note": "softened",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cream cheese"
+        },
+        {
+          "name": "Salted butter",
+          "g": 76,
+          "vol": "⅓ cup",
+          "note": "softened",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Salted butter"
+        },
+        {
+          "name": "Powdered sugar",
+          "g": 240,
+          "vol": "2 cups",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Powdered sugar"
+        },
+        {
+          "name": "Maple or vanilla extract",
+          "g": null,
+          "vol": "1½ tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Maple or vanilla extract"
+        }
+      ],
+      "body": "In the stand mixer with the paddle, beat the cream cheese and butter smooth, then beat in the sugar and extract. Spread over the rolls."
+    }
+  ],
+  "nutritionSource": null,
+  "swaps": null,
+  "notes": [
+    "The author now uses ½ cup (113 g) butter in the dough for softer rolls.",
+    "Overnight: refrigerate after shaping. Next day, rest 30 min if doubled, or rise ≥1 h if not."
+  ],
+  "pages": 1,
+  "pdf": "cinnamon-rolls.pdf"
+}

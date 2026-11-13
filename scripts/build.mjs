@@ -197,6 +197,25 @@ const entryFromRequest = (r, opts = {}) => {
   };
 };
 
+// A recipe has no date, so it carries no ts: the list groups it under its
+// category instead of a year and leaves the sort control out.
+const entryFromRecipe = (r, opts = {}) => ({
+  url: r.url,
+  title: r.title,
+  subtitle: r.source || '',
+  ts: null,
+  year: null,
+  group: opts.group ? r.category : null,
+  thumb: null,
+  meta: [
+    ...(r.total ? [{ text: r.total, cls: 'date' }] : []),
+    ...(r.yield ? [{ text: r.yield, cls: '' }] : []),
+    ...(r.kcalLine ? [{ text: r.kcalLine, cls: '' }] : []),
+  ],
+  preview: null,
+  tags: null,
+});
+
 const pageHelpers = {
   site: SITE,
   copy: COPY,
@@ -765,6 +784,76 @@ async function loadFoia() {
 
   requests.sort((a, b) => b.lastActivity - a.lastActivity);
   return requests;
+}
+
+// ── content loader: recipes ──────────────────────────────────
+//
+// content/recipes/<slug>/recipe.json plus <slug>.pdf, written by
+// scripts/import-recipes.mjs from the Typst cards in the recipes project.
+// Display strings in the json are already HTML (escaped, with the card's
+// keep-together spans); title and category are plain text.
+
+const fmtNum = (x) => Math.round(x).toLocaleString('en-US');
+
+// Same rules as the card template's nutrition table: partly-eaten ingredients
+// show the counted grams, rows with the same name merge, and only nutrients
+// present on some row get a column.
+function recipeNutrition(r) {
+  const keys = ['kcal', 'na', 'pro'];
+  const ings = r.items.filter(it => it.kind === 'step').flatMap(it => it.ings);
+  const tracked = ings.filter(i => keys.some(k => i[k] != null))
+    .map(i => i.counted == null ? { ...i, note: null } : { ...i, g: i.counted, note: i.countedNote });
+  if (!tracked.length) return null;
+  const add = (a, b) => a == null ? b : b == null ? a : a + b;
+  const rows = [];
+  for (const i of tracked) {
+    const m = rows.find(x => x.key === i.key);
+    if (!m) { rows.push({ ...i }); continue; }
+    if (typeof m.g === 'number' && typeof i.g === 'number') {
+      const g = m.g + i.g;
+      m.g = g >= 10 ? Math.round(g) : Math.round(g * 10) / 10;
+    } else if (m.g != null || i.g != null) m.g = null;
+    for (const k of keys) m[k] = add(m[k], i[k]);
+  }
+  const used = keys.filter(k => rows.some(x => x[k] != null));
+  const totals = used.map(k => rows.reduce((s, x) => s + (x[k] || 0), 0));
+  const per = r.servings > 1 ? totals.map(t => t / r.servings) : null;
+  return {
+    used,
+    rows: rows.map(x => ({ name: x.name, note: x.note, g: x.g, values: used.map(k => x[k] == null ? '-' : fmtNum(x[k])) })),
+    totals: totals.map(fmtNum),
+    per: per && per.map(fmtNum),
+    rawKcal: used.includes('kcal') ? totals[used.indexOf('kcal')] : null,
+    // The spec-strip line: per serving, or the whole batch when servings is 1.
+    headline: r.servings ? used.map((k, n) => `${fmtNum(totals[n] / r.servings)} ${COPY.recipes.nutrition.units[k]}`).join(' · ') : null,
+  };
+}
+
+async function loadRecipes() {
+  const files = await fg('recipes/*/recipe.json', { cwd: SRC('content') });
+  const recipes = [];
+  for (const rel of files.sort()) {
+    let r;
+    try { r = JSON.parse(await fs.readFile(path.join(SRC('content'), rel), 'utf8')); }
+    catch (e) { fail(`${rel}: ${e.message}`); continue; }
+    if (!r.title || !r.category) { fail(`${rel}: missing title or category`); continue; }
+    const dir = path.dirname(path.join(SRC('content'), rel));
+    if (!r.pdf || !(await exists(path.join(dir, r.pdf)))) { fail(`${rel}: PDF '${r.pdf}' is missing. Re-run npm run recipes:import`); continue; }
+    r.categorySlug = slugify(r.category);
+    r.url = `/recipes/${r.categorySlug}/${r.slug}`;
+    r.pdfUrl = `${r.url}/${r.pdf}`;
+    r.srcDir = dir;
+    r.nutrition = recipeNutrition(r);
+    r.perServing = r.nutrition && r.nutrition.headline;
+    // The list row shows calories only, labelled, so a bare number isn't misread.
+    r.kcalLine = r.nutrition && r.servings && r.nutrition.used.includes('kcal')
+      ? (r.servings === 1 ? COPY.recipes.index.kcal_batch : COPY.recipes.index.kcal_serving)
+          .replace('{kcal}', fmtNum(r.nutrition.rawKcal / r.servings))
+      : null;
+    recipes.push(r);
+  }
+  recipes.sort((a, b) => a.category.localeCompare(b.category) || a.title.localeCompare(b.title));
+  return recipes;
 }
 
 // ── image processing ─────────────────────────────────────────
@@ -1905,6 +1994,107 @@ async function renderFoia(requests) {
   log(`${requests.length} foia requests, ${totals.documents} documents, ${totals.pages} pages`);
 }
 
+// ── render: recipes ──────────────────────────────────────────
+
+function renderRecipeSidebarHtml(categories, activeUrl) {
+  let out = `<ul class="tree-list"><li class="tree-item is-folder"><a href="/recipes">recipes/</a><ul>`;
+  for (const c of categories) {
+    out += `<li class="tree-item is-folder"><a href="/recipes/${c.slug}">${escapeHtml(c.name)}/</a><ul>`;
+    for (const r of c.items) {
+      const on = r.url === activeUrl;
+      out += `<li class="tree-item${on ? ' active' : ''}"><a href="${r.url}" class="${on ? 'active' : ''}">${escapeHtml(r.title)}</a></li>`;
+    }
+    out += '</ul></li>';
+  }
+  return out + '</ul></li></ul>';
+}
+
+async function renderRecipes(recipes) {
+  const rc = COPY.recipes;
+  allRoutes.add('/recipes');
+  const catMap = new Map();
+  for (const r of recipes) {
+    if (!catMap.has(r.categorySlug)) catMap.set(r.categorySlug, { slug: r.categorySlug, name: r.category, items: [] });
+    catMap.get(r.categorySlug).items.push(r);
+  }
+  const categories = [...catMap.values()].sort((a, b) => a.name.localeCompare(b.name));
+  const listCopy = { ...rc.index };
+
+  // ── /recipes ──
+  const indexHtml = await renderPage('recipes-index', {
+    page: {
+      title: 'recipes, ' + SITE.title,
+      description: rc.index.seo_description.replace('{count}', recipes.length).replace('{author}', SITE.author),
+      url: '/recipes',
+      bodyClass: pageHelpers.bodyClass('recipes'),
+      type: 'website',
+    },
+    active: 'recipes',
+    count: recipes.length,
+    categories,
+    listCopy,
+    entries: recipes.map(r => entryFromRecipe(r, { group: true })),
+  });
+  collectLinks('/recipes', indexHtml);
+  await writeFile('recipes/index.html', indexHtml);
+
+  for (const c of categories) {
+    // ── /recipes/<category> ──
+    const url = `/recipes/${c.slug}`;
+    allRoutes.add(url);
+    const html = await renderPage('recipes-category', {
+      page: {
+        title: `${c.name}, recipes, ${SITE.title}`,
+        description: rc.index.seo_description.replace('{count}', c.items.length).replace('{author}', SITE.author),
+        url,
+        bodyClass: pageHelpers.bodyClass('recipes'),
+        type: 'website',
+      },
+      active: 'recipes',
+      category: c,
+      listCopy,
+      treeHtml: renderRecipeSidebarHtml(categories, url),
+      entries: c.items.map(r => entryFromRecipe(r)),
+    });
+    collectLinks(url, html);
+    await writeFile(path.join('recipes', c.slug, 'index.html'), html);
+
+    for (const r of c.items) {
+      // ── /recipes/<category>/<slug> ──
+      allRoutes.add(r.url);
+      const plainYield = r.yield ? stripHtml(r.yield) : '';
+      const desc = (plainYield ? rc.post.seo_description : rc.post.seo_description_no_yield)
+        .replace('{title}', r.title).replace('{yield}', plainYield);
+      const page = await renderPage('recipe', {
+        page: {
+          title: `${r.title}, recipes, ${SITE.title}`,
+          description: desc,
+          keywords: [r.title, r.category, rc.post.keyword],
+          url: r.url,
+          bodyClass: pageHelpers.bodyClass('recipes'),
+          type: 'article',
+        },
+        active: 'recipes',
+        recipe: r,
+        treeHtml: renderRecipeSidebarHtml(categories, r.url),
+        pagesLabel: r.pages > 1 ? rc.post.pages_many.replace('{n}', r.pages) : rc.post.pages_one,
+      });
+      collectLinks(r.url, page);
+      await writeFile(path.join('recipes', c.slug, r.slug, 'index.html'), page);
+      await copyFile(path.join(r.srcDir, r.pdf), path.join('recipes', c.slug, r.slug, r.pdf));
+
+      // ── /recipes/<category>/<slug>/print ──
+      // Standalone: no site chrome, just the binder PDF and a print call.
+      const printUrl = `${r.url}/print`;
+      allRoutes.add(printUrl);
+      const printHtml = await eta.render('recipe-print', { ...pageHelpers, recipe: r, pageTitle: rc.print.title.replace('{title}', r.title) });
+      collectLinks(printUrl, printHtml);
+      await writeFile(path.join('recipes', c.slug, r.slug, 'print', 'index.html'), printHtml);
+    }
+  }
+  log(`${recipes.length} recipes in ${categories.length} categories`);
+}
+
 // ── render: static sites passthrough ─────────────────────────
 
 async function copyStaticSites() {
@@ -2125,6 +2315,7 @@ async function main() {
   log(`${realMediaNodes.length} real + ${synthNodes.length} synthesized gallery nodes`);
 
   const foiaRequests = await loadFoia();
+  const recipes = await loadRecipes();
 
   await renderHome(musings, rvPosts, mediaNodes);
   ALL_POST_URLS = musings.map(m => m.url);
@@ -2132,6 +2323,7 @@ async function main() {
   await renderPostSection(rvPosts, SECTIONS.rv12is);
   await renderMedia(mediaNodes);
   await renderFoia(foiaRequests);
+  await renderRecipes(recipes);
   await renderChangelog();
   await renderLicense();
   await copyStaticSites();

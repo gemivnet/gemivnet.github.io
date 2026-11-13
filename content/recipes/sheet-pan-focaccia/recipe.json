@@ -1,0 +1,177 @@
+{
+  "slug": "sheet-pan-focaccia",
+  "title": "Sheet Pan Focaccia",
+  "category": "Breads & Doughs",
+  "yield": "One 13×18 in focaccia, 24 pieces",
+  "servings": 24,
+  "active": "30 min",
+  "total": "≈3 h 45 min",
+  "oven": "<span class=\"rc-nw\">475 °F <span class=\"rc-muted\">(246 °C)</span></span>",
+  "equipment": [
+    "13×18 in half sheet pan",
+    "Parchment",
+    "Nonstick spray",
+    "8 qt+ bowl or tub with lid"
+  ],
+  "source": "King Arthur Baking (Big and Bubbly Focaccia), tripled",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Dough"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flour, all-purpose, King Arthur",
+          "g": 1080,
+          "vol": "9 cups",
+          "note": null,
+          "kcal": 3960,
+          "na": null,
+          "pro": 144,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, all-purpose, King Arthur"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 27,
+          "vol": "1 tbsp + 2½ tsp",
+          "note": null,
+          "kcal": null,
+          "na": 10800,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 15,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": 58,
+          "na": 0.1,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        },
+        {
+          "name": "Instant yeast",
+          "g": 9,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": 29.2,
+          "na": 4.6,
+          "pro": 3.64,
+          "counted": null,
+          "countedNote": null,
+          "key": "Instant yeast"
+        }
+      ],
+      "body": "Whisk the flour, salt, sugar and yeast together in the bowl."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Water",
+          "g": 852,
+          "vol": "3½ cups + 1½ tbsp",
+          "note": "<span class=\"rc-nw\">90–110 °F</span>",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Olive oil, extra-virgin",
+          "g": 54,
+          "vol": "4½ tbsp",
+          "note": null,
+          "kcal": 477.4,
+          "na": 1.1,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Olive oil, extra-virgin"
+        }
+      ],
+      "body": "Add the water and oil to the bowl. Stir until completely uniform, with no dry patches. Target dough temp is <span class=\"rc-nw\">82–86 °F</span>. Cover and rest 15 min."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Do 4 bowl folds, 15 min apart: with a wet hand, lift a section and press it into the center, 8–12 times around the bowl, then flip smooth side up. Then cover and rise at <span class=\"rc-nw\">70–75 °F</span> until nearly doubled, 1 h."
+    },
+    {
+      "kind": "stage",
+      "name": "Pan + bake"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Olive oil, extra-virgin",
+          "g": 39,
+          "vol": "3 tbsp",
+          "note": null,
+          "kcal": 344.8,
+          "na": 0.8,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Olive oil, extra-virgin"
+        }
+      ],
+      "body": "Spray the pan. Line it with parchment overhanging both long sides, then spray the parchment. Add the oil and tilt to coat."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Slide the dough into the center and flip once to coat it in oil. Gently push it toward the corners; if it springs back, rest 15 min and try again. Cover and rise until jiggly and nearly to the corners, <span class=\"rc-nw\">1–1½ h</span>. Toward the end, preheat oven to <span class=\"rc-nw\">475 °F <span class=\"rc-muted\">(246 °C)</span></span> with racks in the upper and lower thirds."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Olive oil, extra-virgin",
+          "g": 39,
+          "vol": "3 tbsp",
+          "note": null,
+          "kcal": 344.8,
+          "na": 0.8,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Olive oil, extra-virgin"
+        }
+      ],
+      "body": "With oiled fingertips, dimple all the way to the bottom of the pan, ≈1½ in apart. Drizzle with the oil."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Bake on the lower rack until brown on top and golden in the crevices, <span class=\"rc-nw\">15–20 min</span>. Broil 1–2 min on the top rack if it needs more color."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Lift out by the parchment and peel it off. Turn the oven off. Put the focaccia directly on the lower rack until the sides are golden and crisp, <span class=\"rc-nw\">5–7 min</span>. Cool on a rack."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (olive oil, sugar, active dry yeast) and Branded Foods labels (King Arthur Unbleached All-Purpose Flour, Morton). Water and pan spray not counted.",
+  "swaps": null,
+  "notes": [
+    "Three times the 9 in Big and Bubbly Focaccia, about the same height. No flaky salt on top (add your own if you like; it isn’t counted).",
+    "Make ahead: after the folds, refrigerate 8–24 h. The pan rise then takes <span class=\"rc-nw\">2–3 h</span>.",
+    "Metal pan only. Best the same day."
+  ],
+  "pages": 2,
+  "pdf": "sheet-pan-focaccia.pdf"
+}

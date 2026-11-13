@@ -1,6 +1,6 @@
 <%
   /* Shared entry list. Used by /musings, /rv12is and /foia so all three
-     scroll, sort and read the same way. Callers pass a normalized `entries`
+     scroll, sort and read the same way. /recipes uses it too, undated. Callers pass a normalized `entries`
      array built by entryFromPost/entryFromRequest in build.mjs; nothing in
      here knows what a musing or a records request is.
 
@@ -32,19 +32,25 @@
   <div class="sp-empty"><span class="glyph">∅</span><%= _c.empty || 'nothing here yet.' %></div>
 <% } else { %>
 
+<% if (_entries.some(function(e){ return e.ts != null; })) { %>
 <div class="sp-sort" hidden>
   <span class="sp-sort-label"><%= _c.sort_label || 'sort:' %></span>
   <button type="button" data-sort="desc" class="is-on"><%= _c.sort_newest || 'newest first' %></button>
   <span class="sp-sort-sep">/</span>
   <button type="button" data-sort="asc"><%= _c.sort_oldest || 'oldest first' %></button>
 </div>
+<% } %>
 
 <div id="sp-stream">
-<% var _lastYear = null; _entries.forEach(function(e){ %>
-  <% if (e.year !== _lastYear) { _lastYear = e.year; %>
-    <div class="sp-year" data-year="<%= e.year %>">// <%= e.year %></div>
+<% var _lastGroup = null; _entries.forEach(function(e){
+     /* Dated entries group by year. Undated ones (recipes) may pass `group`
+        instead, or nothing for a flat list. Only dated rows get data-ts, so
+        the sort script finds nothing to sort on an undated list. */
+     var _g = e.group != null ? e.group : e.year; %>
+  <% if (_g != null && _g !== _lastGroup) { _lastGroup = _g; %>
+    <div class="sp-year" data-year="<%= e.year %>">// <%= _g %></div>
   <% } %>
-  <article class="sp-card sp-entry" data-ts="<%= e.ts %>" data-year="<%= e.year %>">
+  <article class="sp-card sp-entry"<% if (e.ts != null) { %> data-ts="<%= e.ts %>" data-year="<%= e.year %>"<% } %>>
     <a class="sp-entry-thumb<%= e.thumb ? '' : ' is-empty' %>" href="<%= e.url %>" tabindex="-1" aria-hidden="true"><% if (e.thumb) { %><img src="<%= e.thumb %>" alt="" width="160" height="160" loading="lazy" decoding="async"><% } %></a>
     <div class="sp-entry-body">
       <div class="sp-meta">

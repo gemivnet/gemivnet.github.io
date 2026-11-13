@@ -1,0 +1,297 @@
+{
+  "slug": "new-york-cheesecake",
+  "title": "New York Cheesecake",
+  "category": "Desserts",
+  "yield": "8 in cheesecake, 12 slices",
+  "servings": 12,
+  "active": "≈45 min",
+  "total": "≈11 h (incl. 6 h chill)",
+  "oven": "<span class=\"rc-nw\">400 °F <span class=\"rc-muted\">(204 °C)</span></span>, <span class=\"rc-nw\">525 °F <span class=\"rc-muted\">(274 °C)</span></span>, then <span class=\"rc-nw\">200 °F <span class=\"rc-muted\">(93 °C)</span></span>",
+  "equipment": [
+    "8 in springform",
+    "Food processor",
+    "Stand mixer",
+    "Rolling pin",
+    "Oven thermometer"
+  ],
+  "source": "Lindy&#39;s, via Greg Patent, Baking in America; scaled from 9 in",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Pastry crust"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Granulated sugar",
+          "g": 80,
+          "vol": "⅓ cup + 1 tbsp",
+          "note": null,
+          "kcal": 309.6,
+          "na": 0.8,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        },
+        {
+          "name": "Lemon zest",
+          "g": null,
+          "vol": "1 lemon",
+          "note": "finely grated",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Lemon zest"
+        },
+        {
+          "name": "Butter, salted",
+          "g": 43,
+          "vol": "3 tbsp",
+          "note": "cold, 4 pieces",
+          "kcal": 308.3,
+          "na": 276.5,
+          "pro": 0.37,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, salted"
+        },
+        {
+          "name": "Egg yolk",
+          "g": 17,
+          "vol": "1 large",
+          "note": null,
+          "kcal": 54.7,
+          "na": 8.2,
+          "pro": 2.7,
+          "counted": null,
+          "countedNote": null,
+          "key": "Egg yolk"
+        },
+        {
+          "name": "Water",
+          "g": 15,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Vanilla extract",
+          "g": 4.2,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": 12.1,
+          "na": 0.4,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Vanilla extract"
+        }
+      ],
+      "body": "Pulse the sugar and zest ≈5 s. Add the butter, yolk, water and vanilla and pulse until granular, with butter bits ≈¼ in."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flour, all-purpose",
+          "g": 100,
+          "vol": "¾ cup + 1 tbsp",
+          "note": null,
+          "kcal": 364,
+          "na": 2,
+          "pro": 10.33,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, all-purpose"
+        }
+      ],
+      "body": "Add the flour. Pulse rapidly 20–30 times, scraping the bowl, until the dough nearly forms a ball. Flatten into a thick disk, wrap and chill 1 h."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Oven to <span class=\"rc-nw\">400 °F <span class=\"rc-muted\">(204 °C)</span></span>, rack in the lower third. Butter the pan and remove the ring. Press a bit under half the dough thin over the base. Bake until pale golden, ≈8 min. Cool completely. Oven to <span class=\"rc-nw\">525 °F <span class=\"rc-muted\">(274 °C)</span></span>."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Roll the rest into an 8 × 6 in rectangle and cut crosswise into four 2 in strips. Reattach the ring. Press the strips around the side, patching the gap with scraps. Chill."
+    },
+    {
+      "kind": "stage",
+      "name": "Filling"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Cream cheese, Philadelphia",
+          "g": 907,
+          "vol": "4 × 8 oz bricks",
+          "note": "room temp",
+          "kcal": 3240,
+          "na": 3564,
+          "pro": 64.8,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cream cheese, Philadelphia"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 280,
+          "vol": "1⅓ cups + 1 tbsp",
+          "note": null,
+          "kcal": 1083.6,
+          "na": 2.8,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        },
+        {
+          "name": "Flour, all-purpose",
+          "g": 19.5,
+          "vol": "2½ tbsp",
+          "note": null,
+          "kcal": 71,
+          "na": 0.4,
+          "pro": 2.01,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, all-purpose"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 1.2,
+          "vol": "¼ tsp",
+          "note": null,
+          "kcal": null,
+          "na": 480,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        },
+        {
+          "name": "Orange zest",
+          "g": null,
+          "vol": "1 orange",
+          "note": "finely grated",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Orange zest"
+        },
+        {
+          "name": "Lemon zest",
+          "g": null,
+          "vol": "1 lemon",
+          "note": "finely grated",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Lemon zest"
+        },
+        {
+          "name": "Vanilla extract",
+          "g": 10.5,
+          "vol": "2½ tsp",
+          "note": null,
+          "kcal": 30.2,
+          "na": 0.9,
+          "pro": 0.01,
+          "counted": null,
+          "countedNote": null,
+          "key": "Vanilla extract"
+        }
+      ],
+      "body": "Beat the cream cheese until smooth. Add the sugar, flour, salt, zests and vanilla and beat 2–3 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Eggs",
+          "g": 200,
+          "vol": "4 large",
+          "note": "room temp",
+          "kcal": 286,
+          "na": 284,
+          "pro": 25.12,
+          "counted": null,
+          "countedNote": null,
+          "key": "Eggs"
+        },
+        {
+          "name": "Egg yolks",
+          "g": 34,
+          "vol": "2 large",
+          "note": "room temp",
+          "kcal": 109.5,
+          "na": 16.3,
+          "pro": 5.39,
+          "counted": null,
+          "countedNote": null,
+          "key": "Egg yolks"
+        }
+      ],
+      "body": "Beat in the eggs and yolks one at a time, ≈15 s each. Beat 30 s more."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Heavy whipping cream",
+          "g": 45,
+          "vol": "3 tbsp",
+          "note": null,
+          "kcal": 153,
+          "na": 12.2,
+          "pro": 1.28,
+          "counted": null,
+          "countedNote": null,
+          "key": "Heavy whipping cream"
+        }
+      ],
+      "body": "Mix in the cream on low. Pour into the crust and smooth the top."
+    },
+    {
+      "kind": "stage",
+      "name": "Bake"
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Bake at <span class=\"rc-nw\">525 °F <span class=\"rc-muted\">(274 °C)</span></span> for 10 min. Lower to <span class=\"rc-nw\">200 °F <span class=\"rc-muted\">(93 °C)</span></span> and bake until the top is golden brown and only the center wobbles slightly, ≈1 h."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Cool on a rack to room temp, ≈2 h. Cover loosely and refrigerate at least 6 h, ideally overnight. Run a thin knife around the edge, remove the ring, and slice with a hot, dry knife."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (sugar, butter, egg, yolks, vanilla, unbleached all-purpose flour, cream) and Branded Foods labels (Philadelphia, Morton). Water, zest and pan butter not counted.",
+  "swaps": null,
+  "notes": [
+    "Dense and cake-like, not creamy: more eggs and some flour, only a little cream, and no water bath.",
+    "Scaled to 8 in from Patent’s 9 in recipe (×0.8). The 2 yolks are rounded up from 1.6.",
+    "Check the oven with a thermometer. The <span class=\"rc-nw\">200 °F <span class=\"rc-muted\">(93 °C)</span></span> stage only works if the oven really holds that.",
+    "Patent prefers Neufchâtel (less fat). The numbers are for Philadelphia Original. His strawberry sauce is left off."
+  ],
+  "pages": 2,
+  "pdf": "new-york-cheesecake.pdf"
+}

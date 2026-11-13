@@ -1,0 +1,269 @@
+{
+  "slug": "cherry-crumb-pie-frozen-cherries",
+  "title": "Cherry Crumb Pie (Frozen Cherries)",
+  "category": "Desserts",
+  "yield": "1 pie, 9 in, 8 slices",
+  "servings": 8,
+  "active": "≈45 min",
+  "total": "≈7 h 30 min + the dough",
+  "oven": "<span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>",
+  "equipment": [
+    "9 in glass pie plate",
+    "Strainer",
+    "Small saucepan",
+    "Half sheet pan",
+    "Foil",
+    "Probe thermometer"
+  ],
+  "source": "America&#39;s Test Kitchen (filling), Smitten Kitchen (crumb), Stella Parks (crust), adapted",
+  "revised": "2026-11-11",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Ahead"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flaky Pie Dough",
+          "g": 293,
+          "vol": "1 blind-baked shell",
+          "note": "card",
+          "kcal": 1243.32,
+          "na": 732.44,
+          "pro": 15.96,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flaky Pie Dough"
+        }
+      ],
+      "body": "Make one shell on the Flaky Pie Dough card: rolled, chilled at least 2 h and blind-baked. It can be baked up to 12 h ahead."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Tart cherries, Meijer frozen",
+          "g": 907,
+          "vol": "2⅔ bags, 12 oz",
+          "note": null,
+          "kcal": 390.01,
+          "na": null,
+          "pro": 6.44,
+          "counted": null,
+          "countedNote": null,
+          "key": "Tart cherries, Meijer frozen"
+        }
+      ],
+      "body": "Weigh the frozen cherries into a metal bowl and thaw at room temp until soft all the way through, ≈2 h."
+    },
+    {
+      "kind": "stage",
+      "name": "Crumb"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Butter, unsalted",
+          "g": 140,
+          "vol": "10 tbsp",
+          "note": "melted",
+          "kcal": 1003.8,
+          "na": 15.4,
+          "pro": 1.19,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, unsalted"
+        },
+        {
+          "name": "Light brown sugar",
+          "g": 110,
+          "vol": "½ cup",
+          "note": "packed",
+          "kcal": 418,
+          "na": 30.8,
+          "pro": 0.13,
+          "counted": null,
+          "countedNote": null,
+          "key": "Light brown sugar"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 50,
+          "vol": "¼ cup",
+          "note": null,
+          "kcal": 193.5,
+          "na": 0.5,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        }
+      ],
+      "body": "While the cherries thaw, whisk the brown sugar and granulated sugar into the melted butter in a bowl until smooth."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flour, all-purpose",
+          "g": 215,
+          "vol": "≈1¾ cups",
+          "note": null,
+          "kcal": 788.33,
+          "na": null,
+          "pro": 28.67,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, all-purpose"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 1.2,
+          "vol": "¼ tsp",
+          "note": null,
+          "kcal": null,
+          "na": 480,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        }
+      ],
+      "body": "Stir the flour and salt into the butter mixture until no dry flour shows. Press it into the bowl and cool until firm, <span class=\"rc-nw\">10–15 min</span>."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Break it into <span class=\"rc-nw\">½–¾ in</span> chunks, leaving some smaller. Bigger chunks stay soft in the middle. Spread on a plate or quarter sheet pan and refrigerate at least 30 min."
+    },
+    {
+      "kind": "stage",
+      "name": "Filling"
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Tip the thawed cherries into the strainer set over a bowl. Press gently until 240 g (1 cup) of juice has collected. Leave the cherries in the strainer."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Cornstarch",
+          "g": 14,
+          "vol": "2 tbsp",
+          "note": null,
+          "kcal": 53.34,
+          "na": 1.26,
+          "pro": 0.04,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cornstarch"
+        },
+        {
+          "name": "Lemon juice",
+          "g": 31,
+          "vol": "2 tbsp",
+          "note": "fresh",
+          "kcal": 6.82,
+          "na": 0.31,
+          "pro": 0.11,
+          "counted": null,
+          "countedNote": null,
+          "key": "Lemon juice"
+        },
+        {
+          "name": "Almond extract",
+          "g": 2.1,
+          "vol": "½ tsp",
+          "note": null,
+          "kcal": 5.04,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Almond extract"
+        }
+      ],
+      "body": "Whisk the cornstarch into 30 g (2 tbsp) of the cold juice. Bring the rest of the juice to a boil in the saucepan. Whisk in the cornstarch mix and the lemon juice and boil, whisking, until thick and glossy, ≈1 min. Off the heat, stir in the almond extract."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Granulated sugar",
+          "g": 133,
+          "vol": "⅔ cup",
+          "note": null,
+          "kcal": 514.71,
+          "na": 1.33,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        },
+        {
+          "name": "Cornstarch",
+          "g": 14,
+          "vol": "2 tbsp",
+          "note": null,
+          "kcal": 53.34,
+          "na": 1.26,
+          "pro": 0.04,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cornstarch"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 1.2,
+          "vol": "¼ tsp",
+          "note": null,
+          "kcal": null,
+          "na": 480,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        }
+      ],
+      "body": "In a large bowl, whisk the sugar, cornstarch and salt. Add the drained cherries and toss to coat, then fold in the thickened juice from the saucepan."
+    },
+    {
+      "kind": "stage",
+      "name": "Assemble + bake"
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Rack in the lower-middle, oven to <span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>. Set the cooled shell on the half sheet pan. Scrape in all the filling and spread it level."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Scatter all the cold crumb chunks over the filling without pressing them in. Leave a few small gaps so you can see the juice. Cover the crust rim with strips of foil so it doesn’t burn."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Bake until the crumb is deep golden, juice bubbles thickly in the gaps at the center (not only at the edge), and a probe pushed through the crumb into the middle reads at least <span class=\"rc-nw\">203 °F <span class=\"rc-muted\">(95 °C)</span></span>, <span class=\"rc-nw\">≈1–1¼ h</span>. Crumb browning too fast? Lay foil loosely on top."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Cool on a rack at least 4 h so the filling sets before slicing."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: Branded Foods labels (Meijer red tart cherries, frozen, 12 oz, FDC 2638814; King Arthur All-Purpose; Morton; almond extract counted as Morton Bassett) and SR Legacy (sugar, brown sugar, unsalted butter, cornstarch, lemon juice). Shell from its card.",
+  "swaps": null,
+  "notes": [
+    "Filling from America’s Test Kitchen’s Tart Cherry Crumb Pie, with ¼ tsp Morton in place of its ½ tsp table salt. Crumb from the Dutch Apple Crumb Pie card. The prebaked shell and this bake time are new, so go by the bubbling and the probe.",
+    "Check that the bag says pitted. If it doesn’t, pit the cherries after they thaw. The last ⅓ bag is ≈113 g.",
+    "Keeps 2 days at room temp, loosely covered; the fridge softens the crumb. To recrisp, <span class=\"rc-nw\">300 °F <span class=\"rc-muted\">(149 °C)</span></span> for <span class=\"rc-nw\">15–20 min</span>, not the microwave."
+  ],
+  "pages": 2,
+  "pdf": "cherry-crumb-pie-frozen-cherries.pdf"
+}

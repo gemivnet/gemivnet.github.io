@@ -1,0 +1,200 @@
+{
+  "slug": "grandma-carters-lasagna",
+  "title": "Grandma Carter's Lasagna",
+  "category": "Hearty",
+  "yield": "9 × 13 in dish, 12 servings",
+  "servings": 12,
+  "active": "45 min",
+  "total": "≈1 h 30 min",
+  "oven": "<span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>",
+  "equipment": [
+    "Baking dish, 9 × 13 in",
+    "Dutch oven, 6 qt",
+    "Large pot",
+    "Half sheet pan"
+  ],
+  "source": "Grandma Carter (index card)",
+  "revised": "2026-11-04",
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Sauce"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Ground beef, 80/20",
+          "g": 454,
+          "vol": "1 lb",
+          "note": "from the freezer",
+          "kcal": 1153.16,
+          "na": 299.64,
+          "pro": 77.95,
+          "counted": null,
+          "countedNote": null,
+          "key": "Ground beef, 80/20"
+        },
+        {
+          "name": "Onion",
+          "g": 227,
+          "vol": "½ lb",
+          "note": "chopped",
+          "kcal": 90.8,
+          "na": 9.08,
+          "pro": 2.5,
+          "counted": null,
+          "countedNote": null,
+          "key": "Onion"
+        },
+        {
+          "name": "Garlic + parsley (optional)",
+          "g": null,
+          "vol": "to taste",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Garlic + parsley (optional)"
+        }
+      ],
+      "body": "Put the ground beef and onion in the Dutch oven over medium-high heat. Cook, breaking up the meat, until no pink remains and the onion is soft, ≈10 min. Stir in the garlic and parsley now, if using."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Tomato paste",
+          "g": 340,
+          "vol": "2 cans (6 oz each)",
+          "note": null,
+          "kcal": 278.8,
+          "na": 200.6,
+          "pro": 14.69,
+          "counted": null,
+          "countedNote": null,
+          "key": "Tomato paste"
+        },
+        {
+          "name": "Water",
+          "g": 474,
+          "vol": "2 cups",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 4.8,
+          "vol": "1 tsp",
+          "note": null,
+          "kcal": null,
+          "na": 1920,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        },
+        {
+          "name": "Black pepper",
+          "g": null,
+          "vol": "½ tsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Black pepper"
+        }
+      ],
+      "body": "Add the tomato paste, water, salt and pepper to the meat and stir until smooth. Simmer gently for ≈10 min. This is the sauce."
+    },
+    {
+      "kind": "stage",
+      "name": "Layer and bake"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Lasagna noodles",
+          "g": 454,
+          "vol": "1 lb box",
+          "note": null,
+          "kcal": 1684.34,
+          "na": 27.24,
+          "pro": 59.2,
+          "counted": null,
+          "countedNote": null,
+          "key": "Lasagna noodles"
+        }
+      ],
+      "body": "Preheat the oven to <span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>. Boil the noodles in the large pot as the box directs, then drain them. Lay them out flat so they don’t stick together."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Cottage cheese, 4%",
+          "g": 454,
+          "vol": "1 lb",
+          "note": null,
+          "kcal": 444.92,
+          "na": 1430.1,
+          "pro": 50.48,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cottage cheese, 4%"
+        },
+        {
+          "name": "Mozzarella, Galbani whole milk",
+          "g": 454,
+          "vol": "1 lb",
+          "note": "shredded",
+          "kcal": 1362,
+          "na": 2875.33,
+          "pro": 90.8,
+          "counted": null,
+          "countedNote": null,
+          "key": "Mozzarella, Galbani whole milk"
+        }
+      ],
+      "body": "Spread a thin layer of sauce in the dish. Then layer noodles, cottage cheese, mozzarella and more sauce. Repeat these layers until everything is used, finishing with sauce and mozzarella."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Parmesan, Kraft grated",
+          "g": 60,
+          "vol": "½ cup",
+          "note": null,
+          "kcal": 240,
+          "na": 960,
+          "pro": 24,
+          "counted": null,
+          "countedNote": null,
+          "key": "Parmesan, Kraft grated"
+        }
+      ],
+      "body": "Sprinkle the Parmesan over the top. Set the dish on the sheet pan in case it bubbles over. Bake until bubbling at the edges, <span class=\"rc-nw\">20–25 min</span>. Let it rest ≈15 min before cutting."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: SR Legacy (80/20 beef, onion, tomato paste, dry pasta, creamed cottage cheese) and Branded Foods labels (Galbani, Kraft Grated Parmesan, Morton). Water, garlic, parsley and pepper not counted.",
+  "swaps": null,
+  "notes": [
+    "The card’s other sauce option: 1 jar of spaghetti sauce instead of the tomato paste. If you use a jar, skip the water.",
+    "The card says ¾ lb of hamburger “or 1 lb if you like”. This uses 1 lb from the freezer.",
+    "The card’s layering line leaves out the mozzarella, so it’s added here with the cottage cheese. The simmer and rest times aren’t on the card.",
+    "A full pound of noodles makes a very full dish. If it won’t all fit, use fewer noodles or bake the extra in a 9 in round pan."
+  ],
+  "pages": 2,
+  "pdf": "grandma-carters-lasagna.pdf"
+}
