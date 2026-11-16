@@ -454,6 +454,7 @@ recipes:
     seo_lead: "{title} recipe from my kitchen binder."
     seo_makes: "Makes {yield} in {total}, with a printable card."
     seo_makes_no_time: "Makes {yield}, with a printable card."
+    experimental_label: "experimental"
     print_label: "print this card"
     print_working: "opening the print dialog…"
     pdf_label: "download PDF"

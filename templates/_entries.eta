@@ -45,7 +45,7 @@
   <% } else if (!_open) { _open = true; %>
     <section class="sp-cgroup"><ul>
   <% } %>
-      <li><a href="<%= e.url %>"><span><%= e.title %></span><% if (e.aside) { %><span class="t"><%~ e.aside %></span><% } %></a></li>
+      <li><a href="<%= e.url %>"><span><%= e.title %></span><% if (e.badge) { %><span class="sp-badge"><%= e.badge %></span><% } %><% if (e.aside) { %><span class="t"><%~ e.aside %></span><% } %></a></li>
 <% }) %>
 <% if (_open) { %></ul></section><% } %>
 </div>

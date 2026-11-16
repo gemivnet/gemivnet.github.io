@@ -510,6 +510,7 @@ html, body { margin: 0; padding: 0; }
 }
 .sp-compact li a > span:first-child { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
 .sp-compact li a:hover > span:first-child { text-decoration-thickness: 2px; }
+.sp-compact .sp-badge { font-family: var(--font-mono); font-size: var(--fs-meta); line-height: 1.35; color: var(--accent); text-transform: lowercase; margin-right: auto; }
 .sp-compact .t { font-family: var(--font-mono); font-size: var(--fs-meta); line-height: 1.35; color: var(--ink-2); text-align: right; flex: 0 1 auto; max-width: 42%; }
 
 .sp-pinned { margin-bottom: var(--sp-5); font-size: var(--fs-small); }
@@ -1009,6 +1010,8 @@ html, body { margin: 0; padding: 0; }
 .rc-sep { color: var(--ink-3); }
 
 .rc-head .rc-source { margin-top: var(--sp-2); }
+.rc-experimental { margin: var(--sp-4) 0 0; padding: var(--sp-3) var(--sp-4); border-left: 3px solid var(--accent); background: color-mix(in srgb, var(--accent) 8%, transparent); }
+.rc-experimental strong { color: var(--accent); }
 .rc-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3); margin-top: var(--sp-4); font-family: var(--font-mono); font-size: var(--fs-meta); }
 
 .rc-specs {

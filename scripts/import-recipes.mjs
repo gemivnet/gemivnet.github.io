@@ -106,6 +106,9 @@ function convert(slug, metas) {
       : typeof meta.source === 'string' ? escapeHtml(cleanSource(meta.source))
       : cleanSource(toHtml(meta.source, w('source'))),
     revised: meta.revised,
+    version: meta.version ?? null,
+    // What's still being tested, or null once the card is settled.
+    experimental: html(meta.experimental, w('experimental')),
     items: steps.items.map((it, k) => it.kind === 'stage'
       ? { kind: 'stage', name: html(it.name, w(`stage${k}`)) }
       : { kind: 'step', ings: it.ings.map((i, j) => ing(i, `${k}.${j}`)), body: html(it.body, w(`step${k}`)) }),

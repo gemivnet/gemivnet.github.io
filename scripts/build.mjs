@@ -224,6 +224,7 @@ const entryFromRecipe = (r, opts = {}) => ({
   group: opts.group ? r.category : null,
   groupHref: opts.group ? `/recipes/${r.categorySlug}` : null,
   aside: r.total || '',
+  badge: r.experimental ? COPY.recipes.post.experimental_label : null,
   thumb: null,
   meta: [
     ...(r.yield ? [{ text: r.yield }] : []),
