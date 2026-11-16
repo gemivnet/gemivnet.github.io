@@ -6,7 +6,7 @@
   "servings": 8,
   "active": "≈45 min",
   "total": "≈7 h 30 min + the dough",
-  "oven": "<span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>",
+  "oven": "<span class=\"rc-nw\">375 °F <span class=\"rc-muted\">(191 °C)</span></span>",
   "equipment": [
     "9 in glass pie plate",
     "Strainer",
@@ -15,8 +15,10 @@
     "Foil",
     "Probe thermometer"
   ],
-  "source": "America&#39;s Test Kitchen (filling), Smitten Kitchen (crumb), Stella Parks (crust), adapted",
-  "revised": "2026-11-11",
+  "source": "America&#39;s Test Kitchen (filling), Smitten Kitchen (crumb), adapted",
+  "revised": "2026-11-15",
+  "version": 1,
+  "experimental": "The crust is still being tested (Sour Cream Pie Dough, Flaky Pie Dough or store-bought). The cherry filling is too: frozen or canned. The crumb is settled.",
   "items": [
     {
       "kind": "stage",
@@ -26,19 +28,19 @@
       "kind": "step",
       "ings": [
         {
-          "name": "Flaky Pie Dough",
-          "g": 293,
-          "vol": "1 blind-baked shell",
+          "name": "Sour Cream Pie Dough",
+          "g": 374,
+          "vol": "1 raw shell",
           "note": "card",
-          "kcal": 1243.32,
-          "na": 732.44,
-          "pro": 15.96,
+          "kcal": 1543.59,
+          "na": 1227.49,
+          "pro": 25.56,
           "counted": null,
           "countedNote": null,
-          "key": "Flaky Pie Dough"
+          "key": "Sour Cream Pie Dough"
         }
       ],
-      "body": "Make one shell on the Flaky Pie Dough card: rolled, chilled at least 2 h and blind-baked. It can be baked up to 12 h ahead."
+      "body": "Make one shell on the Sour Cream Pie Dough card: rolled into the glass pie plate, crimped and chilled. Don’t pre-bake it. Keep it in the fridge until the filling is ready."
     },
     {
       "kind": "step",
@@ -60,42 +62,42 @@
     },
     {
       "kind": "stage",
-      "name": "Crumb"
+      "name": "Crumb (1½ batches)"
     },
     {
       "kind": "step",
       "ings": [
         {
           "name": "Butter, unsalted",
-          "g": 140,
-          "vol": "10 tbsp",
+          "g": 210,
+          "vol": "15 tbsp",
           "note": "melted",
-          "kcal": 1003.8,
-          "na": 15.4,
-          "pro": 1.19,
+          "kcal": 1505.7,
+          "na": 23.1,
+          "pro": 1.78,
           "counted": null,
           "countedNote": null,
           "key": "Butter, unsalted"
         },
         {
           "name": "Light brown sugar",
-          "g": 110,
-          "vol": "½ cup",
+          "g": 165,
+          "vol": "¾ cup",
           "note": "packed",
-          "kcal": 418,
-          "na": 30.8,
-          "pro": 0.13,
+          "kcal": 627,
+          "na": 46.2,
+          "pro": 0.2,
           "counted": null,
           "countedNote": null,
           "key": "Light brown sugar"
         },
         {
           "name": "Granulated sugar",
-          "g": 50,
-          "vol": "¼ cup",
+          "g": 75,
+          "vol": "6 tbsp",
           "note": null,
-          "kcal": 193.5,
-          "na": 0.5,
+          "kcal": 290.25,
+          "na": 0.75,
           "pro": null,
           "counted": null,
           "countedNote": null,
@@ -109,23 +111,23 @@
       "ings": [
         {
           "name": "Flour, all-purpose",
-          "g": 215,
-          "vol": "≈1¾ cups",
+          "g": 323,
+          "vol": "≈2⅔ cups",
           "note": null,
-          "kcal": 788.33,
+          "kcal": 1184.33,
           "na": null,
-          "pro": 28.67,
+          "pro": 43.07,
           "counted": null,
           "countedNote": null,
           "key": "Flour, all-purpose"
         },
         {
           "name": "Kosher salt, Morton",
-          "g": 1.2,
-          "vol": "¼ tsp",
+          "g": 1.8,
+          "vol": "⅜ tsp",
           "note": null,
           "kcal": null,
-          "na": 480,
+          "na": 720,
           "pro": null,
           "counted": null,
           "countedNote": null,
@@ -239,12 +241,12 @@
     {
       "kind": "step",
       "ings": [],
-      "body": "Rack in the lower-middle, oven to <span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>. Set the cooled shell on the half sheet pan. Scrape in all the filling and spread it level."
+      "body": "Rack on the lowest position, oven to <span class=\"rc-nw\">375 °F <span class=\"rc-muted\">(191 °C)</span></span>. Line the half sheet pan with foil and keep it on the counter. Set the cold shell on it, scrape in all the filling and spread it level."
     },
     {
       "kind": "step",
       "ings": [],
-      "body": "Scatter all the cold crumb chunks over the filling without pressing them in. Leave a few small gaps so you can see the juice. Cover the crust rim with strips of foil so it doesn’t burn."
+      "body": "Scatter all the cold crumb chunks over the filling without pressing them in. Leave a few small gaps so you can see the juice. Cover the crust rim with strips of foil so it doesn’t burn. Put the pan on the lowest rack. Never put the glass plate on a preheated pan; it can crack."
     },
     {
       "kind": "step",
@@ -260,7 +262,8 @@
   "nutritionSource": "USDA FoodData Central: Branded Foods labels (Meijer red tart cherries, frozen, 12 oz, FDC 2638814; King Arthur All-Purpose; Morton; almond extract counted as Morton Bassett) and SR Legacy (sugar, brown sugar, unsalted butter, cornstarch, lemon juice). Shell from its card.",
   "swaps": null,
   "notes": [
-    "Filling from America’s Test Kitchen’s Tart Cherry Crumb Pie, with ¼ tsp Morton in place of its ½ tsp table salt. Crumb from the Dutch Apple Crumb Pie card. The prebaked shell and this bake time are new, so go by the bubbling and the probe.",
+    "Filling from America’s Test Kitchen’s Tart Cherry Crumb Pie, with ¼ tsp Morton in place of its ½ tsp table salt. Crumb is 1½× the Dutch Apple Crumb Pie card’s.",
+    "First bake (reported 2026-11-15): the cherries tasted perfect; there wasn’t enough crumb, so it’s now 1½ batches. The blind-baked Flaky Pie Dough shell came out tough and too dark, so this card now uses ATK’s own crust from this pie (Sour Cream Pie Dough), raw, at ATK’s <span class=\"rc-nw\">375 °F <span class=\"rc-muted\">(191 °C)</span></span>.",
     "Check that the bag says pitted. If it doesn’t, pit the cherries after they thaw. The last ⅓ bag is ≈113 g.",
     "Keeps 2 days at room temp, loosely covered; the fridge softens the crumb. To recrisp, <span class=\"rc-nw\">300 °F <span class=\"rc-muted\">(149 °C)</span></span> for <span class=\"rc-nw\">15–20 min</span>, not the microwave."
   ],

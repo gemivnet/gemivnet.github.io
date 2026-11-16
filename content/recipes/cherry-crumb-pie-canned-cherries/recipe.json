@@ -4,9 +4,9 @@
   "category": "Desserts",
   "yield": "1 pie, 9 in, 8 slices",
   "servings": 8,
-  "active": "≈40 min",
-  "total": "≈5 h + the dough",
-  "oven": "<span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>",
+  "active": "≈45 min",
+  "total": "≈5 h 30 min",
+  "oven": "<span class=\"rc-nw\">375 °F <span class=\"rc-muted\">(191 °C)</span></span>",
   "equipment": [
     "9 in glass pie plate",
     "Strainer",
@@ -14,69 +14,49 @@
     "Half sheet pan",
     "Foil"
   ],
-  "source": "Feast and Farm and Oregon Fruit (filling), Smitten Kitchen (crumb), Stella Parks (crust), adapted",
-  "revised": "2026-11-11",
+  "source": "Feast and Farm and Oregon Fruit (filling), Smitten Kitchen (crumb), adapted",
+  "revised": "2026-11-15",
+  "version": 1,
+  "experimental": "The crust is still being tested (Sour Cream Pie Dough, Flaky Pie Dough or store-bought). The cherry filling is too: canned or frozen. The crumb is settled.",
   "items": [
     {
       "kind": "stage",
-      "name": "Ahead"
-    },
-    {
-      "kind": "step",
-      "ings": [
-        {
-          "name": "Flaky Pie Dough",
-          "g": 293,
-          "vol": "1 blind-baked shell",
-          "note": "card",
-          "kcal": 1243.32,
-          "na": 732.44,
-          "pro": 15.96,
-          "counted": null,
-          "countedNote": null,
-          "key": "Flaky Pie Dough"
-        }
-      ],
-      "body": "Make one shell on the Flaky Pie Dough card: rolled, chilled at least 2 h and blind-baked. It can be baked up to 12 h ahead."
-    },
-    {
-      "kind": "stage",
-      "name": "Crumb"
+      "name": "Crumb (1½ batches)"
     },
     {
       "kind": "step",
       "ings": [
         {
           "name": "Butter, unsalted",
-          "g": 140,
-          "vol": "10 tbsp",
+          "g": 210,
+          "vol": "15 tbsp",
           "note": "melted",
-          "kcal": 1003.8,
-          "na": 15.4,
-          "pro": 1.19,
+          "kcal": 1505.7,
+          "na": 23.1,
+          "pro": 1.78,
           "counted": null,
           "countedNote": null,
           "key": "Butter, unsalted"
         },
         {
           "name": "Light brown sugar",
-          "g": 110,
-          "vol": "½ cup",
+          "g": 165,
+          "vol": "¾ cup",
           "note": "packed",
-          "kcal": 418,
-          "na": 30.8,
-          "pro": 0.13,
+          "kcal": 627,
+          "na": 46.2,
+          "pro": 0.2,
           "counted": null,
           "countedNote": null,
           "key": "Light brown sugar"
         },
         {
           "name": "Granulated sugar",
-          "g": 50,
-          "vol": "¼ cup",
+          "g": 75,
+          "vol": "6 tbsp",
           "note": null,
-          "kcal": 193.5,
-          "na": 0.5,
+          "kcal": 290.25,
+          "na": 0.75,
           "pro": null,
           "counted": null,
           "countedNote": null,
@@ -90,23 +70,23 @@
       "ings": [
         {
           "name": "Flour, all-purpose",
-          "g": 215,
-          "vol": "≈1¾ cups",
+          "g": 323,
+          "vol": "≈2⅔ cups",
           "note": null,
-          "kcal": 788.33,
+          "kcal": 1184.33,
           "na": null,
-          "pro": 28.67,
+          "pro": 43.07,
           "counted": null,
           "countedNote": null,
           "key": "Flour, all-purpose"
         },
         {
           "name": "Kosher salt, Morton",
-          "g": 1.2,
-          "vol": "¼ tsp",
+          "g": 1.8,
+          "vol": "⅜ tsp",
           "note": null,
           "kcal": null,
-          "na": 480,
+          "na": 720,
           "pro": null,
           "counted": null,
           "countedNote": null,
@@ -119,6 +99,33 @@
       "kind": "step",
       "ings": [],
       "body": "Break it into <span class=\"rc-nw\">½–¾ in</span> chunks, leaving some smaller. Bigger chunks stay soft in the middle. Spread on a plate or quarter sheet pan and refrigerate at least 30 min."
+    },
+    {
+      "kind": "stage",
+      "name": "Crust"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Pie crust, Pillsbury refrigerated",
+          "g": 200,
+          "vol": "1 crust (½ box)",
+          "note": null,
+          "kcal": 800,
+          "na": 1040,
+          "pro": 8,
+          "counted": null,
+          "countedNote": null,
+          "key": "Pie crust, Pillsbury refrigerated"
+        }
+      ],
+      "body": "Rack on the lowest position; oven to <span class=\"rc-nw\">375 °F <span class=\"rc-muted\">(191 °C)</span></span>. Line the half sheet pan with foil and keep it on the counter, not in the oven. Let the rolled crust stand at room temp ≈15 min so it unrolls without cracking."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Unroll the crust into the glass pie plate and press it into the corners without stretching. Fold the edge under and crimp it on the rim. Refrigerate while you make the filling. Don’t pre-bake it."
     },
     {
       "kind": "stage",
@@ -200,7 +207,7 @@
           "key": "Almond extract"
         }
       ],
-      "body": "Off the heat, stir in the almond extract, then gently fold in the drained cherries."
+      "body": "Off the heat, stir in the almond extract, then gently fold in the drained cherries. Let it cool ≈15 min so it doesn’t melt the raw crust."
     },
     {
       "kind": "stage",
@@ -209,17 +216,17 @@
     {
       "kind": "step",
       "ings": [],
-      "body": "Rack in the lower-middle, oven to <span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>. Set the cooled shell on the half sheet pan. Scrape in all the filling and spread it level."
+      "body": "Scrape the filling into the cold crust and spread it level, stopping ½ in below the rim. Bake any extra in a small dish alongside."
     },
     {
       "kind": "step",
       "ings": [],
-      "body": "Scatter all the cold crumb chunks over the filling without pressing them in. Leave a few small gaps so you can see the juice. Cover the crust rim with strips of foil so it doesn’t burn."
+      "body": "Scatter all the cold crumb chunks over the filling without pressing them in, heaping them a little in the middle. Cover the crimped edge with strips of foil now, before baking."
     },
     {
       "kind": "step",
       "ings": [],
-      "body": "Bake until the crumb is deep golden and the filling bubbles thickly in the gaps at the center, not only at the edge, <span class=\"rc-nw\">≈45–60 min</span>. Crumb browning too fast? Lay foil loosely on top."
+      "body": "Set the pie on the room-temp sheet pan and put it on the lowest rack. Never put the glass plate on a preheated pan; it can crack. Bake until the bottom looks golden through the glass and the filling bubbles thickly at the center, not only at the edge, <span class=\"rc-nw\">≈1–1¼ h</span>. Once the crumb is deep golden, lay foil loosely on top."
     },
     {
       "kind": "step",
@@ -227,12 +234,12 @@
       "body": "Cool on a rack at least 3 h so the filling sets before slicing."
     }
   ],
-  "nutritionSource": "USDA FoodData Central: Branded Foods labels (Meijer red tart pitted cherries in water, 15 oz, FDC 2638597; King Arthur All-Purpose; Morton; almond extract counted as Morton Bassett) and SR Legacy (sugar, brown sugar, unsalted butter, cornstarch). The cans are counted whole, liquid and all, so pouring some off makes it a little high. Shell from its card.",
+  "nutritionSource": "USDA FoodData Central: Branded Foods labels (Pillsbury Refrigerated Pie Crusts, 2 per 14.1 oz box, FDC 2747345; Meijer red tart pitted cherries in water, 15 oz, FDC 2638597; King Arthur All-Purpose; Morton; almond extract counted as Morton Bassett) and SR Legacy (sugar, brown sugar, unsalted butter, cornstarch). The cans are counted whole, liquid and all, so pouring some off makes it a little high.",
   "swaps": null,
   "notes": [
-    "Filling from Feast and Farm’s canned tart cherry pie (1 cup liquid, 1 cup sugar, ¼ cup cornstarch), made with 3 cans for a deeper pie; Oregon Fruit’s recipe uses the same stovetop method. Its 2 tbsp butter is left out, since the crumb has plenty. Crumb from the Dutch Apple Crumb Pie card.",
-    "Bake time is an estimate: a smaller crumb takes 40–50 min at <span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>, and this one is bigger. Go by the color and the bubbling.",
-    "Keeps 2 days at room temp, loosely covered; the fridge softens the crumb. To recrisp, <span class=\"rc-nw\">300 °F <span class=\"rc-muted\">(149 °C)</span></span> for <span class=\"rc-nw\">15–20 min</span>, not the microwave."
+    "Filling from Feast and Farm’s canned tart cherry pie (1 cup liquid, 1 cup sugar, ¼ cup cornstarch), made with 3 cans; Oregon Fruit uses the same stovetop method. Its 2 tbsp butter is left out. Crumb is 1½× the Dutch Apple Crumb Pie card’s, since the first cherry pie (2026-11) needed more.",
+    "Raw store crust, not blind-baked: the homemade blind-baked shell came out tough and too dark after the second bake. The lowest rack, closest to the heat, cooks the bottom instead; the pan goes in cold because glass can crack on a hot one. The filling is already thick from the stove, so it only needs to bubble. The time is an estimate.",
+    "The second crust in the box keeps in the fridge until its date. Keeps 2 days at room temp, loosely covered. To recrisp, <span class=\"rc-nw\">300 °F <span class=\"rc-muted\">(149 °C)</span></span> for <span class=\"rc-nw\">15–20 min</span>."
   ],
   "pdf": "cherry-crumb-pie-canned-cherries.pdf",
   "pages": 2

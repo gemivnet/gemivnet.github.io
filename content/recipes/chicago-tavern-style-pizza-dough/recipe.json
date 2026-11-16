@@ -16,6 +16,8 @@
   ],
   "source": "J. Kenji López-Alt, NYT Cooking",
   "revised": "2026-11-05",
+  "version": 1,
+  "experimental": null,
   "items": [
     {
       "kind": "stage",

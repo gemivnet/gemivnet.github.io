@@ -1,0 +1,134 @@
+{
+  "slug": "sour-cream-pie-dough",
+  "title": "Sour Cream Pie Dough",
+  "category": "Breads & Doughs",
+  "yield": "1 single 9 in crust",
+  "servings": 1,
+  "active": "≈20 min",
+  "total": "≈2 h 30 min",
+  "oven": null,
+  "equipment": [
+    "Food processor",
+    "Rolling pin",
+    "9 in glass pie plate"
+  ],
+  "source": "America&#39;s Test Kitchen, crust from Tart Cherry Crumb Pie (2024)",
+  "revised": "2026-11-15",
+  "version": 1,
+  "experimental": "One of the crusts being tested for the crumb pies. Not baked yet.",
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flour, all-purpose",
+          "g": 177,
+          "vol": "1¼ cups",
+          "note": null,
+          "kcal": 649,
+          "na": null,
+          "pro": 23.6,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, all-purpose"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 6.3,
+          "vol": "1½ tsp",
+          "note": null,
+          "kcal": 24.39,
+          "na": 0.06,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 3,
+          "vol": "½ tsp + ⅛ tsp",
+          "note": null,
+          "kcal": null,
+          "na": 1200,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        }
+      ],
+      "body": "Put the flour, sugar and salt in the food processor and run it until mixed, ≈5 s."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Butter, unsalted",
+          "g": 113,
+          "vol": "1 stick",
+          "note": "½ in cubes, very cold",
+          "kcal": 810.2,
+          "na": 12.43,
+          "pro": 0.96,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, unsalted"
+        }
+      ],
+      "body": "Scatter the cold butter cubes over the flour. Pulse until the biggest pieces are the size of peas, ≈10 one-second pulses."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Water",
+          "g": 45,
+          "vol": "3 tbsp",
+          "note": "ice cold",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Sour cream, Daisy",
+          "g": 30,
+          "vol": "2 tbsp",
+          "note": null,
+          "kcal": 60,
+          "na": 15,
+          "pro": 1,
+          "counted": null,
+          "countedNote": null,
+          "key": "Sour cream, Daisy"
+        }
+      ],
+      "body": "Stir the ice water and sour cream together, then drizzle it all over the flour. Pulse until the dough forms clumps and no dry flour is left, ≈12 pulses, scraping down the sides once. It will look crumbly. Don’t add more water."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Tip it onto the counter and knead a few times, just until it holds together. Pat into a 5 in disk, wrap in plastic and refrigerate 1 h. It keeps 2 days in the fridge or 1 month frozen."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Let the disk sit out ≈10 min, then roll it into a 12 in round on a lightly floured counter. Roll it around the pin, unroll it over the pie plate and ease it into the corners without stretching."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Trim the overhang to ½ in past the rim, tuck it under so it sits on the rim, and crimp with your fingers. Wrap loosely and refrigerate until well chilled, ≈1 h. Don’t blind-bake it: fill it raw and bake per the pie card."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: Branded Foods labels (Daisy Sour Cream, FDC 2756975; King Arthur All-Purpose; Morton) and SR Legacy (sugar, unsalted butter). Water and the flour for the counter not counted.",
+  "swaps": null,
+  "notes": [
+    "Foolproof because the processor cuts in the butter, the liquid is fixed and the sour cream keeps it tender. ATK bakes it raw under its tart cherry crumb pie, <span class=\"rc-nw\">375 °F <span class=\"rc-muted\">(191 °C)</span></span>, ≈1 h. Its ½ tsp table salt is ⅝ tsp Morton.",
+    "Two pies or a double crust? Make two batches, one after the other."
+  ],
+  "pdf": "sour-cream-pie-dough.pdf",
+  "pages": 1
+}

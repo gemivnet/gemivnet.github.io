@@ -14,6 +14,8 @@
   ],
   "source": "Serious Eats (Leah Colins)",
   "revised": "2026-11-04",
+  "version": 1,
+  "experimental": null,
   "items": [
     {
       "kind": "step",

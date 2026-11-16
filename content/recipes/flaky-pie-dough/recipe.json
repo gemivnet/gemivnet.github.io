@@ -16,7 +16,9 @@
     "Foil"
   ],
   "source": "Stella Parks (BraveTart), No-Stress Pie Dough, via The Splendid Table",
-  "revised": "2026-11-11",
+  "revised": "2026-11-15",
+  "version": 1,
+  "experimental": "One of the crusts being tested for the crumb pies. Its first bake came out tough and too dark.",
   "items": [
     {
       "kind": "stage",
@@ -162,7 +164,8 @@
   "notes": [
     "Equal weights of butter and flour, all the water at once, and a quick roll and fold for layers, so there’s no squeeze test to over-water. Serious Eats says the folds keep it from turning “leathery and dense”. Parks bakes low and slow so it shrinks less.",
     "Parks prefers Gold Medal bleached flour for tenderness. The numbers are for King Arthur all-purpose. Her 1¼ tsp Diamond Crystal is ¾ tsp Morton by weight.",
-    "One glass plate, so one shell at a time. The second piece makes the next pie."
+    "One glass plate, so one shell at a time. The second piece makes the next pie.",
+    "First use (Cherry Crumb Pie, frozen, reported 2026-11-15): tough and too dark after the blind-bake plus the 1 h+ pie bake. The pie cards now use Sour Cream Pie Dough, baked raw."
   ],
   "pdf": "flaky-pie-dough.pdf",
   "pages": 2
