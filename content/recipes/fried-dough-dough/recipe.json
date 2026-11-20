@@ -1,0 +1,141 @@
+{
+  "slug": "fried-dough-dough",
+  "title": "Fried Dough Dough",
+  "category": "Breads & Doughs",
+  "yield": "10 pieces, ≈88 g each",
+  "servings": 10,
+  "active": "≈25 min",
+  "total": "≈2 h",
+  "oven": null,
+  "equipment": [
+    "Large bowl",
+    "Bench scraper",
+    "Half sheet pan"
+  ],
+  "source": "Chef Jamie Roraback, NBC Connecticut (Country Fair Fried Dough), adapted",
+  "revised": "2026-11-20",
+  "version": 1,
+  "experimental": null,
+  "items": [
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Water",
+          "g": 355,
+          "vol": "1½ cups",
+          "note": "lukewarm",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Instant yeast",
+          "g": 12,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": 39,
+          "na": 6.1,
+          "pro": 4.85,
+          "counted": null,
+          "countedNote": null,
+          "key": "Instant yeast"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 13,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": 50.3,
+          "na": 0.1,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        },
+        {
+          "name": "Olive oil",
+          "g": 9,
+          "vol": "2 tsp",
+          "note": null,
+          "kcal": 79.6,
+          "na": 0.2,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Olive oil"
+        }
+      ],
+      "body": "In the large bowl, stir the yeast and sugar into the lukewarm water until dissolved. Stir in the olive oil."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Flour, all-purpose",
+          "g": 480,
+          "vol": "4 cups",
+          "note": null,
+          "kcal": 1760,
+          "na": null,
+          "pro": 64,
+          "counted": null,
+          "countedNote": null,
+          "key": "Flour, all-purpose"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 9.6,
+          "vol": "2 tsp",
+          "note": null,
+          "kcal": null,
+          "na": 3840,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        }
+      ],
+      "body": "Add the flour and salt to the water. Stir with a spatula until no dry flour is left. It will be a sticky, shaggy ball. Cover and rest 15 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Olive oil",
+          "g": null,
+          "vol": "a little",
+          "note": "for the dough and pan",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Olive oil"
+        }
+      ],
+      "body": "With a wet hand, pull an edge of the dough up and fold it into the middle; turn the bowl and repeat all the way around, ≈30 s. Cover. Repeat every 15 min, 3 rounds in all. Then rub a little olive oil over it, cover, and let rise until doubled, <span class=\"rc-nw\">30–45 min</span>."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Brush the sheet pan with olive oil. Turn the dough onto the counter, divide it into 10 pieces with the bench scraper (≈88 g each), and roll each into a ball. Set them on the pan a few inches apart, oil the tops lightly, cover loosely, and let rise until puffy, ≈25 min. Heat the frying oil now."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Gently stretch each ball into a ≈8 in round, thinner in the middle; a lopsided shape is fine. If it springs back, let it rest 5 min and stretch again. Fry and top as on the <strong>Grammy’s Fried Dough</strong> card."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: Branded Foods labels (King Arthur All-Purpose, Morton) and SR Legacy (yeast, counted as active dry; sugar; olive oil). Per piece, before frying: frying oil and toppings not counted. Water and the oil for the dough and pan not counted.",
+  "swaps": null,
+  "notes": [
+    "Make ahead: refrigerate the covered balls up to 1½ days; let them soften at room temp, ≈30–60 min (our estimate). One batch ≈ 2 Rhodes loaves.",
+    "Flour is her 3½ cups plus the ½ cup she adds if sticky; 3½ cups at 120 g would be too wet to stretch. Folds replace her 5 min knead. She fries at <span class=\"rc-nw\">375 °F <span class=\"rc-muted\">(191 °C)</span></span>, ≈1 min a side, to deep golden."
+  ],
+  "pdf": "fried-dough-dough.pdf",
+  "pages": 1
+}

@@ -13,8 +13,8 @@
     "Wire rack or paper towels"
   ],
   "source": "Grammy",
-  "revised": "2026-11-04",
-  "version": 1,
+  "revised": "2026-11-20",
+  "version": 2,
   "experimental": null,
   "items": [
     {
@@ -33,7 +33,7 @@
           "key": "Rhodes frozen white bread dough"
         }
       ],
-      "body": "Thaw the dough and let it rise until doubled, following the package. Overnight in the fridge or a few hours at room temp."
+      "body": "Thaw the dough and let it rise until doubled, following the package. Overnight in the fridge or a few hours at room temp. From scratch instead: one batch of the <strong>Fried Dough Dough</strong> card replaces 2 loaves."
     },
     {
       "kind": "step",
