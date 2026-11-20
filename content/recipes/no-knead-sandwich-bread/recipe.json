@@ -1,0 +1,171 @@
+{
+  "slug": "no-knead-sandwich-bread",
+  "title": "No-Knead Sandwich Bread",
+  "category": "Breads & Doughs",
+  "yield": "1 loaf, ≈2 lb (16 slices)",
+  "servings": 16,
+  "active": "≈30 min",
+  "total": "≈6 h + cooling (+ 45 min to dry)",
+  "oven": "<span class=\"rc-nw\">375 °F <span class=\"rc-muted\">(191 °C)</span></span>",
+  "equipment": [
+    "9×5 in loaf pan",
+    "Bench scraper",
+    "Probe thermometer",
+    "Half sheet pans (2), for drying"
+  ],
+  "source": "Alexandra Stafford (Alexandra&#39;s Kitchen), Simple Soft Sandwich Bread; Serious Eats (drying)",
+  "revised": "2026-11-20",
+  "version": 1,
+  "experimental": null,
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Dough (no kneading, no mixer)"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Bread flour, King Arthur",
+          "g": 500,
+          "vol": "≈4 cups",
+          "note": null,
+          "kcal": 1833.33,
+          "na": null,
+          "pro": 66.67,
+          "counted": null,
+          "countedNote": null,
+          "key": "Bread flour, King Arthur"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 10,
+          "vol": "2 tsp",
+          "note": null,
+          "kcal": null,
+          "na": 4000,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        },
+        {
+          "name": "Instant yeast",
+          "g": 8,
+          "vol": "2 tsp",
+          "note": null,
+          "kcal": 26,
+          "na": 4.08,
+          "pro": 3.24,
+          "counted": null,
+          "countedNote": null,
+          "key": "Instant yeast"
+        }
+      ],
+      "body": "In a large bowl, whisk the flour, salt and yeast together."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Water",
+          "g": 200,
+          "vol": "¾ cup + 1 tbsp",
+          "note": "room temp",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        },
+        {
+          "name": "Milk, whole",
+          "g": 200,
+          "vol": "¾ cup + 1 tbsp",
+          "note": null,
+          "kcal": 122,
+          "na": 86,
+          "pro": 6.3,
+          "counted": null,
+          "countedNote": null,
+          "key": "Milk, whole"
+        },
+        {
+          "name": "Butter, unsalted",
+          "g": 57,
+          "vol": "4 tbsp",
+          "note": "melted",
+          "kcal": 408.69,
+          "na": 6.27,
+          "pro": 0.48,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, unsalted"
+        }
+      ],
+      "body": "Pour the water, milk and melted butter into the flour. Stir with a spatula until no dry flour is left and it’s a sticky, shaggy ball. Sticky is right. Cover and rest <span class=\"rc-nw\">30–60 min</span>."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Olive oil",
+          "g": 18,
+          "vol": "4 tsp",
+          "note": "divided: 1, 2, 1",
+          "kcal": 159.12,
+          "na": 0.36,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Olive oil"
+        }
+      ],
+      "body": "Wet one hand. Grab an edge of the dough, pull it up and fold it into the middle. Turn the bowl and repeat all the way around until the dough is smooth, ≈1 min. Rub 1 tsp of the olive oil over it, cover, and let rise until doubled, <span class=\"rc-nw\">2–3 h</span>."
+    },
+    {
+      "kind": "stage",
+      "name": "Shape + bake"
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Brush the loaf pan with 2 tsp of the olive oil. Deflate the dough with the bench scraper, turn it onto a lightly floured counter, and pat it into an ≈8 × 16 in rectangle. Keep it about 8 in wide so it fits the pan."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Roll it up tightly from a short end into a log. Set it seam down in the pan and rub the last 1 tsp of olive oil over the top. Let rise until it crowns over the rim, <span class=\"rc-nw\">1–2 h</span>. Heat the oven to <span class=\"rc-nw\">375 °F <span class=\"rc-muted\">(191 °C)</span></span> when it’s close."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Bake on the middle rack until deep golden and the center reads at least <span class=\"rc-nw\">195 °F <span class=\"rc-muted\">(91 °C)</span></span>, ≈45 min. Turn it out onto a rack and cool completely, <span class=\"rc-nw\">≈2 h</span>, before cutting."
+    },
+    {
+      "kind": "stage",
+      "name": "Dry for stuffing"
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Oven to <span class=\"rc-nw\">275 °F <span class=\"rc-muted\">(135 °C)</span></span>. Cut the cooled loaf, crust and all, into <span class=\"rc-nw\">¾ in</span> cubes. Spread them in one layer on the 2 half sheet pans."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Bake, tossing the cubes and swapping the pans every 15 min, until dry and crisp all the way through, ≈45 min. Break a big cube to check: no soft center. They shouldn’t brown. Cool on the pans."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: Branded Foods labels (King Arthur Bread Flour, Morton) and SR Legacy (yeast, counted as active dry; whole milk; unsalted butter; olive oil). Water and the flour for the counter not counted.",
+  "swaps": null,
+  "notes": [
+    "Quick version of the recipe: 8 g yeast. For a slow one, use 2 g (½ tsp): mix in the evening, rise overnight up to 10 h, then ≈3 h in the pan. Salt is 10 g, her low end of 10–15 g, since the stuffing broth adds more.",
+    "Oven-drying beats staling: drying keeps the crumb stiff so it soaks up broth; stale bread just turns leathery (Serious Eats). Cool dried cubes keep several days at room temp in a zip-top or paper bag.",
+    "One loaf is ≈2 lb of bread. Serious Eats’ stuffing uses ≈2½ lb to 4 cups broth, so scale the broth to ≈3 cups, or bake two loaves.",
+    "Sandwiches: slice it cool. Keeps 3–4 days airtight, or freeze up to 6 months. The 10 × 5 in pan works too; the loaf comes out a little lower."
+  ],
+  "pdf": "no-knead-sandwich-bread.pdf",
+  "pages": 2
+}
