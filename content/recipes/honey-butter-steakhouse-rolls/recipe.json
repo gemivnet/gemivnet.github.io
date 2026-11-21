@@ -1,0 +1,321 @@
+{
+  "slug": "honey-butter-steakhouse-rolls",
+  "title": "Honey Butter Steakhouse Rolls",
+  "category": "Breads & Doughs",
+  "yield": "18 rolls, ≈75 g dough each, with honey butter",
+  "servings": 18,
+  "active": "≈45 min",
+  "total": "≈4 h 30 min",
+  "oven": "<span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span>",
+  "equipment": [
+    "13×9 in cake pan",
+    "9 in round cake pan",
+    "Small saucepan",
+    "Scale",
+    "Probe thermometer"
+  ],
+  "source": "Joshua Weissman, Quick &amp; Easy Dinner Rolls (tangzhong), doubled; his Texas Roadhouse honey butter, simplified",
+  "revised": "2026-11-21",
+  "version": 1,
+  "experimental": null,
+  "items": [
+    {
+      "kind": "stage",
+      "name": "Tangzhong (flour paste)"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Bread flour, King Arthur",
+          "g": 40,
+          "vol": "⅓ cup",
+          "note": null,
+          "kcal": 146.67,
+          "na": null,
+          "pro": 5.33,
+          "counted": null,
+          "countedNote": null,
+          "key": "Bread flour, King Arthur"
+        },
+        {
+          "name": "Milk, whole",
+          "g": 120,
+          "vol": "½ cup",
+          "note": null,
+          "kcal": 73.2,
+          "na": 51.6,
+          "pro": 3.78,
+          "counted": null,
+          "countedNote": null,
+          "key": "Milk, whole"
+        },
+        {
+          "name": "Water",
+          "g": 54,
+          "vol": "3½ tbsp",
+          "note": null,
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Water"
+        }
+      ],
+      "body": "In the saucepan over medium, whisk the flour, milk and water nonstop until it’s a thick paste and the whisk leaves lines, <span class=\"rc-nw\">1–3 min</span>. Scrape it into a large bowl and cool to room temp, ≈20 min."
+    },
+    {
+      "kind": "stage",
+      "name": "Dough (no mixer)"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Milk, whole",
+          "g": 240,
+          "vol": "1 cup",
+          "note": "warm, 90–95 °F",
+          "kcal": 146.4,
+          "na": 103.2,
+          "pro": 7.56,
+          "counted": null,
+          "countedNote": null,
+          "key": "Milk, whole"
+        },
+        {
+          "name": "Active dry yeast",
+          "g": 18,
+          "vol": "2 tbsp",
+          "note": "or instant",
+          "kcal": 58.5,
+          "na": 9.2,
+          "pro": 7.28,
+          "counted": null,
+          "countedNote": null,
+          "key": "Active dry yeast"
+        }
+      ],
+      "body": "While the paste cools, stir the yeast into the warm milk. Let it stand until foamy, ≈10 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Eggs",
+          "g": 100,
+          "vol": "2 large",
+          "note": "room temp",
+          "kcal": 143,
+          "na": 142,
+          "pro": 12.56,
+          "counted": null,
+          "countedNote": null,
+          "key": "Eggs"
+        },
+        {
+          "name": "Bread flour, King Arthur",
+          "g": 640,
+          "vol": "5⅓ cups",
+          "note": null,
+          "kcal": 2346.67,
+          "na": null,
+          "pro": 85.33,
+          "counted": null,
+          "countedNote": null,
+          "key": "Bread flour, King Arthur"
+        },
+        {
+          "name": "Granulated sugar",
+          "g": 112,
+          "vol": "½ cup + 1 tbsp",
+          "note": null,
+          "kcal": 433.4,
+          "na": 1.1,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Granulated sugar"
+        },
+        {
+          "name": "Kosher salt, Morton",
+          "g": 6,
+          "vol": "1¼ tsp",
+          "note": null,
+          "kcal": null,
+          "na": 2400,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Kosher salt, Morton"
+        }
+      ],
+      "body": "Pour the foamy yeast milk and the eggs into the cooled paste and whisk smooth. Add the flour, sugar and salt and stir with a spatula until no dry flour is left. It will be stiff and shaggy."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Butter, unsalted",
+          "g": 84,
+          "vol": "6 tbsp",
+          "note": "very soft",
+          "kcal": 602.3,
+          "na": 9.2,
+          "pro": 0.71,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, unsalted"
+        }
+      ],
+      "body": "Add the butter in pieces. Squeeze and fold it into the dough with your hand until no streaks are left, ≈3 min. It gets slippery, then comes back together. Cover and rest 15 min."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "With a wet hand, pull an edge of the dough up and fold it into the middle; turn the bowl and repeat all the way around. Cover. Repeat every 15 min, 4 rounds in all. Then let rise until doubled, ≈1 h more."
+    },
+    {
+      "kind": "stage",
+      "name": "Shape + bake"
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Grease both pans. Divide the dough into 18 pieces of ≈75 g. Cup your palm over each piece and roll it in circles on the counter into a tight, smooth ball."
+    },
+    {
+      "kind": "step",
+      "ings": [],
+      "body": "Set 12 balls in the 13×9 pan (3 rows of 4) and 6 in the round pan (1 in the center, 5 around). Cover with a damp towel and let rise until puffy, nearly doubled and touching, <span class=\"rc-nw\">1–2 h</span>. Heat the oven to <span class=\"rc-nw\">350 °F <span class=\"rc-muted\">(177 °C)</span></span> for the last 30 min."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Egg",
+          "g": 50,
+          "vol": "1 large",
+          "note": null,
+          "kcal": 71.5,
+          "na": 71,
+          "pro": 6.28,
+          "counted": null,
+          "countedNote": null,
+          "key": "Egg"
+        },
+        {
+          "name": "Milk, whole",
+          "g": 30,
+          "vol": "2 tbsp",
+          "note": null,
+          "kcal": 18.3,
+          "na": 12.9,
+          "pro": 0.94,
+          "counted": null,
+          "countedNote": null,
+          "key": "Milk, whole"
+        }
+      ],
+      "body": "Whisk the egg and milk and brush it gently over the tops. Bake both pans side by side on the middle rack until rich golden brown and a center roll reads <span class=\"rc-nw\">190 °F <span class=\"rc-muted\">(88 °C)</span></span>, <span class=\"rc-nw\">28–30 min</span>."
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Butter, salted",
+          "g": 28,
+          "vol": "2 tbsp",
+          "note": null,
+          "kcal": 200.8,
+          "na": 180,
+          "pro": 0.24,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, salted"
+        },
+        {
+          "name": "Honey",
+          "g": 21,
+          "vol": "1 tbsp",
+          "note": null,
+          "kcal": 63.8,
+          "na": 0.8,
+          "pro": 0.06,
+          "counted": null,
+          "countedNote": null,
+          "key": "Honey"
+        }
+      ],
+      "body": "While they bake, melt the butter with the honey. Brush it over the rolls the moment they come out."
+    },
+    {
+      "kind": "stage",
+      "name": "Honey butter, to serve"
+    },
+    {
+      "kind": "step",
+      "ings": [
+        {
+          "name": "Butter, salted",
+          "g": 168,
+          "vol": "1½ sticks",
+          "note": "soft",
+          "kcal": 1204.6,
+          "na": 1080.2,
+          "pro": 1.43,
+          "counted": null,
+          "countedNote": null,
+          "key": "Butter, salted"
+        },
+        {
+          "name": "Honey",
+          "g": 40,
+          "vol": "2 tbsp",
+          "note": null,
+          "kcal": 121.6,
+          "na": 1.6,
+          "pro": 0.12,
+          "counted": null,
+          "countedNote": null,
+          "key": "Honey"
+        },
+        {
+          "name": "Powdered sugar",
+          "g": 30,
+          "vol": "¼ cup",
+          "note": null,
+          "kcal": 116.7,
+          "na": 0.6,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Powdered sugar"
+        },
+        {
+          "name": "Cinnamon, ground",
+          "g": null,
+          "vol": "½ tsp",
+          "note": "optional",
+          "kcal": null,
+          "na": null,
+          "pro": null,
+          "counted": null,
+          "countedNote": null,
+          "key": "Cinnamon, ground"
+        }
+      ],
+      "body": "During the second rise, whisk the soft butter, honey, powdered sugar and cinnamon (if using) in a bowl until fluffy and pale, <span class=\"rc-nw\">2–3 min</span>. Serve at room temp with the warm rolls."
+    }
+  ],
+  "nutritionSource": "USDA FoodData Central: Branded Foods labels (King Arthur Bread Flour, Morton) and SR Legacy (whole milk, active dry yeast, sugar, egg, butter, honey, powdered sugar). The honey butter is counted, split over 18 rolls. Water, cinnamon and the pan grease not counted.",
+  "swaps": null,
+  "notes": [
+    "Why so soft: the cooked flour paste (tangzhong) holds extra water, so the rolls are fluffier and stay soft at least a day (Cook’s Illustrated). His version won a 42-taster dinner roll bake-off (The Pancake Princess).",
+    "Changes from his recipe: doubled (his makes 9 in a 9×9 pan); folds instead of 5–7 min of mixer kneading; a honey-butter brush instead of plain butter and flaky salt. His charred-cinnamon honey butter is simplified (no vanilla bean, pepper or nutmeg; one honey).",
+    "Eggs: the mediums on hand run ≈44 g, so weigh out 100 g for the dough. Instant yeast works the same way here."
+  ],
+  "pdf": "honey-butter-steakhouse-rolls.pdf",
+  "pages": 2
+}
